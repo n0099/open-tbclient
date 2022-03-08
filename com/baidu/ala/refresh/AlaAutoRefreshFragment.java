@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;

@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] ALT_START_END_CHARS;
@@ -33,7 +34,7 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
         char[] cArr = {'A', 'B', 'C', 'D'};
         START_END_CHARS = cArr;
         ALT_START_END_CHARS = new char[]{'T', 'N', '*', 'E'};
-        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{'/', ':', '+', '.'};
+        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{WebvttCueParser.CHAR_SLASH, ':', '+', '.'};
         DEFAULT_GUARD = cArr[0];
     }
 

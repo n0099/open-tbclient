@@ -15,37 +15,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.WeaponS;
 import com.kuaishou.weapon.fingerprinter.WeaponHW;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f55304b = 3600000;
+    public static final long f53654b = 3600000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f55305c = 86400000;
+    public static final long f53655c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f55306d = 604800000;
+    public static final long f53656d = 604800000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f55307e = 0;
+    public static final int f53657e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f55308f = 1;
+    public static final int f53658f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f55309g = 2;
+    public static final int f53659g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f55310h = 3;
+    public static final int f53660h = 3;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f55311i = 10000;
+    public static final int f53661i = 10000;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f55312j = 10001;
+    public static final int f53662j = 10001;
     public static final int k = 10002;
     public static final int l;
     public static final int m;
@@ -67,8 +67,8 @@ public class j1 {
             }
         }
         l = Integer.valueOf(q0.a).intValue();
-        m = Integer.valueOf(q0.f55422b).intValue();
-        n = Integer.valueOf(q0.f55423c).intValue();
+        m = Integer.valueOf(q0.f53772b).intValue();
+        n = Integer.valueOf(q0.f53773c).intValue();
     }
 
     public j1() {

@@ -25,12 +25,12 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c extends ReporterPidLoader<KsDrawAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements KsLoadManager.DrawAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,26 +78,26 @@ public class c extends ReporterPidLoader<KsDrawAd> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b implements KsDrawAd.AdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28565b;
+        public boolean f28403b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28566c;
+        public final String f28404c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final KsDrawAd f28567d;
+        public final KsDrawAd f28405d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FunAdInteractionListener f28568e;
+        public FunAdInteractionListener f28406e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f28569f;
+        public final /* synthetic */ c f28407f;
 
         public b(c cVar, KsDrawAd ksDrawAd, String str) {
             Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public class c extends ReporterPidLoader<KsDrawAd> {
                     return;
                 }
             }
-            this.f28569f = cVar;
-            this.f28567d = ksDrawAd;
-            this.f28566c = str;
+            this.f28407f = cVar;
+            this.f28405d = ksDrawAd;
+            this.f28404c = str;
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
@@ -124,11 +124,11 @@ public class c extends ReporterPidLoader<KsDrawAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28569f.onAdClicked(this.f28565b);
-                this.f28565b = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28568e;
+                this.f28407f.onAdClicked(this.f28403b);
+                this.f28403b = true;
+                FunAdInteractionListener funAdInteractionListener = this.f28406e;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.f28566c, this.f28569f.mPid.ssp.type, this.f28569f.mPid.pid);
+                    funAdInteractionListener.onAdClicked(this.f28404c, this.f28407f.mPid.ssp.type, this.f28407f.mPid.pid);
                 }
             }
         }
@@ -138,11 +138,11 @@ public class c extends ReporterPidLoader<KsDrawAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f28569f.onAdShow(this.f28567d, this.a);
+                this.f28407f.onAdShow(this.f28405d, this.a);
                 this.a = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28568e;
+                FunAdInteractionListener funAdInteractionListener = this.f28406e;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.f28566c, this.f28569f.mPid.ssp.type, this.f28569f.mPid.pid);
+                    funAdInteractionListener.onAdShow(this.f28404c, this.f28407f.mPid.ssp.type, this.f28407f.mPid.pid);
                 }
             }
         }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.pb.main;
 
-import c.a.u0.l3.l0.b;
-import c.a.u0.u2.r.d;
-import c.a.u0.u2.r.f;
-import c.a.u0.u2.u.f.k;
+import c.a.r0.j3.m0.b;
+import c.a.r0.u2.h.d;
+import c.a.r0.u2.h.f;
+import c.a.r0.u2.k.f.k;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,11 +113,11 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
                     dVar.a = appealInfo.source;
-                    dVar.f23174c = appealInfo.appeal_url;
+                    dVar.f23088c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f23173b = simpleForum.name;
+                    this.mAppealInfo.f23087b = simpleForum.name;
                     return;
                 }
                 return;

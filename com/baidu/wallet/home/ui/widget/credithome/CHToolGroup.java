@@ -18,20 +18,20 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CHToolGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLayout f51422b;
+    public FlowLayout f49841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f51423c;
+    public NetImageView f49842c;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BaseItemView> f51424e;
+    public List<BaseItemView> f49843e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHToolGroup(Context context) {
@@ -52,14 +52,14 @@ public class CHToolGroup extends BaseItemLayout {
             }
         }
         this.a = 4;
-        this.f51424e = new ArrayList();
+        this.f49843e = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51424e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49843e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -67,8 +67,8 @@ public class CHToolGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tools_layout"), this);
-            this.f51422b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
-            this.f51423c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
+            this.f49841b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
+            this.f49842c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
         }
     }
 
@@ -90,18 +90,18 @@ public class CHToolGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = dataItemArr.length <= 4 ? dataItemArr.length : 4;
-            this.f51422b.setHorizontalChildNum(length);
-            this.f51422b.setHorizontalSpacing(0);
-            this.f51422b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
+            this.f49841b.setHorizontalChildNum(length);
+            this.f49841b.setHorizontalSpacing(0);
+            this.f49841b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHToolItem cHToolItem = new CHToolItem(getContext());
                     cHToolItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f51422b.addView(cHToolItem);
-                    this.f51424e.add(cHToolItem);
+                    this.f49841b.addView(cHToolItem);
+                    this.f49843e.add(cHToolItem);
                 }
             }
-            NetImageView netImageView = this.f51423c;
+            NetImageView netImageView = this.f49842c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         }
     }
@@ -126,6 +126,6 @@ public class CHToolGroup extends BaseItemLayout {
             }
         }
         this.a = 4;
-        this.f51424e = new ArrayList();
+        this.f49843e = new ArrayList();
     }
 }

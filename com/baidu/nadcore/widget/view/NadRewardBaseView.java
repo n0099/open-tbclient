@@ -11,19 +11,18 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.d.e;
-import c.a.d0.d.h;
-import c.a.d0.h0.r;
-import c.a.d0.j.f.d;
-import c.a.d0.s.b;
-import c.a.d0.s.s;
-import c.a.d0.v.p;
+import c.a.b0.h0.r;
+import c.a.b0.j.f.d;
+import c.a.b0.s.b;
+import c.a.b0.s.s;
+import c.a.b0.v.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedVideoBaseView;
 import com.baidu.nadcore.widget.uitemplate.DislikeBottomDialog;
 import com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,10 +39,10 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public int mActivitySystemUIVisible;
     public boolean mDislikeClicked;
     public NadRewardOperateView mOperateBar;
-    public c.a.d0.l0.z.a mRewardMediaListener;
+    public c.a.b0.l0.r.a mRewardMediaListener;
     public NadRewardCountDownView mSkipButton;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements DislikeBottomDialog.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +70,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         public void a(List<b.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                Toast.makeText(this.a.getContext(), h.nad_dislike_reduce_recommend, 0).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.nad_dislike_reduce_recommend, 0).show();
                 this.a.mDislikeClicked = true;
             }
         }
@@ -174,7 +173,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.mDislikeClicked) {
-                Toast.makeText(getContext(), h.nad_dislike_reduce_repeat, 0).show();
+                Toast.makeText(getContext(), (int) R.string.nad_dislike_reduce_repeat, 0).show();
                 if (this.mBottomDialog != null) {
                     this.mBottomDialog = null;
                     return;
@@ -216,7 +215,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         }
     }
 
-    public void setRewardMediaListener(c.a.d0.l0.z.a aVar) {
+    public void setRewardMediaListener(c.a.b0.l0.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.mRewardMediaListener = aVar;
@@ -252,7 +251,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public final void updateOperateBar(AdBaseModel adBaseModel) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, adBaseModel) == null) || (viewGroup = (ViewGroup) findViewById(e.reward_ad_operate_view)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, adBaseModel) == null) || (viewGroup = (ViewGroup) findViewById(R.id.reward_ad_operate_view)) == null) {
             return;
         }
         viewGroup.setVisibility(8);
@@ -261,11 +260,11 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         }
         this.mOperateBar.update(adBaseModel);
         this.mOperateBar.bindContainer(viewGroup);
-        c.a.d0.l0.x.a aVar = this.mNadDownloadListener;
+        c.a.b0.l0.p.a aVar = this.mNadDownloadListener;
         if (aVar != null) {
             this.mOperateBar.setViewDownloadListener(aVar);
         }
-        c.a.d0.l0.x.b bVar = this.mFeedListener;
+        c.a.b0.l0.p.b bVar = this.mFeedListener;
         if (bVar != null) {
             this.mOperateBar.setFeedListener(bVar);
         }
@@ -276,7 +275,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public void updateSkipButton(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, adBaseModel) == null) {
-            NadRewardCountDownView nadRewardCountDownView = (NadRewardCountDownView) findViewById(e.nad_reward_skip_btn);
+            NadRewardCountDownView nadRewardCountDownView = (NadRewardCountDownView) findViewById(R.id.nad_reward_skip_btn);
             this.mSkipButton = nadRewardCountDownView;
             if (nadRewardCountDownView == null) {
                 return;

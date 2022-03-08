@@ -20,13 +20,11 @@ import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.d.o.e.q;
-import c.a.t0.g0.g;
-import c.a.t0.g0.h;
-import c.a.t0.s.a;
-import c.a.t0.s.c;
-import c.a.t0.s.l0.d;
-import c.a.u0.a4.f;
-import c.a.u0.a4.j;
+import c.a.q0.f0.g;
+import c.a.q0.f0.h;
+import c.a.q0.r.a;
+import c.a.q0.r.c;
+import c.a.q0.r.l0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -46,6 +44,7 @@ import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
 import com.baidu.tbadk.core.util.videoPreload.PreLoadVideoHelper;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +56,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -90,7 +89,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public h refreshView;
     public final CustomMessageListener skinTypeChangeListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class DelayRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +126,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public abstract class LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +159,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class NetRefreshListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -706,7 +705,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, strArr, onClickListener)) == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(j.operation));
+            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
             builder.setItems(strArr, onClickListener);
             AlertDialog create = builder.create();
             this.mListMenu = create;
@@ -1253,7 +1252,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && c.a.d.f.m.g.e(getActivity())) {
             if (str == null) {
-                str = TbadkCoreApplication.getInst().getResources().getString(j.Waiting);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
             String str2 = str;
             if (onCancelListener != null) {
@@ -1293,7 +1292,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (this.mProgressBar == null) {
                 ProgressBar progressBar2 = new ProgressBar(getActivity());
                 this.mProgressBar = progressBar2;
-                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(f.progressbar));
+                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.progressbar));
                 FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
             }

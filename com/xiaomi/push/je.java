@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class je {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = Integer.MAX_VALUE;
@@ -86,7 +86,7 @@ public class je {
                 while (i3 < m585a.f819a) {
                     int i4 = i2 - 1;
                     a(jbVar, m585a.a, i4);
-                    a(jbVar, m585a.f61603b, i4);
+                    a(jbVar, m585a.f59953b, i4);
                     i3++;
                 }
                 jbVar.h();

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class NoNetView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ERROR_SSL_GENERAL = 5000;
@@ -27,21 +27,21 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
     public Animation a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f51947b;
+    public Animation f50366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51948c;
+    public String f50367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f51949d;
+    public a f50368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51950e;
+    public TextView f50369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51951f;
+    public int f50370f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void doNetworkTomography(String str, Map<String, String> map);
 
@@ -82,8 +82,8 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f51948c = "";
-        this.f51951f = Integer.MIN_VALUE;
+        this.f50367c = "";
+        this.f50370f = Integer.MIN_VALUE;
         a();
         b();
     }
@@ -92,7 +92,7 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.a = ResUtils.getAnimation(getContext(), "wallet_base_slide_from_right");
-            this.f51947b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
+            this.f50366b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
             this.a.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
                     }
                 }
             });
-            this.f51947b.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
+            this.f50366b.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NoNetView a;
@@ -192,14 +192,14 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_langbridge_no_net_error_layout"), this);
             findViewById(ResUtils.id(getContext(), "reload_btn")).setOnClickListener(this);
             findViewById(ResUtils.id(getContext(), "network_tomography_btn")).setOnClickListener(this);
-            this.f51950e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
+            this.f50369e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51948c = "";
+            this.f50367c = "";
             setVisibility(8);
         }
     }
@@ -225,32 +225,32 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
             return;
         }
         int id = view.getId();
-        if (id == ResUtils.id(getContext(), "reload_btn") && (aVar = this.f51949d) != null) {
-            aVar.onReloadClick(this.f51948c);
+        if (id == ResUtils.id(getContext(), "reload_btn") && (aVar = this.f50368d) != null) {
+            aVar.onReloadClick(this.f50367c);
         }
-        if (id != ResUtils.id(getContext(), "network_tomography_btn") || this.f51949d == null) {
+        if (id != ResUtils.id(getContext(), "network_tomography_btn") || this.f50368d == null) {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("errorCode", String.valueOf(this.f51951f));
-        this.f51949d.doNetworkTomography(this.f51948c, hashMap);
+        hashMap.put("errorCode", String.valueOf(this.f50370f));
+        this.f50368d.doNetworkTomography(this.f50367c, hashMap);
     }
 
     public void setFailureCause(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (this.f51950e != null) {
-                this.f51950e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
+            if (this.f50369e != null) {
+                this.f50369e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
             }
-            this.f51951f = i2;
+            this.f50370f = i2;
         }
     }
 
     public void show(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            this.f51948c = str;
-            this.f51949d = aVar;
+            this.f50367c = str;
+            this.f50368d = aVar;
             setVisibility(0);
         }
     }

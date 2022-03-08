@@ -23,7 +23,7 @@ public final class e {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<byte[]> f2392b;
+    public static WeakReference<byte[]> f3021b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,9 +54,9 @@ public final class e {
                 return null;
             }
             synchronized (a) {
-                weakReference = f2392b;
+                weakReference = f3021b;
                 if (weakReference != null) {
-                    f2392b = null;
+                    f3021b = null;
                     bArr = weakReference.get();
                 } else {
                     bArr = null;
@@ -68,7 +68,7 @@ public final class e {
             }
             try {
                 JarFile jarFile = new JarFile(str);
-                aVar.f31482c = 1;
+                aVar.f29885c = 1;
                 Enumeration<JarEntry> entries = jarFile.entries();
                 Certificate[] certificateArr = null;
                 loop0: while (true) {
@@ -82,19 +82,19 @@ public final class e {
                                 sb.append(jarFile.getName());
                                 sb.append("-JarEntry_");
                                 sb.append(name);
-                                aVar.f31481b = sb.toString();
-                                aVar.f31482c = 2;
+                                aVar.f29884b = sb.toString();
+                                aVar.f29885c = 2;
                                 try {
                                     b2 = b(jarFile, nextElement, bArr, aVar);
                                 } catch (Exception e2) {
                                     sb.append("-Exception_");
                                     sb.append(e2.toString());
-                                    aVar.f31481b = sb.toString();
+                                    aVar.f29884b = sb.toString();
                                     b2 = b(jarFile, nextElement, bArr, aVar);
                                 }
-                                aVar.f31482c = 5;
+                                aVar.f29885c = 5;
                                 if (b2 == null) {
-                                    aVar.f31482c = 6;
+                                    aVar.f29885c = 6;
                                     BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
                                     jarFile.close();
                                     return null;
@@ -123,12 +123,12 @@ public final class e {
                             }
                         }
                     } else {
-                        aVar.f31482c = 8;
+                        aVar.f29885c = 8;
                         jarFile.close();
                         synchronized (a) {
-                            f2392b = weakReference;
+                            f3021b = weakReference;
                         }
-                        aVar.f31482c = 9;
+                        aVar.f29885c = 9;
                         if (certificateArr != null && certificateArr.length > 0) {
                             int length = certificateArr.length;
                             Signature[] signatureArr = new Signature[certificateArr.length];
@@ -141,7 +141,7 @@ public final class e {
                         return null;
                     }
                 }
-                aVar.f31482c = 7;
+                aVar.f29885c = 7;
                 jarFile.close();
                 return null;
             } catch (IOException e3) {
@@ -176,10 +176,10 @@ public final class e {
                 e = e3;
             }
             try {
-                aVar.f31482c = 3;
+                aVar.f29885c = 3;
                 while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
                 }
-                aVar.f31482c = 4;
+                aVar.f29885c = 4;
                 Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
                 c.a.d.f.m.a.c(bufferedInputStream);
                 return certificates;

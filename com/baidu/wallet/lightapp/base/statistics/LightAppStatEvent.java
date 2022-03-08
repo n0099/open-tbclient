@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class LightAppStatEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE_SUCCESS = "#call_native_voice_success";

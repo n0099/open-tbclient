@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FetchTaskObj {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

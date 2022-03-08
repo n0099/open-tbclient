@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -37,13 +37,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f31478e;
+        public final /* synthetic */ PluginAdpBaseActivity f29881e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f31478e = pluginAdpBaseActivity;
+            this.f29881e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f31478e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f29881e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -153,7 +153,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().n(getActivity());
+            b.g().o(getActivity());
         }
     }
 
@@ -165,7 +165,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.f().l(getActivity());
+            b.g().m(getActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.t0.d1.f;
-import c.a.t0.s.j0.b;
-import c.a.u0.f1.a;
+import c.a.q0.c1.f;
+import c.a.q0.r.j0.b;
+import c.a.r0.e1.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

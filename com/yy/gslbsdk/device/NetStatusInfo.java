@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.control.NetworkStatus;
 import com.yy.gslbsdk.util.GlobalTools;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class NetStatusInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

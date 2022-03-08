@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.text.SimpleDateFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,17 +57,17 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60786b;
+        public long f59136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f60787c;
+        public long f59137c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -92,13 +92,13 @@ public class d {
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60786b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59136b : invokeV.longValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60787c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59137c : invokeV.longValue;
         }
 
         public String toString() {
@@ -117,7 +117,7 @@ public class d {
         public void b(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f60787c = j2;
+                this.f59137c = j2;
             }
         }
 
@@ -139,14 +139,14 @@ public class d {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f60786b = j2;
+                this.f59136b = j2;
             }
         }
     }
 
     /* renamed from: com.tencent.open.log.d$d  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C2273d {
+    /* loaded from: classes8.dex */
+    public static final class C2252d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

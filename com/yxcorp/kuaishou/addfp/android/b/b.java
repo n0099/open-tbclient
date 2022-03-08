@@ -19,7 +19,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                if (e.a(context, new String[]{s.f55454c})) {
+                if (e.a(context, new String[]{s.f53804c})) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     int phoneCount = Build.VERSION.SDK_INT >= 23 ? ((TelephonyManager) context.getSystemService("phone")).getPhoneCount() : Build.VERSION.SDK_INT >= 22 ? SubscriptionManager.from(context).getActiveSubscriptionInfoCount() : 1;
                     if (phoneCount == 0) {

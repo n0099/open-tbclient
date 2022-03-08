@@ -28,7 +28,7 @@ import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FloatingService {
     public static final /* synthetic */ FloatingService[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,7 +47,7 @@ public final class FloatingService {
     public boolean movingState;
     public WindowManager windowManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public final class FloatingService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class LogAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

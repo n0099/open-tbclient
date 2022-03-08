@@ -19,7 +19,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MainClearCache extends BaseClearCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALCULATE_TASK_NAME = "getMainCacheSize";
@@ -32,12 +32,12 @@ public class MainClearCache extends BaseClearCache {
     public transient /* synthetic */ FieldHolder $fh;
     public List<BaseClearCache> mShowClearCacheList;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
         void onItemClearCacheResult(BaseClearCache baseClearCache, long j2, boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface MainClearSizeCallback extends BaseClearCache.CacheSizeCallback {
         void onItemCacheSizeResult(BaseClearCache baseClearCache, long j2);
     }

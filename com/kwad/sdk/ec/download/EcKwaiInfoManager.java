@@ -8,8 +8,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.core.download.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.d;
@@ -28,7 +28,7 @@ import com.kwad.sdk.utils.u;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public enum EcKwaiInfoManager {
     INSTAANCE;
     
@@ -50,7 +50,7 @@ public enum EcKwaiInfoManager {
     public int mDownloadSource = 0;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public a() {
             super(Looper.getMainLooper());

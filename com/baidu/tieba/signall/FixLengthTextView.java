@@ -8,19 +8,19 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R$styleable;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FixLengthTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48070e;
+    public String f46487e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FixLengthTextView(Context context) {
@@ -46,15 +46,15 @@ public class FixLengthTextView extends TextView {
     public String getmMeasureText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48070e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46487e : (String) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            if (!TextUtils.isEmpty(this.f48070e)) {
-                int desiredWidth = ((int) Layout.getDesiredWidth(this.f48070e, getPaint())) + getPaddingLeft() + getPaddingRight();
+            if (!TextUtils.isEmpty(this.f46487e)) {
+                int desiredWidth = ((int) Layout.getDesiredWidth(this.f46487e, getPaint())) + getPaddingLeft() + getPaddingRight();
                 int size = View.MeasureSpec.getSize(i2);
                 if (View.MeasureSpec.getMode(i2) == 1073741824) {
                     desiredWidth = Math.max(desiredWidth, size);
@@ -68,7 +68,7 @@ public class FixLengthTextView extends TextView {
     public void setmMeasureText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f48070e = str;
+            this.f46487e = str;
         }
     }
 
@@ -112,8 +112,8 @@ public class FixLengthTextView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.fixtextview);
-        this.f48070e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(R$styleable.fixtextview_measuretext));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.measuretext});
+        this.f46487e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
     }
 }

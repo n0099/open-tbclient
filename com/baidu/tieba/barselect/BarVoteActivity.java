@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.u0.c0.b.f;
+import c.a.r0.c0.b.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class BarVoteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,10 +27,10 @@ public class BarVoteActivity extends BaseActivity {
     public BarVoteModel.c mCallBack;
     public BarVoteModel mModel;
     public BdUniqueId mPageId;
-    public c.a.u0.c0.a mView;
+    public c.a.r0.c0.a mView;
     public int source;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements BarVoteModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,13 +106,13 @@ public class BarVoteActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f42407e;
+        public final /* synthetic */ BarVoteActivity f40810e;
 
         public b(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42407e = barVoteActivity;
+            this.f40810e = barVoteActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && n.C()) {
-                this.f42407e.mView.x();
-                BarVoteActivity barVoteActivity = this.f42407e;
+                this.f40810e.mView.x();
+                BarVoteActivity barVoteActivity = this.f40810e;
                 barVoteActivity.showLoadingView(barVoteActivity.mView.w());
-                this.f42407e.reload();
+                this.f40810e.reload();
             }
         }
     }
@@ -177,7 +177,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.u0.c0.a aVar = this.mView;
+            c.a.r0.c0.a aVar = this.mView;
             if (aVar != null) {
                 aVar.z(i2);
             }
@@ -191,7 +191,7 @@ public class BarVoteActivity extends BaseActivity {
             if (view.getId() == R.id.right_textview) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view.getId() == R.id.pb_more) {
-                c.a.u0.c0.a aVar = this.mView;
+                c.a.r0.c0.a aVar = this.mView;
                 if (aVar != null && aVar.v() != null) {
                     this.mView.v().O();
                 }
@@ -205,7 +205,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new c.a.u0.c0.a(this);
+            this.mView = new c.a.r0.c0.a(this);
             this.fid = getIntent().getLongExtra("fid", 0L);
             this.source = getIntent().getIntExtra("source", 0);
             BarVoteModel barVoteModel = new BarVoteModel(this);
@@ -220,7 +220,7 @@ public class BarVoteActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.u0.c0.a aVar = this.mView;
+            c.a.r0.c0.a aVar = this.mView;
             if (aVar != null) {
                 aVar.y();
             }

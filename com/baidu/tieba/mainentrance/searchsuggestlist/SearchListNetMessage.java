@@ -1,6 +1,6 @@
 package com.baidu.tieba.mainentrance.searchsuggestlist;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SearchSug.DataReq;
 import tbclient.SearchSug.SearchSugReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class SearchListNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class SearchListNetMessage extends NetMessage {
             builder.word = this.mKey;
             builder.isforum = String.valueOf(this.isForum);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             SearchSugReqIdl.Builder builder2 = new SearchSugReqIdl.Builder();
             builder2.data = builder.build(false);

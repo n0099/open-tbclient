@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseExecutorCell implements Recordable {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG = false;
@@ -31,7 +31,7 @@ public abstract class BaseExecutorCell implements Recordable {
     public long workTimeInRecordLifeCycle;
 
     /* renamed from: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell$2  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType;
         public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public abstract class BaseExecutorCell implements Recordable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

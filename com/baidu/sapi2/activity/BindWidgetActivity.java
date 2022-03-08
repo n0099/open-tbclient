@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -13,13 +12,14 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -140,7 +140,7 @@ public class BindWidgetActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 this.t = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
                 String stringExtra = getIntent().getStringExtra("EXTRA_BDUSS");
                 this.u = stringExtra;

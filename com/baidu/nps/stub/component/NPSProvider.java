@@ -30,7 +30,7 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class NPSProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -17,14 +17,14 @@ import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends com.kwad.sdk.core.network.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public f f56282b;
+    public f f54632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56283c;
+    public int f54633c;
 
     public a(f fVar) {
         this(fVar, null);
@@ -37,7 +37,7 @@ public class a extends com.kwad.sdk.core.network.d {
     public a(f fVar, @Nullable List<String> list, boolean z, k kVar, j jVar) {
         super(a(fVar));
         DevelopMangerPlugin.DevelopValue a;
-        this.f56282b = fVar;
+        this.f54632b = fVar;
         com.kwad.sdk.internal.api.a a2 = fVar.a();
         if (a2 != null && !a2.b()) {
             a(com.kwad.sdk.core.request.model.b.a(), a2);
@@ -46,7 +46,7 @@ public class a extends com.kwad.sdk.core.network.d {
         t.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
         a("universePhotoInfo", kVar);
-        int i2 = this.f56283c;
+        int i2 = this.f54633c;
         if (i2 > 0) {
             a("calledUnionType", i2);
         }
@@ -63,7 +63,7 @@ public class a extends com.kwad.sdk.core.network.d {
         if (a3 != null) {
             a("campaignType", ((Integer) a3.getValue()).intValue());
         }
-        String a4 = this.f56282b.a("thirdUserId");
+        String a4 = this.f54632b.a("thirdUserId");
         l a5 = l.a();
         if (a4 != null) {
             a5.a(a4);
@@ -90,29 +90,29 @@ public class a extends com.kwad.sdk.core.network.d {
         if (i2 != 0) {
             lVar.a = i2;
         }
-        int i3 = aVar.f57205b;
+        int i3 = aVar.f55555b;
         if (i3 != 0) {
-            lVar.f56395b = i3;
+            lVar.f54745b = i3;
         }
-        if (TextUtils.isEmpty(aVar.f57206c)) {
+        if (TextUtils.isEmpty(aVar.f55556c)) {
             return;
         }
-        lVar.f56396c = aVar.f57206c;
+        lVar.f54746c = aVar.f55556c;
     }
 
     private void a(JSONObject jSONObject, com.kwad.sdk.internal.api.a aVar) {
         JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(aVar.f57207d)) {
-            t.a(jSONObject2, "prevTitle", aVar.f57207d);
+        if (!TextUtils.isEmpty(aVar.f55557d)) {
+            t.a(jSONObject2, "prevTitle", aVar.f55557d);
         }
-        if (!TextUtils.isEmpty(aVar.f57208e)) {
-            t.a(jSONObject2, "postTitle", aVar.f57208e);
+        if (!TextUtils.isEmpty(aVar.f55558e)) {
+            t.a(jSONObject2, "postTitle", aVar.f55558e);
         }
-        if (!TextUtils.isEmpty(aVar.f57209f)) {
-            t.a(jSONObject2, "historyTitle", aVar.f57209f);
+        if (!TextUtils.isEmpty(aVar.f55559f)) {
+            t.a(jSONObject2, "historyTitle", aVar.f55559f);
         }
-        if (!TextUtils.isEmpty(aVar.f57210g)) {
-            t.a(jSONObject2, "channel", aVar.f57210g);
+        if (!TextUtils.isEmpty(aVar.f55560g)) {
+            t.a(jSONObject2, "channel", aVar.f55560g);
         }
         t.a(jSONObject, "content", jSONObject2);
         a(DI.APP_INFO_NAME, jSONObject);
@@ -124,12 +124,12 @@ public class a extends com.kwad.sdk.core.network.d {
     }
 
     public void a(int i2) {
-        this.f56283c = i2;
+        this.f54633c = i2;
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public SceneImpl b() {
-        f fVar = this.f56282b;
+        f fVar = this.f54632b;
         if (fVar != null) {
             return fVar.a;
         }

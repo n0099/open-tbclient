@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

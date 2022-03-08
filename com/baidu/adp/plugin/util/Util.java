@@ -32,13 +32,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,17 +99,17 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31481b;
+        public String f29884b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31482c;
+        public int f29885c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f31481b = null;
-            this.f31482c = 0;
+            this.f29884b = null;
+            this.f29885c = 0;
         }
     }
 
@@ -189,7 +189,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f31481b = e.toString();
+                    aVar.f29884b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -201,7 +201,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f31481b = "illegal_param";
+            aVar.f29884b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;

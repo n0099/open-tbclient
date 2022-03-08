@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class SimpleDateFormatSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

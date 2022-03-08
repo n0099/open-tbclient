@@ -6,25 +6,25 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CustomExitDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f34624b;
+    public TextView f33027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f34625c;
+    public TextView f33028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f34626d;
+    public TextView f33029d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomExitDialog(Context context) {
@@ -54,17 +54,17 @@ public class CustomExitDialog extends Dialog {
             setContentView(R.layout.layout_sapi_liveness_dialog_exit);
             setCanceledOnTouchOutside(false);
             this.a = (TextView) findViewById(R.id.exit_dialog_title);
-            this.f34624b = (TextView) findViewById(R.id.exit_dialog_content);
-            this.f34625c = (TextView) findViewById(R.id.exit_dialog_positive);
-            this.f34626d = (TextView) findViewById(R.id.exit_dialog_negative);
+            this.f33027b = (TextView) findViewById(R.id.exit_dialog_content);
+            this.f33028c = (TextView) findViewById(R.id.exit_dialog_positive);
+            this.f33029d = (TextView) findViewById(R.id.exit_dialog_negative);
         }
     }
 
     public void setDialogContext(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f34624b.setVisibility(0);
-            this.f34624b.setText(str);
+            this.f33027b.setVisibility(0);
+            this.f33027b.setText(str);
         }
     }
 
@@ -78,16 +78,16 @@ public class CustomExitDialog extends Dialog {
     public void setNegativeText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f34626d.setText(str);
-            this.f34626d.setOnClickListener(onClickListener);
+            this.f33029d.setText(str);
+            this.f33029d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
-            this.f34625c.setText(str);
-            this.f34625c.setOnClickListener(onClickListener);
+            this.f33028c.setText(str);
+            this.f33028c.setOnClickListener(onClickListener);
         }
     }
 

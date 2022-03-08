@@ -16,59 +16,58 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f35223c;
+    public static Object f33626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f35224d;
+    public static h f33627d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35225e;
+    public static final String f33628e;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35226b;
+    public a f33629b;
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteDatabase f35227f;
+    public SQLiteDatabase f33630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35228g;
+    public boolean f33631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35229h;
+    public String f33632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35230i;
+    public int f33633i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a extends com.baidu.location.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35231b;
+        public String f33634b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35232c;
+        public String f33635c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f35233d;
+        public boolean f33636d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f35234e;
+        public boolean f33637e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -86,10 +85,10 @@ public class h {
                 }
             }
             this.a = hVar;
-            this.f35231b = null;
-            this.f35232c = null;
-            this.f35233d = true;
-            this.f35234e = false;
+            this.f33634b = null;
+            this.f33635c = null;
+            this.f33636d = true;
+            this.f33637e = false;
             this.k = new HashMap();
         }
 
@@ -97,27 +96,27 @@ public class h {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35392i = 1;
-                this.f35391h = com.baidu.location.e.k.e();
-                String encodeTp4 = Jni.encodeTp4(this.f35232c);
-                this.f35232c = null;
+                this.f33795i = 1;
+                this.f33794h = com.baidu.location.e.k.e();
+                String encodeTp4 = Jni.encodeTp4(this.f33635c);
+                this.f33635c = null;
                 this.k.put(BaseLocationBox.TYPE, encodeTp4);
             }
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.a.f35228g) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.a.f33631g) {
                 return;
             }
-            this.a.f35228g = true;
-            this.f35231b = str;
-            this.f35232c = str2;
+            this.a.f33631g = true;
+            this.f33634b = str;
+            this.f33635c = str2;
             ExecutorService c2 = v.a().c();
             if (c2 != null) {
-                a(c2, com.baidu.location.e.k.f35403f);
+                a(c2, com.baidu.location.e.k.f33806f);
             } else {
-                b(com.baidu.location.e.k.f35403f);
+                b(com.baidu.location.e.k.f33806f);
             }
         }
 
@@ -126,28 +125,28 @@ public class h {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (z && (str = this.f35393j) != null) {
+                if (z && (str = this.f33796j) != null) {
                     try {
-                        if (this.f35233d) {
+                        if (this.f33636d) {
                             JSONObject jSONObject = new JSONObject(str);
                             JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
                             if (jSONObject2 != null && jSONObject2.has("imo")) {
                                 Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                                 int i2 = jSONObject2.getJSONObject("imo").getInt("mv");
-                                if (Jni.encode3(this.f35231b).longValue() == valueOf.longValue()) {
+                                if (Jni.encode3(this.f33634b).longValue() == valueOf.longValue()) {
                                     ContentValues contentValues = new ContentValues();
-                                    contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+                                    contentValues.put("tt", Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                     contentValues.put("hst", Integer.valueOf(i2));
                                     try {
-                                        SQLiteDatabase sQLiteDatabase = this.a.f35227f;
+                                        SQLiteDatabase sQLiteDatabase = this.a.f33630f;
                                         if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                             contentValues.put("id", valueOf);
-                                            this.a.f35227f.insert("hstdata", null, contentValues);
+                                            this.a.f33630f.insert("hstdata", null, contentValues);
                                         }
                                     } catch (Exception unused) {
                                     }
                                     Bundle bundle = new Bundle();
-                                    bundle.putByteArray("mac", this.f35231b.getBytes());
+                                    bundle.putByteArray("mac", this.f33634b.getBytes());
                                     bundle.putInt("hotspot", i2);
                                     this.a.a(bundle);
                                 }
@@ -155,14 +154,14 @@ public class h {
                         }
                     } catch (Exception unused2) {
                     }
-                } else if (this.f35233d) {
+                } else if (this.f33636d) {
                     this.a.f();
                 }
                 Map<String, Object> map = this.k;
                 if (map != null) {
                     map.clear();
                 }
-                this.a.f35228g = false;
+                this.a.f33631g = false;
             }
         }
     }
@@ -180,8 +179,8 @@ public class h {
                 return;
             }
         }
-        f35223c = new Object();
-        f35225e = com.baidu.location.e.k.j() + "/hst.db";
+        f33626c = new Object();
+        f33628e = com.baidu.location.e.k.j() + "/hst.db";
     }
 
     public h() {
@@ -197,12 +196,12 @@ public class h {
                 return;
             }
         }
-        this.f35227f = null;
-        this.f35228g = false;
+        this.f33630f = null;
+        this.f33631g = false;
         this.a = null;
-        this.f35226b = null;
-        this.f35229h = null;
-        this.f35230i = -2;
+        this.f33629b = null;
+        this.f33632h = null;
+        this.f33633i = -2;
     }
 
     public static h a() {
@@ -210,11 +209,11 @@ public class h {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (f35223c) {
-                if (f35224d == null) {
-                    f35224d = new h();
+            synchronized (f33626c) {
+                if (f33627d == null) {
+                    f33627d = new h();
                 }
-                hVar = f35224d;
+                hVar = f33627d;
             }
             return hVar;
         }
@@ -278,7 +277,7 @@ public class h {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f35228g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f33631g) {
             return;
         }
         try {
@@ -290,12 +289,12 @@ public class h {
             Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
             int i2 = jSONObject2.getJSONObject("imo").getInt("mv");
             ContentValues contentValues = new ContentValues();
-            contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+            contentValues.put("tt", Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i2));
-            SQLiteDatabase sQLiteDatabase = this.f35227f;
+            SQLiteDatabase sQLiteDatabase = this.f33630f;
             if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                 contentValues.put("id", valueOf);
-                this.f35227f.insert("hstdata", null, contentValues);
+                this.f33630f.insert("hstdata", null, contentValues);
             }
         } catch (Exception unused) {
         }
@@ -305,18 +304,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                File file = new File(f35225e);
+                File file = new File(f33628e);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
                 if (file.exists()) {
                     SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                    this.f35227f = openOrCreateDatabase;
+                    this.f33630f = openOrCreateDatabase;
                     openOrCreateDatabase.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                    this.f35227f.setVersion(1);
+                    this.f33630f.setVersion(1);
                 }
             } catch (Exception unused) {
-                this.f35227f = null;
+                this.f33630f = null;
             }
         }
     }
@@ -324,17 +323,17 @@ public class h {
     public void c() {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sQLiteDatabase = this.f35227f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sQLiteDatabase = this.f33630f) == null) {
             return;
         }
         try {
             sQLiteDatabase.close();
         } catch (Exception unused) {
         } catch (Throwable th) {
-            this.f35227f = null;
+            this.f33630f = null;
             throw th;
         }
-        this.f35227f = null;
+        this.f33630f = null;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x007a, code lost:
@@ -356,24 +355,24 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 int i2 = -3;
-                if (this.f35228g) {
+                if (this.f33631g) {
                     return -3;
                 }
                 try {
-                    if (com.baidu.location.c.i.i() && this.f35227f != null && (k = com.baidu.location.c.i.a().k()) != null && k.getBSSID() != null) {
+                    if (com.baidu.location.c.i.i() && this.f33630f != null && (k = com.baidu.location.c.i.a().k()) != null && k.getBSSID() != null) {
                         String replace = k.getBSSID().replace(":", "");
                         Long encode3 = Jni.encode3(replace);
-                        if (this.f35229h == null || !replace.equals(this.f35229h) || this.f35230i <= -2) {
+                        if (this.f33632h == null || !replace.equals(this.f33632h) || this.f33633i <= -2) {
                             Cursor cursor = null;
                             try {
-                                SQLiteDatabase sQLiteDatabase = this.f35227f;
+                                SQLiteDatabase sQLiteDatabase = this.f33630f;
                                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                                 if (cursor == null || !cursor.moveToFirst()) {
                                     i2 = -2;
                                 } else {
                                     i2 = cursor.getInt(1);
-                                    this.f35229h = replace;
-                                    this.f35230i = i2;
+                                    this.f33632h = replace;
+                                    this.f33633i = i2;
                                 }
                             } catch (Exception unused) {
                             } catch (Throwable th) {
@@ -386,12 +385,12 @@ public class h {
                                 throw th;
                             }
                         } else {
-                            i2 = this.f35230i;
+                            i2 = this.f33633i;
                         }
                     }
                 } catch (Exception unused3) {
                 }
-                this.f35230i = i2;
+                this.f33633i = i2;
                 return i2;
             }
         }
@@ -408,11 +407,11 @@ public class h {
     public void e() {
         WifiInfo k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f35228g) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f33631g) {
             return;
         }
         try {
-            if (!com.baidu.location.c.i.i() || this.f35227f == null || (k = com.baidu.location.c.i.a().k()) == null || k.getBSSID() == null) {
+            if (!com.baidu.location.c.i.i() || this.f33630f == null || (k = com.baidu.location.c.i.a().k()) == null || k.getBSSID() == null) {
                 f();
                 return;
             }
@@ -421,7 +420,7 @@ public class h {
             boolean z = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f35227f;
+                SQLiteDatabase sQLiteDatabase = this.f33630f;
                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                 if (cursor != null && cursor.moveToFirst()) {
                     int i2 = cursor.getInt(1);

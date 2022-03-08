@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BytesResource implements Resource<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -50,12 +50,12 @@ import java.util.regex.Matcher;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static final File a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f56775b = new File("/proc/self/task");
+    public static final File f55125b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
@@ -231,17 +231,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f56773e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f55123e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         c2.a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f56772d = pss;
+        c2.f55122d = pss;
         memoryInfo.mTotalMB = (int) (c2.a / 1048576);
         memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f56773e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f56770b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f56771c / 1024);
+        memoryInfo.mJavaHeapMB = (int) (c2.f55123e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f55120b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f55121c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f56774f;
+        memoryInfo.mThreadsCount = c2.f55124f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -270,7 +270,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f56774f > 400) {
+        if (c2.f55124f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -287,7 +287,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f56775b.listFiles();
+        File[] listFiles = f55125b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -471,12 +471,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f56744b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f56745c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f55094b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f55095c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f56746d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f56747e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f55096d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f55097e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

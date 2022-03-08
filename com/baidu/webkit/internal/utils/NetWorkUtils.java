@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class NetWorkUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CELL_2G = 2;

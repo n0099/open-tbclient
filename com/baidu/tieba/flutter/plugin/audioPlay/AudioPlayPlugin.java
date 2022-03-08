@@ -3,12 +3,12 @@ package com.baidu.tieba.flutter.plugin.audioPlay;
 import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a1.a.a.i;
+import c.a.r0.z0.a.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VoiceManagerWrapper vmWrapper;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayPlugin$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,11 +97,11 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
             AudioPlayAuto.AudioResult audioResult = new AudioPlayAuto.AudioResult();
             String url = playParam.getUrl();
             String duration = playParam.getDuration();
-            VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
-            voiceData$VoiceModel.voiceId = url;
-            voiceData$VoiceModel.duration = Integer.valueOf(duration).intValue();
-            if (!this.vmWrapper.isPlaying(voiceData$VoiceModel)) {
-                this.vmWrapper.resetVoiceModel(voiceData$VoiceModel);
+            VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+            voiceModel.voiceId = url;
+            voiceModel.duration = Integer.valueOf(duration).intValue();
+            if (!this.vmWrapper.isPlaying(voiceModel)) {
+                this.vmWrapper.resetVoiceModel(voiceModel);
                 this.vmWrapper.startPlaying();
                 audioResult.setResult(Boolean.TRUE);
             }
@@ -120,13 +120,13 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class VoiceManagerWrapper implements VoiceManager.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public VoiceManager manager;
         public String pageName;
-        public VoiceData$VoiceModel voiceModel;
+        public VoiceData.VoiceModel voiceModel;
 
         public VoiceManagerWrapper() {
             Interceptable interceptable = $ic;
@@ -156,16 +156,16 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-        public VoiceData$VoiceModel getVoiceModel() {
+        public VoiceData.VoiceModel getVoiceModel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.voiceModel : (VoiceData$VoiceModel) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.voiceModel : (VoiceData.VoiceModel) invokeV.objValue;
         }
 
-        public boolean isPlaying(VoiceData$VoiceModel voiceData$VoiceModel) {
+        public boolean isPlaying(VoiceData.VoiceModel voiceModel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voiceData$VoiceModel)) == null) ? this.manager.isPlaying(voiceData$VoiceModel) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voiceModel)) == null) ? this.manager.isPlaying(voiceModel) : invokeL.booleanValue;
         }
 
         public boolean isSamePage(String str) {
@@ -215,9 +215,9 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-        public void onRefreshByPlayStatus(VoiceData$VoiceModel voiceData$VoiceModel) {
+        public void onRefreshByPlayStatus(VoiceData.VoiceModel voiceModel) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceData$VoiceModel) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceModel) == null) {
             }
         }
 
@@ -228,10 +228,10 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
             }
         }
 
-        public void resetVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {
+        public void resetVoiceModel(VoiceData.VoiceModel voiceModel) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, voiceData$VoiceModel) == null) {
-                this.voiceModel = voiceData$VoiceModel;
+            if (interceptable == null || interceptable.invokeL(1048586, this, voiceModel) == null) {
+                this.voiceModel = voiceModel;
             }
         }
 

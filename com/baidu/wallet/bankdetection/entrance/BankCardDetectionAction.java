@@ -11,7 +11,7 @@ import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BankCardDetectionAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class BankCardDetectionAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDetectionAction f50646b;
+                public final /* synthetic */ BankCardDetectionAction f49065b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class BankCardDetectionAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f50646b = this;
+                    this.f49065b = this;
                     this.a = routerCallback;
                 }
 

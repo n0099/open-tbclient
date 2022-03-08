@@ -5,10 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.r.a;
-import c.a.b1.t.c;
-import c.a.b1.t.h;
-import c.a.c0.b.a.e;
+import c.a.a0.b.a.e;
+import c.a.y0.p.a;
+import c.a.y0.r.c;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle, EffectChangeObserver, MediaTrackChangeObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,17 +66,17 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     public e mVlogEdit;
     public boolean mWaitingDrawFrame;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnDrawFrameFrequencyListener {
         void onDrawFrameFrequency(GLViewPortLocation gLViewPortLocation);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnEditStickerListener {
         boolean canDoProcessor();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnMediaGLRendererStatusListener {
         void onError(int i2, String str);
     }

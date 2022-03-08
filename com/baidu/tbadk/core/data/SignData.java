@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 
-import c.a.t0.s.r.z1;
+import c.a.q0.r.r.z1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SignData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7905612002845096083L;

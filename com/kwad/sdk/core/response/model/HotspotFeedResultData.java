@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class HotspotFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "TrendsResultData";
     public static final long serialVersionUID = -1619392774105464372L;

@@ -2,13 +2,12 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.u0.o3.d;
-import c.a.u0.o3.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
@@ -68,13 +67,13 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                SkinManager.setBackgroundResource(this.tipView, d.icon_news_head_new);
+                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
                 this.tipView.setText((CharSequence) null);
                 return;
             }
             this.tipView.setText(TbConfig.getVersion());
             this.tipView.setBackgroundDrawable(null);
-            this.tipView.setTextAppearance(this.mContext, z2 ? h.setting_version_text_1 : h.setting_version_text);
+            this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
         }
     }
 }

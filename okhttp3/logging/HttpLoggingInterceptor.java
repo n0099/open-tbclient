@@ -3,7 +3,6 @@ package okhttp3.logging;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
@@ -28,7 +28,7 @@ import okhttp3.internal.Platform;
 import okhttp3.internal.http.HttpEngine;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class HttpLoggingInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;
@@ -37,7 +37,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
     public final Logger logger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                     return;
                 }
             }
-            NONE = new Level(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new Level("NONE", 0);
             BASIC = new Level("BASIC", 1);
             HEADERS = new Level("HEADERS", 2);
             Level level = new Level("BODY", 3);
@@ -100,7 +100,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface Logger {
         public static final Logger DEFAULT = new Logger() { // from class: okhttp3.logging.HttpLoggingInterceptor.Logger.1
             public static /* synthetic */ Interceptable $ic;
@@ -199,7 +199,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
             RequestBody body = request.body();
             boolean z3 = body != null;
             Connection connection = chain.connection();
-            String str = "--> " + request.method() + ' ' + request.url() + ' ' + (connection != null ? connection.protocol() : Protocol.HTTP_1_1);
+            String str = "--> " + request.method() + WebvttCueParser.CHAR_SPACE + request.url() + WebvttCueParser.CHAR_SPACE + (connection != null ? connection.protocol() : Protocol.HTTP_1_1);
             if (!z2 && z3) {
                 str = str + " (" + body.contentLength() + "-byte body)";
             }
@@ -256,9 +256,9 @@ public final class HttpLoggingInterceptor implements Interceptor {
             StringBuilder sb = new StringBuilder();
             sb.append("<-- ");
             sb.append(proceed.code());
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(proceed.message());
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(proceed.request().url());
             sb.append(" (");
             sb.append(millis);

@@ -24,7 +24,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class HttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean isHttpsEnable = true;
@@ -32,25 +32,25 @@ public class HttpClient {
     public HttpURLConnection a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35425b;
+    public String f33828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35426c;
+    public String f33829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35427d;
+    public int f33830d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35428e;
+    public int f33831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35429f;
+    public String f33832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProtoResultCallback f35430g;
+    public ProtoResultCallback f33833g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class HttpStateError {
         public static final /* synthetic */ HttpStateError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class HttpClient {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ProtoResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,10 +169,10 @@ public class HttpClient {
                 return;
             }
         }
-        this.f35425b = null;
-        this.f35426c = null;
-        this.f35429f = str;
-        this.f35430g = protoResultCallback;
+        this.f33828b = null;
+        this.f33829c = null;
+        this.f33832f = str;
+        this.f33833g = protoResultCallback;
     }
 
     private HttpURLConnection a() {
@@ -181,7 +181,7 @@ public class HttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                URL url = new URL(this.f35425b);
+                URL url = new URL(this.f33828b);
                 if (isHttpsEnable) {
                     HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                     httpsURLConnection2.setHostnameVerifier(new b(this));
@@ -189,11 +189,11 @@ public class HttpClient {
                 } else {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                httpsURLConnection.setRequestMethod(this.f35429f);
+                httpsURLConnection.setRequestMethod(this.f33832f);
                 httpsURLConnection.setDoOutput(false);
                 httpsURLConnection.setDoInput(true);
-                httpsURLConnection.setConnectTimeout(this.f35427d);
-                httpsURLConnection.setReadTimeout(this.f35428e);
+                httpsURLConnection.setConnectTimeout(this.f33830d);
+                httpsURLConnection.setReadTimeout(this.f33831e);
                 return httpsURLConnection;
             } catch (Exception e2) {
                 if (Logger.debugEnable()) {
@@ -228,7 +228,7 @@ public class HttpClient {
     public static String getAuthToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? i.f36336d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? i.f34739d : (String) invokeV.objValue;
     }
 
     public static String getPhoneInfo() {
@@ -285,17 +285,17 @@ public class HttpClient {
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
             return;
         }
-        this.f35425b = str;
+        this.f33828b = str;
         if (!checkNetwork()) {
-            this.f35430g.onFailed(HttpStateError.NETWORK_ERROR);
+            this.f33833g.onFailed(HttpStateError.NETWORK_ERROR);
             return;
         }
         HttpURLConnection a = a();
         this.a = a;
         if (a == null) {
-            this.f35430g.onFailed(HttpStateError.INNER_ERROR);
-        } else if (TextUtils.isEmpty(this.f35425b)) {
-            this.f35430g.onFailed(HttpStateError.REQUEST_ERROR);
+            this.f33833g.onFailed(HttpStateError.INNER_ERROR);
+        } else if (TextUtils.isEmpty(this.f33828b)) {
+            this.f33833g.onFailed(HttpStateError.REQUEST_ERROR);
         } else {
             try {
                 this.a.connect();
@@ -319,7 +319,7 @@ public class HttpClient {
                         } else {
                             Logger.logW("HttpClient", "Get response from server failed, http response code=" + r1 + ", error=" + httpStateError);
                         }
-                        this.f35430g.onFailed(httpStateError);
+                        this.f33833g.onFailed(httpStateError);
                         if (this.a != null) {
                             this.a.disconnect();
                             return;
@@ -339,7 +339,7 @@ public class HttpClient {
                                 stringBuffer.append((char) read);
                             }
                             String stringBuffer2 = stringBuffer.toString();
-                            this.f35426c = stringBuffer2;
+                            this.f33829c = stringBuffer2;
                             a(stringBuffer2);
                             if (r1 != 0) {
                                 bufferedReader.close();
@@ -348,7 +348,7 @@ public class HttpClient {
                             if (this.a != null) {
                                 this.a.disconnect();
                             }
-                            this.f35430g.onSuccess(this.f35426c);
+                            this.f33833g.onSuccess(this.f33829c);
                         } catch (Exception e4) {
                             e2 = e4;
                             if (Logger.debugEnable()) {
@@ -356,7 +356,7 @@ public class HttpClient {
                             } else {
                                 Logger.logW("HttpClient", e2.getMessage());
                             }
-                            this.f35430g.onFailed(HttpStateError.INNER_ERROR);
+                            this.f33833g.onFailed(HttpStateError.INNER_ERROR);
                             if (r1 != 0 && bufferedReader != null) {
                                 bufferedReader.close();
                                 r1.close();
@@ -396,7 +396,7 @@ public class HttpClient {
                 } else {
                     Logger.logW("HttpClient", e6.getMessage());
                 }
-                this.f35430g.onFailed(HttpStateError.INNER_ERROR);
+                this.f33833g.onFailed(HttpStateError.INNER_ERROR);
             }
         }
     }
@@ -404,14 +404,14 @@ public class HttpClient {
     public void setMaxTimeOut(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f35427d = i2;
+            this.f33830d = i2;
         }
     }
 
     public void setReadTimeOut(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f35428e = i2;
+            this.f33831e = i2;
         }
     }
 }

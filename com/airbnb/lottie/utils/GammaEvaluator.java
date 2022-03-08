@@ -1,5 +1,5 @@
 package com.airbnb.lottie.utils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class GammaEvaluator {
     public static float EOCF_sRGB(float f2) {
         return f2 <= 0.04045f ? f2 / 12.92f : (float) Math.pow((f2 + 0.055f) / 1.055f, 2.4000000953674316d);

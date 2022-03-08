@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoContainerLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f47053b;
+    public VideoPbViewModel f45461b;
 
     public VideoZoomBehavior() {
         Interceptable interceptable = $ic;
@@ -97,20 +97,20 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
                     layoutParams.height = maxHeight;
                     this.a.setLayoutParams(layoutParams);
                 }
-                if (this.f47053b == null && (this.a.getContext() instanceof AbsPbActivity)) {
-                    this.f47053b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
+                if (this.f45461b == null && (this.a.getContext() instanceof AbsPbActivity)) {
+                    this.f45461b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
                 }
-                VideoPbViewModel videoPbViewModel = this.f47053b;
+                VideoPbViewModel videoPbViewModel = this.f45461b;
                 if (videoPbViewModel != null) {
                     if (i2 > -5) {
                         MutableLiveData<Boolean> isDetailTabTop = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop == null || isDetailTabTop.getValue() == null || !isDetailTabTop.getValue().booleanValue()) {
-                            this.f47053b.setIsDetailTabTop(true);
+                            this.f45461b.setIsDetailTabTop(true);
                         }
                     } else {
                         MutableLiveData<Boolean> isDetailTabTop2 = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop2 == null || isDetailTabTop2.getValue() == null || isDetailTabTop2.getValue().booleanValue()) {
-                            this.f47053b.setIsDetailTabTop(false);
+                            this.f45461b.setIsDetailTabTop(false);
                         }
                     }
                 }

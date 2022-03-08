@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
@@ -46,8 +46,8 @@ public class h {
     public static void b(int i2, Pixmap pixmap, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), pixmap, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            c.b.b.f.f27173e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            if (c.b.b.f.f27174f == null && i3 != i4) {
+            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            if (c.b.b.f.f27078f == null && i3 != i4) {
                 throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
             }
             int n = pixmap.n() / 2;
@@ -62,7 +62,7 @@ public class h {
                     pixmap2.dispose();
                 }
                 pixmap2 = pixmap3;
-                c.b.b.f.f27173e.q(i2, i5, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
+                c.b.b.f.f27077e.q(i2, i5, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
                 n = pixmap2.n() / 2;
                 l = pixmap2.l() / 2;
                 i5++;
@@ -73,20 +73,20 @@ public class h {
     public static void c(int i2, Pixmap pixmap, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), pixmap, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (!c.b.b.f.f27170b.a("GL_ARB_framebuffer_object") && !c.b.b.f.f27170b.a("GL_EXT_framebuffer_object") && c.b.b.f.f27175g == null) {
+            if (!c.b.b.f.f27074b.a("GL_ARB_framebuffer_object") && !c.b.b.f.f27074b.a("GL_EXT_framebuffer_object") && c.b.b.f.f27079g == null) {
                 b(i2, pixmap, i3, i4);
                 return;
             }
-            c.b.b.f.f27173e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            c.b.b.f.f27174f.F(i2);
+            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            c.b.b.f.f27078f.F(i2);
         }
     }
 
     public static void d(int i2, Pixmap pixmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, pixmap) == null) {
-            c.b.b.f.f27173e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            c.b.b.f.f27174f.F(i2);
+            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            c.b.b.f.f27078f.F(i2);
         }
     }
 }

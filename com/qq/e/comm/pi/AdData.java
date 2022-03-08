@@ -1,10 +1,10 @@
 package com.qq.e.comm.pi;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface AdData {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface VideoPlayer {
         int getCurrentPosition();
 

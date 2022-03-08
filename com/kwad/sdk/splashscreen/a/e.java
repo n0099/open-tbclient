@@ -1,9 +1,9 @@
 package com.kwad.sdk.splashscreen.a;
 
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e extends Presenter {
     public ComplianceTextView a;
 
@@ -11,7 +11,7 @@ public class e extends Presenter {
     public void a() {
         super.a();
         this.a.setVisibility(0);
-        this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f58087d);
+        this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f56437d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

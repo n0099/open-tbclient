@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class AsyncTaskAssistant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE;
@@ -36,7 +36,7 @@ public final class AsyncTaskAssistant {
     public static final ThreadFactory sThreadFactory;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class WorkerAsyncTask extends AsyncTask<Task, Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

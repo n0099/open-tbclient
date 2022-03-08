@@ -1,8 +1,8 @@
 package com.baidu.tieba.newinterest.fragment;
 
 import android.view.View;
-import c.a.u0.q2.c.b;
-import c.a.u0.q2.e.a;
+import c.a.r0.q2.c.b;
+import c.a.r0.q2.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaseInterestedForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_CUSTOM_TITLE = "key_custom_title";
+    public static final String KEY_ONLY_SHOW_INTERESTED_FORUM = "key_only_show_interested_forum";
     public static final String SCENE = "scene";
     public transient /* synthetic */ FieldHolder $fh;
+    public String[] mCustomTitle;
+    public boolean mOnlyShowInterestedForum;
     public View mRootView;
     public int mScene;
     public List<b> mSelectedInterest;

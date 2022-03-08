@@ -1,46 +1,48 @@
 package c.i.b.a;
 
-import c.i.b.a.g;
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.Format;
-import java.io.IOException;
-/* loaded from: classes9.dex */
-public interface r extends g.a {
-    boolean b();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes3.dex */
+public final class r implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int e();
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ AtomicBoolean f28647e;
 
-    boolean f();
+    /* renamed from: f  reason: collision with root package name */
+    public final /* synthetic */ q f28648f;
 
-    void g(t tVar, Format[] formatArr, c.i.b.a.d0.o oVar, long j2, boolean z, long j3) throws ExoPlaybackException;
+    public r(q qVar, AtomicBoolean atomicBoolean) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qVar, atomicBoolean};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28648f = qVar;
+        this.f28647e = atomicBoolean;
+    }
 
-    int getState();
-
-    c.i.b.a.d0.o getStream();
-
-    void i();
-
-    boolean isReady();
-
-    boolean j();
-
-    void k(long j2, long j3) throws ExoPlaybackException;
-
-    void l(long j2) throws ExoPlaybackException;
-
-    c.i.b.a.i0.h m();
-
-    void n();
-
-    void o() throws IOException;
-
-    s p();
-
-    void s(Format[] formatArr, c.i.b.a.d0.o oVar, long j2) throws ExoPlaybackException;
-
-    void setIndex(int i2);
-
-    void start() throws ExoPlaybackException;
-
-    void stop() throws ExoPlaybackException;
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28647e.getAndSet(true)) {
+            return;
+        }
+        q qVar = this.f28648f;
+        l lVar = qVar.f28646g;
+        l.n(qVar.f28644e, qVar.f28645f);
+    }
 }

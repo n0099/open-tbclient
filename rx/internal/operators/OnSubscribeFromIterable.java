@@ -11,15 +11,15 @@ import i.j;
 import i.m.a;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends T> f62675e;
+    public final Iterable<? extends T> f61025e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class IterableProducer<T> extends AtomicLong implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730475647105475802L;
@@ -155,7 +155,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
             }
         }
         if (iterable != null) {
-            this.f62675e = iterable;
+            this.f61025e = iterable;
             return;
         }
         throw new NullPointerException("iterable must not be null");
@@ -170,7 +170,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             try {
-                Iterator<? extends T> it = this.f62675e.iterator();
+                Iterator<? extends T> it = this.f61025e.iterator();
                 boolean hasNext = it.hasNext();
                 if (jVar.isUnsubscribed()) {
                     return;

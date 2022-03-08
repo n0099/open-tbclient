@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class e extends a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f27592h;
+    public i f27496h;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e extends a implements b {
     public void o(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            this.f27592h = iVar;
+            this.f27496h = iVar;
             if (iVar != null) {
                 j(iVar.c());
                 h(iVar.b());
@@ -47,7 +47,7 @@ public class e extends a implements b {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            i iVar = this.f27592h;
+            i iVar = this.f27496h;
             if (iVar instanceof h.a) {
                 gVar = new h.b((h.a) iVar);
             } else {
@@ -101,6 +101,6 @@ public class e extends a implements b {
                 return;
             }
         }
-        o(eVar.f27592h);
+        o(eVar.f27496h);
     }
 }

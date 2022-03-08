@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.imageWatermarkType;
 
 import c.a.d.a.f;
-import c.a.t0.s.l;
+import c.a.q0.r.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f47978e;
+    public HttpMessageListener f46395e;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f47978e = aVar;
+        this.f46395e = aVar;
         registerListener(aVar);
         loadData();
     }

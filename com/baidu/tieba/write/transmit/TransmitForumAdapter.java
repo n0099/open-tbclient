@@ -8,28 +8,25 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import c.a.d.o.e.n;
 import c.a.d.o.e.v;
-import c.a.u0.s4.d;
-import c.a.u0.s4.f;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TransmitForumAdapter extends c.a.d.o.e.a<TransmitForumData, TransmitForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.u0.s4.a0.a m;
+    public c.a.r0.q4.q.a m;
     public v n;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,20 +51,20 @@ public class TransmitForumAdapter extends c.a.d.o.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.mForumName = (TextView) view.findViewById(g.transmit_forum_name);
-            CheckBox checkBox = (CheckBox) view.findViewById(g.transmit_check_box);
+            this.mForumName = (TextView) view.findViewById(R.id.transmit_forum_name);
+            CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
             this.mSelected = checkBox;
-            checkBox.setButtonDrawable(SkinManager.getDrawable(f.transmit_check_box));
+            checkBox.setButtonDrawable(SkinManager.getDrawable(R.drawable.transmit_check_box));
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumAdapter f49840e;
+        public final /* synthetic */ TransmitForumAdapter f48259e;
 
         public a(TransmitForumAdapter transmitForumAdapter) {
             Interceptable interceptable = $ic;
@@ -84,24 +81,24 @@ public class TransmitForumAdapter extends c.a.d.o.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.f49840e = transmitForumAdapter;
+            this.f48259e = transmitForumAdapter;
         }
 
         @Override // c.a.d.o.e.v
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof TransmitForumData)) {
-                CheckBox checkBox = (CheckBox) view.findViewById(g.transmit_check_box);
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = this.f49840e.m != null ? this.f49840e.m.c() : false;
+                boolean c2 = this.f48259e.m != null ? this.f48259e.m.c() : false;
                 if (!isChecked && c2) {
-                    this.f49840e.m.b();
+                    this.f48259e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (this.f49840e.m != null) {
-                        this.f49840e.m.a();
+                    if (this.f48259e.m != null) {
+                        this.f48259e.m.a();
                     }
                 }
             }
@@ -145,7 +142,7 @@ public class TransmitForumAdapter extends c.a.d.o.e.a<TransmitForumData, Transmi
     public TransmitForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f2447e).inflate(h.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f3076e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
     }
 
     public View b0(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
@@ -154,13 +151,13 @@ public class TransmitForumAdapter extends c.a.d.o.e.a<TransmitForumData, Transmi
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, transmitForumData, transmitForumViewHolder})) == null) {
             transmitForumViewHolder.mForumName.setText(transmitForumData.forumName);
             transmitForumViewHolder.mSelected.setChecked(transmitForumData.checked);
-            SkinManager.setViewTextColor(transmitForumViewHolder.mForumName, d.CAM_X0105);
+            SkinManager.setViewTextColor(transmitForumViewHolder.mForumName, (int) R.color.CAM_X0105);
             return view;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void c0(c.a.u0.s4.a0.a aVar) {
+    public void c0(c.a.r0.q4.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.m = aVar;

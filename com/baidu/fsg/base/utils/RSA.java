@@ -12,7 +12,7 @@ import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class RSA {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "RSA";

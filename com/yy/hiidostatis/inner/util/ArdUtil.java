@@ -55,8 +55,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -495,7 +494,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, s.f55455d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, s.f53805d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -572,7 +571,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.f55530b);
+                    fileInputStream = new FileInputStream(z.f53880b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -803,7 +802,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
                 if (ringerMode == 0) {
                     str = NotificationCompat.GROUP_KEY_SILENT;
@@ -1115,7 +1114,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, context, i2)) == null) {
             try {
-                return ((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(i2);
+                return ((AudioManager) context.getSystemService("audio")).getStreamVolume(i2);
             } catch (Throwable th) {
                 L.debug("ArdUtil", "getVolume exception . %s", th);
                 return -1;
@@ -1130,7 +1129,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, s.f55455d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, s.f53805d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1150,7 +1149,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, s.f55455d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, s.f53805d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();
@@ -1172,7 +1171,7 @@ public class ArdUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
             try {
                 if (checkPermissions(context, "android.permission.MODIFY_AUDIO_SETTINGS")) {
-                    return ((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isWiredHeadsetOn();
+                    return ((AudioManager) context.getSystemService("audio")).isWiredHeadsetOn();
                 }
             } catch (Throwable th) {
                 L.debug("ArdUtil", "isHeadphone exception . %s", th);

@@ -18,10 +18,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
-import c.a.u0.r1.d;
-import c.a.u0.r1.e;
-import c.a.u0.r1.g;
-import c.a.u0.r1.i.i;
+import c.a.r0.q1.b.i;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -31,34 +28,35 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46280e;
+    public int f44688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<HotTopicDetailActivity> f46281f;
+    public TbPageContext<HotTopicDetailActivity> f44689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46282g;
+    public TextView f44690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46283h;
+    public TextView f44691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46284i;
+    public TextView f44692i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f46285j;
+    public TextView f44693j;
     public TextView k;
     public View l;
     public ViewGroup.LayoutParams m;
@@ -75,13 +73,13 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public ColorStateList x;
     public Runnable y;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailPkLayout f46286e;
+        public final /* synthetic */ HotTopicDetailPkLayout f44694e;
 
         public a(HotTopicDetailPkLayout hotTopicDetailPkLayout) {
             Interceptable interceptable = $ic;
@@ -98,7 +96,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                     return;
                 }
             }
-            this.f46286e = hotTopicDetailPkLayout;
+            this.f44694e = hotTopicDetailPkLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -106,26 +104,26 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f46286e.l.setAlpha(floatValue);
-                this.f46286e.m.height = (int) (floatValue * this.f46286e.n);
-                this.f46286e.l.setLayoutParams(this.f46286e.m);
+                this.f44694e.l.setAlpha(floatValue);
+                this.f44694e.m.height = (int) (floatValue * this.f44694e.n);
+                this.f44694e.l.setLayoutParams(this.f44694e.m);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f46287e;
+        public final /* synthetic */ long f44695e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46288f;
+        public final /* synthetic */ int f44696f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailPkLayout f46289g;
+        public final /* synthetic */ HotTopicDetailPkLayout f44697g;
 
         public b(HotTopicDetailPkLayout hotTopicDetailPkLayout, long j2, int i2) {
             Interceptable interceptable = $ic;
@@ -142,98 +140,98 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                     return;
                 }
             }
-            this.f46289g = hotTopicDetailPkLayout;
-            this.f46287e = j2;
-            this.f46288f = i2;
+            this.f44697g = hotTopicDetailPkLayout;
+            this.f44695e = j2;
+            this.f44696f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f46287e == 0) {
-                    if (this.f46289g.v.f21765j == 1) {
-                        TextView textView = this.f46289g.s;
+                if (this.f44695e == 0) {
+                    if (this.f44697g.v.f20999j == 1) {
+                        TextView textView = this.f44697g.s;
                         textView.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
-                        this.f46289g.u.setText("");
-                    } else if (this.f46289g.v.f21765j == 2) {
-                        this.f46289g.s.setText("");
-                        TextView textView2 = this.f46289g.u;
+                        this.f44697g.u.setText("");
+                    } else if (this.f44697g.v.f20999j == 2) {
+                        this.f44697g.s.setText("");
+                        TextView textView2 = this.f44697g.u;
                         textView2.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
                     } else {
-                        this.f46289g.s.setText("");
-                        this.f46289g.u.setText("");
+                        this.f44697g.s.setText("");
+                        this.f44697g.u.setText("");
                     }
-                    this.f46289g.v.f21765j = 0;
+                    this.f44697g.v.f20999j = 0;
                 } else {
-                    if (this.f46289g.v.f21765j != 0) {
-                        if (this.f46289g.v.f21765j == 1) {
-                            int i2 = this.f46288f;
+                    if (this.f44697g.v.f20999j != 0) {
+                        if (this.f44697g.v.f20999j == 1) {
+                            int i2 = this.f44696f;
                             if (i2 == 1) {
-                                TextView textView3 = this.f46289g.s;
+                                TextView textView3 = this.f44697g.s;
                                 textView3.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
-                                this.f46289g.u.setText("");
+                                this.f44697g.u.setText("");
                             } else if (i2 == 2) {
-                                this.f46289g.s.setText("");
-                                TextView textView4 = this.f46289g.u;
+                                this.f44697g.s.setText("");
+                                TextView textView4 = this.f44697g.u;
                                 textView4.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                             } else {
-                                TextView textView5 = this.f46289g.s;
+                                TextView textView5 = this.f44697g.s;
                                 textView5.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                                this.f46289g.u.setText("");
+                                this.f44697g.u.setText("");
                             }
                         } else {
-                            int i3 = this.f46288f;
+                            int i3 = this.f44696f;
                             if (i3 == 1) {
-                                TextView textView6 = this.f46289g.s;
+                                TextView textView6 = this.f44697g.s;
                                 textView6.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                                this.f46289g.u.setText("");
+                                this.f44697g.u.setText("");
                             } else if (i3 == 2) {
-                                this.f46289g.s.setText("");
-                                TextView textView7 = this.f46289g.u;
+                                this.f44697g.s.setText("");
+                                TextView textView7 = this.f44697g.u;
                                 textView7.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
                             } else {
-                                this.f46289g.s.setText("");
-                                TextView textView8 = this.f46289g.u;
+                                this.f44697g.s.setText("");
+                                TextView textView8 = this.f44697g.u;
                                 textView8.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                             }
                         }
                     } else {
-                        int i4 = this.f46288f;
+                        int i4 = this.f44696f;
                         if (i4 == 1) {
-                            TextView textView9 = this.f46289g.s;
+                            TextView textView9 = this.f44697g.s;
                             textView9.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                            this.f46289g.u.setText("");
+                            this.f44697g.u.setText("");
                         } else if (i4 == 2) {
-                            this.f46289g.s.setText("");
-                            TextView textView10 = this.f46289g.u;
+                            this.f44697g.s.setText("");
+                            TextView textView10 = this.f44697g.u;
                             textView10.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                         } else {
-                            this.f46289g.s.setText("");
-                            this.f46289g.u.setText("");
+                            this.f44697g.s.setText("");
+                            this.f44697g.u.setText("");
                         }
                     }
-                    this.f46289g.v.f21765j = this.f46288f;
+                    this.f44697g.v.f20999j = this.f44696f;
                 }
-                this.f46289g.v.l = this.f46287e;
-                this.f46289g.s.setVisibility(0);
-                this.f46289g.u.setVisibility(0);
-                this.f46289g.n(true);
-                HotTopicDetailPkLayout hotTopicDetailPkLayout = this.f46289g;
+                this.f44697g.v.l = this.f44695e;
+                this.f44697g.s.setVisibility(0);
+                this.f44697g.u.setVisibility(0);
+                this.f44697g.n(true);
+                HotTopicDetailPkLayout hotTopicDetailPkLayout = this.f44697g;
                 hotTopicDetailPkLayout.removeCallbacks(hotTopicDetailPkLayout.y);
-                HotTopicDetailPkLayout hotTopicDetailPkLayout2 = this.f46289g;
+                HotTopicDetailPkLayout hotTopicDetailPkLayout2 = this.f44697g;
                 hotTopicDetailPkLayout2.postDelayed(hotTopicDetailPkLayout2.y, 3000L);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailPkLayout f46290e;
+        public final /* synthetic */ HotTopicDetailPkLayout f44698e;
 
         public c(HotTopicDetailPkLayout hotTopicDetailPkLayout) {
             Interceptable interceptable = $ic;
@@ -250,17 +248,17 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                     return;
                 }
             }
-            this.f46290e = hotTopicDetailPkLayout;
+            this.f44698e = hotTopicDetailPkLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46290e.s == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44698e.s == null) {
                 return;
             }
-            this.f46290e.s.setVisibility(8);
-            this.f46290e.u.setVisibility(8);
+            this.f44698e.s.setVisibility(8);
+            this.f44698e.u.setVisibility(8);
         }
     }
 
@@ -282,11 +280,11 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f46280e = 3;
-        this.n = n.f(TbadkCoreApplication.getInst(), c.a.u0.r1.b.tbds107);
+        this.f44688e = 3;
+        this.n = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
-        this.w = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0308);
-        this.x = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0303);
+        this.w = SkinManager.getColorList(R.color.CAM_X0308);
+        this.x = SkinManager.getColorList(R.color.CAM_X0303);
         this.y = new c(this);
         j();
     }
@@ -313,7 +311,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f46281f.getPageActivity(), true, 110435)));
+                TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f44689f.getPageActivity(), true, 110435)));
                 return true;
             }
             return false;
@@ -326,30 +324,30 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             f<?> a2 = j.a(getContext());
             if (a2 instanceof TbPageContext) {
-                this.f46281f = (TbPageContext) a2;
+                this.f44689f = (TbPageContext) a2;
             }
-            LayoutInflater.from(getContext()).inflate(e.hot_topic_detail_pk_layout, (ViewGroup) this, true);
-            this.f46282g = (TextView) findViewById(d.tagView);
-            this.f46283h = (TextView) findViewById(d.titleView);
-            this.f46284i = (TextView) findViewById(d.descView);
-            TextView textView = (TextView) findViewById(d.pkBtn1);
-            this.f46285j = textView;
+            LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_pk_layout, (ViewGroup) this, true);
+            this.f44690g = (TextView) findViewById(R.id.tagView);
+            this.f44691h = (TextView) findViewById(R.id.titleView);
+            this.f44692i = (TextView) findViewById(R.id.descView);
+            TextView textView = (TextView) findViewById(R.id.pkBtn1);
+            this.f44693j = textView;
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(d.pkBtn2);
+            TextView textView2 = (TextView) findViewById(R.id.pkBtn2);
             this.k = textView2;
             textView2.setOnClickListener(this);
-            View findViewById = findViewById(d.progressBottomLayout);
+            View findViewById = findViewById(R.id.progressBottomLayout);
             this.l = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             this.m = layoutParams;
             layoutParams.height = this.o;
             this.l.setLayoutParams(layoutParams);
             this.l.setAlpha(0.0f);
-            this.q = (HotTopicDetailPkProcess) findViewById(d.processView);
-            this.r = (TextView) findViewById(d.pkText1);
-            this.s = (TextView) findViewById(d.pkTextSubmit1);
-            this.t = (TextView) findViewById(d.pkText2);
-            this.u = (TextView) findViewById(d.pkTextSubmit2);
+            this.q = (HotTopicDetailPkProcess) findViewById(R.id.processView);
+            this.r = (TextView) findViewById(R.id.pkText1);
+            this.s = (TextView) findViewById(R.id.pkTextSubmit1);
+            this.t = (TextView) findViewById(R.id.pkText2);
+            this.u = (TextView) findViewById(R.id.pkTextSubmit2);
         }
     }
 
@@ -388,7 +386,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.f46281f.getOrignalPage().getTopicId()));
+            TiebaStatic.log(new StatisticItem("c13818").param("uid", TbadkCoreApplication.getCurrentAccount()).param("topic_id", this.f44689f.getOrignalPage().getTopicId()));
         }
     }
 
@@ -397,16 +395,16 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             i iVar = this.v;
-            long j3 = iVar.f21765j == 1 ? 1 : 0;
-            long j4 = iVar.m + iVar.n + j3 + (iVar.f21765j == 2 ? 1 : 0);
-            this.f46282g.setText(String.format(getContext().getString(g.hot_topic_pk_head_tag), StringHelper.numberUniformFormatExtra(j4)));
-            this.f46284i.setText(iVar.f21760e);
-            this.f46285j.setText(iVar.f21761f);
-            this.k.setText(iVar.f21763h);
+            long j3 = iVar.f20999j == 1 ? 1 : 0;
+            long j4 = iVar.m + iVar.n + j3 + (iVar.f20999j == 2 ? 1 : 0);
+            this.f44690g.setText(String.format(getContext().getString(R.string.hot_topic_pk_head_tag), StringHelper.numberUniformFormatExtra(j4)));
+            this.f44692i.setText(iVar.f20994e);
+            this.f44693j.setText(iVar.f20995f);
+            this.k.setText(iVar.f20997h);
             this.r.setText("" + (iVar.m + j3));
             this.t.setText("" + (iVar.n + j2));
             if (j4 > 0) {
-                int i2 = iVar.f21765j;
+                int i2 = iVar.f20999j;
                 if (i2 == 1) {
                     if (j4 > 1) {
                         float f2 = (float) j4;
@@ -428,7 +426,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.q.setProcess(0.5f, z);
             }
             if (this.l.getVisibility() != 0) {
-                if (iVar.f21765j != 0) {
+                if (iVar.f20999j != 0) {
                     this.o = this.n;
                     ViewGroup.LayoutParams layoutParams = this.l.getLayoutParams();
                     this.m = layoutParams;
@@ -455,47 +453,47 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (iVar = this.v) == null) {
             return;
         }
-        int i2 = iVar.f21765j;
+        int i2 = iVar.f20999j;
         if (i2 == 1) {
-            this.f46285j.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_select);
-            this.k.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_unselect);
-            this.f46285j.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0101));
-            this.k.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0302));
+            this.f44693j.setBackgroundResource(R.drawable.bg_pk_btn_select);
+            this.k.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+            this.f44693j.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
         } else if (i2 == 2) {
-            this.f46285j.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_unselect);
-            this.k.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_select);
-            this.f46285j.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0308));
-            this.k.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0101));
+            this.f44693j.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+            this.k.setBackgroundResource(R.drawable.bg_pk_btn_select);
+            this.f44693j.setTextColor(SkinManager.getColor(R.color.CAM_X0308));
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
         } else {
-            this.f46285j.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_unselect);
-            this.k.setBackgroundResource(c.a.u0.r1.c.bg_pk_btn_unselect);
-            this.f46285j.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0308));
-            this.k.setTextColor(SkinManager.getColor(c.a.u0.r1.a.CAM_X0302));
+            this.f44693j.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+            this.k.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+            this.f44693j.setTextColor(SkinManager.getColor(R.color.CAM_X0308));
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f46285j.setBackgroundTintList(this.w);
+            this.f44693j.setBackgroundTintList(this.w);
             this.k.setBackgroundTintList(this.x);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f46280e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f44688e == i2) {
             return;
         }
-        SkinManager.setBackgroundColor(this, c.a.u0.r1.a.CAM_X0201);
-        this.w = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0308);
-        this.x = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0303);
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        this.w = SkinManager.getColorList(R.color.CAM_X0308);
+        this.x = SkinManager.getColorList(R.color.CAM_X0303);
         o();
-        SkinManager.setViewTextColor(this.f46282g, c.a.u0.r1.a.CAM_X0109);
-        SkinManager.setViewTextColor(this.f46283h, c.a.u0.r1.a.CAM_X0105);
-        SkinManager.setViewTextColor(this.f46284i, c.a.u0.r1.a.CAM_X0105);
-        SkinManager.setViewTextColor(this.r, c.a.u0.r1.a.CAM_X0308);
-        SkinManager.setViewTextColor(this.s, c.a.u0.r1.a.CAM_X0308);
-        SkinManager.setViewTextColor(this.t, c.a.u0.r1.a.CAM_X0303);
-        SkinManager.setViewTextColor(this.u, c.a.u0.r1.a.CAM_X0303);
+        SkinManager.setViewTextColor(this.f44690g, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f44691h, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f44692i, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0308);
+        SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0308);
+        SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0303);
+        SkinManager.setViewTextColor(this.u, (int) R.color.CAM_X0303);
         this.q.onChangeSkinType(i2);
-        this.f46280e = i2;
+        this.f44688e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -503,9 +501,9 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
             int id = view.getId();
-            if (id == d.pkBtn1) {
+            if (id == R.id.pkBtn1) {
                 k();
-            } else if (id == d.pkBtn2) {
+            } else if (id == R.id.pkBtn2) {
                 l();
             }
         }
@@ -533,7 +531,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public final void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f46281f.getOrignalPage().sendPkData(this.v, i2);
+            this.f44689f.getOrignalPage().sendPkData(this.v, i2);
         }
     }
 
@@ -556,11 +554,11 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f46280e = 3;
-        this.n = n.f(TbadkCoreApplication.getInst(), c.a.u0.r1.b.tbds107);
+        this.f44688e = 3;
+        this.n = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
-        this.w = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0308);
-        this.x = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0303);
+        this.w = SkinManager.getColorList(R.color.CAM_X0308);
+        this.x = SkinManager.getColorList(R.color.CAM_X0303);
         this.y = new c(this);
         j();
     }
@@ -584,11 +582,11 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f46280e = 3;
-        this.n = n.f(TbadkCoreApplication.getInst(), c.a.u0.r1.b.tbds107);
+        this.f44688e = 3;
+        this.n = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds107);
         this.o = 0;
-        this.w = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0308);
-        this.x = SkinManager.getColorList(c.a.u0.r1.a.CAM_X0303);
+        this.w = SkinManager.getColorList(R.color.CAM_X0308);
+        this.x = SkinManager.getColorList(R.color.CAM_X0303);
         this.y = new c(this);
         j();
     }

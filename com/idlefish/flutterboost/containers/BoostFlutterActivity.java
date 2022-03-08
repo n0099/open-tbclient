@@ -21,7 +21,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -43,7 +42,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BoostFlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BACKGROUND_MODE;
@@ -64,7 +63,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     public Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class BackgroundMode {
         public static final /* synthetic */ BackgroundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +122,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +164,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SerializableMap implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,7 +342,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
-                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), SplashNativePolicy.SPLASH_CMD_SHOW_PLG).metaData;
+                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 129).metaData;
                 Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
                 if (valueOf == null || valueOf.intValue() <= 0) {
                     return null;

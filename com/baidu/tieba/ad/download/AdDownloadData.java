@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class AdDownloadData implements Serializable, IDownloadModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,29 +31,29 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public String mPackageName;
     public String mPage;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41969b;
+        public String f40373b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41970c;
+        public String f40374c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41971d;
+        public String f40375d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f41972e;
+        public String f40376e;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
                 }
             }
             this.a = downloadCacheKey.mAdId;
-            this.f41969b = downloadCacheKey.mDownloadUrl;
-            this.f41970c = downloadCacheKey.mPackageName;
+            this.f40373b = downloadCacheKey.mDownloadUrl;
+            this.f40374c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -340,10 +340,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
             }
         }
         this.mAdId = bVar.a;
-        this.mPackageName = bVar.f41970c;
-        this.mDownloadUrl = bVar.f41969b;
-        this.mDeeplinkUrl = bVar.f41971d;
+        this.mPackageName = bVar.f40374c;
+        this.mDownloadUrl = bVar.f40373b;
+        this.mDeeplinkUrl = bVar.f40375d;
         this.mExtra = new AdDownloadExtra(this);
-        this.mCmdScheme = bVar.f41972e;
+        this.mCmdScheme = bVar.f40376e;
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class m extends b<List<com.kwad.sdk.core.response.model.b>> {
     public m() {
         super("posContentInfoList", new ArrayList());

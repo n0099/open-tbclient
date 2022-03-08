@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
 @TargetApi(18)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EglCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_RECORDABLE_ANDROID = 12610;

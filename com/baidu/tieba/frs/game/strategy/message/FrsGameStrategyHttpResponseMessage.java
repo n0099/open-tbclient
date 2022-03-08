@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
 import c.a.d.o.e.n;
-import c.a.u0.e1.e2.a.c.a;
-import c.a.u0.e1.e2.a.d.e;
+import c.a.r0.d1.u1.a.c.a;
+import c.a.r0.d1.u1.a.d.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = c.a.u0.e1.e2.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = c.a.u0.e1.e2.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = c.a.r0.d1.u1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = c.a.r0.d1.u1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

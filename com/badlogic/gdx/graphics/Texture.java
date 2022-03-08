@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.TimeFunctionConst;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class Texture extends e {
     public static /* synthetic */ Interceptable $ic;
     public static c.b.b.j.e n;
@@ -31,7 +31,7 @@ public class Texture extends e {
     public TextureData m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TextureFilter {
         public static final /* synthetic */ TextureFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -120,7 +120,7 @@ public class Texture extends e {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class TextureWrap {
         public static final /* synthetic */ TextureWrap[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,7 +190,7 @@ public class Texture extends e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class Texture extends e {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed textures/app: { ");
             for (Application application : o.keySet()) {
-                sb.append(o.get(application).f27595f);
+                sb.append(o.get(application).f27499f);
                 sb.append(" ");
             }
             sb.append("}");
@@ -303,7 +303,7 @@ public class Texture extends e {
         }
         c.b.b.j.e eVar = n;
         if (eVar == null) {
-            for (int i2 = 0; i2 < aVar.f27595f; i2++) {
+            for (int i2 = 0; i2 < aVar.f27499f; i2++) {
                 aVar.get(i2).B();
             }
             return;
@@ -319,18 +319,18 @@ public class Texture extends e {
             } else {
                 int q = n.q(m);
                 n.A(m, 0);
-                next.f27320f = 0;
+                next.f27224f = 0;
                 p.b bVar = new p.b();
-                bVar.f27241e = next.w();
-                bVar.f27242f = next.h();
-                bVar.f27243g = next.f();
-                bVar.f27244h = next.j();
-                bVar.f27245i = next.k();
-                bVar.f27239c = next.m.g();
-                bVar.f27240d = next;
+                bVar.f27145e = next.w();
+                bVar.f27146f = next.h();
+                bVar.f27147g = next.f();
+                bVar.f27148h = next.j();
+                bVar.f27149i = next.k();
+                bVar.f27143c = next.m.g();
+                bVar.f27144d = next;
                 bVar.a = new a(q);
                 n.C(m);
-                next.f27320f = f.f27173e.a();
+                next.f27224f = f.f27077e.a();
                 n.w(m, Texture.class, bVar);
             }
         }
@@ -350,10 +350,10 @@ public class Texture extends e {
             }
             a();
             e.q(3553, textureData);
-            o(this.f27321g, this.f27322h, true);
-            p(this.f27323i, this.f27324j, true);
+            o(this.f27225g, this.f27226h, true);
+            p(this.f27227i, this.f27228j, true);
             n(this.k, true);
-            f.f27173e.N(this.f27319e, 0);
+            f.f27077e.N(this.f27223e, 0);
         }
     }
 
@@ -361,7 +361,7 @@ public class Texture extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (z()) {
-                this.f27320f = f.f27173e.a();
+                this.f27224f = f.f27077e.a();
                 A(this.m);
                 return;
             }
@@ -372,7 +372,7 @@ public class Texture extends e {
     @Override // c.b.b.n.e, c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27320f == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27224f == 0) {
             return;
         }
         delete();
@@ -438,7 +438,7 @@ public class Texture extends e {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Texture(TextureData textureData) {
-        this(3553, f.f27173e.a(), textureData);
+        this(3553, f.f27077e.a(), textureData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

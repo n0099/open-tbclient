@@ -1,24 +1,25 @@
 package c.q.a;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-/* loaded from: classes9.dex */
-public class x3 implements Runnable {
+import com.win.opensdk.core.Info;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class x3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ a4 f30744e;
-
-    public x3(a4 a4Var) {
+    public x3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,15 +29,54 @@ public class x3 implements Runnable {
                 return;
             }
         }
-        this.f30744e = a4Var;
+        this.a = Collections.synchronizedList(new ArrayList());
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30744e.a.f30548c.f30516c.onFail(PBError.NO_FILL);
-            this.f30744e.a.f30548c.f30517d = true;
+            try {
+                this.a.clear();
+            } catch (Exception unused) {
+            }
         }
+    }
+
+    public void b(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this.a) {
+                this.a.clear();
+                this.a.addAll(list);
+            }
+        }
+    }
+
+    public Info c() {
+        InterceptResult invokeV;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.a) {
+                info = null;
+                while (this.a.size() > 0 && ((info = (Info) this.a.remove(0)) == null || !info.isEffective())) {
+                }
+            }
+            return info;
+        }
+        return (Info) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                isEmpty = this.a.isEmpty();
+            }
+            return isEmpty;
+        }
+        return invokeV.booleanValue;
     }
 }

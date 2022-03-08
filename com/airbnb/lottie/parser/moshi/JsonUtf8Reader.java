@@ -11,7 +11,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.http.message.BasicHeaderValueFormatter;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class JsonUtf8Reader extends JsonReader {
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
     public static final int NUMBER_CHAR_DECIMAL = 3;

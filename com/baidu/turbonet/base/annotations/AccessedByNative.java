@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 /* JADX WARN: Method from annotation default annotation not found: value */
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public @interface AccessedByNative {
 }

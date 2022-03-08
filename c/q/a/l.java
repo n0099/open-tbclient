@@ -18,38 +18,38 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a5 f30593b;
+    public v4 f29008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f30594c;
+    public Info f29009c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f30595d;
+    public View f29010d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f30596e;
+    public List f29011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PBNativeListener f30597f;
+    public PBNativeListener f29012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h4 f30598g;
+    public c4 f29013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30599h;
+    public long f29014h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e5 f30600i;
+    public z4 f29015i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f30601j;
+    public boolean f29016j;
     public long k;
     public float l;
     public float m;
@@ -81,16 +81,16 @@ public class l {
                 return;
             }
         }
-        this.f30596e = Collections.synchronizedList(new ArrayList());
-        this.f30599h = 0L;
-        this.f30600i = new w5(this);
-        this.f30601j = false;
+        this.f29011e = Collections.synchronizedList(new ArrayList());
+        this.f29014h = 0L;
+        this.f29015i = new r5(this);
+        this.f29016j = false;
         this.k = 0L;
         this.a = context;
-        a5 a5Var = new a5(context, str, L.f61008c);
-        this.f30593b = a5Var;
-        a5Var.f30509g = this.f30600i;
-        this.f30598g = new h4(context);
+        v4 v4Var = new v4(context, str, L.f59358c);
+        this.f29008b = v4Var;
+        v4Var.f29158g = this.f29015i;
+        this.f29013g = new c4(context);
     }
 
     public static /* synthetic */ void e(l lVar, View view) {
@@ -130,12 +130,12 @@ public class l {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 h();
-                if (this.f30593b != null) {
-                    this.f30593b.b();
-                    this.f30593b = null;
+                if (this.f29008b != null) {
+                    this.f29008b.b();
+                    this.f29008b = null;
                 }
-                if (this.f30597f != null) {
-                    this.f30597f = null;
+                if (this.f29012f != null) {
+                    this.f29012f = null;
                 }
             } catch (Exception unused) {
             }
@@ -158,19 +158,19 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, view, pBMediaView, list) == null) || view == null || list == null || list.size() == 0 || !g()) {
             return;
         }
-        this.f30599h = 0L;
-        if (this.f30595d != null) {
+        this.f29014h = 0L;
+        if (this.f29010d != null) {
             h();
         }
-        this.f30595d = view;
+        this.f29010d = view;
         try {
             h hVar = new h(this);
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 View view2 = (View) it.next();
                 if (view2 != null && !(view2 instanceof PBMediaView)) {
-                    if (!this.f30596e.contains(view2)) {
-                        this.f30596e.add(view2);
+                    if (!this.f29011e.contains(view2)) {
+                        this.f29011e.add(view2);
                     }
                     view2.setOnClickListener(hVar);
                     view2.setOnTouchListener(hVar);
@@ -181,30 +181,30 @@ public class l {
         if (pBMediaView != null) {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
-                    j3 htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(g() ? this.f30594c.getLoad() : "", this.f30594c);
-                    if (this.f30594c.isNat()) {
-                        htmlWebView.f30578c.setOnTouchListener(new a(this));
+                    e3 htmlWebView = pBMediaView.getHtmlWebView();
+                    htmlWebView.a(g() ? this.f29009c.getLoad() : "", this.f29009c);
+                    if (this.f29009c.isNat()) {
+                        htmlWebView.f28945c.setOnTouchListener(new a(this));
                     }
-                    htmlWebView.f30577b = new d(this);
+                    htmlWebView.f28944b = new d(this);
                 }
             } catch (Exception unused2) {
             }
         }
-        y2 a = c3.a(this.a);
-        a.o(new g3(this.f30594c));
+        t2 a = x2.a(this.a);
+        a.o(new b3(this.f29009c));
         a.m();
-        if (this.f30594c != null) {
-            m2.m(this.a, this.f30594c.getId() + ":" + System.currentTimeMillis(), false);
+        if (this.f29009c != null) {
+            h2.m(this.a, this.f29009c.getId() + ":" + System.currentTimeMillis(), false);
         }
-        new s0().a(view, this.f30594c, new e6(this, view));
+        new s0().a(view, this.f29009c, new z5(this, view));
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Info info = this.f30594c;
+            Info info = this.f29009c;
             return info != null && info.isEffective();
         }
         return invokeV.booleanValue;
@@ -214,14 +214,14 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                for (View view : this.f30596e) {
+                for (View view : this.f29011e) {
                     if (view != null) {
                         view.setOnClickListener(null);
                     }
                 }
-                this.f30596e.clear();
-                if (this.f30595d != null) {
-                    this.f30595d = null;
+                this.f29011e.clear();
+                if (this.f29010d != null) {
+                    this.f29010d = null;
                 }
             } catch (Exception unused) {
             }

@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.a.p;
+import c.i.c.a.n;
+import c.i.c.a.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.SmoothRateLimiter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class RateLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Object mutexDoNotUseDirectly;
     public final SleepingStopwatch stopwatch;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class SleepingStopwatch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

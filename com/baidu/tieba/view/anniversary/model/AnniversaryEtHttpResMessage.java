@@ -1,6 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.u0.q4.i.d.b;
+import c.a.r0.o4.i.d.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.VideoTemplate.VideoTemplateResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

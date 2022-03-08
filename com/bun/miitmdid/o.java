@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.ads.identifier.AdvertisingIdClient;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f53133c;
+    public Context f51552c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53134d;
+    public String f51553d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53135e;
+    public String f51554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53136f;
+    public String f51555f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53137g;
+    public boolean f51556g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53138h;
+    public boolean f51557h;
 
     public o(Context context) {
         Interceptable interceptable = $ic;
@@ -48,25 +48,25 @@ public class o extends n {
                 return;
             }
         }
-        this.f53134d = "";
-        this.f53135e = "";
-        this.f53136f = "";
-        this.f53137g = false;
-        this.f53138h = false;
-        this.f53133c = context;
+        this.f51553d = "";
+        this.f51554e = "";
+        this.f51555f = "";
+        this.f51556g = false;
+        this.f51557h = false;
+        this.f51552c = context;
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f53133c = a(this.f53133c);
+            this.f51552c = a(this.f51552c);
             isSupported();
             isLimited();
             getOAID();
             getVAID();
             getAAID();
-            a(this.f53134d, this.f53135e, this.f53136f, this.f53137g, this.f53138h);
+            a(this.f51553d, this.f51554e, this.f51555f, this.f51556g, this.f51557h);
         }
     }
 
@@ -83,11 +83,11 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                this.f53134d = AdvertisingIdClient.getAdvertisingIdInfo(this.f53133c).getId();
+                this.f51553d = AdvertisingIdClient.getAdvertisingIdInfo(this.f51552c).getId();
             } catch (IOException unused) {
-                this.f53134d = "";
+                this.f51553d = "";
             }
-            return this.f53134d;
+            return this.f51553d;
         }
         return (String) invokeV.objValue;
     }
@@ -105,11 +105,11 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                this.f53138h = AdvertisingIdClient.getAdvertisingIdInfo(this.f53133c).isLimitAdTrackingEnabled();
+                this.f51557h = AdvertisingIdClient.getAdvertisingIdInfo(this.f51552c).isLimitAdTrackingEnabled();
             } catch (Exception unused) {
-                this.f53138h = false;
+                this.f51557h = false;
             }
-            return this.f53138h;
+            return this.f51557h;
         }
         return invokeV.booleanValue;
     }
@@ -120,12 +120,12 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                this.f53134d = AdvertisingIdClient.getAdvertisingIdInfo(this.f53133c).getId();
+                this.f51553d = AdvertisingIdClient.getAdvertisingIdInfo(this.f51552c).getId();
             } catch (IOException unused) {
-                this.f53137g = false;
+                this.f51556g = false;
             }
             boolean z = !TextUtils.isEmpty(getOAID());
-            this.f53137g = z;
+            this.f51556g = z;
             return z;
         }
         return invokeV.booleanValue;

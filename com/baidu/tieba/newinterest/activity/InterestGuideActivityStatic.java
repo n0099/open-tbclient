@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.activity;
 
-import c.a.u0.q2.g.b;
+import c.a.r0.q2.g.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class InterestGuideActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

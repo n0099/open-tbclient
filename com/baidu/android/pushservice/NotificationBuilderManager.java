@@ -26,19 +26,19 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class NotificationBuilderManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "NotificationBuilderManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31823b = "notification_builder_storage";
+    public static String f30226b = "notification_builder_storage";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f31824c;
+    public static Object f30227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f31825d;
+    public static int f30228d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public class NotificationBuilderManager {
                 return;
             }
         }
-        f31824c = new Object();
+        f30227c = new Object();
     }
 
     public NotificationBuilderManager() {
@@ -76,7 +76,7 @@ public class NotificationBuilderManager {
         Notification construct;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Boolean.valueOf(z), bitmap})) == null) {
-            synchronized (f31824c) {
+            synchronized (f30227c) {
                 PushNotificationBuilder a2 = a(context, i2);
                 a2.setNotificationTitle(str);
                 a2.setNotificationText(str2);
@@ -113,7 +113,7 @@ public class NotificationBuilderManager {
         Notification construct;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i2), str, str2, Boolean.valueOf(z)})) == null) {
-            synchronized (f31824c) {
+            synchronized (f30227c) {
                 PushNotificationBuilder a2 = a(context, i2);
                 a2.setNotificationTitle(str);
                 a2.setNotificationText(str2);
@@ -149,7 +149,7 @@ public class NotificationBuilderManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
             PushNotificationBuilder pushNotificationBuilder2 = null;
-            String string = context.getSharedPreferences(f31823b, 0).getString("" + i2, null);
+            String string = context.getSharedPreferences(f30226b, 0).getString("" + i2, null);
             if (string != null) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
                 try {
@@ -177,13 +177,13 @@ public class NotificationBuilderManager {
     public static void a(Context context, int i2, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65542, null, context, i2, pushNotificationBuilder) == null) {
-            synchronized (f31824c) {
+            synchronized (f30227c) {
                 try {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                     objectOutputStream.writeObject(pushNotificationBuilder);
                     String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                    SharedPreferences.Editor edit = context.getSharedPreferences(f31823b, 0).edit();
+                    SharedPreferences.Editor edit = context.getSharedPreferences(f30226b, 0).edit();
                     edit.putString("" + i2, encodeToString);
                     edit.commit();
                     byteArrayOutputStream.close();
@@ -198,14 +198,14 @@ public class NotificationBuilderManager {
     public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, pushNotificationBuilder) == null) {
-            synchronized (f31824c) {
+            synchronized (f30227c) {
                 try {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                     objectOutputStream.writeObject(pushNotificationBuilder);
                     String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                    SharedPreferences.Editor edit = context.getSharedPreferences(f31823b, 0).edit();
-                    edit.putString("" + f31825d, encodeToString);
+                    SharedPreferences.Editor edit = context.getSharedPreferences(f30226b, 0).edit();
+                    edit.putString("" + f30228d, encodeToString);
                     edit.commit();
                     byteArrayOutputStream.close();
                     objectOutputStream.close();
@@ -222,9 +222,9 @@ public class NotificationBuilderManager {
         PushNotificationBuilder pushNotificationBuilder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f31823b, 0);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f30226b, 0);
             PushNotificationBuilder pushNotificationBuilder2 = null;
-            String string = sharedPreferences.getString("" + f31825d, null);
+            String string = sharedPreferences.getString("" + f30228d, null);
             if (string != null) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
                 try {

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -5413539480595883024L;
     public int contentType;

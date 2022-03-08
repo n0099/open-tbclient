@@ -9,15 +9,15 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.b.d;
-import c.a.t0.b.g.a;
-import c.a.t0.d1.i0;
-import c.a.t0.s.r.e2;
-import c.a.u0.e1.b3.p;
-import c.a.u0.l3.y;
+import c.a.q0.c1.h0;
+import c.a.q0.r.r.e2;
+import c.a.r0.d1.r2.p;
+import c.a.r0.j3.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -200,8 +200,8 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.w() && a.f12511c != a.d()) {
-                frsRequestData.H(p.d(a.d()));
+            if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
+                frsRequestData.H(p.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
             frsRequestData.setSortType(p.d(i2));
             if (i2 == 5) {
@@ -228,7 +228,7 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.O(null);
             frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.g(i0.a(), 0L));
+            frsRequestData.N(b.g(h0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.J(1);
             frsRequestData.setNeedCache(true);
@@ -236,9 +236,9 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             p.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (e2.X3.get() && y.q().b() != null) {
-                int d2 = y.q().b().d(stringExtra, false);
-                int e2 = y.q().b().e(stringExtra, false);
+            if (e2.X3.get() && z.q().b() != null) {
+                int d2 = z.q().b().d(stringExtra, false);
+                int e2 = z.q().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {
                     d2++;
                 } else if (frsRequestData.A() == 2) {

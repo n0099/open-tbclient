@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.u0.a4.e;
-import c.a.u0.z3.m0.a;
+import c.a.r0.y3.m0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
@@ -16,12 +15,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SkinInfo;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,11 +99,11 @@ public class ThreadSkinView extends TbImageView {
                         if (e2 > 0 && e3 > 0) {
                             layoutParams.height = (int) (layoutParams.width * (e3 / e2));
                         } else {
-                            layoutParams.height = (int) tbPageContext.getResources().getDimension(e.ds80);
+                            layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
                         }
                     }
                 } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(e.ds80);
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
                 }
                 setLayoutParams(layoutParams);
                 startLoad(skinInfo.skin, 10, false);

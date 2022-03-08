@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Thread[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f50716b;
+    public LinkedBlockingQueue<Runnable> f49135b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public final class c {
             }
         }
         this.a = null;
-        this.f50716b = null;
-        this.f50716b = new LinkedBlockingQueue<>();
+        this.f49135b = null;
+        this.f49135b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -57,7 +57,7 @@ public final class c {
             c cVar = new c();
             cVar.a = new Thread[a];
             for (int i3 = a - 1; i3 >= 0; i3 += -1) {
-                cVar.a[i3] = new Thread(new d(cVar.f50716b));
+                cVar.a[i3] = new Thread(new d(cVar.f49135b));
                 cVar.a[i3].setPriority(5);
                 cVar.a[i3].setName(str + " " + a + "." + (i3 + 1));
                 cVar.a[i3].start();
@@ -73,7 +73,7 @@ public final class c {
             return;
         }
         try {
-            this.f50716b.put(runnable);
+            this.f49135b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -83,10 +83,10 @@ public final class c {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50716b.clear();
+            this.f49135b.clear();
             for (Thread thread : this.a) {
                 if (thread.isAlive()) {
-                    this.f50716b.offer(new b());
+                    this.f49135b.offer(new b());
                 }
             }
             for (Thread thread2 : this.a) {

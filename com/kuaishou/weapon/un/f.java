@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f55265b;
+    public static Location f53615b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -38,22 +38,22 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a || f55265b != null || context == null) {
-                return f55265b;
+            if (a || f53615b != null || context == null) {
+                return f53615b;
             }
             if (v.a(context).a(64)) {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f55265b = a(context, locationManager);
+                        f53615b = a(context, locationManager);
                     }
-                    if (f55265b == null && locationManager.isProviderEnabled("network")) {
-                        f55265b = b(context, locationManager);
+                    if (f53615b == null && locationManager.isProviderEnabled("network")) {
+                        f53615b = b(context, locationManager);
                     }
-                    if (f55265b == null && locationManager.isProviderEnabled("passive")) {
-                        f55265b = c(context, locationManager);
+                    if (f53615b == null && locationManager.isProviderEnabled("passive")) {
+                        f53615b = c(context, locationManager);
                     }
-                    return f55265b;
+                    return f53615b;
                 } catch (Exception unused) {
                     a = true;
                     return null;
@@ -70,7 +70,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55458g, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f53808g, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -92,7 +92,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55458g, Process.myPid(), Process.myUid()) == 0 || context.checkPermission(s.f55459h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f53808g, Process.myPid(), Process.myUid()) == 0 || context.checkPermission(s.f53809h, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -114,7 +114,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55459h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f53809h, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                     if (lastKnownLocation == null) {
                         a = true;

@@ -2,7 +2,7 @@ package com.dxmpay.wallet.base.widget.dialog;
 
 import android.text.SpannableString;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface BaseDialogInterface {
     void hideButtons();
 

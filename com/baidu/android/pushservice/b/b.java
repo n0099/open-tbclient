@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31876b;
+    public String f30279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31877c;
+    public String f30280c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -48,26 +48,26 @@ public class b {
         b.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = new File(this.f31877c).exists() ? a.a(this.a, this.f31877c) : a.a();
+            String a = new File(this.f30280c).exists() ? a.a(this.a, this.f30280c) : a.a();
             if (!TextUtils.isEmpty(a)) {
                 try {
                     byte[] decode = Base64.decode(a.getBytes(), 2);
                     if (decode != null && decode.length > 0) {
-                        this.f31876b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
+                        this.f30279b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                     }
                 } catch (Exception e2) {
                     e = e2;
                     cVar = new b.c(this.a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f31876b);
+                    return !TextUtils.isEmpty(this.f30279b);
                 } catch (UnsatisfiedLinkError e3) {
                     e = e3;
                     cVar = new b.c(this.a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f31876b);
+                    return !TextUtils.isEmpty(this.f30279b);
                 }
             }
-            return !TextUtils.isEmpty(this.f31876b);
+            return !TextUtils.isEmpty(this.f30279b);
         }
         return invokeV.booleanValue;
     }
@@ -75,6 +75,6 @@ public class b {
     public boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f31877c, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f30280c, str) : invokeLL.booleanValue;
     }
 }

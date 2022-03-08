@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
@@ -30,12 +30,12 @@ public class StatService {
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface OnZidReceiveListener {
         String getZid();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }

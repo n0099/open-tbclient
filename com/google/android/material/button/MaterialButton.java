@@ -32,6 +32,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +40,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
@@ -51,12 +51,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_Button = 2131755880;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
@@ -86,21 +88,21 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -245,7 +247,6 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_Button;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1017,7 +1018,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_Button), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1038,14 +1039,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         this.checked = false;
         this.broadcasting = false;
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.MaterialButton, i2, DEF_STYLE_RES, new int[0]);
-        this.iconPadding = obtainStyledAttributes.getDimensionPixelSize(R.styleable.MaterialButton_iconPadding, 0);
-        this.iconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.MaterialButton_iconTintMode, -1), PorterDuff.Mode.SRC_IN);
-        this.iconTint = MaterialResources.getColorStateList(getContext(), obtainStyledAttributes, R.styleable.MaterialButton_iconTint);
-        this.icon = MaterialResources.getDrawable(getContext(), obtainStyledAttributes, R.styleable.MaterialButton_icon);
-        this.iconGravity = obtainStyledAttributes.getInteger(R.styleable.MaterialButton_iconGravity, 1);
-        this.iconSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.MaterialButton_iconSize, 0);
-        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i2, DEF_STYLE_RES).build());
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.cornerRadius, R.attr.elevation, R.attr.icon, R.attr.iconGravity, R.attr.iconPadding, R.attr.iconSize, R.attr.iconTint, R.attr.iconTintMode, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_Button, new int[0]);
+        this.iconPadding = obtainStyledAttributes.getDimensionPixelSize(12, 0);
+        this.iconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(15, -1), PorterDuff.Mode.SRC_IN);
+        this.iconTint = MaterialResources.getColorStateList(getContext(), obtainStyledAttributes, 14);
+        this.icon = MaterialResources.getDrawable(getContext(), obtainStyledAttributes, 10);
+        this.iconGravity = obtainStyledAttributes.getInteger(11, 1);
+        this.iconSize = obtainStyledAttributes.getDimensionPixelSize(13, 0);
+        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_MaterialComponents_Button).build());
         this.materialButtonHelper = materialButtonHelper;
         materialButtonHelper.loadFromAttributes(obtainStyledAttributes);
         obtainStyledAttributes.recycle();

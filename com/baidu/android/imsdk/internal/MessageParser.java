@@ -3,8 +3,8 @@ package com.baidu.android.imsdk.internal;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.u.a;
-import c.a.v.a.b.d.b;
+import c.a.t.a;
+import c.a.u.a.b.d.b;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
@@ -35,19 +35,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageParser";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class DuParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,17 +114,17 @@ public class MessageParser {
                             JSONObject jSONObject3 = new JSONObject(optString4);
                             int optInt2 = jSONObject3.optInt("type");
                             String optString5 = jSONObject3.optString("content");
-                            if (jSONObject3.has("body")) {
+                            if (jSONObject3.has(TtmlNode.TAG_BODY)) {
                                 int optInt3 = jSONObject3.optInt("type", 1);
                                 if (optInt3 == 1) {
                                     JSONObject jSONObject4 = new JSONObject();
-                                    jSONObject4.put("text", jSONObject3.optString("body"));
+                                    jSONObject4.put("text", jSONObject3.optString(TtmlNode.TAG_BODY));
                                     optString5 = jSONObject4.toString();
                                     i2 = optInt;
                                     str = MessageParser.TAG;
                                     i4 = 0;
                                 } else if (optInt3 == 0) {
-                                    JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
+                                    JSONArray jSONArray = new JSONArray(jSONObject3.optString(TtmlNode.TAG_BODY));
                                     i3 = optInt2;
                                     if (jSONArray.length() > 1) {
                                         JSONArray jSONArray2 = new JSONArray();
@@ -360,7 +361,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -631,13 +632,13 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
                 newAckMessage.addTriples(list2);
-                if (a.f14716e) {
+                if (a.f25914e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
-                    bLCPRequest.f34855b = 95L;
-                    bLCPRequest.f34856c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f34857d = System.nanoTime();
-                    c.a.v.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    bLCPRequest.f33258b = 95L;
+                    bLCPRequest.f33259c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f33260d = System.nanoTime();
+                    c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -662,7 +663,7 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // c.a.v.a.b.d.b
+                        @Override // c.a.u.a.b.d.b
                         public void onResponse(int i2, String str, long j3, long j4, long j5, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), bArr}) == null) {

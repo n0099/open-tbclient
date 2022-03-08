@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55246b;
+    public String f53596b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +47,10 @@ public class c extends FileObserver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.class) {
                     if (!l1.a(this.a.a)) {
-                        l1.c(this.a.f55246b, this.a.a);
+                        l1.c(this.a.f53596b, this.a.a);
                         l1.a(this.a.a, Boolean.TRUE);
                         b.a(new File(this.a.a));
-                        b.a(new File(this.a.a), new File(this.a.f55246b));
+                        b.a(new File(this.a.a), new File(this.a.f53596b));
                     }
                 }
             }
@@ -77,7 +77,7 @@ public class c extends FileObserver {
             }
         }
         this.a = str;
-        this.f55246b = str2;
+        this.f53596b = str2;
     }
 
     public boolean a() {
@@ -85,7 +85,7 @@ public class c extends FileObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                File file = new File(this.f55246b);
+                File file = new File(this.f53596b);
                 if (file.exists()) {
                     file.delete();
                     return true;

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
                 builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
                 builder.network_type = String.valueOf(l.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    c0.a(builder, true);
+                    b0.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

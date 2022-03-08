@@ -7,27 +7,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class g<T, R> implements d.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.d<T> f62042e;
+    public final i.d<T> f60392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.f<? super T, ? extends R> f62043f;
+    public final i.n.f<? super T, ? extends R> f60393f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T, R> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super R> f62044i;
+        public final i.j<? super R> f60394i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.n.f<? super T, ? extends R> f62045j;
+        public final i.n.f<? super T, ? extends R> f60395j;
         public boolean k;
 
         public a(i.j<? super R> jVar, i.n.f<? super T, ? extends R> fVar) {
@@ -45,15 +45,15 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
             }
-            this.f62044i = jVar;
-            this.f62045j = fVar;
+            this.f60394i = jVar;
+            this.f60395j = fVar;
         }
 
         @Override // i.j
         public void f(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f62044i.f(fVar);
+                this.f60394i.f(fVar);
             }
         }
 
@@ -63,7 +63,7 @@ public final class g<T, R> implements d.a<R> {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
                 return;
             }
-            this.f62044i.onCompleted();
+            this.f60394i.onCompleted();
         }
 
         @Override // i.e
@@ -75,7 +75,7 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
                 this.k = true;
-                this.f62044i.onError(th);
+                this.f60394i.onError(th);
             }
         }
 
@@ -84,7 +84,7 @@ public final class g<T, R> implements d.a<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 try {
-                    this.f62044i.onNext(this.f62045j.call(t));
+                    this.f60394i.onNext(this.f60395j.call(t));
                 } catch (Throwable th) {
                     i.m.a.e(th);
                     unsubscribe();
@@ -109,8 +109,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f62042e = dVar;
-        this.f62043f = fVar;
+        this.f60392e = dVar;
+        this.f60393f = fVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -121,9 +121,9 @@ public final class g<T, R> implements d.a<R> {
     public void call(i.j<? super R> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f62043f);
+            a aVar = new a(jVar, this.f60393f);
             jVar.b(aVar);
-            this.f62042e.D(aVar);
+            this.f60392e.D(aVar);
         }
     }
 }

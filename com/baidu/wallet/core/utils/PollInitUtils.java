@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.ActLifecycleCbs;
 import com.baidu.wallet.utils.BdWalletUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PollInitUtils implements ActLifecycleCbs.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int INTERVAL_TIME = 120000;
@@ -20,7 +20,7 @@ public class PollInitUtils implements ActLifecycleCbs.a {
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final PollInitUtils a;

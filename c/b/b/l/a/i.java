@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class i implements c.b.b.n.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f27265b;
+    public int[] f27169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f27266c;
+    public int[] f27170c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f27267d;
+    public byte[] f27171d;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class i implements c.b.b.n.c {
             }
         }
         this.a = new int[1];
-        this.f27265b = new int[1];
-        this.f27266c = new int[1];
-        this.f27267d = new byte[512];
+        this.f27169b = new int[1];
+        this.f27170c = new int[1];
+        this.f27171d = new byte[512];
     }
 
     @Override // c.b.b.n.c
@@ -66,11 +66,11 @@ public class i implements c.b.b.n.c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intBuffer, intBuffer2})) == null) {
-            byte[] bArr = this.f27267d;
-            GLES20.glGetActiveAttrib(i2, i3, bArr.length, this.a, 0, this.f27265b, 0, this.f27266c, 0, bArr, 0);
-            intBuffer.put(this.f27265b[0]);
-            intBuffer2.put(this.f27266c[0]);
-            return new String(this.f27267d, 0, this.a[0]);
+            byte[] bArr = this.f27171d;
+            GLES20.glGetActiveAttrib(i2, i3, bArr.length, this.a, 0, this.f27169b, 0, this.f27170c, 0, bArr, 0);
+            intBuffer.put(this.f27169b[0]);
+            intBuffer2.put(this.f27170c[0]);
+            return new String(this.f27171d, 0, this.a[0]);
         }
         return (String) invokeCommon.objValue;
     }
@@ -396,11 +396,11 @@ public class i implements c.b.b.n.c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intBuffer, intBuffer2})) == null) {
-            byte[] bArr = this.f27267d;
-            GLES20.glGetActiveUniform(i2, i3, bArr.length, this.a, 0, this.f27265b, 0, this.f27266c, 0, bArr, 0);
-            intBuffer.put(this.f27265b[0]);
-            intBuffer2.put(this.f27266c[0]);
-            return new String(this.f27267d, 0, this.a[0]);
+            byte[] bArr = this.f27171d;
+            GLES20.glGetActiveUniform(i2, i3, bArr.length, this.a, 0, this.f27169b, 0, this.f27170c, 0, bArr, 0);
+            intBuffer.put(this.f27169b[0]);
+            intBuffer2.put(this.f27170c[0]);
+            return new String(this.f27171d, 0, this.a[0]);
         }
         return (String) invokeCommon.objValue;
     }

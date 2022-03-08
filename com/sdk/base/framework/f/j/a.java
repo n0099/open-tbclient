@@ -13,14 +13,13 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.i.e;
 import java.util.Map;
 import java.util.TreeMap;
-import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f59480b;
+    public static boolean f57830b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +35,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f59480b = f.f59448b;
+        f57830b = f.f57798b;
     }
 
     public a() {
@@ -70,9 +69,9 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f31099h);
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.f29503h);
                         stringBuffer.append(entry.getValue());
-                        stringBuffer.append(Typography.amp);
+                        stringBuffer.append('&');
                     }
                 }
                 if (stringBuffer.charAt(stringBuffer.length() - 1) == '&') {
@@ -80,7 +79,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return e.a(stringBuffer.toString());
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f59480b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f57830b));
                 return null;
             }
         }

@@ -6,15 +6,15 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.r;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e implements com.kwad.sdk.core.b {
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f56371b;
+    public double f54721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f56372c;
+    public double f54722c;
 
     public static e a() {
         e eVar = a;
@@ -25,8 +25,8 @@ public class e implements com.kwad.sdk.core.b {
         if (a2 != null) {
             e eVar2 = new e();
             a = eVar2;
-            eVar2.f56371b = a2.getLatitude();
-            a.f56372c = a2.getLongitude();
+            eVar2.f54721b = a2.getLatitude();
+            a.f54722c = a2.getLongitude();
         }
         return a;
     }
@@ -38,8 +38,8 @@ public class e implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "latitude", this.f56371b);
-        t.a(jSONObject, "longitude", this.f56372c);
+        t.a(jSONObject, "latitude", this.f54721b);
+        t.a(jSONObject, "longitude", this.f54722c);
         return jSONObject;
     }
 }

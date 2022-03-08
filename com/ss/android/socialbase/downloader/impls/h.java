@@ -4,19 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h extends com.ss.android.socialbase.downloader.downloader.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f60378e = "h";
+    public static final String f58728e = "h";
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void a(Intent intent, int i2, int i3) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f60378e, "onStartCommand");
+            com.ss.android.socialbase.downloader.c.a.b(f58728e, "onStartCommand");
         }
         if (!com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.f60161b = true;
+            this.f58511b = true;
         }
         e();
     }
@@ -24,10 +24,10 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void c() {
         if (com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.f60161b = true;
-            this.f60163d = false;
+            this.f58511b = true;
+            this.f58513d = false;
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f60378e, "onStartCommandOnMainThread");
+                com.ss.android.socialbase.downloader.c.a.b(f58728e, "onStartCommandOnMainThread");
             }
         }
     }
@@ -44,6 +44,6 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a
     public void stopService(Context context, ServiceConnection serviceConnection) {
         context.stopService(new Intent(context, DownloadService.class));
-        this.f60161b = false;
+        this.f58511b = false;
     }
 }

@@ -40,7 +40,6 @@ import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.activity.BaseOptionActivity;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.enums.PassAddrColorLocation;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
@@ -49,6 +48,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.SweepLightLoadingView;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ import java.util.List;
 import java.util.ListIterator;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddressListActivity extends BaseAddressActivity<AddressPresenter> implements AdapterView.OnItemLongClickListener, AddrOptionDialog.OptionOnClickListener, AddrListAdapter.EditAddressListener, AdapterView.OnItemClickListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

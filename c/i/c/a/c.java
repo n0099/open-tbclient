@@ -1,65 +1,35 @@
 package c.i.c.a;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public final class c extends Thread {
+import java.nio.charset.Charset;
+/* loaded from: classes3.dex */
+public final class c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final Context f30210e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final m f30211f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f30212g;
-
-    public c(Context context, m mVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, mVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-500210512, "Lc/i/c/a/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-500210512, "Lc/i/c/a/c;");
                 return;
             }
         }
-        this.f30210e = context;
-        this.f30211f = mVar;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30212g = true;
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f30212g) {
-                if (f.d().h(this.f30210e)) {
-                    this.f30211f.a(com.google.ar.core.p.f54615c);
-                    return;
-                }
-                try {
-                    Thread.sleep(200L);
-                } catch (InterruptedException unused) {
-                }
-            }
-        }
+        Charset.forName("US-ASCII");
+        Charset.forName("ISO-8859-1");
+        a = Charset.forName("UTF-8");
+        Charset.forName("UTF-16BE");
+        Charset.forName("UTF-16LE");
+        Charset.forName("UTF-16");
     }
 }

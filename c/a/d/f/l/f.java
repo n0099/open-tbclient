@@ -11,31 +11,31 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2056b;
+    public int f2685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2057c;
+    public long f2686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2058d;
+    public int f2687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2059e;
+    public int f2688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2060f;
+    public long f2689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2061g;
+    public int f2690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2062h;
+    public int f2691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f2063i;
+    public long f2692i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2064j;
+    public int f2693j;
     public long k;
     public int l;
     public long m;
@@ -71,15 +71,15 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            this.f2056b = 0;
-            this.f2057c = 0L;
-            this.f2058d = 0;
-            this.f2059e = 0;
-            this.f2060f = 0L;
-            this.f2061g = 0;
-            this.f2062h = 0;
-            this.f2063i = 0L;
-            this.f2064j = 0;
+            this.f2685b = 0;
+            this.f2686c = 0L;
+            this.f2687d = 0;
+            this.f2688e = 0;
+            this.f2689f = 0L;
+            this.f2690g = 0;
+            this.f2691h = 0;
+            this.f2692i = 0L;
+            this.f2693j = 0;
             this.k = 0L;
             this.l = 0;
             this.m = 0L;

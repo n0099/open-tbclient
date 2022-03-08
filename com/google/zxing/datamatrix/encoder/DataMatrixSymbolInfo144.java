@@ -1,13 +1,13 @@
 package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+/* loaded from: classes7.dex */
 public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public final class DataMatrixSymbolInfo144 extends SymbolInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 <= 8) {
-                return 156;
+                return Cea708Decoder.COMMAND_DS4;
             }
-            return a.f32571e;
+            return 155;
         }
         return invokeI.intValue;
     }

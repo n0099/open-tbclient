@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.UpdateForumMask.DataReq;
 import protobuf.UpdateForumMask.UpdateForumMaskReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RequestUpdateForumMask extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_FORUM_BROADCAST = 1;

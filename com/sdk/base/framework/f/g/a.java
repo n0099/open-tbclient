@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.g.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f59469b;
+    public static final Boolean f57819b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        f59469b = Boolean.valueOf(com.sdk.base.framework.c.f.f59448b);
+        f57819b = Boolean.valueOf(com.sdk.base.framework.c.f.f57798b);
     }
 
     public a() {
@@ -54,7 +54,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c cVar = c.f59471c;
+            c cVar = c.f57821c;
             if (context == null) {
                 return cVar;
             }
@@ -63,13 +63,13 @@ public class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     String typeName = activeNetworkInfo.getTypeName();
                     if ("MOBILE".equalsIgnoreCase(typeName)) {
-                        cVar = c.f59470b;
+                        cVar = c.f57820b;
                     } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
                         cVar = c.a;
                     }
                 }
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(a, th.getMessage(), f59469b);
+                com.sdk.base.framework.a.a.c.b(a, th.getMessage(), f57819b);
             }
             return cVar;
         }

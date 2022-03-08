@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import c.a.d.f.p.n;
-import c.a.u0.p2.g.f;
-import c.a.u0.p2.g.h;
-import c.a.u0.z0.g;
+import c.a.r0.p2.g.f;
+import c.a.r0.p2.g.h;
+import c.a.r0.y0.g;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,30 +33,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FaceCollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f46336e;
+    public BdListView f44744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f46337f;
+    public h f44745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<EmotionImageData> f46338g;
+    public List<EmotionImageData> f44746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f46339h;
+    public f f44747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoDataView f46340i;
+    public NoDataView f44748i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Activity f46341j;
+    public Activity f44749j;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<Void, Void, List<EmotionImageData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,13 +115,13 @@ public class FaceCollectFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list == null || list.isEmpty()) {
-                    this.a.f46336e.setVisibility(8);
-                    this.a.f46340i.setVisibility(0);
+                    this.a.f44744e.setVisibility(8);
+                    this.a.f44748i.setVisibility(0);
                     return;
                 }
-                this.a.f46338g.clear();
-                this.a.f46338g.addAll(list);
-                this.a.f46337f.notifyDataSetChanged();
+                this.a.f44746g.clear();
+                this.a.f44746g.addAll(list);
+                this.a.f44745f.notifyDataSetChanged();
             }
         }
     }
@@ -144,7 +144,7 @@ public class FaceCollectFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            h hVar = this.f46337f;
+            h hVar = this.f44745f;
             if (hVar != null) {
                 return hVar.i();
             }
@@ -167,18 +167,18 @@ public class FaceCollectFragment extends BaseFragment {
         EmotionImageData emotionImageData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f46341j = getPageContext().getPageActivity();
+            this.f44749j = getPageContext().getPageActivity();
             View inflate = layoutInflater.inflate(R.layout.fragment_pick_collect, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
-            NoDataView a2 = NoDataViewFactory.a(this.f46341j, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.f46341j, R.dimen.ds320)), NoDataViewFactory.e.c(this.f46341j.getText(R.string.face_group_no_emotion).toString()), null);
-            this.f46340i = a2;
+            NoDataView a2 = NoDataViewFactory.a(this.f44749j, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.f44749j, R.dimen.ds320)), NoDataViewFactory.e.c(this.f44749j.getText(R.string.face_group_no_emotion).toString()), null);
+            this.f44748i = a2;
             a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f46340i.setVisibility(8);
-            this.f46336e = (BdListView) inflate.findViewById(R.id.listview_emotion);
-            this.f46338g = new ArrayList();
-            h hVar = new h(this.f46338g, 20);
-            this.f46337f = hVar;
-            hVar.l(this.f46339h);
+            this.f44748i.setVisibility(8);
+            this.f44744e = (BdListView) inflate.findViewById(R.id.listview_emotion);
+            this.f44746g = new ArrayList();
+            h hVar = new h(this.f44746g, 20);
+            this.f44745f = hVar;
+            hVar.l(this.f44747h);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();
@@ -188,9 +188,9 @@ public class FaceCollectFragment extends BaseFragment {
                         linkedHashMap.put(emotionImageData.getPicUrl(), faceData.emotionImageData);
                     }
                 }
-                this.f46337f.g(linkedHashMap);
+                this.f44745f.g(linkedHashMap);
             }
-            this.f46336e.setAdapter((ListAdapter) this.f46337f);
+            this.f44744e.setAdapter((ListAdapter) this.f44745f);
             i();
             return inflate;
         }
@@ -200,8 +200,8 @@ public class FaceCollectFragment extends BaseFragment {
     public void setEmotionChooseCallback(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f46339h = fVar;
-            h hVar = this.f46337f;
+            this.f44747h = fVar;
+            h hVar = this.f44745f;
             if (hVar != null) {
                 hVar.l(fVar);
             }

@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ForumGoodsEnterLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.s.r.a l;
+    public c.a.q0.r.r.a l;
     public ForumGoodsEnterLayout m;
     public int n;
     public final View.OnClickListener o;
@@ -27,7 +28,7 @@ public class l extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f4386e;
+        public final /* synthetic */ l f4040e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +45,16 @@ public class l extends h {
                     return;
                 }
             }
-            this.f4386e = lVar;
+            this.f4040e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4386e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4040e.c() == null) {
                 return;
             }
-            this.f4386e.c().a(view, this.f4386e.l);
+            this.f4040e.c().a(view, this.f4040e.l);
         }
     }
 
@@ -77,7 +78,7 @@ public class l extends h {
         }
         this.o = new a(this);
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
-        int f3 = c.a.d.f.p.n.f(context, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int f3 = c.a.d.f.p.n.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
         q(f2);
         p(f3);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
@@ -103,7 +104,7 @@ public class l extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int f2 = c.a.d.f.p.n.f(this.f4353f, R.dimen.M_H_X003);
+            int f2 = c.a.d.f.p.n.f(this.f4007f, R.dimen.M_H_X003);
             q(f2);
             p(0);
             v(this.m, f2, 0);
@@ -113,11 +114,11 @@ public class l extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f4352e.i());
+            this.m.setSourceForPb(this.f4006e.i());
             this.m.setFrstype(this.n);
             this.m.setData(aVar);
         }

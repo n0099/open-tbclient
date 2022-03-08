@@ -12,7 +12,6 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,18 +22,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
 import com.dxmpay.apollon.NoProguard;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SafeWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final boolean f53905f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public volatile a f53906e;
+    /* renamed from: b  reason: collision with root package name */
+    public volatile a f52386b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SafeChromeClient extends WebChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +63,7 @@ public class SafeWebView extends WebView {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) {
-                if (SafeWebView.f53905f) {
+                if (SafeWebView.a) {
                     String str4 = "onJsPrompt: " + str;
                     String str5 = "msg: " + str2;
                     String str6 = "defaultValue" + str3;
@@ -88,7 +85,7 @@ public class SafeWebView extends WebView {
                 } else if (!this.a) {
                     a(webView);
                     this.a = true;
-                    if (SafeWebView.f53905f) {
+                    if (SafeWebView.a) {
                         String str = " inject js interface completely on progress " + i2;
                     }
                 }
@@ -103,7 +100,7 @@ public class SafeWebView extends WebView {
                 return;
             }
             this.a = false;
-            if (SafeWebView.f53905f) {
+            if (SafeWebView.a) {
                 String str2 = "onReceivedTitle: " + str;
             }
             a(webView);
@@ -112,7 +109,7 @@ public class SafeWebView extends WebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SafeWebViewClient extends WebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +143,7 @@ public class SafeWebView extends WebView {
                 return;
             }
             this.a = false;
-            if (SafeWebView.f53905f) {
+            if (SafeWebView.a) {
                 String str2 = "doUpdateVisitedHistory: " + str;
             }
             a(webView);
@@ -161,7 +158,7 @@ public class SafeWebView extends WebView {
                 return;
             }
             this.a = false;
-            if (SafeWebView.f53905f) {
+            if (SafeWebView.a) {
                 String str2 = "onLoadResource: " + str;
             }
             super.onLoadResource(webView, str);
@@ -175,7 +172,7 @@ public class SafeWebView extends WebView {
                 return;
             }
             this.a = false;
-            if (SafeWebView.f53905f) {
+            if (SafeWebView.a) {
                 String str2 = "onPageFinished: " + str;
             }
             a(webView);
@@ -190,7 +187,7 @@ public class SafeWebView extends WebView {
                 return;
             }
             this.a = false;
-            if (SafeWebView.f53905f) {
+            if (SafeWebView.a) {
                 String str2 = "onPageStarted: " + str;
             }
             a(webView);
@@ -244,7 +241,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        f53905f = ApollonConstants.DEBUG & true;
+        a = ApollonConstants.DEBUG & true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -267,48 +264,15 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f53906e = null;
+        this.f52386b = null;
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setWebChromeClient(new SafeChromeClient());
-            setWebViewClient(new SafeWebViewClient());
-            getSettings().setAllowFileAccess(false);
-            getSettings().setJavaScriptEnabled(true);
-            if (Build.VERSION.SDK_INT <= 18) {
-                getSettings().setSavePassword(false);
-            }
-            c();
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void addJavascriptInterface(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                super.addJavascriptInterface(obj, str);
-            } else {
-                getJsBridge().d(obj, str);
-            }
-        }
-    }
-
-    public void addJsCode(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            getJsBridge().f(str, str2);
-        }
-    }
-
     @SuppressLint({"NewApi"})
-    public final boolean c() {
+    private boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 < 11 || i2 >= 17) {
                 return false;
@@ -321,18 +285,37 @@ public class SafeWebView extends WebView {
         return invokeV.booleanValue;
     }
 
+    @Override // android.webkit.WebView
+    public void addJavascriptInterface(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                super.addJavascriptInterface(obj, str);
+            } else {
+                getJsBridge().a(obj, str);
+            }
+        }
+    }
+
+    public void addJsCode(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            getJsBridge().a(str, str2);
+        }
+    }
+
     public void clearJsCode() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            getJsBridge().c();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            getJsBridge().a();
         }
     }
 
     @Override // android.webkit.WebView
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            getJsBridge().m();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            getJsBridge().c();
             super.destroy();
         }
     }
@@ -340,65 +323,65 @@ public class SafeWebView extends WebView {
     public a getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f53906e == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f52386b == null) {
                 synchronized (this) {
-                    if (this.f53906e == null) {
-                        this.f53906e = new a();
+                    if (this.f52386b == null) {
+                        this.f52386b = new a();
                     }
                 }
             }
-            return this.f53906e;
+            return this.f52386b;
         }
         return (a) invokeV.objValue;
     }
 
     public void impactJavascriptInterfaces() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            String j2 = getJsBridge().j();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String b2 = getJsBridge().b();
             try {
                 if (Build.VERSION.SDK_INT >= 19) {
-                    evaluateJavascript(j2.substring(11), null);
+                    evaluateJavascript(b2.substring(11), null);
                 } else {
-                    super.loadUrl(j2);
+                    super.loadUrl(b2);
                 }
             } catch (Throwable unused) {
             }
-            boolean z = f53905f;
+            boolean z = a;
         }
     }
 
     public boolean jsCallJava(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, jsPromptResult)) == null) ? getJsBridge().i(str, str2, str3, jsPromptResult) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, str, str2, str3, jsPromptResult)) == null) ? getJsBridge().a(str, str2, str3, jsPromptResult) : invokeLLLL.booleanValue;
     }
 
     @Override // android.webkit.WebView
     @SuppressLint({"NewApi"})
     public void removeJavascriptInterface(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
                 super.removeJavascriptInterface(str);
             } else {
-                getJsBridge().e(str);
+                getJsBridge().a(str);
             }
         }
     }
 
     public void removeJsCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            getJsBridge().k(str);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            getJsBridge().b(str);
         }
     }
 
     @Override // android.webkit.WebView
     public void setWebChromeClient(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, webChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, webChromeClient) == null) {
             if (webChromeClient != null && !(webChromeClient instanceof SafeChromeClient)) {
                 throw new RuntimeException("WebChromeClient must be extended from SecureWebChromeClient!!");
             }
@@ -409,11 +392,25 @@ public class SafeWebView extends WebView {
     @Override // android.webkit.WebView
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, webViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, webViewClient) == null) {
             if (webViewClient != null && !(webViewClient instanceof SafeWebViewClient)) {
                 throw new RuntimeException("WebViewClient must be extended from SafeWebViewClient!!");
             }
             super.setWebViewClient(webViewClient);
+        }
+    }
+
+    private void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+            setWebChromeClient(new SafeChromeClient());
+            setWebViewClient(new SafeWebViewClient());
+            getSettings().setAllowFileAccess(false);
+            getSettings().setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT <= 18) {
+                getSettings().setSavePassword(false);
+            }
+            b();
         }
     }
 
@@ -436,7 +433,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f53906e = null;
+        this.f52386b = null;
         a(context);
     }
 
@@ -459,7 +456,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f53906e = null;
+        this.f52386b = null;
         a(context);
     }
 
@@ -481,7 +478,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f53906e = null;
+        this.f52386b = null;
         a(context);
     }
 }

@@ -10,7 +10,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static int a(KeyFactory keyFactory, Key key) {
         try {

@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static File a(Context context) {
         File filesDir = context.getFilesDir();

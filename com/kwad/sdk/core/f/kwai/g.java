@@ -7,19 +7,19 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.e;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f56049b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f54399b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f56050c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
+    public ServiceConnection f54400c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                g.this.f56049b.put(iBinder);
+                g.this.f54399b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -41,16 +41,16 @@ public class g {
         try {
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (this.a.bindService(intent, this.f56050c, 1)) {
+            if (this.a.bindService(intent, this.f54400c, 1)) {
                 try {
-                    str = new e.a(this.f56049b.take()).a();
+                    str = new e.a(this.f54399b.take()).a();
                     com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f56050c;
+                    serviceConnection = this.f54400c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f56050c;
+                    serviceConnection = this.f54400c;
                 }
                 context.unbindService(serviceConnection);
             }

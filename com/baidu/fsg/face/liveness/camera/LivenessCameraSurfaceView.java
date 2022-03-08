@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LivenessCameraSurfaceView extends SurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,42 +41,42 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         }
     }
 
-    private b.a a(Activity activity, a.C1822a c1822a) {
+    private b.a a(Activity activity, a.C1798a c1798a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, c1822a)) == null) {
-            if (c1822a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, c1798a)) == null) {
+            if (c1798a == null) {
                 return null;
             }
-            a.C1822a a = a(activity);
-            b.a aVar = new b.a(c1822a.a, c1822a.f34533b);
-            float f2 = c1822a.a / c1822a.f34533b;
-            float f3 = a.f34533b / a.a;
+            a.C1798a a = a(activity);
+            b.a aVar = new b.a(c1798a.a, c1798a.f32936b);
+            float f2 = c1798a.a / c1798a.f32936b;
+            float f3 = a.f32936b / a.a;
             if (Math.abs(f2 - f3) <= 0.02d) {
                 return aVar;
             }
             if (f2 < f3) {
-                int i2 = a.f34533b;
-                aVar.a = (c1822a.f34533b * i2) / c1822a.a;
-                aVar.f34543b = i2;
+                int i2 = a.f32936b;
+                aVar.a = (c1798a.f32936b * i2) / c1798a.a;
+                aVar.f32946b = i2;
             } else {
                 int i3 = a.a;
                 aVar.a = i3;
-                aVar.f34543b = (i3 * c1822a.a) / c1822a.f34533b;
+                aVar.f32946b = (i3 * c1798a.a) / c1798a.f32936b;
             }
             return aVar;
         }
         return (b.a) invokeLL.objValue;
     }
 
-    public void bindSurfaceView(Activity activity, a.C1822a c1822a) {
+    public void bindSurfaceView(Activity activity, a.C1798a c1798a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, c1822a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, c1798a) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-            b.a a = a(activity, c1822a);
-            if (a != null && (a.a != c1822a.a || a.f34543b != c1822a.f34533b)) {
+            b.a a = a(activity, c1798a);
+            if (a != null && (a.a != c1798a.a || a.f32946b != c1798a.f32936b)) {
                 layoutParams.width = a.a;
-                layoutParams.height = a.f34543b;
+                layoutParams.height = a.f32946b;
             } else {
                 layoutParams.width = -2;
                 layoutParams.height = -1;
@@ -85,13 +85,13 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         }
     }
 
-    private a.C1822a a(Activity activity) {
+    private a.C1798a a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, activity)) == null) {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            return new a.C1822a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+            return new a.C1798a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
         }
-        return (a.C1822a) invokeL.objValue;
+        return (a.C1798a) invokeL.objValue;
     }
 }

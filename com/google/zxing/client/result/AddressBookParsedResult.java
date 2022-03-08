@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class AddressBookParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     public final String note;
 
     /* renamed from: org  reason: collision with root package name */
-    public final String f55153org;
+    public final String f53503org;
     public final String[] phoneNumbers;
     public final String[] phoneTypes;
     public final String pronunciation;
@@ -79,7 +79,7 @@ public final class AddressBookParsedResult extends ParsedResult {
             ParsedResult.maybeAppend(this.nicknames, sb);
             ParsedResult.maybeAppend(this.pronunciation, sb);
             ParsedResult.maybeAppend(this.title, sb);
-            ParsedResult.maybeAppend(this.f55153org, sb);
+            ParsedResult.maybeAppend(this.f53503org, sb);
             ParsedResult.maybeAppend(this.addresses, sb);
             ParsedResult.maybeAppend(this.phoneNumbers, sb);
             ParsedResult.maybeAppend(this.emails, sb);
@@ -138,7 +138,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     public String getOrg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55153org : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f53503org : (String) invokeV.objValue;
     }
 
     public String[] getPhoneNumbers() {
@@ -200,7 +200,7 @@ public final class AddressBookParsedResult extends ParsedResult {
         this.note = str3;
         this.addresses = strArr7;
         this.addressTypes = strArr8;
-        this.f55153org = str4;
+        this.f53503org = str4;
         this.birthday = str5;
         this.title = str6;
         this.urls = strArr9;

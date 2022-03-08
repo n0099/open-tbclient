@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.recommend.detail;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Bigvip.BigvipReqIdl;
 import tbclient.Bigvip.DataReq;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class RecommendDetailRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class RecommendDetailRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             builder.user_id = Long.valueOf(this.mUserId);
             BigvipReqIdl.Builder builder2 = new BigvipReqIdl.Builder();

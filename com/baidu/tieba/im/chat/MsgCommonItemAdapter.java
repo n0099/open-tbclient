@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public Map<String, String> u;
     public AbsMsglistView.g v;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

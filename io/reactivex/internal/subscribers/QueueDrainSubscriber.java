@@ -16,7 +16,7 @@ import io.reactivex.internal.util.BackpressureHelper;
 import io.reactivex.internal.util.QueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriberPad4 implements FlowableSubscriber<T>, QueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

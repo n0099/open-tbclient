@@ -15,6 +15,7 @@ import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double COS_45;

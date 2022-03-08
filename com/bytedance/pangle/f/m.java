@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteBuffer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f53282b;
+    public final long f51701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f53283c;
+    public final long f51702c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f53284d;
+    public final long f51703d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ByteBuffer f53285e;
+    public final ByteBuffer f51704e;
 
     public m(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class m {
             }
         }
         this.a = byteBuffer;
-        this.f53282b = j2;
-        this.f53283c = j3;
-        this.f53284d = j4;
-        this.f53285e = byteBuffer2;
+        this.f51701b = j2;
+        this.f51702c = j3;
+        this.f51703d = j4;
+        this.f51704e = byteBuffer2;
     }
 }

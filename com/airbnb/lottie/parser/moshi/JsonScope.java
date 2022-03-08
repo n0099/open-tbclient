@@ -1,5 +1,5 @@
 package com.airbnb.lottie.parser.moshi;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class JsonScope {
     public static final int CLOSED = 8;
     public static final int DANGLING_NAME = 4;

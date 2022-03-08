@@ -32,7 +32,6 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -56,7 +55,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseCursorViewDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -94,7 +93,7 @@ public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseC
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface FlutterEngineAttachmentListener {
         void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
@@ -103,7 +102,7 @@ public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseC
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class RenderMode {
         public static final /* synthetic */ RenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -166,7 +165,7 @@ public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseC
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TransparencyMode {
         public static final /* synthetic */ TransparencyMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -226,7 +225,7 @@ public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseC
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ZeroSides {
         public static final /* synthetic */ ZeroSides[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -249,7 +248,7 @@ public class FlutterView extends FrameLayout implements MouseCursorPlugin.MouseC
                     return;
                 }
             }
-            NONE = new ZeroSides(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new ZeroSides("NONE", 0);
             LEFT = new ZeroSides("LEFT", 1);
             RIGHT = new ZeroSides("RIGHT", 2);
             ZeroSides zeroSides = new ZeroSides("BOTH", 3);

@@ -10,12 +10,12 @@ import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.fastpay.datamodel.SimpleOrderInfo;
 import com.baidu.wallet.fastpay.sdk.a;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class FastPayCallBackManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PayStateContent implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8703238535820968744L;
@@ -50,7 +50,7 @@ public final class FastPayCallBackManager {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -105,7 +105,7 @@ public final class FastPayCallBackManager {
         if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, simpleOrderInfo}) == null) || (a = a.a().a(i2)) == null) {
             return;
         }
-        a.onFastPayFail(i2, i3, new a.C2002a(i4, str, simpleOrderInfo));
+        a.onFastPayFail(i2, i3, new a.C1978a(i4, str, simpleOrderInfo));
         a.a().b(i2);
     }
 

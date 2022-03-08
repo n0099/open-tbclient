@@ -15,7 +15,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class RequestMethod {
     public static final /* synthetic */ RequestMethod[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public final class RequestMethod {
     public transient /* synthetic */ FieldHolder $fh;
     public final String value;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

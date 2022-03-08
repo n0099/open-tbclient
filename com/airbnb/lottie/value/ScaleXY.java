@@ -1,5 +1,5 @@
 package com.airbnb.lottie.value;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ScaleXY {
     public float scaleX;
     public float scaleY;

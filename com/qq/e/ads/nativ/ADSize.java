@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ADSize {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_HEIGHT = -2;
@@ -15,7 +15,7 @@ public class ADSize {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59204b;
+    public int f57554b;
 
     public ADSize(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class ADSize {
                 return;
             }
         }
-        this.f59204b = i3;
+        this.f57554b = i3;
         this.a = i2;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59204b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57554b : invokeV.intValue;
     }
 
     public int getWidth() {

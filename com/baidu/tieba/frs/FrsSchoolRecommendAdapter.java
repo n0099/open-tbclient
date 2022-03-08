@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.s.r.t1;
-import c.a.t0.s.r.u1;
-import c.a.u0.e1.f3.d;
-import c.a.u0.e1.k;
-import c.a.u0.e1.k1;
-import c.a.u0.e1.x;
+import c.a.q0.r.r.t1;
+import c.a.q0.r.r.u1;
+import c.a.r0.d1.a1;
+import c.a.r0.d1.k;
+import c.a.r0.d1.v2.d;
+import c.a.r0.d1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d x;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,14 +80,14 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2451i);
+            this.x = new d(this.o, this.f3080i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.e1.k, c.a.d.o.e.a
+    @Override // c.a.r0.d1.k, c.a.d.o.e.a
     /* renamed from: n0 */
     public View S(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -105,13 +105,13 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
             for (int i3 = 0; i3 != U4.size(); i3++) {
                 u1 u1Var = U4.get(i3);
                 if (u1Var != null) {
-                    k1 k1Var = new k1();
-                    k1Var.a.setUserId(u1Var.d());
-                    k1Var.a.setUserName(u1Var.e());
-                    k1Var.a.setPortrait(u1Var.c());
-                    k1Var.a.getGodUserData().setIsLike(u1Var.b() == 1);
-                    k1Var.a.getGodUserData().setIntro(u1Var.a());
-                    xVar.g(k1Var);
+                    a1 a1Var = new a1();
+                    a1Var.a.setUserId(u1Var.d());
+                    a1Var.a.setUserName(u1Var.e());
+                    a1Var.a.setPortrait(u1Var.c());
+                    a1Var.a.getGodUserData().setIsLike(u1Var.b() == 1);
+                    a1Var.a.getGodUserData().setIntro(u1Var.a());
+                    xVar.g(a1Var);
                 }
             }
             this.x.l(this.o, this.r);

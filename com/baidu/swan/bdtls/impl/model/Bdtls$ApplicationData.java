@@ -22,7 +22,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class Bdtls$ApplicationData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static Parser<Bdtls$ApplicationData> PARSER = null;
@@ -35,7 +35,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public int memoizedSerializedSize;
     public ByteString sKR_;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a extends AbstractParser<Bdtls$ApplicationData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,16 +64,16 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39808e;
+        public int f38212e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ByteString f39809f;
+        public ByteString f38213f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                     return;
                 }
             }
-            this.f39809f = ByteString.EMPTY;
+            this.f38213f = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -146,9 +146,9 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (c.a.s0.c.a.i.a) null);
-                int i2 = (this.f39808e & 1) != 1 ? 0 : 1;
-                bdtls$ApplicationData.sKR_ = this.f39809f;
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (c.a.p0.c.a.i.a) null);
+                int i2 = (this.f38212e & 1) != 1 ? 0 : 1;
+                bdtls$ApplicationData.sKR_ = this.f38213f;
                 bdtls$ApplicationData.bitField0_ = i2;
                 return bdtls$ApplicationData;
             }
@@ -160,8 +160,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f39809f = ByteString.EMPTY;
-                this.f39808e &= -2;
+                this.f38213f = ByteString.EMPTY;
+                this.f38212e &= -2;
                 return this;
             }
             return (b) invokeV.objValue;
@@ -193,7 +193,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f39808e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f38212e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(Bdtls$ApplicationData bdtls$ApplicationData) {
@@ -252,8 +252,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f39808e |= 1;
-                    this.f39809f = byteString;
+                    this.f38212e |= 1;
+                    this.f38213f = byteString;
                     return this;
                 }
                 throw null;
@@ -301,7 +301,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.s0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.p0.c.a.i.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -408,7 +408,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, c.a.s0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, c.a.p0.c.a.i.a aVar) {
         this(builder);
     }
 

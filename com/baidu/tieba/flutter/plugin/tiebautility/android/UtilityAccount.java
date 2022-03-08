@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.content.Context;
-import c.a.t0.m.a;
+import c.a.q0.l.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityAccount implements TiebaUtilityAccountAuto.HostUtilityAccount {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class UtilityAccount implements TiebaUtilityAccountAuto.HostUtilityAccoun
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
             TiebaUtilityAccountAuto.AccountBoolResult accountBoolResult = new TiebaUtilityAccountAuto.AccountBoolResult();
-            accountBoolResult.setResult(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().f()));
+            accountBoolResult.setResult(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
             result.success(accountBoolResult);
         }
     }

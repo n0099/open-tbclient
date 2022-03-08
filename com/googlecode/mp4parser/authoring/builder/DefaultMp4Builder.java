@@ -35,7 +35,6 @@ import com.coremedia.iso.boxes.TimeToSampleBox;
 import com.coremedia.iso.boxes.TrackBox;
 import com.coremedia.iso.boxes.TrackHeaderBox;
 import com.coremedia.iso.boxes.mdat.MediaDataBox;
-import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.googlecode.mp4parser.BasicContainer;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.Movie;
@@ -57,7 +56,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +68,7 @@ public class DefaultMp4Builder implements Mp4Builder {
     public HashMap<Track, long[]> track2SampleSizes;
 
     /* renamed from: com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +196,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             LinkedList linkedList = new LinkedList();
             linkedList.add("isom");
             linkedList.add("iso2");
-            linkedList.add(VisualSampleEntry.TYPE3);
+            linkedList.add("avc1");
             return new FileTypeBox("isom", 0L, linkedList);
         }
         return (FileTypeBox) invokeL.objValue;
@@ -526,7 +525,7 @@ public class DefaultMp4Builder implements Mp4Builder {
         return invokeL.longValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class InterleaveChunkMdat implements Box {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

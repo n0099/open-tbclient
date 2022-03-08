@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PageDialogHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class PayForm {
         public static final /* synthetic */ PayForm[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -7,27 +7,27 @@ import io.flutter.plugin.platform.PlatformViewRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
 import io.flutter.view.TextureRegistry;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface PluginRegistry {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface ActivityResultListener {
         boolean onActivityResult(int i2, int i3, Intent intent);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface NewIntentListener {
         boolean onNewIntent(Intent intent);
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface PluginRegistrantCallback {
         void registerWith(PluginRegistry pluginRegistry);
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface Registrar {
         Context activeContext();
 
@@ -60,18 +60,18 @@ public interface PluginRegistry {
         FlutterView view();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface RequestPermissionsResultListener {
         boolean onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface UserLeaveHintListener {
         void onUserLeaveHint();
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface ViewDestroyListener {
         boolean onViewDestroy(FlutterNativeView flutterNativeView);
     }

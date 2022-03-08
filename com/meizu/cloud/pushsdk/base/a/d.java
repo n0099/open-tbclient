@@ -1,8 +1,8 @@
 package com.meizu.cloud.pushsdk.base.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d<T> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f58846b;
+    public T f57196b;
 }

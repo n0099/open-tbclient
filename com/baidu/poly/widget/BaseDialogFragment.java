@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import c.a.i0.j;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(1, j.poly_sdk_dialog_fragment_theme);
+            setStyle(1, R.style.poly_sdk_dialog_fragment_theme);
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = j.poly_sdk_dialog_fragment_anim;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.poly_sdk_dialog_fragment_anim;
             return inflate;
         }
         return (View) invokeLLL.objValue;

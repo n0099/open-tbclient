@@ -32,19 +32,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[][] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f53270b;
+        public final byte[] f51689b;
 
         public a(X509Certificate[][] x509CertificateArr, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public final class b {
                 }
             }
             this.a = x509CertificateArr;
-            this.f53270b = bArr;
+            this.f51689b = bArr;
         }
     }
 

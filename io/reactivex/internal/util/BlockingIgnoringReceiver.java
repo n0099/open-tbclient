@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class BlockingIgnoringReceiver extends CountDownLatch implements Consumer<Throwable>, Action {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

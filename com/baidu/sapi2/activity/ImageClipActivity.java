@@ -21,15 +21,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.a;
-import c.a.f0.a.e;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.utils.FileUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +40,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ImageClipActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
@@ -58,7 +56,7 @@ public class ImageClipActivity extends Activity {
     public static final int UPLOAD_IMAGE_WIDTH = 160;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38267j;
+    public static final String f36671j;
     public static final String k = "com.android.providers.media.documents";
     public static final String l = "com.android.providers.downloads.documents";
     public static final String m = "com.android.externalstorage.documents";
@@ -67,28 +65,28 @@ public class ImageClipActivity extends Activity {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38268b;
+    public int f36672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38269c;
+    public int f36673c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38270d;
+    public int f36674d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38271e;
+    public int f36675e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38272f;
+    public int f36676f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38273g;
+    public String f36677g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClipBoxView f38274h;
+    public ClipBoxView f36678h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ZoomImageView f38275i;
+    public ZoomImageView f36679i;
 
     static {
         InterceptResult invokeClinit;
@@ -103,7 +101,7 @@ public class ImageClipActivity extends Activity {
                 return;
             }
         }
-        f38267j = ImageClipActivity.class.getSimpleName();
+        f36671j = ImageClipActivity.class.getSimpleName();
         EXTRA_IMAGE = "extra_image";
     }
 
@@ -121,20 +119,20 @@ public class ImageClipActivity extends Activity {
             }
         }
         this.a = 0;
-        this.f38268b = 0;
-        this.f38269c = 0;
-        this.f38270d = 0;
+        this.f36672b = 0;
+        this.f36673c = 0;
+        this.f36674d = 0;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            if (this.f38269c == 0 && this.f38270d == 0) {
+            if (this.f36673c == 0 && this.f36674d == 0) {
                 return;
             }
-            overridePendingTransition(this.f38269c, this.f38270d);
-            this.f38269c = 0;
-            this.f38270d = 0;
+            overridePendingTransition(this.f36673c, this.f36674d);
+            this.f36673c = 0;
+            this.f36674d = 0;
         }
     }
 
@@ -217,9 +215,9 @@ public class ImageClipActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             this.a = i2;
-            this.f38268b = i3;
-            this.f38269c = i4;
-            this.f38270d = i5;
+            this.f36672b = i3;
+            this.f36673c = i4;
+            this.f36674d = i5;
         }
     }
 
@@ -266,7 +264,7 @@ public class ImageClipActivity extends Activity {
                             return null;
                         }
                         int i3 = 160;
-                        if (this.a.f38271e != 0) {
+                        if (this.a.f36675e != 0) {
                             i3 = bitmapArr[0].getWidth();
                             i2 = bitmapArr[0].getHeight();
                         } else {
@@ -276,7 +274,7 @@ public class ImageClipActivity extends Activity {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         int i4 = 100;
                         createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                        while (byteArrayOutputStream.toByteArray().length > this.a.f38272f && i4 > 0 && i4 - 5 > 0) {
+                        while (byteArrayOutputStream.toByteArray().length > this.a.f36676f && i4 > 0 && i4 - 5 > 0) {
                             byteArrayOutputStream.reset();
                             createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i4, byteArrayOutputStream);
                         }
@@ -309,29 +307,29 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(f.layout_sapi_sdk_image_clip);
-            this.f38271e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
+            setContentView(R.layout.layout_sapi_sdk_image_clip);
+            this.f36675e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
-            this.f38272f = intExtra;
+            this.f36676f = intExtra;
             if (intExtra <= 0) {
-                this.f38272f = 512;
+                this.f36676f = 512;
             }
-            this.f38272f *= 1024;
-            this.f38274h = (ClipBoxView) findViewById(e.sapi_clip_box);
-            this.f38275i = (ZoomImageView) findViewById(e.sapi_background_picture);
-            if (this.f38271e == 1) {
-                ClipBoxView clipBoxView = this.f38274h;
+            this.f36676f *= 1024;
+            this.f36678h = (ClipBoxView) findViewById(R.id.sapi_clip_box);
+            this.f36679i = (ZoomImageView) findViewById(R.id.sapi_background_picture);
+            if (this.f36675e == 1) {
+                ClipBoxView clipBoxView = this.f36678h;
                 clipBoxView.E = ClipBoxView.G;
                 clipBoxView.F = false;
             }
-            if (this.f38271e == 2) {
-                ClipBoxView clipBoxView2 = this.f38274h;
+            if (this.f36675e == 2) {
+                ClipBoxView clipBoxView2 = this.f36678h;
                 clipBoxView2.E = ClipBoxView.G;
                 clipBoxView2.F = false;
             }
-            setPendingTransition(a.sapi_sdk_slide_right_in, a.sapi_sdk_slide_left_out, a.sapi_sdk_slide_left_in, a.sapi_sdk_slide_right_out);
-            Button button = (Button) findViewById(e.sure_clip_btn);
-            Button button2 = (Button) findViewById(e.cancel_clip_btn);
+            setPendingTransition(R.anim.sapi_sdk_slide_right_in, R.anim.sapi_sdk_slide_left_out, R.anim.sapi_sdk_slide_left_in, R.anim.sapi_sdk_slide_right_out);
+            Button button = (Button) findViewById(R.id.sure_clip_btn);
+            Button button2 = (Button) findViewById(R.id.cancel_clip_btn);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {
@@ -406,12 +404,12 @@ public class ImageClipActivity extends Activity {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if (this.a == 0 && this.f38268b == 0) {
+            if (this.a == 0 && this.f36672b == 0) {
                 return;
             }
-            overridePendingTransition(this.a, this.f38268b);
+            overridePendingTransition(this.a, this.f36672b);
             this.a = 0;
-            this.f38268b = 0;
+            this.f36672b = 0;
         }
     }
 
@@ -435,7 +433,7 @@ public class ImageClipActivity extends Activity {
                         a = query.getString(query.getColumnIndex("_data"));
                     } else {
                         a = a(getBaseContext(), uri);
-                        this.f38273g = a;
+                        this.f36677g = a;
                     }
                     str2 = a;
                 }
@@ -555,11 +553,11 @@ public class ImageClipActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             Bitmap operateBitmap = operateBitmap(str);
             if (operateBitmap != null) {
-                this.f38275i.setImageBitmap(operateBitmap);
-                if (TextUtils.isEmpty(this.f38273g)) {
+                this.f36679i.setImageBitmap(operateBitmap);
+                if (TextUtils.isEmpty(this.f36677g)) {
                     return;
                 }
-                FileUtil.deleteFile(new File(this.f38273g));
+                FileUtil.deleteFile(new File(this.f36677g));
                 return;
             }
             Toast.makeText(this, "加载图片失败", 0).show();

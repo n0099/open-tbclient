@@ -30,13 +30,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
     public static PowerManager.WakeLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f36350b;
+    public static BroadcastReceiver f34753b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -388,8 +388,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f36350b = new a();
-            b.a().registerReceiver(f36350b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f34753b = new a();
+            b.a().registerReceiver(f34753b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -423,10 +423,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f36350b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f34753b == null) {
             return;
         }
-        b.a().unregisterReceiver(f36350b);
-        f36350b = null;
+        b.a().unregisterReceiver(f34753b);
+        f34753b = null;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.kuaishou.weapon.un.x;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ContentModelParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("ty", "d");
 
@@ -69,14 +69,14 @@ public class ContentModelParser {
                 }
                 c2 = 65535;
                 break;
-            case SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY /* 3307 */:
+            case SpeedStatsStampTable.AD_CALL_SHOW_START_STAMP_KEY /* 3307 */:
                 if (str.equals("gr")) {
                     c2 = 0;
                     break;
                 }
                 c2 = 65535;
                 break;
-            case SpeedStatsStampTable.AD_XUZHANG_LOAD_END_STAMP_KEY /* 3308 */:
+            case SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY /* 3308 */:
                 break;
             case 3488:
                 if (str.equals("mm")) {

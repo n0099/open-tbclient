@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PassNormalizeActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_PAY_SKD = 1;
@@ -55,13 +55,13 @@ public class PassNormalizeActivity extends BeanActivity {
     public String url;
 
     /* renamed from: com.baidu.wallet.paysdk.ui.PassNormalizeActivity$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class JavascriptInterfaceImpl implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class PassNormalizeActivity extends BeanActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public final class a extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

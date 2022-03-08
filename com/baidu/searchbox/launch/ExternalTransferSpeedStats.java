@@ -15,7 +15,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ExternalTransferSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST_EXTERNAL_TRANSFER_OPT_KEY = "external_transfer_opt_enable";

@@ -2,7 +2,7 @@ package com.baidu.tieba.advert.sdk.stretagy;
 
 import c.a.d.f.m.e;
 import c.a.d.f.p.j;
-import c.a.t0.s.b0.o;
+import c.a.q0.r.b0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class SplashNativePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SPLASH_BEAR_CHANNEL_FAIL = 82;
@@ -38,13 +38,13 @@ public class SplashNativePolicy {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loadResult;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f42062e;
+        public final /* synthetic */ int f40466e;
 
         public a(SplashNativePolicy splashNativePolicy, int i2) {
             Interceptable interceptable = $ic;
@@ -61,24 +61,24 @@ public class SplashNativePolicy {
                     return;
                 }
             }
-            this.f42062e = i2;
+            this.f40466e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.f42062e) {
+                switch (this.f40466e) {
                     case 128:
-                        c.a.u0.y.a.g.a.d().n(true);
+                        c.a.r0.y.a.g.a.e().o(true);
                         return;
-                    case SplashNativePolicy.SPLASH_CMD_SHOW_PLG /* 129 */:
-                        c.a.u0.y.a.g.a.d().n(false);
+                    case 129:
+                        c.a.r0.y.a.g.a.e().o(false);
                         return;
                     case 130:
                     case 132:
-                    case SplashNativePolicy.SPLASH_CMD_ERROR /* 133 */:
-                        c.a.u0.y.a.g.a.d().b();
+                    case 133:
+                        c.a.r0.y.a.g.a.e().c();
                         return;
                     case 131:
                     default:

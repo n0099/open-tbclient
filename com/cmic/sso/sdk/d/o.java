@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService a;
@@ -48,7 +48,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,10 +133,10 @@ public class o {
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f53671b;
+                public final /* synthetic */ Context f52090b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f53672c;
+                public final /* synthetic */ a f52091c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,9 +153,9 @@ public class o {
                             return;
                         }
                     }
-                    this.f53672c = this;
+                    this.f52091c = this;
                     this.a = aVar;
-                    this.f53671b = context;
+                    this.f52090b = context;
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -163,7 +163,7 @@ public class o {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
                         this.a.a().a.add(th);
-                        AuthnHelper.getInstance(this.f53671b).callBackResult("200025", "发生未知错误", this.a, null);
+                        AuthnHelper.getInstance(this.f52090b).callBackResult("200025", "发生未知错误", this.a, null);
                     }
                 }
             };

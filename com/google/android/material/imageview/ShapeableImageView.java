@@ -25,6 +25,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,17 +33,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int DEF_STYLE_RES;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_ShapeableImageView = 2131755930;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint borderPaint;
     public final Paint clearPaint;
@@ -58,7 +60,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public float strokeWidth;
 
     @TargetApi(21)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,17 +101,16 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;")) == null) {
+            return;
         }
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_ShapeableImageView;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -283,7 +284,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_ShapeableImageView), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,14 +312,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.destination = new RectF();
         this.maskRect = new RectF();
         this.maskPath = new Path();
-        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.ShapeableImageView, i2, DEF_STYLE_RES);
-        this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.ShapeableImageView_strokeColor);
-        this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ShapeableImageView_strokeWidth, 0);
+        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_ShapeableImageView);
+        this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 2);
+        this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         Paint paint2 = new Paint();
         this.borderPaint = paint2;
         paint2.setStyle(Paint.Style.STROKE);
         this.borderPaint.setAntiAlias(true);
-        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i2, DEF_STYLE_RES).build();
+        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_MaterialComponents_ShapeableImageView).build();
         this.shadowDrawable = new MaterialShapeDrawable(this.shapeAppearanceModel);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new OutlineProvider(this));

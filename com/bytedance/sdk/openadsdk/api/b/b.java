@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.api.b;
 import android.text.TextUtils;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

@@ -6,26 +6,26 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.u0.u2.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TriangleShapeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46902e;
+    public Paint f45310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f46903f;
+    public Path f45311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46904g;
+    public int f45312g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TriangleShapeView(Context context) {
@@ -45,18 +45,18 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f46904g = f.CAM_X0205;
+        this.f45312g = R.color.CAM_X0205;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f46902e == null) {
-                this.f46902e = new Paint();
+            if (this.f45310e == null) {
+                this.f45310e = new Paint();
             }
-            this.f46902e.setAntiAlias(true);
-            this.f46902e.setStyle(Paint.Style.FILL);
-            this.f46902e.setColor(SkinManager.getColor(this.f46904g));
+            this.f45310e.setAntiAlias(true);
+            this.f45310e.setStyle(Paint.Style.FILL);
+            this.f45310e.setColor(SkinManager.getColor(this.f45312g));
         }
     }
 
@@ -71,23 +71,23 @@ public class TriangleShapeView extends View {
                 return;
             }
             a();
-            if (this.f46903f == null) {
-                this.f46903f = new Path();
+            if (this.f45311f == null) {
+                this.f45311f = new Path();
             }
             float f2 = height;
-            this.f46903f.moveTo(0.0f, f2);
+            this.f45311f.moveTo(0.0f, f2);
             float f3 = width;
-            this.f46903f.lineTo(f3 / 2.0f, 0.0f);
-            this.f46903f.lineTo(f3, f2);
-            this.f46903f.close();
-            canvas.drawPath(this.f46903f, this.f46902e);
+            this.f45311f.lineTo(f3 / 2.0f, 0.0f);
+            this.f45311f.lineTo(f3, f2);
+            this.f45311f.close();
+            canvas.drawPath(this.f45311f, this.f45310e);
         }
     }
 
     public void setColorId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f46904g = i2;
+            this.f45312g = i2;
         }
     }
 
@@ -110,7 +110,7 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f46904g = f.CAM_X0205;
+        this.f45312g = R.color.CAM_X0205;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +132,6 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f46904g = f.CAM_X0205;
+        this.f45312g = R.color.CAM_X0205;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps;
 
-import c.a.s0.a.e0.d;
-import c.a.s0.a.f1.e.b;
+import c.a.p0.a.u.d;
+import c.a.p0.a.v0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SwanAppClearCacheErrorActivity";

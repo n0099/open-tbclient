@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f44769b;
+    public final int f43175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ColorDrawable f44770c;
+    public ColorDrawable f43176c;
 
     public LocalChannelTopicDecoration() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.f44769b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.f44770c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+        this.f43175b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.f43176c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -73,8 +73,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f44770c.setBounds(this.f44769b, bottom, recyclerView.getWidth() - this.f44769b, this.a + bottom);
-                    this.f44770c.draw(canvas);
+                    this.f43176c.setBounds(this.f43175b, bottom, recyclerView.getWidth() - this.f43175b, this.a + bottom);
+                    this.f43176c.draw(canvas);
                 }
             }
         }

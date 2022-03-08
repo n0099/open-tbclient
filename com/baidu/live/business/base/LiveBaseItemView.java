@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class LiveBaseItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f34991e;
+    public float f33394e;
     public boolean mIsImmersion;
     public String mUiMode;
     public boolean needRatio;
@@ -42,7 +42,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f34991e = 1.0f;
+        this.f33394e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
     }
@@ -63,7 +63,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             if (this.needRatio) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f34991e), 1073741824);
+                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f33394e), 1073741824);
             }
             super.onMeasure(i2, i3);
         }
@@ -96,7 +96,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
     public void setAspectRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f34991e = f2;
+            this.f33394e = f2;
         }
     }
 
@@ -143,7 +143,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f34991e = 1.0f;
+        this.f33394e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
     }
@@ -168,7 +168,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f34991e = 1.0f;
+        this.f33394e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
     }

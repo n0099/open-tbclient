@@ -14,7 +14,7 @@ import org.apache.http.HttpMessage;
 import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.io.SessionOutputBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class EntitySerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

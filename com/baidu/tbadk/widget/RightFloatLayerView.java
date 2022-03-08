@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.u0.l3.z;
+import c.a.r0.j3.a0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -31,38 +31,39 @@ import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class RightFloatLayerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlphaAnimation f41462e;
+    public AlphaAnimation f39868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f41463f;
+    public AlphaAnimation f39869f;
     public ImageView feedbackImageView;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f41464g;
+    public ValueAnimator f39870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f41465h;
+    public ValueAnimator f39871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f41466i;
+    public ValueAnimator f39872i;
     public boolean isAutoCompleteShown;
     public boolean isDrag;
     public boolean isFloatLayerShown;
     public boolean isHalfState;
 
     /* renamed from: j  reason: collision with root package name */
-    public ValueAnimator f41467j;
+    public ValueAnimator f39873j;
     public ValueAnimator k;
     public ValueAnimator l;
     public TbImageView logoImageView;
@@ -73,13 +74,13 @@ public class RightFloatLayerView extends RelativeLayout {
     public AnimatorSet p;
     public final Runnable q;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41468e;
+        public final /* synthetic */ RightFloatLayerView f39874e;
 
         public a(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -96,25 +97,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41468e = rightFloatLayerView;
+            this.f39874e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41468e.logoImageView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39874e.logoImageView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41469e;
+        public final /* synthetic */ RightFloatLayerView f39875e;
 
         public b(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -131,7 +132,7 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41469e = rightFloatLayerView;
+            this.f39875e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -139,19 +140,19 @@ public class RightFloatLayerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f41469e.feedbackImageView.setAlpha(floatValue);
-                this.f41469e.mAdLableIcon.setAlpha(floatValue);
+                this.f39875e.feedbackImageView.setAlpha(floatValue);
+                this.f39875e.mAdLableIcon.setAlpha(floatValue);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41470e;
+        public final /* synthetic */ RightFloatLayerView f39876e;
 
         public c(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -168,25 +169,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41470e = rightFloatLayerView;
+            this.f39876e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41470e.logoImageView.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39876e.logoImageView.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41471e;
+        public final /* synthetic */ RightFloatLayerView f39877e;
 
         public d(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -203,19 +204,19 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41471e = rightFloatLayerView;
+            this.f39877e = rightFloatLayerView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41471e.halfShow();
+                this.f39877e.halfShow();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class e implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,13 +263,13 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41472e;
+        public final /* synthetic */ RightFloatLayerView f39878e;
 
         public f(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -285,25 +286,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41472e = rightFloatLayerView;
+            this.f39878e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41472e.logoImageView.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39878e.logoImageView.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class g implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41473e;
+        public final /* synthetic */ RightFloatLayerView f39879e;
 
         public g(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -320,25 +321,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41473e = rightFloatLayerView;
+            this.f39879e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41473e.logoImageView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39879e.logoImageView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class h implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41474e;
+        public final /* synthetic */ RightFloatLayerView f39880e;
 
         public h(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -355,7 +356,7 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41474e = rightFloatLayerView;
+            this.f39880e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -363,19 +364,19 @@ public class RightFloatLayerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f41474e.feedbackImageView.setAlpha(floatValue);
-                this.f41474e.mAdLableIcon.setAlpha(floatValue);
+                this.f39880e.feedbackImageView.setAlpha(floatValue);
+                this.f39880e.mAdLableIcon.setAlpha(floatValue);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41475e;
+        public final /* synthetic */ RightFloatLayerView f39881e;
 
         public i(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -392,25 +393,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41475e = rightFloatLayerView;
+            this.f39881e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41475e.logoImageView.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39881e.logoImageView.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class j extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41476e;
+        public final /* synthetic */ RightFloatLayerView f39882e;
 
         public j(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -427,7 +428,7 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41476e = rightFloatLayerView;
+            this.f39882e = rightFloatLayerView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -435,18 +436,18 @@ public class RightFloatLayerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f41476e.isHalfState = true;
+                this.f39882e.isHalfState = true;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41477e;
+        public final /* synthetic */ RightFloatLayerView f39883e;
 
         public k(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -463,25 +464,25 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41477e = rightFloatLayerView;
+            this.f39883e = rightFloatLayerView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f41477e.logoImageView.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f39883e.logoImageView.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class l extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RightFloatLayerView f41478e;
+        public final /* synthetic */ RightFloatLayerView f39884e;
 
         public l(RightFloatLayerView rightFloatLayerView) {
             Interceptable interceptable = $ic;
@@ -498,7 +499,7 @@ public class RightFloatLayerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41478e = rightFloatLayerView;
+            this.f39884e = rightFloatLayerView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -506,11 +507,11 @@ public class RightFloatLayerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                RightFloatLayerView rightFloatLayerView = this.f41478e;
+                RightFloatLayerView rightFloatLayerView = this.f39884e;
                 rightFloatLayerView.isHalfState = false;
                 if (rightFloatLayerView.isDrag) {
                     rightFloatLayerView.halfHide();
-                    this.f41478e.isDrag = false;
+                    this.f39884e.isDrag = false;
                 }
             }
         }
@@ -537,20 +538,20 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public static void addClickLogForFloatEyeAd(c.a.t0.t.c.g gVar, int i2) {
+    public static void addClickLogForFloatEyeAd(c.a.q0.s.c.f fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, gVar, i2) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, fVar, i2) == null) || fVar == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(gVar.r == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", gVar.u).param("obj_param1", i2));
+        TiebaStatic.log(new StatisticItem(fVar.r == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", fVar.u).param("obj_param1", i2));
     }
 
-    public static void addShowLogForFloatEyeAd(c.a.t0.t.c.g gVar) {
+    public static void addShowLogForFloatEyeAd(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar) == null) || fVar == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(gVar.r == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", gVar.u));
+        TiebaStatic.log(new StatisticItem(fVar.r == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", fVar.u));
     }
 
     public static boolean isHomePbNeedShow() {
@@ -560,7 +561,7 @@ public class RightFloatLayerView extends RelativeLayout {
             if (isVIPCloseAd()) {
                 return false;
             }
-            return !StringHelper.isTaday(c.a.t0.s.j0.b.k().m("key_tab_right_float_layer_view", 0L));
+            return !StringHelper.isTaday(c.a.q0.r.j0.b.k().m("key_tab_right_float_layer_view", 0L));
         }
         return invokeV.booleanValue;
     }
@@ -574,29 +575,29 @@ public class RightFloatLayerView extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public final int a(c.a.t0.t.c.g gVar) {
+    public final int a(c.a.q0.s.c.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            String str = gVar.p;
-            String str2 = gVar.s;
-            String str3 = gVar.q;
-            int d2 = z.d(getContext(), str, str2, str3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
+            String str = fVar.p;
+            String str2 = fVar.s;
+            String str3 = fVar.q;
+            int d2 = a0.d(getContext(), str, str2, str3, null);
             d(str3, 2);
             e(str3, d2);
-            tryParallelCharge(gVar);
+            tryParallelCharge(fVar);
             return d2;
         }
         return invokeL.intValue;
     }
 
-    public final void b(c.a.t0.t.c.g gVar) {
+    public final void b(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-            String str = gVar.f14236e;
-            String str2 = gVar.n;
-            String str3 = gVar.o;
-            String str4 = gVar.m;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+            String str = fVar.f13639e;
+            String str2 = fVar.n;
+            String str3 = fVar.o;
+            String str4 = fVar.m;
             if (!UtilHelper.isMatchScheme(getContext(), str2, str3) && !StringUtils.isNull(str)) {
                 c(str);
             }
@@ -616,15 +617,15 @@ public class RightFloatLayerView extends RelativeLayout {
     public void completeHide() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getVisibility() == 0) {
-            AlphaAnimation alphaAnimation = this.f41462e;
+            AlphaAnimation alphaAnimation = this.f39868e;
             if (alphaAnimation != null) {
                 alphaAnimation.cancel();
             }
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
-            this.f41462e = alphaAnimation2;
+            this.f39868e = alphaAnimation2;
             alphaAnimation2.setDuration(300L);
-            this.f41462e.setFillAfter(true);
-            startAnimation(this.f41462e);
+            this.f39868e.setFillAfter(true);
+            startAnimation(this.f39868e);
             setClickable(false);
             setVisibility(8);
         }
@@ -635,15 +636,15 @@ public class RightFloatLayerView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || getVisibility() == 0) {
             return;
         }
-        AlphaAnimation alphaAnimation = this.f41463f;
+        AlphaAnimation alphaAnimation = this.f39869f;
         if (alphaAnimation != null) {
             alphaAnimation.cancel();
         }
         AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
-        this.f41463f = alphaAnimation2;
+        this.f39869f = alphaAnimation2;
         alphaAnimation2.setDuration(300L);
-        this.f41463f.setFillAfter(true);
-        startAnimation(this.f41463f);
+        this.f39869f.setFillAfter(true);
+        startAnimation(this.f39869f);
         setClickable(true);
         setVisibility(0);
     }
@@ -651,63 +652,63 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void d(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            c.a.u0.l3.l0.d.e("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            c.a.r0.j3.m0.d.e("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 
-    public void doLink(c.a.t0.t.c.g gVar) {
+    public void doLink(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) || fVar == null) {
             return;
         }
-        if (gVar.r == 2) {
-            a(gVar);
+        if (fVar.r == 2) {
+            a(fVar);
         } else {
-            b(gVar);
+            b(fVar);
         }
-        addClickLogForFloatEyeAd(gVar, 0);
+        addClickLogForFloatEyeAd(fVar, 0);
     }
 
     public final void e(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) {
             boolean z = i2 == 1000;
-            c.a.u0.l3.l0.d.e("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
+            c.a.r0.j3.m0.d.e("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
         }
     }
 
     public void halfHide() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && getVisibility() == 0 && !this.isHalfState) {
-            if (this.f41464g == null) {
+            if (this.f39870g == null) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, -45.0f);
-                this.f41464g = ofFloat;
+                this.f39870g = ofFloat;
                 ofFloat.setDuration(400L);
-                this.f41464g.addUpdateListener(new f(this));
+                this.f39870g.addUpdateListener(new f(this));
             }
-            if (this.f41465h == null) {
+            if (this.f39871h == null) {
                 ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.5f);
-                this.f41465h = ofFloat2;
+                this.f39871h = ofFloat2;
                 ofFloat2.setDuration(450L);
-                this.f41465h.addUpdateListener(new g(this));
+                this.f39871h.addUpdateListener(new g(this));
             }
-            if (this.f41466i == null) {
+            if (this.f39872i == null) {
                 ValueAnimator ofFloat3 = ValueAnimator.ofFloat(1.0f, 0.0f);
-                this.f41466i = ofFloat3;
+                this.f39872i = ofFloat3;
                 ofFloat3.setDuration(450L);
-                this.f41466i.addUpdateListener(new h(this));
+                this.f39872i.addUpdateListener(new h(this));
             }
-            if (this.f41467j == null) {
+            if (this.f39873j == null) {
                 ValueAnimator ofFloat4 = ValueAnimator.ofFloat(0.0f, 101.0f);
-                this.f41467j = ofFloat4;
+                this.f39873j = ofFloat4;
                 ofFloat4.setDuration(400L);
-                this.f41467j.addUpdateListener(new i(this));
-                this.f41467j.addListener(new j(this));
+                this.f39873j.addUpdateListener(new i(this));
+                this.f39873j.addListener(new j(this));
             }
             if (this.o == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
                 this.o = animatorSet;
-                animatorSet.play(this.f41464g).with(this.f41465h).with(this.f41466i).before(this.f41467j);
+                animatorSet.play(this.f39870g).with(this.f39871h).with(this.f39872i).before(this.f39873j);
             }
             this.o.start();
             setClickable(false);
@@ -755,11 +756,11 @@ public class RightFloatLayerView extends RelativeLayout {
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            LayoutInflater.from(context).inflate(c.a.u0.a4.h.new_float_view, (ViewGroup) this, true);
-            this.feedbackImageView = (ImageView) findViewById(c.a.u0.a4.g.float_layer_feedback_picture);
-            this.mAdLableIcon = (TextView) findViewById(c.a.u0.a4.g.layer_ad_lable_icon_layout);
-            SkinManager.setImageResource(this.feedbackImageView, c.a.u0.a4.f.ic_icon_popup_close_n);
-            TbImageView tbImageView = (TbImageView) findViewById(c.a.u0.a4.g.float_layer_logo_picture);
+            LayoutInflater.from(context).inflate(R.layout.new_float_view, (ViewGroup) this, true);
+            this.feedbackImageView = (ImageView) findViewById(R.id.float_layer_feedback_picture);
+            this.mAdLableIcon = (TextView) findViewById(R.id.layer_ad_lable_icon_layout);
+            SkinManager.setImageResource(this.feedbackImageView, R.drawable.ic_icon_popup_close_n);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.float_layer_logo_picture);
             this.logoImageView = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.logoImageView.setEvent(new e(this));
@@ -772,18 +773,18 @@ public class RightFloatLayerView extends RelativeLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.isFloatLayerShown : invokeV.booleanValue;
     }
 
-    public boolean isNeedShowAdIcon(c.a.t0.t.c.g gVar) {
+    public boolean isNeedShowAdIcon(c.a.q0.s.c.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, gVar)) == null) ? gVar.r == 2 || gVar.b() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, fVar)) == null) ? fVar.r == 2 || fVar.b() : invokeL.booleanValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.logoImageView.invalidate();
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.feedbackImageView, c.a.u0.a4.f.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.mAdLableIcon, c.a.u0.a4.d.CAM_X0112, 1);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.feedbackImageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.mAdLableIcon, R.color.CAM_X0112, 1);
         }
     }
 
@@ -812,38 +813,38 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void parallelShow(c.a.t0.t.c.g gVar) {
+    public void parallelShow(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
-            c.a.u0.z1.o.h.c.g(gVar);
+        if (interceptable == null || interceptable.invokeL(1048593, this, fVar) == null) {
+            c.a.r0.z1.o.h.c.g(fVar);
         }
     }
 
-    public void reportClickCloseAd(c.a.t0.t.c.g gVar) {
+    public void reportClickCloseAd(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, fVar) == null) || fVar == null) {
             return;
         }
-        int i2 = gVar.r;
-        String str = gVar.q;
+        int i2 = fVar.r;
+        String str = fVar.q;
         if (i2 == 2) {
             d(str, 7);
         }
-        addClickLogForFloatEyeAd(gVar, 1);
+        addClickLogForFloatEyeAd(fVar, 1);
     }
 
-    public void reportShowAd(c.a.t0.t.c.g gVar) {
+    public void reportShowAd(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, fVar) == null) || fVar == null) {
             return;
         }
-        if (gVar.r == 2) {
-            d(gVar.q, 3);
-            parallelShow(gVar);
+        if (fVar.r == 2) {
+            d(fVar.q, 3);
+            parallelShow(fVar);
         } else {
-            ThirdStatisticHelper.sendReq(gVar.m);
+            ThirdStatisticHelper.sendReq(fVar.m);
         }
-        addShowLogForFloatEyeAd(gVar);
+        addShowLogForFloatEyeAd(fVar);
     }
 
     public void setAutoCompleteShown(boolean z) {
@@ -853,19 +854,19 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void setData(c.a.t0.t.c.g gVar) {
+    public void setData(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, gVar) == null) || gVar == null || this.isFloatLayerShown || m.isEmpty(gVar.f14237f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) || fVar == null || this.isFloatLayerShown || m.isEmpty(fVar.f13640f)) {
             return;
         }
-        if (isNeedShowAdIcon(gVar)) {
+        if (isNeedShowAdIcon(fVar)) {
             this.mAdLableIcon.setVisibility(0);
         } else {
             this.mAdLableIcon.setVisibility(4);
         }
         this.logoImageView.setVisibility(0);
-        this.logoImageView.startLoad(gVar.f14237f, 45, false);
-        reportShowAd(gVar);
+        this.logoImageView.startLoad(fVar.f13640f, 45, false);
+        reportShowAd(fVar);
         this.isFloatLayerShown = true;
     }
 
@@ -881,7 +882,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void setHomePbFloatLastCloseTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            c.a.t0.s.j0.b.k().x("key_tab_right_float_layer_view", System.currentTimeMillis());
+            c.a.q0.r.j0.b.k().x("key_tab_right_float_layer_view", System.currentTimeMillis());
         }
     }
 
@@ -894,10 +895,10 @@ public class RightFloatLayerView extends RelativeLayout {
         tbImageView.setOnClickListener(onClickListener);
     }
 
-    public void tryParallelCharge(c.a.t0.t.c.g gVar) {
+    public void tryParallelCharge(c.a.q0.s.c.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, gVar) == null) {
-            c.a.u0.z1.o.h.c.h(gVar);
+        if (interceptable == null || interceptable.invokeL(1048601, this, fVar) == null) {
+            c.a.r0.z1.o.h.c.h(fVar);
         }
     }
 
@@ -941,8 +942,8 @@ public class RightFloatLayerView extends RelativeLayout {
                 return;
             }
         }
-        this.f41462e = null;
-        this.f41463f = null;
+        this.f39868e = null;
+        this.f39869f = null;
         this.isHalfState = false;
         this.isDrag = false;
         this.isAutoCompleteShown = true;

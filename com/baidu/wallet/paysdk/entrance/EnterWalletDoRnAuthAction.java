@@ -12,7 +12,7 @@ import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class EnterWalletDoRnAuthAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f52192b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f50611b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52192b = this;
+                    this.f50611b = this;
                     this.a = routerCallback;
                 }
 

@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f48608e;
+    public DressItemData f47027e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48609f;
+    public int f47028f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48610g;
+    public int f47029g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f48611h;
+    public b f47030h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f48612i;
+    public c.a.d.c.g.a f47031i;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,23 +69,23 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        this.a.f48608e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        this.a.f47027e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        this.a.f48608e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        this.a.f47027e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (this.a.f48611h != null) {
-                    if (this.a.f48608e != null) {
-                        this.a.f48608e.setPropsId(this.a.f48609f);
-                        this.a.f48608e.setInUse(this.a.f48610g == 1);
+                if (this.a.f47030h != null) {
+                    if (this.a.f47027e != null) {
+                        this.a.f47027e.setPropsId(this.a.f47028f);
+                        this.a.f47027e.setInUse(this.a.f47029g == 1);
                     }
-                    this.a.f48611h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48608e);
+                    this.a.f47030h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f47027e);
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i2, String str, DressItemData dressItemData);
     }
@@ -105,17 +105,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                 return;
             }
         }
-        this.f48612i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
-        this.f48609f = i2;
-        this.f48610g = i3;
+        this.f47031i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+        this.f47028f = i2;
+        this.f47029g = i3;
         registerTask();
-        registerListener(this.f48612i);
+        registerListener(this.f47031i);
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f48611h = bVar;
+            this.f47030h = bVar;
         }
     }
 
@@ -132,7 +132,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48612i);
+            MessageManager.getInstance().unRegisterListener(this.f47031i);
         }
     }
 
@@ -142,7 +142,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-            backgroundGetRequestMessage.setPropId(this.f48609f);
+            backgroundGetRequestMessage.setPropId(this.f47028f);
             sendMessage(backgroundGetRequestMessage);
             return false;
         }
@@ -152,8 +152,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.u0.z3.g0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            c.a.u0.z3.g0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.y3.g0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            c.a.r0.y3.g0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

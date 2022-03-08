@@ -17,38 +17,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.base.widget.NetImageView;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class OrderConfirmation extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f50891b;
+    public NetImageView f49310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f50892c;
+    public View f49311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f50893d;
+    public TextView f49312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f50894e;
+    public ImageView f49313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50895f;
+    public View f49314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50896g;
+    public TextView f49315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f50897h;
+    public View f49316h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50898i;
+    public TextView f49317i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f50899j;
+    public View f49318j;
     public TextView k;
     public TextView l;
     public ImageView m;
@@ -73,12 +73,12 @@ public class OrderConfirmation extends LinearLayout {
                 return;
             }
         }
-        this.f50892c = null;
-        this.f50893d = null;
-        this.f50894e = null;
-        this.f50895f = null;
-        this.f50896g = null;
-        this.f50899j = null;
+        this.f49311c = null;
+        this.f49312d = null;
+        this.f49313e = null;
+        this.f49314f = null;
+        this.f49315g = null;
+        this.f49318j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -92,8 +92,8 @@ public class OrderConfirmation extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_orderconfirmation"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_back"));
-            this.f50891b = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_title"));
-            this.f50891b.setImageResource(ResUtils.drawable(getContext(), "wallet_cashdesk_logo"));
+            this.f49310b = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_title"));
+            this.f49310b.setImageResource(ResUtils.drawable(getContext(), "wallet_cashdesk_logo"));
             TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_pay_title"));
             this.n = textView;
             if (textView != null) {
@@ -104,15 +104,15 @@ public class OrderConfirmation extends LinearLayout {
             if (textView2 != null) {
                 textView2.setText("");
             }
-            this.f50892c = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_layout"));
-            this.f50894e = (ImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_icon"));
-            this.f50893d = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account"));
-            this.f50895f = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account"));
-            this.f50896g = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account_value"));
-            this.f50897h = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_sp_name"));
-            this.f50898i = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_spname_value"));
+            this.f49311c = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_layout"));
+            this.f49313e = (ImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_icon"));
+            this.f49312d = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account"));
+            this.f49314f = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account"));
+            this.f49315g = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account_value"));
+            this.f49316h = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_sp_name"));
+            this.f49317i = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_spname_value"));
             View findViewById = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_goods"));
-            this.f50899j = findViewById;
+            this.f49318j = findViewById;
             if (findViewById != null) {
                 findViewById.setVisibility(8);
             }
@@ -139,12 +139,12 @@ public class OrderConfirmation extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.n == null) {
             return;
         }
-        View view = this.f50892c;
+        View view = this.f49311c;
         int i2 = (view == null || view.getVisibility() != 0) ? 0 : 1;
-        if (this.f50892c != null && this.f50895f.getVisibility() == 0) {
+        if (this.f49311c != null && this.f49314f.getVisibility() == 0) {
             i2++;
         }
-        if (this.f50892c != null && this.f50899j.getVisibility() == 0) {
+        if (this.f49311c != null && this.f49318j.getVisibility() == 0) {
             i2++;
         }
         if (i2 >= 3) {
@@ -163,44 +163,44 @@ public class OrderConfirmation extends LinearLayout {
     public View getCouponInfoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50899j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49318j : (View) invokeV.objValue;
     }
 
     public void setAccountInfo(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) || this.f50892c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) || this.f49311c == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f50892c.setVisibility(0);
+            this.f49311c.setVisibility(0);
             if (onClickListener != null) {
-                this.f50892c.setOnClickListener(onClickListener);
-                this.f50894e.setVisibility(0);
+                this.f49311c.setOnClickListener(onClickListener);
+                this.f49313e.setVisibility(0);
             } else {
-                this.f50894e.setVisibility(4);
+                this.f49313e.setVisibility(4);
             }
-            this.f50893d.setText(str);
+            this.f49312d.setText(str);
             b();
             return;
         }
-        this.f50892c.setVisibility(8);
+        this.f49311c.setVisibility(8);
     }
 
     public void setCouponInfo(CharSequence charSequence, CharSequence charSequence2, View.OnClickListener onClickListener) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, charSequence, charSequence2, onClickListener) == null) || (view = this.f50899j) == null || view.getVisibility() == 8) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, charSequence, charSequence2, onClickListener) == null) || (view = this.f49318j) == null || view.getVisibility() == 8) {
             return;
         }
         if (onClickListener != null) {
-            this.f50899j.setOnClickListener(onClickListener);
+            this.f49318j.setOnClickListener(onClickListener);
         }
         if (this.k != null) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f50899j.setVisibility(0);
+                this.f49318j.setVisibility(0);
                 this.k.setText(charSequence);
             } else {
-                this.f50899j.setVisibility(8);
+                this.f49318j.setVisibility(8);
                 return;
             }
         }
@@ -214,14 +214,14 @@ public class OrderConfirmation extends LinearLayout {
             }
             this.l.setVisibility(8);
             this.m.setVisibility(4);
-            this.f50899j.setOnClickListener(null);
+            this.f49318j.setOnClickListener(null);
         }
     }
 
     public void setDiscountInfoVisiable(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (view = this.f50899j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (view = this.f49318j) == null) {
             return;
         }
         view.setVisibility(z ? 0 : 8);
@@ -230,16 +230,16 @@ public class OrderConfirmation extends LinearLayout {
     public void setOrderInfo(CharSequence charSequence) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) || (view = this.f50895f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) || (view = this.f49314f) == null) {
             return;
         }
-        if (this.f50896g == null) {
+        if (this.f49315g == null) {
             view.setVisibility(8);
         } else if (!TextUtils.isEmpty(charSequence)) {
-            this.f50895f.setVisibility(0);
-            this.f50896g.setText(charSequence);
+            this.f49314f.setVisibility(0);
+            this.f49315g.setText(charSequence);
         } else {
-            this.f50895f.setVisibility(8);
+            this.f49314f.setVisibility(8);
         }
     }
 
@@ -256,16 +256,16 @@ public class OrderConfirmation extends LinearLayout {
     public void setSpNameValue(CharSequence charSequence) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) || (view = this.f50897h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) || (view = this.f49316h) == null) {
             return;
         }
-        if (this.f50898i == null) {
+        if (this.f49317i == null) {
             view.setVisibility(8);
         } else if (!TextUtils.isEmpty(charSequence)) {
-            this.f50897h.setVisibility(0);
-            this.f50898i.setText(charSequence);
+            this.f49316h.setVisibility(0);
+            this.f49317i.setText(charSequence);
         } else {
-            this.f50897h.setVisibility(8);
+            this.f49316h.setVisibility(8);
         }
     }
 
@@ -274,7 +274,7 @@ public class OrderConfirmation extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f50891b.setImageUrl(str);
+        this.f49310b.setImageUrl(str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -296,12 +296,12 @@ public class OrderConfirmation extends LinearLayout {
                 return;
             }
         }
-        this.f50892c = null;
-        this.f50893d = null;
-        this.f50894e = null;
-        this.f50895f = null;
-        this.f50896g = null;
-        this.f50899j = null;
+        this.f49311c = null;
+        this.f49312d = null;
+        this.f49313e = null;
+        this.f49314f = null;
+        this.f49315g = null;
+        this.f49318j = null;
         this.k = null;
         this.l = null;
         this.m = null;

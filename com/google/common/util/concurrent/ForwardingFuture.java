@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
-import c.i.d.a.n;
-import c.i.d.c.h0;
+import c.i.c.a.n;
+import c.i.c.c.h0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +12,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class SimpleForwardingFuture<V> extends ForwardingFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.util.concurrent.ForwardingFuture, c.i.d.c.h0
+        @Override // com.google.common.util.concurrent.ForwardingFuture, c.i.c.c.h0
         public final Future<V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public abstract class ForwardingFuture<V> extends h0 implements Future<V> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.h0
+    @Override // c.i.c.c.h0
     public abstract Future<? extends V> delegate();
 
     @Override // java.util.concurrent.Future

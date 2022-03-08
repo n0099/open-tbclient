@@ -4,25 +4,26 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.m;
-import c.a.t0.b.d;
-import c.a.t0.b.e;
-import c.a.t0.b.f.e0;
-import c.a.t0.d1.u0;
-import c.a.t0.g1.b.c;
-import c.a.t0.s.a0.a;
-import c.a.t0.s.j0.b;
-import c.a.u0.a1.a.b.g;
+import c.a.q0.c1.t0;
+import c.a.q0.f1.b.c;
+import c.a.q0.r.a0.a;
+import c.a.q0.r.j0.b;
+import c.a.r0.z0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.abtest.UsbAbTestSwitch;
+import com.baidu.tbadk.abtest.group.ThreadCardGroupUbsABTest;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -37,11 +38,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto.HostGlobalStateSync {
     public static /* synthetic */ Interceptable $ic;
     public static boolean updatingLoginUserInfoByFlutter;
@@ -57,7 +56,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     public CustomMessageListener skinTypeChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class GlobalStateSubType {
         public static final /* synthetic */ GlobalStateSubType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -131,7 +130,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class GlobalStateType {
         public static final /* synthetic */ GlobalStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -448,47 +447,47 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a = d.a(e0.f12460c);
-            if (a == null || m.isEmpty(a.a)) {
+            UsbAbTestSwitch ubsABTestByGroupKey = UbsABTestHelper.getUbsABTestByGroupKey(ThreadCardGroupUbsABTest.ABTEST_GROUP_KEY);
+            if (ubsABTestByGroupKey == null || m.isEmpty(ubsABTestByGroupKey.uniquekey)) {
                 return "";
             }
-            String str = a.a;
+            String str = ubsABTestByGroupKey.uniquekey;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
                 switch (hashCode) {
                     case 1687628:
-                        if (str.equals("70_2")) {
+                        if (str.equals(ThreadCardGroupUbsABTest.SID_A)) {
                             c2 = 0;
                             break;
                         }
                         break;
                     case 1687629:
-                        if (str.equals("70_3")) {
+                        if (str.equals(ThreadCardGroupUbsABTest.SID_B)) {
                             c2 = 1;
                             break;
                         }
                         break;
                     case 1687630:
-                        if (str.equals("70_4")) {
+                        if (str.equals(ThreadCardGroupUbsABTest.SID_C)) {
                             c2 = 2;
                             break;
                         }
                         break;
                     case 1687631:
-                        if (str.equals("70_5")) {
+                        if (str.equals(ThreadCardGroupUbsABTest.SID_D)) {
                             c2 = 3;
                             break;
                         }
                         break;
                     case 1687632:
-                        if (str.equals("70_6")) {
+                        if (str.equals(ThreadCardGroupUbsABTest.SID_E)) {
                             c2 = 4;
                             break;
                         }
                         break;
                 }
-            } else if (str.equals("71_2")) {
+            } else if (str.equals(ThreadCardGroupUbsABTest.SID_F)) {
                 c2 = 5;
             }
             return c2 != 0 ? c2 != 1 ? c2 != 2 ? c2 != 3 ? c2 != 4 ? c2 != 5 ? "" : "sid_f" : "sid_e" : "sid_d" : "sid_c" : "sid_b" : "sid_a";
@@ -519,7 +518,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(u0.e()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(t0.e()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -533,19 +532,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
             hashMap.put(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-            StringBuilder sb = new StringBuilder();
-            sb.append(a.f13402f);
-            String str = "";
-            sb.append("");
-            hashMap.put("start_type", sb.toString());
-            try {
-                if (!StringUtils.isNull(a.f13401e)) {
-                    str = URLEncoder.encode(a.f13401e, "utf-8");
-                }
-                hashMap.put("start_scheme", str);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-            }
+            hashMap.put("start_type", a.f12818f + "");
+            hashMap.put("start_scheme", a.e());
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
@@ -588,7 +576,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String a = c.a.t0.t.b.a.b().a();
+            String a = c.a.q0.s.b.a.b().a();
             hashMap.put("keepAliveWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveWifi()));
             hashMap.put("keepAliveNoWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveNonWifi()));
             hashMap.put("puEnvValue", TbSingleton.getInstance().getPubEnvValue());
@@ -631,8 +619,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             Object hashMap5 = new HashMap();
             Object hashMap6 = new HashMap();
             hashMap2.put("financeURL", b.k().q("baidu_finance", null));
-            hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().e());
-            hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().c());
+            hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
+            hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
             hashMap2.put("auditPackageSwitch", Integer.valueOf(b.k().h("audit_package_switch", false) ? 1 : 0));
             hashMap2.put("isLiteMode", "0");
             hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.k().l("key_is_show_shoubai_dynamic_guide", 0)));
@@ -642,20 +630,20 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.k().l("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.a0() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.W() ? "12_11_nick_name_a" : "");
-            hashMap2.put("ubsConfigMap", c.a.t0.b.c.d().f());
+            hashMap2.put("experimentPersonalVideoTabID", UbsABTestHelper.isPersonalVideoTabFlowABTest() ? UsbAbTestConst.KEY_PERSONAL_VIDEO_TAB_FLOW : "");
+            hashMap2.put("experimentNickNameID", UbsABTestHelper.isNickNameABTest() ? UsbAbTestConst.KEY_NICK_NAME : "");
+            hashMap2.put("ubsConfigMap", UbsABTestDataManager.getInstance().getSwitchsClone());
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
-                hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().f() ? "1" : "0");
-                hashMap3.put("heatingWeburl", TbSingleton.getInstance().getTiebaPlusConfigData().c());
+                hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().isSwitchOpen() ? "1" : "0");
+                hashMap3.put("heatingWeburl", TbSingleton.getInstance().getTiebaPlusConfigData().getJumpUrl());
             }
             hashMap.put("configInfo", hashMap3);
             hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, hashMap4);
             hashMap.put("noticeConfig", hashMap5);
             hashMap.put("adsenseData", hashMap6);
             hashMap.put("switches", readSwitches());
-            hashMap.put("experimentCommonFeedCardID", d.g() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
+            hashMap.put("experimentCommonFeedCardID", UbsABTestHelper.isCardAcr() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
             hashMap.put("proxyIp", TbadkCoreApplication.getInst().getProxyIp());
             hashMap.put("proxyPort", TbadkCoreApplication.getInst().getProxyPort());
             return hashMap;

@@ -49,7 +49,7 @@ public class Scene {
     public static Scene getCurrentScene(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) ? (Scene) viewGroup.getTag(R.id.transition_current_scene) : (Scene) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) ? (Scene) viewGroup.getTag(R$id.transition_current_scene) : (Scene) invokeL.objValue;
     }
 
     @NonNull
@@ -57,10 +57,10 @@ public class Scene {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, i2, context)) == null) {
-            SparseArray sparseArray = (SparseArray) viewGroup.getTag(R.id.transition_scene_layoutid_cache);
+            SparseArray sparseArray = (SparseArray) viewGroup.getTag(R$id.transition_scene_layoutid_cache);
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                viewGroup.setTag(R.id.transition_scene_layoutid_cache, sparseArray);
+                viewGroup.setTag(R$id.transition_scene_layoutid_cache, sparseArray);
             }
             Scene scene = (Scene) sparseArray.get(i2);
             if (scene != null) {
@@ -76,7 +76,7 @@ public class Scene {
     public static void setCurrentScene(@NonNull ViewGroup viewGroup, @Nullable Scene scene) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, viewGroup, scene) == null) {
-            viewGroup.setTag(R.id.transition_current_scene, scene);
+            viewGroup.setTag(R$id.transition_current_scene, scene);
         }
     }
 

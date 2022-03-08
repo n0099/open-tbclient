@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class d extends h<Params, Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ c f59378b;
+    public /* synthetic */ c f57728b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar) {
@@ -33,7 +33,7 @@ public final class d extends h<Params, Result> {
                 return;
             }
         }
-        this.f59378b = cVar;
+        this.f57728b = cVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
@@ -45,10 +45,10 @@ public final class d extends h<Params, Result> {
         ?? a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            atomicBoolean = this.f59378b.f59376g;
+            atomicBoolean = this.f57728b.f57726g;
             atomicBoolean.set(true);
             Process.setThreadPriority(10);
-            c cVar = this.f59378b;
+            c cVar = this.f57728b;
             a = cVar.a((c) cVar.b(this.a));
             return a;
         }

@@ -1,9 +1,6 @@
 package com.dxmpay.apollon.restnet.converter;
 
 import android.text.TextUtils;
-import c.f.a.g.c.a;
-import c.f.a.g.d.e;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
 import com.dxmpay.apollon.restnet.RestRuntimeException;
+import com.dxmpay.apollon.restnet.rest.e;
 import com.dxmpay.apollon.utils.FileCopyUtils;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.LogUtil;
@@ -20,12 +18,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Charset f53808b;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +37,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
                 return;
             }
         }
-        f53808b = Charset.forName("UTF-8");
+        a = Charset.forName("UTF-8");
     }
 
     public GsonHttpMessageConverter() {
@@ -58,14 +54,26 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
         }
     }
 
+    private Charset a(com.dxmpay.apollon.restnet.http.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
+            if (aVar != null && !TextUtils.isEmpty(aVar.d())) {
+                return Charset.forName(aVar.d());
+            }
+            return a;
+        }
+        return (Charset) invokeL.objValue;
+    }
+
     @Override // com.dxmpay.apollon.restnet.converter.AbstractHttpMessageConverter
-    public Object d(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
+    public Object b(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(eVar.b(), e(eVar.c()));
+            InputStreamReader inputStreamReader = new InputStreamReader(eVar.b(), a(eVar.c()));
             String copyToString = FileCopyUtils.copyToString(inputStreamReader);
-            c(copyToString);
+            a(copyToString);
             if (ApollonConstants.DEBUG) {
                 int length = copyToString.length();
                 int i2 = 0;
@@ -84,17 +92,5 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
             }
         }
         return invokeLL.objValue;
-    }
-
-    public final Charset e(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
-                return Charset.forName(aVar.j());
-            }
-            return f53808b;
-        }
-        return (Charset) invokeL.objValue;
     }
 }

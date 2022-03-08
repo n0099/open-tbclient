@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
-import c.a.u0.a0.f.c.f.d.h;
+import c.a.r0.a0.f.c.f.d.h;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

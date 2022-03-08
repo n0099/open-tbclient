@@ -24,14 +24,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DialogRecordDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DialogRecordDBManager";
     public static DialogRecordDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class Parse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -3,25 +3,24 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.t0.s.v.c;
-import c.a.u0.u2.i;
+import c.a.q0.r.v.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f46754b;
+    public RelativeLayout f45162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f46755c;
+    public TextView f45163c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbLoadMoreItemVideoViewHolder(View view) {
@@ -42,14 +41,14 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f46754b = (RelativeLayout) view.findViewById(i.pb_check_video_more);
-        TextView textView = (TextView) view.findViewById(i.pb_check_more_text);
-        this.f46755c = textView;
+        this.f45162b = (RelativeLayout) view.findViewById(R.id.pb_check_video_more);
+        TextView textView = (TextView) view.findViewById(R.id.pb_check_more_text);
+        this.f45163c = textView;
         c d2 = c.d(textView);
         d2.z(R.dimen.T_X12);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0107);
-        this.f46754b.setVisibility(0);
+        this.f45162b.setVisibility(0);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

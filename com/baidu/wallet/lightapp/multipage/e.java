@@ -22,23 +22,23 @@ import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f51934b;
+    public Long f50353b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static e a;
@@ -140,7 +140,7 @@ public class e implements i.b {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f51934b = valueOf;
+            this.f50353b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             i.a().c(context);
         }
@@ -159,7 +159,7 @@ public class e implements i.b {
                 return;
             }
         }
-        this.f51934b = -1L;
+        this.f50353b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -192,10 +192,10 @@ public class e implements i.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, context, i2)) == null) {
-            if (this.f51934b.longValue() == -1) {
-                this.f51934b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f50353b.longValue() == -1) {
+                this.f50353b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f51934b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f50353b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }

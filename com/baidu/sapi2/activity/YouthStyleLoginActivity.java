@@ -3,17 +3,15 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.f0.a.c;
-import c.a.f0.a.e;
-import c.a.f0.a.f;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,16 +36,16 @@ public class YouthStyleLoginActivity extends LoginActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            setContentView(f.layout_sapi_sdk_youth_style_login_activity);
+            setContentView(R.layout.layout_sapi_sdk_youth_style_login_activity);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(e.sbl_root_view);
-            this.J = (ImageView) findViewById(e.iv_pick_up_arrow);
+            this.I = (SwipeBackLayout) findViewById(R.id.sbl_root_view);
+            this.J = (ImageView) findViewById(R.id.iv_pick_up_arrow);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
             if (sapiWebView instanceof RoundWebview) {
-                ((RoundWebview) sapiWebView).a(getResources().getDimension(c.sapi_sdk_youth_style_webview_radius), getResources().getDimension(c.sapi_sdk_youth_style_webview_radius), 0.0f, 0.0f);
+                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.sapi_sdk_youth_style_webview_radius), getResources().getDimension(R.dimen.sapi_sdk_youth_style_webview_radius), 0.0f, 0.0f);
             }
             this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;

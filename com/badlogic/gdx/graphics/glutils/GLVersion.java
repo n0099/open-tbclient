@@ -3,7 +3,6 @@ package com.badlogic.gdx.graphics.glutils;
 import c.b.b.f;
 import com.badlogic.gdx.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,17 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class GLVersion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Type f31357b;
+    public final Type f29761b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -50,7 +49,7 @@ public class GLVersion {
             OpenGL = new Type("OpenGL", 0);
             GLES = new Type("GLES", 1);
             WebGL = new Type("WebGL", 2);
-            Type type = new Type(PolyActivity.NONE_PANEL_TYPE, 3);
+            Type type = new Type("NONE", 3);
             NONE = type;
             $VALUES = new Type[]{OpenGL, GLES, WebGL, type};
         }
@@ -103,19 +102,19 @@ public class GLVersion {
             }
         }
         if (applicationType == Application.ApplicationType.Android) {
-            this.f31357b = Type.GLES;
+            this.f29761b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.iOS) {
-            this.f31357b = Type.GLES;
+            this.f29761b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.Desktop) {
-            this.f31357b = Type.OpenGL;
+            this.f29761b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.Applet) {
-            this.f31357b = Type.OpenGL;
+            this.f29761b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.WebGL) {
-            this.f31357b = Type.WebGL;
+            this.f29761b = Type.WebGL;
         } else {
-            this.f31357b = Type.NONE;
+            this.f29761b = Type.NONE;
         }
-        Type type = this.f31357b;
+        Type type = this.f29761b;
         if (type == Type.GLES) {
             a("OpenGL ES (\\d(\\.\\d){0,2})", str);
         } else if (type == Type.WebGL) {
@@ -173,6 +172,6 @@ public class GLVersion {
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31357b : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29761b : (Type) invokeV.objValue;
     }
 }

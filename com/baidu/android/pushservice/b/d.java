@@ -37,27 +37,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class d extends b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f31888d = 0;
+    public static int f30291d = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f31889f = -1;
+    public static int f30292f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f31890g = -1;
+    public static int f30293g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f31891h = -1;
+    public static int f30294h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f31892i = -1;
+    public static int f30295i = -1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f31893j = -1;
+    public static int f30296j = -1;
     public static int k = -1;
     public static int l = -1;
     public static d m;
@@ -65,7 +65,7 @@ public class d extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31894e;
+    public String f30297e;
     public int n;
     public c o;
     public int p;
@@ -74,7 +74,7 @@ public class d extends b {
     public final String s;
     public Map<String, c> t;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
@@ -113,12 +113,12 @@ public class d extends b {
                 return;
             }
         }
-        this.f31894e = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updateconfig";
+        this.f30297e = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updateconfig";
         this.p = 0;
         this.q = com.baidu.android.pushservice.a.a();
         this.r = CloudStabilityUBCUtils.KEY_RESPONSE_CODE;
         this.s = "responseResult";
-        this.f31877c = "/data/data/" + this.a.getPackageName() + "/files/bdpush_modeconfig.json";
+        this.f30280c = "/data/data/" + this.a.getPackageName() + "/files/bdpush_modeconfig.json";
         e();
     }
 
@@ -174,10 +174,10 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, hashMap)) == null) {
             HashMap<String, String> hashMap2 = new HashMap<>();
-            this.f31894e = (g.f() ? g.a() : g.b()) + "/rest/3.0/clientfile/updateconf";
+            this.f30297e = (g.f() ? g.a() : g.b()) + "/rest/3.0/clientfile/updateconf";
             int i2 = 2;
             do {
-                com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f31894e, "POST", hashMap, "BCCS_SDK/3.0", g.c());
+                com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f30297e, "POST", hashMap, "BCCS_SDK/3.0", g.c());
                 if (b2 != null) {
                     int b3 = b2.b();
                     hashMap2.put(CloudStabilityUBCUtils.KEY_RESPONSE_CODE, b3 + "");
@@ -377,10 +377,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            if (f31892i == -1) {
-                f31892i = i.b(context, "enable_conn_for_proxy", 0);
+            if (f30295i == -1) {
+                f30295i = i.b(context, "enable_conn_for_proxy", 0);
             }
-            return f31892i == 1;
+            return f30295i == 1;
         }
         return invokeL.booleanValue;
     }
@@ -401,10 +401,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            if (f31891h == -1) {
-                f31891h = (com.baidu.android.pushservice.a.a(context.getPackageName()) || i.b(context, "enable_single_conn", 1) == 1) ? 1 : 0;
+            if (f30294h == -1) {
+                f30294h = (com.baidu.android.pushservice.a.a(context.getPackageName()) || i.b(context, "enable_single_conn", 1) == 1) ? 1 : 0;
             }
-            return f31891h == 1;
+            return f30294h == 1;
         }
         return invokeL.booleanValue;
     }
@@ -445,10 +445,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            if (f31889f == -1) {
-                f31889f = i.b(context, "enable_stat_upload", 0);
+            if (f30292f == -1) {
+                f30292f = i.b(context, "enable_stat_upload", 0);
             }
-            return f31889f == 1;
+            return f30292f == 1;
         }
         return invokeL.booleanValue;
     }
@@ -498,7 +498,7 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f31876b);
+                JSONObject jSONObject = new JSONObject(this.f30279b);
                 this.n = jSONObject.getInt("version");
                 this.t = new HashMap();
                 JSONArray jSONArray = jSONObject.getJSONArray("modeconfig");
@@ -560,7 +560,7 @@ public class d extends b {
                 return true;
             }
             long b2 = i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
-            File file = new File(this.f31877c);
+            File file = new File(this.f30280c);
             if (file.exists()) {
                 long j2 = 0;
                 if (b2 <= 0 || b2 != file.lastModified()) {
@@ -599,7 +599,7 @@ public class d extends b {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            File file = new File(this.f31877c);
+            File file = new File(this.f30280c);
             if (file.exists()) {
                 i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED", file.lastModified());
                 long j2 = 0;
@@ -825,13 +825,13 @@ public class d extends b {
                         public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ long f31896b;
+                        public final /* synthetic */ long f30299b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ a f31897c;
+                        public final /* synthetic */ a f30300c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ d f31898d;
+                        public final /* synthetic */ d f30301d;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -852,10 +852,10 @@ public class d extends b {
                                     return;
                                 }
                             }
-                            this.f31898d = this;
+                            this.f30301d = this;
                             this.a = str;
-                            this.f31896b = currentTimeMillis;
-                            this.f31897c = aVar;
+                            this.f30299b = currentTimeMillis;
+                            this.f30300c = aVar;
                         }
 
                         @Override // com.baidu.android.pushservice.g.c
@@ -865,90 +865,90 @@ public class d extends b {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
                                     HashMap hashMap = new HashMap();
-                                    com.baidu.android.pushservice.httpapi.b.a(this.f31898d.a, hashMap);
-                                    hashMap.put("version", this.f31898d.n + "");
+                                    com.baidu.android.pushservice.httpapi.b.a(this.f30301d.a, hashMap);
+                                    hashMap.put("version", this.f30301d.n + "");
                                     hashMap.put("model", Build.MODEL);
                                     hashMap.put("osSdkInt", Build.VERSION.SDK_INT + "");
                                     hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.a);
-                                    hashMap.put("front_conn_avaliable", d.f31888d + "");
-                                    if ((m.d() && PushSettings.k(this.f31898d.a)) || ((m.b() && PushSettings.g(this.f31898d.a)) || ((m.c() && PushSettings.h(this.f31898d.a)) || ((m.f() && PushSettings.i(this.f31898d.a)) || (m.i() && PushSettings.j(this.f31898d.a)))))) {
-                                        hashMap.put("rom_version", m.n(this.f31898d.a));
+                                    hashMap.put("front_conn_avaliable", d.f30291d + "");
+                                    if ((m.d() && PushSettings.k(this.f30301d.a)) || ((m.b() && PushSettings.g(this.f30301d.a)) || ((m.c() && PushSettings.h(this.f30301d.a)) || ((m.f() && PushSettings.i(this.f30301d.a)) || (m.i() && PushSettings.j(this.f30301d.a)))))) {
+                                        hashMap.put("rom_version", m.n(this.f30301d.a));
                                     }
-                                    if ((m.g() || m.h()) && PushSettings.i(this.f31898d.a)) {
-                                        hashMap.put("rom_version", m.n(this.f31898d.a));
-                                        hashMap.put("support_proxy", d.p(this.f31898d.a) ? "1" : "0");
+                                    if ((m.g() || m.h()) && PushSettings.i(this.f30301d.a)) {
+                                        hashMap.put("rom_version", m.n(this.f30301d.a));
+                                        hashMap.put("support_proxy", d.p(this.f30301d.a) ? "1" : "0");
                                     }
                                     hashMap.put("manufacture", m.a(false));
                                     hashMap.put("sdk_version", ((int) com.baidu.android.pushservice.a.a()) + "");
-                                    hashMap.put("cuid", DeviceId.getCUID(this.f31898d.a));
-                                    hashMap.put("package_name", this.f31898d.a.getPackageName());
+                                    hashMap.put("cuid", DeviceId.getCUID(this.f30301d.a));
+                                    hashMap.put("package_name", this.f30301d.a.getPackageName());
                                     long currentTimeMillis2 = System.currentTimeMillis();
-                                    HashMap a2 = this.f31898d.a(hashMap);
+                                    HashMap a2 = this.f30301d.a(hashMap);
                                     String str2 = (String) a2.get("responseResult");
                                     if (!TextUtils.isEmpty(str2) && (jSONObject = (JSONObject) new JSONObject(str2).get("response_params")) != null) {
                                         if (jSONObject.getInt("status") == 1) {
                                             String string = jSONObject.getString("sdkconfig");
-                                            if (!TextUtils.isEmpty(string) && this.f31898d.a(this.f31898d.a, string)) {
-                                                this.f31898d.e();
+                                            if (!TextUtils.isEmpty(string) && this.f30301d.a(this.f30301d.a, string)) {
+                                                this.f30301d.e();
                                             }
                                         }
-                                        i.b(this.f31898d.a, "last_update_config_time", this.f31896b);
+                                        i.b(this.f30301d.a, "last_update_config_time", this.f30299b);
                                         int optInt = jSONObject.optInt("newcid", -1);
                                         if (optInt != -1) {
                                             int unused = d.k = optInt;
-                                            i.a(this.f31898d.a, "enable_newcid", optInt);
+                                            i.a(this.f30301d.a, "enable_newcid", optInt);
                                         }
                                         int optInt2 = jSONObject.optInt("mode", -1);
                                         if (optInt2 != -1) {
-                                            int unused2 = d.f31892i = optInt2;
-                                            i.a(this.f31898d.a, "enable_conn_for_proxy", optInt2);
+                                            int unused2 = d.f30295i = optInt2;
+                                            i.a(this.f30301d.a, "enable_conn_for_proxy", optInt2);
                                         }
                                         int optInt3 = jSONObject.optInt("front_switch", -1);
                                         if (optInt3 != -1) {
                                             int unused3 = d.l = optInt3;
-                                            i.a(this.f31898d.a, "enable_front_switch", optInt3);
+                                            i.a(this.f30301d.a, "enable_front_switch", optInt3);
                                         }
                                         int optInt4 = jSONObject.optInt("enable_bddns", -1);
                                         if (optInt4 != -1) {
-                                            int unused4 = d.f31893j = optInt4;
-                                            i.a(this.f31898d.a, "bddns_enable", optInt4);
+                                            int unused4 = d.f30296j = optInt4;
+                                            i.a(this.f30301d.a, "bddns_enable", optInt4);
                                         }
                                         int optInt5 = jSONObject.optInt("single", -1);
                                         if (optInt5 != -1) {
-                                            int unused5 = d.f31891h = optInt5;
-                                            i.a(this.f31898d.a, "enable_single_conn", optInt5);
+                                            int unused5 = d.f30294h = optInt5;
+                                            i.a(this.f30301d.a, "enable_single_conn", optInt5);
                                         }
-                                        i.a(this.f31898d.a, "cloud_update_config_time", jSONObject.optInt("update_time", 0));
+                                        i.a(this.f30301d.a, "cloud_update_config_time", jSONObject.optInt("update_time", 0));
                                         int optInt6 = jSONObject.optInt("bind_time", -1);
                                         if (optInt6 != -1) {
-                                            i.a(this.f31898d.a, "push_bind_interval", optInt6);
+                                            i.a(this.f30301d.a, "push_bind_interval", optInt6);
                                         }
                                         int optInt7 = jSONObject.optInt("stat", -1);
                                         if (optInt7 != -1) {
-                                            int unused6 = d.f31889f = optInt7;
-                                            i.a(this.f31898d.a, "enable_stat_upload", optInt7);
+                                            int unused6 = d.f30292f = optInt7;
+                                            i.a(this.f30301d.a, "enable_stat_upload", optInt7);
                                         }
                                         int optInt8 = jSONObject.optInt("stat_real_time", -1);
                                         if (optInt8 != -1) {
-                                            int unused7 = d.f31890g = optInt8;
-                                            i.a(this.f31898d.a, "enable_stat_real_time", optInt8);
+                                            int unused7 = d.f30293g = optInt8;
+                                            i.a(this.f30301d.a, "enable_stat_real_time", optInt8);
                                         }
                                         int optInt9 = jSONObject.optInt("stat_time", -1);
                                         if (optInt9 != -1) {
-                                            i.a(this.f31898d.a, "stat_upload_interval", optInt9);
+                                            i.a(this.f30301d.a, "stat_upload_interval", optInt9);
                                         }
-                                        i.b(this.f31898d.a, "keep_alive_pkgs", jSONObject.optString("keep_alive", null));
-                                        i.a(this.f31898d.a, "key_vip_type", jSONObject.optInt("vip_type", 3));
+                                        i.b(this.f30301d.a, "keep_alive_pkgs", jSONObject.optString("keep_alive", null));
+                                        i.a(this.f30301d.a, "key_vip_type", jSONObject.optInt("vip_type", 3));
                                         JSONObject optJSONObject = jSONObject.optJSONObject("upload_control");
                                         if (optJSONObject != null) {
-                                            this.f31898d.a(optJSONObject);
+                                            this.f30301d.a(optJSONObject);
                                         }
                                     }
                                     int parseInt = Integer.parseInt((String) a2.get(CloudStabilityUBCUtils.KEY_RESPONSE_CODE));
-                                    new b.d(this.f31898d.a).d(501001L).c(parseInt).a(currentTimeMillis2).b(System.currentTimeMillis()).a(this.f31898d.f31894e).c(parseInt != 200 ? str2 : "").a();
+                                    new b.d(this.f30301d.a).d(501001L).c(parseInt).a(currentTimeMillis2).b(System.currentTimeMillis()).a(this.f30301d.f30297e).c(parseInt != 200 ? str2 : "").a();
                                 } catch (Exception unused8) {
                                 }
-                                a aVar2 = this.f31897c;
+                                a aVar2 = this.f30300c;
                                 if (aVar2 != null) {
                                     aVar2.a();
                                 }
@@ -964,7 +964,7 @@ public class d extends b {
                         public final /* synthetic */ a a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ d f31895b;
+                        public final /* synthetic */ d f30298b;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -985,7 +985,7 @@ public class d extends b {
                                     return;
                                 }
                             }
-                            this.f31895b = this;
+                            this.f30298b = this;
                             this.a = aVar;
                         }
 
@@ -1053,7 +1053,7 @@ public class d extends b {
                         PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.o.f(), 16448);
                         if (packageInfo != null) {
                             int i2 = packageInfo.versionCode;
-                            if ((this.o.a() != null && (this.o.a().f31886b != -1 ? !(i2 < this.o.a().a || i2 > this.o.a().f31886b) : i2 >= this.o.a().a)) && BaiduAppSSOJni.encodeBySha1(packageInfo.signatures[0].toByteArray()).equalsIgnoreCase(this.o.g())) {
+                            if ((this.o.a() != null && (this.o.a().f30289b != -1 ? !(i2 < this.o.a().a || i2 > this.o.a().f30289b) : i2 >= this.o.a().a)) && BaiduAppSSOJni.encodeBySha1(packageInfo.signatures[0].toByteArray()).equalsIgnoreCase(this.o.g())) {
                                 this.q = m.g(this.a, this.o.f());
                                 this.p = this.a.getPackageName().equalsIgnoreCase(this.o.f()) ? 3 : 4;
                                 return true;

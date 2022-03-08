@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.sina.weibo.sdk.auth.BaseSsoHandler;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.ResourceManager;
@@ -40,7 +41,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.DefaultWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 import com.sina.weibo.sdk.web.view.LoadingBar;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BROWSER_CLOSE_SCHEME = "sinaweibo://browser/close";
@@ -71,7 +72,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     public WebView webView;
     public BaseWebViewClient webViewClient;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class MyChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +333,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             this.retryBtn = button;
             button.setTextSize(16.0f);
             this.retryBtn.setTextColor(-8882056);
-            LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(UIUtils.dip2px(142, this), UIUtils.dip2px(46, this));
+            LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(UIUtils.dip2px(Cea708Decoder.COMMAND_DLC, this), UIUtils.dip2px(46, this));
             layoutParams7.gravity = 17;
             this.retryLayout.addView(this.retryBtn, layoutParams7);
             this.retryBtn.setBackgroundResource(getResources().getIdentifier("retry_btn_selector", "drawable", getPackageName()));

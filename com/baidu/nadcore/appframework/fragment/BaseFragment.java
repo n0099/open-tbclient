@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import c.a.d0.h0.f;
+import c.a.b0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.widget.SlideHelper;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMMERSION_LAYOUT_TAG = "IMMERSION_LAYOUT_TAG";
@@ -32,7 +32,7 @@ public class BaseFragment extends Fragment {
     public Application mApp;
     public SlideHelper mSlideHelper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements SlidingPaneLayout.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

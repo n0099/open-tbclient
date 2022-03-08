@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.TypeAdapter;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class JSONArrayCommandListener extends AbstractCommandListener<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

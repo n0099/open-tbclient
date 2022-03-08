@@ -26,6 +26,7 @@ import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.animation.ImageMatrixProperty;
@@ -50,7 +50,7 @@ import com.google.android.material.shape.Shapeable;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_STATE_HIDING = 1;
@@ -117,7 +117,7 @@ public class FloatingActionButtonImpl {
     public ArrayList<InternalTransformationCallback> transformationCallbacks;
     public final FloatingActionButton view;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class DisabledElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,21 +236,21 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface InternalTransformationCallback {
         void onScaleChanged();
 
         void onTranslationChanged();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface InternalVisibilityChangedListener {
         void onHidden();
 
         void onShown();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ResetElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

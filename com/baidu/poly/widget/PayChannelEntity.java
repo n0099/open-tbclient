@@ -18,7 +18,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PayChannelEntity implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_FOLD_FALSE = 0;
@@ -214,6 +214,8 @@ public class PayChannelEntity implements Serializable {
         String str;
         JSONArray optJSONArray;
         String str2;
+        JSONObject jSONObject2;
+        PayChannelEntity payChannelEntity;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,25 +294,25 @@ public class PayChannelEntity implements Serializable {
                 int i5 = 0;
                 while (i5 < optJSONArray.length()) {
                     try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i5);
-                        PayChannelEntity payChannelEntity = new PayChannelEntity();
+                        jSONObject2 = optJSONArray.getJSONObject(i5);
+                        payChannelEntity = new PayChannelEntity();
                         payChannelEntity.display_name = jSONObject2.optString("display_name");
                         payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
                         payChannelEntity.pay_text = jSONObject2.optString("pay_text");
                         payChannelEntity.icon = jSONObject2.optString("icon");
                         str2 = str;
-                        try {
-                            payChannelEntity.is_selected = jSONObject2.optInt(str2);
-                            arrayList2.add(payChannelEntity);
-                        } catch (JSONException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            i5++;
-                            str = str2;
-                        }
+                    } catch (JSONException e2) {
+                        e = e2;
+                        str2 = str;
+                    }
+                    try {
+                        payChannelEntity.is_selected = jSONObject2.optInt(str2);
+                        arrayList2.add(payChannelEntity);
                     } catch (JSONException e3) {
                         e = e3;
-                        str2 = str;
+                        e.printStackTrace();
+                        i5++;
+                        str = str2;
                     }
                     i5++;
                     str = str2;

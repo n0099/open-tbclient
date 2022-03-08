@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TextViewCompat;
@@ -209,7 +209,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.editTextStyle);
+        this(context, attributeSet, R$attr.editTextStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g extends a {
     public g(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         super(context, aVar, str);
@@ -10,8 +10,8 @@ public class g extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f60116c + ".filemanager.intent.action.BROWSER_FILE");
-        intent.putExtra("CurrentDir", this.f59917c);
+        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f58466c + ".filemanager.intent.action.BROWSER_FILE");
+        intent.putExtra("CurrentDir", this.f58267c);
         intent.putExtra("CurrentMode", 1);
         intent.addFlags(268435456);
         intent.addFlags(32768);

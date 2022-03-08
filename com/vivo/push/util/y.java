@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class y implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60989b = "com.vivo.push.cache";
+    public static String f59339b = "com.vivo.push.cache";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f60990c;
+    public SharedPreferences f59340c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,8 +56,8 @@ public final class y implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f60990c == null) {
-                this.f60990c = context.getSharedPreferences(f60989b, 0);
+            if (this.f59340c == null) {
+                this.f59340c = context.getSharedPreferences(f59339b, 0);
                 return true;
             }
             return true;
@@ -69,7 +69,7 @@ public final class y implements d {
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            SharedPreferences.Editor edit = this.f60990c.edit();
+            SharedPreferences.Editor edit = this.f59340c.edit();
             if (edit != null) {
                 edit.putString(str, str2);
                 b.a(edit);
@@ -85,7 +85,7 @@ public final class y implements d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String string = this.f60990c.getString(str, str2);
+            String string = this.f59340c.getString(str, str2);
             String str3 = a;
             p.d(str3, "getString " + str + " is " + string);
             return string;
@@ -96,7 +96,7 @@ public final class y implements d {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences.Editor edit = this.f60990c.edit();
+            SharedPreferences.Editor edit = this.f59340c.edit();
             if (edit != null) {
                 edit.clear();
                 b.a(edit);

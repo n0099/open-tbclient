@@ -2,7 +2,6 @@ package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.utils.FileUtils;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.ar.core.InstallActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -24,7 +24,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Code39Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
@@ -50,7 +50,7 @@ public final class Code39Reader extends OneDReader {
                 return;
             }
         }
-        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, w0.n, 400, 208, SplashNativePolicy.SPLASH_CMD_ERROR, 388, 196, 148, w0.d0, 162, 138, 42};
+        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, 145, 400, 208, 133, 388, 196, 148, w0.d0, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }
@@ -105,7 +105,7 @@ public final class Code39Reader extends OneDReader {
                             } else if (charAt2 < 'A' || charAt2 > 'Z') {
                                 throw FormatException.getFormatInstance();
                             } else {
-                                i2 = charAt2 + ' ';
+                                i2 = charAt2 + WebvttCueParser.CHAR_SPACE;
                             }
                         } else if (charAt2 >= 'A' && charAt2 <= 'E') {
                             i2 = charAt2 - '&';

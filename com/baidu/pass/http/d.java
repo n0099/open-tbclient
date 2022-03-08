@@ -24,22 +24,22 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37917b = "Set-Cookie";
+    public static final String f36320b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37918c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f36321c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37919d = "Cookie";
+    public static final String f36322d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37920e = "https://";
+    public static final String f36323e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

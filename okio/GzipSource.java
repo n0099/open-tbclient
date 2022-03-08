@@ -12,7 +12,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class GzipSource implements Source {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte FCOMMENT = 4;

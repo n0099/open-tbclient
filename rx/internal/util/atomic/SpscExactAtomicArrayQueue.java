@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;

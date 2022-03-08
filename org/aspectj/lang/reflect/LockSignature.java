@@ -1,6 +1,6 @@
 package org.aspectj.lang.reflect;
 
 import org.aspectj.lang.Signature;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface LockSignature extends Signature {
 }

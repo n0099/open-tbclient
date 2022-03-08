@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIMES = 10000;
@@ -21,7 +21,7 @@ public class ImagesInvalidService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate mDiskFileOperate;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a extends DiskFileOperate implements c.a.d.f.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                c.a.t0.s.u.a.stopService();
+                c.a.q0.r.u.a.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
@@ -84,7 +84,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            c.a.t0.s.u.a.e(z);
+            c.a.q0.r.u.a.e(z);
         }
     }
 

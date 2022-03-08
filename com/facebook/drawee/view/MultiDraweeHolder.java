@@ -14,7 +14,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MultiDraweeHolder<DH extends DraweeHierarchy> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

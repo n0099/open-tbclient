@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static void a(Closeable closeable) {
         if (closeable != null) {

@@ -11,7 +11,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class ConnectPointData extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final List<DnsIpData> DEFAULT_DNS_IP_CONNECT_RATE;
@@ -31,7 +31,7 @@ public final class ConnectPointData extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String name;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.Builder<ConnectPointData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public final class ConnectPointData extends Message {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -10,16 +10,14 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
 import c.a.d.o.e.v;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.u;
-import c.a.t0.y.d;
-import c.a.u0.e1.b3.q;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.f3.e;
-import c.a.u0.e1.g1;
-import c.a.u0.e1.y0;
-import c.a.u0.z3.i;
-import c.a.u0.z3.r;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.u;
+import c.a.q0.x.d;
+import c.a.r0.d1.r2.q;
+import c.a.r0.d1.v2.e;
+import c.a.r0.d1.y0;
+import c.a.r0.y3.i;
+import c.a.r0.y3.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -44,6 +42,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,28 +54,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import tbclient.ForumRuleStatus;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsTopView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsFoldingView f44017e;
+    public FrsFoldingView f42420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumData f44018f;
+    public ForumData f42421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UserData f44019g;
+    public UserData f42422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44020h;
+    public String f42423h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f44021i;
+    public String f42424i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f44022j;
+    public BdUniqueId f42425j;
     public int k;
     public String l;
     public List<View> m;
@@ -85,29 +84,29 @@ public class FrsTopView extends LinearLayout {
     public v p;
     public y0 q;
     public ArrayList<Boolean> r;
-    public c.a.u0.e1.y2.b s;
+    public c.a.r0.d1.o2.b s;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public final class b implements v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTopView f44023e;
+        public final /* synthetic */ FrsTopView f42426e;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f44024e;
+            public final /* synthetic */ String f42427e;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -124,14 +123,14 @@ public class FrsTopView extends LinearLayout {
                         return;
                     }
                 }
-                this.f44024e = str;
+                this.f42427e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    NetWork netWork = new NetWork(this.f44024e);
+                    NetWork netWork = new NetWork(this.f42427e);
                     netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                     netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                     netWork.getNetData();
@@ -154,7 +153,7 @@ public class FrsTopView extends LinearLayout {
                     return;
                 }
             }
-            this.f44023e = frsTopView;
+            this.f42426e = frsTopView;
         }
 
         @Override // c.a.d.o.e.v
@@ -166,23 +165,23 @@ public class FrsTopView extends LinearLayout {
             }
             if (nVar != null && (nVar instanceof e2)) {
                 e2 e2Var = (e2) nVar;
-                if (e2Var.E() == null || e2Var.E().getGroup_id() == 0 || ViewHelper.checkUpIsLogin(this.f44023e.getContext())) {
-                    if (e2Var.w() != 1 || ViewHelper.checkUpIsLogin(this.f44023e.getContext())) {
+                if (e2Var.E() == null || e2Var.E().getGroup_id() == 0 || ViewHelper.checkUpIsLogin(this.f42426e.getContext())) {
+                    if (e2Var.w() != 1 || ViewHelper.checkUpIsLogin(this.f42426e.getContext())) {
                         if (e2Var.G() != null) {
-                            if (ViewHelper.checkUpIsLogin(this.f44023e.getContext())) {
+                            if (ViewHelper.checkUpIsLogin(this.f42426e.getContext())) {
                                 String a2 = e2Var.G().a();
                                 if (StringUtils.isNull(a2) || !c.a.d.f.p.n.C()) {
                                     return;
                                 }
-                                c.a.t0.m.a.l(this.f44023e.getContext(), a2);
+                                c.a.q0.l.a.l(this.f42426e.getContext(), a2);
                             }
                         } else if (e2Var.M() != null) {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                                ViewHelper.skipToLoginActivity(this.f44023e.getTbPageContext().getPageActivity());
+                                ViewHelper.skipToLoginActivity(this.f42426e.getTbPageContext().getPageActivity());
                                 return;
                             }
                             u M = e2Var.M();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.f44023e.getTbPageContext().getPageActivity(), M.a(), M.b(), 2)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.f42426e.getTbPageContext().getPageActivity(), M.a(), M.b(), 2)));
                         } else {
                             String z2 = e2Var.z();
                             if (z2 == null || z2.equals("")) {
@@ -196,7 +195,7 @@ public class FrsTopView extends LinearLayout {
                                 w1 = "";
                             }
                             if (e2Var.t0() == 2 && !w1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                UrlManager.getInstance().dealOneLink(this.f44023e.getTbPageContext(), new String[]{w1, "", null});
+                                UrlManager.getInstance().dealOneLink(this.f42426e.getTbPageContext(), new String[]{w1, "", null});
                                 return;
                             }
                             if (w1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB) && !TextUtils.isEmpty(w1) && w1.length() > 3) {
@@ -210,17 +209,17 @@ public class FrsTopView extends LinearLayout {
                                 statisticItem.param("tid", e2Var.w1());
                                 TiebaStatic.log(statisticItem);
                             }
-                            FrsTopView frsTopView = this.f44023e;
+                            FrsTopView frsTopView = this.f42426e;
                             frsTopView.gotoPBActivity(frsTopView.getFragmentActivity(), e2Var, i2, z);
-                            if (this.f44023e.q != null) {
-                                this.f44023e.q.a(e2Var);
+                            if (this.f42426e.q != null) {
+                                this.f42426e.q.a(e2Var);
                             }
                         }
                     }
                 }
             } else if (nVar == null || !(nVar instanceof r)) {
             } else {
-                this.f44023e.h(((r) nVar).a());
+                this.f42426e.h(((r) nVar).a());
             }
         }
 
@@ -279,8 +278,8 @@ public class FrsTopView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(g1.frs_top_view_layout, (ViewGroup) this, true);
-            this.f44017e = (FrsFoldingView) findViewById(f1.frs_folding_layout);
+            LayoutInflater.from(getContext()).inflate(R.layout.frs_top_view_layout, (ViewGroup) this, true);
+            this.f42420e = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
         }
     }
 
@@ -291,9 +290,9 @@ public class FrsTopView extends LinearLayout {
             adapterLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             adapterLinearLayout.setOrientation(1);
             e eVar = new e(getContext());
-            eVar.s(this.f44021i, this.f44020h, this.f44019g);
-            eVar.t(this.f44018f);
-            eVar.q(this.f44022j);
+            eVar.s(this.f42424i, this.f42423h, this.f42422g);
+            eVar.t(this.f42421f);
+            eVar.q(this.f42425j);
             String str = this.l;
             if (str != null) {
                 eVar.u(str);
@@ -314,16 +313,16 @@ public class FrsTopView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        FrsFoldingView frsFoldingView = this.f44017e;
+        FrsFoldingView frsFoldingView = this.f42420e;
         if (frsFoldingView != null) {
             frsFoldingView.setViews(this.m, this.n);
         }
     }
 
-    public c.a.u0.e1.y2.b getStatisticMetaData() {
+    public c.a.r0.d1.o2.b getStatisticMetaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.s : (c.a.u0.e1.y2.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.s : (c.a.r0.d1.o2.b) invokeV.objValue;
     }
 
     public List<View> getmTopViews() {
@@ -352,10 +351,10 @@ public class FrsTopView extends LinearLayout {
             valueOf = originalForumInfo.id;
             str = valueOf;
         }
-        if (e2Var.w0() > 0 && c.a.u0.z3.q0.e.c()) {
+        if (e2Var.w0() > 0 && c.a.r0.y3.q0.e.c()) {
             createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(e2Var.w1(), String.valueOf(e2Var.w0()), false, true, FrsFragment.STAR_FRS);
         } else {
-            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(e2Var, this.f44020h, FrsFragment.STAR_FRS, 18003, true, false, z);
+            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(e2Var, this.f42423h, FrsFragment.STAR_FRS, 18003, true, false, z);
         }
         if (i2 == 4) {
             createFromThreadCfg.setVideo_source("floor5");
@@ -376,33 +375,33 @@ public class FrsTopView extends LinearLayout {
 
     public final void h(ForumRuleStatus forumRuleStatus) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, forumRuleStatus) == null) || forumRuleStatus == null || this.f44019g == null || this.f44018f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, forumRuleStatus) == null) || forumRuleStatus == null || this.f42422g == null || this.f42421f == null) {
             return;
         }
         int i2 = 1;
-        if ((c.a.d.a.b.f().h("ForumRulesEditActivity") || d.h().k()) && this.f44019g.getIs_manager() == 1) {
+        if ((c.a.d.a.b.g().i("ForumRulesEditActivity") || d.h().k()) && this.f42422g.getIs_manager() == 1) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921518, ""));
             return;
         }
-        if (this.f44019g.getIs_manager() == 1 && forumRuleStatus.has_forum_rule.intValue() == 0 && forumRuleStatus.audit_status.intValue() == 0) {
+        if (this.f42422g.getIs_manager() == 1 && forumRuleStatus.has_forum_rule.intValue() == 0 && forumRuleStatus.audit_status.intValue() == 0) {
             Context context = getContext();
-            String str = this.f44021i;
-            String str2 = this.f44020h;
-            ForumData forumData = this.f44018f;
+            String str = this.f42424i;
+            String str2 = this.f42423h;
+            ForumData forumData = this.f42421f;
             String image_url = forumData != null ? forumData.getImage_url() : "";
-            ForumData forumData2 = this.f44018f;
+            ForumData forumData2 = this.f42421f;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, str, str2, ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, image_url, forumData2 != null ? forumData2.getUser_level() : 0, 25052)));
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(getContext(), this.f44021i, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(getContext(), this.f42424i, "")));
         }
         StatisticItem statisticItem = new StatisticItem("c14027");
-        statisticItem.param("fid", this.f44021i);
+        statisticItem.param("fid", this.f42424i);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.f44019g.getIs_manager() != 1) {
-            if (this.f44019g.getIs_manager() == 2) {
+        if (this.f42422g.getIs_manager() != 1) {
+            if (this.f42422g.getIs_manager() == 2) {
                 i2 = 2;
             } else {
-                i2 = this.f44018f.isLike() == 1 ? 3 : 4;
+                i2 = this.f42421f.isLike() == 1 ? 3 : 4;
             }
         }
         statisticItem.param("obj_type", i2);
@@ -415,7 +414,7 @@ public class FrsTopView extends LinearLayout {
             for (e eVar : this.n) {
                 eVar.notifyDataSetChanged();
             }
-            FrsFoldingView frsFoldingView = this.f44017e;
+            FrsFoldingView frsFoldingView = this.f42420e;
             if (frsFoldingView != null) {
                 frsFoldingView.onChangeSkinType();
             }
@@ -484,17 +483,17 @@ public class FrsTopView extends LinearLayout {
     public void setForum(String str, String str2, ForumData forumData, UserData userData, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, str, str2, forumData, userData, str3) == null) {
-            this.f44021i = str;
-            this.f44020h = str2;
-            this.f44018f = forumData;
-            this.f44019g = userData;
+            this.f42424i = str;
+            this.f42423h = str2;
+            this.f42421f = forumData;
+            this.f42422g = userData;
         }
     }
 
     public void setFragmentUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.f44022j = bdUniqueId;
+            this.f42425j = bdUniqueId;
         }
     }
 
@@ -560,14 +559,14 @@ public class FrsTopView extends LinearLayout {
                 return;
             }
         }
-        this.f44020h = "";
-        this.f44021i = "";
+        this.f42423h = "";
+        this.f42424i = "";
         this.k = 0;
         this.l = null;
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.s = new c.a.u0.e1.y2.b();
+        this.s = new c.a.r0.d1.o2.b();
         e();
     }
 }

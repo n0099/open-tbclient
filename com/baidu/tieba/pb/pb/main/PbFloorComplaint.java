@@ -7,21 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.t0.s.v.c;
-import c.a.u0.u2.f;
-import c.a.u0.u2.g;
-import c.a.u0.u2.h;
-import c.a.u0.u2.i;
-import c.a.u0.u2.j;
-import c.a.u0.u2.l;
+import c.a.q0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbFloorComplaint extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DO_NOT_SHOW_REMIND = 0;
@@ -31,22 +26,22 @@ public class PbFloorComplaint extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46627e;
+    public ImageView f45035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f46628f;
+    public ImageView f45036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f46629g;
+    public EMTextView f45037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f46630h;
+    public EMTextView f45038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f46631i;
+    public RelativeLayout f45039i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46632j;
+    public int f45040j;
     public int k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -73,55 +68,55 @@ public class PbFloorComplaint extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(j.pb_reply_floor_complaint_reminder, (ViewGroup) this, true);
-            this.f46627e = (ImageView) findViewById(i.remind_icon);
-            this.f46628f = (ImageView) findViewById(i.right_icon);
-            this.f46629g = (EMTextView) findViewById(i.remind_text);
-            this.f46630h = (EMTextView) findViewById(i.reply_remind);
-            this.f46631i = (RelativeLayout) findViewById(i.folding_prompt);
+            LayoutInflater.from(context).inflate(R.layout.pb_reply_floor_complaint_reminder, (ViewGroup) this, true);
+            this.f45035e = (ImageView) findViewById(R.id.remind_icon);
+            this.f45036f = (ImageView) findViewById(R.id.right_icon);
+            this.f45037g = (EMTextView) findViewById(R.id.remind_text);
+            this.f45038h = (EMTextView) findViewById(R.id.reply_remind);
+            this.f45039i = (RelativeLayout) findViewById(R.id.folding_prompt);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = this.f46627e;
+            ImageView imageView = this.f45035e;
             if (imageView != null) {
                 imageView.invalidate();
             }
-            int i2 = this.f46632j;
+            int i2 = this.f45040j;
             if (i2 == 1) {
-                this.f46629g.setText(l.reply_has_been_folded);
-                c.d(this.f46629g).v(f.CAM_X0301);
+                this.f45037g.setText(R.string.reply_has_been_folded);
+                c.d(this.f45037g).v(R.color.CAM_X0301);
             } else if (i2 == 2) {
-                this.f46629g.setText(l.folded_and_complaint);
-                c.d(this.f46629g).v(f.CAM_X0105);
+                this.f45037g.setText(R.string.folded_and_complaint);
+                c.d(this.f45037g).v(R.color.CAM_X0105);
             } else if (i2 == 3) {
-                this.f46629g.setText(l.folded_and_not_complain);
-                c.d(this.f46629g).v(f.CAM_X0301);
+                this.f45037g.setText(R.string.folded_and_not_complain);
+                c.d(this.f45037g).v(R.color.CAM_X0301);
             } else {
-                this.f46629g.setText(l.reply_has_been_folded);
-                c.d(this.f46629g).v(f.CAM_X0301);
+                this.f45037g.setText(R.string.reply_has_been_folded);
+                c.d(this.f45037g).v(R.color.CAM_X0301);
             }
             int i3 = this.k;
             if (i3 == 1 || i3 == 3) {
-                WebPManager.setPureDrawable(this.f46627e, h.icon_pure_warning, f.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.f45035e, R.drawable.icon_pure_warning, R.color.CAM_X0301, null);
             } else if (i3 == 2) {
-                WebPManager.setPureDrawable(this.f46627e, h.icon_pure_await12, f.CAM_X0105, null);
+                WebPManager.setPureDrawable(this.f45035e, R.drawable.icon_pure_await12, R.color.CAM_X0105, null);
             } else {
-                WebPManager.setPureDrawable(this.f46627e, h.icon_pure_warning, f.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.f45035e, R.drawable.icon_pure_warning, R.color.CAM_X0301, null);
             }
-            WebPManager.setPureDrawable(this.f46628f, h.icon_pure_arrow14_right_n, f.CAM_X0304, null);
-            c d2 = c.d(this.f46630h);
-            d2.v(f.CAM_X0107);
-            d2.z(g.T_X09);
+            WebPManager.setPureDrawable(this.f45036f, R.drawable.icon_pure_arrow14_right_n, R.color.CAM_X0304, null);
+            c d2 = c.d(this.f45038h);
+            d2.v(R.color.CAM_X0107);
+            d2.z(R.dimen.T_X09);
         }
     }
 
     public void setAmendIconListener(View.OnClickListener onClickListener) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (relativeLayout = this.f46631i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (relativeLayout = this.f45039i) == null) {
             return;
         }
         relativeLayout.setOnClickListener(onClickListener);
@@ -138,7 +133,7 @@ public class PbFloorComplaint extends RelativeLayout {
     public void setRemindText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f46632j = i2;
+            this.f45040j = i2;
             onChangeSkinType();
         }
     }
@@ -183,7 +178,7 @@ public class PbFloorComplaint extends RelativeLayout {
                 return;
             }
         }
-        this.f46632j = 0;
+        this.f45040j = 0;
         this.k = 0;
         a(context);
     }

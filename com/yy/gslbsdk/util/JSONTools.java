@@ -1,7 +1,6 @@
 package com.yy.gslbsdk.util;
 
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class JSONTools {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +71,7 @@ public class JSONTools {
                     sb.append("");
                     sb.append(str3);
                     sb.append(" ");
-                } else if (str3.equals(StringUtil.ARRAY_START)) {
+                } else if (str3.equals("{")) {
                     i2 = i3 + 1;
                     if (((String) arrayList.get(i2)).equals("}")) {
                         sb.append("{ }");
@@ -119,7 +118,7 @@ public class JSONTools {
             while (str.length() > 0) {
                 String substring = str.substring(0, 1);
                 str = str.substring(1);
-                if (!z && (substring.equals(":") || substring.equals(StringUtil.ARRAY_START) || substring.equals("}") || substring.equals(PreferencesUtil.LEFT_MOUNT) || substring.equals(PreferencesUtil.RIGHT_MOUNT) || substring.equals(","))) {
+                if (!z && (substring.equals(":") || substring.equals("{") || substring.equals("}") || substring.equals(PreferencesUtil.LEFT_MOUNT) || substring.equals(PreferencesUtil.RIGHT_MOUNT) || substring.equals(","))) {
                     if (sb.toString().trim().length() == 0) {
                         sb.append(substring);
                     }

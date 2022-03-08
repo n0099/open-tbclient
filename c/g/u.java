@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class u implements z.a<l> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,10 +49,10 @@ public class u implements z.a<l> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
             l lVar2 = lVar;
             LogPrinter.v("Update SlotId:%s", lVar2.a);
-            HashMap<String, p> hashMap = this.a.f28725c;
+            HashMap<String, p> hashMap = this.a.f28563c;
             String str = lVar2.a;
             hashMap.put(str, new p(str, new s(this, lVar2)));
-            n nVar = this.a.f28724b;
+            n nVar = this.a.f28562b;
             synchronized (nVar.a) {
                 nVar.a(lVar2.a).add(new n.a(lVar2));
             }

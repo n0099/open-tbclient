@@ -13,7 +13,7 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fl;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class fh extends fs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class fh extends fs {
             try {
                 this.a = new fc(((fs) this).f416a.getInputStream(), this);
                 this.f386a = new fd(((fs) this).f416a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f61290b + SmallTailInfo.EMOTION_SUFFIX);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f59640b + SmallTailInfo.EMOTION_SUFFIX);
                 this.f387a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
@@ -230,7 +230,7 @@ public class fh extends fs {
             }
             try {
                 int a = fdVar.a(faVar);
-                ((fl) this).f61292d = System.currentTimeMillis();
+                ((fl) this).f59642d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
                     gq.a(((fl) this).f401a, f2, a, false, true, System.currentTimeMillis());

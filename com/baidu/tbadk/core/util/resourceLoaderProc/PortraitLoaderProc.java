@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.b;
 import c.a.d.o.d.a;
-import c.a.t0.c0.c;
+import c.a.q0.b0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public static BdAsyncTaskParallel mBdAsyncTaskTwo;

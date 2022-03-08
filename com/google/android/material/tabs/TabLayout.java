@@ -42,6 +42,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -57,6 +58,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +66,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
@@ -81,7 +82,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 300;
@@ -91,7 +92,9 @@ public class TabLayout extends HorizontalScrollView {
     public static final int DEFAULT_HEIGHT = 48;
     @Dimension(unit = 0)
     public static final int DEFAULT_HEIGHT_WITH_TEXT_ICON = 72;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_Design_TabLayout = 2131755857;
     @Dimension(unit = 0)
     public static final int FIXED_WRAP_GUTTER_MIN = 16;
     public static final int GRAVITY_CENTER = 1;
@@ -162,7 +165,7 @@ public class TabLayout extends HorizontalScrollView {
     @Nullable
     public ViewPager viewPager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +210,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaseOnTabSelectedListener<T extends Tab> {
         void onTabReselected(T t);
 
@@ -216,21 +219,21 @@ public class TabLayout extends HorizontalScrollView {
         void onTabUnselected(T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface LabelVisibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnTabSelectedListener extends BaseOnTabSelectedListener<Tab> {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class PagerAdapterObserver extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +274,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class SlidingTabIndicator extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -684,17 +687,17 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface TabGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface TabIndicatorGravity {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class TabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -761,7 +764,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class TabView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1399,7 +1402,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1459,7 +1462,6 @@ public class TabLayout extends HorizontalScrollView {
                 return;
             }
         }
-        DEF_STYLE_RES = R.style.Widget_Design_TabLayout;
         tabPool = new Pools.SynchronizedPool(16);
     }
 
@@ -2411,7 +2413,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Tab {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
@@ -2857,7 +2859,7 @@ public class TabLayout extends HorizontalScrollView {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_TabLayout), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2884,7 +2886,7 @@ public class TabLayout extends HorizontalScrollView {
         SlidingTabIndicator slidingTabIndicator = new SlidingTabIndicator(this, context2);
         this.slidingTabIndicator = slidingTabIndicator;
         super.addView(slidingTabIndicator, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.TabLayout, i2, DEF_STYLE_RES, R.styleable.TabLayout_tabTextAppearance);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.tabBackground, R.attr.tabContentStart, R.attr.tabGravity, R.attr.tabIconTint, R.attr.tabIconTintMode, R.attr.tabIndicator, R.attr.tabIndicatorAnimationDuration, R.attr.tabIndicatorColor, R.attr.tabIndicatorFullWidth, R.attr.tabIndicatorGravity, R.attr.tabIndicatorHeight, R.attr.tabInlineLabel, R.attr.tabMaxWidth, R.attr.tabMinWidth, R.attr.tabMode, R.attr.tabPadding, R.attr.tabPaddingBottom, R.attr.tabPaddingEnd, R.attr.tabPaddingStart, R.attr.tabPaddingTop, R.attr.tabRippleColor, R.attr.tabSelectedTextColor, R.attr.tabTextAppearance, R.attr.tabTextColor, R.attr.tabUnboundedRipple}, i2, Widget_Design_TabLayout, 22);
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(((ColorDrawable) getBackground()).getColor()));
@@ -2892,45 +2894,45 @@ public class TabLayout extends HorizontalScrollView {
             materialShapeDrawable.setElevation(ViewCompat.getElevation(this));
             ViewCompat.setBackground(this, materialShapeDrawable);
         }
-        this.slidingTabIndicator.setSelectedIndicatorHeight(obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabIndicatorHeight, -1));
-        this.slidingTabIndicator.setSelectedIndicatorColor(obtainStyledAttributes.getColor(R.styleable.TabLayout_tabIndicatorColor, 0));
-        setSelectedTabIndicator(MaterialResources.getDrawable(context2, obtainStyledAttributes, R.styleable.TabLayout_tabIndicator));
-        setSelectedTabIndicatorGravity(obtainStyledAttributes.getInt(R.styleable.TabLayout_tabIndicatorGravity, 0));
-        setTabIndicatorFullWidth(obtainStyledAttributes.getBoolean(R.styleable.TabLayout_tabIndicatorFullWidth, true));
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabPadding, 0);
+        this.slidingTabIndicator.setSelectedIndicatorHeight(obtainStyledAttributes.getDimensionPixelSize(10, -1));
+        this.slidingTabIndicator.setSelectedIndicatorColor(obtainStyledAttributes.getColor(7, 0));
+        setSelectedTabIndicator(MaterialResources.getDrawable(context2, obtainStyledAttributes, 5));
+        setSelectedTabIndicatorGravity(obtainStyledAttributes.getInt(9, 0));
+        setTabIndicatorFullWidth(obtainStyledAttributes.getBoolean(8, true));
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(15, 0);
         this.tabPaddingBottom = dimensionPixelSize;
         this.tabPaddingEnd = dimensionPixelSize;
         this.tabPaddingTop = dimensionPixelSize;
         this.tabPaddingStart = dimensionPixelSize;
-        this.tabPaddingStart = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabPaddingStart, dimensionPixelSize);
-        this.tabPaddingTop = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabPaddingTop, this.tabPaddingTop);
-        this.tabPaddingEnd = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabPaddingEnd, this.tabPaddingEnd);
-        this.tabPaddingBottom = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabPaddingBottom, this.tabPaddingBottom);
-        int resourceId = obtainStyledAttributes.getResourceId(R.styleable.TabLayout_tabTextAppearance, R.style.TextAppearance_Design_Tab);
+        this.tabPaddingStart = obtainStyledAttributes.getDimensionPixelSize(18, dimensionPixelSize);
+        this.tabPaddingTop = obtainStyledAttributes.getDimensionPixelSize(19, this.tabPaddingTop);
+        this.tabPaddingEnd = obtainStyledAttributes.getDimensionPixelSize(17, this.tabPaddingEnd);
+        this.tabPaddingBottom = obtainStyledAttributes.getDimensionPixelSize(16, this.tabPaddingBottom);
+        int resourceId = obtainStyledAttributes.getResourceId(22, 2131755544);
         this.tabTextAppearance = resourceId;
-        TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
+        TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, R$styleable.TextAppearance);
         try {
-            this.tabTextSize = obtainStyledAttributes2.getDimensionPixelSize(androidx.appcompat.R.styleable.TextAppearance_android_textSize, 0);
-            this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes2, androidx.appcompat.R.styleable.TextAppearance_android_textColor);
+            this.tabTextSize = obtainStyledAttributes2.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, 0);
+            this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes2, R$styleable.TextAppearance_android_textColor);
             obtainStyledAttributes2.recycle();
-            if (obtainStyledAttributes.hasValue(R.styleable.TabLayout_tabTextColor)) {
-                this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.TabLayout_tabTextColor);
+            if (obtainStyledAttributes.hasValue(23)) {
+                this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 23);
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.TabLayout_tabSelectedTextColor)) {
-                this.tabTextColors = createColorStateList(this.tabTextColors.getDefaultColor(), obtainStyledAttributes.getColor(R.styleable.TabLayout_tabSelectedTextColor, 0));
+            if (obtainStyledAttributes.hasValue(21)) {
+                this.tabTextColors = createColorStateList(this.tabTextColors.getDefaultColor(), obtainStyledAttributes.getColor(21, 0));
             }
-            this.tabIconTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.TabLayout_tabIconTint);
-            this.tabIconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.TabLayout_tabIconTintMode, -1), null);
-            this.tabRippleColorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.TabLayout_tabRippleColor);
-            this.tabIndicatorAnimationDuration = obtainStyledAttributes.getInt(R.styleable.TabLayout_tabIndicatorAnimationDuration, 300);
-            this.requestedTabMinWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabMinWidth, -1);
-            this.requestedTabMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabMaxWidth, -1);
-            this.tabBackgroundResId = obtainStyledAttributes.getResourceId(R.styleable.TabLayout_tabBackground, 0);
-            this.contentInsetStart = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TabLayout_tabContentStart, 0);
-            this.mode = obtainStyledAttributes.getInt(R.styleable.TabLayout_tabMode, 1);
-            this.tabGravity = obtainStyledAttributes.getInt(R.styleable.TabLayout_tabGravity, 0);
-            this.inlineLabel = obtainStyledAttributes.getBoolean(R.styleable.TabLayout_tabInlineLabel, false);
-            this.unboundedRipple = obtainStyledAttributes.getBoolean(R.styleable.TabLayout_tabUnboundedRipple, false);
+            this.tabIconTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 3);
+            this.tabIconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(4, -1), null);
+            this.tabRippleColorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 20);
+            this.tabIndicatorAnimationDuration = obtainStyledAttributes.getInt(6, 300);
+            this.requestedTabMinWidth = obtainStyledAttributes.getDimensionPixelSize(13, -1);
+            this.requestedTabMaxWidth = obtainStyledAttributes.getDimensionPixelSize(12, -1);
+            this.tabBackgroundResId = obtainStyledAttributes.getResourceId(0, 0);
+            this.contentInsetStart = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+            this.mode = obtainStyledAttributes.getInt(14, 1);
+            this.tabGravity = obtainStyledAttributes.getInt(2, 0);
+            this.inlineLabel = obtainStyledAttributes.getBoolean(11, false);
+            this.unboundedRipple = obtainStyledAttributes.getBoolean(24, false);
             obtainStyledAttributes.recycle();
             Resources resources = getResources();
             this.tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.design_tab_text_size_2line);

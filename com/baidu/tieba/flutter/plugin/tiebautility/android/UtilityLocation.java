@@ -2,7 +2,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.u0.l3.j0.a;
+import c.a.r0.j3.k0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AppPosInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityLocation implements TiebaUtilityLocationAuto.HostUtilityLocation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

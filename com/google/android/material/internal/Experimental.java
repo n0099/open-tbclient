@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public @interface Experimental {
     @NonNull
     String value() default "";

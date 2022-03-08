@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.k1;
-import c.i.d.c.o1;
+import c.i.c.c.k1;
+import c.i.c.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableTable;
 import java.lang.reflect.Array;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     public final ImmutableMap<R, ImmutableMap<C, V>> rowMap;
     public final V[][] values;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class Column extends ImmutableArrayMap<R, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class ColumnMap extends ImmutableArrayMap<C, ImmutableMap<R, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,25 +138,25 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class ImmutableArrayMap<K, V> extends ImmutableMap.IteratorBasedImmutableMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int size;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public class a extends AbstractIterator<Map.Entry<K, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f54798g;
+            public int f53148g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f54799h;
+            public final int f53149h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ ImmutableArrayMap f54800i;
+            public final /* synthetic */ ImmutableArrayMap f53150i;
 
             public a(ImmutableArrayMap immutableArrayMap) {
                 Interceptable interceptable = $ic;
@@ -173,9 +173,9 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                         return;
                     }
                 }
-                this.f54800i = immutableArrayMap;
-                this.f54798g = -1;
-                this.f54799h = this.f54800i.keyToIndex().size();
+                this.f53150i = immutableArrayMap;
+                this.f53148g = -1;
+                this.f53149h = this.f53150i.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -187,16 +187,16 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                 if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
                     return (Map.Entry) invokeV.objValue;
                 }
-                int i2 = this.f54798g;
+                int i2 = this.f53148g;
                 while (true) {
-                    this.f54798g = i2 + 1;
-                    int i3 = this.f54798g;
-                    if (i3 < this.f54799h) {
-                        Object value = this.f54800i.getValue(i3);
+                    this.f53148g = i2 + 1;
+                    int i3 = this.f53148g;
+                    if (i3 < this.f53149h) {
+                        Object value = this.f53150i.getValue(i3);
                         if (value != null) {
-                            return Maps.l(this.f54800i.getKey(this.f54798g), value);
+                            return Maps.l(this.f53150i.getKey(this.f53148g), value);
                         }
-                        i2 = this.f54798g;
+                        i2 = this.f53148g;
                     } else {
                         return b();
                     }
@@ -274,7 +274,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class Row extends ImmutableArrayMap<C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class RowMap extends ImmutableArrayMap<R, ImmutableMap<C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +385,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -441,7 +441,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ImmutableTable.SerializedForm.create(this, this.cellRowIndices, this.cellColumnIndices) : (ImmutableTable.SerializedForm) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableTable, c.i.d.c.i, c.i.d.c.k1
+    @Override // com.google.common.collect.ImmutableTable, c.i.c.c.i, c.i.c.c.k1
     public V get(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -475,7 +475,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.values[this.cellRowIndices[i2]][this.cellColumnIndices[i2]] : (V) invokeI.objValue;
     }
 
-    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, c.i.d.c.k1
+    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, c.i.c.c.k1
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -483,7 +483,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, c.i.d.c.k1
+    @Override // com.google.common.collect.ImmutableTable, c.i.c.c.k1
     public ImmutableMap<C, Map<R, V>> columnMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -491,7 +491,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, c.i.d.c.k1
+    @Override // com.google.common.collect.ImmutableTable, c.i.c.c.k1
     public ImmutableMap<R, Map<C, V>> rowMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

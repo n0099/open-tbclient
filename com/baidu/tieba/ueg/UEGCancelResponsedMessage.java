@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.QueryBlockAndAppealInfo.DataRes;
 import tbclient.QueryBlockAndAppealInfo.QueryBlockAndAppealInfoResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class UEGCancelResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

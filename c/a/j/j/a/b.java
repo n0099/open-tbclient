@@ -17,7 +17,7 @@ public final class b implements c.a.j.h.b.d.a {
     public WeakReference<Activity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.a f4149b;
+    public final c.a.j.a f3766b;
 
     public b(c.a.j.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements c.a.j.h.b.d.a {
                 return;
             }
         }
-        this.f4149b = aVar;
+        this.f3766b = aVar;
     }
 
     @Override // c.a.j.h.b.d.a
@@ -60,7 +60,7 @@ public final class b implements c.a.j.h.b.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.j.h.b.d.b r = this.f4149b.r();
+            c.a.j.h.b.d.b r = this.f3766b.r();
             Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
             return r;
         }
@@ -80,7 +80,7 @@ public final class b implements c.a.j.h.b.d.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4149b.t() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3766b.t() : invokeV.booleanValue;
     }
 
     @Override // c.a.j.h.b.d.a
@@ -88,7 +88,7 @@ public final class b implements c.a.j.h.b.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = this.f4149b.getContext();
+            Context context = this.f3766b.getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
             return context;
         }
@@ -100,7 +100,7 @@ public final class b implements c.a.j.h.b.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String k = this.f4149b.k();
+            String k = this.f3766b.k();
             Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
             return k;
         }
@@ -112,7 +112,7 @@ public final class b implements c.a.j.h.b.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String q = this.f4149b.q();
+            String q = this.f3766b.q();
             Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
             return q;
         }

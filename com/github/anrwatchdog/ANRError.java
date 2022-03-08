@@ -14,7 +14,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ANRError extends Error {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -22,13 +22,13 @@ public class ANRError extends Error {
     public final long duration;
     public ANRError$$._Thread st;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Comparator<Thread> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread f54445e;
+        public final /* synthetic */ Thread f52931e;
 
         public a(Thread thread) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class ANRError extends Error {
                     return;
                 }
             }
-            this.f54445e = thread;
+            this.f52931e = thread;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class ANRError extends Error {
                 if (thread == thread2) {
                     return 0;
                 }
-                Thread thread3 = this.f54445e;
+                Thread thread3 = this.f52931e;
                 if (thread == thread3) {
                     return 1;
                 }

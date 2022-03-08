@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.selecttag.model;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetWorksTags.DataReq;
 import tbclient.GetWorksTags.GetWorksTagsReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class GetSelectTagReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class GetSelectTagReqMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             builder.first_class = this.firstClass;
             builder.second_class = this.secondClass;

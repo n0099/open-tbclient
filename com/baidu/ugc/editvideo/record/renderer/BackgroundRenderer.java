@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.c0.b.a.e;
-import c.a.c0.b.a.k.c;
+import c.a.a0.b.a.e;
+import c.a.a0.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

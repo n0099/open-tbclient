@@ -19,37 +19,37 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Executor f28180g;
+    public static final Executor f28084g;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28181b;
+    public final long f28085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f28182c;
+    public final Runnable f28086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Deque<c.d.b.e0.h.c> f28183d;
+    public final Deque<c.d.b.e0.h.c> f28087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.h.d f28184e;
+    public final c.d.b.e0.h.d f28088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28185f;
+    public boolean f28089f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f28186e;
+        public final /* synthetic */ j f28090e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public final class j {
                     return;
                 }
             }
-            this.f28186e = jVar;
+            this.f28090e = jVar;
         }
 
         @Override // java.lang.Runnable
@@ -76,16 +76,16 @@ public final class j {
                 return;
             }
             while (true) {
-                long a = this.f28186e.a(System.nanoTime());
+                long a = this.f28090e.a(System.nanoTime());
                 if (a == -1) {
                     return;
                 }
                 if (a > 0) {
                     long j2 = a / 1000000;
                     long j3 = a - (1000000 * j2);
-                    synchronized (this.f28186e) {
+                    synchronized (this.f28090e) {
                         try {
-                            this.f28186e.wait(j2, (int) j3);
+                            this.f28090e.wait(j2, (int) j3);
                         } catch (InterruptedException unused) {
                         }
                     }
@@ -107,7 +107,7 @@ public final class j {
                 return;
             }
         }
-        f28180g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp ConnectionPool", true));
+        f28084g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp ConnectionPool", true));
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public final class j {
                 long j3 = Long.MIN_VALUE;
                 int i2 = 0;
                 int i3 = 0;
-                for (c.d.b.e0.h.c cVar2 : this.f28183d) {
+                for (c.d.b.e0.h.c cVar2 : this.f28087d) {
                     if (e(cVar2, j2) > 0) {
                         i3++;
                     } else {
@@ -150,17 +150,17 @@ public final class j {
                         }
                     }
                 }
-                if (j3 < this.f28181b && i2 <= this.a) {
+                if (j3 < this.f28085b && i2 <= this.a) {
                     if (i2 > 0) {
-                        return this.f28181b - j3;
+                        return this.f28085b - j3;
                     }
                     if (i3 > 0) {
-                        return this.f28181b;
+                        return this.f28085b;
                     }
-                    this.f28185f = false;
+                    this.f28089f = false;
                     return -1L;
                 }
-                this.f28183d.remove(cVar);
+                this.f28087d.remove(cVar);
                 c.d.b.e0.e.g(cVar.o());
                 return 0L;
             }
@@ -176,7 +176,7 @@ public final class j {
                 notifyAll();
                 return false;
             }
-            this.f28183d.remove(cVar);
+            this.f28087d.remove(cVar);
             return true;
         }
         return invokeL.booleanValue;
@@ -187,7 +187,7 @@ public final class j {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar)) == null) {
-            for (c.d.b.e0.h.c cVar : this.f28183d) {
+            for (c.d.b.e0.h.c cVar : this.f28087d) {
                 if (cVar.k(aVar, null) && cVar.m() && cVar != fVar.d()) {
                     return fVar.r(cVar);
                 }
@@ -202,7 +202,7 @@ public final class j {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, aVar, fVar, d0Var)) == null) {
-            for (c.d.b.e0.h.c cVar : this.f28183d) {
+            for (c.d.b.e0.h.c cVar : this.f28087d) {
                 if (cVar.k(aVar, d0Var)) {
                     fVar.a(cVar, true);
                     return cVar;
@@ -228,7 +228,7 @@ public final class j {
                     list.remove(i2);
                     cVar.k = true;
                     if (list.isEmpty()) {
-                        cVar.o = j2 - this.f28181b;
+                        cVar.o = j2 - this.f28085b;
                         return 0;
                     }
                 }
@@ -241,11 +241,11 @@ public final class j {
     public void f(c.d.b.e0.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            if (!this.f28185f) {
-                this.f28185f = true;
-                f28180g.execute(this.f28182c);
+            if (!this.f28089f) {
+                this.f28089f = true;
+                f28084g.execute(this.f28086c);
             }
-            this.f28183d.add(cVar);
+            this.f28087d.add(cVar);
         }
     }
 
@@ -264,11 +264,11 @@ public final class j {
                 return;
             }
         }
-        this.f28182c = new a(this);
-        this.f28183d = new ArrayDeque();
-        this.f28184e = new c.d.b.e0.h.d();
+        this.f28086c = new a(this);
+        this.f28087d = new ArrayDeque();
+        this.f28088e = new c.d.b.e0.h.d();
         this.a = i2;
-        this.f28181b = timeUnit.toNanos(j2);
+        this.f28085b = timeUnit.toNanos(j2);
         if (j2 > 0) {
             return;
         }

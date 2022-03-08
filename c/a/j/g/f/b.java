@@ -16,10 +16,10 @@ public final class b extends c.a.j.g.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UniqueId f4052b;
+    public static final UniqueId f3669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f4053c;
+    public static final a f3670c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public final class b extends c.a.j.g.a {
         public final UniqueId a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f4052b : (UniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f3669b : (UniqueId) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -65,10 +65,10 @@ public final class b extends c.a.j.g.a {
                 return;
             }
         }
-        f4053c = new a(null);
+        f3670c = new a(null);
         UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
         Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
-        f4052b = gen;
+        f3669b = gen;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public final class b extends c.a.j.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + f4053c.a().getAlias() + ':' + a().toJson();
+            return "" + f3670c.a().getAlias() + ':' + a().toJson();
         }
         return (String) invokeV.objValue;
     }

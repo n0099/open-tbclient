@@ -1,19 +1,19 @@
 package com.google.android.exoplayer2.audio;
 
 import androidx.annotation.Nullable;
-import c.i.b.a.p;
-import c.i.b.a.x.b;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.PlaybackParameters;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface AudioSink {
+    public static final long CURRENT_POSITION_NOT_SET = Long.MIN_VALUE;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class ConfigurationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class InitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,16 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
+    public interface Listener {
+        void onAudioSessionId(int i2);
+
+        void onPositionDiscontinuity();
+
+        void onUnderrun(int i2, long j2, long j3);
+    }
+
+    /* loaded from: classes7.dex */
     public static final class WriteException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,50 +124,43 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(int i2);
+    void configure(String str, int i2, int i3, int i4, int i5, @Nullable int[] iArr, int i6, int i7) throws ConfigurationException;
 
-        void b(int i2, long j2, long j3);
+    void disableTunneling();
 
-        void c();
-    }
+    void enableTunnelingV21(int i2);
 
-    void a();
+    long getCurrentPositionUs(boolean z);
 
-    boolean b();
+    PlaybackParameters getPlaybackParameters();
 
-    p c(p pVar);
+    boolean handleBuffer(ByteBuffer byteBuffer, long j2) throws InitializationException, WriteException;
 
-    p d();
+    void handleDiscontinuity();
 
-    void e(b bVar);
+    boolean hasPendingData();
 
-    boolean f(ByteBuffer byteBuffer, long j2) throws InitializationException, WriteException;
+    boolean isEnded();
 
-    void g(int i2);
-
-    void h(String str, int i2, int i3, int i4, int i5, @Nullable int[] iArr, int i6, int i7) throws ConfigurationException;
-
-    boolean i();
-
-    void j(a aVar);
-
-    void k() throws WriteException;
-
-    long l(boolean z);
-
-    void m();
-
-    boolean n(String str);
+    boolean isPassthroughSupported(String str);
 
     void pause();
 
     void play();
 
+    void playToEndOfStream() throws WriteException;
+
     void release();
 
     void reset();
+
+    void setAudioAttributes(AudioAttributes audioAttributes);
+
+    void setAudioSessionId(int i2);
+
+    void setListener(Listener listener);
+
+    PlaybackParameters setPlaybackParameters(PlaybackParameters playbackParameters);
 
     void setVolume(float f2);
 }

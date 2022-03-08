@@ -3,19 +3,17 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.n.d;
-import c.a.u0.u2.f;
-import c.a.u0.u2.g;
-import c.a.u0.u2.h;
+import c.a.q0.r.l0.n.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +45,11 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             d dVar = new d();
             this.r = dVar;
-            dVar.q(f.CAM_X0903);
-            this.r.g(n.f(TbadkCoreApplication.getInst().getContext(), g.M_H_X006));
-            this.r.u(h.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
+            dVar.q(R.color.CAM_X0903);
+            this.r.g(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            this.r.u(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
             this.r.o(TBSpecificationButtonConfig.WebpType.PURE);
-            this.r.h(f.CAM_X0304);
+            this.r.h(R.color.CAM_X0304);
             setConfig(this.r);
         }
     }

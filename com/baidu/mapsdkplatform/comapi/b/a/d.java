@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class d implements Runnable {
             File file2 = listFiles[i2];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f36014b;
+                str2 = c.f34417b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
                     this.a.a(file2);
                 }

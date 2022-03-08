@@ -26,22 +26,22 @@ import com.qq.e.ads.nativ.express2.VideoOption2;
 import com.qq.e.comm.util.AdError;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class f extends ReporterPidLoader<NativeExpressADData2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<NativeExpressADData2, ExpressAdListenerWrapper<AdEventListener>> f28488h;
+    public final HashMap<NativeExpressADData2, ExpressAdListenerWrapper<AdEventListener>> f28326h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements NativeExpressAD2.AdLoadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdSlot a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f28489b;
+        public final /* synthetic */ f f28327b;
 
         public a(f fVar, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
                     return;
                 }
             }
-            this.f28489b = fVar;
+            this.f28327b = fVar;
             this.a = funAdSlot;
         }
 
@@ -72,7 +72,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
                 LogPrinter.d();
                 if (list != null && !list.isEmpty()) {
                     NativeExpressADData2 nativeExpressADData2 = list.get(0);
-                    f fVar = this.f28489b;
+                    f fVar = this.f28327b;
                     String sid = this.a.getSid();
                     fVar.getClass();
                     ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
@@ -82,7 +82,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
                     nativeExpressADData2.render();
                     return;
                 }
-                this.f28489b.onError(0, "NoFill");
+                this.f28327b.onError(0, "NoFill");
             }
         }
 
@@ -91,7 +91,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
                 LogPrinter.e("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f28489b.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f28327b.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
     }
@@ -114,7 +114,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
                 return;
             }
         }
-        this.f28488h = new HashMap<>();
+        this.f28326h = new HashMap<>();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -129,7 +129,7 @@ public class f extends ReporterPidLoader<NativeExpressADData2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            this.f28488h.remove(nativeExpressADData2);
+            this.f28326h.remove(nativeExpressADData2);
             if (nativeExpressADData2 != null) {
                 nativeExpressADData2.destroy();
             }

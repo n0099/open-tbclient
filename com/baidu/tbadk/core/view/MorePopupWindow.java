@@ -9,20 +9,19 @@ import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
 import c.a.d.f.p.n;
-import c.a.t0.s.c;
-import c.a.u0.a4.e;
-import c.a.u0.a4.k;
+import c.a.q0.r.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +134,7 @@ public class MorePopupWindow extends PopupWindow {
         int measuredWidth = this.mContentView.getMeasuredWidth();
         int measuredHeight = this.mContentView.getMeasuredHeight();
         setWidth(measuredWidth);
-        int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(e.ds4));
+        int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
         this.mWindowHeight = dimension;
         setHeight(dimension);
         int[] p = n.p(this.mActivity);
@@ -187,7 +186,7 @@ public class MorePopupWindow extends PopupWindow {
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) {
-            setAnimationStyle(k.pop_window_anim);
+            setAnimationStyle(R.style.pop_window_anim);
             setFocusable(z);
             int i2 = this.mShowLeftCenterXOff;
             int i3 = this.mWindowHeight;

@@ -4,7 +4,6 @@ import androidx.constraintlayout.solver.Cache;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,7 +177,7 @@ public class ConstraintAnchor {
                     return;
                 }
             }
-            NONE = new Strength(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new Strength("NONE", 0);
             STRONG = new Strength("STRONG", 1);
             Strength strength = new Strength("WEAK", 2);
             WEAK = strength;
@@ -246,7 +245,7 @@ public class ConstraintAnchor {
                     return;
                 }
             }
-            NONE = new Type(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new Type("NONE", 0);
             LEFT = new Type("LEFT", 1);
             TOP = new Type("TOP", 2);
             RIGHT = new Type("RIGHT", 3);

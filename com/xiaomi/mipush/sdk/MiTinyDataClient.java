@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MiTinyDataClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PENDING_REASON_APPID = "com.xiaomi.xmpushsdk.tinydataPending.appId";
@@ -30,7 +30,7 @@ public class MiTinyDataClient {
     public static final String PENDING_REASON_INIT = "com.xiaomi.xmpushsdk.tinydataPending.init";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static volatile a a;
@@ -40,7 +40,7 @@ public class MiTinyDataClient {
         public Context f53a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C2275a f54a;
+        public C2254a f54a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f55a;
@@ -52,8 +52,8 @@ public class MiTinyDataClient {
         public final ArrayList<hj> f57a;
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C2275a {
+        /* loaded from: classes8.dex */
+        public class C2254a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -70,7 +70,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f61a;
 
-            public C2275a(a aVar) {
+            public C2254a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class MiTinyDataClient {
                     hj remove = this.f59a.remove(0);
                     for (ie ieVar : bm.a(Arrays.asList(remove), this.a.f53a.getPackageName(), b.m174a(this.a.f53a).m175a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
-                        an.a(this.a.f53a).a((an) ieVar, hf.f61378i, true, (hs) null);
+                        an.a(this.a.f53a).a((an) ieVar, hf.f59728i, true, (hs) null);
                     }
                 }
             }
@@ -132,7 +132,7 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f54a = new C2275a(this);
+            this.f54a = new C2254a(this);
             this.f57a = new ArrayList<>();
         }
 

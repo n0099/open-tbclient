@@ -37,7 +37,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
@@ -184,7 +184,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f31775b, "getInnerIP ex=%s", th);
+                L.debug("Util", "getInnerIP ex=%s", th);
                 return "";
             }
         }
@@ -218,7 +218,7 @@ public class Util {
                     return str;
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f31775b, "getOutNetIp ex=%s", th);
+                L.debug("Util", "getOutNetIp ex=%s", th);
             }
             return "";
         }
@@ -286,7 +286,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
             if (j2 >= 2147483647L) {
-                L.debug(com.baidu.android.common.util.Util.f31775b, "Failed to convert long %d to int.", Long.valueOf(j2));
+                L.debug("Util", "Failed to convert long %d to int.", Long.valueOf(j2));
             }
             return (int) j2;
         }
@@ -324,7 +324,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f31775b, th.getMessage(), new Object[0]);
+                L.debug("Util", th.getMessage(), new Object[0]);
                 return "";
             }
         }
@@ -342,7 +342,7 @@ public class Util {
                     hashMap.put(split[0], split[1]);
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f31775b, th.getMessage(), new Object[0]);
+                L.debug("Util", th.getMessage(), new Object[0]);
             }
             return hashMap;
         }

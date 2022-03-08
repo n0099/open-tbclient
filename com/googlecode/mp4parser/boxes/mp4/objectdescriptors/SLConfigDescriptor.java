@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {6})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SLConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

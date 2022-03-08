@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.d.f.j.b.a;
 import c.a.d.f.p.l;
-import c.a.u0.a1.a.e.j;
+import c.a.r0.z0.a.e.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -25,7 +25,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNetworkInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.t0.s.m.f;
+import c.a.q0.r.m.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilitySettingsAuto;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilitySettings implements TiebaUtilitySettingsAuto.HostUtilitySettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

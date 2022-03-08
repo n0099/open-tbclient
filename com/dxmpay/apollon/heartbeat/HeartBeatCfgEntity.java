@@ -2,7 +2,6 @@ package com.dxmpay.apollon.heartbeat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.f.a.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +19,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HeartBeatCfgEntity implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEART_BEAT_CFG_UNUSE = "0";
@@ -128,7 +127,7 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
             if (!TextUtils.isEmpty(json)) {
                 FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + "dxmheartbeatcfg.cfg"));
             }
-            c.b(context, com.baidu.apollon.heartbeat.c.f32701b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.a(context, com.baidu.apollon.heartbeat.c.f31104b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

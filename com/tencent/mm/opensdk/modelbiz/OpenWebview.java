@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class OpenWebview {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_URL_LENGHT = 10240;
@@ -76,7 +76,7 @@ public class OpenWebview {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

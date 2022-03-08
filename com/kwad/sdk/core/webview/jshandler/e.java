@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ad;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e implements com.kwad.sdk.core.webview.kwai.a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String A;
         public int B;
@@ -15,31 +15,31 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56579b;
+        public int f54929b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56580c;
+        public String f54930c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f56581d;
+        public int f54931d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56582e;
+        public int f54932e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f56583f;
+        public String f54933f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f56584g;
+        public String f54934g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f56585h;
+        public String f54935h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f56586i;
+        public String f54936i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f56587j;
+        public String f54937j;
         public String k;
         public String l;
         public String m;
@@ -60,15 +60,15 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public static a a() {
             a aVar = new a();
             aVar.a = "3.3.17.4";
-            aVar.f56579b = 3031704;
-            aVar.f56580c = KsAdSDKImpl.get().getApiVersion();
-            aVar.f56581d = KsAdSDKImpl.get().getApiVersionCode();
-            aVar.f56582e = KsAdSDKImpl.get().getSDKType();
-            aVar.f56583f = av.w(KsAdSDKImpl.get().getContext());
-            aVar.f56584g = KsAdSDKImpl.get().getAppName();
-            aVar.f56585h = KsAdSDKImpl.get().getAppId();
-            aVar.f56586i = "";
-            aVar.f56587j = com.kwad.sdk.core.a.e.a();
+            aVar.f54929b = 3031704;
+            aVar.f54930c = KsAdSDKImpl.get().getApiVersion();
+            aVar.f54931d = KsAdSDKImpl.get().getApiVersionCode();
+            aVar.f54932e = KsAdSDKImpl.get().getSDKType();
+            aVar.f54933f = av.w(KsAdSDKImpl.get().getContext());
+            aVar.f54934g = KsAdSDKImpl.get().getAppName();
+            aVar.f54935h = KsAdSDKImpl.get().getAppId();
+            aVar.f54936i = "";
+            aVar.f54937j = com.kwad.sdk.core.a.e.a();
             aVar.k = com.kwad.sdk.core.a.e.b();
             aVar.l = String.valueOf(ad.c(KsAdSDKImpl.get().getContext()));
             aVar.m = av.n();

@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponseSearchGroupMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

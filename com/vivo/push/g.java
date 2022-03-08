@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class g implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f60917b;
+    public final /* synthetic */ e f59267b;
 
     public g(e eVar, e.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class g implements IPushActionListener {
                 return;
             }
         }
-        this.f60917b = eVar;
+        this.f59267b = eVar;
         this.a = aVar;
     }
 
@@ -41,15 +41,15 @@ public final class g implements IPushActionListener {
             if (i2 == 0) {
                 Object[] b2 = this.a.b();
                 if (b2 != null && b2.length != 0) {
-                    this.f60917b.a((String) this.a.b()[0]);
+                    this.f59267b.a((String) this.a.b()[0]);
                     return;
                 } else {
                     com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                     return;
                 }
             }
-            this.f60917b.k = null;
-            bVar = this.f60917b.f60911j;
+            this.f59267b.k = null;
+            bVar = this.f59267b.f59261j;
             bVar.b("APP_TOKEN");
         }
     }

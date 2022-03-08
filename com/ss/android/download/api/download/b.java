@@ -2,7 +2,7 @@ package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b implements DownloadController {
     @Override // com.ss.android.download.api.download.DownloadController
     public boolean enableAH() {

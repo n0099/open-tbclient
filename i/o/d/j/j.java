@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class j<E> extends n<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public final class j<E> extends n<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f62276f;
-                long j2 = this.f62275e;
+                E[] eArr = this.f60626f;
+                long j2 = this.f60625e;
                 long h2 = h();
                 long a = a(h2);
                 if (e(eArr, a) != null) {
@@ -108,7 +108,7 @@ public final class j<E> extends n<E> {
                 }
             } while (!j(k, 1 + k));
             long a = a(k);
-            E[] eArr = this.f62276f;
+            E[] eArr = this.f60626f;
             E c2 = c(eArr, a);
             f(eArr, a, null);
             return c2;

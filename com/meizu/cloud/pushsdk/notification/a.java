@@ -23,24 +23,24 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushNotificationBuilder f59009b;
+    public PushNotificationBuilder f57359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f59010c;
+    public Handler f57360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NotificationManager f59011d;
+    public NotificationManager f57361d;
 
     public a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        this.f59009b = pushNotificationBuilder;
+        this.f57359b = pushNotificationBuilder;
         this.a = context;
-        this.f59010c = new Handler(context.getMainLooper());
-        this.f59011d = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.f57360c = new Handler(context.getMainLooper());
+        this.f57361d = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     private void a(Notification.Builder builder) {
@@ -50,7 +50,7 @@ public abstract class a implements c {
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(-16711936);
             notificationChannel.setShowBadge(true);
-            this.f59011d.createNotificationChannel(notificationChannel);
+            this.f57361d.createNotificationChannel(notificationChannel);
             builder.setChannelId("mz_push_notification_channel");
         }
     }
@@ -80,9 +80,9 @@ public abstract class a implements c {
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_SEQ_ID, messageV3.getSeqId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_DEVICE_ID, messageV3.getDeviceId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_PUSH_TIMESTAMP, messageV3.getPushTimestamp());
-        if (!TextUtils.isEmpty(this.f59009b.getAppLabel())) {
-            c.k.a.a.a.b("AbstractPushNotification", "set app label " + this.f59009b.getAppLabel());
-            notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, this.f59009b.getAppLabel());
+        if (!TextUtils.isEmpty(this.f57359b.getAppLabel())) {
+            c.k.a.a.a.b("AbstractPushNotification", "set app label " + this.f57359b.getAppLabel());
+            notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, this.f57359b.getAppLabel());
             return;
         }
         String b2 = b(this.a, messageV3.getUploadDataPackageName());
@@ -163,9 +163,9 @@ public abstract class a implements c {
             }
             c.k.a.a.a.b("AbstractPushNotification", "cannot get " + messageV3.getUploadDataPackageName() + " smallIcon");
         } else {
-            PushNotificationBuilder pushNotificationBuilder = this.f59009b;
+            PushNotificationBuilder pushNotificationBuilder = this.f57359b;
             if (pushNotificationBuilder != null && pushNotificationBuilder.getmStatusbarIcon() != 0) {
-                i2 = this.f59009b.getmStatusbarIcon();
+                i2 = this.f57359b.getmStatusbarIcon();
                 builder.setSmallIcon(i2);
                 builder.setContentIntent(pendingIntent);
                 builder.setDeleteIntent(pendingIntent2);
@@ -192,7 +192,7 @@ public abstract class a implements c {
             messageV3.getmAdvanceSetting().getNotifyType().setSound(false);
             messageV3.getmAdvanceSetting().getNotifyType().setVibrate(false);
             final Notification a = a(messageV3, a(messageV3), b(messageV3));
-            this.f59010c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.1
+            this.f57360c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     notificationManager.notify(i2, a);
@@ -304,7 +304,7 @@ public abstract class a implements c {
                 c.k.a.a.a.b("AbstractPushNotification", "notifyKey " + a2.b() + " preference notifyId is " + i2);
                 if (i2 != 0) {
                     c.k.a.a.a.b("AbstractPushNotification", "use preference notifyId " + i2 + " and cancel it");
-                    this.f59011d.cancel(i2);
+                    this.f57361d.cancel(i2);
                 }
                 c.k.a.a.a.b("AbstractPushNotification", "store new notifyId " + abs + " by notifyKey " + a2.b());
                 com.meizu.cloud.pushsdk.util.b.b(this.a, messageV3.getUploadDataPackageName(), a2.b(), abs);
@@ -329,7 +329,7 @@ public abstract class a implements c {
             }
             c.k.a.a.a.d("AbstractPushNotification", "current package " + messageV3.getPackageName() + " notificationId=" + abs + " taskId=" + messageV3.getTaskId());
         }
-        this.f59011d.notify(abs, a);
-        a(this.f59011d, abs, messageV3);
+        this.f57361d.notify(abs, a);
+        a(this.f57361d, abs, messageV3);
     }
 }

@@ -1,12 +1,12 @@
 package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
-import c.f.a.g.d.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.dxmpay.apollon.restnet.rest.d;
+/* loaded from: classes7.dex */
 public class CometHttpRequestInterceptor extends EbpayHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

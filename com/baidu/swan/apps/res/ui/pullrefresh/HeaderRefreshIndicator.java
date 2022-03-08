@@ -3,17 +3,16 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.TranslateAnimation;
-import c.a.s0.a.c;
-import c.a.s0.a.c1.a;
-import c.a.s0.a.e;
-import c.a.s0.a.z2.n0;
+import c.a.p0.a.p2.n0;
+import c.a.p0.a.s0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +62,9 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public void initResources() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setBackground(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_bg));
-            setTextColor(getResources().getColor(c.aiapps_pull_refresh_result_text_color));
-            initDrawable(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
+            setBackground(getResources().getDrawable(R.drawable.aiapps_pull_refresh_success_tip_bg));
+            setTextColor(getResources().getColor(R.color.aiapps_pull_refresh_result_text_color));
+            initDrawable(getResources().getDrawable(R.drawable.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
         }
     }
 

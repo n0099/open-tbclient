@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.tachikoma.core.component.imageview.TKCDNUrlInner;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface IAnimatedImageInner {
     ImageView getImageViewHost(Context context);
 

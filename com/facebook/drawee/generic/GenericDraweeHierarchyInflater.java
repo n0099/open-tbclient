@@ -6,18 +6,18 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.R;
 import com.facebook.drawee.drawable.AutoRotateDrawable;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GenericDraweeHierarchyInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,15 +118,10 @@ public class GenericDraweeHierarchyInflater {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, attributeSet)) == null) ? inflateBuilder(context, attributeSet).build() : (GenericDraweeHierarchy) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:119:0x01cf, code lost:
-        if (r14 != false) goto L126;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x01e9, code lost:
-        if (r5 != false) goto L126;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:135:0x01eb, code lost:
-        r4 = true;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x0233  */
+    /* JADX WARN: Type inference failed for: r4v0 */
+    /* JADX WARN: Type inference failed for: r4v15 */
+    /* JADX WARN: Type inference failed for: r4v4, types: [boolean, int] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -134,21 +129,23 @@ public class GenericDraweeHierarchyInflater {
         InterceptResult invokeLLL;
         boolean z;
         int i2;
-        int i3;
         boolean z2;
+        int i3;
         boolean z3;
         boolean z4;
+        int i4;
         boolean z5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, genericDraweeHierarchyBuilder, context, attributeSet)) == null) {
             Context context2 = context;
+            ?? r4 = 0;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.GenericDraweeHierarchy);
+                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.actualImageScaleType, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.viewAspectRatio});
                 try {
                     int indexCount = obtainStyledAttributes.getIndexCount();
-                    boolean z6 = true;
-                    int i4 = 0;
                     int i5 = 0;
+                    int i6 = 0;
+                    boolean z6 = true;
                     boolean z7 = true;
                     boolean z8 = true;
                     boolean z9 = true;
@@ -156,131 +153,166 @@ public class GenericDraweeHierarchyInflater {
                     boolean z11 = true;
                     boolean z12 = true;
                     boolean z13 = true;
-                    int i6 = 0;
-                    while (i5 < indexCount) {
+                    int i7 = 0;
+                    while (i6 < indexCount) {
                         try {
-                            int index = obtainStyledAttributes.getIndex(i5);
-                            if (index == R.styleable.GenericDraweeHierarchy_actualImageScaleType) {
-                                genericDraweeHierarchyBuilder.setActualImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_placeholderImage) {
-                                genericDraweeHierarchyBuilder.setPlaceholderImage(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_pressedStateOverlayImage) {
-                                genericDraweeHierarchyBuilder.setPressedStateOverlay(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_progressBarImage) {
-                                genericDraweeHierarchyBuilder.setProgressBarImage(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_fadeDuration) {
-                                genericDraweeHierarchyBuilder.setFadeDuration(obtainStyledAttributes.getInt(index, 0));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_viewAspectRatio) {
-                                genericDraweeHierarchyBuilder.setDesiredAspectRatio(obtainStyledAttributes.getFloat(index, 0.0f));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_placeholderImageScaleType) {
-                                genericDraweeHierarchyBuilder.setPlaceholderImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_retryImage) {
-                                genericDraweeHierarchyBuilder.setRetryImage(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_retryImageScaleType) {
-                                genericDraweeHierarchyBuilder.setRetryImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_failureImage) {
-                                genericDraweeHierarchyBuilder.setFailureImage(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_failureImageScaleType) {
-                                genericDraweeHierarchyBuilder.setFailureImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_progressBarImageScaleType) {
-                                genericDraweeHierarchyBuilder.setProgressBarImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_progressBarAutoRotateInterval) {
-                                i4 = obtainStyledAttributes.getInteger(index, i4);
-                            } else if (index == R.styleable.GenericDraweeHierarchy_backgroundImage) {
-                                genericDraweeHierarchyBuilder.setBackground(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_overlayImage) {
-                                genericDraweeHierarchyBuilder.setOverlay(getDrawable(context2, obtainStyledAttributes, index));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_roundAsCircle) {
-                                getRoundingParams(genericDraweeHierarchyBuilder).setRoundAsCircle(obtainStyledAttributes.getBoolean(index, false));
-                            } else if (index == R.styleable.GenericDraweeHierarchy_roundedCornerRadius) {
-                                i6 = obtainStyledAttributes.getDimensionPixelSize(index, i6);
-                            } else {
-                                int i7 = i6;
-                                if (index == R.styleable.GenericDraweeHierarchy_roundTopLeft) {
-                                    z7 = obtainStyledAttributes.getBoolean(index, z7);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundTopRight) {
-                                    z9 = obtainStyledAttributes.getBoolean(index, z9);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundBottomLeft) {
-                                    z13 = obtainStyledAttributes.getBoolean(index, z13);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundBottomRight) {
-                                    z11 = obtainStyledAttributes.getBoolean(index, z11);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundTopStart) {
-                                    z8 = obtainStyledAttributes.getBoolean(index, z8);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundTopEnd) {
-                                    z10 = obtainStyledAttributes.getBoolean(index, z10);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundBottomStart) {
-                                    z6 = obtainStyledAttributes.getBoolean(index, z6);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundBottomEnd) {
-                                    z12 = obtainStyledAttributes.getBoolean(index, z12);
-                                } else if (index == R.styleable.GenericDraweeHierarchy_roundWithOverlayColor) {
-                                    i6 = i7;
-                                    getRoundingParams(genericDraweeHierarchyBuilder).setOverlayColor(obtainStyledAttributes.getColor(index, 0));
-                                } else {
-                                    i6 = i7;
-                                    if (index == R.styleable.GenericDraweeHierarchy_roundingBorderWidth) {
-                                        getRoundingParams(genericDraweeHierarchyBuilder).setBorderWidth(obtainStyledAttributes.getDimensionPixelSize(index, 0));
-                                    } else if (index == R.styleable.GenericDraweeHierarchy_roundingBorderColor) {
-                                        getRoundingParams(genericDraweeHierarchyBuilder).setBorderColor(obtainStyledAttributes.getColor(index, 0));
-                                    } else if (index == R.styleable.GenericDraweeHierarchy_roundingBorderPadding) {
-                                        getRoundingParams(genericDraweeHierarchyBuilder).setPadding(obtainStyledAttributes.getDimensionPixelSize(index, 0));
-                                        i5++;
-                                        context2 = context;
+                            int index = obtainStyledAttributes.getIndex(i6);
+                            if (index == 0) {
+                                try {
+                                    genericDraweeHierarchyBuilder.setActualImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
+                                } catch (Throwable th) {
+                                    th = th;
+                                    obtainStyledAttributes.recycle();
+                                    if (Build.VERSION.SDK_INT >= 17) {
                                     }
+                                    throw th;
                                 }
-                                i6 = i7;
+                            } else if (index == 6) {
+                                genericDraweeHierarchyBuilder.setPlaceholderImage(getDrawable(context2, obtainStyledAttributes, index));
+                            } else if (index == 8) {
+                                genericDraweeHierarchyBuilder.setPressedStateOverlay(getDrawable(context2, obtainStyledAttributes, index));
+                            } else if (index == 10) {
+                                genericDraweeHierarchyBuilder.setProgressBarImage(getDrawable(context2, obtainStyledAttributes, index));
+                            } else if (index == 2) {
+                                genericDraweeHierarchyBuilder.setFadeDuration(obtainStyledAttributes.getInt(index, r4));
+                            } else if (index == 28) {
+                                genericDraweeHierarchyBuilder.setDesiredAspectRatio(obtainStyledAttributes.getFloat(index, 0.0f));
+                            } else if (index == 7) {
+                                genericDraweeHierarchyBuilder.setPlaceholderImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
+                            } else if (index == 12) {
+                                genericDraweeHierarchyBuilder.setRetryImage(getDrawable(context2, obtainStyledAttributes, index));
+                            } else if (index == 13) {
+                                genericDraweeHierarchyBuilder.setRetryImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
+                            } else if (index == 3) {
+                                genericDraweeHierarchyBuilder.setFailureImage(getDrawable(context2, obtainStyledAttributes, index));
+                            } else if (index == 4) {
+                                genericDraweeHierarchyBuilder.setFailureImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
+                            } else if (index == 11) {
+                                genericDraweeHierarchyBuilder.setProgressBarImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
+                            } else {
+                                if (index == 9) {
+                                    i5 = obtainStyledAttributes.getInteger(index, i5);
+                                } else if (index == 1) {
+                                    genericDraweeHierarchyBuilder.setBackground(getDrawable(context2, obtainStyledAttributes, index));
+                                } else if (index == 5) {
+                                    genericDraweeHierarchyBuilder.setOverlay(getDrawable(context2, obtainStyledAttributes, index));
+                                } else if (index == 14) {
+                                    getRoundingParams(genericDraweeHierarchyBuilder).setRoundAsCircle(obtainStyledAttributes.getBoolean(index, r4));
+                                } else if (index == 24) {
+                                    i7 = obtainStyledAttributes.getDimensionPixelSize(index, i7);
+                                } else {
+                                    int i8 = i7;
+                                    if (index == 20) {
+                                        z6 = obtainStyledAttributes.getBoolean(index, z6);
+                                    } else if (index == 21) {
+                                        z8 = obtainStyledAttributes.getBoolean(index, z8);
+                                    } else if (index == 16) {
+                                        z12 = obtainStyledAttributes.getBoolean(index, z12);
+                                    } else if (index == 17) {
+                                        z10 = obtainStyledAttributes.getBoolean(index, z10);
+                                    } else if (index == 22) {
+                                        z7 = obtainStyledAttributes.getBoolean(index, z7);
+                                    } else if (index == 19) {
+                                        z9 = obtainStyledAttributes.getBoolean(index, z9);
+                                    } else if (index == 18) {
+                                        try {
+                                            z13 = obtainStyledAttributes.getBoolean(index, z13);
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            obtainStyledAttributes.recycle();
+                                            if (Build.VERSION.SDK_INT >= 17) {
+                                                context.getResources().getConfiguration().getLayoutDirection();
+                                            }
+                                            throw th;
+                                        }
+                                    } else {
+                                        z5 = z13;
+                                        if (index == 15) {
+                                            z11 = obtainStyledAttributes.getBoolean(index, z11);
+                                            i7 = i8;
+                                            z13 = z5;
+                                        } else {
+                                            if (index == 23) {
+                                                i4 = i8;
+                                                getRoundingParams(genericDraweeHierarchyBuilder).setOverlayColor(obtainStyledAttributes.getColor(index, 0));
+                                            } else {
+                                                i4 = i8;
+                                                if (index == 27) {
+                                                    getRoundingParams(genericDraweeHierarchyBuilder).setBorderWidth(obtainStyledAttributes.getDimensionPixelSize(index, 0));
+                                                } else if (index == 25) {
+                                                    getRoundingParams(genericDraweeHierarchyBuilder).setBorderColor(obtainStyledAttributes.getColor(index, 0));
+                                                } else if (index == 26) {
+                                                    getRoundingParams(genericDraweeHierarchyBuilder).setPadding(obtainStyledAttributes.getDimensionPixelSize(index, 0));
+                                                    i7 = i4;
+                                                    z13 = z5;
+                                                    i6++;
+                                                    context2 = context;
+                                                    r4 = 0;
+                                                }
+                                            }
+                                            i7 = i4;
+                                            z13 = z5;
+                                            i6++;
+                                            context2 = context;
+                                            r4 = 0;
+                                        }
+                                    }
+                                    i7 = i8;
+                                }
+                                i6++;
+                                context2 = context;
+                                r4 = 0;
                             }
-                            i5++;
+                            z5 = z13;
+                            i4 = i7;
+                            i7 = i4;
+                            z13 = z5;
+                            i6++;
                             context2 = context;
-                        } catch (Throwable th) {
-                            th = th;
-                            obtainStyledAttributes.recycle();
-                            if (Build.VERSION.SDK_INT >= 17) {
-                                context.getResources().getConfiguration().getLayoutDirection();
-                            }
-                            throw th;
+                            r4 = 0;
+                        } catch (Throwable th3) {
+                            th = th3;
                         }
                     }
-                    boolean z14 = false;
+                    boolean z14 = z13;
+                    int i9 = i7;
                     obtainStyledAttributes.recycle();
                     if (Build.VERSION.SDK_INT < 17 || context.getResources().getConfiguration().getLayoutDirection() != 1) {
-                        z5 = z7 && z8;
-                        z = z9 && z10;
-                        z2 = z11 && z12;
-                        if (z13) {
-                        }
-                        z3 = z5;
-                        i3 = i6;
-                        int i8 = i4;
-                        z4 = z14;
-                        i2 = i8;
+                        boolean z15 = z6 && z7;
+                        z = z8 && z9;
+                        boolean z16 = z10 && z11;
+                        z4 = z12 && z14;
+                        i3 = i5;
+                        i2 = i9;
+                        boolean z17 = z16;
+                        z3 = z15;
+                        z2 = z17;
                     } else {
-                        z5 = z7 && z10;
-                        z = z9 && z8;
-                        z2 = z11 && z6;
-                        if (z13) {
-                        }
-                        z3 = z5;
-                        i3 = i6;
-                        int i82 = i4;
-                        z4 = z14;
-                        i2 = i82;
+                        boolean z18 = z6 && z9;
+                        z = z8 && z7;
+                        boolean z19 = z10 && z14;
+                        z4 = z12 && z11;
+                        z3 = z18;
+                        z2 = z19;
+                        i3 = i5;
+                        i2 = i9;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th4) {
+                    th = th4;
                 }
             } else {
                 z = true;
                 i2 = 0;
-                i3 = 0;
                 z2 = true;
+                i3 = 0;
                 z3 = true;
                 z4 = true;
             }
-            if (genericDraweeHierarchyBuilder.getProgressBarImage() != null && i2 > 0) {
-                genericDraweeHierarchyBuilder.setProgressBarImage(new AutoRotateDrawable(genericDraweeHierarchyBuilder.getProgressBarImage(), i2));
+            if (genericDraweeHierarchyBuilder.getProgressBarImage() != null && i3 > 0) {
+                genericDraweeHierarchyBuilder.setProgressBarImage(new AutoRotateDrawable(genericDraweeHierarchyBuilder.getProgressBarImage(), i3));
             }
-            if (i3 > 0) {
-                getRoundingParams(genericDraweeHierarchyBuilder).setCornersRadii(z3 ? i3 : 0.0f, z ? i3 : 0.0f, z2 ? i3 : 0.0f, z4 ? i3 : 0.0f);
+            if (i2 > 0) {
+                getRoundingParams(genericDraweeHierarchyBuilder).setCornersRadii(z3 ? i2 : 0.0f, z ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f);
             }
             return genericDraweeHierarchyBuilder;
         }

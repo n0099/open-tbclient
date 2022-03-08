@@ -12,14 +12,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31109b;
+    public String f29513b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class c {
             }
         }
         this.a = z;
-        this.f31109b = l.a(24);
+        this.f29513b = l.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr, String str2) {
@@ -64,7 +64,7 @@ public final class c {
                 }
             }
             if (this.a) {
-                a = a(bytes, a(this.f31109b, com.alipay.sdk.cons.a.f31047e), b(this.f31109b, bytes2, str));
+                a = a(bytes, a(this.f29513b, com.alipay.sdk.cons.a.f29451e), b(this.f29513b, bytes2, str));
             } else {
                 a = a(bytes, bytes2);
             }
@@ -106,7 +106,7 @@ public final class c {
                             byte[] bArr4 = new byte[a];
                             byteArrayInputStream.read(bArr4);
                             if (this.a) {
-                                bArr4 = a(this.f31109b, bArr4, str);
+                                bArr4 = a(this.f29513b, bArr4, str);
                             }
                             if (dVar.b()) {
                                 bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);

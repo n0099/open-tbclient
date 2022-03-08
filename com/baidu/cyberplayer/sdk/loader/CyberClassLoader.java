@@ -22,16 +22,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public static Class a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f33760b;
+    public static Class f32163b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static void a() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            if (a == null || f33760b == null) {
+            if (a == null || f32163b == null) {
                 Class<?> cls = Class.forName("dalvik.system.DexPathList");
                 a = cls;
                 Class<?>[] declaredClasses = cls.getDeclaredClasses();
@@ -186,12 +186,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                     }
                     Class<?> cls2 = declaredClasses[i2];
                     if (cls2.getSimpleName().equals("Element")) {
-                        f33760b = cls2;
+                        f32163b = cls2;
                         break;
                     }
                     i2++;
                 }
-                if (f33760b == null) {
+                if (f32163b == null) {
                     throw new AndroidRuntimeException("DexPathList$Element not found!");
                 }
             }
@@ -246,7 +246,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 a();
                 String replace = new File(str).getName().replace(".so", ".dex");
                 DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-                Constructor<?> constructor = f33760b.getConstructors()[0];
+                Constructor<?> constructor = f32163b.getConstructors()[0];
                 int length = constructor.getParameterTypes().length;
                 if (length == 4) {
                     newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -255,7 +255,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 } else {
                     newInstance = constructor.newInstance(new File(str), null, loadDex);
                 }
-                Object newInstance2 = Array.newInstance(f33760b, 1);
+                Object newInstance2 = Array.newInstance(f32163b, 1);
                 Array.set(newInstance2, 0, newInstance);
                 Object a2 = a(BaseDexClassLoader.class, this, "pathList");
                 a(a, a2, "dexElements", newInstance2);

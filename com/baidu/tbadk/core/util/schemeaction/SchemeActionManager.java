@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SchemeActionManager {
     public static /* synthetic */ Interceptable $ic;
     public static SchemeActionManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConcurrentHashMap<String, SchemeActionHandler> mHandlers;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface SchemeActionHandler {
         void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle);
     }

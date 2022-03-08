@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class RtcConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_IM_RTC_ACK = 102;
@@ -69,7 +69,7 @@ public class RtcConstants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RoomEventType {
         public static final /* synthetic */ RoomEventType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

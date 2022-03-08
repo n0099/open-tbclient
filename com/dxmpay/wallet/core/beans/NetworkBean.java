@@ -40,7 +40,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_CUID = "cuid_1";
@@ -48,7 +48,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class BizType {
         public static final /* synthetic */ BizType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,13 +109,13 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SessionCache implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<Integer, BeanResponseBase.Session> mCache;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public static final SessionCache a;
@@ -231,7 +231,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -404,9 +404,9 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, restResponseEntity) == null) {
-            String b2 = restResponseEntity.b("token");
-            if (!TextUtils.isEmpty(b2)) {
-                AccountManager.getInstance(this.mContext).setBfbToken(b2);
+            String a2 = restResponseEntity.a("token");
+            if (!TextUtils.isEmpty(a2)) {
+                AccountManager.getInstance(this.mContext).setBfbToken(a2);
             }
             List<String> headerValue = restResponseEntity.getHeaderValue("Set-Cookie");
             if (headerValue != null) {

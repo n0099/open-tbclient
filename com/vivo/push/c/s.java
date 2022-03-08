@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class s implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ InsideNotificationItem a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.q f60890b;
+    public final /* synthetic */ com.vivo.push.b.q f59240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ r f60891c;
+    public final /* synthetic */ r f59241c;
 
     public s(r rVar, InsideNotificationItem insideNotificationItem, com.vivo.push.b.q qVar) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class s implements Runnable {
                 return;
             }
         }
-        this.f60891c = rVar;
+        this.f59241c = rVar;
         this.a = insideNotificationItem;
-        this.f60890b = qVar;
+        this.f59240b = qVar;
     }
 
     @Override // java.lang.Runnable
@@ -57,15 +57,15 @@ public final class s implements Runnable {
         Context context10;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r rVar = this.f60891c;
-            PushMessageCallback pushMessageCallback = ((z) rVar).f60896b;
+            r rVar = this.f59241c;
+            PushMessageCallback pushMessageCallback = ((z) rVar).f59246b;
             context = rVar.a;
             if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.q.a(this.a))) {
-                context2 = this.f60891c.a;
+                context2 = this.f59241c.a;
                 InsideNotificationItem insideNotificationItem = this.a;
-                long f2 = this.f60890b.f();
-                r rVar2 = this.f60891c;
-                PushMessageCallback pushMessageCallback2 = ((z) rVar2).f60896b;
+                long f2 = this.f59240b.f();
+                r rVar2 = this.f59241c;
+                PushMessageCallback pushMessageCallback2 = ((z) rVar2).f59246b;
                 context3 = rVar2.a;
                 com.vivo.push.util.k kVar = new com.vivo.push.util.k(context2, insideNotificationItem, f2, pushMessageCallback2.isAllowNet(context3), new t(this));
                 boolean isShowBigPicOnMobileNet = this.a.isShowBigPicOnMobileNet();
@@ -76,9 +76,9 @@ public final class s implements Runnable {
                 if (!TextUtils.isEmpty(purePicUrl)) {
                     com.vivo.push.util.p.c("OnNotificationArrivedTask", "showCode=".concat(String.valueOf(isShowBigPicOnMobileNet)));
                     if (!isShowBigPicOnMobileNet) {
-                        context5 = this.f60891c.a;
+                        context5 = this.f59241c.a;
                         com.vivo.push.util.p.a(context5, "mobile net unshow");
-                        context6 = this.f60891c.a;
+                        context6 = this.f59241c.a;
                         NetworkInfo a = com.vivo.push.util.r.a(context6);
                         if (a != null && a.getState() == NetworkInfo.State.CONNECTED) {
                             int type = a.getType();
@@ -92,7 +92,7 @@ public final class s implements Runnable {
                             this.a.clearPurePicUrl();
                         }
                     } else {
-                        context4 = this.f60891c.a;
+                        context4 = this.f59241c.a;
                         com.vivo.push.util.p.a(context4, "mobile net show");
                     }
                 }
@@ -100,16 +100,16 @@ public final class s implements Runnable {
                 return;
             }
             StringBuilder sb = new StringBuilder("pkg name : ");
-            context7 = this.f60891c.a;
+            context7 = this.f59241c.a;
             sb.append(context7.getPackageName());
             sb.append(" 应用主动拦截通知");
             com.vivo.push.util.p.b("OnNotificationArrivedTask", sb.toString());
-            context8 = this.f60891c.a;
+            context8 = this.f59241c.a;
             com.vivo.push.util.p.b(context8, "应用主动拦截通知，导致通知无法展示，如需打开请在onNotificationMessageArrived中返回false");
             HashMap hashMap = new HashMap();
-            hashMap.put("messageID", String.valueOf(this.f60890b.f()));
-            context9 = this.f60891c.a;
-            context10 = this.f60891c.a;
+            hashMap.put("messageID", String.valueOf(this.f59240b.f()));
+            context9 = this.f59241c.a;
+            context10 = this.f59241c.a;
             String b2 = com.vivo.push.util.aa.b(context9, context10.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("remoteAppId", b2);

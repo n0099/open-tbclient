@@ -3,6 +3,7 @@ package c.a.g.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
@@ -25,7 +26,7 @@ public class a {
                 while (i2 < length) {
                     sb.append(Array.get(obj, i2));
                     sb.append(',');
-                    sb.append(' ');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
                     i2++;
                 }
                 if (i2 > 0) {

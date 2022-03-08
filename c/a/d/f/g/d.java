@@ -19,13 +19,13 @@ public class d {
     public Configuration a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1946b;
+    public boolean f2572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f1947c;
+    public List<b> f2573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f1948d;
+    public a f2574d;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -47,7 +47,7 @@ public class d {
                 return;
             }
         }
-        this.f1947c = new ArrayList();
+        this.f2573c = new ArrayList();
         this.a = new Configuration();
     }
 
@@ -55,8 +55,8 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            if (!this.f1946b) {
-                this.f1947c.add(bVar);
+            if (!this.f2572b) {
+                this.f2573c.add(bVar);
                 return this;
             }
             throw new BuildException("Already created, rebuild a new one.");
@@ -69,13 +69,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c cVar = new c();
-            cVar.l((b[]) this.f1947c.toArray(new b[this.f1947c.size()]));
+            cVar.l((b[]) this.f2573c.toArray(new b[this.f2573c.size()]));
             cVar.n(this.a);
-            cVar.k(this.f1948d);
-            this.f1947c = null;
+            cVar.k(this.f2574d);
+            this.f2573c = null;
             this.a = null;
-            this.f1948d = null;
-            this.f1946b = true;
+            this.f2574d = null;
+            this.f2572b = true;
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -85,7 +85,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f1946b) {
+            if (this.f2572b) {
                 throw new BuildException("Already created. rebuild a new one.");
             }
             if (i2 >= 0 && i2 <= 255) {
@@ -101,7 +101,7 @@ public class d {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (!this.f1946b) {
+            if (!this.f2572b) {
                 this.a.mAutoDismiss = z;
                 return this;
             }
@@ -114,7 +114,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (this.f1946b) {
+            if (this.f2572b) {
                 throw new BuildException("Already created. rebuild a new one.");
             }
             if (i2 > 0) {
@@ -130,7 +130,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f1946b) {
+            if (this.f2572b) {
                 throw new BuildException("Already created. rebuild a new one.");
             }
             if (i2 > 0) {
@@ -146,8 +146,8 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
-            if (!this.f1946b) {
-                this.f1948d = aVar;
+            if (!this.f2572b) {
+                this.f2574d = aVar;
                 return this;
             }
             throw new BuildException("Already created, rebuild a new one.");
@@ -169,7 +169,7 @@ public class d {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            if (!this.f1946b) {
+            if (!this.f2572b) {
                 this.a.mOverlayTarget = z;
                 return this;
             }
@@ -182,7 +182,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view)) == null) {
-            if (this.f1946b) {
+            if (this.f2572b) {
                 throw new BuildException("Already created. rebuild a new one.");
             }
             if (view != null) {
@@ -198,7 +198,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (this.f1946b) {
+            if (this.f2572b) {
                 throw new BuildException("Already created. rebuild a new one.");
             }
             if (i2 > 0) {

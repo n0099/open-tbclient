@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import c.a.d.f.p.n;
-import c.a.u0.a4.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class EmotionImageUtil {
     public static /* synthetic */ Interceptable $ic;
     public static int topMargin;
@@ -57,7 +57,7 @@ public class EmotionImageUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
             if (context == null) {
-                return n.f(TbadkCoreApplication.getInst(), e.tbds200);
+                return n.f(TbadkCoreApplication.getInst(), R.dimen.tbds200);
             }
             if (topMargin <= 0) {
                 topMargin = (int) (n.i(context) * 0.11d);

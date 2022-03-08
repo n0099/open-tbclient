@@ -9,18 +9,18 @@ import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LivenessVideoWarningTipTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -117,10 +117,10 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f34654b;
+                public final /* synthetic */ int f33057b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoWarningTipTextView f34655c;
+                public final /* synthetic */ LivenessVideoWarningTipTextView f33058c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -137,9 +137,9 @@ public class LivenessVideoWarningTipTextView extends TextView {
                             return;
                         }
                     }
-                    this.f34655c = this;
+                    this.f33058c = this;
                     this.a = aVar;
-                    this.f34654b = dimensionPixelOffset;
+                    this.f33057b = dimensionPixelOffset;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -150,8 +150,8 @@ public class LivenessVideoWarningTipTextView extends TextView {
                         if (aVar2 != null) {
                             aVar2.b();
                         }
-                        this.f34655c.clearAnimation();
-                        this.f34655c.setTranslationY(this.f34654b);
+                        this.f33058c.clearAnimation();
+                        this.f33058c.setTranslationY(this.f33057b);
                     }
                 }
 

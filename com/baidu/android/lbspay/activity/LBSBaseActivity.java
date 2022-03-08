@@ -20,7 +20,7 @@ import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 import com.dxmpay.apollon.beans.IBeanResponseCallback;
 import com.dxmpay.wallet.core.NoProguard;
 import com.dxmpay.wallet.core.SDKBaseActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBeanResponseCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,13 +120,13 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f31800b;
+                public final /* synthetic */ int f30203b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31801c;
+                public final /* synthetic */ String f30204c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f31802d;
+                public final /* synthetic */ LBSBaseActivity f30205d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,17 +143,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f31802d = this;
+                    this.f30205d = this;
                     this.a = i2;
-                    this.f31800b = i3;
-                    this.f31801c = str;
+                    this.f30203b = i3;
+                    this.f30204c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31802d.handleFailure(this.a, this.f31800b, this.f31801c);
+                        this.f30205d.handleFailure(this.a, this.f30203b, this.f30204c);
                     }
                 }
             });
@@ -170,13 +170,13 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f31797b;
+                public final /* synthetic */ Object f30200b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31798c;
+                public final /* synthetic */ String f30201c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f31799d;
+                public final /* synthetic */ LBSBaseActivity f30202d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -193,17 +193,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f31799d = this;
+                    this.f30202d = this;
                     this.a = i2;
-                    this.f31797b = obj;
-                    this.f31798c = str;
+                    this.f30200b = obj;
+                    this.f30201c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31799d.handleResponse(this.a, this.f31797b, this.f31798c);
+                        this.f30202d.handleResponse(this.a, this.f30200b, this.f30201c);
                     }
                 }
             });

@@ -3,7 +3,7 @@ package org.chromium.support_lib_boundary;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface TracingControllerBoundaryInterface {
     boolean isTracing();
 

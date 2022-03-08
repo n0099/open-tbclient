@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 @SuppressLint({"BDSoLoader"})
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class NativeHideApiBypass {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

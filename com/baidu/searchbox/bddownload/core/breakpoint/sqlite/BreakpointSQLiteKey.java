@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface BreakpointSQLiteKey {
     public static final String BLOCK_INDEX = "block_index";
     public static final String CHUNKED = "chunked";

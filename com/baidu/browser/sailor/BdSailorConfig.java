@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class BdSailorConfig implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdWebkitManager.a BUILTIN_WEBKIT;
@@ -100,7 +100,7 @@ public final class BdSailorConfig implements INoProGuard {
                 return;
             }
         }
-        BUILTIN_WEBKIT = BdWebkitManager.a.f33292c;
+        BUILTIN_WEBKIT = BdWebkitManager.a.f31695c;
     }
 
     public BdSailorConfig() {

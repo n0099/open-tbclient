@@ -1,30 +1,30 @@
 package com.bytedance.sdk.openadsdk.api.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53396b = 4;
+    public static int f51815b = 4;
 
     public static void a(int i2) {
-        f53396b = i2;
+        f51815b = i2;
     }
 
     public static void b(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 
     public static void c(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 
     public static void d(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 
@@ -38,13 +38,13 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 
     public static void a(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 
@@ -59,7 +59,7 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f53396b;
+            int i2 = f51815b;
         }
     }
 }

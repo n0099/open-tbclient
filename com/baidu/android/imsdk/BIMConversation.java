@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BIMConversation implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMConversation";
@@ -48,7 +48,7 @@ public class BIMConversation implements NoProGuard {
     public ChatSession session;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MSGTYPE {
         public static final /* synthetic */ MSGTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

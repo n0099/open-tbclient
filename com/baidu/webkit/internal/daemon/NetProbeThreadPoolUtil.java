@@ -12,7 +12,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetProbeThreadPoolUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "NetProbeThreadPoolUtil";
@@ -22,7 +22,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
     public static ThreadPoolExecutor mExecutor;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

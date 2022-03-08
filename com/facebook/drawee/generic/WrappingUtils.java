@@ -31,7 +31,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class WrappingUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WrappingUtils";

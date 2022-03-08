@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.y0.c.b;
+import c.a.r0.x0.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class MyEmotionGroupData implements Serializable, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -33,7 +33,7 @@ public class MyEmotionGroupData implements Serializable, b {
         }
     }
 
-    @Override // c.a.u0.y0.c.b
+    @Override // c.a.r0.x0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class MyEmotionGroupData implements Serializable, b {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.y0.c.b
+    @Override // c.a.r0.x0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

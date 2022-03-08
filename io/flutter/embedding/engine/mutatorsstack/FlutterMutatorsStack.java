@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterMutatorsStack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class FlutterMutatorsStack {
     public List<FlutterMutator> mutators;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class FlutterMutatorType {
         public static final /* synthetic */ FlutterMutatorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -164,7 +164,7 @@ public class FlutterMutatorsStack {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class FlutterMutator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

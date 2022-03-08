@@ -7,29 +7,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27584b;
+    public float f27488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27585c;
+    public float f27489c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27586d;
+    public float f27490d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27587e;
+    public float f27491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f27588f;
+    public float f27492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f27589g;
+    public float f27493g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class a implements b {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27588f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27492f : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f27584b = f2;
+            this.f27488b = f2;
         }
     }
 
@@ -64,7 +64,7 @@ public class a implements b {
     public void c(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f27585c = f2;
+            this.f27489c = f2;
         }
     }
 
@@ -72,7 +72,7 @@ public class a implements b {
     public void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f27587e = f2;
+            this.f27491e = f2;
         }
     }
 
@@ -80,14 +80,14 @@ public class a implements b {
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27587e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27491e : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f27586d = f2;
+            this.f27490d = f2;
         }
     }
 
@@ -95,14 +95,14 @@ public class a implements b {
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27585c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27489c : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f27589g = f2;
+            this.f27493g = f2;
         }
     }
 
@@ -110,14 +110,14 @@ public class a implements b {
     public float i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27586d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27490d : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void j(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f27588f = f2;
+            this.f27492f = f2;
         }
     }
 
@@ -125,14 +125,14 @@ public class a implements b {
     public float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27589g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27493g : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27584b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27488b : invokeV.floatValue;
     }
 
     public String m() {
@@ -176,11 +176,11 @@ public class a implements b {
         if (bVar instanceof a) {
             this.a = ((a) bVar).m();
         }
-        this.f27584b = bVar.l();
-        this.f27585c = bVar.g();
-        this.f27586d = bVar.i();
-        this.f27587e = bVar.e();
-        this.f27588f = bVar.a();
-        this.f27589g = bVar.k();
+        this.f27488b = bVar.l();
+        this.f27489c = bVar.g();
+        this.f27490d = bVar.i();
+        this.f27491e = bVar.e();
+        this.f27492f = bVar.a();
+        this.f27493g = bVar.k();
     }
 }

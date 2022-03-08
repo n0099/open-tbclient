@@ -21,7 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class HardwareInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";

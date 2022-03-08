@@ -13,15 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.s0.a.e;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.h;
-import c.a.s0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,43 +28,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f39661e;
+    public TextView f38065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f39662f;
+    public SimpleDraweeView f38066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdBaseImageView f39663g;
+    public BdBaseImageView f38067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f39664h;
+    public FrameLayout f38068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f39665i;
+    public TextView f38069i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdBaseImageView f39666j;
+    public BdBaseImageView f38070j;
     public boolean k;
     public d l;
     public Context m;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f39667e;
+        public final /* synthetic */ SwanAppBearInfo f38071e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BearLayout f39668f;
+        public final /* synthetic */ BearLayout f38072f;
 
         public a(BearLayout bearLayout, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
@@ -85,34 +81,34 @@ public class BearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f39668f = bearLayout;
-            this.f39667e = swanAppBearInfo;
+            this.f38072f = bearLayout;
+            this.f38071e = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39668f.j(this.f39667e.bearHomeUrl);
+                this.f38072f.j(this.f38071e.bearHomeUrl);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.a.a3.a f39669e;
+        public final /* synthetic */ c.a.p0.a.q2.a f38073e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f39670f;
+        public final /* synthetic */ SwanAppBearInfo f38074f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BearLayout f39671g;
+        public final /* synthetic */ BearLayout f38075g;
 
-        public b(BearLayout bearLayout, c.a.s0.a.a3.a aVar, SwanAppBearInfo swanAppBearInfo) {
+        public b(BearLayout bearLayout, c.a.p0.a.q2.a aVar, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,26 +123,26 @@ public class BearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f39671g = bearLayout;
-            this.f39669e = aVar;
-            this.f39670f = swanAppBearInfo;
+            this.f38075g = bearLayout;
+            this.f38073e = aVar;
+            this.f38074f = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f39671g.k) {
-                    this.f39671g.k();
-                    this.f39669e.b();
+                if (!this.f38075g.k) {
+                    this.f38075g.k();
+                    this.f38073e.b();
                     return;
                 }
-                this.f39671g.j(this.f39670f.bearHomeUrl);
+                this.f38075g.j(this.f38074f.bearHomeUrl);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,17 +171,17 @@ public class BearLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.k = z;
-                if (this.a.f39666j == null || this.a.f39665i == null) {
+                if (this.a.f38070j == null || this.a.f38069i == null) {
                     return;
                 }
-                this.a.f39666j.clearAnimation();
-                this.a.f39666j.setVisibility(4);
-                this.a.f39665i.setVisibility(0);
-                TextView textView = this.a.f39665i;
+                this.a.f38070j.clearAnimation();
+                this.a.f38070j.setVisibility(4);
+                this.a.f38069i.setVisibility(0);
+                TextView textView = this.a.f38069i;
                 BearLayout bearLayout = this.a;
-                textView.setText(z ? bearLayout.m.getText(h.aiapps_check_action_text) : bearLayout.m.getText(h.aiapps_follow_action_text));
-                this.a.f39665i.setTextColor(z ? -16777216 : -1);
-                this.a.f39664h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
+                textView.setText(z ? bearLayout.m.getText(R.string.aiapps_check_action_text) : bearLayout.m.getText(R.string.aiapps_follow_action_text));
+                this.a.f38069i.setTextColor(z ? -16777216 : -1);
+                this.a.f38068h.setBackgroundResource(z ? R.drawable.aiapps_bear_paw_enter_btn : R.drawable.aiapps_bear_paw_follow_btn);
             }
         }
 
@@ -194,17 +190,17 @@ public class BearLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 boolean unused = BearLayout.n;
-                if (this.a.f39666j == null || this.a.f39665i == null) {
+                if (this.a.f38070j == null || this.a.f38069i == null) {
                     return;
                 }
-                this.a.f39666j.clearAnimation();
-                this.a.f39666j.setVisibility(4);
-                this.a.f39665i.setVisibility(0);
+                this.a.f38070j.clearAnimation();
+                this.a.f38070j.setVisibility(4);
+                this.a.f38069i.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void a(boolean z);
 
@@ -224,7 +220,7 @@ public class BearLayout extends LinearLayout {
                 return;
             }
         }
-        n = k.a;
+        n = c.a.p0.a.a.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -250,14 +246,14 @@ public class BearLayout extends LinearLayout {
 
     private void setVipLogo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, str) == null) || this.f39663g == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, str) == null) || this.f38067g == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f39663g.setVisibility(8);
+            this.f38067g.setVisibility(8);
             return;
         }
-        int i2 = e.aiapps_follow_vip_golden;
+        int i2 = R.drawable.aiapps_follow_vip_golden;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1567) {
@@ -285,14 +281,14 @@ public class BearLayout extends LinearLayout {
             c2 = 3;
         }
         if (c2 == 1) {
-            i2 = e.aiapps_follow_vip_blue;
+            i2 = R.drawable.aiapps_follow_vip_blue;
         } else if (c2 == 2) {
-            i2 = e.aiapps_follow_vip_yellow;
+            i2 = R.drawable.aiapps_follow_vip_yellow;
         } else if (c2 == 3) {
-            i2 = e.aiapps_follow_vip_authentication;
+            i2 = R.drawable.aiapps_follow_vip_authentication;
         }
-        this.f39663g.setVisibility(0);
-        this.f39663g.setImageDrawable(this.m.getResources().getDrawable(i2));
+        this.f38067g.setVisibility(0);
+        this.f38067g.setImageDrawable(this.m.getResources().getDrawable(i2));
     }
 
     public d getCallback() {
@@ -301,26 +297,26 @@ public class BearLayout extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (d) invokeV.objValue;
     }
 
-    public void init(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, c.a.s0.a.a3.a aVar) {
+    public void init(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, c.a.p0.a.q2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, swanAppBearInfo, aVar) == null) {
             this.m = context;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(g.aiapps_bear_layout, this);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.aiapps_bear_layout, this);
             linearLayout.setOnClickListener(new a(this, swanAppBearInfo));
-            TextView textView = (TextView) linearLayout.findViewById(f.bear_account_name);
-            this.f39661e = textView;
+            TextView textView = (TextView) linearLayout.findViewById(R.id.bear_account_name);
+            this.f38065e = textView;
             textView.setText(swanAppBearInfo.bearName);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(f.bear_account_logo);
-            this.f39662f = simpleDraweeView;
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.bear_account_logo);
+            this.f38066f = simpleDraweeView;
             simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-            this.f39663g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
+            this.f38067g = (BdBaseImageView) linearLayout.findViewById(R.id.bear_account_vip_logo);
             setVipLogo(swanAppBearInfo.bearVipType);
-            this.f39664h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
-            TextView textView2 = (TextView) linearLayout.findViewById(f.bear_account_follow_btn);
-            this.f39665i = textView2;
+            this.f38068h = (FrameLayout) linearLayout.findViewById(R.id.bear_account_follow_background);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.bear_account_follow_btn);
+            this.f38069i = textView2;
             textView2.setOnClickListener(new b(this, aVar, swanAppBearInfo));
-            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(f.bear_account_loading_progress);
-            this.f39666j = bdBaseImageView;
+            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.bear_account_loading_progress);
+            this.f38070j = bdBaseImageView;
             bdBaseImageView.setVisibility(8);
             this.l = new c(this);
         }
@@ -349,17 +345,17 @@ public class BearLayout extends LinearLayout {
     public final void k() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f39666j == null || (textView = this.f39665i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38070j == null || (textView = this.f38069i) == null) {
             return;
         }
         textView.setVisibility(4);
-        this.f39666j.setVisibility(0);
+        this.f38070j.setVisibility(0);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
         rotateAnimation.setRepeatCount(-1);
         rotateAnimation.setDuration(1000L);
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setInterpolator(new LinearInterpolator());
-        this.f39666j.startAnimation(rotateAnimation);
+        this.f38070j.startAnimation(rotateAnimation);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

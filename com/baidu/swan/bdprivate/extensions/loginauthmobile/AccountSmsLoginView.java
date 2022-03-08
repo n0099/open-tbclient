@@ -5,27 +5,27 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
-import c.a.s0.a.z2.x;
-import c.a.s0.b.f;
+import c.a.p0.a.p2.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context w;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f39759e;
+        public final /* synthetic */ AccountSmsLoginView f38163e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,25 +42,25 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f39759e = accountSmsLoginView;
+            this.f38163e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f39759e.w, ((FragmentActivity) this.f39759e.w).getWindow().getDecorView().getWindowToken());
+                x.a(this.f38163e.w, ((FragmentActivity) this.f38163e.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f39760e;
+        public final /* synthetic */ AccountSmsLoginView f38164e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f39760e = accountSmsLoginView;
+            this.f38164e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f39760e.w, false);
+                x.b(this.f38164e.w, false);
             }
         }
     }
@@ -131,7 +131,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     public void requestFocusAndShowKeyBoard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(f.phone)).requestFocus();
+            ((EditText) findViewById(R.id.phone)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }

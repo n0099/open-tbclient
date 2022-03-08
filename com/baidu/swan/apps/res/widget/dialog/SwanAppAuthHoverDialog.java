@@ -3,14 +3,13 @@ package com.baidu.swan.apps.res.widget.dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
-import c.a.s0.a.e;
-import c.a.s0.a.i;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAppAuthHoverDialog extends SwanAppAlertDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTH_NOT_TIP = "request_draw_overlays_deny";
@@ -18,7 +17,7 @@ public class SwanAppAuthHoverDialog extends SwanAppAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanAppAuthHoverDialog(Context context) {
-        super(context, i.SwanAppNoTitleDialog);
+        super(context, R.style.SwanAppNoTitleDialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +39,7 @@ public class SwanAppAuthHoverDialog extends SwanAppAlertDialog {
         if (window != null) {
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setWindowAnimations(i.action_sheet_animation);
+            window.setWindowAnimations(R.style.action_sheet_animation);
         }
     }
 
@@ -50,7 +49,7 @@ public class SwanAppAuthHoverDialog extends SwanAppAlertDialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             SwanAppAlertDialog.a builder = getBuilder();
-            builder.p(e.aiapps_action_sheet_bg);
+            builder.p(R.drawable.aiapps_action_sheet_bg);
             builder.f(true);
             builder.k(false);
             builder.j();

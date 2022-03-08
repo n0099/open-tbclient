@@ -23,7 +23,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
@@ -70,7 +70,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public SurfaceTextureHelper surfaceTextureHelper;
     public int width;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DecodedTextureMetadata {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class FrameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

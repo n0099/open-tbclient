@@ -5,9 +5,9 @@ import c.a.d.c.g.a;
 import c.a.d.c.g.c;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.t0.a1.b;
-import c.a.t0.l0.b.g;
-import c.a.t0.l0.b.h;
+import c.a.q0.k0.b.g;
+import c.a.q0.k0.b.h;
+import c.a.q0.z0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -70,7 +70,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     public BdUniqueId unique_id;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto$11  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass11 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType;
         public static /* synthetic */ Interceptable $ic;
@@ -106,22 +106,22 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface NetModelCallback<T extends g, D extends h> extends NetModelHttpCallback<T, D>, NetModelSocketCallback<T, D> {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface NetModelHttpCallback<T extends g, D extends h> {
         void onHttpResponseMessage(String str, HashMap<String, String> hashMap, MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface NetModelSocketCallback<T extends g, D extends h> {
         void onSocketResponseMessage(String str, HashMap<String, String> hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class NetModelType {
         public static final /* synthetic */ NetModelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

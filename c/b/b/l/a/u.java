@@ -5,27 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnSystemUiVisibilityChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.b.b.l.a.a a;
 
         /* renamed from: c.b.b.l.a.u$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class RunnableC1623a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC1634a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f27291e;
+            public final /* synthetic */ a f27195e;
 
-            public RunnableC1623a(a aVar) {
+            public RunnableC1634a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,14 +40,14 @@ public class u {
                         return;
                     }
                 }
-                this.f27291e = aVar;
+                this.f27195e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f27291e.a.useImmersiveMode(true);
+                    this.f27195e.a.useImmersiveMode(true);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class u {
         public void onSystemUiVisibilityChange(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.getHandler().post(new RunnableC1623a(this));
+                this.a.getHandler().post(new RunnableC1634a(this));
             }
         }
     }

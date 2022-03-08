@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PushThreadActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PushThreadActivity extends BaseActivity {
     public HttpMessageListener mPushThreadMessageListener;
     public List<PushTypeData> mPushTypeDatas;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,13 +92,13 @@ public class PushThreadActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f47187e;
+        public final /* synthetic */ PushThreadActivity f45595e;
 
         public b(PushThreadActivity pushThreadActivity) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47187e = pushThreadActivity;
+            this.f45595e = pushThreadActivity;
             pushThreadActivity.mCurrentPushType = 0;
         }
 
@@ -123,7 +123,7 @@ public class PushThreadActivity extends BaseActivity {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f47187e.mPushTypeDatas) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f45595e.mPushTypeDatas) : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -151,19 +151,19 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.f47187e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f45595e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
                 TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f47187e.mPushTypeDatas, i2);
+                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f45595e.mPushTypeDatas, i2);
                 if (pushTypeData != null) {
                     tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
-                    if (pushTypeData.getType() == this.f47187e.mCurrentPushType) {
+                    if (pushTypeData.getType() == this.f45595e.mCurrentPushType) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
-                        SkinManager.setViewTextColor(textView, R.color.CAM_X0308);
+                        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);
                     } else {
-                        SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
+                        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                         imageView.setImageDrawable(null);
                     }
                 }
@@ -205,14 +205,14 @@ public class PushThreadActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             setContentView(R.layout.push_thread_layout);
             SkinManager.setBackgroundResource(findViewById(R.id.push_thread_container), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.select_hint), R.color.CAM_X0105);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.select_hint), (int) R.color.CAM_X0105);
             this.mGridView = (GridView) findViewById(R.id.gv_push);
             this.mGridView.setAdapter((ListAdapter) new b(this));
             this.mGridView.setOnItemClickListener(this);
             TextView textView = (TextView) findViewById(R.id.push_commit);
             this.mPushCommit = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.push_commit_selector);
-            SkinManager.setViewTextColor(this.mPushCommit, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mPushCommit, (int) R.color.CAM_X0101);
             this.mPushCommit.setOnClickListener(this);
             ImageButton imageButton = (ImageButton) findViewById(R.id.ib_close);
             this.mIbClose = imageButton;
@@ -284,17 +284,17 @@ public class PushThreadActivity extends BaseActivity {
             if (pushTypeData != null) {
                 if (this.mCurrentPushType == pushTypeData.getType()) {
                     imageView.setImageDrawable(null);
-                    SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
+                    SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                     this.mCurrentPushType = -1;
                     return;
                 }
                 PushTypeData pushTypeData2 = this.mPreSelectData;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.mPushTypeDatas, pushTypeData2))) != null) {
                     ((ImageView) childAt.findViewById(R.id.iv_item_hint)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.tv_item_title), R.color.CAM_X0105);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.tv_item_title), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0308);
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);
                 this.mCurrentPushType = pushTypeData.getType();
                 this.mPreSelectData = pushTypeData;
             }

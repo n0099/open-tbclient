@@ -1,24 +1,24 @@
 package com.ss.android.downloadlib.addownload.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59683b;
+    public int f58033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59684c;
+    public String f58034c;
 
     public g(int i2) {
         this(i2, 0, null);
     }
 
     public int a() {
-        return this.f59683b;
+        return this.f58033b;
     }
 
     public String b() {
-        return this.f59684c;
+        return this.f58034c;
     }
 
     public int getType() {
@@ -35,7 +35,7 @@ public class g {
 
     public g(int i2, int i3, String str) {
         this.a = i2;
-        this.f59683b = i3;
-        this.f59684c = str;
+        this.f58033b = i3;
+        this.f58034c = str;
     }
 }

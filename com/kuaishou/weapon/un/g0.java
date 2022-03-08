@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                d1 d1Var = new d1(str, q0.f55426f);
+                d1 d1Var = new d1(str, q0.f53776f);
                 d1Var.e(l1.g(this.a));
                 d1Var.j(l1.l());
                 d1Var.c(l1.e(this.a));

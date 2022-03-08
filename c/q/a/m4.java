@@ -1,24 +1,51 @@
 package c.q.a;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class m4 implements Runnable {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class m4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f29030b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f29031c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public i4 f29032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ b1 f30615e;
+    public List f29033e;
 
-    public m4(b1 b1Var) {
+    /* renamed from: f  reason: collision with root package name */
+    public int f29034f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f29035g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f29036h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f29037i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f29038j;
+    public int k;
+    public int l;
+    public int m;
+
+    public m4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,19 +55,10 @@ public class m4 implements Runnable {
                 return;
             }
         }
-        this.f30615e = b1Var;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b1 b1Var = this.f30615e;
-            if (b1Var.f30521h == null || b1Var.f30522i == null || (view = b1Var.f30523j) == null) {
-                return;
-            }
-            view.setVisibility(0);
-        }
+        this.a = null;
+        this.f29030b = 0;
+        this.f29031c = 0;
+        this.f29033e = new ArrayList();
+        this.m = 0;
     }
 }

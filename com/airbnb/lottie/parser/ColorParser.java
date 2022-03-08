@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser;
 import android.graphics.Color;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ColorParser implements ValueParser<Integer> {
     public static final ColorParser INSTANCE = new ColorParser();
 

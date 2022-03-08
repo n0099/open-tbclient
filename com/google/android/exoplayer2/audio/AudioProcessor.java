@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface AudioProcessor {
-    public static final ByteBuffer a = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+    public static final ByteBuffer EMPTY_BUFFER = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class UnhandledFormatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,25 +36,25 @@ public interface AudioProcessor {
         }
     }
 
-    void a(ByteBuffer byteBuffer);
-
-    boolean b();
-
-    int c();
-
-    int d();
-
-    int e();
-
-    void f();
+    boolean configure(int i2, int i3, int i4) throws UnhandledFormatException;
 
     void flush();
 
-    ByteBuffer g();
+    ByteBuffer getOutput();
 
-    boolean h(int i2, int i3, int i4) throws UnhandledFormatException;
+    int getOutputChannelCount();
+
+    int getOutputEncoding();
+
+    int getOutputSampleRateHz();
 
     boolean isActive();
+
+    boolean isEnded();
+
+    void queueEndOfStream();
+
+    void queueInput(ByteBuffer byteBuffer);
 
     void reset();
 }

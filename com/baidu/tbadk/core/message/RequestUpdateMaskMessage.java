@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.UpdateMask.DataReq;
 import protobuf.UpdateMask.UpdateMaskReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RequestUpdateMaskMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;

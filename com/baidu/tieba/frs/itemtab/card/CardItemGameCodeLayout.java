@@ -11,13 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
 import c.a.l.q;
-import c.a.t0.s.l0.p.b;
-import c.a.t0.s.v.c;
-import c.a.u0.e1.c1;
-import c.a.u0.e1.d1;
-import c.a.u0.e1.e1;
-import c.a.u0.e1.i1;
-import c.a.u0.e1.n2.g.d;
+import c.a.q0.r.l0.p.b;
+import c.a.q0.r.v.c;
+import c.a.r0.d1.d2.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,6 +21,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,37 +29,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CardItemGameCodeLayout extends RelativeLayout implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f43795e;
+    public ImageView f42198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43796f;
+    public TextView f42199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43797g;
+    public TextView f42200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f43798h;
+    public ImageView f42201h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GameCodeListDialog f43799i;
+    public GameCodeListDialog f42202i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f43800j;
+    public int f42203j;
     public List<GameCodeList> k;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemGameCodeLayout f43801e;
+        public final /* synthetic */ CardItemGameCodeLayout f42204e;
 
         public a(CardItemGameCodeLayout cardItemGameCodeLayout) {
             Interceptable interceptable = $ic;
@@ -79,21 +76,21 @@ public class CardItemGameCodeLayout extends RelativeLayout implements q {
                     return;
                 }
             }
-            this.f43801e = cardItemGameCodeLayout;
+            this.f42204e = cardItemGameCodeLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ListUtils.isEmpty(this.f43801e.k)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ListUtils.isEmpty(this.f42204e.k)) {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b(14)));
-            if (this.f43801e.f43799i == null) {
-                this.f43801e.f43799i = new GameCodeListDialog(view.getContext());
+            if (this.f42204e.f42202i == null) {
+                this.f42204e.f42202i = new GameCodeListDialog(view.getContext());
             }
-            this.f43801e.f43799i.setData(this.f43801e.k);
-            this.f43801e.f43799i.show((ViewGroup) ((Activity) view.getContext()).findViewById(16908290));
+            this.f42204e.f42202i.setData(this.f42204e.k);
+            this.f42204e.f42202i.show((ViewGroup) ((Activity) view.getContext()).findViewById(16908290));
         }
     }
 
@@ -122,37 +119,37 @@ public class CardItemGameCodeLayout extends RelativeLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(n.f(context, d1.M_W_X006), n.f(context, d1.M_H_X005), n.f(context, d1.M_W_X006), n.f(context, d1.M_H_X005));
+            setPadding(n.f(context, R.dimen.M_W_X006), n.f(context, R.dimen.M_H_X005), n.f(context, R.dimen.M_W_X006), n.f(context, R.dimen.M_H_X005));
             ImageView imageView = new ImageView(context);
-            this.f43795e = imageView;
+            this.f42198e = imageView;
             imageView.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.f(context, d1.tbds62), n.f(context, d1.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.f(context, R.dimen.tbds62), n.f(context, R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(15);
-            this.f43795e.setLayoutParams(layoutParams);
-            addView(this.f43795e);
-            this.f43796f = new TextView(context);
+            this.f42198e.setLayoutParams(layoutParams);
+            addView(this.f42198e);
+            this.f42199f = new TextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams2.setMargins(n.f(context, d1.tbds23), 0, 0, 0);
-            layoutParams2.addRule(1, this.f43795e.getId());
+            layoutParams2.setMargins(n.f(context, R.dimen.tbds23), 0, 0, 0);
+            layoutParams2.addRule(1, this.f42198e.getId());
             layoutParams2.addRule(15);
-            this.f43796f.setLayoutParams(layoutParams2);
-            this.f43796f.setText(TbadkCoreApplication.getInst().getString(i1.frs_item_tab_game_code_title));
-            addView(this.f43796f);
+            this.f42199f.setLayoutParams(layoutParams2);
+            this.f42199f.setText(TbadkCoreApplication.getInst().getString(R.string.frs_item_tab_game_code_title));
+            addView(this.f42199f);
             ImageView imageView2 = new ImageView(context);
-            this.f43798h = imageView2;
+            this.f42201h = imageView2;
             imageView2.setId(2);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(n.f(context, d1.tbds42), n.f(context, d1.tbds42));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(n.f(context, R.dimen.tbds42), n.f(context, R.dimen.tbds42));
             layoutParams3.addRule(11);
             layoutParams3.addRule(15);
-            this.f43798h.setLayoutParams(layoutParams3);
-            addView(this.f43798h);
-            this.f43797g = new TextView(context);
+            this.f42201h.setLayoutParams(layoutParams3);
+            addView(this.f42201h);
+            this.f42200g = new TextView(context);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams4.addRule(0, this.f43798h.getId());
+            layoutParams4.addRule(0, this.f42201h.getId());
             layoutParams4.addRule(15);
-            this.f43797g.setLayoutParams(layoutParams4);
-            addView(this.f43797g);
+            this.f42200g.setLayoutParams(layoutParams4);
+            addView(this.f42200g);
             setOnClickListener(new a(this));
         }
     }
@@ -161,18 +158,18 @@ public class CardItemGameCodeLayout extends RelativeLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            c d2 = c.d(this.f43796f);
-            d2.v(c1.CAM_X0105);
-            d2.z(d1.T_X07);
-            c d3 = c.d(this.f43797g);
-            d3.v(c1.CAM_X0107);
-            d3.z(d1.T_X08);
+            c d2 = c.d(this.f42199f);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X07);
+            c d3 = c.d(this.f42200g);
+            d3.v(R.color.CAM_X0107);
+            d3.z(R.dimen.T_X08);
             c d4 = c.d(this);
-            d4.n(i1.J_X06);
-            d4.f(c1.CAM_X0205);
-            WebPManager.setMaskDrawable(this.f43795e, e1.icon_mask_giftcode, WebPManager.ResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.f43798h, e1.icon_pure_arrow12_right, c1.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            GameCodeListDialog gameCodeListDialog = this.f43799i;
+            d4.n(R.string.J_X06);
+            d4.f(R.color.CAM_X0205);
+            WebPManager.setMaskDrawable(this.f42198e, R.drawable.icon_mask_giftcode, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.f42201h, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            GameCodeListDialog gameCodeListDialog = this.f42202i;
             if (gameCodeListDialog != null) {
                 gameCodeListDialog.onChangeSkinType();
             }
@@ -184,12 +181,12 @@ public class CardItemGameCodeLayout extends RelativeLayout implements q {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f43800j = dVar.i();
+        this.f42203j = dVar.i();
         this.k = dVar.g();
-        if (this.f43800j != 0) {
-            this.f43797g.setText(String.format(TbadkCoreApplication.getInst().getString(i1.available_game_code_text), Integer.valueOf(this.f43800j)));
+        if (this.f42203j != 0) {
+            this.f42200g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.available_game_code_text), Integer.valueOf(this.f42203j)));
         } else {
-            this.f43797g.setText(TbadkCoreApplication.getInst().getString(i1.unavailable_game_code_text));
+            this.f42200g.setText(TbadkCoreApplication.getInst().getString(R.string.unavailable_game_code_text));
         }
     }
 

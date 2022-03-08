@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes9.dex */
-public class a0 implements u5 {
+/* loaded from: classes3.dex */
+public class a0 implements p5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ H5Activity a;

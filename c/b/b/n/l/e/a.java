@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
     public static final long l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27428h;
+    public boolean f27332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27429i;
+    public int f27333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27430j;
+    public int f27334j;
     public float k;
 
     static {
@@ -68,23 +68,23 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27415e;
-            long j3 = aVar.f27415e;
+            long j2 = this.f27319e;
+            long j3 = aVar.f27319e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
             a aVar2 = (a) aVar;
-            boolean z = this.f27428h;
-            if (z != aVar2.f27428h) {
+            boolean z = this.f27332h;
+            if (z != aVar2.f27332h) {
                 return z ? 1 : -1;
             }
-            int i2 = this.f27429i;
-            int i3 = aVar2.f27429i;
+            int i2 = this.f27333i;
+            int i3 = aVar2.f27333i;
             if (i2 != i3) {
                 return i2 - i3;
             }
-            int i4 = this.f27430j;
-            int i5 = aVar2.f27430j;
+            int i4 = this.f27334j;
+            int i5 = aVar2.f27334j;
             if (i4 != i5) {
                 return i4 - i5;
             }
@@ -101,7 +101,7 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.f27428h ? 1 : 0)) * 947) + this.f27429i) * 947) + this.f27430j) * 947) + t.b(this.k);
+            return (((((((super.hashCode() * 947) + (this.f27332h ? 1 : 0)) * 947) + this.f27333i) * 947) + this.f27334j) * 947) + t.b(this.k);
         }
         return invokeV.intValue;
     }
@@ -125,9 +125,9 @@ public class a extends c.b.b.n.l.a {
             }
         }
         this.k = 1.0f;
-        this.f27428h = z;
-        this.f27429i = i2;
-        this.f27430j = i3;
+        this.f27332h = z;
+        this.f27333i = i2;
+        this.f27334j = i3;
         this.k = f2;
     }
 
@@ -154,7 +154,7 @@ public class a extends c.b.b.n.l.a {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(a aVar) {
-        this(aVar == null || aVar.f27428h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27429i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27430j, aVar == null ? 1.0f : aVar.k);
+        this(aVar == null || aVar.f27332h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27333i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27334j, aVar == null ? 1.0f : aVar.k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

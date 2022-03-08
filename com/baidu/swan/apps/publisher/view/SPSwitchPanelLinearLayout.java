@@ -6,9 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.k;
-import c.a.s0.a.z1.k.a;
-import c.a.s0.a.z1.k.b;
+import c.a.p0.a.p1.k.a;
+import c.a.p0.a.p1.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -25,7 +24,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.a.z1.i.b f39294e;
+    public c.a.p0.a.p1.i.b f37698e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +39,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
                 return;
             }
         }
-        DEBUG = k.a;
+        DEBUG = c.a.p0.a.a.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -67,19 +66,19 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39294e = new c.a.s0.a.z1.i.b(this);
+            this.f37698e = new c.a.p0.a.p1.i.b(this);
         }
     }
 
-    @Override // c.a.s0.a.z1.k.a
+    @Override // c.a.p0.a.p1.k.a
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39294e.handleHide();
+            this.f37698e.handleHide();
         }
     }
 
-    @Override // c.a.s0.a.z1.k.a
+    @Override // c.a.p0.a.p1.k.a
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -90,13 +89,13 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public boolean isSoftInputShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39294e.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37698e.b() : invokeV.booleanValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39294e.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37698e.c() : invokeV.booleanValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -106,7 +105,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
             if (DEBUG) {
                 String str = "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3);
             }
-            int[] d2 = this.f39294e.d(i2, i3);
+            int[] d2 = this.f37698e.d(i2, i3);
             if (DEBUG) {
                 String str2 = "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(d2[1]);
             }
@@ -114,26 +113,26 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
         }
     }
 
-    @Override // c.a.s0.a.z1.k.b
+    @Override // c.a.p0.a.p1.k.b
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f39294e.f(z);
+            this.f37698e.f(z);
         }
     }
 
-    @Override // c.a.s0.a.z1.k.b
+    @Override // c.a.p0.a.p1.k.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f39294e.e(i2);
+            this.f37698e.e(i2);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f39294e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f37698e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

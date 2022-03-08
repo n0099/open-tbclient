@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f60937b;
+    public Handler f59287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f60938c;
+    public final Object f59288c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,10 +72,10 @@ public abstract class q {
                 return;
             }
         }
-        this.f60938c = new Object();
+        this.f59288c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f60937b = new a(this, handlerThread.getLooper());
+        this.f59287b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
@@ -90,12 +90,12 @@ public abstract class q {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f60938c) {
-                if (this.f60937b == null) {
+            synchronized (this.f59288c) {
+                if (this.f59287b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f60937b.sendMessage(message);
+                    this.f59287b.sendMessage(message);
                 }
             }
         }

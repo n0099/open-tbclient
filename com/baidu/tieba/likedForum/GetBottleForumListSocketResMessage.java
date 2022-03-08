@@ -13,7 +13,7 @@ import tbclient.Error;
 import tbclient.RecommendForumListForBottle.DataRes;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class GetBottleForumListSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.f1;
-import c.i.d.c.g1;
-import c.i.d.c.o0;
-import c.i.d.c.o1;
-import c.i.d.c.u0;
+import c.i.c.a.n;
+import c.i.c.c.f1;
+import c.i.c.c.g1;
+import c.i.c.c.o0;
+import c.i.c.c.o1;
+import c.i.c.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,14 +25,14 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.SortedSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxverideShim<E> implements NavigableSet<E>, f1<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient Comparator<? super E> comparator;
     public transient ImmutableSortedSet<E> descendingSet;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SerializedForm<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -73,13 +73,13 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a<E> extends ImmutableSet.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f54866f;
+        public final Comparator<? super E> f53216f;
 
         public a(Comparator<? super E> comparator) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
                 }
             }
             n.p(comparator);
-            this.f54866f = comparator;
+            this.f53216f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -159,9 +159,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f54866f, this.f54823b, this.a);
-                this.f54823b = construct.size();
-                this.f54824c = true;
+                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f53216f, this.f53173b, this.a);
+                this.f53173b = construct.size();
+                this.f53174c = true;
                 return construct;
             }
             return (ImmutableSortedSet) invokeV.objValue;
@@ -285,7 +285,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) ? (E) o0.f(tailSet((ImmutableSortedSet<E>) e2, true), null) : (E) invokeL.objValue;
     }
 
-    @Override // java.util.SortedSet, c.i.d.c.f1
+    @Override // java.util.SortedSet, c.i.c.c.f1
     public Comparator<? super E> comparator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

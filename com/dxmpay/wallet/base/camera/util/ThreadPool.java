@@ -1,7 +1,7 @@
 package com.dxmpay.wallet.base.camera.util;
 
-import c.f.b.a.a.b.b;
-import c.f.b.a.a.b.c;
+import c.f.a.a.a.b.b;
+import c.f.a.a.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Thread[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f53940b;
+    public LinkedBlockingQueue<Runnable> f52426b;
 
     public ThreadPool() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class ThreadPool {
             }
         }
         this.a = null;
-        this.f53940b = null;
-        this.f53940b = new LinkedBlockingQueue<>();
+        this.f52426b = null;
+        this.f52426b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -59,7 +59,7 @@ public final class ThreadPool {
             ThreadPool threadPool = new ThreadPool();
             threadPool.a = new Thread[a];
             for (int i3 = a - 1; i3 >= 0; i3 += -1) {
-                threadPool.a[i3] = new Thread(new c(threadPool.f53940b));
+                threadPool.a[i3] = new Thread(new c(threadPool.f52426b));
                 threadPool.a[i3].setPriority(5);
                 threadPool.a[i3].setName(str + " " + a + "." + (i3 + 1));
                 threadPool.a[i3].start();
@@ -73,10 +73,10 @@ public final class ThreadPool {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f53940b.clear();
+            this.f52426b.clear();
             for (Thread thread : this.a) {
                 if (thread.isAlive()) {
-                    this.f53940b.offer(new b());
+                    this.f52426b.offer(new b());
                 }
             }
             for (Thread thread2 : this.a) {
@@ -99,7 +99,7 @@ public final class ThreadPool {
             return;
         }
         try {
-            this.f53940b.put(runnable);
+            this.f52426b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

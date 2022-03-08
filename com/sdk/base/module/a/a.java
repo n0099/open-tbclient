@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59482b;
+    public Context f57832b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f59448b;
+        boolean z = f.f57798b;
     }
 
     public a(Context context) {
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        this.f59482b = context;
+        this.f57832b = context;
     }
 
     public static a a(Context context) {
@@ -72,9 +72,9 @@ public class a {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            com.sdk.base.framework.f.b.a.a(this.f59482b, e.o, str2);
+            com.sdk.base.framework.f.b.a.a(this.f57832b, e.o, str2);
             if (c.b(str).booleanValue()) {
-                com.sdk.base.framework.f.b.a.a(this.f59482b, Constants.API_KEY, str);
+                com.sdk.base.framework.f.b.a.a(this.f57832b, Constants.API_KEY, str);
             }
         }
     }

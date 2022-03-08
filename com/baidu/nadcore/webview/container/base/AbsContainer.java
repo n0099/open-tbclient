@@ -15,28 +15,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.k0.p.b;
-import c.a.d0.k0.q.c;
+import c.a.b0.k0.i.b;
+import c.a.b0.k0.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d0.k0.n.a.a f37473e;
+    public c.a.b0.k0.g.a.a f35876e;
     public boolean mShowNavigationBar;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
     }
 
-    public AbsContainer(@NonNull c.a.d0.k0.n.a.a aVar) {
+    public AbsContainer(@NonNull c.a.b0.k0.g.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
             }
         }
         this.mShowNavigationBar = true;
-        this.f37473e = aVar;
+        this.f35876e = aVar;
     }
 
     public abstract boolean canSlide(MotionEvent motionEvent);
@@ -62,7 +62,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public void doFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f37473e.doFinish();
+            this.f35876e.doFinish();
         }
     }
 
@@ -76,7 +76,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37473e.getActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35876e.getActivity() : (Activity) invokeV.objValue;
     }
 
     public abstract c getAdWebViewAlsProxy();
@@ -94,7 +94,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37473e.getIntent() : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35876e.getIntent() : (Intent) invokeV.objValue;
     }
 
     @NonNull
@@ -244,7 +244,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public void setContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, view) == null) {
-            c.a.d0.k0.n.a.a aVar = this.f37473e;
+            c.a.b0.k0.g.a.a aVar = this.f35876e;
             if (aVar == null || !aVar.handleSetContentView()) {
                 getActivity().setContentView(view);
             }

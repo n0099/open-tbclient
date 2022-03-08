@@ -4,9 +4,9 @@ import java.lang.reflect.Type;
 import java.util.Set;
 /* loaded from: classes.dex */
 public interface c {
-    Set<String> a();
+    void a(String str, Object obj);
 
-    void b(String str, Object obj);
+    Object b(String str, Type type);
 
-    Object c(String str, Type type);
+    Set<String> getKeys();
 }

@@ -16,28 +16,28 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class s0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "appkey";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f55462b = "secretkey";
+    public static String f53812b = "secretkey";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f55463c = "pver";
+    public static String f53813c = "pver";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f55464d = "sdkver";
+    public static String f53814d = "sdkver";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f55465e = "ksid";
+    public static String f53815e = "ksid";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f55466f = "timestamp";
+    public static String f53816f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f55467g = "sign";
+    public static String f53817g = "sign";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,8 +76,8 @@ public class s0 {
             StringBuilder sb = new StringBuilder();
             try {
                 sb.append(map.get(a));
-                sb.append(map.get(f55462b));
-                sb.append(map.get(f55466f));
+                sb.append(map.get(f53812b));
+                sb.append(map.get(f53816f));
                 return s1.a(sb.toString());
             } catch (Exception unused) {
                 return null;
@@ -96,16 +96,16 @@ public class s0 {
                 String[] a2 = l1.a(context);
                 if (a2 == null || a2.length != 2 || TextUtils.isEmpty(a2[0]) || TextUtils.isEmpty(a2[1])) {
                     str = "16";
-                    str2 = l1.f55363d;
+                    str2 = l1.f53713d;
                 } else {
                     str = a2[0];
                     str2 = a2[1];
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put(a, str);
-                hashMap.put(f55462b, str2);
-                hashMap.put(f55466f, String.valueOf(System.currentTimeMillis() / 1000));
-                hashMap.put(f55467g, a(hashMap));
+                hashMap.put(f53812b, str2);
+                hashMap.put(f53816f, String.valueOf(System.currentTimeMillis() / 1000));
+                hashMap.put(f53817g, a(hashMap));
                 return hashMap;
             } catch (Exception e2) {
                 e2.printStackTrace();

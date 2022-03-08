@@ -4,9 +4,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
-import c.i.b.a.h0.e;
-import c.i.b.a.h0.g;
-import c.i.b.a.h0.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,31 +15,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes3.dex */
-public final class ContentDataSource implements e {
+/* loaded from: classes7.dex */
+public final class ContentDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ContentResolver a;
+    public AssetFileDescriptor assetFileDescriptor;
+    public long bytesRemaining;
+    public FileInputStream inputStream;
+    public final TransferListener<? super ContentDataSource> listener;
+    public boolean opened;
+    public final ContentResolver resolver;
+    public Uri uri;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final p<? super ContentDataSource> f54557b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Uri f54558c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AssetFileDescriptor f54559d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public FileInputStream f54560e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f54561f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f54562g;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,101 +53,55 @@ public final class ContentDataSource implements e {
         }
     }
 
-    public ContentDataSource(Context context, p<? super ContentDataSource> pVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ContentDataSource(Context context) {
+        this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, pVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (TransferListener) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getContentResolver();
-        this.f54557b = pVar;
-    }
-
-    @Override // c.i.b.a.h0.e
-    public long a(g gVar) throws ContentDataSourceException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            try {
-                Uri uri = gVar.a;
-                this.f54558c = uri;
-                AssetFileDescriptor openAssetFileDescriptor = this.a.openAssetFileDescriptor(uri, "r");
-                this.f54559d = openAssetFileDescriptor;
-                if (openAssetFileDescriptor != null) {
-                    this.f54560e = new FileInputStream(this.f54559d.getFileDescriptor());
-                    long startOffset = this.f54559d.getStartOffset();
-                    long skip = this.f54560e.skip(gVar.f29863d + startOffset) - startOffset;
-                    if (skip == gVar.f29863d) {
-                        long j2 = -1;
-                        if (gVar.f29864e != -1) {
-                            this.f54561f = gVar.f29864e;
-                        } else {
-                            long length = this.f54559d.getLength();
-                            if (length == -1) {
-                                FileChannel channel = this.f54560e.getChannel();
-                                long size = channel.size();
-                                if (size != 0) {
-                                    j2 = size - channel.position();
-                                }
-                                this.f54561f = j2;
-                            } else {
-                                this.f54561f = length - skip;
-                            }
-                        }
-                        this.f54562g = true;
-                        p<? super ContentDataSource> pVar = this.f54557b;
-                        if (pVar != null) {
-                            pVar.d(this, gVar);
-                        }
-                        return this.f54561f;
-                    }
-                    throw new EOFException();
-                }
-                throw new FileNotFoundException("Could not open file descriptor for: " + this.f54558c);
-            } catch (IOException e2) {
-                throw new ContentDataSourceException(e2);
-            }
-        }
-        return invokeL.longValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IPUT, IGET]}, finally: {[IPUT, IGET, INVOKE, IF, IPUT, IGET, IF] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // c.i.b.a.h0.e
+    @Override // com.google.android.exoplayer2.upstream.DataSource
     public void close() throws ContentDataSourceException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f54558c = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.uri = null;
             try {
                 try {
-                    if (this.f54560e != null) {
-                        this.f54560e.close();
+                    if (this.inputStream != null) {
+                        this.inputStream.close();
                     }
-                    this.f54560e = null;
+                    this.inputStream = null;
                     try {
                         try {
-                            if (this.f54559d != null) {
-                                this.f54559d.close();
+                            if (this.assetFileDescriptor != null) {
+                                this.assetFileDescriptor.close();
                             }
                         } catch (IOException e2) {
                             throw new ContentDataSourceException(e2);
                         }
                     } finally {
-                        this.f54559d = null;
-                        if (this.f54562g) {
-                            this.f54562g = false;
-                            p<? super ContentDataSource> pVar = this.f54557b;
-                            if (pVar != null) {
-                                pVar.b(this);
+                        this.assetFileDescriptor = null;
+                        if (this.opened) {
+                            this.opened = false;
+                            TransferListener<? super ContentDataSource> transferListener = this.listener;
+                            if (transferListener != null) {
+                                transferListener.onTransferEnd(this);
                             }
                         }
                     }
@@ -170,18 +109,18 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e3);
                 }
             } catch (Throwable th) {
-                this.f54560e = null;
+                this.inputStream = null;
                 try {
                     try {
-                        if (this.f54559d != null) {
-                            this.f54559d.close();
+                        if (this.assetFileDescriptor != null) {
+                            this.assetFileDescriptor.close();
                         }
-                        this.f54559d = null;
-                        if (this.f54562g) {
-                            this.f54562g = false;
-                            p<? super ContentDataSource> pVar2 = this.f54557b;
-                            if (pVar2 != null) {
-                                pVar2.b(this);
+                        this.assetFileDescriptor = null;
+                        if (this.opened) {
+                            this.opened = false;
+                            TransferListener<? super ContentDataSource> transferListener2 = this.listener;
+                            if (transferListener2 != null) {
+                                transferListener2.onTransferEnd(this);
                             }
                         }
                         throw th;
@@ -189,12 +128,12 @@ public final class ContentDataSource implements e {
                         throw new ContentDataSourceException(e4);
                     }
                 } finally {
-                    this.f54559d = null;
-                    if (this.f54562g) {
-                        this.f54562g = false;
-                        p<? super ContentDataSource> pVar3 = this.f54557b;
-                        if (pVar3 != null) {
-                            pVar3.b(this);
+                    this.assetFileDescriptor = null;
+                    if (this.opened) {
+                        this.opened = false;
+                        TransferListener<? super ContentDataSource> transferListener3 = this.listener;
+                        if (transferListener3 != null) {
+                            transferListener3.onTransferEnd(this);
                         }
                     }
                 }
@@ -202,14 +141,62 @@ public final class ContentDataSource implements e {
         }
     }
 
-    @Override // c.i.b.a.h0.e
+    @Override // com.google.android.exoplayer2.upstream.DataSource
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54558c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
     }
 
-    @Override // c.i.b.a.h0.e
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public long open(DataSpec dataSpec) throws ContentDataSourceException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec)) == null) {
+            try {
+                Uri uri = dataSpec.uri;
+                this.uri = uri;
+                AssetFileDescriptor openAssetFileDescriptor = this.resolver.openAssetFileDescriptor(uri, "r");
+                this.assetFileDescriptor = openAssetFileDescriptor;
+                if (openAssetFileDescriptor != null) {
+                    this.inputStream = new FileInputStream(this.assetFileDescriptor.getFileDescriptor());
+                    long startOffset = this.assetFileDescriptor.getStartOffset();
+                    long skip = this.inputStream.skip(dataSpec.position + startOffset) - startOffset;
+                    if (skip == dataSpec.position) {
+                        long j2 = -1;
+                        if (dataSpec.length != -1) {
+                            this.bytesRemaining = dataSpec.length;
+                        } else {
+                            long length = this.assetFileDescriptor.getLength();
+                            if (length == -1) {
+                                FileChannel channel = this.inputStream.getChannel();
+                                long size = channel.size();
+                                if (size != 0) {
+                                    j2 = size - channel.position();
+                                }
+                                this.bytesRemaining = j2;
+                            } else {
+                                this.bytesRemaining = length - skip;
+                            }
+                        }
+                        this.opened = true;
+                        TransferListener<? super ContentDataSource> transferListener = this.listener;
+                        if (transferListener != null) {
+                            transferListener.onTransferStart(this, dataSpec);
+                        }
+                        return this.bytesRemaining;
+                    }
+                    throw new EOFException();
+                }
+                throw new FileNotFoundException("Could not open file descriptor for: " + this.uri);
+            } catch (IOException e2) {
+                throw new ContentDataSourceException(e2);
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
     public int read(byte[] bArr, int i2, int i3) throws ContentDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -217,7 +204,7 @@ public final class ContentDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j2 = this.f54561f;
+            long j2 = this.bytesRemaining;
             if (j2 == 0) {
                 return -1;
             }
@@ -228,23 +215,42 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e2);
                 }
             }
-            int read = this.f54560e.read(bArr, i2, i3);
+            int read = this.inputStream.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f54561f == -1) {
+                if (this.bytesRemaining == -1) {
                     return -1;
                 }
                 throw new ContentDataSourceException(new EOFException());
             }
-            long j3 = this.f54561f;
+            long j3 = this.bytesRemaining;
             if (j3 != -1) {
-                this.f54561f = j3 - read;
+                this.bytesRemaining = j3 - read;
             }
-            p<? super ContentDataSource> pVar = this.f54557b;
-            if (pVar != null) {
-                pVar.a(this, read);
+            TransferListener<? super ContentDataSource> transferListener = this.listener;
+            if (transferListener != null) {
+                transferListener.onBytesTransferred(this, read);
             }
             return read;
         }
         return invokeLII.intValue;
+    }
+
+    public ContentDataSource(Context context, TransferListener<? super ContentDataSource> transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.resolver = context.getContentResolver();
+        this.listener = transferListener;
     }
 }

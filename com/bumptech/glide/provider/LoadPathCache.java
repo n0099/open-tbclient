@@ -16,7 +16,7 @@ import com.bumptech.glide.load.resource.transcode.UnitTranscoder;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class LoadPathCache {
     public static /* synthetic */ Interceptable $ic;
     public static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL;

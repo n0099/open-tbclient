@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread kY;
-    public HandlerC1777a kZ;
+    public HandlerC1753a kZ;
     public String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class HandlerC1777a extends Handler {
+    /* loaded from: classes3.dex */
+    public static final class HandlerC1753a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1777a(Looper looper) {
+        public HandlerC1753a(Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,12 +91,12 @@ public class a {
     }
 
     public void execute(Runnable runnable) {
-        HandlerC1777a handlerC1777a;
+        HandlerC1753a handlerC1753a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || (handlerC1777a = this.kZ) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || (handlerC1753a = this.kZ) == null) {
             return;
         }
-        handlerC1777a.a(runnable);
+        handlerC1753a.a(runnable);
     }
 
     public void start() {
@@ -105,16 +105,16 @@ public class a {
             HandlerThread handlerThread = new HandlerThread(this.mTag);
             this.kY = handlerThread;
             handlerThread.start();
-            this.kZ = new HandlerC1777a(this.kY.getLooper());
+            this.kZ = new HandlerC1753a(this.kY.getLooper());
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HandlerC1777a handlerC1777a = this.kZ;
-            if (handlerC1777a != null) {
-                handlerC1777a.release();
+            HandlerC1753a handlerC1753a = this.kZ;
+            if (handlerC1753a != null) {
+                handlerC1753a.release();
                 this.kZ = null;
             }
             HandlerThread handlerThread = this.kY;

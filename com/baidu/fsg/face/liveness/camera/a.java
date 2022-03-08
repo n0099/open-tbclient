@@ -26,39 +26,39 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34524b = 640;
+    public static final int f32927b = 640;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34525c = "CameraControl";
+    public static final String f32928c = "CameraControl";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f34526d = 0.2f;
+    public static final float f32929d = 0.2f;
     public static int l = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera f34527e;
+    public Camera f32930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaRecorder f34528f;
+    public MediaRecorder f32931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceHolder f34529g;
+    public SurfaceHolder f32932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public C1822a f34530h;
+    public C1798a f32933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public C1822a f34531i;
+    public C1798a f32934i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f34532j;
+    public String f32935j;
     public boolean k;
     public int m;
     public boolean n;
@@ -66,16 +66,16 @@ public class a {
     public boolean p;
 
     /* renamed from: com.baidu.fsg.face.liveness.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1822a {
+    /* loaded from: classes4.dex */
+    public static class C1798a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f34533b;
+        public int f32936b;
 
-        public C1822a(int i2, int i3) {
+        public C1798a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class a {
                 }
             }
             this.a = i2;
-            this.f34533b = i3;
+            this.f32936b = i3;
         }
     }
 
@@ -123,39 +123,39 @@ public class a {
                 return;
             }
         }
-        this.f34532j = DebugKt.DEBUG_PROPERTY_VALUE_ON;
+        this.f32935j = DebugKt.DEBUG_PROPERTY_VALUE_ON;
         this.k = false;
         this.n = true;
         this.o = true;
         this.p = false;
     }
 
-    private C1822a b(Activity activity, Camera.Parameters parameters) {
+    private C1798a b(Activity activity, Camera.Parameters parameters) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, parameters)) == null) {
-            List<C1822a> c2 = c(activity, parameters);
-            C1822a c1822a = new C1822a(640, 480);
+            List<C1798a> c2 = c(activity, parameters);
+            C1798a c1798a = new C1798a(640, 480);
             if (c2 != null && c2.size() != 0) {
                 Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-                C1822a c1822a2 = new C1822a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-                float f2 = c1822a2.f34533b / c1822a2.a;
-                float f3 = c1822a.a / c1822a.f34533b;
+                C1798a c1798a2 = new C1798a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+                float f2 = c1798a2.f32936b / c1798a2.a;
+                float f3 = c1798a.a / c1798a.f32936b;
                 for (int i2 = 0; i2 < c2.size(); i2++) {
-                    C1822a c1822a3 = c2.get(i2);
-                    float abs = Math.abs((c1822a3.a / c1822a3.f34533b) - f2);
+                    C1798a c1798a3 = c2.get(i2);
+                    float abs = Math.abs((c1798a3.a / c1798a3.f32936b) - f2);
                     if (abs < f3) {
-                        c1822a = c1822a3;
+                        c1798a = c1798a3;
                         f3 = abs;
                     }
                 }
             }
-            return c1822a;
+            return c1798a;
         }
-        return (C1822a) invokeLL.objValue;
+        return (C1798a) invokeLL.objValue;
     }
 
-    private List<C1822a> c(Activity activity, Camera.Parameters parameters) {
+    private List<C1798a> c(Activity activity, Camera.Parameters parameters) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, activity, parameters)) == null) {
@@ -164,13 +164,13 @@ public class a {
                 return null;
             }
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            C1822a c1822a = new C1822a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+            C1798a c1798a = new C1798a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
             int i2 = 153600;
             int i3 = 921600;
-            int i4 = c1822a.a;
-            int i5 = c1822a.f34533b;
+            int i4 = c1798a.a;
+            int i5 = c1798a.f32936b;
             if ((i4 * i5) / 4 > 921600) {
-                i3 = CameraUtils.f34553b;
+                i3 = CameraUtils.f32956b;
                 i2 = (i4 * i5) / 8;
             }
             ArrayList arrayList = new ArrayList();
@@ -179,7 +179,7 @@ public class a {
                 int i7 = size.width;
                 int i8 = size.height;
                 if (i7 * i8 >= i2 && i7 * i8 <= i3) {
-                    arrayList.add(new C1822a(i7, i8));
+                    arrayList.add(new C1798a(i7, i8));
                 }
             }
             return arrayList;
@@ -192,11 +192,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, activity, z)) == null) {
             this.p = z;
-            Camera camera = this.f34527e;
+            Camera camera = this.f32930e;
             if (camera != null) {
                 camera.stopPreview();
-                this.f34527e.release();
-                this.f34527e = null;
+                this.f32930e.release();
+                this.f32930e = null;
             }
             try {
                 if (a()) {
@@ -204,15 +204,15 @@ public class a {
                 } else {
                     l = 0;
                 }
-                this.f34527e = Camera.open(l);
+                this.f32930e = Camera.open(l);
                 a(activity);
                 return true;
             } catch (Throwable th) {
                 d.a(th);
-                Camera camera2 = this.f34527e;
+                Camera camera2 = this.f32930e;
                 if (camera2 != null) {
                     camera2.release();
-                    this.f34527e = null;
+                    this.f32930e = null;
                 }
                 return false;
             }
@@ -225,15 +225,15 @@ public class a {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f34529g != null && Build.VERSION.SDK_INT >= 14) {
-                        this.f34529g.getSurface().release();
+                    if (this.f32932g != null && Build.VERSION.SDK_INT >= 14) {
+                        this.f32932g.getSurface().release();
                     }
-                    if (this.f34527e != null) {
-                        this.f34527e.setPreviewCallback(null);
-                        this.f34527e.stopPreview();
-                        this.f34527e.release();
+                    if (this.f32930e != null) {
+                        this.f32930e.setPreviewCallback(null);
+                        this.f32930e.stopPreview();
+                        this.f32930e.release();
                         this.k = false;
-                        this.f34527e = null;
+                        this.f32930e = null;
                     }
                     this.n = true;
                 } catch (Exception e2) {
@@ -248,10 +248,10 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f34528f != null && this.o) {
-                        this.f34528f.reset();
-                        this.f34528f.release();
-                        this.f34528f = null;
+                    if (this.f32931f != null && this.o) {
+                        this.f32931f.reset();
+                        this.f32931f.release();
+                        this.f32931f = null;
                     }
                 } catch (Exception e2) {
                     d.a(e2);
@@ -260,16 +260,16 @@ public class a {
         }
     }
 
-    public C1822a f() {
+    public C1798a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34530h : (C1822a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32933h : (C1798a) invokeV.objValue;
     }
 
     public void b() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (camera = this.f34527e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (camera = this.f32930e) == null) {
             return;
         }
         camera.startPreview();
@@ -290,70 +290,70 @@ public class a {
     public void c() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (camera = this.f34527e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (camera = this.f32930e) == null) {
             return;
         }
         camera.stopPreview();
     }
 
-    private C1822a b(Camera.Parameters parameters, C1822a c1822a) {
+    private C1798a b(Camera.Parameters parameters, C1798a c1798a) {
         InterceptResult invokeLL;
         List<Camera.Size> list;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, parameters, c1822a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, parameters, c1798a)) == null) {
             List<Camera.Size> supportedVideoSizes = parameters.getSupportedVideoSizes();
             List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
             if (supportedVideoSizes == null || supportedVideoSizes.size() == 0) {
-                return c1822a;
+                return c1798a;
             }
             if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
-                return c1822a;
+                return c1798a;
             }
-            float f2 = c1822a.f34533b / c1822a.a;
-            C1822a c1822a2 = new C1822a(0, 0);
-            C1822a c1822a3 = new C1822a(0, 0);
-            C1822a c1822a4 = new C1822a(0, 0);
-            C1822a c1822a5 = new C1822a(0, 0);
-            C1822a c1822a6 = new C1822a(0, 0);
+            float f2 = c1798a.f32936b / c1798a.a;
+            C1798a c1798a2 = new C1798a(0, 0);
+            C1798a c1798a3 = new C1798a(0, 0);
+            C1798a c1798a4 = new C1798a(0, 0);
+            C1798a c1798a5 = new C1798a(0, 0);
+            C1798a c1798a6 = new C1798a(0, 0);
             int i4 = 921600;
-            C1822a c1822a7 = new C1822a(0, 0);
+            C1798a c1798a7 = new C1798a(0, 0);
             int i5 = 0;
             while (i5 < supportedVideoSizes.size()) {
                 Camera.Size size = supportedVideoSizes.get(i5);
                 int i6 = size.width;
-                c1822a3.a = i6;
+                c1798a3.a = i6;
                 int i7 = size.height;
-                c1822a3.f34533b = i7;
-                if (i6 == c1822a.a && i7 == c1822a.f34533b) {
-                    c1822a2.a = i6;
-                    c1822a2.f34533b = i7;
-                    return c1822a2;
+                c1798a3.f32936b = i7;
+                if (i6 == c1798a.a && i7 == c1798a.f32936b) {
+                    c1798a2.a = i6;
+                    c1798a2.f32936b = i7;
+                    return c1798a2;
                 }
                 float f3 = 0.01f;
-                if (Math.abs((size.height / size.width) - f2) < 0.01f && (i2 = c1822a3.a) >= c1822a2.a && (i3 = c1822a3.f34533b) >= c1822a2.f34533b && i2 * i3 <= i4) {
-                    c1822a2.a = i2;
-                    c1822a2.f34533b = i3;
+                if (Math.abs((size.height / size.width) - f2) < 0.01f && (i2 = c1798a3.a) >= c1798a2.a && (i3 = c1798a3.f32936b) >= c1798a2.f32936b && i2 * i3 <= i4) {
+                    c1798a2.a = i2;
+                    c1798a2.f32936b = i3;
                 }
                 int i8 = 0;
                 while (i8 < supportedPreviewSizes.size()) {
                     Camera.Size size2 = supportedPreviewSizes.get(i8);
                     int i9 = size2.width;
-                    c1822a4.a = i9;
+                    c1798a4.a = i9;
                     int i10 = size2.height;
-                    c1822a4.f34533b = i10;
-                    if (!(c1822a3.a == i9 && c1822a3.f34533b == i10) && Math.abs((c1822a4.f34533b / c1822a4.a) - (c1822a3.f34533b / c1822a3.a)) >= f3) {
+                    c1798a4.f32936b = i10;
+                    if (!(c1798a3.a == i9 && c1798a3.f32936b == i10) && Math.abs((c1798a4.f32936b / c1798a4.a) - (c1798a3.f32936b / c1798a3.a)) >= f3) {
                         list = supportedVideoSizes;
                     } else {
-                        int i11 = c1822a3.a;
-                        int i12 = c1822a3.f34533b;
+                        int i11 = c1798a3.a;
+                        int i12 = c1798a3.f32936b;
                         list = supportedVideoSizes;
-                        if (i11 * i12 >= c1822a5.a * c1822a5.f34533b && i11 * i12 <= 921600) {
-                            c1822a5.a = i11;
-                            c1822a5.f34533b = i12;
-                            c1822a6.f34533b = c1822a4.f34533b;
-                            c1822a6.a = c1822a4.a;
+                        if (i11 * i12 >= c1798a5.a * c1798a5.f32936b && i11 * i12 <= 921600) {
+                            c1798a5.a = i11;
+                            c1798a5.f32936b = i12;
+                            c1798a6.f32936b = c1798a4.f32936b;
+                            c1798a6.a = c1798a4.a;
                         }
                     }
                     i8++;
@@ -361,34 +361,34 @@ public class a {
                     f3 = 0.01f;
                 }
                 List<Camera.Size> list2 = supportedVideoSizes;
-                int i13 = c1822a3.a;
-                int i14 = c1822a3.f34533b;
-                if (i13 * i14 >= c1822a7.a * c1822a7.f34533b && i13 * i14 <= 921600) {
-                    c1822a7.a = i13;
-                    c1822a7.f34533b = i14;
+                int i13 = c1798a3.a;
+                int i14 = c1798a3.f32936b;
+                if (i13 * i14 >= c1798a7.a * c1798a7.f32936b && i13 * i14 <= 921600) {
+                    c1798a7.a = i13;
+                    c1798a7.f32936b = i14;
                 }
                 i5++;
                 supportedVideoSizes = list2;
                 i4 = 921600;
             }
-            if (c1822a2.a > 0) {
-                return c1822a2;
+            if (c1798a2.a > 0) {
+                return c1798a2;
             }
-            if (c1822a5.a > 0) {
-                C1822a c1822a8 = this.f34530h;
-                c1822a8.f34533b = c1822a6.f34533b;
-                c1822a8.a = c1822a6.a;
-                return c1822a5;
+            if (c1798a5.a > 0) {
+                C1798a c1798a8 = this.f32933h;
+                c1798a8.f32936b = c1798a6.f32936b;
+                c1798a8.a = c1798a6.a;
+                return c1798a5;
             }
-            return c1822a7;
+            return c1798a7;
         }
-        return (C1822a) invokeLL.objValue;
+        return (C1798a) invokeLL.objValue;
     }
 
     private void a(Activity activity) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, activity) == null) || (camera = this.f34527e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, activity) == null) || (camera = this.f32930e) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
@@ -415,45 +415,45 @@ public class a {
         } else {
             this.m = ((cameraInfo.orientation - i2) + 360) % 360;
         }
-        this.f34527e.setDisplayOrientation(this.m);
+        this.f32930e.setDisplayOrientation(this.m);
         if (parameters.getSupportedFocusModes().contains("continuous-video")) {
             parameters.setFocusMode("continuous-video");
         }
         if (parameters.getSupportedFlashModes() != null) {
             if (this.n) {
-                this.f34532j = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
+                this.f32935j = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
                 parameters.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
             } else {
-                parameters.setFlashMode(this.f34532j);
+                parameters.setFlashMode(this.f32935j);
             }
         } else {
-            this.f34532j = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
+            this.f32935j = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
         }
-        this.f34527e.setParameters(parameters);
+        this.f32930e.setParameters(parameters);
     }
 
-    private C1822a a(Activity activity, Camera.Parameters parameters) {
+    private C1798a a(Activity activity, Camera.Parameters parameters) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, parameters)) == null) {
-            C1822a b2 = b(activity, parameters);
-            this.f34530h = new C1822a(b2.a, b2.f34533b);
+            C1798a b2 = b(activity, parameters);
+            this.f32933h = new C1798a(b2.a, b2.f32936b);
             if (this.p) {
-                this.f34531i = b(this.f34527e.getParameters(), b2);
+                this.f32934i = b(this.f32930e.getParameters(), b2);
             }
-            C1822a c1822a = this.f34530h;
-            parameters.setPreviewSize(c1822a.a, c1822a.f34533b);
-            return this.f34530h;
+            C1798a c1798a = this.f32933h;
+            parameters.setPreviewSize(c1798a.a, c1798a.f32936b);
+            return this.f32933h;
         }
-        return (C1822a) invokeLL.objValue;
+        return (C1798a) invokeLL.objValue;
     }
 
-    public void a(Camera.Parameters parameters, C1822a c1822a) {
+    public void a(Camera.Parameters parameters, C1798a c1798a) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parameters, c1822a) == null) {
-            float f2 = c1822a != null ? c1822a.a / c1822a.f34533b : 0.0f;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parameters, c1798a) == null) {
+            float f2 = c1798a != null ? c1798a.a / c1798a.f32936b : 0.0f;
             List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
             if (supportedPictureSizes == null) {
                 return;
@@ -484,13 +484,13 @@ public class a {
     public void a(Context context, SurfaceHolder surfaceHolder) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, surfaceHolder) == null) || (camera = this.f34527e) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, surfaceHolder) == null) || (camera = this.f32930e) == null) {
             return;
         }
         try {
-            this.f34529g = surfaceHolder;
+            this.f32932g = surfaceHolder;
             camera.setPreviewDisplay(surfaceHolder);
-            this.f34527e.startPreview();
+            this.f32930e.startPreview();
         } catch (Throwable th) {
             d.a(th);
         }
@@ -503,32 +503,32 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
             if (this.p) {
                 try {
-                    if (this.f34528f == null) {
-                        this.f34528f = new MediaRecorder();
+                    if (this.f32931f == null) {
+                        this.f32931f = new MediaRecorder();
                     } else {
-                        this.f34528f.reset();
+                        this.f32931f.reset();
                     }
-                    this.f34527e.unlock();
-                    this.f34528f.setCamera(this.f34527e);
-                    this.f34528f.setVideoSource(1);
-                    this.f34528f.setAudioSource(1);
-                    this.f34528f.setOutputFormat(2);
-                    this.f34528f.setVideoEncodingBitRate(c.a().b(context));
-                    this.f34528f.setVideoEncoder(2);
-                    this.f34528f.setAudioEncoder(3);
-                    this.f34528f.setVideoSize(this.f34531i.a, this.f34531i.f34533b);
+                    this.f32930e.unlock();
+                    this.f32931f.setCamera(this.f32930e);
+                    this.f32931f.setVideoSource(1);
+                    this.f32931f.setAudioSource(1);
+                    this.f32931f.setOutputFormat(2);
+                    this.f32931f.setVideoEncodingBitRate(c.a().b(context));
+                    this.f32931f.setVideoEncoder(2);
+                    this.f32931f.setAudioEncoder(3);
+                    this.f32931f.setVideoSize(this.f32934i.a, this.f32934i.f32936b);
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                     Camera.getCameraInfo(l, cameraInfo);
-                    this.f34528f.setOrientationHint(cameraInfo.orientation);
+                    this.f32931f.setOrientationHint(cameraInfo.orientation);
                     File file = new File(g.a(context));
                     if (!file.exists()) {
                         file.mkdirs();
                     }
                     String b2 = g.b(context);
                     g.c(b2);
-                    this.f34528f.setOutputFile(new File(b2).getAbsolutePath());
-                    this.f34528f.prepare();
-                    this.f34528f.start();
+                    this.f32931f.setOutputFile(new File(b2).getAbsolutePath());
+                    this.f32931f.prepare();
+                    this.f32931f.start();
                     this.o = true;
                     return true;
                 } catch (Exception e2) {
@@ -546,7 +546,7 @@ public class a {
     public void a(Camera.PreviewCallback previewCallback) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, previewCallback) == null) || (camera = this.f34527e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, previewCallback) == null) || (camera = this.f32930e) == null) {
             return;
         }
         camera.setPreviewCallback(previewCallback);

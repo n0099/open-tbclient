@@ -1,6 +1,6 @@
 package com.baidu.tbadk.ala;
 
-import c.a.t0.s.r.p;
+import c.a.q0.r.r.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveInfoCoreData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5768965545624138312L;
@@ -78,7 +78,7 @@ public class AlaLiveInfoCoreData extends p implements Serializable {
         this.threadId = alaInfoData.thread_id;
     }
 
-    @Override // c.a.t0.s.r.p
+    @Override // c.a.q0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

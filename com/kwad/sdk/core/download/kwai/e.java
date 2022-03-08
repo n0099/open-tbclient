@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download.kwai;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface e {
     void a(boolean z);
 }

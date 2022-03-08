@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
-import c.a.t0.b.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tieba.videoplay.VideoPlayActivity;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener E;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
             lazyInitViewPager(onCreateView);
-            if (d.m()) {
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 VideoChannelHeaderLayout videoChannelHeaderLayout = this.mainHeaderLayout;
                 if (videoChannelHeaderLayout != null) {
                     videoChannelHeaderLayout.setVisibility(8);

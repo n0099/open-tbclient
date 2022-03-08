@@ -12,32 +12,32 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KwaiRefreshView extends RelativeLayout implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58569b;
+    public boolean f56919b;
     @DrawableRes
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58570c;
+    public int f56920c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public AnimationDrawable f58571d;
+    public AnimationDrawable f56921d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f58572e;
+    public Runnable f56922e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KwaiRefreshView(Context context) {
@@ -100,18 +100,18 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 return;
             }
         }
-        this.f58570c = R.drawable.ksad_kwai_loading_view_gray;
+        this.f56920c = R.drawable.ksad_kwai_loading_view_gray;
         a(context, attributeSet);
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.KwaiRefreshView);
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.KwaiRefreshView_loading_anim, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.loading_anim});
+            int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             if (resourceId != 0) {
-                this.f58570c = resourceId;
+                this.f56920c = resourceId;
             }
             LayoutInflater.from(context).inflate(R.layout.ksad_kwai_refresh_image_view, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.pull_to_refresh_loading);
@@ -151,9 +151,9 @@ public class KwaiRefreshView extends RelativeLayout implements f {
 
     private void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.f58571d == null) {
-            this.a.setBackgroundResource(this.f58570c);
-            this.f58571d = (AnimationDrawable) this.a.getBackground();
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.f56921d == null) {
+            this.a.setBackgroundResource(this.f56920c);
+            this.f56921d = (AnimationDrawable) this.a.getBackground();
         }
     }
 
@@ -161,23 +161,23 @@ public class KwaiRefreshView extends RelativeLayout implements f {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58569b = false;
-            AnimationDrawable animationDrawable = this.f58571d;
+            this.f56919b = false;
+            AnimationDrawable animationDrawable = this.f56921d;
             if (animationDrawable == null || !animationDrawable.isRunning()) {
                 return;
             }
-            this.f58571d.stop();
+            this.f56921d.stop();
         }
     }
 
     @Override // com.kwai.library.widget.refresh.f
     public void a(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f58569b) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f56919b) {
             return;
         }
         g();
-        AnimationDrawable animationDrawable = this.f58571d;
+        AnimationDrawable animationDrawable = this.f56921d;
         if (animationDrawable != null) {
             animationDrawable.selectDrawable(Math.min(40, (int) (40.0f * f3)));
         }
@@ -191,14 +191,14 @@ public class KwaiRefreshView extends RelativeLayout implements f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Runnable runnable = this.f58572e;
+            Runnable runnable = this.f56922e;
             if (runnable != null) {
                 g.a(runnable);
-                this.f58572e = null;
+                this.f56922e = null;
             }
-            this.f58569b = true;
+            this.f56919b = true;
             g();
-            AnimationDrawable animationDrawable = this.f58571d;
+            AnimationDrawable animationDrawable = this.f56921d;
             if (animationDrawable != null) {
                 animationDrawable.start();
             }
@@ -237,15 +237,15 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.a.f58571d != null) {
-                            this.a.f58571d.stop();
+                        if (this.a.f56921d != null) {
+                            this.a.f56921d.stop();
                         }
                         this.a.setAlpha(0.0f);
-                        this.a.f58569b = false;
+                        this.a.f56919b = false;
                     }
                 }
             };
-            this.f58572e = runnable;
+            this.f56922e = runnable;
             g.a(runnable, 500L);
         }
     }

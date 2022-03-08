@@ -13,7 +13,7 @@ import com.coremedia.iso.boxes.Container;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AbstractContainerBox extends BasicContainer implements Box {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

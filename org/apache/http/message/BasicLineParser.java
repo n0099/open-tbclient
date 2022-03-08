@@ -16,7 +16,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BasicLineParser implements LineParser {
     public static /* synthetic */ Interceptable $ic;
     public static final BasicLineParser DEFAULT = null;

@@ -16,16 +16,17 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import c.a.d0.h.k;
-import c.a.d0.h0.f;
-import c.a.d0.h0.p;
-import c.a.d0.l0.i;
-import c.a.d0.l0.r;
+import c.a.b0.h.k;
+import c.a.b0.h0.f;
+import c.a.b0.h0.p;
+import c.a.b0.l0.i;
+import c.a.b0.l0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +38,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -73,7 +74,7 @@ public class BaseActivity extends FragmentActivity {
     public WeakReference<Activity> preActivity;
     public final Object tagObject;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +98,7 @@ public class BaseActivity extends FragmentActivity {
             this.a = baseActivity;
         }
 
-        @Override // c.a.d0.l0.i
+        @Override // c.a.b0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -105,17 +106,17 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b implements SlidingPaneLayout.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f37156b;
+        public final /* synthetic */ int f35559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f37157c;
+        public final /* synthetic */ BaseActivity f35560c;
 
         public b(BaseActivity baseActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -132,8 +133,8 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f37157c = baseActivity;
-            this.f37156b = i2;
+            this.f35560c = baseActivity;
+            this.f35559b = i2;
             this.a = true;
         }
 
@@ -141,17 +142,17 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelClosed(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f37157c.mSuspensionBallSlideListener != null) {
-                    this.f37157c.mSuspensionBallSlideListener.onPanelClosed(view);
+                if (this.f35560c.mSuspensionBallSlideListener != null) {
+                    this.f35560c.mSuspensionBallSlideListener.onPanelClosed(view);
                 }
-                if (this.f37157c.mSlideListener != null) {
-                    this.f37157c.mSlideListener.onPanelClosed(view);
+                if (this.f35560c.mSlideListener != null) {
+                    this.f35560c.mSlideListener.onPanelClosed(view);
                 }
-                if (!this.f37157c.mSlideCancelActivityTransparent && !this.f37157c.mForceActivityTransparent && this.a) {
+                if (!this.f35560c.mSlideCancelActivityTransparent && !this.f35560c.mForceActivityTransparent && this.a) {
                     this.a = false;
-                    r.c(this.f37157c, null);
+                    j.c(this.f35560c, null);
                 }
-                this.f37157c.setPreDecorPosition(0.0f);
+                this.f35560c.setPreDecorPosition(0.0f);
             }
         }
 
@@ -159,16 +160,16 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelOpened(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                if (this.f37157c.mSuspensionBallSlideListener != null) {
-                    this.f37157c.mSuspensionBallSlideListener.onPanelOpened(view);
+                if (this.f35560c.mSuspensionBallSlideListener != null) {
+                    this.f35560c.mSuspensionBallSlideListener.onPanelOpened(view);
                 }
-                if (this.f37157c.mSlideListener != null) {
-                    this.f37157c.mSlideListener.onPanelOpened(view);
+                if (this.f35560c.mSlideListener != null) {
+                    this.f35560c.mSlideListener.onPanelOpened(view);
                 }
-                this.f37157c.setPreDecorPosition(0.0f);
-                this.f37157c.mSlideHelper.setShadowDrawable(null);
-                this.f37157c.finish();
-                this.f37157c.overridePendingTransition(0, 0);
+                this.f35560c.setPreDecorPosition(0.0f);
+                this.f35560c.mSlideHelper.setShadowDrawable(null);
+                this.f35560c.finish();
+                this.f35560c.overridePendingTransition(0, 0);
             }
         }
 
@@ -176,7 +177,7 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelSlide(View view, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                View maskView = this.f37157c.mSlideHelper.getMaskView();
+                View maskView = this.f35560c.mSlideHelper.getMaskView();
                 if (maskView != null) {
                     float f3 = 1.0f - f2;
                     if (f3 < 0.0f) {
@@ -184,29 +185,29 @@ public class BaseActivity extends FragmentActivity {
                     }
                     maskView.setAlpha(f3);
                 }
-                if (this.f37157c.mSuspensionBallSlideListener != null) {
-                    this.f37157c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
+                if (this.f35560c.mSuspensionBallSlideListener != null) {
+                    this.f35560c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
                 }
-                if (this.f37157c.mSlideListener != null) {
-                    this.f37157c.mSlideListener.onPanelSlide(view, f2);
+                if (this.f35560c.mSlideListener != null) {
+                    this.f35560c.mSlideListener.onPanelSlide(view, f2);
                 }
-                if (!this.f37157c.mSlideCancelActivityTransparent && !this.f37157c.mForceActivityTransparent && !this.a) {
+                if (!this.f35560c.mSlideCancelActivityTransparent && !this.f35560c.mForceActivityTransparent && !this.a) {
                     this.a = true;
-                    r.d(this.f37157c, null);
+                    j.d(this.f35560c, null);
                 }
-                float f4 = this.f37156b >> 2;
-                this.f37157c.setPreDecorPosition((f2 * f4) - f4);
+                float f4 = this.f35559b >> 2;
+                this.f35560c.setPreDecorPosition((f2 * f4) - f4);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f37158e;
+        public final /* synthetic */ BaseActivity f35561e;
 
         public c(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -223,20 +224,20 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f37158e = baseActivity;
+            this.f35561e = baseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseActivity baseActivity = this.f37158e;
+                BaseActivity baseActivity = this.f35561e;
                 baseActivity.setDrawDuringWindowsAnimating(baseActivity.getWindow().getDecorView());
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(Object obj);
     }
@@ -295,7 +296,7 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            c.a.d0.x.a.b(onNewIntentCallbacks, dVar);
+            c.a.b0.x.a.b(onNewIntentCallbacks, dVar);
         }
     }
 
@@ -402,10 +403,10 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeF(65554, this, f2) == null) {
             try {
                 if (this.preActivity == null || this.preActivity.get() == null) {
-                    this.preActivity = new WeakReference<>(c.a.d0.q.a.d());
+                    this.preActivity = new WeakReference<>(c.a.b0.q.a.d());
                 }
                 if (this.preActivity.get() != null) {
-                    Activity e2 = c.a.d0.q.a.e();
+                    Activity e2 = c.a.b0.q.a.e();
                     Activity activity = this.preActivity.get();
                     if (e2 != null && activity != null && e2.getLocalClassName().equals(activity.getLocalClassName())) {
                         setPreActivityPosition(activity, 0.0f);
@@ -581,7 +582,7 @@ public class BaseActivity extends FragmentActivity {
             int d2 = p.d(this);
             super.onCreate(bundle);
             p.a(this, d2);
-            if (c.a.d0.b.b.a.a(this)) {
+            if (c.a.b0.b.a.a.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
@@ -625,7 +626,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !sHasMultiWindowShow) {
-                c.a.d0.e0.b.a().c(getApplicationContext(), c.a.d0.b.a.nad_androidn_multiwindow_user_toast, 1);
+                c.a.b0.e0.b.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
                 setHasMultiWindowShow(true);
             } else if (z || f.a()) {
             } else {
@@ -774,7 +775,7 @@ public class BaseActivity extends FragmentActivity {
     public void setCurrentActivityNoTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            r.c(this, new a(this));
+            j.c(this, new a(this));
         }
     }
 

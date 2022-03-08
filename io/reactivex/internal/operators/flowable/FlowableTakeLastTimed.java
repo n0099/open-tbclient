@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableTakeLastTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class FlowableTakeLastTimed<T> extends AbstractFlowableWithUpstream
     public final long time;
     public final TimeUnit unit;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;

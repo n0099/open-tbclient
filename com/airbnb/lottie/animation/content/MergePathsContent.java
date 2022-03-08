@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class MergePathsContent implements PathContent, GreedyContent {
     public final MergePaths mergePaths;
     public final String name;
@@ -18,7 +18,7 @@ public class MergePathsContent implements PathContent, GreedyContent {
     public final List<PathContent> pathContents = new ArrayList();
 
     /* renamed from: com.airbnb.lottie.animation.content.MergePathsContent$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode;
 

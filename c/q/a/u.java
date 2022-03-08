@@ -17,38 +17,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a5 f30702b;
+    public v4 f29132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f30703c;
+    public Info f29133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f30704d;
+    public View f29134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f30705e;
+    public List f29135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public s f30706f;
+    public s f29136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h4 f30707g;
+    public c4 f29137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30708h;
+    public long f29138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e5 f30709i;
+    public z4 f29139i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f30710j;
+    public boolean f29140j;
     public long k;
     public float l;
     public float m;
@@ -80,16 +80,16 @@ public class u {
                 return;
             }
         }
-        this.f30705e = Collections.synchronizedList(new ArrayList());
-        this.f30708h = 0L;
-        this.f30709i = new f6(this);
-        this.f30710j = false;
+        this.f29135e = Collections.synchronizedList(new ArrayList());
+        this.f29138h = 0L;
+        this.f29139i = new a6(this);
+        this.f29140j = false;
         this.k = 0L;
         this.a = context;
-        a5 a5Var = new a5(context, str, L.f61010e);
-        this.f30702b = a5Var;
-        a5Var.f30509g = this.f30709i;
-        this.f30707g = new h4(context);
+        v4 v4Var = new v4(context, str, L.f59360e);
+        this.f29132b = v4Var;
+        v4Var.f29158g = this.f29139i;
+        this.f29137g = new c4(context);
     }
 
     public static /* synthetic */ void d(u uVar, View view) {
@@ -129,12 +129,12 @@ public class u {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 g();
-                if (this.f30702b != null) {
-                    this.f30702b.b();
-                    this.f30702b = null;
+                if (this.f29132b != null) {
+                    this.f29132b.b();
+                    this.f29132b = null;
                 }
-                if (this.f30706f != null) {
-                    this.f30706f = null;
+                if (this.f29136f != null) {
+                    this.f29136f = null;
                 }
             } catch (Exception unused) {
             }
@@ -151,17 +151,17 @@ public class u {
             if (view == null || arrayList == null || arrayList.size() == 0 || !f()) {
                 return;
             }
-            this.f30708h = 0L;
-            if (this.f30704d != null) {
+            this.f29138h = 0L;
+            if (this.f29134d != null) {
                 g();
             }
-            this.f30704d = view;
+            this.f29134d = view;
             try {
                 q qVar = new q(this);
                 for (View view2 : arrayList) {
                     if (view2 != null && !(view2 instanceof PBMediaView)) {
-                        if (!this.f30705e.contains(view2)) {
-                            this.f30705e.add(view2);
+                        if (!this.f29135e.contains(view2)) {
+                            this.f29135e.add(view2);
                         }
                         if (!(view2 instanceof CircleProgressbar)) {
                             view2.setOnClickListener(qVar);
@@ -174,27 +174,27 @@ public class u {
             if (pBMediaView != null) {
                 try {
                     if (pBMediaView.getHtmlWebView() != null) {
-                        j3 htmlWebView = pBMediaView.getHtmlWebView();
-                        htmlWebView.a(f() ? this.f30703c.getLoad() : "", this.f30703c);
-                        if (this.f30703c.isNat()) {
-                            htmlWebView.f30578c.setOnTouchListener(new i(this));
+                        e3 htmlWebView = pBMediaView.getHtmlWebView();
+                        htmlWebView.a(f() ? this.f29133c.getLoad() : "", this.f29133c);
+                        if (this.f29133c.isNat()) {
+                            htmlWebView.f28945c.setOnTouchListener(new i(this));
                         }
-                        htmlWebView.f30577b = new m(this);
+                        htmlWebView.f28944b = new m(this);
                     }
                 } catch (Exception unused2) {
                 }
             }
-            y2 a = c3.a(this.a);
-            a.o(new g3(this.f30703c));
+            t2 a = x2.a(this.a);
+            a.o(new b3(this.f29133c));
             a.m();
-            s sVar = this.f30706f;
+            s sVar = this.f29136f;
             if (sVar != null) {
                 sVar.onDisplayed();
             }
-            if (this.f30703c != null) {
-                m2.m(this.a, this.f30703c.getId() + ":" + System.currentTimeMillis(), false);
+            if (this.f29133c != null) {
+                h2.m(this.a, this.f29133c.getId() + ":" + System.currentTimeMillis(), false);
             }
-            new s0().a(view, this.f30703c, new e(this, view));
+            new s0().a(view, this.f29133c, new e(this, view));
         }
     }
 
@@ -202,7 +202,7 @@ public class u {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Info info = this.f30703c;
+            Info info = this.f29133c;
             return info != null && info.isEffective();
         }
         return invokeV.booleanValue;
@@ -212,14 +212,14 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                for (View view : this.f30705e) {
+                for (View view : this.f29135e) {
                     if (view != null) {
                         view.setOnClickListener(null);
                     }
                 }
-                this.f30705e.clear();
-                if (this.f30704d != null) {
-                    this.f30704d = null;
+                this.f29135e.clear();
+                if (this.f29134d != null) {
+                    this.f29134d = null;
                 }
             } catch (Exception unused) {
             }

@@ -1,59 +1,43 @@
 package c.i.b.a;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-/* loaded from: classes9.dex */
-public final class k {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes3.dex */
+public final class k extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashSet<String> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f30044b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-528839415, "Lc/i/b/a/k;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-528839415, "Lc/i/b/a/k;");
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ InstallActivity f28630e;
+
+    public k(InstallActivity installActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashSet<>();
-        f30044b = "goog.exo.core";
+        this.f28630e = installActivity;
     }
 
-    public static synchronized void a(String str) {
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            synchronized (k.class) {
-                if (a.add(str)) {
-                    f30044b += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            this.f28630e.showSpinner();
         }
-    }
-
-    public static synchronized String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (k.class) {
-                str = f30044b;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

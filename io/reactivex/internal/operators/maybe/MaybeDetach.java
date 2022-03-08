@@ -10,19 +10,19 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class DetachMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62341d;
+        public Disposable f60691d;
 
         public DetachMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.actual = null;
-                this.f62341d.dispose();
-                this.f62341d = DisposableHelper.DISPOSED;
+                this.f60691d.dispose();
+                this.f60691d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -56,14 +56,14 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62341d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60691d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f62341d = DisposableHelper.DISPOSED;
+                this.f60691d = DisposableHelper.DISPOSED;
                 MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;
@@ -76,7 +76,7 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f62341d = DisposableHelper.DISPOSED;
+                this.f60691d = DisposableHelper.DISPOSED;
                 MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;
@@ -88,8 +88,8 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f62341d, disposable)) {
-                this.f62341d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f60691d, disposable)) {
+                this.f60691d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -98,7 +98,7 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f62341d = DisposableHelper.DISPOSED;
+                this.f60691d = DisposableHelper.DISPOSED;
                 MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;

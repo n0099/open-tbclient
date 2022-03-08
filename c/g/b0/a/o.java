@@ -22,40 +22,40 @@ import com.fun.ad.sdk.FunSplashAdInteractionListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.PxUtils;
 import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class o implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TTSplashAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f28435b;
+    public final View f28273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Pair<Integer, Integer> f28436c;
+    public final Pair<Integer, Integer> f28274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f28437d;
+    public final int f28275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f28438e;
+    public final int f28276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28439f;
+    public boolean f28277f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28440g;
+    public int f28278g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28441h;
+    public int f28279h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f28442i;
+    public FrameLayout f28280i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FunSplashAdInteractionListener f28443j;
+    public FunSplashAdInteractionListener f28281j;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements ISplashClickEyeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class o implements FunSplashAd {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.a.f28439f = z;
+                this.a.f28277f = z;
                 LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
                 return false;
             }
@@ -96,8 +96,8 @@ public class o implements FunSplashAd {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                ViewUtils.removeFromParent(this.a.f28442i);
-                this.a.f28442i = null;
+                ViewUtils.removeFromParent(this.a.f28280i);
+                this.a.f28280i = null;
             }
         }
 
@@ -110,28 +110,28 @@ public class o implements FunSplashAd {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f28444e;
+        public final /* synthetic */ ViewGroup f28282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f28445f;
+        public final /* synthetic */ float f28283f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f28446g;
+        public final /* synthetic */ float f28284g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int[] f28447h;
+        public final /* synthetic */ int[] f28285h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f28448i;
+        public final /* synthetic */ int f28286i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f28449j;
+        public final /* synthetic */ int f28287j;
         public final /* synthetic */ o k;
 
         public b(o oVar, ViewGroup viewGroup, float f2, float f3, int[] iArr, int i2, int i3) {
@@ -150,12 +150,12 @@ public class o implements FunSplashAd {
                 }
             }
             this.k = oVar;
-            this.f28444e = viewGroup;
-            this.f28445f = f2;
-            this.f28446g = f3;
-            this.f28447h = iArr;
-            this.f28448i = i2;
-            this.f28449j = i3;
+            this.f28282e = viewGroup;
+            this.f28283f = f2;
+            this.f28284g = f3;
+            this.f28285h = iArr;
+            this.f28286i = i2;
+            this.f28287j = i3;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -169,7 +169,7 @@ public class o implements FunSplashAd {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.k.a(this.f28444e, this.f28445f, this.f28446g, this.f28447h, this.f28448i, this.f28449j);
+                this.k.a(this.f28282e, this.f28283f, this.f28284g, this.f28285h, this.f28286i, this.f28287j);
             }
         }
 
@@ -205,12 +205,12 @@ public class o implements FunSplashAd {
                 return;
             }
         }
-        this.f28437d = PxUtils.dp2px(16.0f);
-        this.f28438e = PxUtils.dp2px(100.0f);
-        this.f28442i = new FrameLayout(FunAdSdk.getAppContext());
+        this.f28275d = PxUtils.dp2px(16.0f);
+        this.f28276e = PxUtils.dp2px(100.0f);
+        this.f28280i = new FrameLayout(FunAdSdk.getAppContext());
         tTSplashAd.setSplashClickEyeListener(new a(this));
         this.a = tTSplashAd;
-        this.f28435b = tTSplashAd.getSplashView();
+        this.f28273b = tTSplashAd.getSplashView();
         int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
         if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
             DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
@@ -221,24 +221,24 @@ public class o implements FunSplashAd {
             valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
             round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
         }
-        this.f28436c = Pair.create(valueOf, Integer.valueOf(round));
+        this.f28274c = Pair.create(valueOf, Integer.valueOf(round));
     }
 
     public final void a(ViewGroup viewGroup, float f2, float f3, int[] iArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f2), Float.valueOf(f3), iArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            ViewUtils.removeFromParent(this.f28435b);
-            this.f28435b.setScaleX(1.0f);
-            this.f28435b.setScaleY(1.0f);
-            this.f28435b.setX(0.0f);
-            this.f28435b.setY(0.0f);
+            ViewUtils.removeFromParent(this.f28273b);
+            this.f28273b.setScaleX(1.0f);
+            this.f28273b.setScaleY(1.0f);
+            this.f28273b.setX(0.0f);
+            this.f28273b.setY(0.0f);
             int[] iArr2 = new int[2];
             viewGroup.getLocationOnScreen(iArr2);
             float f4 = (f3 - iArr2[1]) + iArr[1];
-            this.f28442i.addView(this.f28435b, -1, -1);
-            viewGroup.addView(this.f28442i, new FrameLayout.LayoutParams(i2, i3));
-            this.f28442i.setTranslationX((f2 - iArr2[0]) + iArr[0]);
-            this.f28442i.setTranslationY(f4);
+            this.f28280i.addView(this.f28273b, -1, -1);
+            viewGroup.addView(this.f28280i, new FrameLayout.LayoutParams(i2, i3));
+            this.f28280i.setTranslationX((f2 - iArr2[0]) + iArr[0]);
+            this.f28280i.setTranslationY(f4);
             this.a.splashClickEyeAnimationFinish();
         }
     }
@@ -248,12 +248,12 @@ public class o implements FunSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            FrameLayout frameLayout = this.f28442i;
+            FrameLayout frameLayout = this.f28280i;
             if (frameLayout != null) {
                 ViewUtils.removeFromParent(frameLayout);
-                this.f28442i = null;
+                this.f28280i = null;
             }
-            this.f28443j = null;
+            this.f28281j = null;
         }
     }
 
@@ -263,38 +263,38 @@ public class o implements FunSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
             if (activity != null) {
-                if (!this.f28439f) {
+                if (!this.f28277f) {
                     LogPrinter.d("showMiniWindow failed without support", new Object[0]);
                     return false;
-                } else if (this.f28442i == null) {
+                } else if (this.f28280i == null) {
                     LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
                     return false;
                 } else {
-                    this.f28443j = funSplashAdInteractionListener;
+                    this.f28281j = funSplashAdInteractionListener;
                     ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
                     ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
                     int[] iArr = new int[2];
-                    this.f28435b.getLocationOnScreen(iArr);
-                    int width = this.f28435b.getWidth();
-                    int height = this.f28435b.getHeight();
-                    int i2 = this.f28440g;
-                    int i3 = this.f28441h;
+                    this.f28273b.getLocationOnScreen(iArr);
+                    int width = this.f28273b.getWidth();
+                    int height = this.f28273b.getHeight();
+                    int i2 = this.f28278g;
+                    int i3 = this.f28279h;
                     if (i2 == 0 || i3 == 0) {
                         LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
                         return false;
                     }
-                    int intValue = ((Integer) this.f28436c.first).intValue();
-                    int intValue2 = ((Integer) this.f28436c.second).intValue();
+                    int intValue = ((Integer) this.f28274c.first).intValue();
+                    int intValue2 = ((Integer) this.f28274c.second).intValue();
                     float f2 = intValue / width;
                     float f3 = intValue2 / height;
-                    float f4 = (i2 - this.f28437d) - intValue;
-                    float f5 = (i3 - this.f28438e) - intValue2;
-                    ViewUtils.removeFromParent(this.f28435b);
-                    viewGroup.addView(this.f28435b, new FrameLayout.LayoutParams(width, height));
-                    this.f28435b.setPivotX(0.0f);
-                    this.f28435b.setPivotY(0.0f);
+                    float f4 = (i2 - this.f28275d) - intValue;
+                    float f5 = (i3 - this.f28276e) - intValue2;
+                    ViewUtils.removeFromParent(this.f28273b);
+                    viewGroup.addView(this.f28273b, new FrameLayout.LayoutParams(width, height));
+                    this.f28273b.setPivotX(0.0f);
+                    this.f28273b.setPivotY(0.0f);
                     if (z) {
-                        this.f28435b.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f4, f5, iArr, intValue, intValue2));
+                        this.f28273b.animate().scaleX(f2).scaleY(f3).x(f4).y(f5).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f4, f5, iArr, intValue, intValue2));
                         return true;
                     }
                     a(viewGroup2, f4, f5, iArr, intValue, intValue2);

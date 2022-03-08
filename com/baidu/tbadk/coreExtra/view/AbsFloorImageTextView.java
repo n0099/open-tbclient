@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.n;
-import c.a.t0.d1.p0;
-import c.a.u0.u2.s.c;
+import c.a.q0.c1.o0;
+import c.a.r0.u2.i.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int BOTTOM;
@@ -35,12 +35,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a f41028e;
+    public c.a f39434e;
     public ImageUrlData mAssistUrlData;
     public c mTbGestureDetector;
     public String mUserId;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // c.a.u0.u2.s.c.a
+        @Override // c.a.r0.u2.i.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // c.a.u0.u2.s.c.a
+        @Override // c.a.r0.u2.i.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // c.a.u0.u2.s.c.a
+        @Override // c.a.r0.u2.i.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -96,13 +96,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f41029h;
+        public final /* synthetic */ AbsFloorImageTextView f39435h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -122,10 +122,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41029h = absFloorImageTextView;
+            this.f39435h = absFloorImageTextView;
         }
 
-        @Override // c.a.u0.u2.s.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.r0.u2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // c.a.u0.u2.s.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.r0.u2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f41028e = aVar;
+        this.f39434e = aVar;
         this.mTbGestureDetector = new b(this, aVar);
     }
 
@@ -226,7 +226,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public Pair<Integer, Integer> measureTextViewHeightAndLine(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? p0.i(str, TEXT_SIZE, WIDTCH) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? o0.i(str, TEXT_SIZE, WIDTCH) : (Pair) invokeL.objValue;
     }
 
     public void setUserId(String str) {

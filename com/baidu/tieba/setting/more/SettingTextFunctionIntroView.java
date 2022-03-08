@@ -3,13 +3,12 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
-import c.a.t0.s.j0.b;
-import c.a.u0.o3.c;
-import c.a.u0.o3.d;
+import c.a.q0.r.j0.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
@@ -57,7 +56,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, c.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -67,7 +66,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             boolean z = versionData != null && versionData.hasNewVer();
             boolean h2 = b.k().h(HAS_SHOWN_FUNCTION_INTRO, false);
             if (!z && !h2) {
-                SkinManager.setBackgroundResource(this.tipView, d.icon_news_head_new);
+                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
             } else {
                 hideTip();
             }
@@ -94,6 +93,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, c.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
     }
 }

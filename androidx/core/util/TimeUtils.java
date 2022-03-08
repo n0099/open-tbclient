@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.PrintWriter;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -102,7 +103,7 @@ public final class TimeUtils {
             if (i8 == 0) {
                 int i9 = i2 - 1;
                 while (i9 > 0) {
-                    cArr[0] = ' ';
+                    cArr[0] = WebvttCueParser.CHAR_SPACE;
                 }
                 cArr[0] = '0';
                 return 1;
@@ -142,7 +143,7 @@ public final class TimeUtils {
                 int accumField4 = accumField3 + accumField(i5, 1, accumField3 > 0, 2);
                 i7 = 0;
                 for (int accumField5 = accumField4 + accumField(i10, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i2; accumField5++) {
-                    cArr[i7] = ' ';
+                    cArr[i7] = WebvttCueParser.CHAR_SPACE;
                     i7++;
                 }
             } else {

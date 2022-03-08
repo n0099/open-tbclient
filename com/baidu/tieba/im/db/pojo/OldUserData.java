@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class OldUserData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4483304441506804594L;
@@ -35,7 +35,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public long userId;
     public String userName;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;

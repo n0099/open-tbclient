@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.c;
-import c.a.b1.t.h;
+import c.a.y0.r.c;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,6 +15,6 @@ import kotlinx.android.parcel.Parceler;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS, AnnotationTarget.PROPERTY})
 @Retention(RetentionPolicy.SOURCE)
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public @interface TypeParceler<T, P extends Parceler<? super T>> {
 }

@@ -55,7 +55,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
@@ -465,7 +465,7 @@ public final class ShareUtils {
                     callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
                     return;
                 }
-                if (SapiUtils.checkRequestPermission(s.f55460i, context)) {
+                if (SapiUtils.checkRequestPermission(s.f53810i, context)) {
                     List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
                     if (shareModelsFromSdCard.size() > 0) {
                         ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
@@ -1052,7 +1052,7 @@ public final class ShareUtils {
                 int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                 int i2 = 1;
                 Log.d(TAG, "current login env is " + ordinal);
-                if (!SapiUtils.checkRequestPermission(s.f55460i, context)) {
+                if (!SapiUtils.checkRequestPermission(s.f53810i, context)) {
                     StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
                 }
                 StringBuilder sb = new StringBuilder();

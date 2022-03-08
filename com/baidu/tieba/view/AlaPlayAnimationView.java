@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f49188e;
+    public ObjectAnimator f47607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49189f;
+    public boolean f47608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49190g;
+    public boolean f47609g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -42,8 +42,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f49189f = false;
-        this.f49190g = false;
+        this.f47608f = false;
+        this.f47609g = false;
         a();
     }
 
@@ -51,12 +51,12 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f, 1.0f);
-            this.f49188e = ofFloat;
+            this.f47607e = ofFloat;
             ofFloat.setRepeatMode(1);
-            this.f49188e.setRepeatCount(-1);
-            this.f49188e.setDuration(700L);
+            this.f47607e.setRepeatCount(-1);
+            this.f47607e.setDuration(700L);
             setVisibility(8);
-            this.f49189f = false;
+            this.f47608f = false;
         }
     }
 
@@ -65,7 +65,7 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            if (this.f49190g) {
+            if (this.f47609g) {
                 startPlayAnimation();
             }
         }
@@ -83,32 +83,32 @@ public class AlaPlayAnimationView extends ImageView {
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f49190g = z;
+            this.f47609g = z;
         }
     }
 
     public void startPlayAnimation() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f49189f) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f47608f) {
             return;
         }
-        this.f49189f = true;
-        if (this.f49188e != null) {
+        this.f47608f = true;
+        if (this.f47607e != null) {
             setVisibility(0);
-            this.f49188e.start();
+            this.f47607e.start();
         }
     }
 
     public void stopPlayAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ObjectAnimator objectAnimator = this.f49188e;
+            ObjectAnimator objectAnimator = this.f47607e;
             if (objectAnimator != null) {
                 objectAnimator.setRepeatCount(-1);
-                this.f49188e.cancel();
+                this.f47607e.cancel();
                 clearAnimation();
             }
-            this.f49189f = false;
+            this.f47608f = false;
             setVisibility(8);
         }
     }
@@ -132,8 +132,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f49189f = false;
-        this.f49190g = false;
+        this.f47608f = false;
+        this.f47609g = false;
         a();
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.d0.v.v0.h;
+import c.a.b0.v.v0.h;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdVideoNewCacheView extends BdVideoCacheView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

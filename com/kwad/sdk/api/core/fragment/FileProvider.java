@@ -17,6 +17,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +26,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FileProvider extends ContentProvider {
     public static final String ATTR_NAME = "name";
     public static final String ATTR_PATH = "path";
@@ -44,7 +45,7 @@ public class FileProvider extends ContentProvider {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -55,7 +56,7 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class SimplePathStrategy implements PathStrategy {
         public final String mAuthority;
         public final HashMap<String, File> mRoots = new HashMap<>();
@@ -122,7 +123,7 @@ public class FileProvider extends ContentProvider {
                     length++;
                 }
                 String substring = canonicalPath.substring(length);
-                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
             } catch (IOException unused) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }

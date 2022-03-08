@@ -27,7 +27,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

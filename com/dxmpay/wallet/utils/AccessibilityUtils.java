@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AccessibilityUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f54246e;
+        public final /* synthetic */ View f52732e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class AccessibilityUtils {
                     return;
                 }
             }
-            this.f54246e = view;
+            this.f52732e = view;
         }
 
         @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class AccessibilityUtils {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 14) {
                 return;
             }
-            this.f54246e.sendAccessibilityEvent(128);
+            this.f52732e.sendAccessibilityEvent(128);
         }
     }
 

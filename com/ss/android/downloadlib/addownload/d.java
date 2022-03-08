@@ -9,18 +9,18 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.downloadlib.addownload.b.e f59725b;
+    public com.ss.android.downloadlib.addownload.b.e f58075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f59726c = new AtomicBoolean(false);
+    public AtomicBoolean f58076c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f59727d = new AtomicBoolean(false);
+    public AtomicBoolean f58077d = new AtomicBoolean(false);
 
     public d(Handler handler) {
         this.a = handler;
@@ -49,30 +49,30 @@ public class d {
     }
 
     public void a(com.ss.android.downloadlib.addownload.b.e eVar) {
-        this.f59725b = eVar;
+        this.f58075b = eVar;
     }
 
     public boolean a() {
-        return this.f59727d.get();
+        return this.f58077d.get();
     }
 
     public void a(boolean z) {
-        this.f59727d.set(z);
+        this.f58077d.set(z);
     }
 
     public void a(final int i2, final long j2, long j3, final e.a aVar) {
-        this.f59727d.set(false);
+        this.f58077d.set(false);
         if (aVar == null) {
             return;
         }
         if (com.ss.android.downloadlib.g.e.f(i2) && com.ss.android.downloadlib.g.e.e(i2)) {
             long c2 = com.ss.android.downloadlib.g.e.c(i2);
-            this.f59726c.set(false);
-            final String downloadUrl = this.f59725b.f59676b.getDownloadUrl();
+            this.f58076c.set(false);
+            final String downloadUrl = this.f58075b.f58026b.getDownloadUrl();
             com.ss.android.downloadad.api.a.b b2 = com.ss.android.downloadlib.addownload.b.f.a().b(downloadUrl);
             if (b2 == null) {
-                com.ss.android.downloadlib.addownload.b.e eVar = this.f59725b;
-                b2 = new com.ss.android.downloadad.api.a.b(eVar.f59676b, eVar.f59677c, eVar.f59678d, 0);
+                com.ss.android.downloadlib.addownload.b.e eVar = this.f58075b;
+                b2 = new com.ss.android.downloadad.api.a.b(eVar.f58026b, eVar.f58027c, eVar.f58028d, 0);
                 com.ss.android.downloadlib.addownload.b.f.a().a(b2);
             }
             final com.ss.android.downloadad.api.a.b bVar = b2;
@@ -97,10 +97,10 @@ public class d {
             this.a.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.addownload.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.f59726c.get()) {
+                    if (d.this.f58076c.get()) {
                         return;
                     }
-                    d.this.f59726c.set(true);
+                    d.this.f58076c.set(true);
                     aVar.a();
                 }
             }, c2);
@@ -116,10 +116,10 @@ public class d {
         com.ss.android.socialbase.downloader.network.a.b.a(str, new com.ss.android.socialbase.downloader.network.j() { // from class: com.ss.android.downloadlib.addownload.d.3
             @Override // com.ss.android.socialbase.downloader.network.j
             public void a(Map<String, String> map) {
-                if (d.this.f59726c.get()) {
+                if (d.this.f58076c.get()) {
                     return;
                 }
-                d.this.f59726c.set(true);
+                d.this.f58076c.set(true);
                 long a = d.this.a(map);
                 if (a > 0) {
                     JSONObject jSONObject = new JSONObject();
@@ -154,7 +154,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, String str, long j2, final com.ss.android.downloadad.api.a.b bVar, long j3, final e.a aVar) {
-        this.f59726c.set(true);
+        this.f58076c.set(true);
         boolean z = false;
         if (j2 > 0) {
             JSONObject jSONObject = new JSONObject();

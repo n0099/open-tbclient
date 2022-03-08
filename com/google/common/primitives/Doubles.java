@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
+import c.i.c.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -23,12 +23,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Doubles {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class DoubleArrayAsList extends AbstractList<Double> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -245,7 +245,7 @@ public final class Doubles {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class DoubleConverter extends Converter<String, Double> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final DoubleConverter INSTANCE;
@@ -312,7 +312,7 @@ public final class Doubles {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class LexicographicalComparator implements Comparator<double[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

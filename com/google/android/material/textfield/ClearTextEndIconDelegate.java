@@ -12,15 +12,15 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ClearTextEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_DURATION = 100;

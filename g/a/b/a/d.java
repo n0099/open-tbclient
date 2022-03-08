@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import io.flutter.plugin.platform.PlatformView;
 /* compiled from: PlatformView.java */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

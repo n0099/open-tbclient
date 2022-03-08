@@ -12,14 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.l0.j;
-import c.a.d0.l0.l;
-import c.a.d0.l0.m;
-import c.a.d0.l0.n;
-import c.a.d0.v.v0.f;
+import c.a.b0.v.v0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoBattery;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,32 +24,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdLayerTitleBarView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f37319e;
+    public final Context f35722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f37320f;
+    public RelativeLayout f35723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f37321g;
+    public ImageView f35724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37322h;
+    public TextView f35725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdVideoBattery f37323i;
+    public BdVideoBattery f35726i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdTextProgressView f37324j;
+    public BdTextProgressView f35727j;
     public a k;
     public View l;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onBack();
     }
@@ -81,18 +78,18 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f37319e).cloneInContext(this.f37319e).inflate(n.nad_videoplayer_bd_layer_control_titlebar_layout, this);
-            this.f37320f = (RelativeLayout) findViewById(m.main_container);
-            ImageView imageView = (ImageView) findViewById(m.main_title_back_button);
-            this.f37321g = imageView;
+            LayoutInflater.from(this.f35722e).cloneInContext(this.f35722e).inflate(R.layout.nad_videoplayer_bd_layer_control_titlebar_layout, this);
+            this.f35723f = (RelativeLayout) findViewById(R.id.main_container);
+            ImageView imageView = (ImageView) findViewById(R.id.main_title_back_button);
+            this.f35724g = imageView;
             imageView.setOnClickListener(this);
-            this.f37322h = (TextView) findViewById(m.main_title_text);
-            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(m.main_battery_view);
-            this.f37323i = bdVideoBattery;
-            bdVideoBattery.setImage(l.nad_videoplayer_player_batteryhull);
-            this.f37324j = (BdTextProgressView) findViewById(m.main_system_time_text);
+            this.f35725h = (TextView) findViewById(R.id.main_title_text);
+            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.main_battery_view);
+            this.f35726i = bdVideoBattery;
+            bdVideoBattery.setImage(R.drawable.nad_videoplayer_player_batteryhull);
+            this.f35727j = (BdTextProgressView) findViewById(R.id.main_system_time_text);
             updateTimeText();
-            this.l = findViewById(m.top_function_container);
+            this.l = findViewById(R.id.top_function_container);
         }
     }
 
@@ -116,7 +113,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f37321g) && (aVar = this.k) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f35724g) && (aVar = this.k) != null) {
             aVar.onBack();
         }
     }
@@ -124,7 +121,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setBatteryHullVisible(boolean z) {
         BdVideoBattery bdVideoBattery;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (bdVideoBattery = this.f37323i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (bdVideoBattery = this.f35726i) == null) {
             return;
         }
         bdVideoBattery.setVisibility(z ? 0 : 8);
@@ -149,7 +146,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setSystemTimeVisible(boolean z) {
         BdTextProgressView bdTextProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (bdTextProgressView = this.f37324j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (bdTextProgressView = this.f35727j) == null) {
             return;
         }
         bdTextProgressView.setVisibility(z ? 0 : 8);
@@ -158,9 +155,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setVideoTitle(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
-            this.f37322h.setText(str);
-            this.f37322h.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f37322h.setTextSize(0, i2);
+            this.f35725h.setText(str);
+            this.f35725h.setTypeface(Typeface.DEFAULT_BOLD);
+            this.f35725h.setTextSize(0, i2);
         }
     }
 
@@ -178,7 +175,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void updateTimeText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f37324j.setTimeText(String.format(Locale.US, "%02d:%02d", Integer.valueOf(Calendar.getInstance().get(11)), Integer.valueOf(Calendar.getInstance().get(12))));
+            this.f35727j.setTimeText(String.format(Locale.US, "%02d:%02d", Integer.valueOf(Calendar.getInstance().get(11)), Integer.valueOf(Calendar.getInstance().get(12))));
         }
     }
 
@@ -201,10 +198,10 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
                 return;
             }
         }
-        this.f37322h = null;
-        this.f37323i = null;
-        this.f37324j = null;
-        this.f37319e = context;
+        this.f35725h = null;
+        this.f35726i = null;
+        this.f35727j = null;
+        this.f35722e = context;
         a();
     }
 
@@ -212,9 +209,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                this.f37320f.setBackgroundColor(getContext().getResources().getColor(j.nad_videoplayer_transparent));
+                this.f35723f.setBackgroundColor(getContext().getResources().getColor(R.color.nad_videoplayer_transparent));
             } else {
-                this.f37320f.setBackground(getContext().getResources().getDrawable(l.nad_videoplayer_control_title_background));
+                this.f35723f.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_control_title_background));
             }
             show(z);
         }

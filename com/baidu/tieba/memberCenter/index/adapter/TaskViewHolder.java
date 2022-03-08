@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.u0.h2.c.i;
-import c.a.u0.h2.c.k.q;
+import c.a.r0.h2.c.i;
+import c.a.r0.h2.c.k.q;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f46077b;
+    public View.OnClickListener f44485b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -37,7 +37,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f46077b = onClickListener;
+        this.f44485b = onClickListener;
         this.a = new i(view, baseFragmentActivity, onClickListener);
     }
 
@@ -54,7 +54,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f46077b = onClickListener;
+            this.f44485b = onClickListener;
         }
     }
 }

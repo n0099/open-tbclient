@@ -1,5 +1,5 @@
 package com.facebook.common.memory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface MemoryTrimmableRegistry {
     void registerMemoryTrimmable(MemoryTrimmable memoryTrimmable);
 

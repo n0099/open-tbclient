@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NormalizeGuestAccountResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_PARSE_XML = -601;

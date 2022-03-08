@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.InterviewLiveLayout;
 import com.baidu.card.view.RoundCornerFrameLayout;
@@ -79,11 +79,11 @@ public class r extends t0 {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4423j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4077j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.u0.g0.b0<c.a.t0.s.r.a> b0Var) {
+    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
             this.C.setSubClickListener(b0Var);
@@ -103,21 +103,21 @@ public class r extends t0 {
     }
 
     @Override // c.a.l.t0
-    public c.a.u0.b3.v.a p() {
+    public c.a.r0.a3.v.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.u0.b3.v.b bVar = new c.a.u0.b3.v.b(this.f4353f, this.m);
+            c.a.r0.a3.v.b bVar = new c.a.r0.a3.v.b(this.f4007f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
-        return (c.a.u0.b3.v.a) invokeV.objValue;
+        return (c.a.r0.a3.v.a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.t0, c.a.l.p
     /* renamed from: q */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.l = aVar;
@@ -144,13 +144,13 @@ public class r extends t0 {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View inflate = LayoutInflater.from(this.f4353f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
-            this.f4423j = inflate;
+            View inflate = LayoutInflater.from(this.f4007f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f4077j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-            this.E = (TextView) this.f4423j.findViewById(R.id.video_seg_abstract);
-            this.m = (RoundCornerFrameLayout) this.f4423j.findViewById(R.id.frame_video);
-            this.C = (InterviewLiveLayout) this.f4423j.findViewById(R.id.frame_interview_no_video);
-            c.a.u0.b3.v.a p = p();
+            this.E = (TextView) this.f4077j.findViewById(R.id.video_seg_abstract);
+            this.m = (RoundCornerFrameLayout) this.f4077j.findViewById(R.id.frame_video);
+            this.C = (InterviewLiveLayout) this.f4077j.findViewById(R.id.frame_interview_no_video);
+            c.a.r0.a3.v.a p = p();
             this.n = p;
             p.getMainView().setBackgroundResource(R.color.transparent);
         }

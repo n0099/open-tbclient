@@ -23,6 +23,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.ripple.RippleUtils;
@@ -40,7 +40,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialCardViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
@@ -126,9 +126,9 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, R.styleable.CardView, i2, R.style.CardView);
-        if (obtainStyledAttributes.hasValue(R.styleable.CardView_cardCornerRadius)) {
-            builder.setAllCornerSizes(obtainStyledAttributes.getDimension(R.styleable.CardView_cardCornerRadius, 0.0f));
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i2, R.style.CardView);
+        if (obtainStyledAttributes.hasValue(3)) {
+            builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
@@ -503,23 +503,23 @@ public class MaterialCardViewHelper {
     public void loadFromAttributes(@NonNull TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, typedArray) == null) {
-            ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_strokeColor);
+            ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 8);
             this.strokeColor = colorStateList;
             if (colorStateList == null) {
                 this.strokeColor = ColorStateList.valueOf(-1);
             }
-            this.strokeWidth = typedArray.getDimensionPixelSize(R.styleable.MaterialCardView_strokeWidth, 0);
-            boolean z = typedArray.getBoolean(R.styleable.MaterialCardView_android_checkable, false);
+            this.strokeWidth = typedArray.getDimensionPixelSize(9, 0);
+            boolean z = typedArray.getBoolean(0, false);
             this.checkable = z;
             this.materialCardView.setLongClickable(z);
-            this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_checkedIconTint);
-            setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_checkedIcon));
-            ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_rippleColor);
+            this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 3);
+            setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, 2));
+            ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 4);
             this.rippleColor = colorStateList2;
             if (colorStateList2 == null) {
                 this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.colorControlHighlight));
             }
-            setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, R.styleable.MaterialCardView_cardForegroundColor));
+            setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 1));
             updateRippleColor();
             updateElevation();
             updateStroke();

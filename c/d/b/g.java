@@ -21,20 +21,20 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.CertificatePinner;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f28166c;
+    public static final g f28070c;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<b> a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.d.b.e0.p.c f28167b;
+    public final c.d.b.e0.p.c f28071b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,20 +63,20 @@ public final class g {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28168b;
+        public final String f28072b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28169c;
+        public final String f28073c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ByteString f28170d;
+        public final ByteString f28074d;
 
         public boolean a(String str) {
             InterceptResult invokeL;
@@ -84,15 +84,15 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if (this.a.startsWith(CertificatePinner.Pin.WILDCARD)) {
                     int indexOf = str.indexOf(46);
-                    if ((str.length() - indexOf) - 1 == this.f28168b.length()) {
-                        String str2 = this.f28168b;
+                    if ((str.length() - indexOf) - 1 == this.f28072b.length()) {
+                        String str2 = this.f28072b;
                         if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
                             return true;
                         }
                     }
                     return false;
                 }
-                return str.equals(this.f28168b);
+                return str.equals(this.f28072b);
             }
             return invokeL.booleanValue;
         }
@@ -103,7 +103,7 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (this.a.equals(bVar.a) && this.f28169c.equals(bVar.f28169c) && this.f28170d.equals(bVar.f28170d)) {
+                    if (this.a.equals(bVar.a) && this.f28073c.equals(bVar.f28073c) && this.f28074d.equals(bVar.f28074d)) {
                         return true;
                     }
                 }
@@ -115,14 +115,14 @@ public final class g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28169c.hashCode()) * 31) + this.f28170d.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28073c.hashCode()) * 31) + this.f28074d.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f28169c + this.f28170d.base64();
+                return this.f28073c + this.f28074d.base64();
             }
             return (String) invokeV.objValue;
         }
@@ -141,7 +141,7 @@ public final class g {
                 return;
             }
         }
-        f28166c = new a().a();
+        f28070c = new a().a();
     }
 
     public g(Set<b> set, @Nullable c.d.b.e0.p.c cVar) {
@@ -160,7 +160,7 @@ public final class g {
             }
         }
         this.a = set;
-        this.f28167b = cVar;
+        this.f28071b = cVar;
     }
 
     public static String c(Certificate certificate) {
@@ -194,7 +194,7 @@ public final class g {
             if (b2.isEmpty()) {
                 return;
             }
-            c.d.b.e0.p.c cVar = this.f28167b;
+            c.d.b.e0.p.c cVar = this.f28071b;
             if (cVar != null) {
                 list = cVar.a(list, str);
             }
@@ -206,22 +206,22 @@ public final class g {
                 ByteString byteString2 = null;
                 for (int i3 = 0; i3 < size2; i3++) {
                     b bVar = b2.get(i3);
-                    if (bVar.f28169c.equals("sha256/")) {
+                    if (bVar.f28073c.equals("sha256/")) {
                         if (byteString == null) {
                             byteString = e(x509Certificate);
                         }
-                        if (bVar.f28170d.equals(byteString)) {
+                        if (bVar.f28074d.equals(byteString)) {
                             return;
                         }
-                    } else if (bVar.f28169c.equals("sha1/")) {
+                    } else if (bVar.f28073c.equals("sha1/")) {
                         if (byteString2 == null) {
                             byteString2 = d(x509Certificate);
                         }
-                        if (bVar.f28170d.equals(byteString2)) {
+                        if (bVar.f28074d.equals(byteString2)) {
                             return;
                         }
                     } else {
-                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28169c);
+                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28073c);
                     }
                 }
             }
@@ -275,7 +275,7 @@ public final class g {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (c.d.b.e0.e.p(this.f28167b, gVar.f28167b) && this.a.equals(gVar.a)) {
+                if (c.d.b.e0.e.p(this.f28071b, gVar.f28071b) && this.a.equals(gVar.a)) {
                     return true;
                 }
             }
@@ -287,14 +287,14 @@ public final class g {
     public g f(@Nullable c.d.b.e0.p.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? c.d.b.e0.e.p(this.f28167b, cVar) ? this : new g(this.a, cVar) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? c.d.b.e0.e.p(this.f28071b, cVar) ? this : new g(this.a, cVar) : (g) invokeL.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.d.b.e0.p.c cVar = this.f28167b;
+            c.d.b.e0.p.c cVar = this.f28071b;
             return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.a.hashCode();
         }
         return invokeV.intValue;

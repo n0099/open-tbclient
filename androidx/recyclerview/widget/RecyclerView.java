@@ -54,14 +54,15 @@ import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.EdgeEffectCompat;
 import androidx.customview.view.AbsSavedState;
-import androidx.recyclerview.R;
+import androidx.recyclerview.R$attr;
+import androidx.recyclerview.R$dimen;
+import androidx.recyclerview.R$styleable;
 import androidx.recyclerview.widget.AdapterHelper;
 import androidx.recyclerview.widget.ChildHelper;
 import androidx.recyclerview.widget.GapWorker;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import androidx.recyclerview.widget.ViewBoundsCheck;
 import androidx.recyclerview.widget.ViewInfoStore;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1338,11 +1339,11 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, context, attributeSet, i2, i3)) == null) {
                 Properties properties = new Properties();
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RecyclerView, i2, i3);
-                properties.orientation = obtainStyledAttributes.getInt(R.styleable.RecyclerView_android_orientation, 1);
-                properties.spanCount = obtainStyledAttributes.getInt(R.styleable.RecyclerView_spanCount, 1);
-                properties.reverseLayout = obtainStyledAttributes.getBoolean(R.styleable.RecyclerView_reverseLayout, false);
-                properties.stackFromEnd = obtainStyledAttributes.getBoolean(R.styleable.RecyclerView_stackFromEnd, false);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.RecyclerView, i2, i3);
+                properties.orientation = obtainStyledAttributes.getInt(R$styleable.RecyclerView_android_orientation, 1);
+                properties.spanCount = obtainStyledAttributes.getInt(R$styleable.RecyclerView_spanCount, 1);
+                properties.reverseLayout = obtainStyledAttributes.getBoolean(R$styleable.RecyclerView_reverseLayout, false);
+                properties.stackFromEnd = obtainStyledAttributes.getBoolean(R$styleable.RecyclerView_stackFromEnd, false);
                 obtainStyledAttributes.recycle();
                 return properties;
             }
@@ -5544,7 +5545,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
                 String simpleName = getClass().isAnonymousClass() ? "ViewHolder" : getClass().getSimpleName();
-                StringBuilder sb = new StringBuilder(simpleName + StringUtil.ARRAY_START + Integer.toHexString(hashCode()) + " position=" + this.mPosition + " id=" + this.mItemId + ", oldPos=" + this.mOldPosition + ", pLpos:" + this.mPreLayoutPosition);
+                StringBuilder sb = new StringBuilder(simpleName + "{" + Integer.toHexString(hashCode()) + " position=" + this.mPosition + " id=" + this.mItemId + ", oldPos=" + this.mOldPosition + ", pLpos:" + this.mPreLayoutPosition);
                 if (isScrap()) {
                     sb.append(" scrap ");
                     sb.append(this.mInChangeScrap ? "[changeScrap]" : "[attachedScrap]");
@@ -7992,7 +7993,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         if (interceptable == null || interceptable.invokeLLLL(1048670, this, stateListDrawable, drawable, stateListDrawable2, drawable2) == null) {
             if (stateListDrawable != null && drawable != null && stateListDrawable2 != null && drawable2 != null) {
                 Resources resources = getContext().getResources();
-                new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(R.dimen.fastscroll_default_thickness), resources.getDimensionPixelSize(R.dimen.fastscroll_minimum_range), resources.getDimensionPixelOffset(R.dimen.fastscroll_margin));
+                new FastScroller(this, stateListDrawable, drawable, stateListDrawable2, drawable2, resources.getDimensionPixelSize(R$dimen.fastscroll_default_thickness), resources.getDimensionPixelSize(R$dimen.fastscroll_minimum_range), resources.getDimensionPixelOffset(R$dimen.fastscroll_margin));
                 return;
             }
             throw new IllegalArgumentException("Trying to set fast scroller without both required drawables." + exceptionLabel());
@@ -9489,7 +9490,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.recyclerViewStyle);
+        this(context, attributeSet, R$attr.recyclerViewStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -9815,19 +9816,19 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
         this.mAccessibilityManager = (AccessibilityManager) getContext().getSystemService("accessibility");
         setAccessibilityDelegateCompat(new RecyclerViewAccessibilityDelegate(this));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RecyclerView, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.RecyclerView, i2, 0);
         if (Build.VERSION.SDK_INT >= 29) {
-            saveAttributeDataForStyleable(context, R.styleable.RecyclerView, attributeSet, obtainStyledAttributes, i2, 0);
+            saveAttributeDataForStyleable(context, R$styleable.RecyclerView, attributeSet, obtainStyledAttributes, i2, 0);
         }
-        String string = obtainStyledAttributes.getString(R.styleable.RecyclerView_layoutManager);
-        if (obtainStyledAttributes.getInt(R.styleable.RecyclerView_android_descendantFocusability, -1) == -1) {
+        String string = obtainStyledAttributes.getString(R$styleable.RecyclerView_layoutManager);
+        if (obtainStyledAttributes.getInt(R$styleable.RecyclerView_android_descendantFocusability, -1) == -1) {
             setDescendantFocusability(262144);
         }
-        this.mClipToPadding = obtainStyledAttributes.getBoolean(R.styleable.RecyclerView_android_clipToPadding, true);
-        boolean z2 = obtainStyledAttributes.getBoolean(R.styleable.RecyclerView_fastScrollEnabled, false);
+        this.mClipToPadding = obtainStyledAttributes.getBoolean(R$styleable.RecyclerView_android_clipToPadding, true);
+        boolean z2 = obtainStyledAttributes.getBoolean(R$styleable.RecyclerView_fastScrollEnabled, false);
         this.mEnableFastScroller = z2;
         if (z2) {
-            initFastScroller((StateListDrawable) obtainStyledAttributes.getDrawable(R.styleable.RecyclerView_fastScrollVerticalThumbDrawable), obtainStyledAttributes.getDrawable(R.styleable.RecyclerView_fastScrollVerticalTrackDrawable), (StateListDrawable) obtainStyledAttributes.getDrawable(R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable), obtainStyledAttributes.getDrawable(R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable));
+            initFastScroller((StateListDrawable) obtainStyledAttributes.getDrawable(R$styleable.RecyclerView_fastScrollVerticalThumbDrawable), obtainStyledAttributes.getDrawable(R$styleable.RecyclerView_fastScrollVerticalTrackDrawable), (StateListDrawable) obtainStyledAttributes.getDrawable(R$styleable.RecyclerView_fastScrollHorizontalThumbDrawable), obtainStyledAttributes.getDrawable(R$styleable.RecyclerView_fastScrollHorizontalTrackDrawable));
         }
         obtainStyledAttributes.recycle();
         createLayoutManager(context, string, attributeSet, i2, 0);

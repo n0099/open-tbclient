@@ -1,45 +1,40 @@
 package c.q.a;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Message;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import org.json.JSONException;
-/* loaded from: classes9.dex */
-public class l3 extends WebViewClient {
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+/* loaded from: classes3.dex */
+public class l3 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public com.win.opensdk.k0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f30604b;
+    public final /* synthetic */ String f29019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f30605c;
+    public final /* synthetic */ boolean f29020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f30606d;
+    public final /* synthetic */ a4 f29021d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ o3 f30607e;
-
-    public l3(o3 o3Var, Context context, Info info, String str) {
+    public l3(a4 a4Var, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o3Var, context, info, str};
+            Object[] objArr = {a4Var, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,72 +44,195 @@ public class l3 extends WebViewClient {
                 return;
             }
         }
-        this.f30607e = o3Var;
-        this.f30604b = context;
-        this.f30605c = info;
-        this.f30606d = str;
+        this.f29021d = a4Var;
+        this.f29019b = str;
+        this.f29020c = z;
     }
 
-    public final boolean a(String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00aa A[Catch: all -> 0x00d0, TRY_LEAVE, TryCatch #0 {all -> 0x00d0, blocks: (B:43:0x00a4, B:45:0x00aa), top: B:75:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00bf A[Catch: Exception -> 0x00bb, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00c7 A[Catch: Exception -> 0x00bb, TRY_LEAVE, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // android.os.AsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Object doInBackground(Object[] objArr) {
         InterceptResult invokeL;
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Bitmap decodeStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Uri parse = Uri.parse(str);
-            if (o3.b(parse) || o3.c(parse)) {
-                this.a = true;
-                if (!a2.b(this.f30604b, parse, null)) {
-                    d3.a(this.f30604b, parse);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-            this.f30607e.f30638c.removeMessages(11);
-            if (this.a) {
-                return;
-            }
-            y2 a = c3.a(this.f30604b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            Void[] voidArr = (Void[]) objArr;
+            int i2 = 1;
             try {
-                a.f30763b = c3.d("ps", new g3(this.f30605c));
-                a.k("co", 2004);
-                a.l("msg", str);
-            } catch (JSONException unused) {
+                httpURLConnection = (HttpURLConnection) new URL(this.f29019b).openConnection();
+            } catch (Throwable th) {
+                th = th;
+                httpURLConnection = null;
             }
-            a.m();
-            Message obtain = Message.obtain();
-            obtain.what = 12;
-            obtain.obj = this.f30606d;
-            this.f30607e.f30638c.sendMessage(obtain);
+            try {
+                try {
+                    if (this.f29020c) {
+                        httpURLConnection.connect();
+                        int contentLength = httpURLConnection.getContentLength();
+                        if (contentLength <= 0) {
+                            this.a = new com.win.opensdk.k0("Invalid content length. The URL is probably not pointing to a file");
+                            cancel(true);
+                        }
+                        inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
+                        byteArrayOutputStream = new ByteArrayOutputStream();
+                        try {
+                            byte[] bArr = new byte[8192];
+                            long j2 = 0;
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                j2 += read;
+                                byteArrayOutputStream.write(bArr, 0, read);
+                                Integer[] numArr = new Integer[i2];
+                                numArr[0] = Integer.valueOf((int) ((100 * j2) / contentLength));
+                                publishProgress(numArr);
+                                i2 = 1;
+                            }
+                            decodeStream = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
+                            byteArrayOutputStream2 = byteArrayOutputStream;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            try {
+                                if (!isCancelled()) {
+                                    this.a = new com.win.opensdk.k0(th);
+                                    cancel(true);
+                                }
+                                if (httpURLConnection != null) {
+                                    try {
+                                        httpURLConnection.disconnect();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        return null;
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    byteArrayOutputStream.flush();
+                                    byteArrayOutputStream.close();
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                return null;
+                            } catch (Throwable th3) {
+                                if (httpURLConnection != null) {
+                                    try {
+                                        httpURLConnection.disconnect();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                        throw th3;
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    byteArrayOutputStream.flush();
+                                    byteArrayOutputStream.close();
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                throw th3;
+                            }
+                        }
+                    } else {
+                        inputStream = httpURLConnection.getInputStream();
+                        decodeStream = BitmapFactory.decodeStream(inputStream);
+                        byteArrayOutputStream2 = null;
+                    }
+                    if (httpURLConnection != null) {
+                        try {
+                            httpURLConnection.disconnect();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    if (byteArrayOutputStream2 != null) {
+                        byteArrayOutputStream2.flush();
+                        byteArrayOutputStream2.close();
+                    }
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    return decodeStream;
+                } catch (Throwable th4) {
+                    th = th4;
+                    byteArrayOutputStream = null;
+                    if (!isCancelled()) {
+                    }
+                    if (httpURLConnection != null) {
+                    }
+                    if (byteArrayOutputStream != null) {
+                    }
+                    if (inputStream != null) {
+                    }
+                    return null;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                inputStream = null;
+                byteArrayOutputStream = null;
+                if (!isCancelled()) {
+                }
+                if (httpURLConnection != null) {
+                }
+                if (byteArrayOutputStream != null) {
+                }
+                if (inputStream != null) {
+                }
+                return null;
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f29021d.f28912b.remove(this.f29019b);
+            this.f29021d.a.a(this.a);
         }
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (bitmap == null) {
+                this.f29021d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
+            } else {
+                this.f29021d.a.a(bitmap);
+            }
+            this.f29021d.f28912b.remove(this.f29019b);
+            System.gc();
         }
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
+    @Override // android.os.AsyncTask
+    public void onPreExecute() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, webResourceRequest)) == null) ? Build.VERSION.SDK_INT >= 24 ? a(webResourceRequest.getUrl().toString()) : super.shouldOverrideUrlLoading(webView, webResourceRequest) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f29021d.f28912b.add(this.f29019b);
+        }
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
+    @Override // android.os.AsyncTask
+    public void onProgressUpdate(Object[] objArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) ? Build.VERSION.SDK_INT < 24 ? a(str) : super.shouldOverrideUrlLoading(webView, str) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
+            this.f29021d.a.a(((Integer[]) objArr)[0].intValue());
+        }
     }
 }

@@ -13,13 +13,13 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class j extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f30888g;
+    public g f29292g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, Method method, int i2, String str, byte[] bArr, boolean z) {
@@ -40,7 +40,7 @@ public final class j extends a {
                 return;
             }
         }
-        this.f30888g = gVar;
+        this.f29292g = gVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.v
@@ -48,15 +48,15 @@ public final class j extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o oVar = new o(this.f30888g.a());
-            oVar.a(this.f30869b);
-            oVar.a(this.f30872e);
-            oVar.a(this.f30873f);
-            oVar.a("id", String.valueOf(this.f30871d));
-            oVar.a("operationType", this.f30870c);
-            oVar.a("gzip", String.valueOf(this.f30888g.d()));
+            o oVar = new o(this.f29292g.a());
+            oVar.a(this.f29273b);
+            oVar.a(this.f29276e);
+            oVar.a(this.f29277f);
+            oVar.a("id", String.valueOf(this.f29275d));
+            oVar.a("operationType", this.f29274c);
+            oVar.a("gzip", String.valueOf(this.f29292g.d()));
             oVar.a(new BasicHeader("uuid", UUID.randomUUID().toString()));
-            List<Header> b2 = this.f30888g.c().b();
+            List<Header> b2 = this.f29292g.c().b();
             if (b2 != null && !b2.isEmpty()) {
                 for (Header header : b2) {
                     oVar.a(header);
@@ -67,7 +67,7 @@ public final class j extends a {
             sb.append("; ");
             sb.append(oVar.toString());
             try {
-                u uVar = this.f30888g.b().a(oVar).get();
+                u uVar = this.f29292g.b().a(oVar).get();
                 if (uVar != null) {
                     return uVar.b();
                 }

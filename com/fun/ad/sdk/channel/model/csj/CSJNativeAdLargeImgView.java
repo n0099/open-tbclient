@@ -6,27 +6,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.channel.csj.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.csj.e0;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CSJNativeAdLargeImgView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f54297f;
+    public ImageView f52783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f54298g;
+    public float f52784g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeImgView(Context context) {
@@ -46,7 +46,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f54298g = 1.78f;
+        this.f52784g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,7 +68,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f54298g = 1.78f;
+        this.f52784g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,7 +90,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f54298g = 1.78f;
+        this.f52784g = 1.78f;
     }
 
     @Override // com.fun.module.csj.e0
@@ -104,8 +104,8 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
             LogPrinter.d("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f54298g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54297f);
+            this.f52784g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f52783f);
             LogPrinter.d("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
         }
     }
@@ -115,7 +115,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54297f = (ImageView) findViewById(R.id.ad_img);
+            this.f52783f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -124,11 +124,11 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54297f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52783f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f54298g);
-            this.f54297f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f52784g);
+            this.f52783f.setLayoutParams(layoutParams);
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class StorageFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIRECTORY_COUNT = 20;

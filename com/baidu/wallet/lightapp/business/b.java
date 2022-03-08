@@ -2,7 +2,6 @@ package com.baidu.wallet.lightapp.business;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.apollon.utils.DxmApplicationContextImpl;
@@ -22,32 +21,32 @@ import com.yy.hiidostatis.inner.FlushManager;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f51801b;
+    public JSONObject f50220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f51802c;
+    public final byte[] f50221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51803d;
+    public long f50222d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51804e;
+    public String f50223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f51805f;
+    public String[] f50224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f51806g;
+    public String[] f50225g;
 
     /* renamed from: com.baidu.wallet.lightapp.business.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class AnonymousClass1 implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +69,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
@@ -106,19 +105,19 @@ public class b {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            synchronized (this.f51802c) {
+            synchronized (this.f50221c) {
                 String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN_INT};
-                this.f51805f = strArr;
-                this.f51806g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
-                this.f51803d = FlushManager.ReportTimer.DEFAULT_INTERVAL;
-                this.f51804e = "";
+                this.f50224f = strArr;
+                this.f50225g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
+                this.f50222d = FlushManager.ReportTimer.DEFAULT_INTERVAL;
+                this.f50223e = "";
                 Arrays.sort(strArr);
-                Arrays.sort(this.f51806g);
+                Arrays.sort(this.f50225g);
                 JSONObject jSONObject = new JSONObject();
-                this.f51801b = jSONObject;
+                this.f50220b = jSONObject;
                 try {
-                    jSONObject.put("domains", this.f51805f);
-                    this.f51801b.put("packages", this.f51806g);
+                    jSONObject.put("domains", this.f50224f);
+                    this.f50220b.put("packages", this.f50225g);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -132,16 +131,16 @@ public class b {
         String[] strArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            StringBuilder sb = new StringBuilder(StringUtil.ARRAY_START);
+            StringBuilder sb = new StringBuilder("{");
             sb.append("\"");
             sb.append("domains");
             sb.append("\":[");
-            for (String str : this.f51805f) {
+            for (String str : this.f50224f) {
                 sb.append("\"");
                 sb.append(str);
                 sb.append("\",");
             }
-            if (this.f51805f.length > 0) {
+            if (this.f50224f.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -149,12 +148,12 @@ public class b {
             sb.append("\"");
             sb.append("packages");
             sb.append("\":[");
-            for (String str2 : this.f51806g) {
+            for (String str2 : this.f50225g) {
                 sb.append("\"");
                 sb.append(str2);
                 sb.append("\",");
             }
-            if (this.f51806g.length > 0) {
+            if (this.f50225g.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -163,13 +162,13 @@ public class b {
             sb.append(TaskInfo.keyFingerprint);
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f51804e);
+            sb.append(this.f50223e);
             sb.append("\",");
             sb.append("\"");
             sb.append("interval");
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f51803d);
+            sb.append(this.f50222d);
             sb.append("\"}");
             return sb.toString();
         }
@@ -189,7 +188,7 @@ public class b {
                 return;
             }
         }
-        this.f51802c = new byte[0];
+        this.f50221c = new byte[0];
         b();
     }
 
@@ -208,28 +207,28 @@ public class b {
     public void a(Context context, LangBridgeCfg langBridgeCfg) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, langBridgeCfg) == null) && a(context) && langBridgeCfg.checkResponseValidity()) {
-            synchronized (this.f51802c) {
+            synchronized (this.f50221c) {
                 LangBridgeCfg.LbConfig lbConfig = langBridgeCfg.lbconfig;
-                if (this.f51804e.equals(lbConfig.fingerprint)) {
+                if (this.f50223e.equals(lbConfig.fingerprint)) {
                     return;
                 }
                 if (lbConfig.domains != null) {
                     String[] strArr = (String[]) Arrays.copyOf(lbConfig.domains, lbConfig.domains.length);
-                    this.f51805f = strArr;
+                    this.f50224f = strArr;
                     Arrays.sort(strArr);
                 } else {
-                    this.f51805f = new String[0];
+                    this.f50224f = new String[0];
                 }
                 if (lbConfig.packages != null) {
                     String[] strArr2 = (String[]) Arrays.copyOf(lbConfig.packages, lbConfig.packages.length);
-                    this.f51806g = strArr2;
+                    this.f50225g = strArr2;
                     Arrays.sort(strArr2);
                 } else {
-                    this.f51806g = new String[0];
+                    this.f50225g = new String[0];
                 }
-                this.f51804e = lbConfig.fingerprint;
+                this.f50223e = lbConfig.fingerprint;
                 if (0 <= lbConfig.interval) {
-                    this.f51803d = lbConfig.interval * 60000;
+                    this.f50222d = lbConfig.interval * 60000;
                 }
                 SharedPreferencesUtils.setParam(this.a, "langbridge", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, c());
                 SharedPreferencesUtils.setParam(this.a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));

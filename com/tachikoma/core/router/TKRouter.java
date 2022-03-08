@@ -14,7 +14,7 @@ import com.tachikoma.core.manager.RouterManager;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKRouter implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

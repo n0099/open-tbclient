@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.u0.h2.c.k.d;
+import c.a.r0.h2.c.k.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,37 +19,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46019e;
+    public Context f44427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46020f;
+    public View f44428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46021g;
+    public TextView f44429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46022h;
+    public TextView f44430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f46023i;
+    public ImageView f44431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f46024j;
+    public d f44432j;
     public View.OnClickListener k;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CategoryView f46025e;
+        public final /* synthetic */ CategoryView f44433e;
 
         public a(CategoryView categoryView) {
             Interceptable interceptable = $ic;
@@ -66,16 +66,16 @@ public class CategoryView extends LinearLayout {
                     return;
                 }
             }
-            this.f46025e = categoryView;
+            this.f44433e = categoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f46025e.f46024j == null || StringUtils.isNull(this.f46025e.f46024j.d()) || StringUtils.isNull(this.f46025e.f46024j.c())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f44433e.f44432j == null || StringUtils.isNull(this.f44433e.f44432j.d()) || StringUtils.isNull(this.f44433e.f44432j.c())) {
                 return;
             }
-            int b2 = this.f46025e.f46024j.b();
+            int b2 = this.f44433e.f44432j.b();
             if (b2 == 1) {
                 TiebaStatic.log("c10441");
             } else if (b2 == 2) {
@@ -83,7 +83,7 @@ public class CategoryView extends LinearLayout {
             } else if (b2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(this.f46025e.f46019e), new String[]{this.f46025e.f46024j.d()});
+            MemberCenterStatic.a((TbPageContext) j.a(this.f44433e.f44427e), new String[]{this.f44433e.f44432j.d()});
         }
     }
 
@@ -106,20 +106,20 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f46019e = context;
+        this.f44427e = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f46019e).inflate(R.layout.index_category, this);
-            this.f46020f = inflate;
-            this.f46021g = (TextView) inflate.findViewById(R.id.class_name);
-            this.f46022h = (TextView) this.f46020f.findViewById(R.id.sprend_name);
-            this.f46023i = (ImageView) this.f46020f.findViewById(R.id.spread_icon);
-            this.f46020f.setOnClickListener(this.k);
-            this.f46023i.setOnClickListener(this.k);
+            View inflate = LayoutInflater.from(this.f44427e).inflate(R.layout.index_category, this);
+            this.f44428f = inflate;
+            this.f44429g = (TextView) inflate.findViewById(R.id.class_name);
+            this.f44430h = (TextView) this.f44428f.findViewById(R.id.sprend_name);
+            this.f44431i = (ImageView) this.f44428f.findViewById(R.id.spread_icon);
+            this.f44428f.setOnClickListener(this.k);
+            this.f44431i.setOnClickListener(this.k);
         }
     }
 
@@ -128,26 +128,26 @@ public class CategoryView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f46024j = dVar;
-        this.f46021g.setText(dVar.a());
+        this.f44432j = dVar;
+        this.f44429g.setText(dVar.a());
         if (StringUtils.isNull(dVar.d())) {
-            this.f46023i.setVisibility(8);
-            this.f46022h.setVisibility(8);
+            this.f44431i.setVisibility(8);
+            this.f44430h.setVisibility(8);
             return;
         }
         if (StringUtils.isNull(dVar.c())) {
-            this.f46022h.setVisibility(8);
+            this.f44430h.setVisibility(8);
         } else {
-            this.f46022h.setVisibility(0);
-            this.f46022h.setText(dVar.c());
+            this.f44430h.setVisibility(0);
+            this.f44430h.setText(dVar.c());
         }
-        this.f46023i.setVisibility(0);
+        this.f44431i.setVisibility(0);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.x0.a.a((TbPageContext) j.a(this.f46019e), this.f46020f);
+            c.a.q0.w0.a.a((TbPageContext) j.a(this.f44427e), this.f44428f);
         }
     }
 
@@ -171,7 +171,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f46019e = context;
+        this.f44427e = context;
         c();
     }
 
@@ -195,7 +195,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f46019e = context;
+        this.f44427e = context;
         c();
     }
 }

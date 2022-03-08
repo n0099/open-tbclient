@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class h1 implements z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ o1 a;
+    public final /* synthetic */ j1 a;
 
-    public h1(o1 o1Var) {
+    public h1(j1 j1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o1Var};
+            Object[] objArr = {j1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -26,7 +26,7 @@ public class h1 implements z {
                 return;
             }
         }
-        this.a = o1Var;
+        this.a = j1Var;
     }
 
     @Override // c.q.a.z
@@ -41,15 +41,15 @@ public class h1 implements z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.o.removeMessages(11);
-            this.a.f30633g = true;
-            y2 a = c3.a(this.a.f30632f);
-            a.e(new g3(this.a.f30636j), 200, System.currentTimeMillis() - this.a.n);
+            this.a.f28999g = true;
+            t2 a = x2.a(this.a.f28998f);
+            a.e(new b3(this.a.f29002j), 200, System.currentTimeMillis() - this.a.n);
             a.m();
-            o1 o1Var = this.a;
-            if (o1Var.f30635i) {
+            j1 j1Var = this.a;
+            if (j1Var.f29001i) {
                 return;
             }
-            o1Var.l.onLoaded();
+            j1Var.l.onLoaded();
         }
     }
 }

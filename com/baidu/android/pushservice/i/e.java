@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataOutputStream f32493b;
+    public DataOutputStream f30896b;
 
     public e(OutputStream outputStream) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class e {
                 return;
             }
         }
-        this.f32493b = new DataOutputStream(outputStream);
+        this.f30896b = new DataOutputStream(outputStream);
         this.a = new byte[8];
     }
 
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f32493b.close();
+            this.f30896b.close();
         }
     }
 
@@ -49,7 +49,7 @@ public class e {
             byte[] bArr = this.a;
             bArr[1] = (byte) (i2 >> 8);
             bArr[0] = (byte) i2;
-            this.f32493b.write(bArr, 0, 2);
+            this.f30896b.write(bArr, 0, 2);
         }
     }
 
@@ -65,14 +65,14 @@ public class e {
             bArr[2] = (byte) (j2 >> 16);
             bArr[1] = (byte) (j2 >> 8);
             bArr[0] = (byte) j2;
-            this.f32493b.write(bArr, 0, 8);
+            this.f30896b.write(bArr, 0, 8);
         }
     }
 
     public void a(byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            this.f32493b.write(bArr);
+            this.f30896b.write(bArr);
         }
     }
 
@@ -84,7 +84,7 @@ public class e {
             bArr[2] = (byte) (i2 >> 16);
             bArr[1] = (byte) (i2 >> 8);
             bArr[0] = (byte) i2;
-            this.f32493b.write(bArr, 0, 4);
+            this.f30896b.write(bArr, 0, 4);
         }
     }
 }

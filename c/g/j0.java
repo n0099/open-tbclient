@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class j0 extends l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,8 +31,8 @@ public class j0 extends l0 {
         if (n0Var == null) {
             throw new IllegalArgumentException("params is null");
         }
-        this.f28664c = "POST";
-        this.f28665d = n0Var.c();
-        this.f28666e = n0Var.a();
+        this.f28502c = "POST";
+        this.f28503d = n0Var.c();
+        this.f28504e = n0Var.a();
     }
 }

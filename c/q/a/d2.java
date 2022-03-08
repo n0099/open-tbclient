@@ -1,24 +1,27 @@
 package c.q.a;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.openid.sdk.OnGetOaidListener;
-/* loaded from: classes9.dex */
-public class d2 implements OnGetOaidListener {
+import com.win.opensdk.core.Info;
+import org.json.JSONException;
+/* loaded from: classes3.dex */
+public final class d2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ g2 a;
+    public final /* synthetic */ Context a;
 
-    public d2(g2 g2Var) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ Info f28942b;
+
+    public d2(Context context, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g2Var};
+            Object[] objArr = {context, info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,17 +31,20 @@ public class d2 implements OnGetOaidListener {
                 return;
             }
         }
-        this.a = g2Var;
+        this.a = context;
+        this.f28942b = info;
     }
 
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public void onGetOaid(String str) {
-        Context context;
+    public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(g2.f30558c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            t2 a = x2.a(this.a);
+            try {
+                a.f29126b = x2.d("hte", new b3(this.f28942b));
+                a.k("co", i2);
+            } catch (JSONException unused) {
+            }
+            a.m();
         }
-        g2.f30558c = str;
-        m2.z(context, str);
     }
 }

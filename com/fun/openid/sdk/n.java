@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f54422b;
+    public static Class<?> f52908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f54423c;
+    public static Method f52909c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,12 +34,12 @@ public class n {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f54422b = cls;
+            f52908b = cls;
             a = cls.newInstance();
-            f54422b.getMethod("getUDID", Context.class);
-            f54423c = f54422b.getMethod("getOAID", Context.class);
-            f54422b.getMethod("getVAID", Context.class);
-            f54422b.getMethod("getAAID", Context.class);
+            f52908b.getMethod("getUDID", Context.class);
+            f52909c = f52908b.getMethod("getOAID", Context.class);
+            f52908b.getMethod("getVAID", Context.class);
+            f52908b.getMethod("getAAID", Context.class);
         } catch (Exception unused) {
         }
     }

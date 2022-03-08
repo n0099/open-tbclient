@@ -3,8 +3,8 @@ package com.baidu.swan.apps.api.module.network;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import c.a.s0.a.u.c.b;
-import c.a.s0.a.u.e.i.i;
+import c.a.p0.a.k.c.b;
+import c.a.p0.a.k.e.i.i;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SwanApiNetworkV8Module {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
@@ -42,7 +42,7 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            c.a.s0.a.u.h.b T = this.requestApi.T(jsObject);
+            c.a.p0.a.k.h.b T = this.requestApi.T(jsObject);
             return T == null ? "" : T.a();
         }
         return (String) invokeL.objValue;

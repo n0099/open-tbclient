@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            c.a.t0.f1.d dVar = new c.a.t0.f1.d(bitmapDrawable);
+            c.a.q0.e1.d dVar = new c.a.q0.e1.d(bitmapDrawable);
             dVar.b(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             dVar.c(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);
@@ -248,12 +248,12 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i2);
             SkinManager.setBackgroundColor(this.mDialogWrapper, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.mLineView, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.mTBeanDialogTitle, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mPayResultInfo, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mPayResultSubInfo, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.mButtonToConsumptionPage, R.color.CAM_X0304);
+            SkinManager.setViewTextColor(this.mTBeanDialogTitle, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mPayResultInfo, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mPayResultSubInfo, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.mButtonToConsumptionPage, (int) R.color.CAM_X0304);
             SkinManager.setBackgroundResource(this.mButtonToConsumptionPage, R.drawable.order_id_text_bg);
-            SkinManager.setViewTextColor(this.mPayFailRebuyBtn, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mPayFailRebuyBtn, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.mPayFailRebuyBtn, R.drawable.btn_corner_buy_selector);
         }
     }

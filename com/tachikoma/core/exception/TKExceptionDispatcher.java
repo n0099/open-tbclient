@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.api.ITKExceptionHandlerInner;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.utility.TKEnv;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKExceptionDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public static ITKExceptionHandlerInner sExceptionHandler;

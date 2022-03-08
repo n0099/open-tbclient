@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ag extends ae {
     public ag(com.kwad.sdk.pngencrypt.k kVar) {
         super("zTXt", kVar);
@@ -11,7 +11,7 @@ public class ag extends ae {
     public void a(d dVar) {
         int i2 = 0;
         while (true) {
-            byte[] bArr = dVar.f57279d;
+            byte[] bArr = dVar.f55629d;
             if (i2 >= bArr.length) {
                 i2 = -1;
                 break;
@@ -21,14 +21,14 @@ public class ag extends ae {
                 i2++;
             }
         }
-        if (i2 < 0 || i2 > dVar.f57279d.length - 2) {
+        if (i2 < 0 || i2 > dVar.f55629d.length - 2) {
             com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: no separator found"));
         }
-        ((ae) this).f57269h = b.a(dVar.f57279d, 0, i2);
-        if (dVar.f57279d[i2 + 1] != 0) {
+        ((ae) this).f55619h = b.a(dVar.f55629d, 0, i2);
+        if (dVar.f55629d[i2 + 1] != 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: unknown compression method"));
         }
-        byte[] bArr2 = dVar.f57279d;
-        this.f57270i = b.a(b.a(bArr2, i2 + 2, (bArr2.length - i2) - 2, false));
+        byte[] bArr2 = dVar.f55629d;
+        this.f55620i = b.a(b.a(bArr2, i2 + 2, (bArr2.length - i2) - 2, false));
     }
 }

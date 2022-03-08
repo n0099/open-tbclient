@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class EnvironmentUtilities {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35410b;
+    public static String f33813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35411c;
+    public static String f33814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35412d;
+    public static int f33815d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f35413e;
+    public static int f33816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f35414f;
+    public static int f33817f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f35415g;
+    public static h f33818g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public class EnvironmentUtilities {
     public static String getAppCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35410b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f33813b : (String) invokeV.objValue;
     }
 
     public static String getAppSDCardPath() {
@@ -89,25 +89,25 @@ public class EnvironmentUtilities {
     public static String getAppSecondCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f35411c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f33814c : (String) invokeV.objValue;
     }
 
     public static int getDomTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f35413e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f33816e : invokeV.intValue;
     }
 
     public static int getItsTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f35414f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f33817f : invokeV.intValue;
     }
 
     public static int getMapTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f35412d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f33815d : invokeV.intValue;
     }
 
     public static String getSDCardPath() {
@@ -120,23 +120,23 @@ public class EnvironmentUtilities {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            if (f35415g == null) {
+            if (f33818g == null) {
                 h a2 = h.a();
-                f35415g = a2;
+                f33818g = a2;
                 a2.a(context);
             }
             String str = a;
             if (str == null || str.length() <= 0) {
-                a = f35415g.b().a();
-                c2 = f35415g.b().c();
+                a = f33818g.b().a();
+                c2 = f33818g.b().c();
             } else {
                 c2 = a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
             }
-            f35410b = c2;
-            f35411c = f35415g.b().d();
-            f35412d = 20971520;
-            f35413e = 52428800;
-            f35414f = 5242880;
+            f33813b = c2;
+            f33814c = f33818g.b().d();
+            f33815d = 20971520;
+            f33816e = 52428800;
+            f33817f = 5242880;
         }
     }
 

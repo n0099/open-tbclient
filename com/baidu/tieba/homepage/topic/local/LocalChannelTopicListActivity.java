@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.local;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.u0.p1.l.a.c.c;
+import c.a.r0.o1.l.a.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel mModel;
-    public c.a.u0.p1.l.a.b mView;
+    public c.a.r0.o1.l.a.b mView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements LocalChannelTopicListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,13 +63,13 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LocalChannelTopicListActivity f44775e;
+        public final /* synthetic */ LocalChannelTopicListActivity f43181e;
 
         public b(LocalChannelTopicListActivity localChannelTopicListActivity) {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f44775e = localChannelTopicListActivity;
+            this.f43181e = localChannelTopicListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44775e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43181e.mModel == null) {
                 return;
             }
-            this.f44775e.mModel.loadData();
+            this.f43181e.mModel.loadData();
         }
     }
 
@@ -114,15 +114,15 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.t0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.q0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            c.a.u0.p1.l.a.b bVar = new c.a.u0.p1.l.a.b(getPageContext(), linearLayout, navigationBar, new b(this));
+            c.a.r0.o1.l.a.b bVar = new c.a.r0.o1.l.a.b(getPageContext(), linearLayout, navigationBar, new b(this));
             this.mView = bVar;
             return bVar;
         }
-        return (c.a.t0.y0.b) invokeLL.objValue;
+        return (c.a.q0.x0.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -130,7 +130,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.u0.p1.l.a.b bVar = this.mView;
+            c.a.r0.o1.l.a.b bVar = this.mView;
             if (bVar != null) {
                 bVar.onViewChangeSkinType(i2);
             }
@@ -155,7 +155,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.u0.p1.l.a.b bVar = this.mView;
+            c.a.r0.o1.l.a.b bVar = this.mView;
             if (bVar != null) {
                 bVar.onDestroy();
             }

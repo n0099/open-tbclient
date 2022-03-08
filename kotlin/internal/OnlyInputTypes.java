@@ -11,6 +11,6 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.TYPE_PARAMETER})
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public @interface OnlyInputTypes {
 }

@@ -35,7 +35,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class DownloadInfo implements Parcelable {
     public static final Parcelable.Creator<DownloadInfo> CREATOR = new Parcelable.Creator<DownloadInfo>() { // from class: com.ss.android.socialbase.downloader.model.DownloadInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,7 +157,7 @@ public class DownloadInfo implements Parcelable {
     public long ttnetProtectTimeout;
     public String url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String A;
         public String B;
@@ -184,31 +184,31 @@ public class DownloadInfo implements Parcelable {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60413b;
+        public String f58763b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60414c;
+        public String f58764c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60415d;
+        public String f58765d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f60416e;
+        public String f58766e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f60417f;
+        public boolean f58767f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f60418g;
+        public String f58768g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f60419h;
+        public List<c> f58769h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f60420i;
+        public int f58770i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String[] f60421j;
+        public String[] f58771j;
         public int[] k;
         public int l;
         public int m;
@@ -237,27 +237,27 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a b(String str) {
-            this.f60413b = str;
+            this.f58763b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f60414c = str;
+            this.f58764c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f60415d = str;
+            this.f58765d = str;
             return this;
         }
 
         public a e(String str) {
-            this.f60416e = str;
+            this.f58766e = str;
             return this;
         }
 
         public a f(String str) {
-            this.f60418g = str;
+            this.f58768g = str;
             return this;
         }
 
@@ -342,7 +342,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(boolean z) {
-            this.f60417f = z;
+            this.f58767f = z;
             return this;
         }
 
@@ -402,7 +402,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(List<c> list) {
-            this.f60419h = list;
+            this.f58769h = list;
             return this;
         }
 
@@ -432,7 +432,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(int i2) {
-            this.f60420i = i2;
+            this.f58770i = i2;
             return this;
         }
 
@@ -447,7 +447,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(String[] strArr) {
-            this.f60421j = strArr;
+            this.f58771j = strArr;
             return this;
         }
 
@@ -457,7 +457,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a(String str) {
-            this.f60414c = str;
+            this.f58764c = str;
         }
 
         public a a(int[] iArr) {
@@ -2579,9 +2579,9 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         this.name = aVar.a;
-        this.title = aVar.f60413b;
-        this.url = aVar.f60414c;
-        String str = aVar.f60415d;
+        this.title = aVar.f58763b;
+        this.url = aVar.f58764c;
+        String str = aVar.f58765d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = f.e();
@@ -2590,7 +2590,7 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        String str2 = aVar.f60416e;
+        String str2 = aVar.f58766e;
         this.tempPath = str2;
         if (TextUtils.isEmpty(str2) && !f.h(str)) {
             this.tempPath = f.f();
@@ -2605,14 +2605,14 @@ public class DownloadInfo implements Parcelable {
         }
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = aVar.f60418g;
-        this.onlyWifi = aVar.f60417f;
-        this.extraHeaders = aVar.f60419h;
-        this.maxBytes = aVar.f60420i;
+        this.extra = aVar.f58768g;
+        this.onlyWifi = aVar.f58767f;
+        this.extraHeaders = aVar.f58769h;
+        this.maxBytes = aVar.f58770i;
         this.retryCount = aVar.l;
         this.backUpUrlRetryCount = aVar.m;
         this.force = aVar.n;
-        this.outIp = aVar.f60421j;
+        this.outIp = aVar.f58771j;
         this.outSize = aVar.k;
         this.needPostProgress = aVar.o;
         this.maxProgressCount = aVar.p;

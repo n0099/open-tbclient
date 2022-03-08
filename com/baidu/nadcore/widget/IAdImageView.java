@@ -1,7 +1,6 @@
 package com.baidu.nadcore.widget;
 
 import android.widget.ImageView;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface IAdImageView {
     public static final ImageView.ScaleType[] j0 = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class ImageScaleType {
         public static final /* synthetic */ ImageScaleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -43,7 +42,7 @@ public interface IAdImageView {
                     return;
                 }
             }
-            NONE = new ImageScaleType(PolyActivity.NONE_PANEL_TYPE, 0, -1);
+            NONE = new ImageScaleType("NONE", 0, -1);
             MATRIX = new ImageScaleType("MATRIX", 1, 0);
             FIT_XY = new ImageScaleType("FIT_XY", 2, 1);
             FIT_START = new ImageScaleType("FIT_START", 3, 2);

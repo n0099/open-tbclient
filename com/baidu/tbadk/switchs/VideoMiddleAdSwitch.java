@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.t0.b.d;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class VideoMiddleAdSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "video_bear_flow_switch";
@@ -44,7 +44,7 @@ public class VideoMiddleAdSwitch extends a {
     public static boolean isOnAndHitVideoAdDrawTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && d.x0() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && UbsABTestHelper.isVideoAdDrawABTest() : invokeV.booleanValue;
     }
 
     @Override // c.a.d.f.f.a

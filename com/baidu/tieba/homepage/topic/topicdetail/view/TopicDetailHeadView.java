@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.u0.p1.l.b.c.b;
-import c.a.u0.p1.l.b.c.f;
+import c.a.r0.o1.l.b.c.b;
+import c.a.r0.o1.l.b.c.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,28 +24,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TopicDetailHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44793e;
+    public int f43199e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f44794f;
+    public TbImageView f43200f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44795g;
+    public TextView f43201g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f44796h;
+    public LinearLayout f43202h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f44797i;
+    public TbImageView f43203i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f44798j;
+    public View f43204j;
     public TopicTimelineView k;
     public TopicPkView mPkView;
 
@@ -67,7 +67,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f44793e = 3;
+        this.f43199e = 3;
         a(context);
     }
 
@@ -76,20 +76,20 @@ public class TopicDetailHeadView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.topic_detail_head_bg);
-            this.f44794f = tbImageView;
+            this.f43200f = tbImageView;
             tbImageView.setDrawingCacheEnabled(true);
-            this.f44795g = (TextView) findViewById(R.id.topic_detail_head_des);
-            this.f44796h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
-            this.f44797i = (TbImageView) findViewById(R.id.topic_detail_head_img);
-            this.f44798j = findViewById(R.id.topic_detail_head_img_placeholder);
+            this.f43201g = (TextView) findViewById(R.id.topic_detail_head_des);
+            this.f43202h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+            this.f43203i = (TbImageView) findViewById(R.id.topic_detail_head_img);
+            this.f43204j = findViewById(R.id.topic_detail_head_img_placeholder);
             this.mPkView = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
             this.k = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
-            ViewGroup.LayoutParams layoutParams = this.f44797i.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f43203i.getLayoutParams();
             layoutParams.height = ((n.k(getContext()) - n.f(getContext(), R.dimen.tbds88)) * 9) / 16;
-            this.f44797i.setLayoutParams(layoutParams);
-            this.f44797i.setRadius(n.f(context, R.dimen.tbds10));
-            this.f44797i.setConrers(15);
-            this.f44797i.setPlaceHolder(3);
+            this.f43203i.setLayoutParams(layoutParams);
+            this.f43203i.setRadius(n.f(context, R.dimen.tbds10));
+            this.f43203i.setConrers(15);
+            this.f43203i.setPlaceHolder(3);
             onChangeSkinType();
         }
     }
@@ -97,19 +97,19 @@ public class TopicDetailHeadView extends RelativeLayout {
     public TbImageView getmBgImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44794f : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43200f : (TbImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f44793e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f43199e) {
             return;
         }
-        this.f44793e = skinType;
-        this.f44794f.setSkinType(skinType);
-        SkinManager.setViewTextColor(this.f44795g, R.color.CAM_X0101);
-        this.f44797i.setSkinType(this.f44793e);
+        this.f43199e = skinType;
+        this.f43200f.setSkinType(skinType);
+        SkinManager.setViewTextColor(this.f43201g, (int) R.color.CAM_X0101);
+        this.f43203i.setSkinType(this.f43199e);
         this.mPkView.onChangeSkinType();
         this.k.onChangeSkinType();
     }
@@ -122,34 +122,34 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
             setVisibility(0);
-            if (bVar.f20888e == null && StringUtils.isNull(bVar.f20886c)) {
-                ((LinearLayout.LayoutParams) this.f44795g.getLayoutParams()).bottomMargin = n.f(getContext(), R.dimen.tbds130);
+            if (bVar.f20223e == null && StringUtils.isNull(bVar.f20221c)) {
+                ((LinearLayout.LayoutParams) this.f43201g.getLayoutParams()).bottomMargin = n.f(getContext(), R.dimen.tbds130);
             }
-            this.f44795g.setText(bVar.f20885b);
-            if (StringUtils.isNull(bVar.f20886c)) {
-                this.f44796h.setVisibility(8);
-                this.f44794f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
+            this.f43201g.setText(bVar.f20220b);
+            if (StringUtils.isNull(bVar.f20221c)) {
+                this.f43202h.setVisibility(8);
+                this.f43200f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
             } else {
-                this.f44796h.setVisibility(0);
-                this.f44797i.startLoad(bVar.f20886c, 10, false);
-                this.f44794f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
+                this.f43202h.setVisibility(0);
+                this.f43203i.startLoad(bVar.f20221c, 10, false);
+                this.f43200f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
             }
-            if (bVar.f20888e == null) {
-                this.f44798j.setVisibility(8);
+            if (bVar.f20223e == null) {
+                this.f43204j.setVisibility(8);
                 this.mPkView.setVisibility(8);
             } else {
-                this.f44798j.setVisibility(0);
+                this.f43204j.setVisibility(0);
                 this.mPkView.setVisibility(0);
-                this.mPkView.setData(bVar.f20888e);
+                this.mPkView.setData(bVar.f20223e);
             }
-            f fVar = bVar.f20889f;
-            if (fVar != null && !ListUtils.isEmpty(fVar.f20907b)) {
+            f fVar = bVar.f20224f;
+            if (fVar != null && !ListUtils.isEmpty(fVar.f20242b)) {
                 this.k.setVisibility(0);
-                this.k.setData(bVar.f20889f);
+                this.k.setData(bVar.f20224f);
             } else {
                 this.k.setVisibility(8);
             }
-            this.f44794f.startLoad(bVar.f20887d, 10, false);
+            this.f43200f.startLoad(bVar.f20222d, 10, false);
         }
     }
 
@@ -172,7 +172,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f44793e = 3;
+        this.f43199e = 3;
         a(context);
     }
 
@@ -195,7 +195,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f44793e = 3;
+        this.f43199e = 3;
         a(context);
     }
 }

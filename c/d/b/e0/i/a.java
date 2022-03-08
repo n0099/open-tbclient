@@ -18,7 +18,7 @@ import java.util.List;
 import okio.GzipSource;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public final class a implements t {
                 }
                 c.d.b.l lVar = list.get(i2);
                 sb.append(lVar.c());
-                sb.append(com.alipay.sdk.encrypt.a.f31099h);
+                sb.append(com.alipay.sdk.encrypt.a.f29503h);
                 sb.append(lVar.k());
             }
             return sb.toString();

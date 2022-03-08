@@ -1,13 +1,13 @@
 package com.kwai.filedownloader;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface s {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         int b();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a();
 

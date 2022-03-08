@@ -4,19 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int AD_SDK_DO_SHOW_STAMP_KEY = 3304;
-    public static final int AD_SDK_WILL_SHOW_STAMP_KEY = 3303;
-    public static final int AD_SHOW_END_STAMP_KEY = 3306;
-    public static final int AD_SHOW_START_STAMP_KEY = 3305;
-    public static final int AD_START_STAMP_KEY = 3301;
-    public static final int AD_VIEW_END_STAMP_KEY = 3307;
-    public static final int AD_XIAOXIONG_LOAD_END_STAMP_KEY = 3309;
-    public static final int AD_XIAOXIONG_WILL_SHOW_STAMP_KEY = 3311;
-    public static final int AD_XUZHANG_LOAD_END_STAMP_KEY = 3308;
-    public static final int AD_XUZHANG_WILL_SHOW_STAMP_KEY = 3310;
+    public static final int AD_CALL_SHOW_END_STAMP_KEY = 3308;
+    public static final int AD_CALL_SHOW_START_STAMP_KEY = 3307;
+    public static final int AD_LOAD_BEAR_END_STAMP_KEY = 3304;
+    public static final int AD_LOAD_END_STAMP_KEY = 3302;
+    public static final int AD_LOAD_HANDLER_END_STAMP_KEY = 3306;
+    public static final int AD_LOAD_IDLE_END_STAMP_KEY = 3305;
+    public static final int AD_LOAD_PROLOGUE_END_STAMP_KEY = 3303;
+    public static final int AD_LOAD_START_STAMP_KEY = 3301;
+    public static final int AD_SHOW_END_STAMP_KEY = 3310;
+    public static final int AD_SHOW_START_STAMP_KEY = 3309;
+    public static final int AD_VIEW_END_STAMP_KEY = 3311;
     public static final int ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY = 5037;
     public static final int ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY = 5036;
     public static final int ALA_LIVE_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5039;

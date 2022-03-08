@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f59405b;
+    public static final g f57755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f59406c;
+    public static final g f57756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f59407d;
+    public static final g f57757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f59408e;
+    public static final g f57758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f59409f;
+    public static final g f57759f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,11 +44,11 @@ public final class g {
             }
         }
         a = new g("WAITING", 0, 0);
-        f59405b = new g("STARTED", 1, 1);
-        f59406c = new g("LOADING", 2, 2);
-        f59407d = new g("FAILURE", 3, 3);
-        f59408e = new g("CANCELLED", 4, 4);
-        f59409f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+        f57755b = new g("STARTED", 1, 1);
+        f57756c = new g("LOADING", 2, 2);
+        f57757d = new g("FAILURE", 3, 3);
+        f57758e = new g("CANCELLED", 4, 4);
+        f57759f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.model.BaseDialogModel;
 import com.dxmpay.wallet.base.widget.dialog.model.ContentDialogModel;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

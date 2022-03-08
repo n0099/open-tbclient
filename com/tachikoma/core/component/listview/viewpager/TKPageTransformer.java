@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.utility.V8Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKPageTransformer implements ITKPageTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

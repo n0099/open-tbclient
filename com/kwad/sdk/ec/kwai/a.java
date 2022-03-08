@@ -2,7 +2,7 @@ package com.kwad.sdk.ec.kwai;
 
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends d {
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {

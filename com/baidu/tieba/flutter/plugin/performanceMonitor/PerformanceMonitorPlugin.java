@@ -4,9 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import c.a.d.f.n.a;
 import c.a.p.e.a;
-import c.a.t0.s0.j;
-import c.a.t0.s0.k;
-import c.a.u0.a1.a.h.e;
+import c.a.q0.r0.j;
+import c.a.r0.z0.a.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,9 +13,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.statistics.k;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.searchbox.perfframe.ioc.Constant;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,14 +33,14 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> flutterEngineStartInfo;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,8 +82,8 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.mItem.b("memp", String.valueOf(k.d().c()));
-                this.mItem.b("cpu", k.d().b());
+                this.mItem.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
+                this.mItem.b("cpu", PerformanceLoggerHelper.getInstance().getCpuUsageStatisticString());
                 BdStatisticsManager.getInstance().performance(this.mPage, this.mItem);
                 return Boolean.TRUE;
             }
@@ -155,7 +156,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 }
             }
         };
-        c.a.p.e.a.b().c(new a.InterfaceC0235a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
+        c.a.p.e.a.b().c(new a.InterfaceC0224a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PerformanceMonitorPlugin this$0;
@@ -178,7 +179,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 this.this$0 = this;
             }
 
-            @Override // c.a.p.e.a.InterfaceC0235a
+            @Override // c.a.p.e.a.InterfaceC0224a
             public void report(String str, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, hashMap) == null) {
@@ -197,7 +198,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     public void uploadFpsData(HashMap<String, Object> hashMap) {
         HashMap hashMap2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, hashMap) == null) || !k.d().g() || hashMap == null || (hashMap2 = (HashMap) hashMap.get(Constant.KEY_BUSINESS)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, hashMap) == null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || hashMap == null || (hashMap2 = (HashMap) hashMap.get(Constant.KEY_BUSINESS)) == null) {
             return;
         }
         Long l = (Long) hashMap.get("time");
@@ -246,7 +247,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     public void uploadOpenPageData(HashMap<String, Object> hashMap) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, hashMap) == null) && k.d().g()) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, hashMap) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
             HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
             if (((baseSwitchs == null || !baseSwitchs.containsKey("flutter_open_disable")) ? 0 : baseSwitchs.get("flutter_open_disable").intValue()) >= 1 || hashMap == null || hashMap == null || hashMap.get("viewCreateTime") == null || ((Double) hashMap.get("viewCreateTime")).doubleValue() <= 0.0d || (str = (String) hashMap.get("pageName")) == null || str.isEmpty()) {
                 return;
@@ -260,7 +261,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             a.b("action", "time");
             a.c("ishttp", hashMap.get("isHttp"));
             a.b("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-            a.b("nettype", k.d().f());
+            a.b("nettype", PerformanceLoggerHelper.getInstance().getNetType());
             if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                 a.c("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
             }
@@ -405,7 +406,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(com.baidu.fsg.base.statistics.k.f34048h, params.get("loadingCost"));
+        statsItem.c(k.f32451h, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));
@@ -418,7 +419,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     public void reportPageLoadPerformance(PerformanceMonitorAuto.MapParam mapParam) {
         HashMap params;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, mapParam) == null) || !k.d().g() || mapParam.getParams() == null || (params = mapParam.getParams()) == null || params.get("viewCreateTime") == null || ((Double) params.get("viewCreateTime")).doubleValue() <= 0.0d) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mapParam) == null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || mapParam.getParams() == null || (params = mapParam.getParams()) == null || params.get("viewCreateTime") == null || ((Double) params.get("viewCreateTime")).doubleValue() <= 0.0d) {
             return;
         }
         String str = (String) params.get("pageName");
@@ -431,7 +432,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         a.b("action", "time");
         a.c("ishttp", params.get("isHttp"));
         a.b("issuccess", params.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-        a.b("nettype", k.d().f());
+        a.b("nettype", PerformanceLoggerHelper.getInstance().getNetType());
         if (params.containsKey("whiteTime") && (params.get("whiteTime") instanceof Double)) {
             a.c("wt", Double.valueOf(((Double) params.get("whiteTime")).doubleValue() * 1000.0d));
         }

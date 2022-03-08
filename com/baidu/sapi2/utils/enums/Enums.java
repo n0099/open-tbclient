@@ -3,7 +3,6 @@ package com.baidu.sapi2.utils.enums;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class Enums {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class FingerprintAuthType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOGIN = 3;
@@ -41,7 +40,7 @@ public class Enums {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +85,7 @@ public class Enums {
                     return;
                 }
             }
-            NONE = new LastLoginType(PolyActivity.NONE_PANEL_TYPE, 0, "none", 0);
+            NONE = new LastLoginType("NONE", 0, "none", 0);
             PWD = new LastLoginType("PWD", 1, "pwd", 1);
             SMS = new LastLoginType("SMS", 2, "sms", 2);
             FACE = new LastLoginType("FACE", 3, "face", 3);
@@ -194,7 +193,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class NormalizeWay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NONE = 0;
@@ -218,7 +217,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class PreLoginType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CHINA_MOBILE_OAUTH = 12;

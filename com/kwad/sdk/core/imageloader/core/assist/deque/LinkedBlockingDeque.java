@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.assist.deque;
 
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -11,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     public static final long serialVersionUID = -387911632671998426L;
     public final int capacity;
@@ -22,7 +23,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     public final Condition notEmpty;
     public final Condition notFull;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public abstract class AbstractItr implements Iterator<E> {
         public Node<E> lastRet;
         public Node<E> next;
@@ -108,7 +109,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class DescendingItr extends LinkedBlockingDeque<E>.AbstractItr {
         public DescendingItr() {
             super();
@@ -125,7 +126,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Itr extends LinkedBlockingDeque<E>.AbstractItr {
         public Itr() {
             super();
@@ -142,7 +143,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Node<E> {
         public E item;
         public Node<E> next;
@@ -855,7 +856,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
                     return sb.toString();
                 }
                 sb.append(',');
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
             }
         } finally {
             reentrantLock.unlock();

@@ -22,12 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -47,7 +48,7 @@ public class ConnectManager {
     public boolean mVpnOn;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class NetworkStateEnum {
         public static final /* synthetic */ NetworkStateEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,7 +75,7 @@ public class ConnectManager {
                     return;
                 }
             }
-            NO = new NetworkStateEnum("NO", 0, "no");
+            NO = new NetworkStateEnum(HlsPlaylistParser.BOOLEAN_FALSE, 0, "no");
             WIFI = new NetworkStateEnum(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
             _2G = new NetworkStateEnum("_2G", 2, "2g");
             _3G = new NetworkStateEnum("_3G", 3, "3g");

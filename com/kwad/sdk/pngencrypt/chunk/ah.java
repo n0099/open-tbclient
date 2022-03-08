@@ -3,16 +3,16 @@ package com.kwad.sdk.pngencrypt.chunk;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ah {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f57271b;
+    public final boolean f55621b;
 
     public ah(e eVar) {
         this.a = eVar;
-        this.f57271b = !(eVar instanceof f);
+        this.f55621b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {

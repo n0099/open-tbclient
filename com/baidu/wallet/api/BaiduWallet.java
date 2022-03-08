@@ -24,20 +24,20 @@ import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterProvider;
 import java.lang.reflect.Proxy;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class BaiduWallet implements IWalletFacade {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaiduWallet";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.api.BaiduWallet$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final IWalletFacade a;

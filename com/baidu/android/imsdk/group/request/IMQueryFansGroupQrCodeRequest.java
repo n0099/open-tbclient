@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupQrCodeRequest";
@@ -26,7 +26,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -23,7 +23,7 @@ import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@¨\u0006\u0003"}, d2 = {"<anonymous>", "T", "Lkotlinx/coroutines/CoroutineScope;", "com/baidu/tun2tornadolite/booster/sclient/SClient$suspendCoroutineWithTimeout$2"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1", f = "SClient.kt", i = {}, l = {456}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

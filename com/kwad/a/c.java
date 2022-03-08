@@ -17,26 +17,26 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.InterfaceC2102b f55544b;
+    public final b.InterfaceC2081b f53894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a f55545c;
+    public final b.a f53895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55546d;
+    public boolean f53896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55547e;
+    public boolean f53897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.d f55548f;
+    public b.d f53898f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -49,7 +49,7 @@ public class c {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((b.InterfaceC2102b) objArr[0], (b.a) objArr[1]);
+                this((b.InterfaceC2081b) objArr[0], (b.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,12 +57,12 @@ public class c {
         }
     }
 
-    public c(b.InterfaceC2102b interfaceC2102b, b.a aVar) {
+    public c(b.InterfaceC2081b interfaceC2081b, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC2102b, aVar};
+            Object[] objArr = {interfaceC2081b, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -73,41 +73,41 @@ public class c {
             }
         }
         this.a = new HashSet();
-        if (interfaceC2102b == null) {
+        if (interfaceC2081b == null) {
             throw new IllegalArgumentException("Cannot pass null library loader");
         }
         if (aVar == null) {
             throw new IllegalArgumentException("Cannot pass null library installer");
         }
-        this.f55544b = interfaceC2102b;
-        this.f55545c = aVar;
+        this.f53894b = interfaceC2081b;
+        this.f53895c = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, context, str, str2) == null) {
-            if (this.a.contains(str) && !this.f55546d) {
+            if (this.a.contains(str) && !this.f53896d) {
                 a("%s already loaded previously!", str);
                 return;
             }
             try {
-                this.f55544b.a(str);
+                this.f53894b.a(str);
                 this.a.add(str);
                 a("%s (%s) was loaded normally!", str, str2);
             } catch (UnsatisfiedLinkError e2) {
                 a("Loading the library normally failed: %s", Log.getStackTraceString(e2));
                 a("%s (%s) was not loaded normally, re-linking...", str, str2);
                 File a = a(context, str, str2);
-                if (!a.exists() || this.f55546d) {
-                    if (this.f55546d) {
+                if (!a.exists() || this.f53896d) {
+                    if (this.f53896d) {
                         a("Forcing a re-link of %s (%s)...", str, str2);
                     }
                     b(context, str, str2);
-                    this.f55545c.a(context, this.f55544b.a(), this.f55544b.c(str), a, this);
+                    this.f53895c.a(context, this.f53894b.a(), this.f53894b.c(str), a, this);
                 }
                 try {
-                    if (this.f55547e) {
+                    if (this.f53897e) {
                         f fVar = null;
                         try {
                             f fVar2 = new f(a);
@@ -115,7 +115,7 @@ public class c {
                                 List<String> b2 = fVar2.b();
                                 fVar2.close();
                                 for (String str3 : b2) {
-                                    a(context, this.f55544b.d(str3));
+                                    a(context, this.f53894b.d(str3));
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -129,7 +129,7 @@ public class c {
                     }
                 } catch (IOException unused) {
                 }
-                this.f55544b.b(a.getAbsolutePath());
+                this.f53894b.b(a.getAbsolutePath());
                 this.a.add(str);
                 a("%s (%s) was re-linked!", str, str2);
             }
@@ -146,7 +146,7 @@ public class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2)) == null) {
-            String c2 = this.f55544b.c(str);
+            String c2 = this.f53894b.c(str);
             if (e.a(str2)) {
                 return new File(a(context), c2);
             }
@@ -182,16 +182,16 @@ public class c {
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f55549b;
+                    public final /* synthetic */ String f53899b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f55550c;
+                    public final /* synthetic */ String f53900c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ b.c f55551d;
+                    public final /* synthetic */ b.c f53901d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ c f55552e;
+                    public final /* synthetic */ c f53902e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -208,11 +208,11 @@ public class c {
                                 return;
                             }
                         }
-                        this.f55552e = this;
+                        this.f53902e = this;
                         this.a = context;
-                        this.f55549b = str;
-                        this.f55550c = str2;
-                        this.f55551d = cVar;
+                        this.f53899b = str;
+                        this.f53900c = str2;
+                        this.f53901d = cVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -220,10 +220,10 @@ public class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f55552e.c(this.a, this.f55549b, this.f55550c);
-                                this.f55551d.a(this.f55549b);
+                                this.f53902e.c(this.a, this.f53899b, this.f53900c);
+                                this.f53901d.a(this.f53899b);
                             } catch (Exception | UnsatisfiedLinkError e2) {
-                                this.f55551d.a(this.f55549b, e2);
+                                this.f53901d.a(this.f53899b, e2);
                             }
                         }
                     }
@@ -235,7 +235,7 @@ public class c {
     public void a(String str) {
         b.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (dVar = this.f55548f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (dVar = this.f53898f) == null) {
             return;
         }
         dVar.a(str);
@@ -253,13 +253,13 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, str2) == null) {
             File a = a(context);
             File a2 = a(context, str, str2);
-            File[] listFiles = a.listFiles(new FilenameFilter(this, this.f55544b.c(str)) { // from class: com.kwad.a.c.2
+            File[] listFiles = a.listFiles(new FilenameFilter(this, this.f53894b.c(str)) { // from class: com.kwad.a.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f55553b;
+                public final /* synthetic */ c f53903b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,7 +276,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f55553b = this;
+                    this.f53903b = this;
                     this.a = r7;
                 }
 
@@ -291,7 +291,7 @@ public class c {
                 return;
             }
             for (File file : listFiles) {
-                if (this.f55546d || !file.getAbsolutePath().equals(a2.getAbsolutePath())) {
+                if (this.f53896d || !file.getAbsolutePath().equals(a2.getAbsolutePath())) {
                     file.delete();
                 }
             }

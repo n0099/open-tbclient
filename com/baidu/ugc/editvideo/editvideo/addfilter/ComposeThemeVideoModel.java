@@ -5,15 +5,15 @@ import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.b;
-import c.a.b1.t.c;
-import c.a.b1.t.d;
-import c.a.b1.t.h;
-import c.a.b1.t.m;
-import c.a.b1.t.n;
-import c.a.b1.t.u;
-import c.a.c0.a.f.a;
-import c.a.c0.b.a.j;
+import c.a.a0.a.f.a;
+import c.a.a0.b.a.j;
+import c.a.y0.b;
+import c.a.y0.r.c;
+import c.a.y0.r.d;
+import c.a.y0.r.h;
+import c.a.y0.r.m;
+import c.a.y0.r.n;
+import c.a.y0.r.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ComposeThemeVideoModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DataFetchProducer extends LocalFetchProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "DataFetchProducer";

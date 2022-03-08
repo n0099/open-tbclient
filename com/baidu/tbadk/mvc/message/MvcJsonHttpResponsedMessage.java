@@ -3,16 +3,16 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import c.a.d.f.d.l;
 import c.a.d.f.j.b.f;
-import c.a.t0.l0.b.d;
-import c.a.t0.l0.b.e;
-import c.a.t0.l0.b.h;
-import c.a.t0.s.s.a;
-import c.a.u0.a4.j;
+import c.a.q0.k0.b.d;
+import c.a.q0.k0.b.e;
+import c.a.q0.k0.b.h;
+import c.a.q0.r.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
                     } else if (getError() != 0) {
                         setErrorString(errorData.getError_msg());
                     }
@@ -93,7 +93,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     e = e3;
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
                     return jSONObject2;
                 }
             }

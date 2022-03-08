@@ -7,48 +7,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FunAdSlot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54279b;
+    public int f52765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54280c;
+    public int f52766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54281d;
+    public int f52767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54282e;
+    public boolean f52768e;
 
     /* renamed from: com.fun.ad.sdk.FunAdSlot$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54283b;
+        public int f52769b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54284c;
+        public int f52770c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f54285d;
+        public boolean f52771d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54286e;
+        public int f52772e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -70,10 +70,10 @@ public class FunAdSlot {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FunAdSlot funAdSlot = new FunAdSlot();
                 funAdSlot.a = this.a;
-                funAdSlot.f54279b = this.f54283b;
-                funAdSlot.f54280c = this.f54284c;
-                funAdSlot.f54282e = this.f54285d;
-                funAdSlot.f54281d = this.f54286e;
+                funAdSlot.f52765b = this.f52769b;
+                funAdSlot.f52766c = this.f52770c;
+                funAdSlot.f52768e = this.f52771d;
+                funAdSlot.f52767d = this.f52772e;
                 return funAdSlot;
             }
             return (FunAdSlot) invokeV.objValue;
@@ -83,7 +83,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f54286e = i2;
+                this.f52772e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -93,7 +93,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f54284c = i2;
+                this.f52770c = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -103,7 +103,7 @@ public class FunAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f54283b = i2;
+                this.f52769b = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -123,7 +123,7 @@ public class FunAdSlot {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f54285d = z;
+                this.f52771d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -147,19 +147,19 @@ public class FunAdSlot {
     public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54281d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52767d : invokeV.intValue;
     }
 
     public int getExpressHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54280c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52766c : invokeV.intValue;
     }
 
     public int getExpressWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54279b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52765b : invokeV.intValue;
     }
 
     public String getSid() {
@@ -171,6 +171,6 @@ public class FunAdSlot {
     public boolean isSmallImgStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54282e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f52768e : invokeV.booleanValue;
     }
 }

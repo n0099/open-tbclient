@@ -1,120 +1,63 @@
 package c.i.b.a;
 
-import c.i.b.a.d0.l;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public final class o {
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.u;
+/* loaded from: classes3.dex */
+public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Object f30055b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final l.b f30056c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final long f30057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30058e;
+    public final /* synthetic */ Context f28640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile long f30059f;
+    public final /* synthetic */ ArCoreApk.a f28641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f30060g;
+    public final /* synthetic */ l f28642g;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o(w wVar, Object obj, int i2, long j2) {
-        this(wVar, obj, new l.b(i2), j2, -9223372036854775807L);
+    public o(l lVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {wVar, obj, Integer.valueOf(i2), Long.valueOf(j2)};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lVar, context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((w) objArr2[0], objArr2[1], (l.b) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f28642g = lVar;
+        this.f28640e = context;
+        this.f28641f = aVar;
     }
 
-    public static void a(o oVar, o oVar2) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, oVar, oVar2) == null) {
-            oVar2.f30059f = oVar.f30059f;
-            oVar2.f30060g = oVar.f30060g;
-        }
-    }
-
-    public o b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            o oVar = new o(this.a, this.f30055b, this.f30056c.a(i2), this.f30057d, this.f30058e);
-            a(this, oVar);
-            return oVar;
-        }
-        return (o) invokeI.objValue;
-    }
-
-    public o c(w wVar, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wVar, obj)) == null) {
-            o oVar = new o(wVar, obj, this.f30056c, this.f30057d, this.f30058e);
-            a(this, oVar);
-            return oVar;
-        }
-        return (o) invokeLL.objValue;
-    }
-
-    public o d(int i2, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? e(new l.b(i2), j2, j3) : (o) invokeCommon.objValue;
-    }
-
-    public o e(l.b bVar, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new o(this.a, this.f30055b, bVar, j2, j3) : (o) invokeCommon.objValue;
-    }
-
-    public o(w wVar, Object obj, l.b bVar, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wVar, obj, bVar, Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                aVar = this.f28642g.f28633d;
+                String str = this.f28640e.getApplicationInfo().packageName;
+                l lVar = this.f28642g;
+                l = l.l();
+                aVar.a(str, l, new u(this));
+            } catch (RemoteException unused) {
+                this.f28641f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             }
         }
-        this.a = wVar;
-        this.f30055b = obj;
-        this.f30056c = bVar;
-        this.f30057d = j2;
-        this.f30058e = j3;
-        this.f30059f = j2;
-        this.f30060g = j2;
     }
 }

@@ -40,7 +40,7 @@ import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class UsedCouponListFragment extends CouponBaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_ID = "UsedCouponListFragment";
@@ -282,8 +282,8 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                     DXMSdkSAUtils.onEventWithValues("CouponListToUseBtnClick", Arrays.asList(jSONObject.toString()));
                     CouponList.Coupon.AppSceneService appSceneService = item.app_scene_service;
                     if (appSceneService != null) {
-                        if (appSceneService.f52776android > 0) {
-                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f52776android, "");
+                        if (appSceneService.f51195android > 0) {
+                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f51195android, "");
                         } else if (!TextUtils.isEmpty(appSceneService.url)) {
                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
                             baseActivity = ((BaseFragment) this.a).mAct;
@@ -328,13 +328,13 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f52802b;
+                public final /* synthetic */ int f51221b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52803c;
+                public final /* synthetic */ String f51222c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f52804d;
+                public final /* synthetic */ UsedCouponListFragment f51223d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -351,17 +351,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f52804d = this;
+                    this.f51223d = this;
                     this.a = i2;
-                    this.f52802b = i3;
-                    this.f52803c = str;
+                    this.f51221b = i3;
+                    this.f51222c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f52804d.handleResFailure(this.a, this.f52802b, this.f52803c);
+                        this.f51223d.handleResFailure(this.a, this.f51221b, this.f51222c);
                     }
                 }
             });
@@ -379,13 +379,13 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f52799b;
+                public final /* synthetic */ Object f51218b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52800c;
+                public final /* synthetic */ String f51219c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f52801d;
+                public final /* synthetic */ UsedCouponListFragment f51220d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -402,17 +402,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f52801d = this;
+                    this.f51220d = this;
                     this.a = i2;
-                    this.f52799b = obj;
-                    this.f52800c = str;
+                    this.f51218b = obj;
+                    this.f51219c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f52801d.handleResSuccess(this.a, this.f52799b, this.f52800c);
+                        this.f51220d.handleResSuccess(this.a, this.f51218b, this.f51219c);
                     }
                 }
             });

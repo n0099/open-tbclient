@@ -2,12 +2,12 @@ package com.kwad.sdk.collector;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class e<T> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55702b = false;
+    public boolean f54052b = false;
 
     public e(boolean z) {
         this.a = z;
@@ -15,7 +15,7 @@ public abstract class e<T> {
 
     @Nullable
     public final T a(Context context) {
-        if (this.a && !this.f55702b) {
+        if (this.a && !this.f54052b) {
             try {
                 return b(context);
             } catch (Throwable th) {

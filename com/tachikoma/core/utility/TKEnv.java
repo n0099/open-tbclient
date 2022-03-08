@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.api.IHostEnvInner;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.manager.TKModuleManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKEnv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

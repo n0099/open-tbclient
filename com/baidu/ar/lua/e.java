@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f33071f;
+    public b f31474f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -41,7 +41,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f33071f = bVar;
+        this.f31474f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -132,7 +132,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f33071f.c(cVar);
+            this.f31474f.c(cVar);
         }
     }
 
@@ -178,7 +178,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f33071f;
+            b bVar = this.f31474f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -186,10 +186,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f33071f.d(cVar);
+                    this.f31474f.d(cVar);
                     this.rN = null;
                 }
-                this.f33071f = null;
+                this.f31474f = null;
             }
             this.sX = null;
         }

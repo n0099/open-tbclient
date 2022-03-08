@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.t0.a.g;
-import c.a.t0.s.a0.a;
-import c.a.t0.s.a0.b;
+import c.a.q0.r.a0.a;
+import c.a.q0.r.a0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -14,6 +13,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JUME_SCHEME = "jump_scheme";
@@ -74,19 +74,19 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:137:0x01bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00a0 A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x01c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00a0 A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:39:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00ac A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00ac A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:45:0x00b4  */
     /* JADX WARN: Removed duplicated region for block: B:46:0x00b6  */
     /* JADX WARN: Removed duplicated region for block: B:50:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:51:0x00c0  */
     /* JADX WARN: Removed duplicated region for block: B:53:0x00c4 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00d9 A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x017a A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x018a A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x01a9 A[Catch: Exception -> 0x02d1, TryCatch #2 {Exception -> 0x02d1, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00d9, B:74:0x010a, B:76:0x017a, B:94:0x01b3, B:100:0x01dc, B:102:0x01e6, B:103:0x01ee, B:105:0x01f4, B:107:0x022a, B:110:0x0234, B:115:0x025e, B:114:0x025b, B:116:0x0261, B:118:0x0269, B:119:0x027b, B:121:0x0283, B:122:0x029a, B:124:0x02a2, B:126:0x02bf, B:128:0x02c7, B:106:0x0214, B:99:0x01d9, B:79:0x0184, B:81:0x018a, B:84:0x0194, B:86:0x019a, B:89:0x01a3, B:91:0x01a9, B:63:0x00e5, B:66:0x00f1, B:70:0x00fd, B:31:0x008b, B:111:0x0243, B:96:0x01bf), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00da A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x017b A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x018b A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x01aa A[Catch: Exception -> 0x02d2, TryCatch #2 {Exception -> 0x02d2, blocks: (B:5:0x001d, B:7:0x0023, B:9:0x0035, B:12:0x004c, B:14:0x0052, B:16:0x0058, B:18:0x005e, B:20:0x0064, B:21:0x0068, B:23:0x0070, B:25:0x0078, B:28:0x0081, B:36:0x0098, B:38:0x00a0, B:40:0x00a6, B:42:0x00ac, B:54:0x00c6, B:60:0x00da, B:74:0x010b, B:76:0x017b, B:94:0x01b4, B:100:0x01dd, B:102:0x01e7, B:103:0x01ef, B:105:0x01f5, B:107:0x022b, B:110:0x0235, B:115:0x025f, B:114:0x025c, B:116:0x0262, B:118:0x026a, B:119:0x027c, B:121:0x0284, B:122:0x029b, B:124:0x02a3, B:126:0x02c0, B:128:0x02c8, B:106:0x0215, B:99:0x01da, B:79:0x0185, B:81:0x018b, B:84:0x0195, B:86:0x019b, B:89:0x01a4, B:91:0x01aa, B:63:0x00e6, B:66:0x00f2, B:70:0x00fe, B:31:0x008b, B:111:0x0244, B:96:0x01c0), top: B:139:0x001d, inners: #0, #1 }] */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -104,7 +104,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    a.s(uri, false);
+                    a.t(uri, false);
                     if (uri.contains(PUSH_BODY)) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf(PUSH_BODY) + 20));
                         String string2 = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";
@@ -197,7 +197,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                             String str2 = str;
                                             String queryParameter4 = parse2.getQueryParameter(str2);
                                             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
-                                            if (g.g0.equals(queryParameter3) || "2".equals(queryParameter3)) {
+                                            if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter3) || "2".equals(queryParameter3)) {
                                                 statisticItem.param("obj_source", 1);
                                                 statisticItem.param(str2, queryParameter4);
                                                 TiebaStatic.log(statisticItem);

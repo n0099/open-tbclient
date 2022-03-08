@@ -12,7 +12,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PluginActivityWrapper extends GenerateActivityWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

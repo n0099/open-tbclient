@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.LogTo;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -17,7 +18,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lkotlin/UByte;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Function1<UByte, Long> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ InetSocketAddress $address;
@@ -79,11 +80,11 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
                 j2 = System.currentTimeMillis() - currentTimeMillis;
                 this.$cache[UByte.m731constructorimpl(this.$buf[0]) & 255] = 1;
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Probe time] " + ((Object) UByte.m774toStringimpl(b2)) + '/' + this.$size + " packet time:" + j2);
+                logTo.d("*****", "[Probe time] " + ((Object) UByte.m774toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j2);
             } catch (Exception unused) {
                 j2 = -1;
                 LogTo logTo2 = LogTo.INSTANCE;
-                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m774toStringimpl(b2)) + '/' + this.$size + " packet timeout");
+                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m774toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
             }
             return Long.valueOf(j2);
         }

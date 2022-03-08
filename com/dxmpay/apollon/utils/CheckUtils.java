@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PHONE_LENGTH = 11;

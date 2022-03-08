@@ -24,7 +24,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TiebaActiveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_FAIL = 1;
@@ -35,13 +35,13 @@ public class TiebaActiveService extends BdBaseService {
     public int mHaveRetry;
     public Runnable mRunnable;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f47932e;
+        public final /* synthetic */ TiebaActiveService f46349e;
 
         public a(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -58,26 +58,26 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f47932e = tiebaActiveService;
+            this.f46349e = tiebaActiveService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47932e.sendActive();
+                this.f46349e.sendActive();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f47933b;
+        public final /* synthetic */ TiebaActiveService f46350b;
 
         public b(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f47933b = tiebaActiveService;
+            this.f46350b = tiebaActiveService;
             this.a = null;
         }
 
@@ -102,7 +102,7 @@ public class TiebaActiveService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47933b.mActiveTask = null;
+                this.f46350b.mActiveTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
@@ -132,7 +132,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e2) {
-                    c.a.t0.s.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                    c.a.q0.r.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
                     BdLog.e(e2.getMessage());
                     return null;
                 }
@@ -146,19 +146,19 @@ public class TiebaActiveService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f47933b.mActiveTask = null;
+                this.f46350b.mActiveTask = null;
                 if (str == null) {
-                    TiebaActiveService.access$308(this.f47933b);
-                    if (this.f47933b.mHaveRetry < 10) {
-                        this.f47933b.mHandler.removeCallbacks(this.f47933b.mRunnable);
-                        this.f47933b.mHandler.postDelayed(this.f47933b.mRunnable, 60000L);
+                    TiebaActiveService.access$308(this.f46350b);
+                    if (this.f46350b.mHaveRetry < 10) {
+                        this.f46350b.mHandler.removeCallbacks(this.f46350b.mRunnable);
+                        this.f46350b.mHandler.postDelayed(this.f46350b.mRunnable, 60000L);
                     } else {
-                        c.a.t0.s.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
-                        this.f47933b.stopSelf();
+                        c.a.q0.r.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                        this.f46350b.stopSelf();
                     }
                 }
-                c.a.t0.s.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
-                this.f47933b.stopSelf();
+                c.a.q0.r.j0.b.k().w(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
+                this.f46350b.stopSelf();
             }
         }
 
@@ -195,7 +195,7 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? c.a.t0.s.j0.b.k().q("channel_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? c.a.q0.r.j0.b.k().q("channel_id", null) : (String) invokeV.objValue;
     }
 
     private String getChannelyFile() {
@@ -271,7 +271,7 @@ public class TiebaActiveService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        c.a.t0.s.j0.b.k().y("channel_id", str);
+        c.a.q0.r.j0.b.k().y("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -317,7 +317,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
             super.onStart(intent, i2);
-            if (isActived() && c.a.t0.s.j0.b.k().l(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
+            if (isActived() && c.a.q0.r.j0.b.k().l(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();

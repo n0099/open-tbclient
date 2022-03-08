@@ -3,7 +3,6 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.i0.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,82 +11,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<c> events;
+    public final List<Event> events;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<SpliceScheduleCommand> {
+    /* loaded from: classes7.dex */
+    public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final int componentTag;
+        public final long utcSpliceTime;
 
-        public a() {
+        public static ComponentSplice createFromParcel(Parcel parcel) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel)) == null) ? new ComponentSplice(parcel.readInt(), parcel.readLong()) : (ComponentSplice) invokeL.objValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void writeToParcel(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65541, this, parcel) == null) {
+                parcel.writeInt(this.componentTag);
+                parcel.writeLong(this.utcSpliceTime);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public SpliceScheduleCommand createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SpliceScheduleCommand(parcel, null) : (SpliceScheduleCommand) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public SpliceScheduleCommand[] newArray(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SpliceScheduleCommand[i2] : (SpliceScheduleCommand[]) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final long f54480b;
-
-        public /* synthetic */ b(int i2, long j2, a aVar) {
-            this(i2, j2);
-        }
-
-        public static b c(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel)) == null) ? new b(parcel.readInt(), parcel.readLong()) : (b) invokeL.objValue;
-        }
-
-        public final void d(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.a);
-                parcel.writeLong(this.f54480b);
-            }
-        }
-
-        public b(int i2, long j2) {
+        public ComponentSplice(int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,8 +60,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.a = i2;
-            this.f54480b = j2;
+            this.componentTag = i2;
+            this.utcSpliceTime = j2;
         }
     }
 
@@ -120,21 +78,52 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<SpliceScheduleCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceScheduleCommand.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SpliceScheduleCommand createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SpliceScheduleCommand(parcel) : (SpliceScheduleCommand) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SpliceScheduleCommand[] newArray(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SpliceScheduleCommand[i2] : (SpliceScheduleCommand[]) invokeI.objValue;
+            }
+        };
     }
 
-    public /* synthetic */ SpliceScheduleCommand(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    public static SpliceScheduleCommand parseFromSection(l lVar) {
+    public static SpliceScheduleCommand parseFromSection(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar)) == null) {
-            int x = lVar.x();
-            ArrayList arrayList = new ArrayList(x);
-            for (int i2 = 0; i2 < x; i2++) {
-                arrayList.add(c.e(lVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
+            int readUnsignedByte = parsableByteArray.readUnsignedByte();
+            ArrayList arrayList = new ArrayList(readUnsignedByte);
+            for (int i2 = 0; i2 < readUnsignedByte; i2++) {
+                arrayList.add(Event.parseFromSection(parsableByteArray));
             }
             return new SpliceScheduleCommand(arrayList);
         }
@@ -148,12 +137,12 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             int size = this.events.size();
             parcel.writeInt(size);
             for (int i3 = 0; i3 < size; i3++) {
-                this.events.get(i3).f(parcel);
+                this.events.get(i3).writeToParcel(parcel);
             }
         }
     }
 
-    public SpliceScheduleCommand(List<c> list) {
+    public SpliceScheduleCommand(List<Event> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,46 +178,28 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         int readInt = parcel.readInt();
         ArrayList arrayList = new ArrayList(readInt);
         for (int i4 = 0; i4 < readInt; i4++) {
-            arrayList.add(c.d(parcel));
+            arrayList.add(Event.createFromParcel(parcel));
         }
         this.events = Collections.unmodifiableList(arrayList);
     }
 
-    /* loaded from: classes3.dex */
-    public static final class c {
+    /* loaded from: classes7.dex */
+    public static final class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
+        public final boolean autoReturn;
+        public final int availNum;
+        public final int availsExpected;
+        public final long breakDurationUs;
+        public final List<ComponentSplice> componentSpliceList;
+        public final boolean outOfNetworkIndicator;
+        public final boolean programSpliceFlag;
+        public final boolean spliceEventCancelIndicator;
+        public final long spliceEventId;
+        public final int uniqueProgramId;
+        public final long utcSpliceTime;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final boolean f54481b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final boolean f54482c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final boolean f54483d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final long f54484e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final List<b> f54485f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final boolean f54486g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final long f54487h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final int f54488i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final int f54489j;
-        public final int k;
-
-        public c(long j2, boolean z, boolean z2, boolean z3, List<b> list, long j3, boolean z4, long j4, int i2, int i3, int i4) {
+        public Event(long j2, boolean z, boolean z2, boolean z3, List<ComponentSplice> list, long j3, boolean z4, long j4, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -243,26 +214,26 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.a = j2;
-            this.f54481b = z;
-            this.f54482c = z2;
-            this.f54483d = z3;
-            this.f54485f = Collections.unmodifiableList(list);
-            this.f54484e = j3;
-            this.f54486g = z4;
-            this.f54487h = j4;
-            this.f54488i = i2;
-            this.f54489j = i3;
-            this.k = i4;
+            this.spliceEventId = j2;
+            this.spliceEventCancelIndicator = z;
+            this.outOfNetworkIndicator = z2;
+            this.programSpliceFlag = z3;
+            this.componentSpliceList = Collections.unmodifiableList(list);
+            this.utcSpliceTime = j3;
+            this.autoReturn = z4;
+            this.breakDurationUs = j4;
+            this.uniqueProgramId = i2;
+            this.availNum = i3;
+            this.availsExpected = i4;
         }
 
-        public static c d(Parcel parcel) {
+        public static Event createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parcel)) == null) ? new c(parcel) : (c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parcel)) == null) ? new Event(parcel) : (Event) invokeL.objValue;
         }
 
-        public static c e(l lVar) {
+        public static Event parseFromSection(ParsableByteArray parsableByteArray) {
             InterceptResult invokeL;
             ArrayList arrayList;
             boolean z;
@@ -276,84 +247,85 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             boolean z4;
             long j4;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, lVar)) == null) {
-                long z5 = lVar.z();
-                boolean z6 = (lVar.x() & 128) != 0;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, parsableByteArray)) == null) {
+                long readUnsignedInt = parsableByteArray.readUnsignedInt();
+                boolean z5 = (parsableByteArray.readUnsignedByte() & 128) != 0;
                 ArrayList arrayList2 = new ArrayList();
-                if (z6) {
+                if (z5) {
                     arrayList = arrayList2;
                     z = false;
-                    j2 = -9223372036854775807L;
+                    j2 = C.TIME_UNSET;
                     z2 = false;
-                    j3 = -9223372036854775807L;
+                    j3 = C.TIME_UNSET;
                     i2 = 0;
                     i3 = 0;
                     i4 = 0;
                     z3 = false;
                 } else {
-                    int x = lVar.x();
-                    boolean z7 = (x & 128) != 0;
-                    boolean z8 = (x & 64) != 0;
-                    boolean z9 = (x & 32) != 0;
-                    long z10 = z8 ? lVar.z() : -9223372036854775807L;
-                    if (!z8) {
-                        int x2 = lVar.x();
-                        ArrayList arrayList3 = new ArrayList(x2);
-                        for (int i5 = 0; i5 < x2; i5++) {
-                            arrayList3.add(new b(lVar.x(), lVar.z(), null));
+                    int readUnsignedByte = parsableByteArray.readUnsignedByte();
+                    boolean z6 = (readUnsignedByte & 128) != 0;
+                    boolean z7 = (readUnsignedByte & 64) != 0;
+                    boolean z8 = (readUnsignedByte & 32) != 0;
+                    long readUnsignedInt2 = z7 ? parsableByteArray.readUnsignedInt() : C.TIME_UNSET;
+                    if (!z7) {
+                        int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
+                        ArrayList arrayList3 = new ArrayList(readUnsignedByte2);
+                        for (int i5 = 0; i5 < readUnsignedByte2; i5++) {
+                            arrayList3.add(new ComponentSplice(parsableByteArray.readUnsignedByte(), parsableByteArray.readUnsignedInt()));
                         }
                         arrayList2 = arrayList3;
                     }
-                    if (z9) {
-                        long x3 = lVar.x();
-                        boolean z11 = (128 & x3) != 0;
-                        j4 = ((((x3 & 1) << 32) | lVar.z()) * 1000) / 90;
-                        z4 = z11;
+                    if (z8) {
+                        long readUnsignedByte3 = parsableByteArray.readUnsignedByte();
+                        boolean z9 = (128 & readUnsignedByte3) != 0;
+                        j4 = ((((readUnsignedByte3 & 1) << 32) | parsableByteArray.readUnsignedInt()) * 1000) / 90;
+                        z4 = z9;
                     } else {
                         z4 = false;
-                        j4 = -9223372036854775807L;
+                        j4 = C.TIME_UNSET;
                     }
-                    int D = lVar.D();
-                    int x4 = lVar.x();
-                    z3 = z8;
-                    i4 = lVar.x();
+                    int readUnsignedShort = parsableByteArray.readUnsignedShort();
+                    int readUnsignedByte4 = parsableByteArray.readUnsignedByte();
+                    z3 = z7;
+                    i4 = parsableByteArray.readUnsignedByte();
                     j3 = j4;
                     arrayList = arrayList2;
-                    long j5 = z10;
-                    i2 = D;
-                    i3 = x4;
+                    long j5 = readUnsignedInt2;
+                    i2 = readUnsignedShort;
+                    i3 = readUnsignedByte4;
                     j2 = j5;
-                    boolean z12 = z7;
+                    boolean z10 = z6;
                     z2 = z4;
-                    z = z12;
+                    z = z10;
                 }
-                return new c(z5, z6, z, z3, arrayList, j2, z2, j3, i2, i3, i4);
+                return new Event(readUnsignedInt, z5, z, z3, arrayList, j2, z2, j3, i2, i3, i4);
             }
-            return (c) invokeL.objValue;
+            return (Event) invokeL.objValue;
         }
 
-        public final void f(Parcel parcel) {
+        /* JADX INFO: Access modifiers changed from: private */
+        public void writeToParcel(Parcel parcel) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeLong(this.a);
-                parcel.writeByte(this.f54481b ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f54482c ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f54483d ? (byte) 1 : (byte) 0);
-                int size = this.f54485f.size();
+            if (interceptable == null || interceptable.invokeL(65543, this, parcel) == null) {
+                parcel.writeLong(this.spliceEventId);
+                parcel.writeByte(this.spliceEventCancelIndicator ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.outOfNetworkIndicator ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.programSpliceFlag ? (byte) 1 : (byte) 0);
+                int size = this.componentSpliceList.size();
                 parcel.writeInt(size);
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f54485f.get(i2).d(parcel);
+                    this.componentSpliceList.get(i2).writeToParcel(parcel);
                 }
-                parcel.writeLong(this.f54484e);
-                parcel.writeByte(this.f54486g ? (byte) 1 : (byte) 0);
-                parcel.writeLong(this.f54487h);
-                parcel.writeInt(this.f54488i);
-                parcel.writeInt(this.f54489j);
-                parcel.writeInt(this.k);
+                parcel.writeLong(this.utcSpliceTime);
+                parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
+                parcel.writeLong(this.breakDurationUs);
+                parcel.writeInt(this.uniqueProgramId);
+                parcel.writeInt(this.availNum);
+                parcel.writeInt(this.availsExpected);
             }
         }
 
-        public c(Parcel parcel) {
+        public Event(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -368,22 +340,22 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.a = parcel.readLong();
-            this.f54481b = parcel.readByte() == 1;
-            this.f54482c = parcel.readByte() == 1;
-            this.f54483d = parcel.readByte() == 1;
+            this.spliceEventId = parcel.readLong();
+            this.spliceEventCancelIndicator = parcel.readByte() == 1;
+            this.outOfNetworkIndicator = parcel.readByte() == 1;
+            this.programSpliceFlag = parcel.readByte() == 1;
             int readInt = parcel.readInt();
             ArrayList arrayList = new ArrayList(readInt);
             for (int i4 = 0; i4 < readInt; i4++) {
-                arrayList.add(b.c(parcel));
+                arrayList.add(ComponentSplice.createFromParcel(parcel));
             }
-            this.f54485f = Collections.unmodifiableList(arrayList);
-            this.f54484e = parcel.readLong();
-            this.f54486g = parcel.readByte() == 1;
-            this.f54487h = parcel.readLong();
-            this.f54488i = parcel.readInt();
-            this.f54489j = parcel.readInt();
-            this.k = parcel.readInt();
+            this.componentSpliceList = Collections.unmodifiableList(arrayList);
+            this.utcSpliceTime = parcel.readLong();
+            this.autoReturn = parcel.readByte() == 1;
+            this.breakDurationUs = parcel.readLong();
+            this.uniqueProgramId = parcel.readInt();
+            this.availNum = parcel.readInt();
+            this.availsExpected = parcel.readInt();
         }
     }
 }

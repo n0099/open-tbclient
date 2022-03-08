@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static abstract class AbstractBinderC1812a extends Binder implements a {
+    /* loaded from: classes4.dex */
+    public static abstract class AbstractBinderC1788a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C1813a implements a {
+        /* loaded from: classes4.dex */
+        public static class C1789a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1813a(IBinder iBinder) {
+            public C1789a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1812a() {
+        public AbstractBinderC1788a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1813a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1789a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

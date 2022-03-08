@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.b1.t.h;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaDataTrack implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MultiMediaDataTrack> CREATOR;

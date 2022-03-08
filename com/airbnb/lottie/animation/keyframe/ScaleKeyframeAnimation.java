@@ -5,7 +5,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ScaleKeyframeAnimation extends KeyframeAnimation<ScaleXY> {
     public final ScaleXY scaleXY;
 

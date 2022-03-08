@@ -3,7 +3,7 @@ package f.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import dxm.sasdk.DxmSdkSensorsDataAPI;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public static DxmSdkSensorsDataAPI a;

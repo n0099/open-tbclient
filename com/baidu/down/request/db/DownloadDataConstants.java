@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DownloadDataConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_TABLE = "downloads";
@@ -21,7 +21,7 @@ public final class DownloadDataConstants {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Columns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";

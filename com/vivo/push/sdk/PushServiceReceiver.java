@@ -20,26 +20,26 @@ import com.vivo.push.e;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import com.vivo.push.util.r;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f60939b;
+    public static Handler f59289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60940c;
+    public static a f59290c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60941b;
+        public String f59291b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         public static /* synthetic */ void a(a aVar, Context context, String str) {
             aVar.a = ContextDelegate.getContext(context);
-            aVar.f60941b = str;
+            aVar.f59291b = str;
         }
 
         @Override // java.lang.Runnable
@@ -66,14 +66,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NetworkInfo a = r.a(this.a);
                 if (!(a != null ? a.isConnectedOrConnecting() : false)) {
-                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f60941b);
+                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f59291b);
                     Context context = this.a;
-                    p.a(context, "触发静态广播:无网络(" + this.f60941b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.a(context, "触发静态广播:无网络(" + this.f59291b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 }
-                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f60941b);
+                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f59291b);
                 Context context2 = this.a;
-                p.a(context2, "触发静态广播(" + this.f60941b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                p.a(context2, "触发静态广播(" + this.f59291b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                 e.a().a(this.a);
                 if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     return;
@@ -96,7 +96,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f60940c = new a();
+        f59290c = new a();
     }
 
     public PushServiceReceiver() {
@@ -124,12 +124,12 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
                     a = handlerThread;
                     handlerThread.start();
-                    f60939b = new Handler(a.getLooper());
+                    f59289b = new Handler(a.getLooper());
                 }
-                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f60939b);
-                a.a(f60940c, context2, action);
-                f60939b.removeCallbacks(f60940c);
-                f60939b.postDelayed(f60940c, 2000L);
+                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f59289b);
+                a.a(f59290c, context2, action);
+                f59289b.removeCallbacks(f59290c);
+                f59289b.postDelayed(f59290c, 2000L);
             }
         }
     }

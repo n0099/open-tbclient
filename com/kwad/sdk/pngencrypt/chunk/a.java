@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements com.kwad.sdk.pngencrypt.g {
     public boolean a;
 
@@ -13,15 +13,15 @@ public class a implements com.kwad.sdk.pngencrypt.g {
 
     @Override // com.kwad.sdk.pngencrypt.g
     public final PngChunk a(d dVar, com.kwad.sdk.pngencrypt.k kVar) {
-        PngChunk a = a(dVar.f57278c, kVar);
+        PngChunk a = a(dVar.f55628c, kVar);
         if (a == null) {
-            a = c(dVar.f57278c, kVar);
+            a = c(dVar.f55628c, kVar);
         }
         if (a == null) {
-            a = b(dVar.f57278c, kVar);
+            a = b(dVar.f55628c, kVar);
         }
         a.b(dVar);
-        if (this.a && dVar.f57279d != null) {
+        if (this.a && dVar.f55629d != null) {
             a.a(dVar);
         }
         return a;

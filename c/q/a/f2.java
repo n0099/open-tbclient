@@ -1,27 +1,28 @@
 package c.q.a;
 
-import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import org.json.JSONException;
-/* loaded from: classes9.dex */
-public final class f2 {
+/* loaded from: classes3.dex */
+public class f2 implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
+    public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Info f30552b;
+    public final /* synthetic */ p2 f28959b;
 
-    public f2(Context context, Info info) {
+    public f2(p2 p2Var, View view) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, info};
+            Object[] objArr = {p2Var, view};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,21 +32,34 @@ public final class f2 {
                 return;
             }
         }
-        this.a = context;
-        this.f30552b = info;
+        this.f28959b = p2Var;
+        this.a = view;
     }
 
-    public void a(int i2, String str) {
+    @Override // c.q.a.p0
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            y2 a = c3.a(this.a);
-            try {
-                a.f30763b = c3.d("rle", new g3(this.f30552b));
-                a.k("co", i2);
-            } catch (JSONException unused) {
-            }
-            a.l("msg", str);
-            a.m();
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a == null) {
+            return;
         }
+        this.f28959b.f29073f.a(z);
+    }
+
+    @Override // c.q.a.p0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+            return;
+        }
+        this.f28959b.f29073f.onDisplayed();
+    }
+
+    @Override // c.q.a.p0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+            return;
+        }
+        new Handler(Looper.getMainLooper()).postDelayed(new c2(this), this.f28959b.f29070c.getSpet());
     }
 }

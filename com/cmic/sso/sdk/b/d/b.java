@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f53649b;
+    public Map<String, List<String>> f52068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53650c;
+    public String f52069c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class b {
             }
         }
         this.a = i2;
-        this.f53649b = map;
-        this.f53650c = str;
+        this.f52068b = map;
+        this.f52069c = str;
     }
 
     public int a() {
@@ -51,7 +51,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, List<String>> map = this.f53649b;
+            Map<String, List<String>> map = this.f52068b;
             return map == null ? new HashMap() : map;
         }
         return (Map) invokeV.objValue;
@@ -61,7 +61,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f53650c;
+            String str = this.f52069c;
             return str == null ? "" : str;
         }
         return (String) invokeV.objValue;

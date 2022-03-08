@@ -11,37 +11,36 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ShadowLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f41341e;
+    public Paint f39746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f41342f;
+    public RectF f39747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41343g;
+    public int f39748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41344h;
+    public int f39749h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41345i;
+    public int f39750i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41346j;
+    public int f39751j;
     public int k;
     public int l;
 
@@ -71,26 +70,26 @@ public class ShadowLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
             setLayerType(1, null);
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(e.tbds20);
-            this.f41343g = dimensionPixelSize;
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+            this.f39748g = dimensionPixelSize;
             setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            this.l = getContext().getResources().getDimensionPixelSize(e.tbds25);
-            this.f41344h = getContext().getResources().getDimensionPixelSize(e.tbds10);
-            this.f41345i = getContext().getResources().getDimensionPixelSize(e.tbds2);
-            this.f41346j = getContext().getResources().getDimensionPixelSize(e.tbds5);
-            this.k = SkinManager.getColor(d.plugin_button_shadow_blue);
+            this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
+            this.f39749h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f39750i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+            this.f39751j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+            this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
             Paint paint = new Paint();
-            this.f41341e = paint;
+            this.f39746e = paint;
             paint.setColor(0);
-            this.f41341e.setShadowLayer(this.f41344h, this.f41345i, this.f41346j, this.k);
-            this.f41342f = new RectF();
+            this.f39746e.setShadowLayer(this.f39749h, this.f39750i, this.f39751j, this.k);
+            this.f39747f = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f41341e.setShadowLayer(this.f41344h, this.f41345i, this.f41346j, this.k);
+            this.f39746e.setShadowLayer(this.f39749h, this.f39750i, this.f39751j, this.k);
             postInvalidate();
         }
     }
@@ -98,7 +97,7 @@ public class ShadowLayout extends FrameLayout {
     public void buildShadow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.f41343g;
+            int i2 = this.f39748g;
             setPadding(i2, i2, i2, i2);
             b();
         }
@@ -109,13 +108,13 @@ public class ShadowLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f41342f.left = getPaddingLeft();
-            this.f41342f.right = getWidth() - getPaddingRight();
-            this.f41342f.bottom = getHeight() - getPaddingBottom();
-            this.f41342f.top = getPaddingTop();
-            RectF rectF = this.f41342f;
+            this.f39747f.left = getPaddingLeft();
+            this.f39747f.right = getWidth() - getPaddingRight();
+            this.f39747f.bottom = getHeight() - getPaddingBottom();
+            this.f39747f.top = getPaddingTop();
+            RectF rectF = this.f39747f;
             int i2 = this.l;
-            canvas.drawRoundRect(rectF, i2, i2, this.f41341e);
+            canvas.drawRoundRect(rectF, i2, i2, this.f39746e);
         }
     }
 
@@ -135,8 +134,8 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            this.f41345i = getResources().getDimensionPixelSize(i2);
-            this.f41346j = getResources().getDimensionPixelSize(i3);
+            this.f39750i = getResources().getDimensionPixelSize(i2);
+            this.f39751j = getResources().getDimensionPixelSize(i3);
             return this;
         }
         return (ShadowLayout) invokeII.objValue;
@@ -147,7 +146,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f41343g = getResources().getDimensionPixelSize(i2);
+            this.f39748g = getResources().getDimensionPixelSize(i2);
             return this;
         }
         return (ShadowLayout) invokeI.objValue;

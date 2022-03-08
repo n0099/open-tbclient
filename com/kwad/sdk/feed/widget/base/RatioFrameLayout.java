@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class RatioFrameLayout extends FrameLayout {
     public float a;
 

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.shell.callback;
 
 import com.baidu.sapi2.shell.response.SapiResponse;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface SapiCallBack<R extends SapiResponse> {
     void onNetworkFailed();
 

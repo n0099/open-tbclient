@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SubscriptionArbiter extends AtomicInteger implements Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2189523197179400958L;

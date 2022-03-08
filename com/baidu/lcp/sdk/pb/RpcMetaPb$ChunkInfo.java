@@ -1,7 +1,7 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.v.a.e.e;
+import c.a.u.a.e.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHUNK_ID_FIELD_NUMBER = 2;
@@ -39,7 +39,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public int memoizedSerializedSize;
     public long streamId_;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<RpcMetaPb$ChunkInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,19 +68,19 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$ChunkInfo, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f34883e;
+        public int f33286e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f34884f;
+        public long f33287f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f34885g;
+        public long f33288g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -153,13 +153,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (e) null);
-                int i2 = this.f34883e;
+                int i2 = this.f33286e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                rpcMetaPb$ChunkInfo.streamId_ = this.f34884f;
+                rpcMetaPb$ChunkInfo.streamId_ = this.f33287f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                rpcMetaPb$ChunkInfo.chunkId_ = this.f34885g;
+                rpcMetaPb$ChunkInfo.chunkId_ = this.f33288g;
                 rpcMetaPb$ChunkInfo.bitField0_ = i3;
                 return rpcMetaPb$ChunkInfo;
             }
@@ -171,11 +171,11 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f34884f = 0L;
-                int i2 = this.f34883e & (-2);
-                this.f34883e = i2;
-                this.f34885g = 0L;
-                this.f34883e = i2 & (-3);
+                this.f33287f = 0L;
+                int i2 = this.f33286e & (-2);
+                this.f33286e = i2;
+                this.f33288g = 0L;
+                this.f33286e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -207,13 +207,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f34883e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f33286e & 2) == 2 : invokeV.booleanValue;
         }
 
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f34883e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f33286e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
@@ -277,8 +277,8 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-                this.f34883e |= 2;
-                this.f34885g = j2;
+                this.f33286e |= 2;
+                this.f33288g = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -288,8 +288,8 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j2)) == null) {
-                this.f34883e |= 1;
-                this.f34884f = j2;
+                this.f33286e |= 1;
+                this.f33287f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

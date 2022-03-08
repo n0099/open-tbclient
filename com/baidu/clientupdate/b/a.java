@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f33576b;
+    public static final char[] f31979b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +32,7 @@ public final class a {
             }
         }
         a = new byte[128];
-        f33576b = new char[64];
+        f31979b = new char[64];
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
             a[i5] = -1;
@@ -61,22 +62,22 @@ public final class a {
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
-            f33576b[i9] = (char) (i9 + 65);
+            f31979b[i9] = (char) (i9 + 65);
         }
         int i10 = 0;
         while (i2 <= 51) {
-            f33576b[i2] = (char) (i10 + 97);
+            f31979b[i2] = (char) (i10 + 97);
             i2++;
             i10++;
         }
         while (i3 <= 61) {
-            f33576b[i3] = (char) (i4 + 48);
+            f31979b[i3] = (char) (i4 + 48);
             i3++;
             i4++;
         }
-        char[] cArr = f33576b;
+        char[] cArr = f31979b;
         cArr[62] = '+';
-        cArr[63] = '/';
+        cArr[63] = WebvttCueParser.CHAR_SLASH;
     }
 
     public static int a(char[] cArr) {

@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ProducerContext {
     void addCallbacks(ProducerContextCallbacks producerContextCallbacks);
 

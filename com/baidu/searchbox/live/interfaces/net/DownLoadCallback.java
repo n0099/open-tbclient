@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.net;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface DownLoadCallback {
     void onFileDownloaded(Object obj, int i2, int i3, String str);
 

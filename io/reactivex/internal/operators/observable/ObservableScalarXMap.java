@@ -19,12 +19,12 @@ import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableScalarXMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ScalarDisposable<T> extends AtomicInteger implements QueueDisposable<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUSED = 1;
@@ -148,7 +148,7 @@ public final class ObservableScalarXMap {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ScalarXMapObservable<T, R> extends Observable<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

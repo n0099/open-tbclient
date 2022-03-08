@@ -18,7 +18,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableGenerate<T, S> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
     public final BiFunction<S, Emitter<T>, S> generator;
     public final Callable<S> stateSupplier;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class GeneratorSubscription<T, S> extends AtomicLong implements Emitter<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7565982551505011832L;

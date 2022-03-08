@@ -5,11 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.Protocol;
 import okhttp3.Response;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class StatusLine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_CONTINUE = 100;
@@ -99,10 +100,10 @@ public final class StatusLine {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.protocol == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.code);
             if (this.message != null) {
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
                 sb.append(this.message);
             }
             return sb.toString();

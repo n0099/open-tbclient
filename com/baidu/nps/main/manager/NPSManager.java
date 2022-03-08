@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.c.a.f;
-import c.a.e0.c.a.g;
+import c.a.c0.b.a.f;
+import c.a.c0.b.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.hook.component.ProtectActivity;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NPS-NPSManager";
@@ -37,28 +37,28 @@ public class NPSManager {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, Bundle> mBundleMap;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f37676e;
+        public final /* synthetic */ String f36079e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f37677f;
+        public final /* synthetic */ String f36080f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IInvokeCallback f37678g;
+        public final /* synthetic */ IInvokeCallback f36081g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f37679h;
+        public final /* synthetic */ int f36082h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Class f37680i;
+        public final /* synthetic */ Class f36083i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ NPSManager f37681j;
+        public final /* synthetic */ NPSManager f36084j;
 
         public a(NPSManager nPSManager, String str, String str2, IInvokeCallback iInvokeCallback, int i2, Class cls) {
             Interceptable interceptable = $ic;
@@ -75,63 +75,63 @@ public class NPSManager {
                     return;
                 }
             }
-            this.f37681j = nPSManager;
-            this.f37676e = str;
-            this.f37677f = str2;
-            this.f37678g = iInvokeCallback;
-            this.f37679h = i2;
-            this.f37680i = cls;
+            this.f36084j = nPSManager;
+            this.f36079e = str;
+            this.f36080f = str2;
+            this.f36081g = iInvokeCallback;
+            this.f36082h = i2;
+            this.f36083i = cls;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.f37676e) && !TextUtils.isEmpty(this.f37677f)) {
-                    int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f37676e, this.f37679h);
+                if (!TextUtils.isEmpty(this.f36079e) && !TextUtils.isEmpty(this.f36080f)) {
+                    int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f36079e, this.f36082h);
                     if (prepareBundle != 41) {
-                        if (c.a.e0.i.b.a()) {
+                        if (c.a.c0.h.b.a()) {
                             String str = "loadClazz, retCode=" + prepareBundle;
                         }
-                        this.f37678g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
+                        this.f36081g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
                         return;
                     }
-                    NPSPackageManager.getInstance().recordBundleRunning(this.f37676e);
-                    Bundle bundleInternal = this.f37681j.getBundleInternal(this.f37676e);
+                    NPSPackageManager.getInstance().recordBundleRunning(this.f36079e);
+                    Bundle bundleInternal = this.f36084j.getBundleInternal(this.f36079e);
                     if (bundleInternal == null) {
-                        c.a.e0.i.b.a();
-                        this.f37678g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f37676e), null);
+                        c.a.c0.h.b.a();
+                        this.f36081g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f36079e), null);
                         return;
                     }
                     try {
-                        Class loadClass = bundleInternal.loadClass(this.f37677f, this.f37680i);
+                        Class loadClass = bundleInternal.loadClass(this.f36080f, this.f36083i);
                         f.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess());
-                        c.a.e0.i.b.a();
-                        this.f37678g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
+                        c.a.c0.h.b.a();
+                        this.f36081g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
                         return;
                     } catch (InvokeException e2) {
                         f.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg());
-                        if (c.a.e0.i.b.a()) {
+                        if (c.a.c0.h.b.a()) {
                             String str2 = "loadClazz, retCode=" + e2.errCode();
                         }
-                        this.f37678g.onResult(e2.errCode(), e2.errMsg(), null);
+                        this.f36081g.onResult(e2.errCode(), e2.errMsg(), null);
                         return;
                     } catch (InitException e3) {
                         f.a().b().recordInvokeResult(e3.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e3.errMsg());
-                        if (c.a.e0.i.b.a()) {
+                        if (c.a.c0.h.b.a()) {
                             String str3 = "loadClazz, retCode=" + e3.errCode();
                         }
-                        this.f37678g.onResult(e3.errCode(), e3.errMsg(), null);
+                        this.f36081g.onResult(e3.errCode(), e3.errMsg(), null);
                         return;
                     }
                 }
-                c.a.e0.i.b.a();
-                this.f37678g.onResult(5, Constant.MSG.retMsgErrParam(this.f37676e, this.f37677f), null);
+                c.a.c0.h.b.a();
+                this.f36081g.onResult(5, Constant.MSG.retMsgErrParam(this.f36079e, this.f36080f), null);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,7 +246,7 @@ public class NPSManager {
     private void registerRestartReceiver() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            ContextHolder.getApplicationContext().registerReceiver(new b(this), new IntentFilter(c.a.e0.i.a.a));
+            ContextHolder.getApplicationContext().registerReceiver(new b(this), new IntentFilter(c.a.c0.h.a.a));
         }
     }
 
@@ -382,7 +382,7 @@ public class NPSManager {
             try {
                 cls = bundleInternal.loadClass(str);
             } catch (InvokeException e2) {
-                if (1 == c.a.e0.e.a.b().a(str)) {
+                if (1 == c.a.c0.d.a.b().a(str)) {
                     statisticClassNotFind(str, e2);
                     cls = ProtectActivity.class;
                 } else {
@@ -406,7 +406,7 @@ public class NPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, configurations, z) == null) {
             synchronized (this) {
-                c.a.e0.i.b.b(configurations.debug);
+                c.a.c0.h.b.b(configurations.debug);
                 registerRestartReceiver();
                 if (z) {
                     NPSPackageManager.getInstance().init();

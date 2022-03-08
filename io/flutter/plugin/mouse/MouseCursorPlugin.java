@@ -13,7 +13,7 @@ import io.flutter.embedding.engine.systemchannels.MouseCursorChannel;
 import java.util.HashMap;
 @RequiresApi(24)
 @TargetApi(24)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MouseCursorPlugin {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -24,7 +24,7 @@ public class MouseCursorPlugin {
     @NonNull
     public final MouseCursorChannel mouseCursorChannel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface MouseCursorViewDelegate {
         PointerIcon getSystemPointerIcon(int i2);
 

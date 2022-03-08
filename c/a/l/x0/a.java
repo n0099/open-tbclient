@@ -1,5 +1,5 @@
 package c.a.l.x0;
 /* loaded from: classes.dex */
 public interface a {
-    void a(c.a.t0.s.r.a aVar);
+    void a(c.a.q0.r.r.a aVar);
 }

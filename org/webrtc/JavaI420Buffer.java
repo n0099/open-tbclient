@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.JniCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

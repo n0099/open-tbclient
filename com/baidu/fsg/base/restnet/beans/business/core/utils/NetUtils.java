@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetUtils";

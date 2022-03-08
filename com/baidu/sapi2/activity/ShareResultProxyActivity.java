@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_EXTRA_PARAMS = "key_extra_params";
@@ -36,30 +36,30 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38292h = "ShareResultProxyActivity";
+    public static final String f36696h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38293i = "key_launch_share_activity_status";
+    public static final String f36697i = "key_launch_share_activity_status";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38294b;
+    public String f36698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38295c;
+    public String f36699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38296d;
+    public String f36700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f38297e;
+    public ArrayList<PassNameValuePair> f36701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38298f;
+    public String f36702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38299g;
+    public boolean f36703g;
 
     public ShareResultProxyActivity() {
         Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f38299g = true;
+            this.f36703g = true;
             this.a = getIntent().getStringExtra(KEY_PKG);
             if (ShareLoginModel.getInstance().isMeetShareV4(this, this.a)) {
-                Log.d(f38292h, "openShareLogin: is meet share_v4");
+                Log.d(f36696h, "openShareLogin: is meet share_v4");
                 ShareLoginModel.getInstance().openV4ShareLogin(this, this.a, "product");
                 ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "0");
                 return;
             }
-            Log.d(f38292h, "openShareLogin: is not share_v4");
+            Log.d(f36696h, "openShareLogin: is not share_v4");
             b();
         }
     }
@@ -96,12 +96,12 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Intent intent = getIntent();
             this.a = intent.getStringExtra(KEY_PKG);
-            this.f38294b = intent.getStringExtra("key_url");
-            this.f38295c = intent.getStringExtra(KEY_TRACE_ID);
-            this.f38296d = intent.getStringExtra("key_session_id");
-            this.f38297e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-            this.f38298f = intent.getStringExtra("key_version");
-            new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.f38294b, this.f38295c, this.f38296d, this.f38297e, this.f38298f, "product");
+            this.f36698b = intent.getStringExtra("key_url");
+            this.f36699c = intent.getStringExtra(KEY_TRACE_ID);
+            this.f36700d = intent.getStringExtra("key_session_id");
+            this.f36701e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+            this.f36702f = intent.getStringExtra("key_version");
+            new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.f36698b, this.f36699c, this.f36700d, this.f36701e, this.f36702f, "product");
             ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "1");
         }
     }
@@ -178,9 +178,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             attributes.flags = 32;
             window.setAttributes(attributes);
             if (bundle != null) {
-                this.f38299g = bundle.getBoolean(f38293i, false);
+                this.f36703g = bundle.getBoolean(f36697i, false);
             }
-            if (!this.f38299g) {
+            if (!this.f36703g) {
                 a();
             }
             LogUtil.logActivity(this, "onCreate");
@@ -191,7 +191,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putBoolean(f38293i, this.f38299g);
+            bundle.putBoolean(f36697i, this.f36703g);
             super.onSaveInstanceState(bundle);
         }
     }

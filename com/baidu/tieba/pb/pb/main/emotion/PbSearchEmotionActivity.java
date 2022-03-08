@@ -10,11 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.s.t.a;
-import c.a.u0.u2.i;
-import c.a.u0.u2.j;
-import c.a.u0.u2.l;
+import c.a.q0.r.t.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,6 +27,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.R;
 import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.AutoLineWrapLayout;
@@ -40,7 +39,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbSearchEmotionActivity extends BaseActivity implements SearchEditView.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_BACK_DATA = "emotion_data";
@@ -50,7 +49,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public String mAuthorShowName;
     public int mCurrentPage;
     public SearchEditView mEditSearchView;
-    public c.a.u0.u2.u.f.d1.d mEmotionAdapter;
+    public c.a.r0.u2.k.f.d1.d mEmotionAdapter;
     public List<EmotionImageData> mEmotionList;
     public BdListView mEmotionListView;
     public boolean mHasMore;
@@ -61,7 +60,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public LinearLayout mLayoutRoot;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public final c.a.u0.u2.u.f.d1.a mOnEmotionChooseListener;
+    public final c.a.r0.u2.k.f.d1.a mOnEmotionChooseListener;
     public final BdListView.p mOnScrollToBottomListener;
     public final SearchEmotionModel.b mSearchCallback;
     public SearchEmotionModel mSearchModel;
@@ -70,16 +69,16 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public TextView mTvTips;
     public View mViewLine;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46813e;
+        public final /* synthetic */ String f45221e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f46814f;
+        public final /* synthetic */ PbSearchEmotionActivity f45222f;
 
         public a(PbSearchEmotionActivity pbSearchEmotionActivity, String str) {
             Interceptable interceptable = $ic;
@@ -96,29 +95,29 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f46814f = pbSearchEmotionActivity;
-            this.f46813e = str;
+            this.f45222f = pbSearchEmotionActivity;
+            this.f45221e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46814f.mEditSearchView.setText(this.f46813e);
-                this.f46814f.mEditSearchView.setSelection(this.f46813e.length());
-                this.f46814f.searchEmotion(this.f46813e);
+                this.f45222f.mEditSearchView.setText(this.f45221e);
+                this.f45222f.mEditSearchView.setSelection(this.f45221e.length());
+                this.f45222f.searchEmotion(this.f45221e);
                 TiebaStatic.log("c12178");
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f46815e;
+        public final /* synthetic */ PbSearchEmotionActivity f45223e;
 
         public b(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -135,19 +134,19 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f46815e = pbSearchEmotionActivity;
+            this.f45223e = pbSearchEmotionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46815e.finish();
+                this.f45223e.finish();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements SearchEmotionModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +171,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, c.a.u0.y0.c.a aVar) {
+        public void a(String str, c.a.r0.x0.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
                 this.a.hideProgressBar();
@@ -190,7 +189,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                 this.a.mHasMore = aVar.b() != 0;
                 this.a.mEmotionList.addAll(aVar.a());
                 if (this.a.mEmotionAdapter == null) {
-                    this.a.mEmotionAdapter = new c.a.u0.u2.u.f.d1.d(this.a.mEmotionList);
+                    this.a.mEmotionAdapter = new c.a.r0.u2.k.f.d1.d(this.a.mEmotionList);
                     this.a.mEmotionAdapter.h(this.a.mKeepImgCacheList);
                     this.a.mEmotionAdapter.j(this.a.mOnEmotionChooseListener);
                     this.a.mEmotionListView.setAdapter((ListAdapter) this.a.mEmotionAdapter);
@@ -214,13 +213,13 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f46816e;
+        public final /* synthetic */ PbSearchEmotionActivity f45224e;
 
         public d(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -237,32 +236,32 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f46816e = pbSearchEmotionActivity;
+            this.f45224e = pbSearchEmotionActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46816e.loadMoreEmotion();
+                this.f45224e.loadMoreEmotion();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
-    public class e implements c.a.u0.u2.u.f.d1.a {
+    /* loaded from: classes6.dex */
+    public class e implements c.a.r0.u2.k.f.d1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbSearchEmotionActivity a;
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         public class a extends c.a.d.f.l.c<c.a.d.o.d.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EmotionImageData a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f46817b;
+            public final /* synthetic */ e f45225b;
 
             public a(e eVar, EmotionImageData emotionImageData) {
                 Interceptable interceptable = $ic;
@@ -279,7 +278,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                         return;
                     }
                 }
-                this.f46817b = eVar;
+                this.f45225b = eVar;
                 this.a = emotionImageData;
             }
 
@@ -290,7 +289,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                 if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                     return;
                 }
-                this.f46817b.a.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(this.f46817b.a.getPageContext().getPageActivity(), 25023, this.a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
+                this.f45225b.a.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(this.f45225b.a.getPageContext().getPageActivity(), 25023, this.a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
             }
         }
 
@@ -312,7 +311,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             this.a = pbSearchEmotionActivity;
         }
 
-        @Override // c.a.u0.u2.u.f.d1.a
+        @Override // c.a.r0.u2.k.f.d1.a
         public void a(EmotionImageData emotionImageData, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, emotionImageData, z) == null) {
@@ -328,16 +327,16 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f46818e;
+        public final /* synthetic */ EmotionImageData f45226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f46819f;
+        public final /* synthetic */ PbSearchEmotionActivity f45227f;
 
         public f(PbSearchEmotionActivity pbSearchEmotionActivity, EmotionImageData emotionImageData) {
             Interceptable interceptable = $ic;
@@ -354,27 +353,27 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f46819f = pbSearchEmotionActivity;
-            this.f46818e = emotionImageData;
+            this.f45227f = pbSearchEmotionActivity;
+            this.f45226e = emotionImageData;
         }
 
-        @Override // c.a.t0.s.t.a.e
-        public void onClick(c.a.t0.s.t.a aVar) {
+        @Override // c.a.q0.r.t.a.e
+        public void onClick(c.a.q0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f46819f.sendEmotion(this.f46818e);
+                this.f45227f.sendEmotion(this.f45226e);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class g implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f46820e;
+        public final /* synthetic */ PbSearchEmotionActivity f45228e;
 
         public g(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -391,11 +390,11 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f46820e = pbSearchEmotionActivity;
+            this.f45228e = pbSearchEmotionActivity;
         }
 
-        @Override // c.a.t0.s.t.a.e
-        public void onClick(c.a.t0.s.t.a aVar) {
+        @Override // c.a.q0.r.t.a.e
+        public void onClick(c.a.q0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -424,23 +423,23 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     private void initHotWords() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.mLayoutHotWords = (AutoLineWrapLayout) this.mActivity.findViewById(i.layout_hot_words);
+            this.mLayoutHotWords = (AutoLineWrapLayout) this.mActivity.findViewById(R.id.layout_hot_words);
             List<String> list = this.mHotWords;
             if (list != null && !list.isEmpty()) {
                 this.mTvTips.setVisibility(0);
-                this.mTvTips.setText(getResources().getString(l.hot_emotion));
+                this.mTvTips.setText(getResources().getString(R.string.hot_emotion));
                 int min = Math.min(this.mHotWords.size(), 10);
                 for (int i2 = 0; i2 < min; i2++) {
                     String str = this.mHotWords.get(i2);
                     if (!TextUtils.isEmpty(str)) {
                         String str2 = str.length() > 20 ? str.substring(0, 20) + "..." : str;
                         TextView textView = new TextView(this.mActivity);
-                        SkinManager.setBackgroundColor(textView, c.a.u0.u2.f.CAM_X0205);
-                        SkinManager.setViewTextColor(textView, c.a.u0.u2.f.CAM_X0106);
-                        int f2 = n.f(this.mActivity, c.a.u0.u2.g.ds16);
+                        SkinManager.setBackgroundColor(textView, R.color.CAM_X0205);
+                        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+                        int f2 = n.f(this.mActivity, R.dimen.ds16);
                         textView.setPadding(f2, f2, f2, f2);
                         textView.setText(str2);
-                        textView.setTextSize(0, n.f(this.mActivity, c.a.u0.u2.g.fontsize24));
+                        textView.setTextSize(0, n.f(this.mActivity, R.dimen.fontsize24));
                         textView.setSingleLine();
                         textView.setOnClickListener(new a(this, str));
                         this.mLayoutHotWords.addView(textView);
@@ -455,18 +454,18 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.mLayoutRoot = (LinearLayout) this.mActivity.findViewById(i.layout_root);
-            this.mLayoutContent = (FrameLayout) this.mActivity.findViewById(i.layout_content);
-            this.mViewLine = this.mActivity.findViewById(i.view_line);
-            NavigationBar navigationBar = (NavigationBar) this.mActivity.findViewById(i.view_navigation_bar);
+            this.mLayoutRoot = (LinearLayout) this.mActivity.findViewById(R.id.layout_root);
+            this.mLayoutContent = (FrameLayout) this.mActivity.findViewById(R.id.layout_content);
+            this.mViewLine = this.mActivity.findViewById(R.id.view_line);
+            NavigationBar navigationBar = (NavigationBar) this.mActivity.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar = navigationBar;
-            View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, j.pb_emotion_search_navigation_view, (View.OnClickListener) null);
-            SearchEditView searchEditView = (SearchEditView) addCustomView.findViewById(i.edit_search_view);
+            View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.pb_emotion_search_navigation_view, (View.OnClickListener) null);
+            SearchEditView searchEditView = (SearchEditView) addCustomView.findViewById(R.id.edit_search_view);
             this.mEditSearchView = searchEditView;
             searchEditView.setCallback(this);
-            this.mTvCancel = (TextView) addCustomView.findViewById(i.tv_cancel);
-            this.mTvTips = (TextView) this.mActivity.findViewById(i.tv_tips);
-            BdListView bdListView = (BdListView) this.mActivity.findViewById(i.listview_emotion);
+            this.mTvCancel = (TextView) addCustomView.findViewById(R.id.tv_cancel);
+            this.mTvTips = (TextView) this.mActivity.findViewById(R.id.tv_tips);
+            BdListView bdListView = (BdListView) this.mActivity.findViewById(R.id.listview_emotion);
             this.mEmotionListView = bdListView;
             bdListView.setOnSrollToBottomListener(this.mOnScrollToBottomListener);
             this.mEditSearchView.setText("");
@@ -489,8 +488,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public void loadMoreEmotion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            if (!c.a.d.f.p.l.z()) {
-                showToast(l.neterror);
+            if (!l.z()) {
+                showToast(R.string.neterror);
             } else if (this.mHasMore) {
                 showProgressBar();
                 this.mSearchModel.x(this.mSearchString, this.mCurrentPage + 1, 40, this.mSearchCallback);
@@ -504,8 +503,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         if (!(interceptable == null || interceptable.invokeL(65558, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (!c.a.d.f.p.l.z()) {
-            showToast(l.neterror);
+        if (!l.z()) {
+            showToast(R.string.neterror);
             return;
         }
         showProgressBar();
@@ -528,10 +527,10 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     private void sendEmotionWithDialog(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, emotionImageData) == null) {
-            c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(this.mActivity);
-            aVar.setMessage(getResources().getString(l.confirm_send_emotion));
-            aVar.setPositiveButton(l.confirm, new f(this, emotionImageData));
-            aVar.setNegativeButton(l.cancel, new g(this));
+            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(this.mActivity);
+            aVar.setMessage(getResources().getString(R.string.confirm_send_emotion));
+            aVar.setPositiveButton(R.string.confirm, new f(this, emotionImageData));
+            aVar.setNegativeButton(R.string.cancel, new g(this));
             aVar.create(getPageContext()).show();
         }
     }
@@ -540,7 +539,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             this.mLayoutHotWords.setVisibility(0);
-            this.mTvTips.setText(getResources().getString(l.hot_emotion));
+            this.mTvTips.setText(getResources().getString(R.string.hot_emotion));
             this.mTvTips.setVisibility(0);
             this.mEmotionListView.setVisibility(8);
             NoDataView noDataView = this.mNoDataView;
@@ -555,7 +554,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             if (this.mNoDataView == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.mActivity, this.mLayoutContent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.mActivity, c.a.u0.u2.g.ds320)), NoDataViewFactory.e.a(l.no_search_emotion), null);
+                NoDataView a2 = NoDataViewFactory.a(this.mActivity, this.mLayoutContent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.mActivity, R.dimen.ds320)), NoDataViewFactory.e.a(R.string.no_search_emotion), null);
                 this.mNoDataView = a2;
                 a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
@@ -571,7 +570,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             this.mEmotionListView.setVisibility(0);
-            this.mTvTips.setText(getResources().getString(l.click_send_emotion));
+            this.mTvTips.setText(getResources().getString(R.string.click_send_emotion));
             this.mTvTips.setVisibility(0);
             this.mLayoutHotWords.setVisibility(8);
             NoDataView noDataView = this.mNoDataView;
@@ -618,8 +617,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(this.mLayoutRoot);
-            SkinManager.setBackgroundResource(this.mLayoutRoot, c.a.u0.u2.f.CAM_X0201);
-            SkinManager.setBackgroundColor(this.mViewLine, c.a.u0.u2.f.CAM_X0204);
+            SkinManager.setBackgroundResource(this.mLayoutRoot, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.mViewLine, R.color.CAM_X0204);
         }
     }
 
@@ -636,7 +635,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(j.pb_search_emotion_layout);
+            setContentView(R.layout.pb_search_emotion_layout);
             this.mActivity = getPageContext().getPageActivity();
             setSwipeBackEnabled(false);
             Intent intent = getIntent();
@@ -678,7 +677,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                 bdListView.removeAllViewsInLayout();
                 this.mEmotionListView = null;
             }
-            c.a.u0.u2.u.f.d1.d dVar = this.mEmotionAdapter;
+            c.a.r0.u2.k.f.d1.d dVar = this.mEmotionAdapter;
             if (dVar != null) {
                 dVar.g();
                 this.mEmotionAdapter.f();
@@ -692,7 +691,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && this.mEmotionList != null && str.length() == 0) {
             this.mEmotionList.clear();
-            c.a.u0.u2.u.f.d1.d dVar = this.mEmotionAdapter;
+            c.a.r0.u2.k.f.d1.d dVar = this.mEmotionAdapter;
             if (dVar != null) {
                 dVar.notifyDataSetChanged();
             }

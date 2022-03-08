@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface LayeredSocketFactory extends SocketFactory {
     Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException, UnknownHostException;
 }

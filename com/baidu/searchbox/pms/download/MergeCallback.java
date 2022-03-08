@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MergeCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MergeCallback";
     public transient /* synthetic */ FieldHolder $fh;
     public final List<MergeBean> list;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class MergeBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,32 +11,32 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c extends c.o.a.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f30486b;
+    public final a f28890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f30487c;
+    public final boolean f28891c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30488b;
+        public String f28892b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30489c;
+        public String f28893c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f30490d;
+        public Object f28894d;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class c extends c.o.a.f.a {
         public void error(String str, String str2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-                this.f30488b = str;
-                this.f30489c = str2;
-                this.f30490d = obj;
+                this.f28892b = str;
+                this.f28893c = str2;
+                this.f28894d = obj;
             }
         }
 
@@ -88,9 +88,9 @@ public class c extends c.o.a.f.a {
                 return;
             }
         }
-        this.f30486b = new a(this);
+        this.f28890b = new a(this);
         this.a = map;
-        this.f30487c = z;
+        this.f28891c = z;
     }
 
     @Override // c.o.a.f.f
@@ -104,14 +104,14 @@ public class c extends c.o.a.f.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30487c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28891c : invokeV.booleanValue;
     }
 
     @Override // c.o.a.f.a
     public g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30486b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28890b : (g) invokeV.objValue;
     }
 
     public String j() {
@@ -126,9 +126,9 @@ public class c extends c.o.a.f.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("code", this.f30486b.f30488b);
-            hashMap2.put("message", this.f30486b.f30489c);
-            hashMap2.put("data", this.f30486b.f30490d);
+            hashMap2.put("code", this.f28890b.f28892b);
+            hashMap2.put("message", this.f28890b.f28893c);
+            hashMap2.put("data", this.f28890b.f28894d);
             hashMap.put("error", hashMap2);
             return hashMap;
         }
@@ -140,7 +140,7 @@ public class c extends c.o.a.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("result", this.f30486b.a);
+            hashMap.put("result", this.f28890b.a);
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -149,8 +149,8 @@ public class c extends c.o.a.f.a {
     public void m(MethodChannel.Result result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, result) == null) {
-            a aVar = this.f30486b;
-            result.error(aVar.f30488b, aVar.f30489c, aVar.f30490d);
+            a aVar = this.f28890b;
+            result.error(aVar.f28892b, aVar.f28893c, aVar.f28894d);
         }
     }
 

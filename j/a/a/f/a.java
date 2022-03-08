@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.AccountDelayMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ConsumeConfirmMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class a implements IAppPayServiceListener {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;

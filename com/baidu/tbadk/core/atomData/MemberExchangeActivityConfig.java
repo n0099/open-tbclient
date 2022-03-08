@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MemberExchangeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DESC_STR = "desc_str";
@@ -17,7 +17,7 @@ public class MemberExchangeActivityConfig extends IntentConfig {
     public static final String MEMBER_NAME = "member_name";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class MemberInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemberExchangeActivityConfig extends IntentConfig {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class VipRecommendData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

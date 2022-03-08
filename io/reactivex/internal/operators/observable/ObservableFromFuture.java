@@ -11,7 +11,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableFromFuture<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

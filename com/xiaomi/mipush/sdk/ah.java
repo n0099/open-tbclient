@@ -23,7 +23,7 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

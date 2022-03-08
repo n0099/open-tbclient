@@ -5,9 +5,9 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.a.b;
-import c.a.t0.s0.l;
-import c.a.t0.t.d.d;
-import c.a.t0.t.j.c;
+import c.a.q0.r0.k;
+import c.a.q0.s.d.d;
+import c.a.q0.s.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class InitAppSettingTask extends LaunchTask {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0060  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -79,7 +79,7 @@ public class InitAppSettingTask extends LaunchTask {
             } else {
                 TbadkCoreApplication.getInst().mCapableOfWebp = TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false);
             }
-            l.b().r(System.currentTimeMillis() - currentTimeMillis);
+            k.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -93,8 +93,8 @@ public class InitAppSettingTask extends LaunchTask {
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
             d.d().n();
-            l.b().z(System.currentTimeMillis() - currentTimeMillis);
-            b.f().q(20);
+            k.b().z(System.currentTimeMillis() - currentTimeMillis);
+            b.g().r(20);
         }
     }
 
@@ -122,7 +122,7 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.t0.t.e.d dVar = new c.a.t0.t.e.d();
+            c.a.q0.s.e.d dVar = new c.a.q0.s.e.d();
             dVar.e(loadString);
             c a = c.a();
             a.g(dVar.b() == 1);

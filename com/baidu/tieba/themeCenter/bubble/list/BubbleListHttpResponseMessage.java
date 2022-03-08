@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
-import c.a.u0.f4.h.e;
+import c.a.r0.d4.h.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetBubbleList.DataRes;
 import tbclient.GetBubbleList.GetBubbleListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -40,7 +40,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ClearCacheUbcController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOS_BIZ_TYPE = "basis-functions";

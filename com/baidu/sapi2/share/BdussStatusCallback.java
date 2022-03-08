@@ -1,7 +1,7 @@
 package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccount;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface BdussStatusCallback {
     void onBdussInvalidate(String str);
 

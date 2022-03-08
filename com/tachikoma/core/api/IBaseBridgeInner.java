@@ -2,7 +2,7 @@ package com.tachikoma.core.api;
 
 import androidx.annotation.Nullable;
 import com.kwad.v8.V8Function;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface IBaseBridgeInner {
     Object invoke(String str, @Nullable String str2, @Nullable V8Function v8Function);
 

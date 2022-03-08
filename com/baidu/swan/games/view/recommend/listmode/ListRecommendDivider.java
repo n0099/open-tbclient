@@ -8,24 +8,23 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.h.b;
-import c.a.s0.h.c;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40091b;
+    public int f38495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f40092c;
+    public Paint f38496c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -43,11 +42,11 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
-        this.f40091b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
+        this.a = resources.getDimensionPixelSize(R.dimen.swangame_recommend_dialog_list_divider_height);
+        this.f38495b = resources.getDimensionPixelSize(R.dimen.swangame_recommend_dialog_list_divider_margin);
         Paint paint = new Paint();
-        this.f40092c = paint;
-        paint.setColor(resources.getColor(b.swangame_recommend_dialog_list_divider));
+        this.f38496c = paint;
+        paint.setColor(resources.getColor(R.color.swangame_recommend_dialog_list_divider));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -66,7 +65,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             for (int i2 = 0; i2 < itemCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                    canvas.drawRect(this.f40091b, childAt.getBottom(), childAt.getWidth() - this.f40091b, childAt.getBottom() + this.a, this.f40092c);
+                    canvas.drawRect(this.f38495b, childAt.getBottom(), childAt.getWidth() - this.f38495b, childAt.getBottom() + this.a, this.f38496c);
                 }
             }
         }

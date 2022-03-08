@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.b;
-import c.a.b1.t.h;
-import c.a.c0.b.a.e;
-import c.a.c0.b.a.j;
+import c.a.a0.b.a.e;
+import c.a.a0.b.a.j;
+import c.a.y0.b;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

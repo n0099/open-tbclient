@@ -28,6 +28,7 @@ import androidx.annotation.XmlRes;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.drawable.DrawableUtils;
 import com.google.android.material.internal.TextDrawableHelper;
 import com.google.android.material.internal.ThemeEnforcement;
@@ -45,7 +45,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BADGE_NUMBER_NONE = -1;
@@ -54,9 +54,11 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static final String DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX = "+";
     public static final int DEFAULT_MAX_BADGE_CHARACTER_COUNT = 4;
     @StyleRes
-    public static final int DEFAULT_STYLE;
+
+    /* renamed from: DEFAULT_STYLE */
+    public static final int Widget_MaterialComponents_Badge = 2131755871;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR;
+    public static final int DEFAULT_THEME_ATTR = 2130968757;
     public static final int MAX_CIRCULAR_BADGE_NUMBER_COUNT = 9;
     public static final int TOP_END = 8388661;
     public static final int TOP_START = 8388659;
@@ -86,25 +88,23 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public final TextDrawableHelper textDrawableHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface BadgeGravity {
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(946402834, "Lcom/google/android/material/badge/BadgeDrawable;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(946402834, "Lcom/google/android/material/badge/BadgeDrawable;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(946402834, "Lcom/google/android/material/badge/BadgeDrawable;")) == null) {
+            return;
         }
-        DEFAULT_STYLE = R.style.Widget_MaterialComponents_Badge;
-        DEFAULT_THEME_ATTR = R.attr.badgeStyle;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(946402834, "Lcom/google/android/material/badge/BadgeDrawable;");
+        }
     }
 
     public BadgeDrawable(@NonNull Context context) {
@@ -134,7 +134,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
         this.savedState = new SavedState(context);
-        setTextAppearanceResource(R.style.TextAppearance_MaterialComponents_Badge);
+        setTextAppearanceResource(2131755545);
     }
 
     private void calculateCenterAndBounds(@NonNull Context context, @NonNull Rect rect, @NonNull View view) {
@@ -171,7 +171,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static BadgeDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (BadgeDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, Widget_MaterialComponents_Badge) : (BadgeDrawable) invokeL.objValue;
     }
 
     @NonNull
@@ -194,7 +194,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i2, "badge");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = DEFAULT_STYLE;
+                styleAttribute = Widget_MaterialComponents_Badge;
             }
             return createFromAttributes(context, parseDrawableXml, DEFAULT_THEME_ATTR, styleAttribute);
         }
@@ -240,18 +240,18 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65545, this, context, attributeSet, i2, i3) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.Badge, i2, i3, new int[0]);
-            setMaxCharacterCount(obtainStyledAttributes.getInt(R.styleable.Badge_maxCharacterCount, 4));
-            if (obtainStyledAttributes.hasValue(R.styleable.Badge_number)) {
-                setNumber(obtainStyledAttributes.getInt(R.styleable.Badge_number, 0));
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.backgroundColor, R.attr.badgeGravity, R.attr.badgeTextColor, R.attr.horizontalOffset, R.attr.maxCharacterCount, R.attr.number, R.attr.verticalOffset}, i2, i3, new int[0]);
+            setMaxCharacterCount(obtainStyledAttributes.getInt(4, 4));
+            if (obtainStyledAttributes.hasValue(5)) {
+                setNumber(obtainStyledAttributes.getInt(5, 0));
             }
-            setBackgroundColor(readColorFromAttributes(context, obtainStyledAttributes, R.styleable.Badge_backgroundColor));
-            if (obtainStyledAttributes.hasValue(R.styleable.Badge_badgeTextColor)) {
-                setBadgeTextColor(readColorFromAttributes(context, obtainStyledAttributes, R.styleable.Badge_badgeTextColor));
+            setBackgroundColor(readColorFromAttributes(context, obtainStyledAttributes, 0));
+            if (obtainStyledAttributes.hasValue(2)) {
+                setBadgeTextColor(readColorFromAttributes(context, obtainStyledAttributes, 2));
             }
-            setBadgeGravity(obtainStyledAttributes.getInt(R.styleable.Badge_badgeGravity, TOP_END));
-            setHorizontalOffset(obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Badge_horizontalOffset, 0));
-            setVerticalOffset(obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Badge_verticalOffset, 0));
+            setBadgeGravity(obtainStyledAttributes.getInt(1, TOP_END));
+            setHorizontalOffset(obtainStyledAttributes.getDimensionPixelOffset(3, 0));
+            setVerticalOffset(obtainStyledAttributes.getDimensionPixelOffset(6, 0));
             obtainStyledAttributes.recycle();
         }
     }
@@ -631,7 +631,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -725,7 +725,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             }
             this.alpha = 255;
             this.number = -1;
-            this.badgeTextColor = new TextAppearance(context, R.style.TextAppearance_MaterialComponents_Badge).textColor.getDefaultColor();
+            this.badgeTextColor = new TextAppearance(context, 2131755545).textColor.getDefaultColor();
             this.contentDescriptionNumberless = context.getString(R.string.mtrl_badge_numberless_content_description);
             this.contentDescriptionQuantityStrings = R.plurals.mtrl_badge_content_description;
             this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.mtrl_exceed_max_badge_number_content_description;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BIGINT = 5;
@@ -43,7 +43,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final Charset UTF8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

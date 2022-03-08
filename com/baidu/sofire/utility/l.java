@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
 import java.io.File;
@@ -26,25 +27,25 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38781b;
+    public static final String f37185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38782c;
+    public static final String f37186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f38783d;
+    public static c f37187d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38784e;
+    public Context f37188e;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +63,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] a;
@@ -81,7 +82,7 @@ public final class l {
                     return;
                 }
             }
-            a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+            a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
         }
 
         public static byte[] a(byte[] bArr) {
@@ -161,14 +162,14 @@ public final class l {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38785b;
+        public String f37189b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -198,7 +199,7 @@ public final class l {
                     if (!TextUtils.isEmpty(string) && string2 != null) {
                         c cVar = new c();
                         cVar.a = string;
-                        cVar.f38785b = string2;
+                        cVar.f37189b = string2;
                         return cVar;
                     }
                     return null;
@@ -219,7 +220,7 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    String str = this.f38785b;
+                    String str = this.f37189b;
                     if (TextUtils.isEmpty(str)) {
                         str = "0";
                     }
@@ -234,7 +235,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,8 +281,8 @@ public final class l {
             }
         }
         a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f38781b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f38782c = a + f38781b;
+        f37185b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f37186c = a + f37185b;
     }
 
     public l(Context context) {
@@ -299,7 +300,7 @@ public final class l {
                 return;
             }
         }
-        this.f38784e = context;
+        this.f37188e = context;
     }
 
     private String a(String str) {
@@ -307,7 +308,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
-                return u.b(this.f38784e) ? Settings.System.getString(this.f38784e.getContentResolver(), str) : "";
+                return u.b(this.f37188e) ? Settings.System.getString(this.f37188e.getContentResolver(), str) : "";
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -322,10 +323,10 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (l.class) {
-                if (f38783d == null) {
-                    f38783d = new l(context).a();
+                if (f37187d == null) {
+                    f37187d = new l(context).a();
                 }
-                cVar = f38783d;
+                cVar = f37187d;
             }
             return cVar;
         }
@@ -343,7 +344,7 @@ public final class l {
                     a3 = c("");
                 }
                 if (TextUtils.isEmpty(a2)) {
-                    String i2 = u.i(this.f38784e);
+                    String i2 = u.i(this.f37188e);
                     a2 = a(d.a((com.baidu.sofire.utility.c.e("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + a3 + i2).getBytes()));
                 }
                 if (TextUtils.isEmpty(a2)) {
@@ -351,7 +352,7 @@ public final class l {
                 }
                 c cVar = new c((byte) 0);
                 cVar.a = a2;
-                cVar.f38785b = a3;
+                cVar.f37189b = a3;
                 return cVar;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -369,7 +370,7 @@ public final class l {
                 return null;
             }
             try {
-                return new String(a.a(f38782c, f38782c, b.a(str.getBytes())));
+                return new String(a.a(f37186c, f37186c, b.a(str.getBytes())));
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return "";
@@ -431,13 +432,13 @@ public final class l {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (u.c(this.f38784e)) {
+            if (u.c(this.f37188e)) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.utility.c.e("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
                 if (file.exists()) {
                     String a2 = a(file);
                     if (!TextUtils.isEmpty(a2)) {
-                        return c.a(new String(a.a(f38782c, f38782c, b.a(a2.getBytes()))));
+                        return c.a(new String(a.a(f37186c, f37186c, b.a(a2.getBytes()))));
                     }
                 }
                 return null;
@@ -467,7 +468,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
             boolean z = Build.VERSION.SDK_INT < 23;
-            if (!(z && TextUtils.isEmpty(str)) && u.c(this.f38784e)) {
+            if (!(z && TextUtils.isEmpty(str)) && u.c(this.f37188e)) {
                 String str2 = "";
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.utility.c.e("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
@@ -487,7 +488,7 @@ public final class l {
                         sb.append("\r\n");
                     }
                     bufferedReader.close();
-                    String[] split = new String(a.a(f38782c, f38782c, b.a(sb.toString().getBytes()))).split("=");
+                    String[] split = new String(a.a(f37186c, f37186c, b.a(sb.toString().getBytes()))).split("=");
                     if (split != null && split.length == 2) {
                         if (z && str.equals(split[0])) {
                             str2 = split[1];
@@ -506,7 +507,7 @@ public final class l {
                 }
                 c cVar = new c((byte) 0);
                 cVar.a = str2;
-                cVar.f38785b = str;
+                cVar.f37189b = str;
                 return cVar;
             }
             return null;
@@ -525,7 +526,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                File file = new File(this.f38784e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
+                File file = new File(this.f37188e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
                 c a2 = file.exists() ? c.a(d(a(file))) : null;
                 if (a2 != null) {
                     return a2;
@@ -534,7 +535,7 @@ public final class l {
                 if (a3 != null) {
                     return a3;
                 }
-                boolean z = this.f38784e.checkPermission(com.kuaishou.weapon.un.s.f55460i, Process.myPid(), Process.myUid()) == 0;
+                boolean z = this.f37188e.checkPermission(com.kuaishou.weapon.un.s.f53810i, Process.myPid(), Process.myUid()) == 0;
                 if (z) {
                     a3 = b();
                 }

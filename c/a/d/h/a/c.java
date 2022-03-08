@@ -40,19 +40,19 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
             DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.f31436c) {
-                float f2 = drawerArgs.f31437d / 2.0f;
-                if (!drawerArgs.f31440g) {
-                    this.f2296g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
+            if (drawerArgs.f29839c) {
+                float f2 = drawerArgs.f29840d / 2.0f;
+                if (!drawerArgs.f29843g) {
+                    this.f2925g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
                 int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
                 int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-                RectF rectF = this.f2295f;
-                PointF b2 = b(rectF.left, rectF.top, this.f2294e);
-                RectF rectF2 = this.f2295f;
-                PointF b3 = b(rectF2.right, rectF2.bottom, this.f2294e);
-                this.f2296g.set(Math.max((int) b2.x, 0) + f2, Math.max((int) b2.y, 0) + f2, Math.min((int) b3.x, width) - f2, Math.min((int) b3.y, height) - f2);
+                RectF rectF = this.f2924f;
+                PointF b2 = b(rectF.left, rectF.top, this.f2923e);
+                RectF rectF2 = this.f2924f;
+                PointF b3 = b(rectF2.right, rectF2.bottom, this.f2923e);
+                this.f2925g.set(Math.max((int) b2.x, 0) + f2, Math.max((int) b2.y, 0) + f2, Math.min((int) b3.x, width) - f2, Math.min((int) b3.y, height) - f2);
             }
         }
     }
@@ -60,8 +60,8 @@ public class c extends a {
     @Override // c.a.d.h.a.a
     public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f31436c) {
-            canvas.drawRect(this.f2296g, this.f2292c);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f29839c) {
+            canvas.drawRect(this.f2925g, this.f2921c);
         }
     }
 
@@ -69,17 +69,17 @@ public class c extends a {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2294e;
+            Matrix matrix = this.f2923e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
             if (dVar.e()) {
                 Bitmap bitmap = dVar.a.getBitmap();
                 this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.q, this.f2295f, this.f2291b);
+                canvas.drawBitmap(bitmap, this.q, this.f2924f, this.f2920b);
             } else if (dVar.d()) {
                 this.q.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2302b.g(canvas, this.q, this.f2295f, this.f2291b);
+                dVar.f2931b.g(canvas, this.q, this.f2924f, this.f2920b);
             }
         }
     }
@@ -94,8 +94,8 @@ public class c extends a {
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
         this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-        this.f2293d.setColor(this.k.m);
-        canvas.drawRect(this.n, this.f2293d);
+        this.f2922d.setColor(this.k.m);
+        canvas.drawRect(this.n, this.f2922d);
         canvas.translate(-scrollX, -scrollY);
     }
 }

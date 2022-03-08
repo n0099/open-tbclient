@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.a.b;
-/* loaded from: classes4.dex */
-public final class d implements b.InterfaceC2102b {
+/* loaded from: classes7.dex */
+public final class d implements b.InterfaceC2081b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public final class d implements b.InterfaceC2102b {
         }
     }
 
-    @Override // com.kwad.a.b.InterfaceC2102b
+    @Override // com.kwad.a.b.InterfaceC2081b
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -35,7 +35,7 @@ public final class d implements b.InterfaceC2102b {
         }
     }
 
-    @Override // com.kwad.a.b.InterfaceC2102b
+    @Override // com.kwad.a.b.InterfaceC2081b
     public String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public final class d implements b.InterfaceC2102b {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.kwad.a.b.InterfaceC2102b
+    @Override // com.kwad.a.b.InterfaceC2081b
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -59,14 +59,14 @@ public final class d implements b.InterfaceC2102b {
         }
     }
 
-    @Override // com.kwad.a.b.InterfaceC2102b
+    @Override // com.kwad.a.b.InterfaceC2081b
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (str.startsWith("lib") && str.endsWith(".so")) ? str : System.mapLibraryName(str) : (String) invokeL.objValue;
     }
 
-    @Override // com.kwad.a.b.InterfaceC2102b
+    @Override // com.kwad.a.b.InterfaceC2081b
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

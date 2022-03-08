@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALL_ERROR_CODE = "install_error";

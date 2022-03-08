@@ -18,7 +18,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;

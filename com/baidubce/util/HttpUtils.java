@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.Protocol;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,7 +21,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -95,7 +96,7 @@ public class HttpUtils {
                             sb.setLength(sb.length() - 1);
                         }
                     } else if (sb.charAt(sb.length() - 1) != '/') {
-                        sb.append('/');
+                        sb.append(WebvttCueParser.CHAR_SLASH);
                     }
                     sb.append(normalizePath);
                 }
@@ -136,9 +137,9 @@ public class HttpUtils {
                     CheckUtils.isNotNull(key, "parameter key should not be null");
                     String value = entry.getValue();
                     if (value != null) {
-                        arrayList.add(normalize(key) + a.f31099h + normalize(value));
+                        arrayList.add(normalize(key) + a.f29503h + normalize(value));
                     } else if (z) {
-                        arrayList.add(normalize(key) + a.f31099h);
+                        arrayList.add(normalize(key) + a.f29503h);
                     } else {
                         arrayList.add(normalize(key));
                     }

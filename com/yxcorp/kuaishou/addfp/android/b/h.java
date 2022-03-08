@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ f f61762b;
+    public /* synthetic */ f f60112b;
 
     public h(f fVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class h {
                 return;
             }
         }
-        this.f61762b = fVar;
+        this.f60112b = fVar;
         this.a = "iphonesubinfo";
     }
 
@@ -51,16 +51,16 @@ public final class h {
             }
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
-            a = this.f61762b.a(str2);
+            a = this.f60112b.a(str2);
             if (TextUtils.isEmpty(a)) {
                 return "";
             }
             obtain.writeInterfaceToken(a);
             if (Build.VERSION.SDK_INT >= 23) {
-                context = f.f61757b;
+                context = f.f60107b;
                 obtain.writeString(context.getPackageName());
             }
-            a2 = this.f61762b.a(str2, str, obtain, obtain2);
+            a2 = this.f60112b.a(str2, str, obtain, obtain2);
             if (a2 != null) {
                 try {
                     obtain2.readException();

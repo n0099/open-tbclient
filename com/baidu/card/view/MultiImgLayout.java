@@ -11,14 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.l.p;
-import c.a.t0.f1.j.d;
-import c.a.t0.s.l;
-import c.a.t0.s.r.e2;
-import c.a.u0.g0.b0;
+import c.a.q0.e1.j.d;
+import c.a.q0.r.l;
+import c.a.q0.r.r.e2;
+import c.a.r0.f0.b0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -36,40 +36,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
-public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
+/* loaded from: classes4.dex */
+public class MultiImgLayout extends LinearLayout implements p<c.a.q0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f33404j;
+    public static final int f31807j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33405e;
+    public String f31808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33406f;
+    public boolean f31809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0<c.a.t0.s.r.a> f33407g;
+    public b0<c.a.q0.r.r.a> f31810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.s.r.a f33408h;
+    public c.a.q0.r.r.a f31811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f33409i;
+    public boolean f31812i;
     public TextView mAbstract;
     public ConstrainImageGroup mImageGroup;
     public TextView mTitle;
     public PlayVoiceBntNew mVoiceBtn;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiImgLayout f33410e;
+        public final /* synthetic */ MultiImgLayout f31813e;
 
         public a(MultiImgLayout multiImgLayout) {
             Interceptable interceptable = $ic;
@@ -86,29 +86,29 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
                     return;
                 }
             }
-            this.f33410e = multiImgLayout;
+            this.f31813e = multiImgLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<c.a.t0.s.r.a> subClickListener;
+            b0<c.a.q0.r.r.a> subClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f33410e.getSubClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (subClickListener = this.f31813e.getSubClickListener()) == null) {
                 return;
             }
             view.setTag("2");
-            subClickListener.a(view, this.f33410e.f33408h);
+            subClickListener.a(view, this.f31813e.f31811h);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MultiImgLayout f33411b;
+        public final /* synthetic */ MultiImgLayout f31814b;
 
         public b(MultiImgLayout multiImgLayout, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -125,31 +125,31 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
                     return;
                 }
             }
-            this.f33411b = multiImgLayout;
+            this.f31814b = multiImgLayout;
             this.a = linkedList;
         }
 
-        @Override // c.a.t0.f1.j.d
+        @Override // c.a.q0.e1.j.d
         public void a(View view, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                if (this.f33411b.f33407g == null || !this.f33411b.f33407g.c(view, this.f33411b.f33408h, "")) {
-                    b0<c.a.t0.s.r.a> subClickListener = this.f33411b.getSubClickListener();
+                if (this.f31814b.f31810g == null || !this.f31814b.f31810g.c(view, this.f31814b.f31811h, "")) {
+                    b0<c.a.q0.r.r.a> subClickListener = this.f31814b.getSubClickListener();
                     if (subClickListener != null) {
                         view.setTag("1");
-                        this.f33411b.f33408h.objType = 2;
+                        this.f31814b.f31811h.objType = 2;
                         subClickListener.a = Boolean.valueOf(z);
-                        subClickListener.a(view, this.f33411b.f33408h);
-                        this.f33411b.f33408h.objType = 1;
+                        subClickListener.a(view, this.f31814b.f31811h);
+                        this.f31814b.f31811h.objType = 1;
                     }
                     if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().p) {
-                        ThreadCardUtils.startImageViewer(view, this.f33411b.f33406f, this.a, i2, this.f33411b.f33408h.getThreadData(), this.f33411b.f33405e);
-                    } else if ("frs".equals(this.f33411b.f33405e)) {
-                        ThreadCardUtils.jumpToPB(this.f33411b.f33408h, view.getContext(), 3, false);
-                    } else if ("index".equals(this.f33411b.f33405e)) {
-                        ThreadCardUtils.jumpToPB(this.f33411b.f33408h, view.getContext(), 2, false);
+                        ThreadCardUtils.startImageViewer(view, this.f31814b.f31809f, this.a, i2, this.f31814b.f31811h.getThreadData(), this.f31814b.f31808e);
+                    } else if ("frs".equals(this.f31814b.f31808e)) {
+                        ThreadCardUtils.jumpToPB(this.f31814b.f31811h, view.getContext(), 3, false);
+                    } else if ("index".equals(this.f31814b.f31808e)) {
+                        ThreadCardUtils.jumpToPB(this.f31814b.f31811h, view.getContext(), 2, false);
                     } else {
-                        ThreadCardUtils.startImageViewer(view, this.f33411b.f33406f, this.a, i2, this.f33411b.f33408h.getThreadData(), this.f33411b.f33405e);
+                        ThreadCardUtils.startImageViewer(view, this.f31814b.f31809f, this.a, i2, this.f31814b.f31811h.getThreadData(), this.f31814b.f31808e);
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
         n.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
         n.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
         n.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        f33404j = n.k(TbadkCoreApplication.getInst()) - ((n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        f31807j = n.k(TbadkCoreApplication.getInst()) - ((n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -199,7 +199,7 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
     private void setImageData(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, e2Var) == null) {
-            this.mImageGroup.setFromCDN(this.f33406f);
+            this.mImageGroup.setFromCDN(this.f31809f);
             this.mImageGroup.setSinglePicUseStyleV10(true);
             ArrayList<MediaData> G0 = e2Var.G0();
             if (l.c().g() && ListUtils.getCount(G0) != 0) {
@@ -212,7 +212,7 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
                 }
                 if (ListUtils.getCount(linkedList) > 0) {
                     this.mImageGroup.setVisibility(0);
-                    this.mImageGroup.setFromCDN(this.f33406f);
+                    this.mImageGroup.setFromCDN(this.f31809f);
                     this.mImageGroup.setImageClickListener(new b(this, linkedList));
                     this.mImageGroup.setImageMediaList(linkedList);
                     return;
@@ -227,18 +227,18 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
     private void setVoiceData(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, e2Var) == null) {
-            ArrayList<VoiceData$VoiceModel> G1 = e2Var.G1();
+            ArrayList<VoiceData.VoiceModel> G1 = e2Var.G1();
             if (ListUtils.isEmpty(G1)) {
                 this.mVoiceBtn.setVisibility(8);
                 return;
             }
             this.mVoiceBtn.setVisibility(0);
-            VoiceData$VoiceModel voiceData$VoiceModel = G1.get(0);
-            this.mVoiceBtn.setVoiceModel(voiceData$VoiceModel);
-            this.mVoiceBtn.setTag(voiceData$VoiceModel);
+            VoiceData.VoiceModel voiceModel = G1.get(0);
+            this.mVoiceBtn.setVoiceModel(voiceModel);
+            this.mVoiceBtn.setTag(voiceModel);
             this.mVoiceBtn.changeSkin();
-            if (voiceData$VoiceModel != null) {
-                this.mVoiceBtn.refreshViewState(voiceData$VoiceModel.voice_status.intValue());
+            if (voiceModel != null) {
+                this.mVoiceBtn.refreshViewState(voiceModel.voice_status.intValue());
             }
             this.mVoiceBtn.resetLayoutParams();
         }
@@ -257,16 +257,16 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
             playVoiceBntNew.setAfterClickListener(new a(this));
             this.mImageGroup = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
             this.mImageGroup.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-            c.a.t0.f1.j.a aVar = new c.a.t0.f1.j.a(3);
+            c.a.q0.e1.j.a aVar = new c.a.q0.e1.j.a(3);
             aVar.d(1.0d);
             this.mImageGroup.setImageProcessor(aVar);
         }
     }
 
-    public b0<c.a.t0.s.r.a> getSubClickListener() {
+    public b0<c.a.q0.r.r.a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33407g : (b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31810g : (b0) invokeV.objValue;
     }
 
     public void setConstrainImagePool(c.a.d.f.k.b<TbImageView> bVar) {
@@ -290,14 +290,14 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f33405e = str;
+            this.f31808e = str;
         }
     }
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f33406f = z;
+            this.f31809f = z;
         }
     }
 
@@ -315,7 +315,7 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
     public void setNeedFrsTabName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f33409i = z;
+            this.f31812i = z;
         }
     }
 
@@ -335,10 +335,10 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
         constrainImageGroup.setSingleImageRatio(d2);
     }
 
-    public void setSubClickListener(b0<c.a.t0.s.r.a> b0Var) {
+    public void setSubClickListener(b0<c.a.q0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, b0Var) == null) {
-            this.f33407g = b0Var;
+            this.f31810g = b0Var;
         }
     }
 
@@ -361,21 +361,21 @@ public class MultiImgLayout extends LinearLayout implements p<c.a.t0.s.r.a> {
                 return;
             }
         }
-        this.f33406f = true;
-        this.f33408h = null;
-        this.f33409i = false;
+        this.f31809f = true;
+        this.f31811h = null;
+        this.f31812i = false;
         e();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f33408h = aVar;
+            this.f31811h = aVar;
             e2 threadData = aVar.getThreadData();
-            ThreadCardUtils.setTitle(this.mTitle, threadData, this.f33409i);
-            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, threadData, f33404j, this.f33409i);
+            ThreadCardUtils.setTitle(this.mTitle, threadData, this.f31812i);
+            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, threadData, f31807j, this.f31812i);
             TextView textView = this.mTitle;
             boolean z = false;
             boolean z2 = textView == null || textView.getVisibility() != 0;

@@ -3,10 +3,10 @@ package com.baidu.searchbox.task.sync.appcreate;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import c.a.l0.b.a.a;
-import c.a.t0.s.e0.b;
-import c.a.t0.s.e0.c;
-import c.a.t0.s.e0.d;
+import c.a.i0.b.a.a;
+import c.a.q0.r.e0.b;
+import c.a.q0.r.e0.c;
+import c.a.q0.r.e0.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitLokiTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +225,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.t0.s.h0.a.q().h();
+                            c.a.q0.r.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }
@@ -310,7 +310,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.t0.s.h0.a.q().h();
+                            c.a.q0.r.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }

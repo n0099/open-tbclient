@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
-import androidx.fragment.R;
+import androidx.fragment.R$id;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -267,7 +267,7 @@ public class FragmentStateManager {
             boolean z = false;
             view.setSaveFromParentEnabled(false);
             Fragment fragment4 = this.mFragment;
-            fragment4.mView.setTag(R.id.fragment_container_view_tag, fragment4);
+            fragment4.mView.setTag(R$id.fragment_container_view_tag, fragment4);
             if (viewGroup != null) {
                 viewGroup.addView(this.mFragment.mView);
             }
@@ -355,7 +355,7 @@ public class FragmentStateManager {
                 if (view != null) {
                     view.setSaveFromParentEnabled(false);
                     Fragment fragment3 = this.mFragment;
-                    fragment3.mView.setTag(R.id.fragment_container_view_tag, fragment3);
+                    fragment3.mView.setTag(R$id.fragment_container_view_tag, fragment3);
                     Fragment fragment4 = this.mFragment;
                     if (fragment4.mHidden) {
                         fragment4.mView.setVisibility(8);

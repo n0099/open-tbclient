@@ -24,22 +24,22 @@ import com.dxmpay.wallet.base.datamodel.UserData;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public BindFastRequest f51960c;
+    public BindFastRequest f50379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51961d;
+    public String f50380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public GetCardInfoResponse.CardItemRequired f51962e;
+    public GetCardInfoResponse.CardItemRequired f50381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CardAddResponse f51963f;
+    public CardAddResponse f50382f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(NewBindCardMainActivity newBindCardMainActivity) {
@@ -66,23 +66,23 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             BindFastRequest bindReq = NewBindCardEntry.getInstance().getBindReq();
-            this.f51960c = bindReq;
+            this.f50379c = bindReq;
             if (bindReq == null) {
                 NewBindCardEntry.getInstance().newBindCardCallback(StatHelper.SENSOR_ERR_2, "NewBindCardMainActivity bindFastRequest is null", false);
-                this.f51952b.finishWithoutAnim();
+                this.f50371b.finishWithoutAnim();
                 return;
             }
             CardAddResponse cardAddResponse = CardAddResponse.getInstance();
-            this.f51963f = cardAddResponse;
+            this.f50382f = cardAddResponse;
             if (cardAddResponse == null) {
                 NewBindCardEntry.getInstance().newBindCardCallback(StatHelper.SENSOR_ERR_2, "NewBindCardMainActivity mCardAddResponse is null", false);
-                this.f51952b.finishWithoutAnim();
+                this.f50371b.finishWithoutAnim();
                 return;
             }
-            if (this.f51960c.getmBankInfo() != null && this.f51960c.getmBankInfo().channel_info != null) {
-                this.f51962e = this.f51960c.getmBankInfo().channel_info.card_item_required;
+            if (this.f50379c.getmBankInfo() != null && this.f50379c.getmBankInfo().channel_info != null) {
+                this.f50381e = this.f50379c.getmBankInfo().channel_info.card_item_required;
             }
-            this.f51961d = this.f51952b.getIntent().getStringExtra(NewBindCardMainActivity.BIND_CARD_NUMBER);
+            this.f50380d = this.f50371b.getIntent().getStringExtra(NewBindCardMainActivity.BIND_CARD_NUMBER);
         }
     }
 
@@ -90,18 +90,18 @@ public class c extends a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BindFastRequest bindFastRequest = this.f51960c;
+            BindFastRequest bindFastRequest = this.f50379c;
             if (bindFastRequest != null && bindFastRequest.getmBankInfo() != null) {
-                GetCardInfoResponse.CardInfo cardInfo = this.f51960c.getmBankInfo().card_info;
+                GetCardInfoResponse.CardInfo cardInfo = this.f50379c.getmBankInfo().card_info;
                 if (cardInfo != null && !TextUtils.isEmpty(cardInfo.bank_logourl) && !TextUtils.isEmpty(cardInfo.bank_name) && !TextUtils.isEmpty(cardInfo.type_name)) {
-                    this.f51952b.initBankCardInfo(cardInfo.bank_logourl, cardInfo.bank_name, cardInfo.type_name);
+                    this.f50371b.initBankCardInfo(cardInfo.bank_logourl, cardInfo.bank_name, cardInfo.type_name);
                     return;
                 } else {
-                    this.f51952b.initBankCardInfo(null, null, null);
+                    this.f50371b.initBankCardInfo(null, null, null);
                     return;
                 }
             }
-            this.f51952b.initBankCardInfo(null, null, null);
+            this.f50371b.initBankCardInfo(null, null, null);
         }
     }
 
@@ -110,11 +110,11 @@ public class c extends a {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            CardAddResponse cardAddResponse = this.f51963f;
+            CardAddResponse cardAddResponse = this.f50382f;
             if (cardAddResponse != null && (userModel = cardAddResponse.user) != null) {
-                this.f51952b.initBindCardUi(userModel.true_name, userModel.display_flag);
+                this.f50371b.initBindCardUi(userModel.true_name, userModel.display_flag);
             } else {
-                this.f51952b.initBindCardUi(null, null);
+                this.f50371b.initBindCardUi(null, null);
             }
         }
     }
@@ -123,12 +123,12 @@ public class c extends a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            BindFastRequest bindFastRequest = this.f51960c;
-            if (bindFastRequest != null && bindFastRequest.getmBankInfo() != null && this.f51960c.getmBankInfo().channel_info != null) {
-                this.f51952b.initCardDateAndCvv2(this.f51960c.getmBankInfo().channel_info.card_item_required);
+            BindFastRequest bindFastRequest = this.f50379c;
+            if (bindFastRequest != null && bindFastRequest.getmBankInfo() != null && this.f50379c.getmBankInfo().channel_info != null) {
+                this.f50371b.initCardDateAndCvv2(this.f50379c.getmBankInfo().channel_info.card_item_required);
                 return;
             }
-            this.f51952b.initCardDateAndCvv2(null);
+            this.f50371b.initCardDateAndCvv2(null);
         }
     }
 
@@ -137,11 +137,11 @@ public class c extends a {
         BindFastRequest bindFastRequest;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            CardAddResponse cardAddResponse = this.f51963f;
-            if (cardAddResponse != null && cardAddResponse.user != null && (bindFastRequest = this.f51960c) != null && bindFastRequest.getmBankInfo() != null && this.f51960c.getmBankInfo().channel_info != null && this.f51960c.getmBankInfo().channel_info.certificate_type_info != null && this.f51960c.getmBankInfo().channel_info.certificate_type_info.length > 0) {
-                this.f51952b.setCertificateType(this.f51963f.user.certificate_type, this.f51960c.getmBankInfo().channel_info.certificate_type_info);
+            CardAddResponse cardAddResponse = this.f50382f;
+            if (cardAddResponse != null && cardAddResponse.user != null && (bindFastRequest = this.f50379c) != null && bindFastRequest.getmBankInfo() != null && this.f50379c.getmBankInfo().channel_info != null && this.f50379c.getmBankInfo().channel_info.certificate_type_info != null && this.f50379c.getmBankInfo().channel_info.certificate_type_info.length > 0) {
+                this.f50371b.setCertificateType(this.f50382f.user.certificate_type, this.f50379c.getmBankInfo().channel_info.certificate_type_info);
             } else {
-                this.f51952b.setCertificateType(null, null);
+                this.f50371b.setCertificateType(null, null);
             }
         }
     }
@@ -151,11 +151,11 @@ public class c extends a {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            CardAddResponse cardAddResponse = this.f51963f;
+            CardAddResponse cardAddResponse = this.f50382f;
             if (cardAddResponse != null && (userModel = cardAddResponse.user) != null && !TextUtils.isEmpty(userModel.certificate_code)) {
-                this.f51952b.setCertificateCode(this.f51963f.user.certificate_code);
+                this.f50371b.setCertificateCode(this.f50382f.user.certificate_code);
             } else {
-                this.f51952b.setCertificateCode(null);
+                this.f50371b.setCertificateCode(null);
             }
         }
     }
@@ -165,11 +165,11 @@ public class c extends a {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            CardAddResponse cardAddResponse = this.f51963f;
+            CardAddResponse cardAddResponse = this.f50382f;
             if (cardAddResponse != null && (userModel = cardAddResponse.user) != null && !TextUtils.isEmpty(userModel.mobile)) {
-                this.f51952b.setUserPhone(this.f51963f.user.mobile);
+                this.f50371b.setUserPhone(this.f50382f.user.mobile);
             } else {
-                this.f51952b.setUserPhone(null);
+                this.f50371b.setUserPhone(null);
             }
         }
     }
@@ -178,11 +178,11 @@ public class c extends a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BindFastRequest bindFastRequest = this.f51960c;
-            if (bindFastRequest != null && bindFastRequest.getmBankInfo() != null && this.f51960c.getmBankInfo().protocol_platform_info != null) {
-                this.f51952b.setBindCardProtocol(this.f51960c.getmBankInfo().protocol_platform_info);
+            BindFastRequest bindFastRequest = this.f50379c;
+            if (bindFastRequest != null && bindFastRequest.getmBankInfo() != null && this.f50379c.getmBankInfo().protocol_platform_info != null) {
+                this.f50371b.setBindCardProtocol(this.f50379c.getmBankInfo().protocol_platform_info);
             } else {
-                this.f51952b.setBindCardProtocol(null);
+                this.f50371b.setBindCardProtocol(null);
             }
         }
     }
@@ -192,11 +192,11 @@ public class c extends a {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            CardAddResponse cardAddResponse = this.f51963f;
+            CardAddResponse cardAddResponse = this.f50382f;
             if (cardAddResponse != null && (userModel = cardAddResponse.user) != null) {
-                this.f51952b.setPhoneTip(userModel.mobile, userModel.has_mobile_password);
+                this.f50371b.setPhoneTip(userModel.mobile, userModel.has_mobile_password);
             } else {
-                this.f51952b.setPhoneTip(null, 0);
+                this.f50371b.setPhoneTip(null, 0);
             }
         }
     }
@@ -205,10 +205,10 @@ public class c extends a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f51960c = null;
-            this.f51962e = null;
-            this.f51961d = null;
-            this.f51963f = null;
+            this.f50379c = null;
+            this.f50381e = null;
+            this.f50380d = null;
+            this.f50382f = null;
             super.j();
         }
     }
@@ -217,23 +217,23 @@ public class c extends a {
     public void a(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
-            WalletGlobalUtils.safeDismissDialog(this.f51952b, -2);
+            WalletGlobalUtils.safeDismissDialog(this.f50371b, -2);
             if (i2 == 5) {
                 CheckCardInfoResponse checkCardInfoResponse = (CheckCardInfoResponse) obj;
                 int i3 = 0;
-                this.f51960c.setmNeedSms((1 == checkCardInfoResponse.send_sms_by_bfb || "1".equals(checkCardInfoResponse.need_verify_sms)) ? 1 : 1);
+                this.f50379c.setmNeedSms((1 == checkCardInfoResponse.send_sms_by_bfb || "1".equals(checkCardInfoResponse.need_verify_sms)) ? 1 : 1);
                 Map<String, String> map = checkCardInfoResponse.cashdesk;
                 if (map != null && map.size() > 0) {
                     PayDataCache.getInstance().setSessionData(checkCardInfoResponse.cashdesk);
                 }
                 if (!TextUtils.isEmpty(checkCardInfoResponse.channel_no)) {
-                    this.f51960c.setChannelNo(checkCardInfoResponse.channel_no);
+                    this.f50379c.setChannelNo(checkCardInfoResponse.channel_no);
                 }
-                this.f51960c.setRegEx(checkCardInfoResponse.sms_pattern);
-                this.f51960c.setSmsLength(checkCardInfoResponse.sms_length);
-                this.f51960c.setSmsType(checkCardInfoResponse.sms_type);
-                this.f51960c.setSendSmsphone(checkCardInfoResponse.send_sms_phone);
-                this.f51952b.startActivityWithoutAnim(new Intent(this.f51952b, NewCheckSmsActivity.class));
+                this.f50379c.setRegEx(checkCardInfoResponse.sms_pattern);
+                this.f50379c.setSmsLength(checkCardInfoResponse.sms_length);
+                this.f50379c.setSmsType(checkCardInfoResponse.sms_type);
+                this.f50379c.setSendSmsphone(checkCardInfoResponse.send_sms_phone);
+                this.f50371b.startActivityWithoutAnim(new Intent(this.f50371b, NewCheckSmsActivity.class));
             }
         }
     }
@@ -242,8 +242,8 @@ public class c extends a {
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            WalletGlobalUtils.safeDismissDialog(this.f51952b, -2);
-            this.f51952b.handleFailure(i2, i3, str);
+            WalletGlobalUtils.safeDismissDialog(this.f50371b, -2);
+            this.f50371b.handleFailure(i2, i3, str);
         }
     }
 
@@ -251,7 +251,7 @@ public class c extends a {
     public void a() {
         NewBindCardMainActivity newBindCardMainActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (newBindCardMainActivity = this.f51952b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (newBindCardMainActivity = this.f50371b) == null) {
             return;
         }
         newBindCardMainActivity.setFlagActiveBindCard();
@@ -261,46 +261,46 @@ public class c extends a {
     public void a(String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
-            WalletGlobalUtils.safeShowDialog(this.f51952b, -2, "");
-            g gVar = (g) PayBeanFactory.getInstance().getBean((Context) this.f51952b, 5, NewBindCardMainActivity.BEAN_TAG);
-            BindFastRequest bindFastRequest = this.f51960c;
+            WalletGlobalUtils.safeShowDialog(this.f50371b, -2, "");
+            g gVar = (g) PayBeanFactory.getInstance().getBean((Context) this.f50371b, 5, NewBindCardMainActivity.BEAN_TAG);
+            BindFastRequest bindFastRequest = this.f50379c;
             if (bindFastRequest != null) {
-                bindFastRequest.setmBankCard(this.f51961d);
-                GetCardInfoResponse.CardItemRequired cardItemRequired = this.f51962e;
+                bindFastRequest.setmBankCard(this.f50380d);
+                GetCardInfoResponse.CardItemRequired cardItemRequired = this.f50381e;
                 if (cardItemRequired != null) {
                     if ("1".equals(cardItemRequired.true_name)) {
-                        this.f51960c.setmName(str);
+                        this.f50379c.setmName(str);
                     } else {
-                        this.f51960c.setmName("");
+                        this.f50379c.setmName("");
                     }
-                    if ("1".equals(this.f51962e.certificate_type)) {
-                        this.f51960c.setCertificateType(str2);
+                    if ("1".equals(this.f50381e.certificate_type)) {
+                        this.f50379c.setCertificateType(str2);
                     } else {
-                        this.f51960c.setCertificateType("");
+                        this.f50379c.setCertificateType("");
                     }
-                    if ("1".equals(this.f51962e.certificate_code)) {
-                        this.f51960c.setmIdCard(str3);
+                    if ("1".equals(this.f50381e.certificate_code)) {
+                        this.f50379c.setmIdCard(str3);
                     } else {
-                        this.f51960c.setmIdCard("");
+                        this.f50379c.setmIdCard("");
                     }
-                    if ("1".equals(this.f51962e.mobile)) {
-                        this.f51960c.setmPhone(str4);
+                    if ("1".equals(this.f50381e.mobile)) {
+                        this.f50379c.setmPhone(str4);
                     } else {
-                        this.f51960c.setmPhone("");
+                        this.f50379c.setmPhone("");
                     }
-                    if ("1".equals(this.f51962e.valid_date)) {
-                        this.f51960c.setmValidDate(str5);
+                    if ("1".equals(this.f50381e.valid_date)) {
+                        this.f50379c.setmValidDate(str5);
                     } else {
-                        this.f51960c.setmValidDate("");
+                        this.f50379c.setmValidDate("");
                     }
-                    if ("1".equals(this.f51962e.valid_code)) {
-                        this.f51960c.setmCvv(str6);
+                    if ("1".equals(this.f50381e.valid_code)) {
+                        this.f50379c.setmCvv(str6);
                     } else {
-                        this.f51960c.setmCvv("");
+                        this.f50379c.setmCvv("");
                     }
                 }
             }
-            gVar.a(this.f51960c);
+            gVar.a(this.f50379c);
             gVar.setResponseCallback(this);
             gVar.execBean();
         }

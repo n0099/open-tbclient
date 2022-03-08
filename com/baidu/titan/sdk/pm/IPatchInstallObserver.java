@@ -6,15 +6,15 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IPatchInstallObserver extends IInterface {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IPatchInstallObserver {
         public static final String DESCRIPTOR = "com.baidu.titan.sdk.pm.IPatchInstallObserver";
         public static final int TRANSACTION_onPatchInstalled = 1;
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         public static class Proxy implements IPatchInstallObserver {
             public IBinder mRemote;
 

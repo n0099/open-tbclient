@@ -22,12 +22,12 @@ public class a {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f2039b;
+    public static final Object f2668b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.d.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0048a {
+    public static /* synthetic */ class C0108a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -46,7 +46,7 @@ public class a {
             }
         }
         a = new b(null);
-        f2039b = new Object();
+        f2668b = new Object();
     }
 
     public static f a() {
@@ -54,13 +54,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (l.H()) {
-                return a.f2042d;
+                return a.f2671d;
             }
             if (l.v()) {
-                return a.f2041c;
+                return a.f2670c;
             }
             if (l.u()) {
-                return a.f2040b;
+                return a.f2669b;
             }
             return a.a;
         }
@@ -76,7 +76,7 @@ public class a {
     public static void c(boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            synchronized (f2039b) {
+            synchronized (f2668b) {
                 f a2 = a();
                 if (z) {
                     a2.l++;
@@ -116,12 +116,12 @@ public class a {
     public static void f(boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            synchronized (f2039b) {
+            synchronized (f2668b) {
                 f a2 = a();
-                a2.f2058d++;
+                a2.f2687d++;
                 if (z) {
-                    a2.f2059e++;
-                    a2.f2060f += j2;
+                    a2.f2688e++;
+                    a2.f2689f += j2;
                 }
             }
         }
@@ -133,13 +133,13 @@ public class a {
             return;
         }
         if (a.e()) {
-            h(a.f2042d, 5);
+            h(a.f2671d, 5);
         }
         if (a.b()) {
-            h(a.f2041c, 3);
+            h(a.f2670c, 3);
         }
         if (a.c()) {
-            h(a.f2040b, 2);
+            h(a.f2669b, 2);
         }
         if (a.d()) {
             h(a.a, 1);
@@ -153,15 +153,15 @@ public class a {
             c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.b("action", "imgStat");
             statsItem.b("memoryCount", String.valueOf(fVar.a));
-            statsItem.b("memorySucCount", String.valueOf(fVar.f2056b));
-            statsItem.b("memoryTime", String.valueOf(fVar.f2057c));
-            statsItem.b(Frame.LOCAL_COUNT, String.valueOf(fVar.f2058d));
-            statsItem.b("localSucCount", String.valueOf(fVar.f2059e));
-            statsItem.b("localTime", String.valueOf(fVar.f2060f));
-            statsItem.b("netCount", String.valueOf(fVar.f2061g));
-            statsItem.b("netSucCount", String.valueOf(fVar.f2062h));
-            statsItem.b("netTime", String.valueOf(fVar.f2063i));
-            statsItem.b("taskCount", String.valueOf(fVar.f2064j));
+            statsItem.b("memorySucCount", String.valueOf(fVar.f2685b));
+            statsItem.b("memoryTime", String.valueOf(fVar.f2686c));
+            statsItem.b(Frame.LOCAL_COUNT, String.valueOf(fVar.f2687d));
+            statsItem.b("localSucCount", String.valueOf(fVar.f2688e));
+            statsItem.b("localTime", String.valueOf(fVar.f2689f));
+            statsItem.b("netCount", String.valueOf(fVar.f2690g));
+            statsItem.b("netSucCount", String.valueOf(fVar.f2691h));
+            statsItem.b("netTime", String.valueOf(fVar.f2692i));
+            statsItem.b("taskCount", String.valueOf(fVar.f2693j));
             statsItem.b("taskTime", String.valueOf(fVar.k));
             statsItem.b("decodeCount", String.valueOf(fVar.l));
             statsItem.b("decodeTime", String.valueOf(fVar.m));
@@ -190,8 +190,8 @@ public class a {
             f a2 = a();
             a2.a++;
             if (z) {
-                a2.f2056b++;
-                a2.f2057c += j2;
+                a2.f2685b++;
+                a2.f2686c += j2;
             }
         }
     }
@@ -199,7 +199,7 @@ public class a {
     public static void j(boolean z, String str, c.a.d.f.j.b.e eVar, long j2, long j3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, eVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) && n.C()) {
-            synchronized (f2039b) {
+            synchronized (f2668b) {
                 boolean n = n(str);
                 boolean z2 = false;
                 if (eVar != null && !StringUtils.isNull(eVar.k)) {
@@ -215,10 +215,10 @@ public class a {
                 if (n && z2) {
                     a2.y++;
                 }
-                a2.f2061g++;
+                a2.f2690g++;
                 if (z) {
-                    a2.f2062h++;
-                    a2.f2063i += j2;
+                    a2.f2691h++;
+                    a2.f2692i += j2;
                     a2.z += j3;
                 }
                 if (a.a() > 100) {
@@ -231,7 +231,7 @@ public class a {
     public static void k(boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            synchronized (f2039b) {
+            synchronized (f2668b) {
                 f a2 = a();
                 if (z) {
                     a2.p++;
@@ -255,10 +255,10 @@ public class a {
     public static void m(boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            synchronized (f2039b) {
+            synchronized (f2668b) {
                 f a2 = a();
                 if (z) {
-                    a2.f2064j++;
+                    a2.f2693j++;
                     a2.k += j2;
                 }
             }
@@ -289,13 +289,13 @@ public class a {
         public f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f f2040b;
+        public f f2669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f f2041c;
+        public f f2670c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f2042d;
+        public f f2671d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -311,52 +311,52 @@ public class a {
                 }
             }
             this.a = new f();
-            this.f2040b = new f();
-            this.f2041c = new f();
-            this.f2042d = new f();
+            this.f2669b = new f();
+            this.f2670c = new f();
+            this.f2671d = new f();
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f2061g + this.f2040b.f2061g + this.f2041c.f2061g + this.f2042d.f2061g : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f2690g + this.f2669b.f2690g + this.f2670c.f2690g + this.f2671d.f2690g : invokeV.intValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2041c.f2061g > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2670c.f2690g > 0 : invokeV.booleanValue;
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2040b.f2061g > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2669b.f2690g > 0 : invokeV.booleanValue;
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.f2061g > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.f2690g > 0 : invokeV.booleanValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2042d.f2061g > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2671d.f2690g > 0 : invokeV.booleanValue;
         }
 
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.a.a();
-                this.f2040b.a();
-                this.f2041c.a();
-                this.f2042d.a();
+                this.f2669b.a();
+                this.f2670c.a();
+                this.f2671d.a();
             }
         }
 
-        public /* synthetic */ b(C0048a c0048a) {
+        public /* synthetic */ b(C0108a c0108a) {
             this();
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.NoProguard;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class RouterProvider implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

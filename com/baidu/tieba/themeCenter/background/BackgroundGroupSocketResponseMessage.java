@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.background;
 
-import c.a.u0.f4.e.b;
-import c.a.u0.f4.h.e;
+import c.a.r0.d4.e.b;
+import c.a.r0.d4.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetBgByCategory.DataRes;
 import tbclient.GetBgByCategory.GetBgByCategoryResIdl;
 import tbclient.GetBgByCategory.ThemeBgInMain;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package com.xiaomi.clientreport.processor;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface d {
     /* renamed from: a */
     void mo141a(com.xiaomi.clientreport.data.a aVar);

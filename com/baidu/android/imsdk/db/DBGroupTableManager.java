@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DBGroupTableManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLUMN_TABLE_NAME = "name";

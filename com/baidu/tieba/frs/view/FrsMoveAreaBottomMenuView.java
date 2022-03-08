@@ -7,12 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.u0.e1.a;
-import c.a.u0.e1.c1;
-import c.a.u0.e1.e1;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.g1;
-import c.a.u0.e1.i1;
+import c.a.r0.d1.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,6 +15,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,25 +23,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f44077e;
+    public TbPageContext f42479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44078f;
+    public TextView f42480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44079g;
+    public TextView f42481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f44080h;
+    public View f42482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrsMoveAreaChooseView f44081i;
+    public FrsMoveAreaChooseView f42483i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsMoveAreaBottomMenuView(Context context) {
@@ -71,12 +67,12 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(g1.frs_move_area_bottom_menu_layout, this);
-            this.f44078f = (TextView) findViewById(f1.frs_move_area_cancel);
-            this.f44079g = (TextView) findViewById(f1.frs_move_area_move);
-            this.f44080h = findViewById(f1.frs_move_area_top_line);
-            this.f44078f.setOnClickListener(this);
-            this.f44079g.setOnClickListener(this);
+            LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_bottom_menu_layout, this);
+            this.f42480f = (TextView) findViewById(R.id.frs_move_area_cancel);
+            this.f42481g = (TextView) findViewById(R.id.frs_move_area_move);
+            this.f42482h = findViewById(R.id.frs_move_area_top_line);
+            this.f42480f.setOnClickListener(this);
+            this.f42481g.setOnClickListener(this);
             onChangeSkinType();
             setClickable(true);
         }
@@ -86,7 +82,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsMoveAreaChooseView frsMoveAreaChooseView = this.f44081i;
+            FrsMoveAreaChooseView frsMoveAreaChooseView = this.f42483i;
             return frsMoveAreaChooseView != null && frsMoveAreaChooseView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -95,12 +91,12 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this, c1.CAM_X0201);
-            SkinManager.setViewTextColor(this.f44078f, c1.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f44078f, e1.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f44079g, c1.CAM_X0302);
-            SkinManager.setBackgroundResource(this.f44079g, e1.bg_bottom_up_list_dialog_item);
-            SkinManager.setBackgroundColor(this.f44080h, c1.CAM_X0204);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f42480f, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f42480f, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.f42481g, (int) R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(this.f42481g, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.f42482h, R.color.CAM_X0204);
         }
     }
 
@@ -110,21 +106,21 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view.getTag() instanceof String) {
                 removeChooseView();
-            } else if (view == this.f44078f) {
-                this.f44081i = null;
+            } else if (view == this.f42480f) {
+                this.f42483i = null;
                 a.h().n();
-            } else if (view == this.f44079g) {
-                if (this.f44077e != null && this.f44081i == null && !ListUtils.isEmpty(a.h().i())) {
-                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f44077e);
-                    this.f44081i = frsMoveAreaChooseView;
+            } else if (view == this.f42481g) {
+                if (this.f42479e != null && this.f42483i == null && !ListUtils.isEmpty(a.h().i())) {
+                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f42479e);
+                    this.f42483i = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);
-                    ((ViewGroup) getParent()).addView(this.f44081i, -1, -1);
-                } else if (this.f44081i != null || getContext() == null) {
+                    ((ViewGroup) getParent()).addView(this.f42483i, -1, -1);
+                } else if (this.f42483i != null || getContext() == null) {
                 } else {
-                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(i1.frs_move_area_choose_empty)).show((ViewGroup) getParent());
+                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).show((ViewGroup) getParent());
                 }
             } else {
-                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f44081i;
+                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f42483i;
                 if (frsMoveAreaChooseView2 == null || view != frsMoveAreaChooseView2) {
                     return;
                 }
@@ -135,28 +131,28 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     public void removeChooseView() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f44081i.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f42483i.getParent() == null) {
             return;
         }
-        ((ViewGroup) this.f44081i.getParent()).removeView(this.f44081i);
-        this.f44081i = null;
+        ((ViewGroup) this.f42483i.getParent()).removeView(this.f42483i);
+        this.f42483i = null;
     }
 
     public void setMoveNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            String string = getContext().getString(i1.frs_move_area_move);
+            String string = getContext().getString(R.string.frs_move_area_move);
             if (i2 > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i2));
             }
-            this.f44079g.setText(string);
+            this.f42481g.setText(string);
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f44077e = tbPageContext;
+            this.f42479e = tbPageContext;
         }
     }
 

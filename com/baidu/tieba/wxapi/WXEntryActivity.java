@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.t0.a.g;
-import c.a.u0.s2.a;
+import c.a.r0.s2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
@@ -31,7 +31,7 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_NOTINSTALL_CODE = 123456;
@@ -79,7 +79,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                         }
                     }
                 }
-                if (str.startsWith(g.a) && g.c(Uri.parse(str))) {
+                if (str.startsWith(BdUniDispatchSchemeController.SCHEME) && BdUniDispatchSchemeController.isUniScheme(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
@@ -169,7 +169,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (1 == type) {
             a aVar = new a();
             aVar.a = this;
-            aVar.f21850b = baseResp;
+            aVar.f22044b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

@@ -3,7 +3,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +14,7 @@ import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
 import com.googlecode.mp4parser.authoring.Sample;
@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -52,7 +52,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class MP3TrackImpl extends AbstractTrack {
         public int getFrameLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((this.bitRate * 144) / this.sampleRate) + this.padding : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((this.bitRate * Cea708Decoder.COMMAND_SPA) / this.sampleRate) + this.padding : invokeV.intValue;
         }
     }
 
@@ -106,8 +106,8 @@ public class MP3TrackImpl extends AbstractTrack {
                 return;
             }
         }
-        SAMPLE_RATE = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
-        BIT_RATE = new int[]{0, 32000, 40000, MediaEncodeParams.AUDIO_SAMPLE_RATE, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
+        SAMPLE_RATE = new int[]{44100, 48000, 32000};
+        BIT_RATE = new int[]{0, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
     }
 
     public MP3TrackImpl(DataSource dataSource, String str) throws IOException {

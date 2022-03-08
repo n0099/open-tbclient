@@ -15,19 +15,18 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", "sc", FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", "sc", FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 
     /* renamed from: com.airbnb.lottie.parser.LayerParser$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 

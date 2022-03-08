@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

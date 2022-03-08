@@ -8,14 +8,14 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KsRefluxContentView extends FrameLayout implements GestureDetector.OnGestureListener {
     public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f57371b;
+    public a f55721b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean a();
 
@@ -49,7 +49,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.f57371b;
+        a aVar = this.f55721b;
         if (aVar == null || aVar.a()) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "dispatchTouchEvent consumed");
             return super.dispatchTouchEvent(motionEvent);
@@ -68,7 +68,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onFling");
-        a aVar = this.f57371b;
+        a aVar = this.f55721b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -83,7 +83,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onScroll");
-        a aVar = this.f57371b;
+        a aVar = this.f55721b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -98,7 +98,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onSingleTapUp");
-        a aVar = this.f57371b;
+        a aVar = this.f55721b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -106,6 +106,6 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     public void setContentViewListener(a aVar) {
-        this.f57371b = aVar;
+        this.f55721b = aVar;
     }
 }

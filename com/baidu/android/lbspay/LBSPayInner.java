@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class LBSPayInner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_CODE_CANCEL = 2;
@@ -59,12 +59,12 @@ public class LBSPayInner {
     public LBSPayBack mLbsPayBack;
     public String mOrderNo;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface AliPayCallback {
         void onResult(String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static LBSPayInner a;
@@ -230,13 +230,13 @@ public class LBSPayInner {
                 public final /* synthetic */ Activity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31794b;
+                public final /* synthetic */ String f30197b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f31795c;
+                public final /* synthetic */ boolean f30198c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSPayInner f31796d;
+                public final /* synthetic */ LBSPayInner f30199d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -253,22 +253,22 @@ public class LBSPayInner {
                             return;
                         }
                     }
-                    this.f31796d = this;
+                    this.f30199d = this;
                     this.a = activity;
-                    this.f31794b = str;
-                    this.f31795c = z;
+                    this.f30197b = str;
+                    this.f30198c = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        JSONObject jSONObject = new JSONObject(new PayTask(this.a).payV2(this.f31794b, this.f31795c));
+                        JSONObject jSONObject = new JSONObject(new PayTask(this.a).payV2(this.f30197b, this.f30198c));
                         Message message = new Message();
                         message.what = 101;
                         message.obj = jSONObject.toString();
                         StatisticManager.onEventWithValue(PayStatServiceEvent.LBS_ALIPAY_RESULT, jSONObject.toString());
-                        this.f31796d.mHandler.sendMessage(message);
+                        this.f30199d.mHandler.sendMessage(message);
                     }
                 }
             };
@@ -312,19 +312,19 @@ public class LBSPayInner {
                     public final /* synthetic */ Activity a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ GetPayOrderListener f31780b;
+                    public final /* synthetic */ GetPayOrderListener f30183b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ LBSPayBack f31781c;
+                    public final /* synthetic */ LBSPayBack f30184c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ Map f31782d;
+                    public final /* synthetic */ Map f30185d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f31783e;
+                    public final /* synthetic */ String f30186e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ LBSPayInner f31784f;
+                    public final /* synthetic */ LBSPayInner f30187f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -341,19 +341,19 @@ public class LBSPayInner {
                                 return;
                             }
                         }
-                        this.f31784f = this;
+                        this.f30187f = this;
                         this.a = activity;
-                        this.f31780b = getPayOrderListener;
-                        this.f31781c = lBSPayBack;
-                        this.f31782d = map;
-                        this.f31783e = str;
+                        this.f30183b = getPayOrderListener;
+                        this.f30184c = lBSPayBack;
+                        this.f30185d = map;
+                        this.f30186e = str;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                            this.f31784f.directCallThirdPay(this.a, this.f31780b, this.f31781c, this.f31782d, this.f31783e);
+                            this.f30187f.directCallThirdPay(this.a, this.f30183b, this.f30184c, this.f30185d, this.f30186e);
                         }
                     }
 
@@ -361,7 +361,7 @@ public class LBSPayInner {
                     public void onSuccess(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                            this.f31784f.directCallThirdPay(this.a, this.f31780b, this.f31781c, this.f31782d, this.f31783e);
+                            this.f30187f.directCallThirdPay(this.a, this.f30183b, this.f30184c, this.f30185d, this.f30186e);
                         }
                     }
                 }));
@@ -381,13 +381,13 @@ public class LBSPayInner {
             public final /* synthetic */ Activity a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ LBSPayBack f31791b;
+            public final /* synthetic */ LBSPayBack f30194b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Map f31792c;
+            public final /* synthetic */ Map f30195c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ LBSPayInner f31793d;
+            public final /* synthetic */ LBSPayInner f30196d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -404,17 +404,17 @@ public class LBSPayInner {
                         return;
                     }
                 }
-                this.f31793d = this;
+                this.f30196d = this;
                 this.a = activity;
-                this.f31791b = lBSPayBack;
-                this.f31792c = map;
+                this.f30194b = lBSPayBack;
+                this.f30195c = map;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    this.f31793d.polymerAuthorizeSign(this.a, this.f31791b, this.f31792c);
+                    this.f30196d.polymerAuthorizeSign(this.a, this.f30194b, this.f30195c);
                 }
             }
 
@@ -422,7 +422,7 @@ public class LBSPayInner {
             public void onSuccess(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                    this.f31793d.polymerAuthorizeSign(this.a, this.f31791b, this.f31792c);
+                    this.f30196d.polymerAuthorizeSign(this.a, this.f30194b, this.f30195c);
                 }
             }
         }));
@@ -564,16 +564,16 @@ public class LBSPayInner {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ LBSPayBack f31776b;
+            public final /* synthetic */ LBSPayBack f30179b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Map f31777c;
+            public final /* synthetic */ Map f30180c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Map f31778d;
+            public final /* synthetic */ Map f30181d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ LBSPayInner f31779e;
+            public final /* synthetic */ LBSPayInner f30182e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -590,18 +590,18 @@ public class LBSPayInner {
                         return;
                     }
                 }
-                this.f31779e = this;
+                this.f30182e = this;
                 this.a = context;
-                this.f31776b = lBSPayBack;
-                this.f31777c = map;
-                this.f31778d = map2;
+                this.f30179b = lBSPayBack;
+                this.f30180c = map;
+                this.f30181d = map2;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    this.f31779e.polymerPay(this.a, this.f31776b, this.f31777c, this.f31778d);
+                    this.f30182e.polymerPay(this.a, this.f30179b, this.f30180c, this.f30181d);
                 }
             }
 
@@ -609,7 +609,7 @@ public class LBSPayInner {
             public void onSuccess(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                    this.f31779e.polymerPay(this.a, this.f31776b, this.f31777c, this.f31778d);
+                    this.f30182e.polymerPay(this.a, this.f30179b, this.f30180c, this.f30181d);
                 }
             }
         }));
@@ -629,22 +629,22 @@ public class LBSPayInner {
                 public final /* synthetic */ Activity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f31785b;
+                public final /* synthetic */ Activity f30188b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ GetPayOrderListener f31786c;
+                public final /* synthetic */ GetPayOrderListener f30189c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSPayBack f31787d;
+                public final /* synthetic */ LBSPayBack f30190d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map f31788e;
+                public final /* synthetic */ Map f30191e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ String f31789f;
+                public final /* synthetic */ String f30192f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ LBSPayInner f31790g;
+                public final /* synthetic */ LBSPayInner f30193g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -661,20 +661,20 @@ public class LBSPayInner {
                             return;
                         }
                     }
-                    this.f31790g = this;
+                    this.f30193g = this;
                     this.a = activity;
-                    this.f31785b = activity2;
-                    this.f31786c = getPayOrderListener;
-                    this.f31787d = lBSPayBack;
-                    this.f31788e = map;
-                    this.f31789f = str;
+                    this.f30188b = activity2;
+                    this.f30189c = getPayOrderListener;
+                    this.f30190d = lBSPayBack;
+                    this.f30191e = map;
+                    this.f30192f = str;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.f31790g.directCallThirdPay(this.a, this.f31785b, this.f31786c, this.f31787d, this.f31788e, this.f31789f);
+                        this.f30193g.directCallThirdPay(this.a, this.f30188b, this.f30189c, this.f30190d, this.f30191e, this.f30192f);
                     }
                 }
 
@@ -682,7 +682,7 @@ public class LBSPayInner {
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        this.f31790g.directCallThirdPay(this.a, this.f31785b, this.f31786c, this.f31787d, this.f31788e, this.f31789f);
+                        this.f30193g.directCallThirdPay(this.a, this.f30188b, this.f30189c, this.f30190d, this.f30191e, this.f30192f);
                     }
                 }
             }));

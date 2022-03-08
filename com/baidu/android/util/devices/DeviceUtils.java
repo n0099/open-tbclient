@@ -31,12 +31,12 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DeviceUtils implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -331,7 +331,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -519,7 +519,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;

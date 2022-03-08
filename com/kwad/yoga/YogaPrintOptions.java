@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class YogaPrintOptions {
     public static final /* synthetic */ YogaPrintOptions[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +36,7 @@ public final class YogaPrintOptions {
             }
         }
         LAYOUT = new YogaPrintOptions("LAYOUT", 0, 1);
-        STYLE = new YogaPrintOptions("STYLE", 1, 2);
+        STYLE = new YogaPrintOptions(WebvttDecoder.STYLE_START, 1, 2);
         YogaPrintOptions yogaPrintOptions = new YogaPrintOptions("CHILDREN", 2, 4);
         CHILDREN = yogaPrintOptions;
         $VALUES = new YogaPrintOptions[]{LAYOUT, STYLE, yogaPrintOptions};

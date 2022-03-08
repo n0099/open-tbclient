@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

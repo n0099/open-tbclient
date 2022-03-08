@@ -16,12 +16,12 @@ import com.tachikoma.core.event.base.IBaseEvent;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import com.tachikoma.core.manager.TKExportManager;
 import com.tachikoma.core.utility.V8Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKEventProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface EventInterface {
         void callBackEvent(IBaseEvent iBaseEvent);
     }

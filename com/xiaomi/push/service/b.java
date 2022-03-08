@@ -11,7 +11,7 @@ import com.xiaomi.push.hf;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class b extends ai.a {
         com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m528a());
         try {
             String c2 = this.a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.a.b(), this.a, hf.f61378i)), this.f926a);
+            xMPushService.a(c2, ip.a(y.a(c2, this.a.b(), this.a, hf.f59728i)), this.f926a);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }

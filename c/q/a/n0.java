@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class n0 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ViewTreeObserver f30617e;
+    public final /* synthetic */ ViewTreeObserver f29039e;
 
     public n0(s0 s0Var, ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class n0 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        this.f30617e = viewTreeObserver;
+        this.f29039e = viewTreeObserver;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "onGlobalLayout:" + this.f30617e.isAlive();
+            String str = "onGlobalLayout:" + this.f29039e.isAlive();
         }
     }
 }

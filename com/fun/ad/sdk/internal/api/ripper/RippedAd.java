@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RippedAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,43 +30,43 @@ public class RippedAd {
     public final String videoImageUrl;
     public final String videoUrl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface Acceptor<T> {
         String accept(T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54383b;
+        public String f52869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54384c;
+        public String f52870c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54385d;
+        public String f52871d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f54386e;
+        public String f52872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f54387f;
+        public String f52873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f54388g;
+        public String f52874g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f54389h;
+        public String f52875h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f54390i;
+        public String f52876i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f54391j;
+        public String f52877j;
         public String k;
         public String l;
         public String m;
@@ -88,14 +88,14 @@ public class RippedAd {
         public RippedAd build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RippedAd(this.a, this.f54383b, this.f54384c, this.f54385d, this.f54386e, this.f54387f, this.f54388g, this.f54389h, this.f54390i, this.f54391j, this.k, this.l, this.m) : (RippedAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RippedAd(this.a, this.f52869b, this.f52870c, this.f52871d, this.f52872e, this.f52873f, this.f52874g, this.f52875h, this.f52876i, this.f52877j, this.k, this.l, this.m) : (RippedAd) invokeV.objValue;
         }
 
         public Builder setAppName(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f54386e = str;
+                this.f52872e = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -105,7 +105,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f54387f = str;
+                this.f52873f = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -115,7 +115,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f54388g = str;
+                this.f52874g = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -165,7 +165,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f54384c = str;
+                this.f52870c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -175,7 +175,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f54385d = str;
+                this.f52871d = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -185,7 +185,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.f54389h = str;
+                this.f52875h = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -195,7 +195,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.f54383b = str;
+                this.f52869b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -205,7 +205,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f54390i = str;
+                this.f52876i = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -215,7 +215,7 @@ public class RippedAd {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.f54391j = str;
+                this.f52877j = str;
                 return this;
             }
             return (Builder) invokeL.objValue;

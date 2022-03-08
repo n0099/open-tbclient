@@ -1,7 +1,7 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.reflect.Type;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface InterTypeConstructorDeclaration extends InterTypeDeclaration {
     AjType<?>[] getExceptionTypes();
 

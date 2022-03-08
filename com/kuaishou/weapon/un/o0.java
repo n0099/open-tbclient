@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class o0 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     d dVar = new d(this.a.a);
-                    if (dVar.a(d.b0, 1) != 1 || (a = (d1Var = new d1(q0.f55424d, q0.f55426f)).a(this.a.a)) == null) {
+                    if (dVar.a(d.b0, 1) != 1 || (a = (d1Var = new d1(q0.f53774d, q0.f53776f)).a(this.a.a)) == null) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();

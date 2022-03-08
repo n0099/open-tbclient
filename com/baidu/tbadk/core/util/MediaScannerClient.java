@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+import com.google.android.exoplayer2.util.MimeTypes;
+/* loaded from: classes5.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +26,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     public String mPath;
     public String[] mPaths;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }
@@ -54,7 +55,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             String lowerCase = str.toLowerCase();
-            return (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) ? "video/mp4" : "video/3gp";
+            return (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) ? MimeTypes.VIDEO_MP4 : "video/3gp";
         }
         return (String) invokeL.objValue;
     }

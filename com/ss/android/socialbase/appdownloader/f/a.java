@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final HashMap<String, g.a> a = new HashMap<>();
 

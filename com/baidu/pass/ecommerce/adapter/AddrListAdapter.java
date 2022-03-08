@@ -16,9 +16,9 @@ import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.adapter.CommonAdapter;
 import com.baidu.pass.ecommerce.common.adapter.ViewHolder;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.enums.PassAddrColorLocation;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
@@ -43,7 +43,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public Drawable mEditIcon;
     public List<String> nuomiAddressIds;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface EditAddressListener {
         void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
     }

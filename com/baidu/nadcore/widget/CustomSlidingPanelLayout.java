@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.d0.l0.i;
-import c.a.d0.l0.r;
+import c.a.b0.l0.i;
+import c.a.b0.l0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public WeakReference<Activity> J;
     public i K;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.d0.l0.i
+        @Override // c.a.b0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -63,7 +63,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.d0.l0.i
+        @Override // c.a.b0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -143,7 +143,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             WeakReference<Activity> weakReference = this.J;
             if (weakReference != null && weakReference.get() != null) {
-                r.c(this.J.get(), new b(this));
+                j.c(this.J.get(), new b(this));
                 return;
             }
             i iVar = this.K;
@@ -159,7 +159,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WeakReference<Activity> weakReference = this.J;
             if (weakReference != null && weakReference.get() != null) {
-                r.d(this.J.get(), new a(this));
+                j.d(this.J.get(), new a(this));
                 return;
             }
             i iVar = this.K;

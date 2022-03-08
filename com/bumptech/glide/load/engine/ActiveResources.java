@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ActiveResources {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_CLEAN_REF = 1;
@@ -41,13 +41,13 @@ public final class ActiveResources {
     public ReferenceQueue<EngineResource<?>> resourceReferenceQueue;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface DequeuedResourceCallback {
         void onResourceDequeued();
     }
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

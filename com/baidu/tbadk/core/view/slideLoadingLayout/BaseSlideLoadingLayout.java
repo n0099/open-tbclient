@@ -21,55 +21,55 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40914e;
+    public int f39320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40915f;
+    public boolean f39321f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40916g;
+    public boolean f39322g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<View, f> f40917h;
+    public HashMap<View, f> f39323h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40918i;
+    public int f39324i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40919j;
+    public int f39325j;
     public int k;
     public float l;
     public int m;
     public FrameLayout mLoadingLayout;
     public FrameLayout.LayoutParams mLoadingLayoutParams;
-    public List<c.a.t0.s.l0.q.c> n;
+    public List<c.a.q0.r.l0.q.c> n;
     public boolean o;
-    public List<c.a.t0.s.l0.q.b> p;
+    public List<c.a.q0.r.l0.q.b> p;
     public ValueAnimator q;
     public int r;
     public ValueAnimator s;
     public int t;
-    public List<c.a.t0.s.l0.q.a> u;
+    public List<c.a.q0.r.l0.q.a> u;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f40920e;
+        public final /* synthetic */ f f39326e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f40921f;
+        public final /* synthetic */ View f39327f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseSlideLoadingLayout f40922g;
+        public final /* synthetic */ BaseSlideLoadingLayout f39328g;
 
         public a(BaseSlideLoadingLayout baseSlideLoadingLayout, f fVar, View view) {
             Interceptable interceptable = $ic;
@@ -86,36 +86,36 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40922g = baseSlideLoadingLayout;
-            this.f40920e = fVar;
-            this.f40921f = view;
+            this.f39328g = baseSlideLoadingLayout;
+            this.f39326e = fVar;
+            this.f39327f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f fVar = this.f40920e;
-                if (fVar.f40932c <= 0) {
-                    fVar.f40932c = this.f40921f.getHeight();
+                f fVar = this.f39326e;
+                if (fVar.f39338c <= 0) {
+                    fVar.f39338c = this.f39327f.getHeight();
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f40923e;
+        public final /* synthetic */ int f39329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40924f;
+        public final /* synthetic */ int f39330f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseSlideLoadingLayout f40925g;
+        public final /* synthetic */ BaseSlideLoadingLayout f39331g;
 
         public b(BaseSlideLoadingLayout baseSlideLoadingLayout, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -132,9 +132,9 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40925g = baseSlideLoadingLayout;
-            this.f40923e = i2;
-            this.f40924f = i3;
+            this.f39331g = baseSlideLoadingLayout;
+            this.f39329e = i2;
+            this.f39330f = i3;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -142,33 +142,33 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                int i2 = this.f40923e - ((int) (this.f40924f * floatValue));
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40925g;
+                int i2 = this.f39329e - ((int) (this.f39330f * floatValue));
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39331g;
                 FrameLayout.LayoutParams layoutParams = baseSlideLoadingLayout.mLoadingLayoutParams;
                 layoutParams.topMargin = i2;
                 baseSlideLoadingLayout.mLoadingLayout.setLayoutParams(layoutParams);
-                BaseSlideLoadingLayout baseSlideLoadingLayout2 = this.f40925g;
+                BaseSlideLoadingLayout baseSlideLoadingLayout2 = this.f39331g;
                 baseSlideLoadingLayout2.l = baseSlideLoadingLayout2.getCurScrollRatioByTopMargin(i2);
-                BaseSlideLoadingLayout baseSlideLoadingLayout3 = this.f40925g;
+                BaseSlideLoadingLayout baseSlideLoadingLayout3 = this.f39331g;
                 baseSlideLoadingLayout3.m = baseSlideLoadingLayout3.getCurOffsetYByRatio(baseSlideLoadingLayout3.l);
-                BaseSlideLoadingLayout baseSlideLoadingLayout4 = this.f40925g;
-                baseSlideLoadingLayout4.onAnimToTopUpdate(baseSlideLoadingLayout4.m, this.f40925g.l, floatValue);
-                BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.f40925g;
-                baseSlideLoadingLayout5.onScroll(baseSlideLoadingLayout5.m, this.f40925g.l);
-                for (c.a.t0.s.l0.q.c cVar : this.f40925g.n) {
-                    cVar.a(this.f40925g.m, this.f40925g.l);
+                BaseSlideLoadingLayout baseSlideLoadingLayout4 = this.f39331g;
+                baseSlideLoadingLayout4.onAnimToTopUpdate(baseSlideLoadingLayout4.m, this.f39331g.l, floatValue);
+                BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.f39331g;
+                baseSlideLoadingLayout5.onScroll(baseSlideLoadingLayout5.m, this.f39331g.l);
+                for (c.a.q0.r.l0.q.c cVar : this.f39331g.n) {
+                    cVar.a(this.f39331g.m, this.f39331g.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseSlideLoadingLayout f40926e;
+        public final /* synthetic */ BaseSlideLoadingLayout f39332e;
 
         public c(BaseSlideLoadingLayout baseSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40926e = baseSlideLoadingLayout;
+            this.f39332e = baseSlideLoadingLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -199,13 +199,13 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                for (c.a.t0.s.l0.q.a aVar : this.f40926e.u) {
-                    aVar.d(this.f40926e.m, this.f40926e.l);
+                for (c.a.q0.r.l0.q.a aVar : this.f39332e.u) {
+                    aVar.d(this.f39332e.m, this.f39332e.l);
                 }
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40926e;
-                baseSlideLoadingLayout.onAnimToTopEnd(baseSlideLoadingLayout.m, this.f40926e.l);
-                this.f40926e.o = false;
-                for (c.a.t0.s.l0.q.b bVar : this.f40926e.p) {
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39332e;
+                baseSlideLoadingLayout.onAnimToTopEnd(baseSlideLoadingLayout.m, this.f39332e.l);
+                this.f39332e.o = false;
+                for (c.a.q0.r.l0.q.b bVar : this.f39332e.p) {
                     bVar.a();
                 }
             }
@@ -222,28 +222,28 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40926e;
-                baseSlideLoadingLayout.onAnimToTopStart(baseSlideLoadingLayout.m, this.f40926e.l);
-                for (c.a.t0.s.l0.q.a aVar : this.f40926e.u) {
-                    aVar.c(this.f40926e.m, this.f40926e.l);
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39332e;
+                baseSlideLoadingLayout.onAnimToTopStart(baseSlideLoadingLayout.m, this.f39332e.l);
+                for (c.a.q0.r.l0.q.a aVar : this.f39332e.u) {
+                    aVar.c(this.f39332e.m, this.f39332e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f40927e;
+        public final /* synthetic */ int f39333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40928f;
+        public final /* synthetic */ int f39334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseSlideLoadingLayout f40929g;
+        public final /* synthetic */ BaseSlideLoadingLayout f39335g;
 
         public d(BaseSlideLoadingLayout baseSlideLoadingLayout, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -260,9 +260,9 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40929g = baseSlideLoadingLayout;
-            this.f40927e = i2;
-            this.f40928f = i3;
+            this.f39335g = baseSlideLoadingLayout;
+            this.f39333e = i2;
+            this.f39334f = i3;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -270,33 +270,33 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                int i2 = this.f40927e - ((int) (this.f40928f * floatValue));
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40929g;
+                int i2 = this.f39333e - ((int) (this.f39334f * floatValue));
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39335g;
                 FrameLayout.LayoutParams layoutParams = baseSlideLoadingLayout.mLoadingLayoutParams;
                 layoutParams.topMargin = i2;
                 baseSlideLoadingLayout.mLoadingLayout.setLayoutParams(layoutParams);
-                BaseSlideLoadingLayout baseSlideLoadingLayout2 = this.f40929g;
+                BaseSlideLoadingLayout baseSlideLoadingLayout2 = this.f39335g;
                 baseSlideLoadingLayout2.l = baseSlideLoadingLayout2.getCurScrollRatioByTopMargin(i2);
-                BaseSlideLoadingLayout baseSlideLoadingLayout3 = this.f40929g;
+                BaseSlideLoadingLayout baseSlideLoadingLayout3 = this.f39335g;
                 baseSlideLoadingLayout3.m = baseSlideLoadingLayout3.getCurOffsetYByRatio(baseSlideLoadingLayout3.l);
-                BaseSlideLoadingLayout baseSlideLoadingLayout4 = this.f40929g;
-                baseSlideLoadingLayout4.onAnimToLoadingPointUpdate(baseSlideLoadingLayout4.m, this.f40929g.l, floatValue);
-                BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.f40929g;
-                baseSlideLoadingLayout5.onScroll(baseSlideLoadingLayout5.m, this.f40929g.l);
-                for (c.a.t0.s.l0.q.c cVar : this.f40929g.n) {
-                    cVar.a(this.f40929g.m, this.f40929g.l);
+                BaseSlideLoadingLayout baseSlideLoadingLayout4 = this.f39335g;
+                baseSlideLoadingLayout4.onAnimToLoadingPointUpdate(baseSlideLoadingLayout4.m, this.f39335g.l, floatValue);
+                BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.f39335g;
+                baseSlideLoadingLayout5.onScroll(baseSlideLoadingLayout5.m, this.f39335g.l);
+                for (c.a.q0.r.l0.q.c cVar : this.f39335g.n) {
+                    cVar.a(this.f39335g.m, this.f39335g.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseSlideLoadingLayout f40930e;
+        public final /* synthetic */ BaseSlideLoadingLayout f39336e;
 
         public e(BaseSlideLoadingLayout baseSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -313,7 +313,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40930e = baseSlideLoadingLayout;
+            this.f39336e = baseSlideLoadingLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -327,10 +327,10 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40930e;
-                baseSlideLoadingLayout.onAnimToLoadingPointEnd(baseSlideLoadingLayout.m, this.f40930e.l);
-                for (c.a.t0.s.l0.q.a aVar : this.f40930e.u) {
-                    aVar.a(this.f40930e.m, this.f40930e.l);
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39336e;
+                baseSlideLoadingLayout.onAnimToLoadingPointEnd(baseSlideLoadingLayout.m, this.f39336e.l);
+                for (c.a.q0.r.l0.q.a aVar : this.f39336e.u) {
+                    aVar.a(this.f39336e.m, this.f39336e.l);
                 }
             }
         }
@@ -346,35 +346,35 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f40930e;
-                baseSlideLoadingLayout.onAnimToLoadingPointStart(baseSlideLoadingLayout.m, this.f40930e.l);
-                for (c.a.t0.s.l0.q.a aVar : this.f40930e.u) {
-                    aVar.b(this.f40930e.m, this.f40930e.l);
+                BaseSlideLoadingLayout baseSlideLoadingLayout = this.f39336e;
+                baseSlideLoadingLayout.onAnimToLoadingPointStart(baseSlideLoadingLayout.m, this.f39336e.l);
+                for (c.a.q0.r.l0.q.a aVar : this.f39336e.u) {
+                    aVar.b(this.f39336e.m, this.f39336e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f40931b;
+        public boolean f39337b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40932c;
+        public int f39338c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40933d;
+        public boolean f39339d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f40934e;
+        public float f39340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40935f;
+        public boolean f39341f;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -389,8 +389,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f40932c = -1;
-            this.f40934e = 1.0f;
+            this.f39338c = -1;
+            this.f39340e = 1.0f;
         }
     }
 
@@ -415,7 +415,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         }
     }
 
-    public void addAnimationListener(c.a.t0.s.l0.q.a aVar) {
+    public void addAnimationListener(c.a.q0.r.l0.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             if (aVar != null) {
@@ -426,7 +426,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         }
     }
 
-    public void addLoadingListener(c.a.t0.s.l0.q.b bVar) {
+    public void addLoadingListener(c.a.q0.r.l0.q.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             if (bVar != null) {
@@ -437,7 +437,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         }
     }
 
-    public void addScrollListener(c.a.t0.s.l0.q.c cVar) {
+    public void addScrollListener(c.a.q0.r.l0.q.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             if (cVar != null) {
@@ -483,7 +483,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public float getCurScrollRatioByTopMargin(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? ((i2 + this.f40914e) * 1.0f) / getMaxFingerSlideDistance() : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? ((i2 + this.f39320e) * 1.0f) / getMaxFingerSlideDistance() : invokeI.floatValue;
     }
 
     public abstract int getLoadingPointDistance();
@@ -491,7 +491,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public float getLoadingPointRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ((this.f40914e + getLoadingPointDistance()) * 1.0f) / getMaxFingerSlideDistance() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ((this.f39320e + getLoadingPointDistance()) * 1.0f) / getMaxFingerSlideDistance() : invokeV.floatValue;
     }
 
     public abstract int getLoadingPointToBottomDistance();
@@ -501,7 +501,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public int getMaxFingerSlideDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f40914e + getLoadingPointDistance() + getLoadingPointToBottomDistance() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f39320e + getLoadingPointDistance() + getLoadingPointToBottomDistance() : invokeV.intValue;
     }
 
     public final void i(int i2) {
@@ -511,7 +511,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (i3 > getLoadingPointDistance() + getLoadingPointToBottomDistance()) {
                 this.mLoadingLayoutParams.topMargin = getLoadingPointDistance() + getLoadingPointToBottomDistance();
             } else {
-                int i4 = this.f40914e;
+                int i4 = this.f39320e;
                 if (i3 < (-i4)) {
                     this.mLoadingLayoutParams.topMargin = -i4;
                 } else {
@@ -525,7 +525,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             this.m = curOffsetYByRatio;
             onFingerDrag(curOffsetYByRatio, this.l);
             onScroll(this.m, this.l);
-            for (c.a.t0.s.l0.q.c cVar : this.n) {
+            for (c.a.q0.r.l0.q.c cVar : this.n) {
                 cVar.a(this.m, this.l);
             }
         }
@@ -536,7 +536,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public boolean isEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f40915f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f39321f : invokeV.booleanValue;
     }
 
     public boolean isLoading() {
@@ -556,7 +556,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.o = true;
-            for (c.a.t0.s.l0.q.b bVar : this.p) {
+            for (c.a.q0.r.l0.q.b bVar : this.p) {
                 bVar.onLoadingStart();
             }
             int i2 = this.mLoadingLayoutParams.topMargin;
@@ -572,20 +572,20 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public final void l(int i2, float f2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f40917h.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f39323h.isEmpty()) {
             return;
         }
-        for (f fVar : this.f40917h.values()) {
+        for (f fVar : this.f39323h.values()) {
             if (fVar != null && (view = fVar.a) != null) {
-                if (fVar.f40931b && fVar.f40932c >= 0) {
+                if (fVar.f39337b && fVar.f39338c >= 0) {
                     ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                    layoutParams.height = fVar.f40932c + i2;
+                    layoutParams.height = fVar.f39338c + i2;
                     view.setLayoutParams(layoutParams);
                 }
-                if (fVar.f40933d) {
-                    float f3 = fVar.f40934e;
+                if (fVar.f39339d) {
+                    float f3 = fVar.f39340e;
                     if (f3 >= 0.0f) {
-                        if (fVar.f40935f) {
+                        if (fVar.f39341f) {
                             view.setAlpha(f3 + ((1.0f - f3) * f2));
                         } else {
                             view.setAlpha(f3 * (1.0f - f2));
@@ -603,7 +603,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.q = ofFloat;
             ofFloat.setDuration(this.r);
-            this.q.addUpdateListener(new b(this, i2, this.f40914e + i2));
+            this.q.addUpdateListener(new b(this, i2, this.f39320e + i2));
             this.q.addListener(new c(this));
             this.q.start();
         }
@@ -630,7 +630,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
-            if (this.o || !this.f40915f) {
+            if (this.o || !this.f39321f) {
                 return false;
             }
             int rawX = (int) motionEvent.getRawX();
@@ -640,11 +640,11 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 if (action != 2) {
                     return false;
                 }
-                int i2 = rawY - this.f40919j;
-                return this.f40916g && i2 > 20 && Math.abs(i2) > Math.abs(rawX - this.f40918i);
+                int i2 = rawY - this.f39325j;
+                return this.f39322g && i2 > 20 && Math.abs(i2) > Math.abs(rawX - this.f39324i);
             }
-            this.f40918i = rawX;
-            this.f40919j = rawY;
+            this.f39324i = rawX;
+            this.f39325j = rawY;
             this.k = rawY;
             return false;
         }
@@ -698,20 +698,20 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public void setEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            this.f40915f = z;
+            this.f39321f = z;
         }
     }
 
     public void setEnableSlideLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
-            this.f40916g = z;
+            this.f39322g = z;
         }
     }
 
     public void startLoading() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048614, this) == null) && !this.o && this.f40915f) {
+        if ((interceptable == null || interceptable.invokeV(1048614, this) == null) && !this.o && this.f39321f) {
             k();
         }
     }
@@ -742,14 +742,14 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             if (view != null) {
-                f fVar = this.f40917h.get(view);
+                f fVar = this.f39323h.get(view);
                 if (fVar == null) {
                     fVar = new f();
                     fVar.a = view;
-                    this.f40917h.put(view, fVar);
+                    this.f39323h.put(view, fVar);
                 }
-                fVar.f40933d = true;
-                fVar.f40934e = f2;
+                fVar.f39339d = true;
+                fVar.f39340e = f2;
                 return fVar;
             }
             throw new IllegalArgumentException("Can not add null view as sync view");
@@ -762,15 +762,15 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, view, i2)) == null) {
             if (view != null) {
-                f fVar = this.f40917h.get(view);
+                f fVar = this.f39323h.get(view);
                 if (fVar == null) {
                     fVar = new f();
                     fVar.a = view;
-                    this.f40917h.put(view, fVar);
+                    this.f39323h.put(view, fVar);
                 }
-                fVar.f40931b = true;
+                fVar.f39337b = true;
                 if (i2 >= 0) {
-                    fVar.f40932c = i2;
+                    fVar.f39338c = i2;
                 } else {
                     view.post(new a(this, fVar, view));
                 }
@@ -821,9 +821,9 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 return;
             }
         }
-        this.f40915f = true;
-        this.f40916g = true;
-        this.f40917h = new HashMap<>();
+        this.f39321f = true;
+        this.f39322g = true;
+        this.f39323h = new HashMap<>();
         this.n = new LinkedList();
         this.p = new LinkedList();
         this.r = 300;
@@ -832,7 +832,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         this.mLoadingLayout = new FrameLayout(context);
         this.mLoadingLayoutParams = new FrameLayout.LayoutParams(-2, -2);
         int loadingVewMaxHeight = getLoadingVewMaxHeight();
-        this.f40914e = loadingVewMaxHeight;
+        this.f39320e = loadingVewMaxHeight;
         FrameLayout.LayoutParams layoutParams = this.mLoadingLayoutParams;
         layoutParams.topMargin = -loadingVewMaxHeight;
         layoutParams.gravity = 49;

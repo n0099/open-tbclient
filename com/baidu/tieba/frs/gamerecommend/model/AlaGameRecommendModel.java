@@ -19,33 +19,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaGameRecommendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_PN = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43682e;
+    public String f42085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43683f;
+    public int f42086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43684g;
+    public boolean f42087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43685h;
+    public boolean f42088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f43686i;
+    public BdUniqueId f42089i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f43687j;
+    public HttpMessageListener f42090j;
     public b k;
-    public c.a.u0.e1.g2.d.a l;
+    public c.a.r0.d1.w1.d.a l;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,32 +76,32 @@ public class AlaGameRecommendModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f43686i) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f42089i) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (alaGameRecommendReponseMessage.hasError() || alaGameRecommendReponseMessage.getError() != 0) {
                     if (this.a.k != null) {
-                        this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f43685h);
+                        this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f42088h);
                     }
                 } else {
-                    c.a.u0.e1.g2.c.a data = alaGameRecommendReponseMessage.getData();
+                    c.a.r0.d1.w1.c.a data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
-                    this.a.f43684g = data.a;
-                    if (this.a.f43685h) {
+                    this.a.f42087g = data.a;
+                    if (this.a.f42088h) {
                         AlaGameRecommendModel.D(this.a);
                     }
-                    this.a.l.c(this.a.f43683f, data);
+                    this.a.l.c(this.a.f42086f, data);
                     if (this.a.k != null) {
-                        this.a.k.a(this.a.f43684g, this.a.l.a());
+                        this.a.k.a(this.a.f42087g, this.a.l.a());
                     }
                 }
-                this.a.f43685h = false;
+                this.a.f42088h = false;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(boolean z, List<n> list);
 
@@ -123,17 +123,17 @@ public class AlaGameRecommendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f43682e = str;
+        this.f42085e = str;
         this.k = bVar;
-        this.f43686i = BdUniqueId.gen();
-        this.l = new c.a.u0.e1.g2.d.a();
+        this.f42089i = BdUniqueId.gen();
+        this.l = new c.a.r0.d1.w1.d.a();
         F();
         registerListener();
     }
 
     public static /* synthetic */ int D(AlaGameRecommendModel alaGameRecommendModel) {
-        int i2 = alaGameRecommendModel.f43683f;
-        alaGameRecommendModel.f43683f = i2 + 1;
+        int i2 = alaGameRecommendModel.f42086f;
+        alaGameRecommendModel.f42086f = i2 + 1;
         return i2;
     }
 
@@ -167,12 +167,12 @@ public class AlaGameRecommendModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f43685h = false;
-            this.f43683f = 1;
+            this.f42088h = false;
+            this.f42086f = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-            httpMessage.addParam("forum_id", this.f43682e);
-            httpMessage.addParam("recom_pn", this.f43683f);
-            httpMessage.setTag(this.f43686i);
+            httpMessage.addParam("forum_id", this.f42085e);
+            httpMessage.addParam("recom_pn", this.f42086f);
+            httpMessage.setTag(this.f42089i);
             MessageManager.getInstance().sendMessage(httpMessage);
             return true;
         }
@@ -181,12 +181,12 @@ public class AlaGameRecommendModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f43684g && !this.f43685h) {
-            this.f43685h = true;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f42087g && !this.f42088h) {
+            this.f42088h = true;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-            httpMessage.addParam("forum_id", this.f43682e);
-            httpMessage.addParam("recom_pn", this.f43683f + 1);
-            httpMessage.setTag(this.f43686i);
+            httpMessage.addParam("forum_id", this.f42085e);
+            httpMessage.addParam("recom_pn", this.f42086f + 1);
+            httpMessage.setTag(this.f42089i);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -195,15 +195,15 @@ public class AlaGameRecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-            MessageManager.getInstance().unRegisterListener(this.f43687j);
+            MessageManager.getInstance().unRegisterListener(this.f42090j);
         }
     }
 
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f43687j = new a(this, CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-            MessageManager.getInstance().registerListener(this.f43687j);
+            this.f42090j = new a(this, CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
+            MessageManager.getInstance().registerListener(this.f42090j);
         }
     }
 }

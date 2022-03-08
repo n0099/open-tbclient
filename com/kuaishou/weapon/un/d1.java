@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55256b;
+    public String f53606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55257c;
+    public String f53607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55258d;
+    public String f53608d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55259e;
+    public String f53609e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55260f;
+    public String f53610f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55261g;
+    public String f53611g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55262h;
+    public String f53612h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55263i;
+    public String f53613i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f55264j;
+    public String f53614j;
     public String k;
     public String l;
 
@@ -59,9 +59,9 @@ public class d1 {
                 return;
             }
         }
-        this.f55263i = System.currentTimeMillis() + "";
-        this.f55257c = str;
-        this.f55261g = str2;
+        this.f53613i = System.currentTimeMillis() + "";
+        this.f53607c = str;
+        this.f53611g = str2;
     }
 
     private JSONObject m() {
@@ -71,15 +71,15 @@ public class d1 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("1", this.a);
-                jSONObject.put("2", this.f55256b);
-                jSONObject.put("3", this.f55257c);
-                jSONObject.put("4", this.f55258d);
-                jSONObject.put("5", this.f55259e);
-                jSONObject.put("6", this.f55260f);
-                jSONObject.put("7", this.f55261g);
-                jSONObject.put("8", this.f55262h);
-                jSONObject.put("9", this.f55263i);
-                jSONObject.put("11", this.f55264j);
+                jSONObject.put("2", this.f53606b);
+                jSONObject.put("3", this.f53607c);
+                jSONObject.put("4", this.f53608d);
+                jSONObject.put("5", this.f53609e);
+                jSONObject.put("6", this.f53610f);
+                jSONObject.put("7", this.f53611g);
+                jSONObject.put("8", this.f53612h);
+                jSONObject.put("9", this.f53613i);
+                jSONObject.put("11", this.f53614j);
                 jSONObject.put("12", this.l);
                 jSONObject.put("13", "com.kuaishou.weapon");
                 return jSONObject;
@@ -129,26 +129,26 @@ public class d1 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55259e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53609e : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f55259e = str;
+            this.f53609e = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55258d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53608d : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f55258d = str;
+            this.f53608d = str;
         }
     }
 
@@ -181,91 +181,91 @@ public class d1 {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55264j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f53614j : (String) invokeV.objValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f55264j = str;
+            this.f53614j = str;
         }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f55257c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f53607c : (String) invokeV.objValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f55257c = str;
+            this.f53607c = str;
         }
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f55260f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f53610f : (String) invokeV.objValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f55260f = str;
+            this.f53610f = str;
         }
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f55261g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f53611g : (String) invokeV.objValue;
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f55261g = str;
+            this.f53611g = str;
         }
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f55256b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f53606b : (String) invokeV.objValue;
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f55256b = str;
+            this.f53606b = str;
         }
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f55262h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f53612h : (String) invokeV.objValue;
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f55262h = str;
+            this.f53612h = str;
         }
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f55263i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f53613i : (String) invokeV.objValue;
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.f55263i = str;
+            this.f53613i = str;
         }
     }
 }

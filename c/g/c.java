@@ -14,17 +14,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c extends d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Ssp> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<l> f28604b;
+    public final Set<l> f28442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<j> f28605c;
+    public final Set<j> f28443c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2, ObjectInput objectInput) {
@@ -61,7 +61,7 @@ public class c extends d0 {
             hashSet3.add(new l(objectInput.readInt(), objectInput, hashMap));
         }
         this.a = Collections.unmodifiableSet(hashSet2);
-        this.f28604b = Collections.unmodifiableSet(hashSet3);
+        this.f28442b = Collections.unmodifiableSet(hashSet3);
         if (i2 == 1) {
             int readInt3 = objectInput.readInt();
             hashSet = new HashSet(readInt3);
@@ -71,7 +71,7 @@ public class c extends d0 {
         } else {
             hashSet = new HashSet();
         }
-        this.f28605c = Collections.unmodifiableSet(hashSet);
+        this.f28443c = Collections.unmodifiableSet(hashSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,8 +93,8 @@ public class c extends d0 {
             }
         }
         this.a = set;
-        this.f28604b = set2;
-        this.f28605c = set3;
+        this.f28442b = set2;
+        this.f28443c = set3;
     }
 
     public boolean equals(Object obj) {
@@ -108,7 +108,7 @@ public class c extends d0 {
                 return false;
             }
             c cVar = (c) obj;
-            return Objects.equals(this.a, cVar.a) && Objects.equals(this.f28604b, cVar.f28604b);
+            return Objects.equals(this.a, cVar.a) && Objects.equals(this.f28442b, cVar.f28442b);
         }
         return invokeL.booleanValue;
     }
@@ -116,7 +116,7 @@ public class c extends d0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.f28604b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.f28442b) : invokeV.intValue;
     }
 
     @Override // c.g.d0
@@ -127,12 +127,12 @@ public class c extends d0 {
             for (Ssp ssp : this.a) {
                 ssp.srzable(objectOutput);
             }
-            objectOutput.writeInt(this.f28604b.size());
-            for (l lVar : this.f28604b) {
+            objectOutput.writeInt(this.f28442b.size());
+            for (l lVar : this.f28442b) {
                 lVar.srzable(objectOutput);
             }
-            objectOutput.writeInt(this.f28605c.size());
-            for (j jVar : this.f28605c) {
+            objectOutput.writeInt(this.f28443c.size());
+            for (j jVar : this.f28443c) {
                 jVar.srzable(objectOutput);
             }
         }

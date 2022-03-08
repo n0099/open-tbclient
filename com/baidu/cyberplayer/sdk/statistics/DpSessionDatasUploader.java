@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DpSessionDatasUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -29,10 +29,10 @@ public final class DpSessionDatasUploader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f33817b;
+    public d f32220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f33818c;
+    public d f32221c;
 
     public DpSessionDatasUploader() {
         Interceptable interceptable = $ic;
@@ -47,18 +47,18 @@ public final class DpSessionDatasUploader {
                 return;
             }
         }
-        this.f33817b = new d();
-        this.f33818c = new d("live_show_session");
+        this.f32220b = new d();
+        this.f32221c = new d("live_show_session");
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            d dVar = this.f33817b;
+            d dVar = this.f32220b;
             if (dVar != null) {
                 dVar.a();
             }
-            d dVar2 = this.f33818c;
+            d dVar2 = this.f32221c;
             if (dVar2 != null) {
                 dVar2.a();
             }
@@ -92,12 +92,12 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2) == null) {
             if (i2 == 24) {
-                dVar = this.f33818c;
+                dVar = this.f32221c;
                 if (dVar == null) {
                     return;
                 }
             } else {
-                dVar = this.f33817b;
+                dVar = this.f32220b;
                 if (dVar == null) {
                     return;
                 }
@@ -160,11 +160,11 @@ public final class DpSessionDatasUploader {
     public void a(Context context) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f33817b) == null || this.f33818c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f32220b) == null || this.f32221c == null) {
             return;
         }
         dVar.a(context);
-        this.f33818c.a(context);
+        this.f32221c.a(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00df */
@@ -293,10 +293,10 @@ public final class DpSessionDatasUploader {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f33819b;
+                public final /* synthetic */ String f32222b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f33820c;
+                public final /* synthetic */ DpSessionDatasUploader f32223c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -313,16 +313,16 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f33820c = this;
+                    this.f32223c = this;
                     this.a = str;
-                    this.f33819b = str2;
+                    this.f32222b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f33820c.a(this.a, this.f33819b, 1);
+                        this.f32223c.a(this.a, this.f32222b, 1);
                     }
                 }
             });
@@ -339,13 +339,13 @@ public final class DpSessionDatasUploader {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f33821b;
+                public final /* synthetic */ String f32224b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f33822c;
+                public final /* synthetic */ String f32225c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f33823d;
+                public final /* synthetic */ DpSessionDatasUploader f32226d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -362,10 +362,10 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f33823d = this;
+                    this.f32226d = this;
                     this.a = i2;
-                    this.f33821b = str;
-                    this.f33822c = str2;
+                    this.f32224b = str;
+                    this.f32225c = str2;
                 }
 
                 @Override // java.lang.Runnable
@@ -373,9 +373,9 @@ public final class DpSessionDatasUploader {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (com.baidu.cyberplayer.sdk.c.a().c() && this.a == 24) {
-                            this.f33823d.a(this.f33821b, this.f33822c, 24);
+                            this.f32226d.a(this.f32224b, this.f32225c, 24);
                         }
-                        this.f33823d.a(this.f33821b, this.f33822c, 1);
+                        this.f32226d.a(this.f32224b, this.f32225c, 1);
                     }
                 }
             });

@@ -12,14 +12,14 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import c.a.d.f.m.e;
-import c.a.t0.o0.c;
-import c.a.u0.a4.g;
+import c.a.q0.n0.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,22 +32,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TbPageExtraHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f41329b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String ENTER_TYPE_CREATE_CENTER = "18";
+    public static final String ENTER_TYPE_PERSONAL_PAGE = "12";
+    public static final String ENTER_TYPE_VIDEO_HOT_TOPIC = "13";
+    public static final String ENTER_TYPE_WORK_MANAGEMENT = "19";
+    public static final String FLUTTER_FRAGMENT_CLASS_NAME = "com.baidu.tieba.flutter.view.TbFlutterFragment";
+    public static final String KEY = "TbPageKeyHelper";
+    public static String prePageKey;
+    public static HashMap<String, String> typeAndPreFlutterPageKeyMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41330e;
+        public final /* synthetic */ String f39735e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -64,14 +68,14 @@ public class TbPageExtraHelper {
                     return;
                 }
             }
-            this.f41330e = str;
+            this.f39735e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.a = (String) TbPageExtraHelper.f41329b.get(this.f41330e);
+                String unused = TbPageExtraHelper.prePageKey = (String) TbPageExtraHelper.typeAndPreFlutterPageKeyMap.get(this.f39735e);
             }
         }
     }
@@ -89,7 +93,7 @@ public class TbPageExtraHelper {
                 return;
             }
         }
-        f41329b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+        typeAndPreFlutterPageKeyMap = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,10 +123,24 @@ public class TbPageExtraHelper {
         };
     }
 
-    public static ArrayList<String> c(ArrayList<String> arrayList, String str) {
+    public TbPageExtraHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static ArrayList<String> buildNextPageSourceKeyList(ArrayList<String> arrayList, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, arrayList, str)) == null) {
             ArrayList<String> arrayList2 = new ArrayList<>();
             if (!ListUtils.isEmpty(arrayList)) {
                 arrayList2.addAll(arrayList);
@@ -135,110 +153,110 @@ public class TbPageExtraHelper {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static BaseFragment d(View view) {
+    public static BaseFragment findFragmentByView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) {
-            c.a.t0.o0.a e2 = e(view);
-            if (e2 == null || e2.getTbFragmentExtra() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) {
+            c.a.q0.n0.a findFragmentExtraSupportByView = findFragmentExtraSupportByView(view);
+            if (findFragmentExtraSupportByView == null || findFragmentExtraSupportByView.getTbFragmentExtra() == null) {
                 return null;
             }
-            return e2.getTbFragmentExtra().a();
+            return findFragmentExtraSupportByView.getTbFragmentExtra().a();
         }
         return (BaseFragment) invokeL.objValue;
     }
 
-    public static c.a.t0.o0.a e(View view) {
+    public static c.a.q0.n0.a findFragmentExtraSupportByView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
             ViewParent parent = view.getParent();
-            c.a.t0.o0.a aVar = null;
+            c.a.q0.n0.a aVar = null;
             if (parent instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) parent;
-                if (viewGroup instanceof c.a.t0.o0.a) {
-                    aVar = (c.a.t0.o0.a) parent;
-                    r(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
+                if (viewGroup instanceof c.a.q0.n0.a) {
+                    aVar = (c.a.q0.n0.a) parent;
+                    printLog(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
                 if (aVar == null) {
-                    Object tag = viewGroup.getTag(g.tag_tb_fragment_extra);
-                    if (tag instanceof c.a.t0.o0.a) {
-                        aVar = (c.a.t0.o0.a) tag;
-                        r(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
+                    Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
+                    if (tag instanceof c.a.q0.n0.a) {
+                        aVar = (c.a.q0.n0.a) tag;
+                        printLog(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     }
                 }
                 if (aVar != null && aVar.getTbFragmentExtra() != null) {
                     BaseFragment a2 = aVar.getTbFragmentExtra().a();
                     if (a2 != null && a2.getBaseFragmentActivity() != null) {
                         BaseFragmentActivity baseFragmentActivity = a2.getBaseFragmentActivity();
-                        r(a2, "ActivityPageKey=" + baseFragmentActivity.getCurrentPageKey() + ",FragmentPageKey=" + a2.getCurrentPageKey());
+                        printLog(a2, "ActivityPageKey=" + baseFragmentActivity.getCurrentPageKey() + ",FragmentPageKey=" + a2.getCurrentPageKey());
                     }
                     return aVar;
                 }
-                return e(viewGroup);
+                return findFragmentExtraSupportByView(viewGroup);
             }
             return null;
         }
-        return (c.a.t0.o0.a) invokeL.objValue;
+        return (c.a.q0.n0.a) invokeL.objValue;
     }
 
-    public static c f(View view) {
+    public static c findPageExtraByView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
-            BaseFragment d2 = d(view);
-            c tbPageExtra = d2 != null ? d2.getTbPageExtra() : null;
-            return (tbPageExtra == null || tbPageExtra.f()) ? k(g(view)) : tbPageExtra;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) {
+            BaseFragment findFragmentByView = findFragmentByView(view);
+            c tbPageExtra = findFragmentByView != null ? findFragmentByView.getTbPageExtra() : null;
+            return (tbPageExtra == null || tbPageExtra.f()) ? getCurrentVisiblePageExtra(getActivityByView(view)) : tbPageExtra;
         }
         return (c) invokeL.objValue;
     }
 
-    public static Activity g(View view) {
+    public static Activity getActivityByView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view)) == null) {
             if (view == null) {
                 return null;
             }
-            return h(view.getContext());
+            return getActivityFromContext(view.getContext());
         }
         return (Activity) invokeL.objValue;
     }
 
-    public static Activity h(Context context) {
+    public static Activity getActivityFromContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            r(context, "currentContext");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            printLog(context, "currentContext");
             while (context instanceof ContextWrapper) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
-                    r(activity, "currentActivity");
+                    printLog(activity, "currentActivity");
                     return activity;
                 }
                 context = ((ContextWrapper) context).getBaseContext();
-                r(context, "currentContextWrapper");
+                printLog(context, "currentContextWrapper");
             }
             return null;
         }
         return (Activity) invokeL.objValue;
     }
 
-    public static c i(Activity activity) {
+    public static c getCurrentPageExtraByActivity(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
             if (activity instanceof BaseFragmentActivity) {
                 BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
-                r(baseFragmentActivity, "context is BaseFragmentActivity");
-                c j2 = j(baseFragmentActivity);
-                t(j2);
-                return j2;
+                printLog(baseFragmentActivity, "context is BaseFragmentActivity");
+                c currentPageExtraByFragmentActivity = getCurrentPageExtraByFragmentActivity(baseFragmentActivity);
+                printTbPageExtra(currentPageExtraByFragmentActivity);
+                return currentPageExtraByFragmentActivity;
             } else if (activity instanceof BaseActivity) {
                 BaseActivity baseActivity = (BaseActivity) activity;
-                r(baseActivity, "context is BaseActivity");
+                printLog(baseActivity, "context is BaseActivity");
                 c tbPageExtra = baseActivity.getTbPageExtra();
-                t(tbPageExtra);
+                printTbPageExtra(tbPageExtra);
                 return tbPageExtra;
             } else {
                 return null;
@@ -247,17 +265,17 @@ public class TbPageExtraHelper {
         return (c) invokeL.objValue;
     }
 
-    public static c j(BaseFragmentActivity baseFragmentActivity) {
+    public static c getCurrentPageExtraByFragmentActivity(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, baseFragmentActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, baseFragmentActivity)) == null) {
             FragmentManager supportFragmentManager = baseFragmentActivity.getSupportFragmentManager();
-            q(supportFragmentManager);
+            printFragments(supportFragmentManager);
             List<Fragment> fragments = supportFragmentManager.getFragments();
             Stack stack = new Stack();
             for (Fragment fragment : fragments) {
                 if (fragment instanceof BaseFragment) {
-                    u(stack, (BaseFragment) fragment);
+                    pushStackVisibleFragment(stack, (BaseFragment) fragment);
                 }
             }
             c cVar = null;
@@ -268,7 +286,7 @@ public class TbPageExtraHelper {
                 BaseFragment baseFragment = (BaseFragment) stack.pop();
                 if (baseFragment != null && baseFragment.isPrimary() && baseFragment.getTbPageExtra() != null) {
                     cVar = baseFragment.getTbPageExtra();
-                    r(baseFragment, "CurrentFragmentExtra-->" + cVar);
+                    printLog(baseFragment, "CurrentFragmentExtra-->" + cVar);
                     break;
                 }
             }
@@ -279,7 +297,7 @@ public class TbPageExtraHelper {
                 if (tbPageExtra != null) {
                     tbPageExtra.h(b2);
                 }
-                r(baseFragmentActivity, "CurrentActivityExtra-->" + tbPageExtra);
+                printLog(baseFragmentActivity, "CurrentActivityExtra-->" + tbPageExtra);
                 return tbPageExtra;
             }
             return cVar;
@@ -287,115 +305,109 @@ public class TbPageExtraHelper {
         return (c) invokeL.objValue;
     }
 
-    public static c k(Context context) {
+    public static c getCurrentVisiblePageExtra(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            s("======================Start==============================");
-            s("context : " + context);
-            Activity h2 = h(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            printLog("======================Start==============================");
+            printLog("context : " + context);
+            Activity activityFromContext = getActivityFromContext(context);
             if (!(context instanceof Activity)) {
-                r(context, "context is not Activity, so getCurrentActivity()");
-                h2 = TbadkCoreApplication.getInst().getCurrentActivity();
+                printLog(context, "context is not Activity, so getCurrentActivity()");
+                activityFromContext = TbadkCoreApplication.getInst().getCurrentActivity();
             }
-            c i2 = i(h2);
-            if (i2 == null) {
-                r(context, "------Not Activity，No TbPageExtra!------");
+            c currentPageExtraByActivity = getCurrentPageExtraByActivity(activityFromContext);
+            if (currentPageExtraByActivity == null) {
+                printLog(context, "------Not Activity，No TbPageExtra!------");
             }
-            s("**************************End**************************");
-            return i2;
+            printLog("**************************End**************************");
+            return currentPageExtraByActivity;
         }
         return (c) invokeL.objValue;
     }
 
-    public static String l(Context context) {
+    public static String getCurrentVisiblePageKey(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            c k = k(context);
-            if (k == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            c currentVisiblePageExtra = getCurrentVisiblePageExtra(context);
+            if (currentVisiblePageExtra == null) {
                 return null;
             }
-            return k.a();
+            return currentVisiblePageExtra.a();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String m() {
+    public static String getPrePageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? prePageKey : (String) invokeV.objValue;
     }
 
-    public static boolean n() {
+    public static boolean isNeedPrintLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? TbadkCoreApplication.getInst().isDebugMode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? TbadkCoreApplication.getInst().isDebugMode() : invokeV.booleanValue;
     }
 
-    public static boolean o(BaseFragment baseFragment) {
+    public static boolean isVisibleFragment(BaseFragment baseFragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, baseFragment)) == null) ? baseFragment != null && baseFragment.isVisible() && baseFragment.isPrimary() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, baseFragment)) == null) ? baseFragment != null && baseFragment.isVisible() && baseFragment.isPrimary() : invokeL.booleanValue;
     }
 
-    public static boolean p(@NonNull String str) {
+    public static boolean prePageKeyIsPersonalCenter(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f41329b.get(str) == "a028" : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? typeAndPreFlutterPageKeyMap.get(str) == "a028" : invokeL.booleanValue;
     }
 
-    public static final void q(FragmentManager fragmentManager) {
+    public static final void printFragments(FragmentManager fragmentManager) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, null, fragmentManager) == null) && n()) {
+        if ((interceptable == null || interceptable.invokeL(65554, null, fragmentManager) == null) && isNeedPrintLog()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (ListUtils.isEmpty(fragments)) {
                 return;
             }
-            s("FragmentManager---->" + fragmentManager);
-            s("---------------------------Start---------------------------");
-            s("Print All ChildFragments=" + ListUtils.getCount(fragments));
+            printLog("FragmentManager---->" + fragmentManager);
+            printLog("---------------------------Start---------------------------");
+            printLog("Print All ChildFragments=" + ListUtils.getCount(fragments));
             for (Fragment fragment : fragments) {
                 boolean isPrimary = fragment instanceof BaseFragment ? ((BaseFragment) fragment).isPrimary() : false;
                 boolean userVisibleHint = fragment.getUserVisibleHint();
                 boolean isVisible = fragment.isVisible();
-                r(fragment, "isUserVisible=" + userVisibleHint + ",isVisible=" + isVisible + ",isPrimary=" + isPrimary);
+                printLog(fragment, "isUserVisible=" + userVisibleHint + ",isVisible=" + isVisible + ",isPrimary=" + isPrimary);
             }
-            s("---------------------------End---------------------------");
+            printLog("---------------------------End---------------------------");
         }
     }
 
-    public static final void r(Object obj, String str) {
+    public static final void printLog(Object obj, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65554, null, obj, str) == null) && n() && obj != null) {
+        if ((interceptable == null || interceptable.invokeLL(65555, null, obj, str) == null) && isNeedPrintLog() && obj != null) {
             String str2 = obj.getClass().getSimpleName() + ZeusCrashHandler.NAME_SEPERATOR + str;
         }
     }
 
-    public static final void s(String str) {
+    public static final void printTbPageExtra(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65555, null, str) != null) || !n()) {
-        }
-    }
-
-    public static final void t(c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65556, null, cVar) == null) && n() && cVar != null) {
+        if ((interceptable == null || interceptable.invokeL(65557, null, cVar) == null) && isNeedPrintLog() && cVar != null) {
             String a2 = cVar.a();
             String e2 = cVar.e();
             ArrayList<String> d2 = cVar.d();
             ArrayList<String> c2 = cVar.c();
-            r(cVar, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + e2 + ",preList=" + d2.toString() + ",nextList=" + c2.toString());
+            printLog(cVar, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + e2 + ",preList=" + d2.toString() + ",nextList=" + c2.toString());
         }
     }
 
-    public static void u(Stack<BaseFragment> stack, BaseFragment baseFragment) {
+    public static void pushStackVisibleFragment(Stack<BaseFragment> stack, BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65557, null, stack, baseFragment) == null) && o(baseFragment)) {
+        if ((interceptable == null || interceptable.invokeLL(65558, null, stack, baseFragment) == null) && isVisibleFragment(baseFragment)) {
             stack.push(baseFragment);
-            r(baseFragment, "VisibleParentFragment-->" + baseFragment);
+            printLog(baseFragment, "VisibleParentFragment-->" + baseFragment);
             FragmentManager childFragmentManager = baseFragment.getChildFragmentManager();
-            q(childFragmentManager);
+            printFragments(childFragmentManager);
             List<Fragment> fragments = childFragmentManager.getFragments();
             if (ListUtils.isEmpty(fragments)) {
                 return;
@@ -403,25 +415,31 @@ public class TbPageExtraHelper {
             for (Fragment fragment : fragments) {
                 if (fragment instanceof BaseFragment) {
                     BaseFragment baseFragment2 = (BaseFragment) fragment;
-                    if (o(baseFragment2)) {
-                        u(stack, baseFragment2);
+                    if (isVisibleFragment(baseFragment2)) {
+                        pushStackVisibleFragment(stack, baseFragment2);
                     }
                 }
             }
         }
     }
 
-    public static void v(String str) {
+    public static void setPrePageKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
-            a = str;
+        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
+            prePageKey = str;
         }
     }
 
-    public static void w(String str) {
+    public static void setPrePageKeyByFlutterStart(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f41329b.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65560, null, str) == null) && !StringUtil.isEmpty(str) && typeAndPreFlutterPageKeyMap.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
+        }
+    }
+
+    public static final void printLog(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65556, null, str) != null) || !isNeedPrintLog()) {
         }
     }
 }

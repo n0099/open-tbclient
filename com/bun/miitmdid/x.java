@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.provider.xiaomi.IdentifierManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class x extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f53148i;
+    public Context f51567i;
 
     public x(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class x extends m {
                 return;
             }
         }
-        this.f53148i = context;
+        this.f51567i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -39,12 +39,12 @@ public class x extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            this.f53148i = a(this.f53148i);
+            this.f51567i = a(this.f51567i);
             gVar.e(new h(IdentifierManager.class, null, "isSupported", null, null));
             gVar.d(null);
-            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f53148i}));
-            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f53148i}));
-            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f53148i}));
+            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f51567i}));
+            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f51567i}));
+            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f51567i}));
             return gVar;
         }
         return (g) invokeV.objValue;

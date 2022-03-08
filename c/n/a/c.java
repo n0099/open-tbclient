@@ -14,32 +14,32 @@ import java.net.ProtocolException;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BufferedSource a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30421b;
+    public long f28825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30422c;
+    public long f28826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30423d;
+    public int f28827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30424e;
+    public int f28828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30425f;
+    public int f28829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30426g;
+    public long f28830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FieldEncoding f30427h;
+    public FieldEncoding f28831h;
 
     public c(BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
@@ -56,31 +56,31 @@ public final class c {
                 return;
             }
         }
-        this.f30421b = 0L;
-        this.f30422c = Long.MAX_VALUE;
-        this.f30424e = 2;
-        this.f30425f = -1;
-        this.f30426g = -1L;
+        this.f28825b = 0L;
+        this.f28826c = Long.MAX_VALUE;
+        this.f28828e = 2;
+        this.f28829f = -1;
+        this.f28830g = -1L;
         this.a = bufferedSource;
     }
 
     public final void a(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f30424e == i2) {
-                this.f30424e = 6;
+            if (this.f28828e == i2) {
+                this.f28828e = 6;
                 return;
             }
-            long j2 = this.f30421b;
-            long j3 = this.f30422c;
+            long j2 = this.f28825b;
+            long j3 = this.f28826c;
             if (j2 > j3) {
-                throw new IOException("Expected to end at " + this.f30422c + " but was " + this.f30421b);
+                throw new IOException("Expected to end at " + this.f28826c + " but was " + this.f28825b);
             } else if (j2 == j3) {
-                this.f30422c = this.f30426g;
-                this.f30426g = -1L;
-                this.f30424e = 6;
+                this.f28826c = this.f28830g;
+                this.f28830g = -1L;
+                this.f28828e = 6;
             } else {
-                this.f30424e = 7;
+                this.f28828e = 7;
             }
         }
     }
@@ -89,16 +89,16 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f30424e == 2) {
-                long j2 = this.f30422c - this.f30421b;
+            if (this.f28828e == 2) {
+                long j2 = this.f28826c - this.f28825b;
                 this.a.require(j2);
-                this.f30424e = 6;
-                this.f30421b = this.f30422c;
-                this.f30422c = this.f30426g;
-                this.f30426g = -1L;
+                this.f28828e = 6;
+                this.f28825b = this.f28826c;
+                this.f28826c = this.f28830g;
+                this.f28830g = -1L;
                 return j2;
             }
-            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.f30424e);
+            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.f28828e);
         }
         return invokeV.longValue;
     }
@@ -107,13 +107,13 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f30424e == 2) {
-                int i2 = this.f30423d + 1;
-                this.f30423d = i2;
+            if (this.f28828e == 2) {
+                int i2 = this.f28827d + 1;
+                this.f28827d = i2;
                 if (i2 <= 65) {
-                    long j2 = this.f30426g;
-                    this.f30426g = -1L;
-                    this.f30424e = 6;
+                    long j2 = this.f28830g;
+                    this.f28830g = -1L;
+                    this.f28828e = 6;
                     return j2;
                 }
                 throw new IOException("Wire recursion limit exceeded");
@@ -126,14 +126,14 @@ public final class c {
     public void d(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            if (this.f30424e == 6) {
-                int i2 = this.f30423d - 1;
-                this.f30423d = i2;
-                if (i2 >= 0 && this.f30426g == -1) {
-                    if (this.f30421b != this.f30422c && i2 != 0) {
-                        throw new IOException("Expected to end at " + this.f30422c + " but was " + this.f30421b);
+            if (this.f28828e == 6) {
+                int i2 = this.f28827d - 1;
+                this.f28827d = i2;
+                if (i2 >= 0 && this.f28830g == -1) {
+                    if (this.f28825b != this.f28826c && i2 != 0) {
+                        throw new IOException("Expected to end at " + this.f28826c + " but was " + this.f28825b);
                     }
-                    this.f30422c = j2;
+                    this.f28826c = j2;
                     return;
                 }
                 throw new IllegalStateException("No corresponding call to beginMessage()");
@@ -147,34 +147,34 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f30421b++;
+            this.f28825b++;
             byte readByte = this.a.readByte();
             if (readByte >= 0) {
                 return readByte;
             }
             int i3 = readByte & ByteCompanionObject.MAX_VALUE;
-            this.f30421b++;
+            this.f28825b++;
             byte readByte2 = this.a.readByte();
             if (readByte2 >= 0) {
                 i2 = readByte2 << 7;
             } else {
                 i3 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
-                this.f30421b++;
+                this.f28825b++;
                 byte readByte3 = this.a.readByte();
                 if (readByte3 >= 0) {
                     i2 = readByte3 << 14;
                 } else {
                     i3 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
-                    this.f30421b++;
+                    this.f28825b++;
                     byte readByte4 = this.a.readByte();
                     if (readByte4 < 0) {
                         int i4 = i3 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
-                        this.f30421b++;
+                        this.f28825b++;
                         byte readByte5 = this.a.readByte();
                         int i5 = i4 | (readByte5 << 28);
                         if (readByte5 < 0) {
                             for (int i6 = 0; i6 < 5; i6++) {
-                                this.f30421b++;
+                                this.f28825b++;
                                 if (this.a.readByte() >= 0) {
                                     return i5;
                                 }
@@ -195,37 +195,37 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f30424e;
+            int i2 = this.f28828e;
             if (i2 == 7) {
-                this.f30424e = 2;
-                return this.f30425f;
+                this.f28828e = 2;
+                return this.f28829f;
             } else if (i2 == 6) {
-                while (this.f30421b < this.f30422c && !this.a.exhausted()) {
+                while (this.f28825b < this.f28826c && !this.a.exhausted()) {
                     int e2 = e();
                     if (e2 != 0) {
                         int i3 = e2 >> 3;
-                        this.f30425f = i3;
+                        this.f28829f = i3;
                         int i4 = e2 & 7;
                         if (i4 == 0) {
-                            this.f30427h = FieldEncoding.VARINT;
-                            this.f30424e = 0;
+                            this.f28831h = FieldEncoding.VARINT;
+                            this.f28828e = 0;
                             return i3;
                         } else if (i4 == 1) {
-                            this.f30427h = FieldEncoding.FIXED64;
-                            this.f30424e = 1;
+                            this.f28831h = FieldEncoding.FIXED64;
+                            this.f28828e = 1;
                             return i3;
                         } else if (i4 == 2) {
-                            this.f30427h = FieldEncoding.LENGTH_DELIMITED;
-                            this.f30424e = 2;
+                            this.f28831h = FieldEncoding.LENGTH_DELIMITED;
+                            this.f28828e = 2;
                             int e3 = e();
                             if (e3 >= 0) {
-                                if (this.f30426g == -1) {
-                                    long j2 = this.f30422c;
-                                    this.f30426g = j2;
-                                    long j3 = this.f30421b + e3;
-                                    this.f30422c = j3;
+                                if (this.f28830g == -1) {
+                                    long j2 = this.f28826c;
+                                    this.f28830g = j2;
+                                    long j3 = this.f28825b + e3;
+                                    this.f28826c = j3;
                                     if (j3 <= j2) {
-                                        return this.f30425f;
+                                        return this.f28829f;
                                     }
                                     throw new EOFException();
                                 }
@@ -235,8 +235,8 @@ public final class c {
                         } else if (i4 != 3) {
                             if (i4 != 4) {
                                 if (i4 == 5) {
-                                    this.f30427h = FieldEncoding.FIXED32;
-                                    this.f30424e = 5;
+                                    this.f28831h = FieldEncoding.FIXED32;
+                                    this.f28828e = 5;
                                     return i3;
                                 }
                                 throw new ProtocolException("Unexpected field encoding: " + i4);
@@ -260,7 +260,7 @@ public final class c {
     public FieldEncoding g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30427h : (FieldEncoding) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28831h : (FieldEncoding) invokeV.objValue;
     }
 
     public ByteString h() throws IOException {
@@ -273,12 +273,12 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = this.f30424e;
+            int i2 = this.f28828e;
             if (i2 != 5 && i2 != 2) {
-                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.f30424e);
+                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.f28828e);
             }
             this.a.require(4L);
-            this.f30421b += 4;
+            this.f28825b += 4;
             int readIntLe = this.a.readIntLe();
             a(5);
             return readIntLe;
@@ -290,12 +290,12 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.f30424e;
+            int i2 = this.f28828e;
             if (i2 != 1 && i2 != 2) {
-                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.f30424e);
+                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.f28828e);
             }
             this.a.require(8L);
-            this.f30421b += 8;
+            this.f28825b += 8;
             long readLongLe = this.a.readLongLe();
             a(1);
             return readLongLe;
@@ -313,9 +313,9 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i2 = this.f30424e;
+            int i2 = this.f28828e;
             if (i2 != 0 && i2 != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f30424e);
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f28828e);
             }
             int e2 = e();
             a(0);
@@ -329,13 +329,13 @@ public final class c {
         byte readByte;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.f30424e;
+            int i2 = this.f28828e;
             if (i2 != 0 && i2 != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f30424e);
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.f28828e);
             }
             long j2 = 0;
             for (int i3 = 0; i3 < 64; i3 += 7) {
-                this.f30421b++;
+                this.f28825b++;
                 j2 |= (readByte & ByteCompanionObject.MAX_VALUE) << i3;
                 if ((this.a.readByte() & 128) == 0) {
                     a(0);
@@ -350,7 +350,7 @@ public final class c {
     public final void n(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            while (this.f30421b < this.f30422c && !this.a.exhausted()) {
+            while (this.f28825b < this.f28826c && !this.a.exhausted()) {
                 int e2 = e();
                 if (e2 == 0) {
                     throw new ProtocolException("Unexpected tag 0");
@@ -358,14 +358,14 @@ public final class c {
                 int i3 = e2 >> 3;
                 int i4 = e2 & 7;
                 if (i4 == 0) {
-                    this.f30424e = 0;
+                    this.f28828e = 0;
                     m();
                 } else if (i4 == 1) {
-                    this.f30424e = 1;
+                    this.f28828e = 1;
                     j();
                 } else if (i4 == 2) {
                     long e3 = e();
-                    this.f30421b += e3;
+                    this.f28825b += e3;
                     this.a.skip(e3);
                 } else if (i4 == 3) {
                     n(i3);
@@ -375,7 +375,7 @@ public final class c {
                     }
                     return;
                 } else if (i4 == 5) {
-                    this.f30424e = 5;
+                    this.f28828e = 5;
                     i();
                 } else {
                     throw new ProtocolException("Unexpected field encoding: " + i4);

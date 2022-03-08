@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class b<E> extends d<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f62266f;
+    public static final long f60616f;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedQueueNode<E> consumerNode;
 
@@ -31,7 +31,7 @@ public abstract class b<E> extends d<E> {
                 return;
             }
         }
-        f62266f = f0.a(b.class, "consumerNode");
+        f60616f = f0.a(b.class, "consumerNode");
     }
 
     public b() {
@@ -51,7 +51,7 @@ public abstract class b<E> extends d<E> {
     public final LinkedQueueNode<E> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) f0.a.f(this, f62266f) : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) f0.a.f(this, f60616f) : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final void e(LinkedQueueNode<E> linkedQueueNode) {

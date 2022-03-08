@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.hotuserrank.model;
 
-import c.a.u0.v0.i.c.c;
+import c.a.r0.u0.i.c.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class HotUserRankHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

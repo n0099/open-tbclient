@@ -1,5 +1,5 @@
 package com.airbnb.lottie;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface LottieLogger {
     void debug(String str);
 

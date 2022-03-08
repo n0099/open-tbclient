@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +33,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.button.MaterialButton;
 import java.util.Calendar;
 import java.util.Iterator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MaterialCalendar<S> extends PickerFragment<S> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -69,7 +69,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     public RecyclerView yearSelector;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class CalendarSelector {
         public static final /* synthetic */ CalendarSelector[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,7 +128,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnDayClickListener {
         void onDayClick(long j2);
     }

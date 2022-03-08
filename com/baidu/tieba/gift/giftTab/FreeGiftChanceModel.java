@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44272e;
+    public int f42674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f44273f;
+    public b f42675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f44274g;
+    public c.a.d.c.g.a f42676g;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,18 +62,18 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.a.f44272e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.a.f42674e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.a.f44272e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.a.f42674e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.a.f44273f != null) {
-                    this.a.f44273f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f44272e);
+                if (this.a.f42675f != null) {
+                    this.a.f42675f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f42674e);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i2, String str, int i3);
     }
@@ -96,7 +96,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f44274g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f42676g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -104,7 +104,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f44273f = bVar;
+            this.f42675f = bVar;
         }
     }
 
@@ -131,15 +131,15 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f44274g);
+            registerListener(this.f42676g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.u0.z3.g0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            c.a.u0.z3.g0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.y3.g0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            c.a.r0.y3.g0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 

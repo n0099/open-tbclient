@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedHashMap<Long, StackTraceElement[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28733b;
+    public int f28571b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class b {
             }
         }
         this.a = new LinkedHashMap<>();
-        this.f28733b = 100;
+        this.f28571b = 100;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int size = this.a.size();
-            int i2 = this.f28733b;
+            int i2 = this.f28571b;
             if (size == i2 && i2 > 0) {
                 LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
                 linkedHashMap.remove(linkedHashMap.keySet().iterator().next());

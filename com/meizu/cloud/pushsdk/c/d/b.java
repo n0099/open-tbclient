@@ -3,22 +3,22 @@ package com.meizu.cloud.pushsdk.c.d;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends SQLiteOpenHelper {
     public static final String a = b.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f58935b;
+    public static b f57285b;
 
     public b(Context context, String str) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static b a(Context context, String str) {
-        if (f58935b == null) {
-            f58935b = new b(context.getApplicationContext(), str);
+        if (f57285b == null) {
+            f57285b = new b(context.getApplicationContext(), str);
         }
-        return f58935b;
+        return f57285b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

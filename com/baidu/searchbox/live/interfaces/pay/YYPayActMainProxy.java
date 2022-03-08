@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class YYPayActMainProxy extends ProcessDelegateBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_RESULT = "yy_pay_result";

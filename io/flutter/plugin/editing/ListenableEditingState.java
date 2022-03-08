@@ -15,7 +15,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ListenableEditingState extends SpannableStringBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ListenableEditingState";
@@ -32,7 +32,7 @@ public class ListenableEditingState extends SpannableStringBuilder {
     public String mTextWhenBeginBatchEdit;
     public String mToStringCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface EditingStateWatcher {
         void didChangeEditingState(boolean z, boolean z2, boolean z3);
     }

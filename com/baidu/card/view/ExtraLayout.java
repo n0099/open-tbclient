@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.n.b;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.l0.n.b;
+import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,33 +20,33 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ExtraLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f33369e;
+    public TBSpecificationBtn f31772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f33370f;
+    public TextView f31773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f33371g;
+    public TextView f31774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f33372h;
+    public View.OnClickListener f31775h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f33373i;
+    public final View.OnClickListener f31776i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExtraLayout f33374e;
+        public final /* synthetic */ ExtraLayout f31777e;
 
         public a(ExtraLayout extraLayout) {
             Interceptable interceptable = $ic;
@@ -63,16 +63,16 @@ public class ExtraLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f33374e = extraLayout;
+            this.f31777e = extraLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33374e.f33372h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f31777e.f31775h == null) {
                 return;
             }
-            this.f33374e.f33372h.onClick(view);
+            this.f31777e.f31775h.onClick(view);
         }
     }
 
@@ -94,7 +94,7 @@ public class ExtraLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f33373i = new a(this);
+        this.f31776i = new a(this);
         b(context);
     }
 
@@ -103,56 +103,56 @@ public class ExtraLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
             TextView textView = (TextView) inflate.findViewById(R.id.extra_text);
-            this.f33370f = textView;
+            this.f31773f = textView;
             textView.setCompoundDrawablePadding(n.f(context, R.dimen.tbds10));
-            this.f33371g = (TextView) inflate.findViewById(R.id.extra_tag);
+            this.f31774g = (TextView) inflate.findViewById(R.id.extra_tag);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
-            this.f33369e = tBSpecificationBtn;
-            tBSpecificationBtn.setOnClickListener(this.f33373i);
+            this.f31772e = tBSpecificationBtn;
+            tBSpecificationBtn.setOnClickListener(this.f31776i);
             b bVar = new b();
             bVar.r(R.color.CAM_X0302);
-            this.f33369e.setConfig(bVar);
-            this.f33369e.setText(getResources().getString(R.string.download_just_now));
+            this.f31772e.setConfig(bVar);
+            this.f31772e.setText(getResources().getString(R.string.download_just_now));
         }
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.f33370f, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f33371g, R.color.CAM_X0109);
-            this.f33369e.changeSkinType(i2);
+            SkinManager.setViewTextColor(this.f31773f, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f31774g, (int) R.color.CAM_X0109);
+            this.f31772e.changeSkinType(i2);
         }
     }
 
-    public void setData(c.a.t0.s.r.a aVar) {
+    public void setData(c.a.q0.r.r.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             e2 threadData = aVar.getThreadData();
             boolean z2 = true;
             if (!TextUtils.isEmpty(threadData.G2)) {
-                this.f33370f.setVisibility(0);
-                this.f33370f.setText(threadData.G2);
-                this.f33370f.setOnClickListener(null);
+                this.f31773f.setVisibility(0);
+                this.f31773f.setText(threadData.G2);
+                this.f31773f.setOnClickListener(null);
                 z = true;
             } else {
-                this.f33370f.setVisibility(8);
+                this.f31773f.setVisibility(8);
                 z = false;
             }
             if (!TextUtils.isEmpty(threadData.H2)) {
-                this.f33371g.setVisibility(0);
-                this.f33371g.setText(threadData.H2);
-                this.f33371g.setOnClickListener(null);
+                this.f31774g.setVisibility(0);
+                this.f31774g.setText(threadData.H2);
+                this.f31774g.setOnClickListener(null);
                 z = true;
             } else {
-                this.f33371g.setVisibility(8);
+                this.f31774g.setVisibility(8);
             }
             if (!TextUtils.isEmpty(threadData.I2)) {
-                this.f33369e.setVisibility(0);
-                this.f33369e.setText(threadData.I2);
+                this.f31772e.setVisibility(0);
+                this.f31772e.setText(threadData.I2);
             } else {
-                this.f33369e.setVisibility(4);
+                this.f31772e.setVisibility(4);
                 z2 = z;
             }
             setVisibility(z2 ? 0 : 8);
@@ -162,7 +162,7 @@ public class ExtraLayout extends RelativeLayout {
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f33372h = onClickListener;
+            this.f31775h = onClickListener;
         }
     }
 
@@ -185,7 +185,7 @@ public class ExtraLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f33373i = new a(this);
+        this.f31776i = new a(this);
         b(context);
     }
 
@@ -208,7 +208,7 @@ public class ExtraLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f33373i = new a(this);
+        this.f31776i = new a(this);
         b(context);
     }
 }

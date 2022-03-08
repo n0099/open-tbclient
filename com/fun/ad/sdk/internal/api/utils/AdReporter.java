@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
     public static final o0 a;
@@ -72,7 +72,7 @@ public class AdReporter {
     public static void report(String str, u0 u0Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, u0Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, u0Var.a, u0Var.f28693b, u0Var.f28695d, u0Var.f28696e, u0Var.f28694c, obj, z, objArr);
+            report(str, u0Var.a, u0Var.f28531b, u0Var.f28533d, u0Var.f28534e, u0Var.f28532c, obj, z, objArr);
         }
     }
 
@@ -85,25 +85,25 @@ public class AdReporter {
                 public final /* synthetic */ long a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f54392b;
+                public final /* synthetic */ String f52878b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f54393c;
+                public final /* synthetic */ int f52879c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f54394d;
+                public final /* synthetic */ String f52880d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f54395e;
+                public final /* synthetic */ String f52881e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Object f54396f;
+                public final /* synthetic */ Object f52882f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ boolean f54397g;
+                public final /* synthetic */ boolean f52883g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ Object[] f54398h;
+                public final /* synthetic */ Object[] f52884h;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -121,13 +121,13 @@ public class AdReporter {
                         }
                     }
                     this.a = j2;
-                    this.f54392b = str2;
-                    this.f54393c = i2;
-                    this.f54394d = str4;
-                    this.f54395e = str3;
-                    this.f54396f = obj;
-                    this.f54397g = z;
-                    this.f54398h = objArr;
+                    this.f52878b = str2;
+                    this.f52879c = i2;
+                    this.f52880d = str4;
+                    this.f52881e = str3;
+                    this.f52882f = obj;
+                    this.f52883g = z;
+                    this.f52884h = objArr;
                     put("lid", Long.valueOf(j2));
                     put("sid", str2);
                     put("sidv", Integer.valueOf(i2));
@@ -143,11 +143,11 @@ public class AdReporter {
                     }
                     int i5 = 0;
                     while (true) {
-                        Object[] objArr3 = this.f54398h;
+                        Object[] objArr3 = this.f52884h;
                         if (i5 >= objArr3.length) {
                             return;
                         }
-                        put(objArr3[i5].toString(), this.f54398h[i5 + 1]);
+                        put(objArr3[i5].toString(), this.f52884h[i5 + 1]);
                         i5 += 2;
                     }
                 }
@@ -186,10 +186,10 @@ public class AdReporter {
             String str = pid.pid;
             String str2 = pid.type;
             u0Var.a = sid;
-            u0Var.f28693b = a2;
-            u0Var.f28694c = currentTimeMillis;
-            u0Var.f28695d = str;
-            u0Var.f28696e = str2;
+            u0Var.f28531b = a2;
+            u0Var.f28532c = currentTimeMillis;
+            u0Var.f28533d = str;
+            u0Var.f28534e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }

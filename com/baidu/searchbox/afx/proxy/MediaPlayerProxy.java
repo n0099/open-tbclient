@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaPlayerProxy";
@@ -35,7 +35,7 @@ public class MediaPlayerProxy extends PlayerProxy {
     public long mStartTimeMs;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.MediaPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;

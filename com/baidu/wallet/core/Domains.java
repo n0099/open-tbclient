@@ -13,7 +13,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class Domains implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_JSIPC = "{\".baidu.com\": 15, \".dxmbaoxian.com\":15, \".nuomi.com\": 15, \".baifubao.com\": 15, \".duxiaoman.com\": 15, \".baiyingfund.com\": 15, \".duxiaomanfund.com\": 15, \".dxmpay.com\": 15, \"bdtrust.gt-trust.com\": 10, \"bdtrust.mintrust.com\": 10, \"bdtrust.ebtrust.com\": 10, \"bdtrust.cfitc.com\":10}";
@@ -22,13 +22,13 @@ public class Domains implements NoProguard {
     public Map<String, EnumSet<Permission>> mDomainsPermissionConfig;
 
     /* renamed from: com.baidu.wallet.core.Domains$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final Domains a;

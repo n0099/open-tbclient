@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class m implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,28 +10,28 @@ public class m implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a> {
             return;
         }
         aVar.a = jSONObject.optInt("thirdAge");
-        aVar.f57205b = jSONObject.optInt("thirdGender");
-        aVar.f57206c = jSONObject.optString("thirdInterest");
+        aVar.f55555b = jSONObject.optInt("thirdGender");
+        aVar.f55556c = jSONObject.optString("thirdInterest");
         if (jSONObject.opt("thirdInterest") == JSONObject.NULL) {
-            aVar.f57206c = "";
+            aVar.f55556c = "";
         }
-        aVar.f57207d = jSONObject.optString("prevTitle");
+        aVar.f55557d = jSONObject.optString("prevTitle");
         if (jSONObject.opt("prevTitle") == JSONObject.NULL) {
-            aVar.f57207d = "";
+            aVar.f55557d = "";
         }
-        aVar.f57208e = jSONObject.optString("postTitle");
+        aVar.f55558e = jSONObject.optString("postTitle");
         if (jSONObject.opt("postTitle") == JSONObject.NULL) {
-            aVar.f57208e = "";
+            aVar.f55558e = "";
         }
-        aVar.f57209f = jSONObject.optString("historyTitle");
+        aVar.f55559f = jSONObject.optString("historyTitle");
         if (jSONObject.opt("historyTitle") == JSONObject.NULL) {
-            aVar.f57209f = "";
+            aVar.f55559f = "";
         }
-        aVar.f57210g = jSONObject.optString("channel");
+        aVar.f55560g = jSONObject.optString("channel");
         if (jSONObject.opt("channel") == JSONObject.NULL) {
-            aVar.f57210g = "";
+            aVar.f55560g = "";
         }
-        aVar.f57211h = jSONObject.optLong("cpmBidFloor");
+        aVar.f55561h = jSONObject.optLong("cpmBidFloor");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,13 +41,13 @@ public class m implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "thirdAge", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "thirdGender", aVar.f57205b);
-        com.kwad.sdk.utils.t.a(jSONObject, "thirdInterest", aVar.f57206c);
-        com.kwad.sdk.utils.t.a(jSONObject, "prevTitle", aVar.f57207d);
-        com.kwad.sdk.utils.t.a(jSONObject, "postTitle", aVar.f57208e);
-        com.kwad.sdk.utils.t.a(jSONObject, "historyTitle", aVar.f57209f);
-        com.kwad.sdk.utils.t.a(jSONObject, "channel", aVar.f57210g);
-        com.kwad.sdk.utils.t.a(jSONObject, "cpmBidFloor", aVar.f57211h);
+        com.kwad.sdk.utils.t.a(jSONObject, "thirdGender", aVar.f55555b);
+        com.kwad.sdk.utils.t.a(jSONObject, "thirdInterest", aVar.f55556c);
+        com.kwad.sdk.utils.t.a(jSONObject, "prevTitle", aVar.f55557d);
+        com.kwad.sdk.utils.t.a(jSONObject, "postTitle", aVar.f55558e);
+        com.kwad.sdk.utils.t.a(jSONObject, "historyTitle", aVar.f55559f);
+        com.kwad.sdk.utils.t.a(jSONObject, "channel", aVar.f55560g);
+        com.kwad.sdk.utils.t.a(jSONObject, "cpmBidFloor", aVar.f55561h);
         return jSONObject;
     }
 }

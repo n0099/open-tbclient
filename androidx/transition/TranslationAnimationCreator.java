@@ -55,10 +55,10 @@ public class TranslationAnimationCreator {
             this.mStartY = i3 - Math.round(this.mMovingView.getTranslationY());
             this.mTerminalX = f2;
             this.mTerminalY = f3;
-            int[] iArr = (int[]) this.mViewInHierarchy.getTag(R.id.transition_position);
+            int[] iArr = (int[]) this.mViewInHierarchy.getTag(R$id.transition_position);
             this.mTransitionPosition = iArr;
             if (iArr != null) {
-                this.mViewInHierarchy.setTag(R.id.transition_position, null);
+                this.mViewInHierarchy.setTag(R$id.transition_position, null);
             }
         }
 
@@ -71,7 +71,7 @@ public class TranslationAnimationCreator {
                 }
                 this.mTransitionPosition[0] = Math.round(this.mStartX + this.mMovingView.getTranslationX());
                 this.mTransitionPosition[1] = Math.round(this.mStartY + this.mMovingView.getTranslationY());
-                this.mViewInHierarchy.setTag(R.id.transition_position, this.mTransitionPosition);
+                this.mViewInHierarchy.setTag(R$id.transition_position, this.mTransitionPosition);
             }
         }
 
@@ -157,7 +157,7 @@ public class TranslationAnimationCreator {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view, transitionValues, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), timeInterpolator, transition})) == null) {
             float translationX = view.getTranslationX();
             float translationY = view.getTranslationY();
-            int[] iArr = (int[]) transitionValues.view.getTag(R.id.transition_position);
+            int[] iArr = (int[]) transitionValues.view.getTag(R$id.transition_position);
             if (iArr != null) {
                 f6 = (iArr[0] - i2) + translationX;
                 f7 = (iArr[1] - i3) + translationY;

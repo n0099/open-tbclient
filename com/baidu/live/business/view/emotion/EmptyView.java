@@ -6,28 +6,26 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import c.a.y.b.f.a;
-import c.a.y.c.a.c;
-import c.a.y.c.a.d;
-import c.a.y.c.a.e;
-import c.a.y.k.f;
+import c.a.w.b.f.a;
+import c.a.w.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SimpleDraweeView f35047e;
+    public SimpleDraweeView f33450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AppCompatTextView f35048f;
+    public AppCompatTextView f33451f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -53,17 +51,17 @@ public class EmptyView extends LinearLayout {
     public void onDarkModeChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f35047e.getLayoutParams();
-            layoutParams.width = a.a(getContext(), c.a.y.b.g.b.a.a().f26894i);
-            layoutParams.height = a.a(getContext(), c.a.y.b.g.b.a.a().f26895j);
-            this.f35047e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f33450e.getLayoutParams();
+            layoutParams.width = a.a(getContext(), c.a.w.b.g.b.a.a().f26338i);
+            layoutParams.height = a.a(getContext(), c.a.w.b.g.b.a.a().f26339j);
+            this.f33450e.setLayoutParams(layoutParams);
             setImageResource(f.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.f35048f.setText(e.live_feed_no_data_qm);
+                this.f33451f.setText(R.string.live_feed_no_data_qm);
             } else {
-                this.f35048f.setText(e.live_feed_no_data);
+                this.f33451f.setText(R.string.live_feed_no_data);
             }
-            this.f35048f.setTextColor(f.e().a(getContext(), z, "color_8585852"));
+            this.f33451f.setTextColor(f.e().a(getContext(), z, "color_8585852"));
         }
     }
 
@@ -72,13 +70,13 @@ public class EmptyView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == -1) {
             return;
         }
-        this.f35047e.setActualImageResource(i2);
+        this.f33450e.setActualImageResource(i2);
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            this.f35048f.setText(charSequence);
+            this.f33451f.setText(charSequence);
         }
     }
 
@@ -113,7 +111,7 @@ public class EmptyView extends LinearLayout {
     public void setText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f35048f.setText(i2);
+            this.f33451f.setText(i2);
         }
     }
 
@@ -146,10 +144,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(d.live_feed_page_empty_view, this);
+        LayoutInflater.from(context).inflate(R.layout.live_feed_page_empty_view, this);
         setOrientation(1);
         setGravity(17);
-        this.f35047e = (SimpleDraweeView) findViewById(c.empty_image);
-        this.f35048f = (AppCompatTextView) findViewById(c.empty_text);
+        this.f33450e = (SimpleDraweeView) findViewById(R.id.empty_image);
+        this.f33451f = (AppCompatTextView) findViewById(R.id.empty_text);
     }
 }

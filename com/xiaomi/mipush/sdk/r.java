@@ -10,7 +10,7 @@ import com.xiaomi.push.di;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class r implements di {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

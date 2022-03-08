@@ -2,7 +2,6 @@ package com.dxmpay.wallet.paysdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.f.a.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanResponseCallback;
 import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.heartbeat.a;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.core.DebugConfig;
 import com.dxmpay.wallet.core.beans.BeanConstants;
@@ -20,16 +20,16 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f54237f = true;
+    public static volatile boolean f52723f = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54238e;
+    public Context f52724e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f54238e = context;
+        this.f52724e = context;
     }
 
     @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
@@ -79,8 +79,8 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public void onBeanExecSuccess(int i2, Object obj, String str) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) && f54237f) {
-            f54237f = false;
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) && f52723f) {
+            f52723f = false;
             if (obj instanceof SdkInitResponse) {
                 SdkInitResponse sdkInitResponse = (SdkInitResponse) obj;
                 if (!TextUtils.isEmpty(sdkInitResponse.domainConfig)) {
@@ -94,28 +94,28 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                     if (z) {
                         if (DebugConfig.getInstance().isOnline()) {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         } else {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(sdkInitResponse.domainSwitch)) {
                     if (TextUtils.equals("1", sdkInitResponse.domainSwitch)) {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
                         }
-                        a.i().h(true);
+                        a.b().a(true);
                     } else {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f54238e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(this.f52724e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
                         }
-                        a.i().h(false);
+                        a.b().a(false);
                     }
                 }
                 EventBus eventBus = EventBus.getInstance();

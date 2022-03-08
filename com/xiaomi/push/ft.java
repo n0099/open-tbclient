@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ft extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class ft extends XMPushService.i {
             if (!this.f418a.m390c() || this.f418a.a(this.a)) {
                 return;
             }
-            this.f418a.f61302b.a(22, (Exception) null);
+            this.f418a.f59652b.a(22, (Exception) null);
         }
     }
 }

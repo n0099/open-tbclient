@@ -102,7 +102,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -111,7 +111,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i2, String str);
 
@@ -2506,8 +2506,8 @@ public final class SapiAccountRepository {
                                 }
                             }
 
-                            /* JADX WARN: Removed duplicated region for block: B:44:0x0106 A[Catch: Exception -> 0x012c, TryCatch #0 {Exception -> 0x012c, blocks: (B:5:0x002d, B:8:0x0051, B:10:0x005e, B:11:0x0075, B:13:0x0082, B:16:0x008c, B:18:0x0094, B:21:0x009d, B:23:0x00a5, B:26:0x00ae, B:28:0x00b6, B:30:0x00bc, B:31:0x00c2, B:33:0x00d3, B:35:0x00e4, B:37:0x00ea, B:42:0x0100, B:44:0x0106, B:45:0x011f, B:39:0x00f3, B:41:0x00f9), top: B:53:0x002d }] */
-                            /* JADX WARN: Removed duplicated region for block: B:45:0x011f A[Catch: Exception -> 0x012c, TRY_LEAVE, TryCatch #0 {Exception -> 0x012c, blocks: (B:5:0x002d, B:8:0x0051, B:10:0x005e, B:11:0x0075, B:13:0x0082, B:16:0x008c, B:18:0x0094, B:21:0x009d, B:23:0x00a5, B:26:0x00ae, B:28:0x00b6, B:30:0x00bc, B:31:0x00c2, B:33:0x00d3, B:35:0x00e4, B:37:0x00ea, B:42:0x0100, B:44:0x0106, B:45:0x011f, B:39:0x00f3, B:41:0x00f9), top: B:53:0x002d }] */
+                            /* JADX WARN: Removed duplicated region for block: B:44:0x0104 A[Catch: Exception -> 0x012a, TryCatch #0 {Exception -> 0x012a, blocks: (B:5:0x002d, B:8:0x0051, B:10:0x005e, B:11:0x0074, B:13:0x0081, B:16:0x008b, B:18:0x0093, B:21:0x009c, B:23:0x00a4, B:26:0x00ad, B:28:0x00b5, B:30:0x00bb, B:31:0x00c1, B:33:0x00d2, B:35:0x00e3, B:37:0x00e9, B:42:0x00fe, B:44:0x0104, B:45:0x011d, B:39:0x00f2, B:41:0x00f8), top: B:53:0x002d }] */
+                            /* JADX WARN: Removed duplicated region for block: B:45:0x011d A[Catch: Exception -> 0x012a, TRY_LEAVE, TryCatch #0 {Exception -> 0x012a, blocks: (B:5:0x002d, B:8:0x0051, B:10:0x005e, B:11:0x0074, B:13:0x0081, B:16:0x008b, B:18:0x0093, B:21:0x009c, B:23:0x00a4, B:26:0x00ad, B:28:0x00b5, B:30:0x00bb, B:31:0x00c1, B:33:0x00d2, B:35:0x00e3, B:37:0x00e9, B:42:0x00fe, B:44:0x0104, B:45:0x011d, B:39:0x00f2, B:41:0x00f8), top: B:53:0x002d }] */
                             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                             /*
                                 Code decompiled incorrectly, please refer to instructions dump.

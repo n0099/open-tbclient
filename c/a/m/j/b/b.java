@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -20,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f4547b;
+    public static final int[] f4222b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f4547b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f4222b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -97,9 +96,9 @@ public class b {
     public static void h(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, iArr, iArr2) == null) {
-            int[] iArr3 = f4547b;
+            int[] iArr3 = f4222b;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f4547b.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f4222b.length, 8);
         }
     }
 

@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class AsynTaskMgr {
     public static final /* synthetic */ AsynTaskMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,7 +43,7 @@ public final class AsynTaskMgr {
     public HandlerThread mHandlerThread;
     public AtomicBoolean mMonitorStarted;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class AsynTaskHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

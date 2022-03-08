@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.personal.datamodel.CouponList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,57 +45,57 @@ public class a extends c {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, coupon) == null) {
             super.a(i2, coupon);
             int i3 = coupon.coupon_list_show_formwork;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f52831e.getLayoutParams();
-            layoutParams.topMargin = DisplayUtils.dip2px(this.f52828b.getContext(), 17.0f);
-            this.f52833g.a.getLayoutParams().height = DisplayUtils.dip2px(this.f52828b.getContext(), 139.0f);
-            layoutParams.bottomMargin = DisplayUtils.dip2px(this.f52828b.getContext(), 28.5f);
-            this.f52831e.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51250e.getLayoutParams();
+            layoutParams.topMargin = DisplayUtils.dip2px(this.f51247b.getContext(), 17.0f);
+            this.f51252g.a.getLayoutParams().height = DisplayUtils.dip2px(this.f51247b.getContext(), 139.0f);
+            layoutParams.bottomMargin = DisplayUtils.dip2px(this.f51247b.getContext(), 28.5f);
+            this.f51250e.setLayoutParams(layoutParams);
             if (coupon.coupon_name.length() > 5) {
-                textView = this.f52834h;
+                textView = this.f51253h;
                 str = coupon.coupon_name.substring(0, 5);
             } else {
-                textView = this.f52834h;
+                textView = this.f51253h;
                 str = coupon.coupon_name;
             }
             textView.setText(str);
-            this.f52834h.getLayoutParams().width = DisplayUtils.dip2px(this.f52828b.getContext(), 60.0f);
+            this.f51253h.getLayoutParams().width = DisplayUtils.dip2px(this.f51247b.getContext(), 60.0f);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.k.a.getLayoutParams();
-            layoutParams2.leftMargin = DisplayUtils.dip2px(this.f52828b.getContext(), 12.5f);
-            if (!this.k.f52844b) {
-                layoutParams2.height = DisplayUtils.dip2px(this.f52828b.getContext(), 14.0f);
-                this.k.a.setBackgroundDrawable(ResUtils.getDrawable(this.f52828b.getContext(), "wallet_personal_coupon_market_label_cash"));
+            layoutParams2.leftMargin = DisplayUtils.dip2px(this.f51247b.getContext(), 12.5f);
+            if (!this.k.f51263b) {
+                layoutParams2.height = DisplayUtils.dip2px(this.f51247b.getContext(), 14.0f);
+                this.k.a.setBackgroundDrawable(ResUtils.getDrawable(this.f51247b.getContext(), "wallet_personal_coupon_market_label_cash"));
             }
             this.k.a.setLayoutParams(layoutParams2);
             if (this.a) {
                 str2 = "ebpay_white";
-                this.f52835i.setTextColor(ResUtils.getColor(this.f52828b.getContext(), "ebpay_white"));
-                this.f52836j.setTextColor(ResUtils.getColor(this.f52828b.getContext(), "ebpay_white"));
-                if (TextUtils.isEmpty(coupon.coupon_color_bg) || !this.f52833g.f52842b) {
-                    this.f52833g.a.setBackgroundDrawable(ResUtils.getDrawable(this.f52828b.getContext(), "wallet_personal_coupon_cash_gray_bg"));
+                this.f51254i.setTextColor(ResUtils.getColor(this.f51247b.getContext(), "ebpay_white"));
+                this.f51255j.setTextColor(ResUtils.getColor(this.f51247b.getContext(), "ebpay_white"));
+                if (TextUtils.isEmpty(coupon.coupon_color_bg) || !this.f51252g.f51261b) {
+                    this.f51252g.a.setBackgroundDrawable(ResUtils.getDrawable(this.f51247b.getContext(), "wallet_personal_coupon_cash_gray_bg"));
                 }
-                this.k.a.setTextColor(ResUtils.getColor(this.f52828b.getContext(), "ebpay_white"));
-                this.l.setTextColor(ResUtils.getColor(this.f52828b.getContext(), "ebpay_white"));
-                this.r.setTextColor(ResUtils.getColor(this.f52828b.getContext(), "ebpay_white"));
+                this.k.a.setTextColor(ResUtils.getColor(this.f51247b.getContext(), "ebpay_white"));
+                this.l.setTextColor(ResUtils.getColor(this.f51247b.getContext(), "ebpay_white"));
+                this.r.setTextColor(ResUtils.getColor(this.f51247b.getContext(), "ebpay_white"));
                 textView2 = this.m;
-                context = this.f52828b.getContext();
+                context = this.f51247b.getContext();
             } else {
-                this.f52835i.setTextColor(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), i3));
-                this.f52835i.setTypeface(Typeface.DEFAULT);
-                this.f52836j.setTextColor(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), i3));
-                if (TextUtils.isEmpty(coupon.coupon_color_bg) || !this.f52833g.f52842b) {
-                    this.f52833g.a.setBackgroundDrawable(ResUtils.getDrawable(this.f52828b.getContext(), "wallet_personal_coupon_base_formwork_5_55"));
+                this.f51254i.setTextColor(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), i3));
+                this.f51254i.setTypeface(Typeface.DEFAULT);
+                this.f51255j.setTextColor(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), i3));
+                if (TextUtils.isEmpty(coupon.coupon_color_bg) || !this.f51252g.f51261b) {
+                    this.f51252g.a.setBackgroundDrawable(ResUtils.getDrawable(this.f51247b.getContext(), "wallet_personal_coupon_base_formwork_5_55"));
                 }
-                this.k.a.setTextColor(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), i3));
-                this.l.setTextColor(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), i3));
-                this.r.setTextColor(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), i3));
+                this.k.a.setTextColor(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), i3));
+                this.l.setTextColor(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), i3));
+                this.r.setTextColor(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), i3));
                 textView2 = this.m;
-                context = this.f52828b.getContext();
+                context = this.f51247b.getContext();
                 str2 = "coupon_base_orage_ccf7d1af";
             }
             textView2.setTextColor(ResUtils.getColor(context, str2));
             this.n.setVisibility(8);
             if (TextUtils.isEmpty(coupon.coupon_color) && Build.VERSION.SDK_INT >= 16) {
-                this.f52832f.setBackground(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), com.baidu.wallet.personal.b.b.b(this.f52828b.getContext(), coupon.coupon_list_show_formwork), 0));
+                this.f51251f.setBackground(com.baidu.wallet.personal.b.b.a(this.f51247b.getContext(), com.baidu.wallet.personal.b.b.b(this.f51247b.getContext(), coupon.coupon_list_show_formwork), 0));
             }
             a();
         }

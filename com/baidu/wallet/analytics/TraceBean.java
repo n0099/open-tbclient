@@ -23,7 +23,7 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TraceBean extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_URL = "/tongji/performance/stat.jpg";
@@ -36,7 +36,7 @@ public class TraceBean extends BaseBean {
     public List<RestNameValuePair> mPostParams;
     public List<RestNameValuePair> mQueryParams;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class CustomInterceptors implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

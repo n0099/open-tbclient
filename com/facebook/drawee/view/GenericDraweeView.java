@@ -13,7 +13,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.GenericDraweeHierarchyInflater;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GenericDraweeView extends DraweeView<GenericDraweeHierarchy> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

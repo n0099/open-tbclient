@@ -51,7 +51,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -292,16 +292,16 @@ public final class DownloadManager {
                     }
                     download.a = currentTimeMillis;
                     int progress = download.getProgress();
-                    if (progress != download.f33598c) {
+                    if (progress != download.f32001c) {
                         this.this$0.notifyProgressChange(j2, progress);
-                        download.f33598c = progress;
+                        download.f32001c = progress;
                     }
-                    if (currentTimeMillis - download.f33597b > 2000) {
+                    if (currentTimeMillis - download.f32000b > 2000) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                        download.f33597b = currentTimeMillis;
+                        download.f32000b = currentTimeMillis;
                     }
                 }
             }
@@ -405,7 +405,7 @@ public final class DownloadManager {
             return;
         }
         if (downloadState == DownloadState.CANCEL) {
-            if (download.f33599d) {
+            if (download.f32002d) {
                 try {
                     new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                 } catch (Exception e2) {
@@ -1110,7 +1110,7 @@ public final class DownloadManager {
                         for (int i2 = 0; i2 < this.val$downloadIds.length; i2++) {
                             Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadIds[i2]));
                             if (download != null) {
-                                download.f33599d = true;
+                                download.f32002d = true;
                                 this.this$0.mTaskManager.stopDownload(download.mUrl, this.val$downloadIds[i2], false);
                             }
                         }
@@ -1126,7 +1126,7 @@ public final class DownloadManager {
             for (int i2 = 0; i2 < jArr.length; i2++) {
                 Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                 if (download != null) {
-                    download.f33599d = false;
+                    download.f32002d = false;
                     this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                 }
             }

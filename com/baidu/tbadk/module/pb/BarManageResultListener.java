@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BarManageResultListener extends SimpleMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class OptType {
         public static final /* synthetic */ OptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,11 +88,11 @@ public class BarManageResultListener extends SimpleMessageListener {
         public OptType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f41302b;
+        public boolean f39708b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41303c;
+        public String f39709c;
 
         public a(@NonNull OptType optType, boolean z, @Nullable String str) {
             Interceptable interceptable = $ic;
@@ -110,8 +110,8 @@ public class BarManageResultListener extends SimpleMessageListener {
                 }
             }
             this.a = optType;
-            this.f41302b = z;
-            this.f41303c = str;
+            this.f39708b = z;
+            this.f39709c = str;
         }
 
         public static a a(@NonNull OptType optType, boolean z, @Nullable String str) {
@@ -124,7 +124,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41303c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39709c : (String) invokeV.objValue;
         }
 
         @NonNull
@@ -137,7 +137,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41302b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39708b : invokeV.booleanValue;
         }
     }
 

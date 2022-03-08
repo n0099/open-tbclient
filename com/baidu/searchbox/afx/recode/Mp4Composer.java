@@ -18,14 +18,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class Mp4Composer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Mp4Composer";
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface Listener {
         void onCompleted();
 

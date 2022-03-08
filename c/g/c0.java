@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public static final SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SharedPreferences.Editor f28606b;
+    public static final SharedPreferences.Editor f28444b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c0 {
         }
         SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
         a = sharedPreferences;
-        f28606b = sharedPreferences.edit();
+        f28444b = sharedPreferences.edit();
     }
 
     public static double a() {

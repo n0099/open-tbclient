@@ -14,23 +14,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f28663b;
+    public final boolean f28501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28664c;
+    public String f28502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28665d;
+    public String f28503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f28666e;
+    public byte[] f28504e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public l0(String str, n0 n0Var) {
@@ -73,7 +73,7 @@ public abstract class l0 {
             throw new IllegalArgumentException("url is null");
         }
         this.a = str;
-        this.f28663b = z;
+        this.f28501b = z;
         if (n0Var != null) {
             String str2 = "?";
             if (str.contains("?")) {
@@ -121,13 +121,13 @@ public abstract class l0 {
             try {
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(8000);
-                httpURLConnection.setRequestMethod(this.f28664c);
-                httpURLConnection.setDoOutput("POST".equals(this.f28664c) && this.f28666e != null);
-                String str = this.f28665d;
+                httpURLConnection.setRequestMethod(this.f28502c);
+                httpURLConnection.setDoOutput("POST".equals(this.f28502c) && this.f28504e != null);
+                String str = this.f28503d;
                 if (str != null) {
                     httpURLConnection.setRequestProperty("Content-Type", str);
                 }
-                if (this.f28663b) {
+                if (this.f28501b) {
                     httpURLConnection.setRequestProperty("Content-Encoding", "application/gzip");
                 }
                 httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
@@ -162,8 +162,8 @@ public abstract class l0 {
                     outputStream3 = httpURLConnection.getOutputStream();
                     if (outputStream3 != null) {
                         try {
-                            byte[] bArr2 = this.f28666e;
-                            if (this.f28663b) {
+                            byte[] bArr2 = this.f28504e;
+                            if (this.f28501b) {
                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                                 GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream2);
                                 gZIPOutputStream.write(bArr2);

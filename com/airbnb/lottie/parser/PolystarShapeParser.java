@@ -9,7 +9,7 @@ import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class PolystarShapeParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", "pt", "p", "r", "or", UrlOcrConfig.IdCardKey.OS, "ir", "is", "hd");
 

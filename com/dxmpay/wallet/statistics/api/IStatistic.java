@@ -2,7 +2,7 @@ package com.dxmpay.wallet.statistics.api;
 
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IStatistic {
     void onEvent(String str);
 

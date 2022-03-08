@@ -3,7 +3,6 @@ package com.baidu.searchbox.launched;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LaunchedTaskSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -136,7 +135,7 @@ public class LaunchedTaskSpeedStats {
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(ProgressInfo.JSON_KEY_BEGIN, speedStatisticsNode.getBeginTimestamp());
+                jSONObject.put("begin", speedStatisticsNode.getBeginTimestamp());
                 jSONObject.put("duration", speedStatisticsNode.getDuration());
                 JSONObject speedNodeParts = getSpeedNodeParts(ruleNode.getChildParts());
                 if (speedNodeParts != null) {

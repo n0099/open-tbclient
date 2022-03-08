@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.yxcorp.kuaishou.addfp.a.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61697b;
+    public Context f60047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f61698c;
+    public d f60048c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f61699d;
+    public CountDownLatch f60049d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f61700e;
+    public ServiceConnection f60050e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class a {
                 return;
             }
         }
-        this.f61698c = null;
-        this.f61699d = new CountDownLatch(1);
-        this.f61700e = new b(this);
-        this.f61697b = context;
+        this.f60048c = null;
+        this.f60049d = new CountDownLatch(1);
+        this.f60050e = new b(this);
+        this.f60047b = context;
     }
 
     private void a(boolean z) {
@@ -58,7 +58,7 @@ public final class a {
                     this.a.e();
                     return;
                 }
-                String a = this.f61698c.a();
+                String a = this.f60048c.a();
                 if (TextUtils.isEmpty(a)) {
                     this.a.a(a);
                 }
@@ -72,7 +72,7 @@ public final class a {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f61700e) == null || (context = this.f61697b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f60050e) == null || (context = this.f60047b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -85,12 +85,12 @@ public final class a {
                 this.a = bVar;
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (!this.f61697b.bindService(intent, this.f61700e, 1)) {
+                if (!this.f60047b.bindService(intent, this.f60050e, 1)) {
                     a(false);
                     return;
                 }
-                this.f61699d.await(10L, TimeUnit.SECONDS);
-                if (this.f61698c != null) {
+                this.f60049d.await(10L, TimeUnit.SECONDS);
+                if (this.f60048c != null) {
                     a(true);
                 } else {
                     a(false);

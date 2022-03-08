@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f32851b;
+    public final Class<T> f31254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbstractHttpMessageConverter<?> f32852c;
+    public final AbstractHttpMessageConverter<?> f31255c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class f<T> {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (abstractHttpMessageConverter != null) {
-            this.f32851b = cls;
-            this.f32852c = abstractHttpMessageConverter;
+            this.f31254b = cls;
+            this.f31255c = abstractHttpMessageConverter;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -82,7 +82,7 @@ public class f<T> {
                 if (eVar.d().i() == null) {
                     Log.isLoggable(a, 3);
                 }
-                return (T) this.f32852c.a(this.f32851b, eVar);
+                return (T) this.f31255c.a(this.f31254b, eVar);
             }
             return null;
         }
@@ -92,6 +92,6 @@ public class f<T> {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32852c.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31255c.a() : (String) invokeV.objValue;
     }
 }

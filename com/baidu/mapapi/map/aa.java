@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class aa extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f35690b;
+    public final /* synthetic */ WearMapView f34093b;
 
     public aa(WearMapView wearMapView, View view) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class aa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f35690b = wearMapView;
+        this.f34093b = wearMapView;
         this.a = view;
     }
 

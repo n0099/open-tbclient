@@ -2,53 +2,48 @@ package c.i.b.a;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.ExoPlaybackException;
-/* loaded from: classes9.dex */
-public interface g extends q {
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public final class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Long, AugmentedFace> a;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void h(int i2, Object obj) throws ExoPlaybackException;
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    /* loaded from: classes9.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f29841b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final Object f29842c;
-
-        public b(a aVar, int i2, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public final synchronized AugmentedFace a(long j2, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j2));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j2, session);
+                    this.a.put(Long.valueOf(j2), augmentedFace);
                 }
             }
-            this.a = aVar;
-            this.f29841b = i2;
-            this.f29842c = obj;
+            return augmentedFace;
         }
+        return (AugmentedFace) invokeJL.objValue;
     }
-
-    void a(b... bVarArr);
-
-    void b(c.i.b.a.d0.l lVar);
-
-    void s(b... bVarArr);
 }

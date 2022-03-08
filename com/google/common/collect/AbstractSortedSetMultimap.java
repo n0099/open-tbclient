@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import c.i.d.c.j1;
+import c.i.c.c.j1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.SortedSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultimap<K, V> implements j1<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 430848587173315748L;
@@ -40,7 +40,7 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
         }
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, c.i.c.c.c, c.i.c.c.q0
     public Map<K, Collection<V>> asMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,21 +53,21 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((AbstractSortedSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((AbstractSortedSetMultimap<K, V>) obj, iterable);
     }
 
     public abstract /* synthetic */ Comparator<? super V> valueComparator();
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public Collection<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,14 +89,14 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Set get(Object obj) {
         return get((AbstractSortedSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Set replaceValues(Object obj, Iterable iterable) {
         return replaceValues((AbstractSortedSetMultimap<K, V>) obj, iterable);
     }
@@ -123,7 +123,7 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (SortedSet<V>) unmodifiableCollectionSubclass((Collection) createCollection()) : (SortedSet) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public SortedSet<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public SortedSet<V> removeAll(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) ? (SortedSet) super.removeAll(obj) : (SortedSet) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public SortedSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

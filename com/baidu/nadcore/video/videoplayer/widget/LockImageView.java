@@ -7,31 +7,31 @@ import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import c.a.d0.l0.l;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LockImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d0.i0.a.f.a f37442e;
+    public c.a.b0.i0.a.f.a f35845e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f37443e;
+        public final /* synthetic */ int f35846e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LockImageView f37444f;
+        public final /* synthetic */ LockImageView f35847f;
 
         public a(LockImageView lockImageView, int i2) {
             Interceptable interceptable = $ic;
@@ -48,15 +48,15 @@ public class LockImageView extends ImageView {
                     return;
                 }
             }
-            this.f37444f = lockImageView;
-            this.f37443e = i2;
+            this.f35847f = lockImageView;
+            this.f35846e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37444f.f37442e.l(this.f37443e);
+                this.f35847f.f35845e.l(this.f35846e);
             }
         }
     }
@@ -85,7 +85,7 @@ public class LockImageView extends ImageView {
     public void animateToggle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37442e.b();
+            this.f35845e.b();
         }
     }
 
@@ -98,7 +98,7 @@ public class LockImageView extends ImageView {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f37442e = new c.a.d0.i0.a.f.a(b(getResources(), l.nad_videoplayer_player_lock_header), b(getResources(), l.nad_videoplayer_player_lock_body));
+            this.f35845e = new c.a.b0.i0.a.f.a(b(getResources(), R.drawable.nad_videoplayer_player_lock_header), b(getResources(), R.drawable.nad_videoplayer_player_lock_body));
         }
     }
 
@@ -107,8 +107,8 @@ public class LockImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f37442e.setBounds(0, 0, getWidth(), getHeight());
-            setImageDrawable(this.f37442e);
+            this.f35845e.setBounds(0, 0, getWidth(), getHeight());
+            setImageDrawable(this.f35845e);
         }
     }
 

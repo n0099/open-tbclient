@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class m implements Runnable {
         SafeKeyBoardEditText safeKeyBoardEditText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            safeKeyBoardUtil = this.a.f34202g;
-            context = this.a.f34200e;
-            safeKeyBoardEditText = this.a.f34201f;
+            safeKeyBoardUtil = this.a.f32605g;
+            context = this.a.f32603e;
+            safeKeyBoardEditText = this.a.f32604f;
             safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.a);
-            safeKeyBoardUtil2 = this.a.f34202g;
-            safeKeyBoardEditText2 = this.a.f34201f;
-            safeKeyBoardEditText3 = this.a.f34201f;
+            safeKeyBoardUtil2 = this.a.f32605g;
+            safeKeyBoardEditText2 = this.a.f32604f;
+            safeKeyBoardEditText3 = this.a.f32604f;
             safeKeyBoardUtil2.showSoftKeyBoard(safeKeyBoardEditText2, safeKeyBoardEditText3.getVisibleView());
         }
     }

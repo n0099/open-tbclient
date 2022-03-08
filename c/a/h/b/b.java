@@ -1,7 +1,7 @@
 package c.a.h.b;
 
 import android.content.Context;
-import c.a.t0.x.m;
+import c.a.q0.w.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,17 +36,17 @@ public class b extends m {
                 return;
             }
         }
-        this.f14605d = R.drawable.icon_pure_post_voice24;
-        this.f14606e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14608g = false;
-        this.f14609h = true;
+        this.f14000d = R.drawable.icon_pure_post_voice24;
+        this.f14001e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14003g = false;
+        this.f14004h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);
         this.n = new int[]{1, 9};
     }
 
-    @Override // c.a.t0.x.m
+    @Override // c.a.q0.w.m
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

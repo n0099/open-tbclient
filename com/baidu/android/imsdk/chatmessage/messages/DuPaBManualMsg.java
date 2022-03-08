@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DuPaBManualMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B_CALLBACK_KEY = "callback_key";

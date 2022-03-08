@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PmsManagerImpl implements IPmsManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

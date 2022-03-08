@@ -14,13 +14,13 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class UrlLoader implements ModelLoader<URL, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoader<GlideUrl, InputStream> glideUrlLoader;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class StreamFactory implements ModelLoaderFactory<URL, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

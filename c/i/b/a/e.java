@@ -1,230 +1,109 @@
 package c.i.b.a;
 
-import androidx.appcompat.widget.TooltipCompatHandler;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.PriorityTaskManager;
-/* loaded from: classes9.dex */
-public final class e implements m {
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+/* loaded from: classes3.dex */
+public class e implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c.i.b.a.h0.h a;
+    public final /* synthetic */ f a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final long f29618b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final long f29619c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final long f29620d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final long f29621e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final PriorityTaskManager f29622f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f29623g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f29624h;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e() {
-        this(new c.i.b.a.h0.h(true, 65536));
+    public e(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((c.i.b.a.h0.h) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = fVar;
     }
 
-    @Override // c.i.b.a.m
-    public void a(r[] rVarArr, c.i.b.a.d0.t tVar, c.i.b.a.f0.g gVar) {
+    public static Uri b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, rVarArr, tVar, gVar) == null) {
-            this.f29623g = 0;
-            for (int i2 = 0; i2 < rVarArr.length; i2++) {
-                if (gVar.a(i2) != null) {
-                    this.f29623g += c.i.b.a.i0.v.p(rVarArr[i2].e());
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build() : (Uri) invokeL.objValue;
+    }
+
+    public static ArCoreApk.Availability c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (d(context) != null) {
+                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
                 }
+                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
+            } catch (UnavailableDeviceNotCompatibleException unused) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
             }
-            this.a.h(this.f29623g);
         }
+        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    @Override // c.i.b.a.m
-    public void b() {
+    public static PendingIntent d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h(true);
-        }
-    }
-
-    @Override // c.i.b.a.m
-    public boolean c(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            int g2 = g(j2);
-            boolean z = true;
-            boolean z2 = this.a.f() >= this.f29623g;
-            boolean z3 = this.f29624h;
-            if (g2 != 2 && (g2 != 1 || !z3 || z2)) {
-                z = false;
-            }
-            this.f29624h = z;
-            PriorityTaskManager priorityTaskManager = this.f29622f;
-            if (priorityTaskManager != null && z != z3) {
-                if (z) {
-                    priorityTaskManager.a(0);
-                } else {
-                    priorityTaskManager.b(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+                if (call == null) {
+                    return null;
                 }
-            }
-            return this.f29624h;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // c.i.b.a.m
-    public boolean d(long j2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            long j3 = z ? this.f29621e : this.f29620d;
-            return j3 <= 0 || j2 >= j3;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // c.i.b.a.m
-    public c.i.b.a.h0.b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (c.i.b.a.h0.b) invokeV.objValue;
-    }
-
-    @Override // c.i.b.a.m
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h(true);
-        }
-    }
-
-    public final int g(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            if (j2 > this.f29619c) {
-                return 0;
-            }
-            return j2 < this.f29618b ? 2 : 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f29623g = 0;
-            PriorityTaskManager priorityTaskManager = this.f29622f;
-            if (priorityTaskManager != null && this.f29624h) {
-                priorityTaskManager.b(0);
-            }
-            this.f29624h = false;
-            if (z) {
-                this.a.g();
+                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
+                if (pendingIntent != null) {
+                    return pendingIntent;
+                }
+                String string = call.getString("exceptionType", "");
+                if (string.isEmpty()) {
+                    return null;
+                }
+                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
+                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
+                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
+                        String string2 = call.getString("exceptionText", null);
+                        if (string2 != null) {
+                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
+                        }
+                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    }
+                    throw new UnavailableUserDeclinedInstallationException();
+                }
+                throw new UnavailableDeviceNotCompatibleException();
+            } catch (ReflectiveOperationException | RuntimeException unused) {
+                return null;
             }
         }
+        return (PendingIntent) invokeL.objValue;
     }
 
-    @Override // c.i.b.a.m
-    public void onPrepared() {
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h(false);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(c.i.b.a.h0.h hVar) {
-        this(hVar, 15000, 30000, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS, 5000L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((c.i.b.a.h0.h) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            synchronized (this.a) {
+                f.c(this.a, availability);
+                f.f(this.a, false);
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(c.i.b.a.h0.h hVar, int i2, int i3, long j2, long j3) {
-        this(hVar, i2, i3, j2, j3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hVar, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((c.i.b.a.h0.h) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), (PriorityTaskManager) objArr2[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public e(c.i.b.a.h0.h hVar, int i2, int i3, long j2, long j3, PriorityTaskManager priorityTaskManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hVar, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), priorityTaskManager};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = hVar;
-        this.f29618b = i2 * 1000;
-        this.f29619c = i3 * 1000;
-        this.f29620d = j2 * 1000;
-        this.f29621e = j3 * 1000;
-        this.f29622f = priorityTaskManager;
     }
 }

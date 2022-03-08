@@ -43,7 +43,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RequestOptions implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISK_CACHE_STRATEGY = 4;

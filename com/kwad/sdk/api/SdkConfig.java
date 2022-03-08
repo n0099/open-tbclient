@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SdkConfig {
     public static final String DEF_NIGHT_THEME_STYLE_FILE_NAME = "ks_adsdk_night_styles.xml";
     @KsAdSdkApi
@@ -63,7 +63,7 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         @Nullable
         public String appId;

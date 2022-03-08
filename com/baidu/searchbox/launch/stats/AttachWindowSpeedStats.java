@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONCERN_TAB_DURATION = "ConcernTabFragment";

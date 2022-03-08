@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLStreamHandler;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class OkHttpFactory implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final x a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URLStreamHandler f32791b;
+    public URLStreamHandler f31194b;
 
     /* renamed from: com.baidu.apollon.restnet.http.OkHttpFactory$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final OkHttpFactory a;
@@ -87,10 +87,10 @@ public class OkHttpFactory implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if ("http".equals(str) || "https".equals(str)) {
-                if (this.f32791b == null) {
-                    this.f32791b = this.a.createURLStreamHandler(str);
+                if (this.f31194b == null) {
+                    this.f31194b = this.a.createURLStreamHandler(str);
                 }
-                return this.f32791b;
+                return this.f31194b;
             }
             return null;
         }
@@ -120,7 +120,7 @@ public class OkHttpFactory implements NoProguard {
         }
         w.b t = new w().t();
         t.e(new u(d.a()));
-        t.h(b.f32801e);
+        t.h(b.f31204e);
         this.a = new x(t.a());
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.mobile.config.MobileConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a<T> extends com.sdk.base.module.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class a<T> extends com.sdk.base.module.b.a<T> {
                 return;
             }
         }
-        boolean z = f.f59448b;
+        boolean z = f.f57798b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

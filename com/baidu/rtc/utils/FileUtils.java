@@ -32,7 +32,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";

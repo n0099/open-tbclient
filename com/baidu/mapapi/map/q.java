@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class q extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f35705b;
+    public final /* synthetic */ int f34108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f35706c;
+    public final /* synthetic */ SwipeDismissTouchListener f34109c;
 
     public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class q extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f35706c = swipeDismissTouchListener;
+        this.f34109c = swipeDismissTouchListener;
         this.a = layoutParams;
-        this.f35705b = i2;
+        this.f34108b = i2;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -50,14 +50,14 @@ public class q extends AnimatorListenerAdapter {
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            dismissCallbacks = this.f35706c.f35629f;
-            view = this.f35706c.f35628e;
-            obj = this.f35706c.l;
+            dismissCallbacks = this.f34109c.f34032f;
+            view = this.f34109c.f34031e;
+            obj = this.f34109c.l;
             dismissCallbacks.onDismiss(view, obj);
-            view2 = this.f35706c.f35628e;
+            view2 = this.f34109c.f34031e;
             view2.setTranslationX(0.0f);
-            this.a.height = this.f35705b;
-            view3 = this.f35706c.f35628e;
+            this.a.height = this.f34108b;
+            view3 = this.f34109c.f34031e;
             view3.setLayoutParams(this.a);
         }
     }

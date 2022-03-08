@@ -18,28 +18,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class SearchView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42521e;
+    public Context f40924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f42522f;
+    public View f40925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f42523g;
+    public TextView f40926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f42524h;
+    public TextView f40927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f42525i;
+    public View f40928i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f42526j;
+    public ImageView f40929j;
     public TextView k;
     public View.OnClickListener l;
 
@@ -67,11 +67,11 @@ public class SearchView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42522f = findViewById(R.id.search_view_title_container);
-            this.f42523g = (TextView) findViewById(R.id.search_view_title);
-            this.f42524h = (TextView) findViewById(R.id.search_view_rank);
-            this.f42525i = findViewById(R.id.search_container);
-            this.f42526j = (ImageView) findViewById(R.id.search_bar_icon);
+            this.f40925f = findViewById(R.id.search_view_title_container);
+            this.f40926g = (TextView) findViewById(R.id.search_view_title);
+            this.f40927h = (TextView) findViewById(R.id.search_view_rank);
+            this.f40928i = findViewById(R.id.search_container);
+            this.f40929j = (ImageView) findViewById(R.id.search_bar_icon);
             this.k = (TextView) findViewById(R.id.search_text);
         }
     }
@@ -80,14 +80,14 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && this.l == null) {
             this.l = onClickListener;
-            this.f42525i.setOnClickListener(onClickListener);
+            this.f40928i.setOnClickListener(onClickListener);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f42521e = getContext();
+            this.f40924e = getContext();
             setOrientation(1);
             setMinimumHeight(n.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -99,13 +99,10 @@ public class SearchView extends LinearLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            int f2 = n.f(getContext(), R.dimen.tbds100);
-            View view = this.f42525i;
-            int i3 = R.color.CAM_X0204;
-            SkinManager.setBackgroundShapeDrawable(view, f2, i3, i3, i2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f42526j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f42523g, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f42524h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundShapeDrawable(this.f40928i, n.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i2);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f40929j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f40926g, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f40927h, R.color.CAM_X0105, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
         }
@@ -114,8 +111,8 @@ public class SearchView extends LinearLayout {
     public void setRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f42522f.setVisibility(0);
-            this.f42524h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
+            this.f40925f.setVisibility(0);
+            this.f40927h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
         }
     }
 

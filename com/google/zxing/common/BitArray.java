@@ -7,9 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BitArray implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +333,7 @@ public final class BitArray implements Cloneable {
             StringBuilder sb = new StringBuilder(this.size);
             for (int i2 = 0; i2 < this.size; i2++) {
                 if ((i2 & 7) == 0) {
-                    sb.append(' ');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
                 }
                 sb.append(get(i2) ? 'X' : '.');
             }

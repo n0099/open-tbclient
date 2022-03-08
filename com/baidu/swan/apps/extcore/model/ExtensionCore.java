@@ -2,7 +2,7 @@ package com.baidu.swan.apps.extcore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.s0.a.z2.l0;
+import c.a.p0.a.p2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ExtensionCore> CREATOR;
@@ -26,7 +26,7 @@ public class ExtensionCore extends SwanAppIPCData {
     public long extensionCoreVersionCode;
     public String extensionCoreVersionName;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ExtensionCore> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

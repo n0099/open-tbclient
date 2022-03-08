@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import c.i.d.c.e1;
+import c.i.c.c.e1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap<K, V> implements e1<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7431625294878419160L;
@@ -37,7 +37,7 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
         }
     }
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // c.i.c.c.c, c.i.c.c.q0
     public Map<K, Collection<V>> asMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
     @Override // com.google.common.collect.AbstractMapBasedMultimap
     public abstract Set<V> createCollection();
 
-    @Override // c.i.d.c.c, c.i.d.c.q0
+    @Override // c.i.c.c.c, c.i.c.c.q0
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -57,12 +57,12 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((AbstractSetMultimap<K, V>) obj);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public boolean put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((AbstractSetMultimap<K, V>) obj, iterable);
     }
@@ -99,14 +99,14 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public Set<Map.Entry<K, V>> entries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (Set) super.entries() : (Set) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public Set<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -114,14 +114,14 @@ public abstract class AbstractSetMultimap<K, V> extends AbstractMapBasedMultimap
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.q0
     public Set<V> removeAll(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) ? (Set) super.removeAll(obj) : (Set) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, c.i.c.c.c, c.i.c.c.q0
     public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

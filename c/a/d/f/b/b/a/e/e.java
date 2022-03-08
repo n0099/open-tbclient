@@ -16,30 +16,30 @@ public class e {
 
     public static final boolean a(c.a.d.f.b.b.a.c.c cVar, c.a.d.f.b.b.a.a.b bVar) {
         InterceptResult invokeLL;
-        Object c2;
+        Object b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cVar, bVar)) == null) {
             if (bVar == null || cVar == null) {
                 return false;
             }
-            List<Field> b2 = c.a.d.f.b.a.a.b(bVar.getClass());
-            Set<String> a = cVar.a();
-            for (Field field : b2) {
+            List<Field> b3 = c.a.d.f.b.a.a.b(bVar.getClass());
+            Set<String> keys = cVar.getKeys();
+            for (Field field : b3) {
                 if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                     String name = field.getName();
                     if (!TextUtils.isEmpty(name)) {
-                        if (a.contains(name)) {
-                            Object c3 = cVar.c(name, field.getGenericType());
-                            if (c3 != null) {
-                                c.a.d.f.b.a.a.h(bVar, name, c3);
+                        if (keys.contains(name)) {
+                            Object b4 = cVar.b(name, field.getGenericType());
+                            if (b4 != null) {
+                                c.a.d.f.b.a.a.h(bVar, name, b4);
                             }
-                        } else if (a.contains(name.toLowerCase(Locale.getDefault()))) {
-                            Object c4 = cVar.c(name.toLowerCase(Locale.getDefault()), field.getGenericType());
-                            if (c4 != null) {
-                                c.a.d.f.b.a.a.h(bVar, name, c4);
+                        } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                            Object b5 = cVar.b(name.toLowerCase(Locale.getDefault()), field.getGenericType());
+                            if (b5 != null) {
+                                c.a.d.f.b.a.a.h(bVar, name, b5);
                             }
-                        } else if (a.contains(name.toUpperCase(Locale.getDefault())) && (c2 = cVar.c(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
-                            c.a.d.f.b.a.a.h(bVar, name, c2);
+                        } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (b2 = cVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                            c.a.d.f.b.a.a.h(bVar, name, b2);
                         }
                     }
                 }

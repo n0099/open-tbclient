@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface CameraVideoCapturer extends VideoCapturer {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface CameraEventsHandler {
         void onCameraClosed();
 
@@ -24,7 +24,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
         void onFirstFrameAvailable();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class CameraStatistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CAMERA_FREEZE_REPORT_TIMOUT_MS = 4000;
@@ -141,7 +141,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface CameraSwitchHandler {
         void onCameraSwitchDone(boolean z);
 
@@ -149,7 +149,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface MediaRecorderHandler {
         void onMediaRecorderError(String str);
 

@@ -1,5 +1,5 @@
 package com.kwad.sdk.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ai {
     public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i2) {
         int i3 = z ? 1 : 0;

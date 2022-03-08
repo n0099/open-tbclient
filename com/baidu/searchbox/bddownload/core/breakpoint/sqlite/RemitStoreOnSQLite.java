@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, DownloadStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

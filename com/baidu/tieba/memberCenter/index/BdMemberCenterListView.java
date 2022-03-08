@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R$styleable;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class BdMemberCenterListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ExpandListView_expandDistance = 1;
@@ -37,7 +37,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int a0;
     public a mRefreshListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(float f2);
 
@@ -46,14 +46,14 @@ public class BdMemberCenterListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46018b;
+        public int f44426b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f46018b = i5;
+            this.f44426b = i5;
         }
 
         public int a(float f2) {
@@ -119,7 +119,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.N = context;
         this.O = new Scroller(this.N);
         this.W = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance});
         this.a0 = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
@@ -162,7 +162,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                             if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 b bVar = this.S;
-                                if (a2 > bVar.a && a2 <= bVar.f46018b) {
+                                if (a2 > bVar.a && a2 <= bVar.f44426b) {
                                     this.T = true;
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
                                     y(a2 - this.S.a);
@@ -170,7 +170,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                                     b bVar2 = this.S;
                                     if (a2 <= bVar2.a) {
                                         this.T = false;
-                                    } else if (a2 > bVar2.f46018b) {
+                                    } else if (a2 > bVar2.f44426b) {
                                         this.T = true;
                                     } else {
                                         this.T = false;
@@ -242,7 +242,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f46018b - (this.a0 / 2)) {
+        if (height >= this.S.f44426b - (this.a0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

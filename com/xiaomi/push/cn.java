@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class cn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,10 +21,10 @@ public class cn {
     public String f195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61165b;
+    public long f59515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61166c;
+    public long f59516c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cn() {
@@ -62,8 +62,8 @@ public class cn {
         }
         this.a = i2;
         this.f194a = j2;
-        this.f61166c = j3;
-        this.f61165b = System.currentTimeMillis();
+        this.f59516c = j3;
+        this.f59515b = System.currentTimeMillis();
         if (exc != null) {
             this.f195a = exc.getClass().getSimpleName();
         }
@@ -80,8 +80,8 @@ public class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             this.f194a = jSONObject.getLong("cost");
-            this.f61166c = jSONObject.getLong("size");
-            this.f61165b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.f59516c = jSONObject.getLong("size");
+            this.f59515b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.a = jSONObject.getInt("wt");
             this.f195a = jSONObject.optString("expt");
             return this;
@@ -96,8 +96,8 @@ public class cn {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cost", this.f194a);
-            jSONObject.put("size", this.f61166c);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f61165b);
+            jSONObject.put("size", this.f59516c);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f59515b);
             jSONObject.put("wt", this.a);
             jSONObject.put("expt", this.f195a);
             return jSONObject;

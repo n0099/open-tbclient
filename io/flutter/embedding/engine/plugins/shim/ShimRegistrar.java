@@ -23,7 +23,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ShimRegistrar implements PluginRegistry.Registrar, FlutterPlugin, ActivityAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShimRegistrar";

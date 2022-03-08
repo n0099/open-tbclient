@@ -6,8 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.Result;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class WifiResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,15 +35,15 @@ public final class WifiResultParser extends ResultParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
-            if (!massagedText.startsWith("WIFI:") || (matchSinglePrefixedField = ResultParser.matchSinglePrefixedField("S:", massagedText, ';', false)) == null || matchSinglePrefixedField.isEmpty()) {
+            if (!massagedText.startsWith("WIFI:") || (matchSinglePrefixedField = ResultParser.matchSinglePrefixedField("S:", massagedText, WebvttCueParser.CHAR_SEMI_COLON, false)) == null || matchSinglePrefixedField.isEmpty()) {
                 return null;
             }
-            String matchSinglePrefixedField2 = ResultParser.matchSinglePrefixedField("P:", massagedText, ';', false);
-            String matchSinglePrefixedField3 = ResultParser.matchSinglePrefixedField("T:", massagedText, ';', false);
+            String matchSinglePrefixedField2 = ResultParser.matchSinglePrefixedField("P:", massagedText, WebvttCueParser.CHAR_SEMI_COLON, false);
+            String matchSinglePrefixedField3 = ResultParser.matchSinglePrefixedField("T:", massagedText, WebvttCueParser.CHAR_SEMI_COLON, false);
             if (matchSinglePrefixedField3 == null) {
                 matchSinglePrefixedField3 = "nopass";
             }
-            return new WifiParsedResult(matchSinglePrefixedField3, matchSinglePrefixedField, matchSinglePrefixedField2, Boolean.parseBoolean(ResultParser.matchSinglePrefixedField("H:", massagedText, ';', false)));
+            return new WifiParsedResult(matchSinglePrefixedField3, matchSinglePrefixedField, matchSinglePrefixedField2, Boolean.parseBoolean(ResultParser.matchSinglePrefixedField("H:", massagedText, WebvttCueParser.CHAR_SEMI_COLON, false)));
         }
         return (WifiParsedResult) invokeL.objValue;
     }

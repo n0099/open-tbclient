@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class YYStatInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_TYPE_LOADED = "launch";

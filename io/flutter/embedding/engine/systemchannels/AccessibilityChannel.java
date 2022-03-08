@@ -15,7 +15,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.view.AccessibilityBridge;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AccessibilityChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityChannel";
@@ -28,7 +28,7 @@ public class AccessibilityChannel {
     public AccessibilityMessageHandler handler;
     public final BasicMessageChannel.MessageHandler<Object> parsingMessageHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface AccessibilityMessageHandler extends FlutterJNI.AccessibilityDelegate {
         void announce(@NonNull String str);
 

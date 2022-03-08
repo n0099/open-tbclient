@@ -12,23 +12,23 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static final String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f58669b;
+    public HashMap<String, String> f57019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f58670c;
+    public HashMap<String, String> f57020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f58671d;
+    public HashMap<String, Object> f57021d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Object> f58672e;
+    public HashMap<String, Object> f57022e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public Context a = null;
 
@@ -43,10 +43,10 @@ public class c {
     }
 
     public c(a aVar) {
-        this.f58669b = new HashMap<>();
-        this.f58670c = new HashMap<>();
-        this.f58671d = new HashMap<>();
-        this.f58672e = new HashMap<>();
+        this.f57019b = new HashMap<>();
+        this.f57020c = new HashMap<>();
+        this.f57021d = new HashMap<>();
+        this.f57022e = new HashMap<>();
         e();
         if (aVar.a != null) {
             a(aVar.a);
@@ -62,28 +62,28 @@ public class c {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58671d.put(str, obj);
+        this.f57021d.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58669b.put(str, str2);
+        this.f57019b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58672e.put(str, obj);
+        this.f57022e.put(str, obj);
     }
 
     private void b(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58670c.put(str, str2);
+        this.f57020c.put(str, str2);
     }
 
     private long c(Context context) {
@@ -102,9 +102,9 @@ public class c {
     }
 
     private void e() {
-        b(b.f58665g, Build.BRAND);
-        b(b.f58666h, Build.MODEL);
-        b(b.f58668j, Build.VERSION.RELEASE);
+        b(b.f57015g, Build.BRAND);
+        b(b.f57016h, Build.MODEL);
+        b(b.f57018j, Build.VERSION.RELEASE);
         b(b.k, Build.DISPLAY);
         b(b.m, MzSystemUtils.getCurrentLanguage());
     }
@@ -121,26 +121,26 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f58660b, MzSystemUtils.getDeviceId(context));
-        a(b.f58661c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
-        a(b.f58662d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
-        a(b.f58663e, MzSystemUtils.getLineNumber(context));
+        a(b.f57010b, MzSystemUtils.getDeviceId(context));
+        a(b.f57011c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
+        a(b.f57012d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
+        a(b.f57013e, MzSystemUtils.getLineNumber(context));
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
     private void g(Context context) {
-        b(b.f58667i, com.meizu.cloud.pushsdk.base.c.b(context));
+        b(b.f57017i, com.meizu.cloud.pushsdk.base.c.b(context));
         b(b.z, (Object) MzSystemUtils.getNetWorkType(context));
         b(b.A, (Object) MzSystemUtils.getBSSID(context));
         b(b.E, MzSystemUtils.getWifiList(context));
     }
 
     public Map<String, String> a() {
-        return this.f58669b;
+        return this.f57019b;
     }
 
     public void a(int i2, int i3) {
-        this.f58670c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
+        this.f57020c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
     }
 
     public void a(Context context) {
@@ -152,7 +152,7 @@ public class c {
     }
 
     public Map<String, String> b() {
-        return this.f58670c;
+        return this.f57020c;
     }
 
     @TargetApi(19)
@@ -175,10 +175,10 @@ public class c {
     }
 
     public Map<String, Object> c() {
-        return this.f58671d;
+        return this.f57021d;
     }
 
     public Map<String, Object> d() {
-        return this.f58672e;
+        return this.f57022e;
     }
 }

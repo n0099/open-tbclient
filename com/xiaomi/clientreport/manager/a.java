@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
@@ -58,7 +58,7 @@ public class a {
     public ExecutorService f42a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f61089b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f59439b;
 
     static {
         InterceptResult invokeClinit;
@@ -93,7 +93,7 @@ public class a {
         }
         this.f42a = Executors.newSingleThreadExecutor();
         this.f41a = new HashMap<>();
-        this.f61089b = new HashMap<>();
+        this.f59439b = new HashMap<>();
         this.f36a = context;
     }
 
@@ -102,11 +102,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f61089b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f59439b;
             if (hashMap != null) {
                 int i2 = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f61089b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f59439b.get(str);
                     i2 += arrayList != null ? arrayList.size() : 0;
                 }
                 return i2;
@@ -311,7 +311,7 @@ public class a {
             this.f37a = config;
             this.f38a = iEventProcessor;
             this.f39a = iPerfProcessor;
-            iEventProcessor.setEventMap(this.f61089b);
+            iEventProcessor.setEventMap(this.f59439b);
             this.f39a.setPerfMap(this.f41a);
         }
     }

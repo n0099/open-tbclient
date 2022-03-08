@@ -16,7 +16,7 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ac extends BaseBean<VerifyCodeResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public class ac extends BaseBean<VerifyCodeResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("mobile", this.a.a));
-            arrayList.add(new RestNameValuePair("sp_no", this.a.f52182b));
-            arrayList.add(new RestNameValuePair("order_no", this.a.f52183c));
-            arrayList.add(new RestNameValuePair("pay_type", this.a.f52184d));
+            arrayList.add(new RestNameValuePair("sp_no", this.a.f50601b));
+            arrayList.add(new RestNameValuePair("order_no", this.a.f50602c));
+            arrayList.add(new RestNameValuePair("pay_type", this.a.f50603d));
             if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
                 arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
             }

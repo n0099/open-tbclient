@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DnsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;

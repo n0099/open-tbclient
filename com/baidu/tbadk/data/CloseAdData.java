@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.VipCloseAd;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CloseAdData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41127e;
+    public int f39533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41128f;
+    public int f39534f;
 
     public CloseAdData() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class CloseAdData extends OrmObject {
                 return;
             }
         }
-        this.f41127e = 1;
+        this.f39533e = 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -42,20 +42,20 @@ public class CloseAdData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f41127e = jSONObject.optInt("is_open");
-        this.f41128f = jSONObject.optInt("vip_close");
+        this.f39533e = jSONObject.optInt("is_open");
+        this.f39534f = jSONObject.optInt("vip_close");
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41127e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39533e : invokeV.intValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41128f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39534f : invokeV.intValue;
     }
 
     public void y(VipCloseAd vipCloseAd) {
@@ -63,7 +63,7 @@ public class CloseAdData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, vipCloseAd) == null) || vipCloseAd == null) {
             return;
         }
-        this.f41127e = vipCloseAd.is_open.intValue();
-        this.f41128f = vipCloseAd.vip_close.intValue();
+        this.f39533e = vipCloseAd.is_open.intValue();
+        this.f39534f = vipCloseAd.vip_close.intValue();
     }
 }

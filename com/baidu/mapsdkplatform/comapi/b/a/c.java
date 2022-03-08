@@ -30,22 +30,22 @@ import java.net.URLDecoder;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36014b = "";
+    public static String f34417b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36015c = "";
+    public static String f34418c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f36016d;
+    public Context f34419d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -374,7 +374,7 @@ public class c {
             sb.append("\r\n");
             sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
             sb.append("\r\n");
-            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f36015c));
+            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f34418c));
             sb.append("\r\n");
             sb.append("--bd_map_sdk_cc");
             sb.append("\r\n");
@@ -435,17 +435,17 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = f36014b) == null || str2.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = f34417b) == null || str2.isEmpty()) {
             return;
         }
-        String str3 = a + File.separator + f36014b;
+        String str3 = a + File.separator + f34417b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f36016d)) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f34419d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -479,9 +479,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f36015c = strArr[0];
+            f34418c = strArr[0];
         }
-        this.f36016d = context;
+        this.f34419d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -489,7 +489,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f36014b = n + "_" + i.i() + "_";
+        f34417b = n + "_" + i.i() + "_";
         d();
         e();
         f();

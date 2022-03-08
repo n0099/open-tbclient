@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class bb {
     public static long a;
 

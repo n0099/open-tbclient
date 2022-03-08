@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TtlController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_THRESHOLD = 5;

@@ -22,12 +22,13 @@ import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class SmartTabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,22 +49,22 @@ public class SmartTabLayout extends HorizontalScrollView {
     public boolean O;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35059e;
+    public int f33462e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35060f;
+    public int f33463f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35061g;
+    public int f33464g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35062h;
+    public int f33465h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35063i;
+    public boolean f33466i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ColorStateList f35064j;
+    public ColorStateList f33467j;
     public float k;
     public float l;
     public int m;
@@ -74,7 +75,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public h r;
     public b s;
     public e t;
-    public final c.a.y.b.g.c.b tabStrip;
+    public final c.a.w.b.g.c.b tabStrip;
     public boolean u;
     public int v;
     public int w;
@@ -82,19 +83,19 @@ public class SmartTabLayout extends HorizontalScrollView {
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartTabLayout f35065e;
+        public final /* synthetic */ SmartTabLayout f33468e;
 
         public b(SmartTabLayout smartTabLayout) {
             Interceptable interceptable = $ic;
@@ -111,24 +112,24 @@ public class SmartTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f35065e = smartTabLayout;
+            this.f33468e = smartTabLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f35065e.I) {
-                SmartTabLayout smartTabLayout = this.f35065e;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f33468e.I) {
+                SmartTabLayout smartTabLayout = this.f33468e;
                 if (view != smartTabLayout.tabStrip.getChildAt(smartTabLayout.v)) {
-                    this.f35065e.C = false;
+                    this.f33468e.C = false;
                 }
-                for (int i2 = 0; i2 < this.f35065e.tabStrip.getChildCount(); i2++) {
-                    if (view == this.f35065e.tabStrip.getChildAt(i2)) {
-                        if (this.f35065e.t != null) {
-                            this.f35065e.t.a(i2);
+                for (int i2 = 0; i2 < this.f33468e.tabStrip.getChildCount(); i2++) {
+                    if (view == this.f33468e.tabStrip.getChildAt(i2)) {
+                        if (this.f33468e.t != null) {
+                            this.f33468e.t.a(i2);
                         }
                         try {
-                            this.f35065e.o.setCurrentItem(i2);
+                            this.f33468e.o.setCurrentItem(i2);
                             return;
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -144,16 +145,16 @@ public class SmartTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class c implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f35066e;
+        public int f33469e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SmartTabLayout f35067f;
+        public final /* synthetic */ SmartTabLayout f33470f;
 
         public c(SmartTabLayout smartTabLayout) {
             Interceptable interceptable = $ic;
@@ -170,22 +171,22 @@ public class SmartTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f35067f = smartTabLayout;
+            this.f33470f = smartTabLayout;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f35067f.D) {
-                this.f35066e = i2;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f33470f.D) {
+                this.f33469e = i2;
                 if (i2 == 0) {
-                    this.f35067f.C = false;
+                    this.f33470f.C = false;
                 }
                 if (i2 == 1) {
-                    this.f35067f.C = true;
+                    this.f33470f.C = true;
                 }
-                if (this.f35067f.p != null) {
-                    this.f35067f.p.onPageScrollStateChanged(i2);
+                if (this.f33470f.p != null) {
+                    this.f33470f.p.onPageScrollStateChanged(i2);
                 }
             }
         }
@@ -194,27 +195,27 @@ public class SmartTabLayout extends HorizontalScrollView {
         public void onPageScrolled(int i2, float f2, int i3) {
             int childCount;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || !this.f35067f.D || (childCount = this.f35067f.tabStrip.getChildCount()) == 0 || i2 < 0 || i2 >= childCount) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || !this.f33470f.D || (childCount = this.f33470f.tabStrip.getChildCount()) == 0 || i2 < 0 || i2 >= childCount) {
                 return;
             }
-            this.f35067f.tabStrip.j(i2, f2);
-            SmartTabLayout smartTabLayout = this.f35067f;
-            smartTabLayout.f35060f = smartTabLayout.f35061g;
-            this.f35067f.x(i2, f2);
-            if (this.f35067f.p != null) {
-                this.f35067f.p.onPageScrolled(i2, f2, i3);
+            this.f33470f.tabStrip.j(i2, f2);
+            SmartTabLayout smartTabLayout = this.f33470f;
+            smartTabLayout.f33463f = smartTabLayout.f33464g;
+            this.f33470f.x(i2, f2);
+            if (this.f33470f.p != null) {
+                this.f33470f.p.onPageScrolled(i2, f2, i3);
             }
-            if (this.f35067f.y) {
-                if (this.f35067f.v(f2)) {
+            if (this.f33470f.y) {
+                if (this.f33470f.v(f2)) {
                     f2 = 0.0f;
                 }
-                View childAt = this.f35067f.tabStrip.getChildAt(i2);
-                View childAt2 = this.f35067f.tabStrip.getChildAt(i2 + 1);
-                if (childAt == null || childAt2 == null || f2 == 0.0f || !this.f35067f.C) {
+                View childAt = this.f33470f.tabStrip.getChildAt(i2);
+                View childAt2 = this.f33470f.tabStrip.getChildAt(i2 + 1);
+                if (childAt == null || childAt2 == null || f2 == 0.0f || !this.f33470f.C) {
                     return;
                 }
-                this.f35067f.t(childAt, (this.f35067f.x + 1.0f) - (this.f35067f.x * f2));
-                this.f35067f.t(childAt2, (this.f35067f.x * f2) + 1.0f);
+                this.f33470f.t(childAt, (this.f33470f.x + 1.0f) - (this.f33470f.x * f2));
+                this.f33470f.t(childAt2, (this.f33470f.x * f2) + 1.0f);
             }
         }
 
@@ -222,36 +223,36 @@ public class SmartTabLayout extends HorizontalScrollView {
         public void onPageSelected(int i2) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f35067f.D) {
-                if (this.f35066e == 0) {
-                    this.f35067f.tabStrip.j(i2, 0.0f);
-                    SmartTabLayout smartTabLayout = this.f35067f;
-                    smartTabLayout.f35060f = smartTabLayout.f35061g;
-                    this.f35067f.x(i2, 0.0f);
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f33470f.D) {
+                if (this.f33469e == 0) {
+                    this.f33470f.tabStrip.j(i2, 0.0f);
+                    SmartTabLayout smartTabLayout = this.f33470f;
+                    smartTabLayout.f33463f = smartTabLayout.f33464g;
+                    this.f33470f.x(i2, 0.0f);
                 }
-                this.f35067f.v = i2;
-                if (this.f35067f.y && !this.f35067f.C) {
-                    SmartTabLayout smartTabLayout2 = this.f35067f;
+                this.f33470f.v = i2;
+                if (this.f33470f.y && !this.f33470f.C) {
+                    SmartTabLayout smartTabLayout2 = this.f33470f;
                     View childAt = smartTabLayout2.tabStrip.getChildAt(smartTabLayout2.w);
-                    View childAt2 = this.f35067f.tabStrip.getChildAt(i2);
-                    this.f35067f.t(childAt, 1.0f);
-                    SmartTabLayout smartTabLayout3 = this.f35067f;
+                    View childAt2 = this.f33470f.tabStrip.getChildAt(i2);
+                    this.f33470f.t(childAt, 1.0f);
+                    SmartTabLayout smartTabLayout3 = this.f33470f;
                     smartTabLayout3.t(childAt2, smartTabLayout3.x + 1.0f);
                 }
-                SmartTabLayout smartTabLayout4 = this.f35067f;
+                SmartTabLayout smartTabLayout4 = this.f33470f;
                 smartTabLayout4.w = smartTabLayout4.v;
-                int childCount = this.f35067f.tabStrip.getChildCount();
+                int childCount = this.f33470f.tabStrip.getChildCount();
                 int i3 = 0;
                 while (i3 < childCount) {
-                    View childAt3 = this.f35067f.tabStrip.getChildAt(i3);
+                    View childAt3 = this.f33470f.tabStrip.getChildAt(i3);
                     childAt3.setSelected(i2 == i3);
-                    if ((childAt3 instanceof ViewGroup) && this.f35067f.H != -1 && (findViewById = childAt3.findViewById(this.f35067f.H)) != null) {
+                    if ((childAt3 instanceof ViewGroup) && this.f33470f.H != -1 && (findViewById = childAt3.findViewById(this.f33470f.H)) != null) {
                         findViewById.setVisibility(8);
                     }
                     i3++;
                 }
-                if (this.f35067f.p != null) {
-                    this.f35067f.p.onPageSelected(i2);
+                if (this.f33470f.p != null) {
+                    this.f33470f.p.onPageSelected(i2);
                 }
             }
         }
@@ -261,27 +262,27 @@ public class SmartTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(int i2, int i3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a(int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class f implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35068b;
+        public final int f33471b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LinearLayout.LayoutParams f35069c;
+        public LinearLayout.LayoutParams f33472c;
 
         public /* synthetic */ f(Context context, int i2, int i3, LinearLayout.LayoutParams layoutParams, a aVar) {
             this(context, i2, i3, layoutParams);
@@ -296,11 +297,11 @@ public class SmartTabLayout extends HorizontalScrollView {
                 TextView textView = null;
                 if (this.a != -1) {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(this.a, (ViewGroup) null);
-                    view.setLayoutParams(this.f35069c);
+                    view.setLayoutParams(this.f33472c);
                 } else {
                     view = null;
                 }
-                int i3 = this.f35068b;
+                int i3 = this.f33471b;
                 if (i3 != -1 && view != null) {
                     textView = (TextView) view.findViewById(i3);
                 }
@@ -318,7 +319,7 @@ public class SmartTabLayout extends HorizontalScrollView {
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || view == null) {
                 return;
             }
-            int i6 = this.f35068b;
+            int i6 = this.f33471b;
             TextView textView = i6 != -1 ? (TextView) view.findViewById(i6) : null;
             if (textView != null && (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
@@ -346,19 +347,19 @@ public class SmartTabLayout extends HorizontalScrollView {
             }
             LayoutInflater.from(context);
             this.a = i2;
-            this.f35068b = i3;
-            this.f35069c = layoutParams;
+            this.f33471b = i3;
+            this.f33472c = layoutParams;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         int a(int i2);
 
         int b(int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface h {
         View a(ViewGroup viewGroup, int i2, PagerAdapter pagerAdapter);
 
@@ -417,11 +418,11 @@ public class SmartTabLayout extends HorizontalScrollView {
             TextView textView = new TextView(getContext());
             textView.setGravity(17);
             textView.setText(charSequence);
-            textView.setTextColor(this.f35064j);
+            textView.setTextColor(this.f33467j);
             textView.setTextSize(0, this.k);
             textView.setTypeface(Typeface.DEFAULT);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            int i2 = this.f35062h;
+            int i2 = this.f33465h;
             if (i2 != -1) {
                 textView.setBackgroundResource(i2);
             } else {
@@ -429,7 +430,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                 getContext().getTheme().resolveAttribute(16843534, typedValue, true);
                 textView.setBackgroundResource(typedValue.resourceId);
             }
-            textView.setAllCaps(this.f35063i);
+            textView.setAllCaps(this.f33466i);
             int i3 = this.m;
             textView.setPadding(i3, 0, i3, 0);
             int i4 = this.n;
@@ -524,8 +525,8 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void onDarkModeChange(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            setCustomTextsColorWithoutSelectedPos(c.a.y.k.f.e().a(getContext(), this.N, this.M));
-            setCustomTextsColorSelectedPos(c.a.y.k.f.e().a(getContext(), this.N, this.L));
+            setCustomTextsColorWithoutSelectedPos(c.a.w.i.f.e().a(getContext(), this.N, this.M));
+            setCustomTextsColorSelectedPos(c.a.w.i.f.e().a(getContext(), this.N, this.L));
         }
     }
 
@@ -564,11 +565,11 @@ public class SmartTabLayout extends HorizontalScrollView {
                 return;
             }
             View childAt = this.tabStrip.getChildAt(0);
-            c.a.y.b.g.c.b bVar = this.tabStrip;
+            c.a.w.b.g.c.b bVar = this.tabStrip;
             View childAt2 = bVar.getChildAt(bVar.getChildCount() - 1);
-            int f2 = ((i2 - c.a.y.b.g.c.c.f(childAt)) / 2) - c.a.y.b.g.c.c.e(childAt);
-            int f3 = ((i2 - c.a.y.b.g.c.c.f(childAt2)) / 2) - c.a.y.b.g.c.c.c(childAt2);
-            c.a.y.b.g.c.b bVar2 = this.tabStrip;
+            int f2 = ((i2 - c.a.w.b.g.c.c.f(childAt)) / 2) - c.a.w.b.g.c.c.e(childAt);
+            int f3 = ((i2 - c.a.w.b.g.c.c.f(childAt2)) / 2) - c.a.w.b.g.c.c.c(childAt2);
+            c.a.w.b.g.c.b bVar2 = this.tabStrip;
             bVar2.setMinimumWidth(bVar2.getMeasuredWidth());
             ViewCompat.setPaddingRelative(this, f2, getPaddingTop(), f3, getPaddingBottom());
             setClipToPadding(false);
@@ -602,7 +603,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void setCustomTabView(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            setCustomTabView(i2, i3, new LinearLayout.LayoutParams(-2, this.f35059e));
+            setCustomTabView(i2, i3, new LinearLayout.LayoutParams(-2, this.f33462e));
         }
     }
 
@@ -623,10 +624,10 @@ public class SmartTabLayout extends HorizontalScrollView {
             if (tabTextAt instanceof TextView) {
                 if (i3 != -1) {
                     Drawable drawable = getResources().getDrawable(i3);
-                    drawable.setBounds(0, 0, c.a.y.b.f.a.a(getContext(), 11.0f), c.a.y.b.f.a.a(getContext(), 11.0f));
+                    drawable.setBounds(0, 0, c.a.w.b.f.a.a(getContext(), 11.0f), c.a.w.b.f.a.a(getContext(), 11.0f));
                     TextView textView = (TextView) tabTextAt;
                     textView.setCompoundDrawables(null, null, drawable, null);
-                    textView.setCompoundDrawablePadding(c.a.y.b.f.a.a(getContext(), 5.0f));
+                    textView.setCompoundDrawablePadding(c.a.w.b.f.a.a(getContext(), 5.0f));
                     return;
                 }
                 ((TextView) tabTextAt).setCompoundDrawables(null, null, null, null);
@@ -737,7 +738,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void setDefaultTabTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.f35064j = ColorStateList.valueOf(i2);
+            this.f33467j = ColorStateList.valueOf(i2);
         }
     }
 
@@ -762,7 +763,7 @@ public class SmartTabLayout extends HorizontalScrollView {
         }
     }
 
-    public void setIndicationInterpolator(c.a.y.b.g.c.a aVar) {
+    public void setIndicationInterpolator(c.a.w.b.g.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, aVar) == null) {
             this.tabStrip.n(aVar);
@@ -963,7 +964,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                     return;
                 }
                 if (this.K && i3 == 0 && (hVar = this.r) != null) {
-                    hVar.b(a2, c.a.y.b.f.a.a(getContext(), 16.0f), 0, 0, 0);
+                    hVar.b(a2, c.a.w.b.f.a.a(getContext(), 16.0f), 0, 0, 0);
                 }
                 if (this.u) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
@@ -1030,54 +1031,54 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (!(interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (childCount = this.tabStrip.getChildCount()) == 0 || i2 < 0 || i2 >= childCount) {
             return;
         }
-        boolean n = c.a.y.b.g.c.c.n(this);
+        boolean n = c.a.w.b.g.c.c.n(this);
         View childAt = this.tabStrip.getChildAt(i2);
-        int l = (int) ((c.a.y.b.g.c.c.l(childAt) + c.a.y.b.g.c.c.d(childAt)) * f2);
+        int l = (int) ((c.a.w.b.g.c.c.l(childAt) + c.a.w.b.g.c.c.d(childAt)) * f2);
         if (this.tabStrip.h()) {
             if (0.0f < f2 && f2 < 1.0f) {
                 View childAt2 = this.tabStrip.getChildAt(i2 + 1);
-                l = Math.round(f2 * ((c.a.y.b.g.c.c.l(childAt) / 2) + c.a.y.b.g.c.c.c(childAt) + (c.a.y.b.g.c.c.l(childAt2) / 2) + c.a.y.b.g.c.c.e(childAt2)));
+                l = Math.round(f2 * ((c.a.w.b.g.c.c.l(childAt) / 2) + c.a.w.b.g.c.c.c(childAt) + (c.a.w.b.g.c.c.l(childAt2) / 2) + c.a.w.b.g.c.c.e(childAt2)));
             }
             View childAt3 = this.tabStrip.getChildAt(0);
             if (n) {
-                int l2 = c.a.y.b.g.c.c.l(childAt3) + c.a.y.b.g.c.c.c(childAt3);
-                int l3 = c.a.y.b.g.c.c.l(childAt) + c.a.y.b.g.c.c.c(childAt);
-                j2 = (c.a.y.b.g.c.c.a(childAt) - c.a.y.b.g.c.c.c(childAt)) - l;
+                int l2 = c.a.w.b.g.c.c.l(childAt3) + c.a.w.b.g.c.c.c(childAt3);
+                int l3 = c.a.w.b.g.c.c.l(childAt) + c.a.w.b.g.c.c.c(childAt);
+                j2 = (c.a.w.b.g.c.c.a(childAt) - c.a.w.b.g.c.c.c(childAt)) - l;
                 i4 = (l2 - l3) / 2;
             } else {
-                int l4 = c.a.y.b.g.c.c.l(childAt3) + c.a.y.b.g.c.c.e(childAt3);
-                int l5 = c.a.y.b.g.c.c.l(childAt) + c.a.y.b.g.c.c.e(childAt);
-                j2 = (c.a.y.b.g.c.c.j(childAt) - c.a.y.b.g.c.c.e(childAt)) + l;
+                int l4 = c.a.w.b.g.c.c.l(childAt3) + c.a.w.b.g.c.c.e(childAt3);
+                int l5 = c.a.w.b.g.c.c.l(childAt) + c.a.w.b.g.c.c.e(childAt);
+                j2 = (c.a.w.b.g.c.c.j(childAt) - c.a.w.b.g.c.c.e(childAt)) + l;
                 i4 = (l4 - l5) / 2;
             }
             scrollTo(j2 - i4, 0);
         } else if (this.tabStrip.i()) {
-            scrollTo(((c.a.y.b.g.c.c.j(childAt) - c.a.y.b.g.c.c.e(childAt)) - (c.a.y.b.f.a.c(getContext()) / 2)) + (c.a.y.b.g.c.c.l(childAt) / 2) + c.a.y.b.g.c.c.c(childAt), 0);
+            scrollTo(((c.a.w.b.g.c.c.j(childAt) - c.a.w.b.g.c.c.e(childAt)) - (c.a.w.b.f.a.c(getContext()) / 2)) + (c.a.w.b.g.c.c.l(childAt) / 2) + c.a.w.b.g.c.c.c(childAt), 0);
         } else {
-            if (this.f35060f == -1) {
+            if (this.f33463f == -1) {
                 if (0.0f < f2 && f2 < 1.0f) {
                     View childAt4 = this.tabStrip.getChildAt(i2 + 1);
-                    l = Math.round(f2 * ((c.a.y.b.g.c.c.l(childAt) / 2) + c.a.y.b.g.c.c.c(childAt) + (c.a.y.b.g.c.c.l(childAt4) / 2) + c.a.y.b.g.c.c.e(childAt4)));
+                    l = Math.round(f2 * ((c.a.w.b.g.c.c.l(childAt) / 2) + c.a.w.b.g.c.c.c(childAt) + (c.a.w.b.g.c.c.l(childAt4) / 2) + c.a.w.b.g.c.c.e(childAt4)));
                 }
                 if (n) {
-                    i3 = (((-c.a.y.b.g.c.c.m(childAt)) / 2) + (getWidth() / 2)) - c.a.y.b.g.c.c.i(this);
+                    i3 = (((-c.a.w.b.g.c.c.m(childAt)) / 2) + (getWidth() / 2)) - c.a.w.b.g.c.c.i(this);
                 } else {
-                    i3 = ((c.a.y.b.g.c.c.m(childAt) / 2) - (getWidth() / 2)) + c.a.y.b.g.c.c.i(this);
+                    i3 = ((c.a.w.b.g.c.c.m(childAt) / 2) - (getWidth() / 2)) + c.a.w.b.g.c.c.i(this);
                 }
             } else if (n) {
                 if (i2 > 0 || f2 > 0.0f) {
-                    i3 = this.f35060f;
+                    i3 = this.f33463f;
                 }
                 i3 = 0;
             } else {
                 if (i2 > 0 || f2 > 0.0f) {
-                    i3 = -this.f35060f;
+                    i3 = -this.f33463f;
                 }
                 i3 = 0;
             }
-            int j3 = c.a.y.b.g.c.c.j(childAt);
-            int e2 = c.a.y.b.g.c.c.e(childAt);
-            scrollTo(i3 + (n ? (((j3 + e2) - l) - getWidth()) + c.a.y.b.g.c.c.h(this) : (j3 - e2) + l), 0);
+            int j3 = c.a.w.b.g.c.c.j(childAt);
+            int e2 = c.a.w.b.g.c.c.e(childAt);
+            scrollTo(i3 + (n ? (((j3 + e2) - l) - getWidth()) + c.a.w.b.g.c.c.h(this) : (j3 - e2) + l), 0);
         }
     }
 
@@ -1121,7 +1122,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void setDefaultTabTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, colorStateList) == null) {
-            this.f35064j = colorStateList;
+            this.f33467j = colorStateList;
         }
     }
 
@@ -1144,7 +1145,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                 return;
             }
         }
-        this.f35059e = 40;
+        this.f33462e = 40;
         this.C = false;
         this.D = true;
         this.G = -1;
@@ -1159,38 +1160,38 @@ public class SmartTabLayout extends HorizontalScrollView {
         setClipChildren(false);
         setClipToPadding(false);
         setHorizontalScrollBarEnabled(false);
-        this.f35059e = c.a.y.b.f.a.a(getContext(), 40.0f);
+        this.f33462e = c.a.w.b.f.a.a(getContext(), 40.0f);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         float f2 = displayMetrics.density;
         float applyDimension = TypedValue.applyDimension(2, 17.0f, displayMetrics);
         float applyDimension2 = TypedValue.applyDimension(2, 17.0f, displayMetrics);
-        int a2 = c.a.y.b.f.a.a(context, 40.0f);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout, i2, 0);
-        int resourceId = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabBackground, -1);
-        boolean z = obtainStyledAttributes.getBoolean(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabTextAllCaps, true);
-        ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabTextColor);
-        float dimension = obtainStyledAttributes.getDimension(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabTextSize, applyDimension);
-        float dimension2 = obtainStyledAttributes.getDimension(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_selectedTabTextSize, applyDimension2);
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabTextHorizontalPadding, (int) (16.0f * f2));
-        int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_defaultTabTextMinWidth, (int) (0.0f * f2));
-        int resourceId2 = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabLayoutId, -1);
-        int resourceId3 = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabTextViewId, -1);
-        int resourceId4 = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabTextScrollViewId, -1);
-        boolean z2 = obtainStyledAttributes.getBoolean(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_distributeEvenly, false);
-        boolean z3 = obtainStyledAttributes.getBoolean(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_clickable, true);
-        this.f35061g = obtainStyledAttributes.getLayoutDimension(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_titleOffset, (int) (f2 * 24.0f));
-        int layoutDimension = obtainStyledAttributes.getLayoutDimension(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabLayoutHeight, a2);
-        int layoutDimension2 = obtainStyledAttributes.getLayoutDimension(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabLayoutWidth, -2);
-        this.G = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabReddotViewId, -1);
-        this.H = obtainStyledAttributes.getResourceId(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_customTabRednumViewId, -1);
-        this.x = obtainStyledAttributes.getFloat(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_tabMaxScale, 0.2f);
-        this.y = obtainStyledAttributes.getBoolean(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_tabScaleEnable, false);
-        this.z = obtainStyledAttributes.getBoolean(c.a.y.c.a.f.LiveFeedPage_live_feed_page_SmartTabLayout_live_feed_page_tabGradientEnable, false);
+        int a2 = c.a.w.b.f.a.a(context, 40.0f);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.live_feed_page_clickable, R.attr.live_feed_page_customTabLayoutHeight, R.attr.live_feed_page_customTabLayoutId, R.attr.live_feed_page_customTabLayoutWidth, R.attr.live_feed_page_customTabReddotViewId, R.attr.live_feed_page_customTabRednumViewId, R.attr.live_feed_page_customTabTextScrollViewId, R.attr.live_feed_page_customTabTextViewId, R.attr.live_feed_page_defaultTabBackground, R.attr.live_feed_page_defaultTabTextAllCaps, R.attr.live_feed_page_defaultTabTextColor, R.attr.live_feed_page_defaultTabTextHorizontalPadding, R.attr.live_feed_page_defaultTabTextMinWidth, R.attr.live_feed_page_defaultTabTextSize, R.attr.live_feed_page_distributeEvenly, R.attr.live_feed_page_dividerColor, R.attr.live_feed_page_dividerColors, R.attr.live_feed_page_dividerThickness, R.attr.live_feed_page_drawDecorationAfterTab, R.attr.live_feed_page_indicatorAlwaysInCenter, R.attr.live_feed_page_indicatorAlwaysInScreenCenter, R.attr.live_feed_page_indicatorColor, R.attr.live_feed_page_indicatorColors, R.attr.live_feed_page_indicatorCornerRadius, R.attr.live_feed_page_indicatorGravity, R.attr.live_feed_page_indicatorInFront, R.attr.live_feed_page_indicatorInterpolation, R.attr.live_feed_page_indicatorMarginBottom, R.attr.live_feed_page_indicatorThickness, R.attr.live_feed_page_indicatorWidth, R.attr.live_feed_page_indicatorWithoutPadding, R.attr.live_feed_page_overlineColor, R.attr.live_feed_page_overlineThickness, R.attr.live_feed_page_selectedTabTextSize, R.attr.live_feed_page_tabGradientEnable, R.attr.live_feed_page_tabMaxScale, R.attr.live_feed_page_tabScaleEnable, R.attr.live_feed_page_titleOffset, R.attr.live_feed_page_underlineColor, R.attr.live_feed_page_underlineThickness}, i2, 0);
+        int resourceId = obtainStyledAttributes.getResourceId(8, -1);
+        boolean z = obtainStyledAttributes.getBoolean(9, true);
+        ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(10);
+        float dimension = obtainStyledAttributes.getDimension(13, applyDimension);
+        float dimension2 = obtainStyledAttributes.getDimension(33, applyDimension2);
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(11, (int) (16.0f * f2));
+        int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(12, (int) (0.0f * f2));
+        int resourceId2 = obtainStyledAttributes.getResourceId(2, -1);
+        int resourceId3 = obtainStyledAttributes.getResourceId(7, -1);
+        int resourceId4 = obtainStyledAttributes.getResourceId(6, -1);
+        boolean z2 = obtainStyledAttributes.getBoolean(14, false);
+        boolean z3 = obtainStyledAttributes.getBoolean(0, true);
+        this.f33464g = obtainStyledAttributes.getLayoutDimension(37, (int) (f2 * 24.0f));
+        int layoutDimension = obtainStyledAttributes.getLayoutDimension(1, a2);
+        int layoutDimension2 = obtainStyledAttributes.getLayoutDimension(3, -2);
+        this.G = obtainStyledAttributes.getResourceId(4, -1);
+        this.H = obtainStyledAttributes.getResourceId(5, -1);
+        this.x = obtainStyledAttributes.getFloat(35, 0.2f);
+        this.y = obtainStyledAttributes.getBoolean(36, false);
+        this.z = obtainStyledAttributes.getBoolean(34, false);
         obtainStyledAttributes.recycle();
-        this.f35060f = this.f35061g;
-        this.f35062h = resourceId;
-        this.f35063i = z;
-        this.f35064j = colorStateList == null ? ColorStateList.valueOf(-67108864) : colorStateList;
+        this.f33463f = this.f33464g;
+        this.f33465h = resourceId;
+        this.f33466i = z;
+        this.f33467j = colorStateList == null ? ColorStateList.valueOf(-67108864) : colorStateList;
         this.k = dimension;
         this.l = dimension2;
         this.m = dimensionPixelSize;
@@ -1202,7 +1203,7 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (resourceId2 != -1) {
             setCustomTabView(resourceId2, resourceId3, new LinearLayout.LayoutParams(layoutDimension2, layoutDimension));
         }
-        c.a.y.b.g.c.b bVar = new c.a.y.b.g.c.b(context, attributeSet);
+        c.a.w.b.g.c.b bVar = new c.a.w.b.g.c.b(context, attributeSet);
         this.tabStrip = bVar;
         if (z2 && bVar.h()) {
             return;

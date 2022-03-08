@@ -2,19 +2,19 @@ package com.baidu.swan.games.view.button.settings;
 
 import android.content.Context;
 import android.view.View;
-import c.a.s0.a.c2.b.f.e;
-import c.a.s0.a.g1.f;
-import c.a.s0.a.h;
-import c.a.s0.a.h0.g.g;
+import c.a.p0.a.s1.b.f.e;
+import c.a.p0.a.w0.f;
+import c.a.p0.a.x.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,11 +52,11 @@ public class OpenSettingButton extends ApiButton {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g V = f.U().V();
             if (V == null) {
-                e.f(AppRuntime.getAppContext(), h.aiapps_open_fragment_failed_toast).G();
+                e.f(AppRuntime.getAppContext(), R.string.aiapps_open_fragment_failed_toast).G();
                 return;
             }
             g.b i2 = V.i("navigateTo");
-            i2.n(g.f6641g, g.f6643i);
+            i2.n(g.f8374g, g.f8376i);
             i2.k("authority", null).a();
         }
     }

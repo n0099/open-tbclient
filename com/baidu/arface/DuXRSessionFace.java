@@ -23,7 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DuXRSessionFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -55,7 +55,7 @@ public class DuXRSessionFace {
     public SurfaceTexture mSurfaceTexture;
     public int mTextureId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements PermissionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,13 +96,13 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b implements SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f33074e;
+        public final /* synthetic */ DuXRSessionFace f31477e;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -119,26 +119,26 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f33074e = duXRSessionFace;
+            this.f31477e = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f33074e;
+                DuXRSessionFace duXRSessionFace = this.f31477e;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class c implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f33075e;
+        public final /* synthetic */ DuXRSessionFace f31478e;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -155,22 +155,22 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f33075e = duXRSessionFace;
+            this.f31478e = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f33075e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f31478e.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f33075e.mSessionHandler.sendMessage(message);
+                this.f31478e.mSessionHandler.sendMessage(message);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class d implements FaceListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -468,7 +468,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i4;
-            PermissionProxy permissionProxy = c.a.o0.a.a.o;
+            PermissionProxy permissionProxy = c.a.l0.a.a.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

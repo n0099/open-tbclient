@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ListeningExecutorService extends ExecutorService {
     @Override // java.util.concurrent.ExecutorService
     <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> collection) throws InterruptedException;

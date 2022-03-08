@@ -13,17 +13,17 @@ public class b {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4145b;
+    public static String f3762b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f4145b)) {
-                f4145b = c.a.j.h.b.b.f4057c.h().getAppContext().getPackageName();
+            if (TextUtils.isEmpty(f3762b)) {
+                f3762b = c.a.j.h.b.b.f3674c.h().getAppContext().getPackageName();
             }
-            return f4145b;
+            return f3762b;
         }
         return (String) invokeV.objValue;
     }
@@ -34,7 +34,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (TextUtils.isEmpty(a)) {
                 try {
-                    Context appContext = c.a.j.h.b.b.f4057c.h().getAppContext();
+                    Context appContext = c.a.j.h.b.b.f3674c.h().getAppContext();
                     PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                     a = packageInfo.versionName + "";
                 } catch (PackageManager.NameNotFoundException e2) {

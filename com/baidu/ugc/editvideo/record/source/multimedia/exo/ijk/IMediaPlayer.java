@@ -12,7 +12,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IMediaPlayer extends IPlayer {
     public static final int MEDIA_ERROR_IO = -1004;
     public static final int MEDIA_ERROR_MALFORMED = -1007;
@@ -51,7 +51,7 @@ public interface IMediaPlayer extends IPlayer {
     public static final int STATE_IDLE = 1;
     public static final int STATE_READY = 3;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface Listener {
         void onBufferingUpdate(int i2);
 
@@ -70,52 +70,52 @@ public interface IMediaPlayer extends IPlayer {
         void onVideoSizeChanged(int i2, int i3, int i4, float f2);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i2);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnCompletionListener {
         void onCompletion(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnErrorListener {
         boolean onError(IMediaPlayer iMediaPlayer, int i2, int i3);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaPlayer iMediaPlayer, int i2, int i3);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnLoopingListener {
         void onLoop();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnOverMaxSizeListener {
         void overMaxSize();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnSpeedChangeListener {
         void onSpeedChange(float f2);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i2, int i3, int i4, int i5);
     }

@@ -20,16 +20,16 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<b> f54438b;
+    public static final HashSet<b> f52924b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class p0 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(@Nullable NetworkInfo networkInfo);
     }
@@ -77,7 +77,7 @@ public class p0 {
             }
         }
         a aVar = new a();
-        f54438b = new HashSet<>();
+        f52924b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -97,7 +97,7 @@ public class p0 {
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
             a = activeNetworkInfo;
-            HashSet<b> hashSet = f54438b;
+            HashSet<b> hashSet = f52924b;
             synchronized (hashSet) {
                 Iterator<b> it = hashSet.iterator();
                 while (it.hasNext()) {
@@ -110,7 +110,7 @@ public class p0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet<b> hashSet = f54438b;
+            HashSet<b> hashSet = f52924b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }

@@ -18,33 +18,33 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f58573b;
+    public AnimationDrawable f56923b;
     @DrawableRes
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58574c;
+    public int f56924c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f58575d;
+    public View f56925d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f58576e;
+    public TextView f56926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58577f;
+    public TextView f56927f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(Context context, @Nullable AttributeSet attributeSet) {
@@ -86,7 +86,7 @@ public class e extends FrameLayout {
                 return;
             }
         }
-        this.f58574c = R.drawable.ksad_kwai_loading_view_gradient;
+        this.f56924c = R.drawable.ksad_kwai_loading_view_gradient;
         a(context, attributeSet, 0);
     }
 
@@ -101,25 +101,25 @@ public class e extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i2) == null) {
             LayoutInflater.from(context).inflate(R.layout.ksad_kwai_default_loading_view, this);
-            this.f58575d = findViewById(R.id.kwai_default_loading_view);
-            this.f58576e = (TextView) findViewById(R.id.kwai_default_loading_text_view);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.KwaiLoadingView, 0, i2);
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.KwaiLoadingView_loading_anim, 0);
-            CharSequence text = obtainStyledAttributes.getText(R.styleable.KwaiLoadingView_loading_text);
-            float dimension = obtainStyledAttributes.getDimension(R.styleable.KwaiLoadingView_loading_width, 0.0f);
-            float dimension2 = obtainStyledAttributes.getDimension(R.styleable.KwaiLoadingView_loading_hight, 0.0f);
+            this.f56925d = findViewById(R.id.kwai_default_loading_view);
+            this.f56926e = (TextView) findViewById(R.id.kwai_default_loading_text_view);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.loading_anim, R.attr.loading_hight, R.attr.loading_text, R.attr.loading_width}, 0, i2);
+            int resourceId = obtainStyledAttributes.getResourceId(0, 0);
+            CharSequence text = obtainStyledAttributes.getText(2);
+            float dimension = obtainStyledAttributes.getDimension(3, 0.0f);
+            float dimension2 = obtainStyledAttributes.getDimension(1, 0.0f);
             obtainStyledAttributes.recycle();
             setLoadingText(text);
             if (resourceId != 0) {
-                this.f58574c = resourceId;
+                this.f56924c = resourceId;
             }
             if (dimension <= 0.0f || dimension2 <= 0.0f) {
                 return;
             }
-            ViewGroup.LayoutParams layoutParams = this.f58575d.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f56925d.getLayoutParams();
             layoutParams.width = (int) dimension;
             layoutParams.height = (int) dimension2;
-            this.f58575d.setLayoutParams(layoutParams);
+            this.f56925d.setLayoutParams(layoutParams);
         }
     }
 
@@ -136,10 +136,10 @@ public class e extends FrameLayout {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f58575d.getBackground() == null) {
-            AnimationDrawable animationDrawable = (AnimationDrawable) getContext().getResources().getDrawable(this.f58574c);
-            this.f58573b = animationDrawable;
-            this.f58575d.setBackground(animationDrawable);
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f56925d.getBackground() == null) {
+            AnimationDrawable animationDrawable = (AnimationDrawable) getContext().getResources().getDrawable(this.f56924c);
+            this.f56923b = animationDrawable;
+            this.f56925d.setBackground(animationDrawable);
         }
     }
 
@@ -147,7 +147,7 @@ public class e extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c();
-            AnimationDrawable animationDrawable = this.f58573b;
+            AnimationDrawable animationDrawable = this.f56923b;
             if (animationDrawable != null) {
                 animationDrawable.start();
             }
@@ -156,7 +156,7 @@ public class e extends FrameLayout {
 
     public void a(boolean z, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, charSequence) == null) || this.f58575d == null) {
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, charSequence) == null) || this.f56925d == null) {
             return;
         }
         if (z || charSequence != null) {
@@ -164,24 +164,24 @@ public class e extends FrameLayout {
         } else {
             setVisibility(8);
         }
-        this.f58575d.setVisibility(z ? 0 : 8);
+        this.f56925d.setVisibility(z ? 0 : 8);
         try {
-            this.f58576e.setText(charSequence);
+            this.f56926e.setText(charSequence);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f58576e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.f56926e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         if (TextUtils.isEmpty(charSequence)) {
-            this.f58576e.setVisibility(8);
+            this.f56926e.setVisibility(8);
         } else {
-            this.f58576e.setVisibility(0);
+            this.f56926e.setVisibility(0);
         }
     }
 
     public void b() {
         AnimationDrawable animationDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (animationDrawable = this.f58573b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (animationDrawable = this.f56923b) == null) {
             return;
         }
         animationDrawable.stop();
@@ -191,18 +191,18 @@ public class e extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f58577f == null) {
-                TextView textView = new TextView(getContext(), null, R.style.Theme_Widget_Text);
-                this.f58577f = textView;
+            if (this.f56927f == null) {
+                TextView textView = new TextView(getContext(), null, 2131755652);
+                this.f56927f = textView;
                 textView.setGravity(17);
-                this.f58577f.setTextColor(getResources().getColor(R.color.loading_title_color));
-                this.f58577f.setTextSize(0, getContext().getResources().getDimension(R.dimen.text_size_12));
+                this.f56927f.setTextColor(getResources().getColor(R.color.loading_title_color));
+                this.f56927f.setTextSize(0, getContext().getResources().getDimension(R.dimen.text_size_12));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.topMargin = g.a(getContext(), 5.0f);
                 layoutParams.gravity = 1;
-                ((LinearLayout) this.f58575d.getParent()).addView(this.f58577f, layoutParams);
+                ((LinearLayout) this.f56925d.getParent()).addView(this.f56927f, layoutParams);
             }
-            return this.f58577f;
+            return this.f56927f;
         }
         return (TextView) invokeV.objValue;
     }
@@ -210,7 +210,7 @@ public class e extends FrameLayout {
     public TextView getTitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58576e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56926e : (TextView) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -266,7 +266,7 @@ public class e extends FrameLayout {
     public void setAnimRes(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f58574c = i2;
+            this.f56924c = i2;
         }
     }
 
@@ -275,12 +275,12 @@ public class e extends FrameLayout {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, charSequence) == null) {
-            this.f58576e.setText(charSequence);
+            this.f56926e.setText(charSequence);
             if (TextUtils.isEmpty(charSequence)) {
-                textView = this.f58576e;
+                textView = this.f56926e;
                 i2 = 8;
             } else {
-                textView = this.f58576e;
+                textView = this.f56926e;
                 i2 = 0;
             }
             textView.setVisibility(i2);
@@ -295,7 +295,7 @@ public class e extends FrameLayout {
                 getTitleDetailView().setText(charSequence);
                 return;
             }
-            TextView textView = this.f58577f;
+            TextView textView = this.f56927f;
             if (textView != null) {
                 textView.setVisibility(8);
             }

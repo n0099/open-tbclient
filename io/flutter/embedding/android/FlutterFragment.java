@@ -32,7 +32,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.util.ViewUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host, ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -55,11 +55,11 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     public FlutterActivityAndFragmentDelegate delegate;
     public final OnBackPressedCallback onBackPressedCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public @interface ActivityCallThrough {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class CachedEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -793,7 +793,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -42,7 +42,7 @@ import okhttp3.internal.platform.Platform;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
     public static /* synthetic */ Interceptable $ic;
     public static final List<ConnectionSpec> DEFAULT_CONNECTION_SPECS;
@@ -504,7 +504,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         throw new IllegalStateException("Null interceptor: " + this.interceptors);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

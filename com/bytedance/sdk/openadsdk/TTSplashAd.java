@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface TTSplashAd {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view, int i2);
 

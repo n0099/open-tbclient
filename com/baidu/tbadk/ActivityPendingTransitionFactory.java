@@ -1,7 +1,6 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
-import c.a.u0.a4.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ActivityPendingTransitionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = 0;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = 0;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = 2130772012;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = 2130772022;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;
     public static int RES_CUSTOM_OUT_TO_RIGHT = 0;
-    public static int RES_FADE_OUT = 0;
-    public static int RES_NFADE_IN = 0;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = 0;
-    public static int RES_NORMAL_IN_FROM_RIGHT = 0;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = 0;
-    public static int RES_NORMAL_OUT_TO_RIGHT = 0;
+    public static int RES_FADE_OUT = 2130772068;
+    public static int RES_NFADE_IN = 2130772067;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772125;
+    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772126;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772162;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772164;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;
@@ -35,24 +34,16 @@ public class ActivityPendingTransitionFactory {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;")) == null) {
+            return;
         }
-        RES_NFADE_IN = a.fade_in;
-        RES_FADE_OUT = a.fade_out;
-        RES_NORMAL_IN_FROM_RIGHT = a.in_from_right;
-        RES_NORMAL_IN_FROM_BOTTOM = a.in_from_bottom;
-        RES_NORMAL_OUT_TO_RIGHT = a.out_to_right;
-        RES_NORMAL_OUT_TO_BOTTOM = a.out_to_bottom;
-        RES_BIG_IMAGE_IN_FROM_RIGHT = a.anim_alpha_0_to_1_duration_300;
-        RES_BIG_IMAGE_OUT_TO_RIGHT = a.anim_alpha_1_to_0_duration_300;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;");
+        }
     }
 
     public ActivityPendingTransitionFactory() {

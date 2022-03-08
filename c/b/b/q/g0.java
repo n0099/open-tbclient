@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class g0<T> extends a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public T[] f27646i;
+    public T[] f27550i;
 
     /* renamed from: j  reason: collision with root package name */
-    public T[] f27647j;
+    public T[] f27551j;
     public int k;
 
     public g0() {
@@ -97,8 +97,8 @@ public class g0<T> extends a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             q();
-            T[] tArr = this.f27594e;
-            this.f27646i = tArr;
+            T[] tArr = this.f27498e;
+            this.f27550i = tArr;
             this.k++;
             return tArr;
         }
@@ -110,18 +110,18 @@ public class g0<T> extends a<T> {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int max = Math.max(0, this.k - 1);
             this.k = max;
-            T[] tArr = this.f27646i;
+            T[] tArr = this.f27550i;
             if (tArr == null) {
                 return;
             }
-            if (tArr != this.f27594e && max == 0) {
-                this.f27647j = tArr;
+            if (tArr != this.f27498e && max == 0) {
+                this.f27551j = tArr;
                 int length = tArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f27647j[i2] = null;
+                    this.f27551j[i2] = null;
                 }
             }
-            this.f27646i = null;
+            this.f27550i = null;
         }
     }
 
@@ -140,19 +140,19 @@ public class g0<T> extends a<T> {
         T[] tArr;
         T[] tArr2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f27646i) != null && tArr == (tArr2 = this.f27594e)) {
-            T[] tArr3 = this.f27647j;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f27550i) != null && tArr == (tArr2 = this.f27498e)) {
+            T[] tArr3 = this.f27551j;
             if (tArr3 != null) {
                 int length = tArr3.length;
-                int i2 = this.f27595f;
+                int i2 = this.f27499f;
                 if (length >= i2) {
                     System.arraycopy(tArr2, 0, tArr3, 0, i2);
-                    this.f27594e = this.f27647j;
-                    this.f27647j = null;
+                    this.f27498e = this.f27551j;
+                    this.f27551j = null;
                     return;
                 }
             }
-            j(this.f27594e.length);
+            j(this.f27498e.length);
         }
     }
 

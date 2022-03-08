@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MediaEncodeParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AAC_SAMPLES_PER_FRAME = 1024;
@@ -67,7 +67,7 @@ public class MediaEncodeParams {
         this.mAudioCodec = "audio/mp4a-latm";
         this.mAudioChannel = 1;
         this.mAudioBitrate = 65536;
-        this.mAudioSampleRate = AUDIO_SAMPLE_RATE;
+        this.mAudioSampleRate = 48000;
         this.mAudioFrameSize = 10240;
     }
 

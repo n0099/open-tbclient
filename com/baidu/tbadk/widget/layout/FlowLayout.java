@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.l;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HORIZONTAL = 0;
@@ -26,16 +26,16 @@ public class FlowLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41581e;
+    public int f39987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41582f;
+    public int f39988f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41583g;
+    public int f39989g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41584h;
+    public boolean f39990h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context) {
@@ -55,10 +55,10 @@ public class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41581e = 0;
-        this.f41582f = 0;
-        this.f41583g = 0;
-        this.f41584h = false;
+        this.f39987e = 0;
+        this.f39988f = 0;
+        this.f39989g = 0;
+        this.f39990h = false;
         e(context, null);
     }
 
@@ -77,43 +77,43 @@ public class FlowLayout extends ViewGroup {
 
     public final void b(Canvas canvas, View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, view) == null) && this.f41584h) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, view) == null) && this.f39990h) {
             Paint a = a(-256);
             Paint a2 = a(-16711936);
             Paint a3 = a(SupportMenu.CATEGORY_MASK);
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            if (layoutParams.f41587c > 0) {
+            if (layoutParams.f39993c > 0) {
                 float right = view.getRight();
                 float top = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right, top, right + layoutParams.f41587c, top, a);
-                canvas.drawLine((layoutParams.f41587c + right) - 4.0f, top - 4.0f, right + layoutParams.f41587c, top, a);
-                canvas.drawLine((layoutParams.f41587c + right) - 4.0f, top + 4.0f, right + layoutParams.f41587c, top, a);
-            } else if (this.f41581e > 0) {
+                canvas.drawLine(right, top, right + layoutParams.f39993c, top, a);
+                canvas.drawLine((layoutParams.f39993c + right) - 4.0f, top - 4.0f, right + layoutParams.f39993c, top, a);
+                canvas.drawLine((layoutParams.f39993c + right) - 4.0f, top + 4.0f, right + layoutParams.f39993c, top, a);
+            } else if (this.f39987e > 0) {
                 float right2 = view.getRight();
                 float top2 = view.getTop() + (view.getHeight() / 2.0f);
-                canvas.drawLine(right2, top2, right2 + this.f41581e, top2, a2);
-                int i2 = this.f41581e;
+                canvas.drawLine(right2, top2, right2 + this.f39987e, top2, a2);
+                int i2 = this.f39987e;
                 canvas.drawLine((i2 + right2) - 4.0f, top2 - 4.0f, right2 + i2, top2, a2);
-                int i3 = this.f41581e;
+                int i3 = this.f39987e;
                 canvas.drawLine((i3 + right2) - 4.0f, top2 + 4.0f, right2 + i3, top2, a2);
             }
-            if (layoutParams.f41588d > 0) {
+            if (layoutParams.f39994d > 0) {
                 float left = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom = view.getBottom();
-                canvas.drawLine(left, bottom, left, bottom + layoutParams.f41588d, a);
-                canvas.drawLine(left - 4.0f, (layoutParams.f41588d + bottom) - 4.0f, left, bottom + layoutParams.f41588d, a);
-                canvas.drawLine(left + 4.0f, (layoutParams.f41588d + bottom) - 4.0f, left, bottom + layoutParams.f41588d, a);
-            } else if (this.f41582f > 0) {
+                canvas.drawLine(left, bottom, left, bottom + layoutParams.f39994d, a);
+                canvas.drawLine(left - 4.0f, (layoutParams.f39994d + bottom) - 4.0f, left, bottom + layoutParams.f39994d, a);
+                canvas.drawLine(left + 4.0f, (layoutParams.f39994d + bottom) - 4.0f, left, bottom + layoutParams.f39994d, a);
+            } else if (this.f39988f > 0) {
                 float left2 = view.getLeft() + (view.getWidth() / 2.0f);
                 float bottom2 = view.getBottom();
-                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f41582f, a2);
-                int i4 = this.f41582f;
+                canvas.drawLine(left2, bottom2, left2, bottom2 + this.f39988f, a2);
+                int i4 = this.f39988f;
                 canvas.drawLine(left2 - 4.0f, (i4 + bottom2) - 4.0f, left2, bottom2 + i4, a2);
-                int i5 = this.f41582f;
+                int i5 = this.f39988f;
                 canvas.drawLine(left2 + 4.0f, (i5 + bottom2) - 4.0f, left2, bottom2 + i5, a2);
             }
-            if (layoutParams.f41589e) {
-                if (this.f41583g == 0) {
+            if (layoutParams.f39995e) {
+                if (this.f39989g == 0) {
                     float left3 = view.getLeft();
                     float top3 = view.getTop() + (view.getHeight() / 2.0f);
                     canvas.drawLine(left3, top3 - 6.0f, left3, top3 + 6.0f, a3);
@@ -131,9 +131,9 @@ public class FlowLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
             if (layoutParams.f()) {
-                return layoutParams.f41587c;
+                return layoutParams.f39993c;
             }
-            return this.f41581e;
+            return this.f39987e;
         }
         return invokeL.intValue;
     }
@@ -150,9 +150,9 @@ public class FlowLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutParams)) == null) {
             if (layoutParams.i()) {
-                return layoutParams.f41588d;
+                return layoutParams.f39994d;
             }
-            return this.f41582f;
+            return this.f39988f;
         }
         return invokeL.intValue;
     }
@@ -172,12 +172,12 @@ public class FlowLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.FlowLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.debugDraw, R.attr.horizontalSpacing, R.attr.itemSpacing, R.attr.lineSpacing, R.attr.orientation, R.attr.verticalSpacing});
             try {
-                this.f41581e = obtainStyledAttributes.getDimensionPixelSize(l.FlowLayout_horizontalSpacing, 0);
-                this.f41582f = obtainStyledAttributes.getDimensionPixelSize(l.FlowLayout_verticalSpacing, 0);
-                this.f41583g = obtainStyledAttributes.getInteger(l.FlowLayout_orientation, 0);
-                this.f41584h = obtainStyledAttributes.getBoolean(l.FlowLayout_debugDraw, false);
+                this.f39987e = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+                this.f39988f = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+                this.f39989g = obtainStyledAttributes.getInteger(4, 0);
+                this.f39990h = obtainStyledAttributes.getBoolean(0, false);
             } finally {
                 obtainStyledAttributes.recycle();
             }
@@ -192,7 +192,7 @@ public class FlowLayout extends ViewGroup {
             for (int i6 = 0; i6 < childCount; i6++) {
                 View childAt = getChildAt(i6);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                childAt.layout(layoutParams.a, layoutParams.f41586b, layoutParams.a + childAt.getMeasuredWidth(), layoutParams.f41586b + childAt.getMeasuredHeight());
+                childAt.layout(layoutParams.a, layoutParams.f39992b, layoutParams.a + childAt.getMeasuredWidth(), layoutParams.f39992b + childAt.getMeasuredHeight());
             }
         }
     }
@@ -213,7 +213,7 @@ public class FlowLayout extends ViewGroup {
             int size2 = (View.MeasureSpec.getSize(i3) - getPaddingTop()) - getPaddingBottom();
             int mode = View.MeasureSpec.getMode(i2);
             int mode2 = View.MeasureSpec.getMode(i3);
-            if (this.f41583g != 0) {
+            if (this.f39989g != 0) {
                 size = size2;
                 mode = mode2;
             }
@@ -238,7 +238,7 @@ public class FlowLayout extends ViewGroup {
                     int measuredWidth = childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight();
                     int i14 = c2;
-                    if (this.f41583g == 0) {
+                    if (this.f39989g == 0) {
                         i5 = i14;
                         i14 = d2;
                         i6 = measuredHeight;
@@ -249,7 +249,7 @@ public class FlowLayout extends ViewGroup {
                     }
                     int i15 = i10 + measuredWidth;
                     int i16 = i15 + i5;
-                    if (layoutParams.f41589e || (mode != 0 && i15 > size)) {
+                    if (layoutParams.f39995e || (mode != 0 && i15 > size)) {
                         i13 += i11;
                         i11 = i6 + i14;
                         i16 = i5 + measuredWidth;
@@ -258,7 +258,7 @@ public class FlowLayout extends ViewGroup {
                     }
                     i11 = Math.max(i11, i6 + i14);
                     i12 = Math.max(i12, i6);
-                    if (this.f41583g == 0) {
+                    if (this.f39989g == 0) {
                         paddingLeft2 = (getPaddingLeft() + i15) - measuredWidth;
                         paddingTop = getPaddingTop() + i13;
                     } else {
@@ -273,7 +273,7 @@ public class FlowLayout extends ViewGroup {
                 i7++;
                 childCount = i4;
             }
-            if (this.f41583g == 0) {
+            if (this.f39989g == 0) {
                 paddingBottom = i8 + getPaddingLeft() + getPaddingRight();
                 paddingLeft = getPaddingBottom();
                 paddingRight = getPaddingTop();
@@ -283,7 +283,7 @@ public class FlowLayout extends ViewGroup {
                 paddingRight = getPaddingRight();
             }
             int i17 = i9 + paddingLeft + paddingRight;
-            if (this.f41583g == 0) {
+            if (this.f39989g == 0) {
                 setMeasuredDimension(ViewGroup.resolveSize(paddingBottom, i2), ViewGroup.resolveSize(i17, i3));
             } else {
                 setMeasuredDimension(ViewGroup.resolveSize(i17, i2), ViewGroup.resolveSize(paddingBottom, i3));
@@ -294,14 +294,14 @@ public class FlowLayout extends ViewGroup {
     public void setHorizontalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f41581e = i2;
+            this.f39987e = i2;
         }
     }
 
     public void setVerticalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f41582f = i2;
+            this.f39988f = i2;
         }
     }
 
@@ -329,26 +329,26 @@ public class FlowLayout extends ViewGroup {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f41585f = -1;
+        public static int f39991f = -1;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41586b;
+        public int f39992b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f41587c;
+        public int f39993c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f41588d;
+        public int f39994d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f41589e;
+        public boolean f39995e;
 
         static {
             InterceptResult invokeClinit;
@@ -384,27 +384,27 @@ public class FlowLayout extends ViewGroup {
                     return;
                 }
             }
-            int i4 = f41585f;
-            this.f41587c = i4;
-            this.f41588d = i4;
-            this.f41589e = false;
+            int i4 = f39991f;
+            this.f39993c = i4;
+            this.f39994d = i4;
+            this.f39995e = false;
             g(context, attributeSet);
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41587c != f41585f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39993c != f39991f : invokeV.booleanValue;
         }
 
         public final void g(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.FlowLayout_LayoutParams);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.layout_horizontalSpacing, R.attr.layout_newLine, R.attr.layout_verticalSpacing});
                 try {
-                    this.f41587c = obtainStyledAttributes.getDimensionPixelSize(l.FlowLayout_LayoutParams_layout_horizontalSpacing, f41585f);
-                    this.f41588d = obtainStyledAttributes.getDimensionPixelSize(l.FlowLayout_LayoutParams_layout_verticalSpacing, f41585f);
-                    this.f41589e = obtainStyledAttributes.getBoolean(l.FlowLayout_LayoutParams_layout_newLine, false);
+                    this.f39993c = obtainStyledAttributes.getDimensionPixelSize(0, f39991f);
+                    this.f39994d = obtainStyledAttributes.getDimensionPixelSize(2, f39991f);
+                    this.f39995e = obtainStyledAttributes.getBoolean(1, false);
                 } finally {
                     obtainStyledAttributes.recycle();
                 }
@@ -415,14 +415,14 @@ public class FlowLayout extends ViewGroup {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
                 this.a = i2;
-                this.f41586b = i3;
+                this.f39992b = i3;
             }
         }
 
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41588d != f41585f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39994d != f39991f : invokeV.booleanValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -444,10 +444,10 @@ public class FlowLayout extends ViewGroup {
                     return;
                 }
             }
-            int i6 = f41585f;
-            this.f41587c = i6;
-            this.f41588d = i6;
-            this.f41589e = false;
+            int i6 = f39991f;
+            this.f39993c = i6;
+            this.f39994d = i6;
+            this.f39995e = false;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -468,10 +468,10 @@ public class FlowLayout extends ViewGroup {
                     return;
                 }
             }
-            int i4 = f41585f;
-            this.f41587c = i4;
-            this.f41588d = i4;
-            this.f41589e = false;
+            int i4 = f39991f;
+            this.f39993c = i4;
+            this.f39994d = i4;
+            this.f39995e = false;
         }
     }
 
@@ -494,10 +494,10 @@ public class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41581e = 0;
-        this.f41582f = 0;
-        this.f41583g = 0;
-        this.f41584h = false;
+        this.f39987e = 0;
+        this.f39988f = 0;
+        this.f39989g = 0;
+        this.f39990h = false;
         e(context, attributeSet);
     }
 
@@ -520,10 +520,10 @@ public class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41581e = 0;
-        this.f41582f = 0;
-        this.f41583g = 0;
-        this.f41584h = false;
+        this.f39987e = 0;
+        this.f39988f = 0;
+        this.f39989g = 0;
+        this.f39990h = false;
         e(context, attributeSet);
     }
 }

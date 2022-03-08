@@ -17,7 +17,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CommandMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";

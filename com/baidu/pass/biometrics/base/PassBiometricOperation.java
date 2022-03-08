@@ -1,4 +1,4 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface PassBiometricOperation {
 }

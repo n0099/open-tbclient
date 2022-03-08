@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
@@ -43,14 +43,14 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public int swipeDirection;
     public ViewDragHelper viewDragHelper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnDismissListener {
         void onDismiss(View view);
 
         void onDragStateChanged(int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -16,7 +16,7 @@ import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 import tbclient.GetGiftCommonList.GiftList;
 import tbclient.GetGiftCommonList.Item;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class GiftCommonList implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1719387618953489739L;
@@ -26,7 +26,7 @@ public class GiftCommonList implements Serializable {
     public GiftInfo gift_info;
     public String usermsg;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class GiftInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4908690864725277352L;
@@ -101,7 +101,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class GiftItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -628875343878681499L;
@@ -192,7 +192,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class NumInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6308284942592196517L;
@@ -241,7 +241,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class TypeInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8689340701873734582L;

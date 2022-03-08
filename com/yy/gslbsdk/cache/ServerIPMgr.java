@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ServerIPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SERVER_IP_CMC;

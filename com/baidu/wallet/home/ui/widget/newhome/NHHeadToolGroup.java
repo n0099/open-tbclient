@@ -19,7 +19,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NHHeadToolGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEM = 4;

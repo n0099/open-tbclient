@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f47850e;
+    public StaticLayout f46266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f47851f;
+    public TextPaint f46267f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context) {
@@ -47,10 +47,10 @@ public class CenterTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f47851f = textPaint;
+            this.f46267f = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f47851f.setColor(getCurrentTextColor());
-            this.f47850e = new StaticLayout(getText(), this.f47851f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.3f, 0.0f, false);
+            this.f46267f.setColor(getCurrentTextColor());
+            this.f46266e = new StaticLayout(getText(), this.f46267f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.3f, 0.0f, false);
         }
     }
 
@@ -58,7 +58,7 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f47850e.draw(canvas);
+            this.f46266e.draw(canvas);
         }
     }
 

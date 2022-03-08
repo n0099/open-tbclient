@@ -23,14 +23,14 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class FlatMapMaybeObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
@@ -40,14 +40,14 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62374d;
+        public Disposable f60724d;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
         public final AtomicReference<SpscLinkedArrayQueue<R>> queue;
         public final CompositeDisposable set;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements MaybeObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;
@@ -158,7 +158,7 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f62374d.dispose();
+                this.f60724d.dispose();
                 this.set.dispose();
             }
         }
@@ -263,7 +263,7 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
                 this.set.delete(innerObserver);
                 if (this.errors.addThrowable(th)) {
                     if (!this.delayErrors) {
-                        this.f62374d.dispose();
+                        this.f60724d.dispose();
                         this.set.dispose();
                     }
                     this.active.decrementAndGet();
@@ -357,7 +357,7 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
                     maybeSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f62374d.dispose();
+                    this.f60724d.dispose();
                     onError(th);
                 }
             }
@@ -366,8 +366,8 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048588, this, disposable) == null) && DisposableHelper.validate(this.f62374d, disposable)) {
-                this.f62374d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048588, this, disposable) == null) && DisposableHelper.validate(this.f60724d, disposable)) {
+                this.f60724d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

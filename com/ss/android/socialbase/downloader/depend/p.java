@@ -6,23 +6,23 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.depend.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface p extends IInterface {
     boolean a(long j2, long j3, o oVar) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements p {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.p$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C2228a implements p {
+        /* loaded from: classes8.dex */
+        public static class C2207a implements p {
             public static p a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f60150b;
+            public IBinder f58500b;
 
-            public C2228a(IBinder iBinder) {
-                this.f60150b = iBinder;
+            public C2207a(IBinder iBinder) {
+                this.f58500b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.p
@@ -34,7 +34,7 @@ public interface p extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeLong(j3);
                     obtain.writeStrongBinder(oVar != null ? oVar.asBinder() : null);
-                    if (!this.f60150b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f58500b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j2, j3, oVar);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface p extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f60150b;
+                return this.f58500b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface p extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                 return (p) queryLocalInterface;
             }
-            return new C2228a(iBinder);
+            return new C2207a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface p extends IInterface {
         }
 
         public static p a() {
-            return C2228a.a;
+            return C2207a.a;
         }
     }
 }

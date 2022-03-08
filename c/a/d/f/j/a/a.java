@@ -7,5 +7,5 @@ public interface a {
     @NonNull
     public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
 
-    boolean a();
+    boolean netABTest();
 }

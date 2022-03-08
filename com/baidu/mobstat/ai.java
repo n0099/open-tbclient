@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class ai {
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f36609b;
+                public final /* synthetic */ Activity f35012b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TextView f36610c;
+                public final /* synthetic */ TextView f35013c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -66,8 +66,8 @@ public class ai {
                         }
                     }
                     this.a = viewGroup;
-                    this.f36609b = activity;
-                    this.f36610c = agVar;
+                    this.f35012b = activity;
+                    this.f35013c = agVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -76,11 +76,11 @@ public class ai {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int width = this.a.getWidth();
                         int height = this.a.getHeight();
-                        int c2 = ah.c(this.f36609b, 55.0f);
+                        int c2 = ah.c(this.f35012b, 55.0f);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
                         layoutParams.leftMargin = (width - c2) / 6;
                         layoutParams.topMargin = ((height - c2) * 5) / 6;
-                        this.f36610c.setLayoutParams(layoutParams);
+                        this.f35013c.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -216,19 +216,19 @@ public class ai {
                 public int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f36611b;
+                public int f35014b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public int f36612c;
+                public int f35015c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public int f36613d;
+                public int f35016d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f36614e;
+                public final /* synthetic */ View f35017e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Activity f36615f;
+                public final /* synthetic */ Activity f35018f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -245,12 +245,12 @@ public class ai {
                             return;
                         }
                     }
-                    this.f36614e = r6;
-                    this.f36615f = activity;
+                    this.f35017e = r6;
+                    this.f35018f = activity;
                     this.a = 0;
-                    this.f36611b = 0;
-                    this.f36612c = 0;
-                    this.f36613d = 0;
+                    this.f35014b = 0;
+                    this.f35015c = 0;
+                    this.f35016d = 0;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -263,15 +263,15 @@ public class ai {
                         int action = motionEvent.getAction();
                         if (action == 0) {
                             this.a = rawX;
-                            this.f36611b = rawY;
-                            this.f36612c = rawX - view.getLeft();
-                            this.f36613d = rawY - view.getTop();
+                            this.f35014b = rawY;
+                            this.f35015c = rawX - view.getLeft();
+                            this.f35016d = rawY - view.getTop();
                         } else if (action != 1) {
                             if (action == 2) {
-                                int i2 = rawX - this.f36612c;
-                                int i3 = rawY - this.f36613d;
+                                int i2 = rawX - this.f35015c;
+                                int i3 = rawY - this.f35016d;
                                 Rect rect = new Rect();
-                                this.f36614e.getLocalVisibleRect(rect);
+                                this.f35017e.getLocalVisibleRect(rect);
                                 if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
                                     marginLayoutParams.leftMargin = i2;
@@ -279,8 +279,8 @@ public class ai {
                                     view.setLayoutParams(marginLayoutParams);
                                 }
                             }
-                        } else if (ai.b(this.a, (int) motionEvent.getRawX(), this.f36611b, (int) motionEvent.getRawY())) {
-                            ai.b((Context) this.f36615f);
+                        } else if (ai.b(this.a, (int) motionEvent.getRawX(), this.f35014b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f35018f);
                         }
                         return true;
                     }

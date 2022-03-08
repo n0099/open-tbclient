@@ -22,9 +22,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -35,7 +34,7 @@ public final class PayUtils {
     public static ArrayList<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Comparator<RestNameValuePair> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +63,7 @@ public final class PayUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,9 +282,9 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f31099h);
+                    sb.append(com.alipay.sdk.encrypt.a.f29503h);
                     sb.append(value);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                 }
             }
             if (sb.length() > 1) {

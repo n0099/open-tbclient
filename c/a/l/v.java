@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class v extends c.a.l.a<c.a.t0.s.r.a> {
+public class v extends c.a.l.a<c.a.q0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgMutiPicLayout f4433j;
-    public c.a.t0.s.r.a k;
+    public MutiImgMutiPicLayout f4087j;
+    public c.a.q0.r.r.a k;
     public int l;
     public String m;
     public Context n;
@@ -81,7 +81,7 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (c.a.t0.s.l.c().g()) {
+                    if (c.a.q0.r.l.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -122,7 +122,7 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.n);
-                boolean g2 = c.a.t0.s.l.c().g();
+                boolean g2 = c.a.q0.r.l.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -205,7 +205,7 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (c.a.t0.s.l.c().g()) {
+                if (c.a.q0.r.l.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -241,7 +241,7 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.n);
-                boolean g2 = c.a.t0.s.l.c().g();
+                boolean g2 = c.a.q0.r.l.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     gifView.setAdjustViewBounds(false);
@@ -299,16 +299,16 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0210a c0210a) {
+        public boolean a(a.C0203a c0203a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0210a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0203a)) == null) {
                 if (this.a.k != null && this.a.k.getThreadData() != null) {
-                    c.a.u0.g0.m.a(this.a.k.getThreadData().h0());
-                    TextView textView = this.a.f4433j.mTitle;
-                    TextView textView2 = this.a.f4433j.mAbstract;
-                    c.a.u0.g0.m.l(textView, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.u0.g0.m.l(textView2, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.f0.m.a(this.a.k.getThreadData().h0());
+                    TextView textView = this.a.f4087j.mTitle;
+                    TextView textView2 = this.a.f4087j.mAbstract;
+                    c.a.r0.f0.m.l(textView, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.f0.m.l(textView2, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -338,10 +338,10 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
         new c.a.d.f.k.b(new a(this), 12, 0);
         new c.a.d.f.k.b(new b(this), 20, 0);
         this.n = context;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13907j instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13907j.getParent() == null) {
-            this.f4433j = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13907j;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j.getParent() == null) {
+            this.f4087j = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j;
         } else {
-            this.f4433j = new MutiImgMutiPicLayout(context);
+            this.f4087j = new MutiImgMutiPicLayout(context);
         }
     }
 
@@ -349,7 +349,7 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4433j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4087j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -361,10 +361,10 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.u0.g0.b0<c.a.t0.s.r.a> b0Var) {
+    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f4433j.setSubClickListener(b0Var);
+            this.f4087j.setSubClickListener(b0Var);
         }
     }
 
@@ -379,12 +379,12 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: q */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.k = aVar;
-            this.f4433j.setFrom(this.m);
-            this.f4433j.onBindDataToView(aVar);
+            this.f4087j.setFrom(this.m);
+            this.f4087j.onBindDataToView(aVar);
         }
     }
 
@@ -398,14 +398,14 @@ public class v extends c.a.l.a<c.a.t0.s.r.a> {
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f4433j.setFromCDN(z);
+            this.f4087j.setFromCDN(z);
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4433j.setNeedFrsTabName(z);
+            this.f4087j.setNeedFrsTabName(z);
         }
     }
 }

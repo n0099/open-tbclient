@@ -11,7 +11,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class AlignmentPatternFinder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

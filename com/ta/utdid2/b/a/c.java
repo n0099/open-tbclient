@@ -14,7 +14,7 @@ import com.ta.utdid2.a.a.g;
 import com.ta.utdid2.b.a.b;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,22 +33,22 @@ public class c {
     public d f19a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60534b;
+    public String f58884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60535c;
+    public String f58885c;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f60536f;
+    public boolean f58886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60537g;
+    public boolean f58887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f60538h;
+    public boolean f58888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60539i;
+    public boolean f58889i;
     public Context mContext;
 
     /* JADX WARN: Removed duplicated region for block: B:103:? A[RETURN, SYNTHETIC] */
@@ -78,11 +78,11 @@ public class c {
                 return;
             }
         }
-        this.f60534b = "";
-        this.f60535c = "";
-        this.f60536f = false;
-        this.f60537g = false;
-        this.f60538h = false;
+        this.f58884b = "";
+        this.f58885c = "";
+        this.f58886f = false;
+        this.f58887g = false;
+        this.f58888h = false;
         String str3 = null;
         this.f16a = null;
         this.f18a = null;
@@ -90,11 +90,11 @@ public class c {
         this.f17a = null;
         this.mContext = null;
         this.f19a = null;
-        this.f60539i = false;
-        this.f60536f = z;
-        this.f60539i = z2;
-        this.f60534b = str2;
-        this.f60535c = str;
+        this.f58889i = false;
+        this.f58886f = z;
+        this.f58889i = z2;
+        this.f58884b = str2;
+        this.f58885c = str;
         this.mContext = context;
         if (context != null) {
             SharedPreferences sharedPreferences2 = context.getSharedPreferences(str2, 0);
@@ -109,20 +109,20 @@ public class c {
             e2.printStackTrace();
         }
         if (g.m123a(str3)) {
-            this.f60538h = false;
-            this.f60537g = false;
+            this.f58888h = false;
+            this.f58887g = false;
         } else if (str3.equals("mounted")) {
-            this.f60538h = true;
-            this.f60537g = true;
+            this.f58888h = true;
+            this.f58887g = true;
         } else if (str3.equals("mounted_ro")) {
-            this.f60537g = true;
-            this.f60538h = false;
+            this.f58887g = true;
+            this.f58888h = false;
         } else {
-            this.f60538h = false;
-            this.f60537g = false;
+            this.f58888h = false;
+            this.f58887g = false;
         }
         try {
-            if ((this.f60537g || this.f60538h) && context != null && !g.m123a(str)) {
+            if ((this.f58887g || this.f58888h) && context != null && !g.m123a(str)) {
                 d a = a(str);
                 this.f19a = a;
                 if (a != null) {
@@ -167,7 +167,7 @@ public class c {
                             }
                             if (j2 == j3 || (j2 == 0 && j3 == 0)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                z3 = this.f60539i;
+                                z3 = this.f58889i;
                                 if (z3 || (z3 && j2 == 0 && j3 == 0)) {
                                     sharedPreferences = this.f16a;
                                     if (sharedPreferences != null) {
@@ -194,7 +194,7 @@ public class c {
                     if (j2 == j3) {
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    z3 = this.f60539i;
+                    z3 = this.f58889i;
                     if (z3) {
                     }
                     sharedPreferences = this.f16a;
@@ -213,7 +213,7 @@ public class c {
         if (j2 == j3) {
         }
         long currentTimeMillis22 = System.currentTimeMillis();
-        z3 = this.f60539i;
+        z3 = this.f58889i;
         if (z3) {
         }
         sharedPreferences = this.f16a;
@@ -244,7 +244,7 @@ public class c {
             if (this.a == null && (sharedPreferences = this.f16a) != null) {
                 this.a = sharedPreferences.edit();
             }
-            if (this.f60538h && this.f17a == null && (bVar = this.f18a) != null) {
+            if (this.f58888h && this.f17a == null && (bVar = this.f18a) != null) {
                 this.f17a = bVar.a();
             }
             c();
@@ -293,24 +293,24 @@ public class c {
             long currentTimeMillis = System.currentTimeMillis();
             SharedPreferences.Editor editor = this.a;
             if (editor != null) {
-                if (!this.f60539i && this.f16a != null) {
+                if (!this.f58889i && this.f16a != null) {
                     editor.putLong("t", currentTimeMillis);
                 }
                 if (!this.a.commit()) {
                     z = false;
                     if (this.f16a != null && (context = this.mContext) != null) {
-                        this.f16a = context.getSharedPreferences(this.f60534b, 0);
+                        this.f16a = context.getSharedPreferences(this.f58884b, 0);
                     }
                     str = null;
                     str = Environment.getExternalStorageState();
                     if (!g.m123a(str)) {
                         if (str.equals("mounted")) {
                             if (this.f18a == null) {
-                                d a = a(this.f60535c);
+                                d a = a(this.f58885c);
                                 if (a != null) {
-                                    b a2 = a.a(this.f60534b, 0);
+                                    b a2 = a.a(this.f58884b, 0);
                                     this.f18a = a2;
-                                    if (!this.f60539i) {
+                                    if (!this.f58889i) {
                                         a(this.f16a, a2);
                                     } else {
                                         a(a2, this.f16a);
@@ -328,7 +328,7 @@ public class c {
                         if (!str.equals("mounted") || (str.equals("mounted_ro") && this.f18a != null)) {
                             try {
                                 if (this.f19a != null) {
-                                    this.f18a = this.f19a.a(this.f60534b, 0);
+                                    this.f18a = this.f19a.a(this.f58884b, 0);
                                 }
                             } catch (Exception unused2) {
                             }
@@ -339,7 +339,7 @@ public class c {
             }
             z = true;
             if (this.f16a != null) {
-                this.f16a = context.getSharedPreferences(this.f60534b, 0);
+                this.f16a = context.getSharedPreferences(this.f58884b, 0);
             }
             str = null;
             str = Environment.getExternalStorageState();

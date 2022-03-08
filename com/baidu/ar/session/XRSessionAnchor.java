@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
-import c.a.o0.a.a;
+import c.a.l0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.plugin.PluginManager;
 import com.baidu.searchbox.v8engine.NotProguard;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class XRSessionAnchor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XRSessionAnchor";

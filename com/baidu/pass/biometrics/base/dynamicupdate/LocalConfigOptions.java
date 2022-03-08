@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LocalConfigOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ILLUM_GRAY = -1;
     public static final int DEFAULT_ILLUM_VALUE = 8;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37725d = "pass_face_sdk";
+    public static final String f36128d = "pass_face_sdk";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37726e = "illum_gray";
+    public static final String f36129e = "illum_gray";
 
     /* renamed from: f  reason: collision with root package name */
-    public static LocalConfigOptions f37727f;
+    public static LocalConfigOptions f36130f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f37728b;
+    public SharedPreferences f36131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f37729c;
+    public Context f36132c;
 
     public LocalConfigOptions(Context context) {
         Interceptable interceptable = $ic;
@@ -55,24 +55,24 @@ public class LocalConfigOptions {
                 return;
             }
         }
-        this.f37729c = context.getApplicationContext();
-        this.f37728b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
+        this.f36132c = context.getApplicationContext();
+        this.f36131b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f37728b.getString(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f36131b.getString(str, "") : (String) invokeL.objValue;
     }
 
     public static LocalConfigOptions getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f37727f == null) {
-                f37727f = new LocalConfigOptions(context);
+            if (f36130f == null) {
+                f36130f = new LocalConfigOptions(context);
             }
-            return f37727f;
+            return f36130f;
         }
         return (LocalConfigOptions) invokeL.objValue;
     }
@@ -81,9 +81,9 @@ public class LocalConfigOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = a(f37725d);
+            String a = a(f36128d);
             if (!TextUtils.isEmpty(a)) {
-                String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a, a(this.f37729c));
+                String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a, a(this.f36132c));
                 if (!TextUtils.isEmpty(decryptAccountInfo)) {
                     try {
                         return SdkConfigOptions.fromLocalJson(new JSONObject(decryptAccountInfo));
@@ -100,19 +100,19 @@ public class LocalConfigOptions {
     public int getIllumVlaueGray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getInt(f37726e, -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getInt(f36129e, -1) : invokeV.intValue;
     }
 
     public int getInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.f37728b.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.f36131b.getInt(str, i2) : invokeLI.intValue;
     }
 
     public void put(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            this.f37728b.edit().putInt(str, i2).apply();
+            this.f36131b.edit().putInt(str, i2).apply();
         }
     }
 
@@ -122,20 +122,20 @@ public class LocalConfigOptions {
             return;
         }
         Log.e("actions-setBioOptions", sdkConfigOptions);
-        a(f37725d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f37729c)));
+        a(f36128d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f36132c)));
     }
 
     public void setIllumValueGray(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            put(f37726e, i2);
+            put(f36129e, i2);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
-            this.f37728b.edit().putString(str, str2).apply();
+            this.f36131b.edit().putString(str, str2).apply();
         }
     }
 

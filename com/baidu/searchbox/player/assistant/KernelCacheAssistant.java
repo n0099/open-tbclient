@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class KernelCacheAssistant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_REUSE_KERNEL_ID = "videoPlayerReuseID";
@@ -20,13 +20,13 @@ public class KernelCacheAssistant {
     public final HashMap<String, BaseKernelLayer> mKernelCache;
 
     /* renamed from: com.baidu.searchbox.player.assistant.KernelCacheAssistant$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final KernelCacheAssistant mInstance;

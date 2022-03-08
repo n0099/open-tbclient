@@ -1,4 +1,4 @@
 package com.baidu.android.imsdk.utils;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface NoProGuard {
 }

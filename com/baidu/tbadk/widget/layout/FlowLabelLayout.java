@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.n;
-import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlowLabelLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41579e;
+    public int f39985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41580f;
+    public int f39986f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLabelLayout(Context context) {
@@ -42,20 +42,20 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41579e = n.f(TbadkCoreApplication.getInst(), e.M_W_X008);
-        this.f41580f = n.f(TbadkCoreApplication.getInst(), e.M_H_X002);
+        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41580f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39986f : invokeV.intValue;
     }
 
     public int getVerticalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41579e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39985e : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -72,12 +72,12 @@ public class FlowLabelLayout extends ViewGroup {
                 View childAt = getChildAt(i8);
                 if (childAt.getVisibility() != 8) {
                     if (childAt.getMeasuredWidth() + i7 + paddingRight > i6) {
-                        paddingTop += childAt.getMeasuredHeight() + this.f41579e;
+                        paddingTop += childAt.getMeasuredHeight() + this.f39985e;
                         i7 = paddingLeft;
                     }
                     if (childAt.getVisibility() != 8) {
                         childAt.layout(i7, paddingTop, childAt.getMeasuredWidth() + i7, childAt.getMeasuredHeight() + paddingTop);
-                        i7 += childAt.getMeasuredWidth() + this.f41580f;
+                        i7 += childAt.getMeasuredWidth() + this.f39986f;
                     }
                 }
             }
@@ -101,10 +101,10 @@ public class FlowLabelLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 i5 = Math.max(childAt.getMeasuredHeight() + paddingTop, i5);
                 if (childAt.getMeasuredWidth() + i4 + paddingRight > size) {
-                    i5 += childAt.getMeasuredHeight() + this.f41579e;
+                    i5 += childAt.getMeasuredHeight() + this.f39985e;
                     i4 = paddingLeft;
                 }
-                i4 += childAt.getMeasuredWidth() + this.f41580f;
+                i4 += childAt.getMeasuredWidth() + this.f39986f;
             }
             setMeasuredDimension(size, i5 + paddingBottom);
         }
@@ -113,14 +113,14 @@ public class FlowLabelLayout extends ViewGroup {
     public void setHorizontalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f41580f = i2;
+            this.f39986f = i2;
         }
     }
 
     public void setVerticalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f41579e = i2;
+            this.f39985e = i2;
         }
     }
 
@@ -143,8 +143,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41579e = n.f(TbadkCoreApplication.getInst(), e.M_W_X008);
-        this.f41580f = n.f(TbadkCoreApplication.getInst(), e.M_H_X002);
+        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,7 +166,7 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41579e = n.f(TbadkCoreApplication.getInst(), e.M_W_X008);
-        this.f41580f = n.f(TbadkCoreApplication.getInst(), e.M_H_X002);
+        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 }

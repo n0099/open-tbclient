@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RotateProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_RESOLUTION = 200;

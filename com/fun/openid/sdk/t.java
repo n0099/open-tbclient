@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface t extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements t {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C2077a implements t {
+        /* loaded from: classes7.dex */
+        public static class C2056a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2077a(IBinder iBinder) {
+            public C2056a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,10 +90,10 @@ public class MyActivity extends Activity {
                         public final /* synthetic */ Intent a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f38573b;
+                        public final /* synthetic */ WeakReference f36977b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f38574c;
+                        public final /* synthetic */ Context f36978c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -111,8 +111,8 @@ public class MyActivity extends Activity {
                                 }
                             }
                             this.a = intent;
-                            this.f38573b = weakReference;
-                            this.f38574c = applicationContext;
+                            this.f36977b = weakReference;
+                            this.f36978c = applicationContext;
                         }
 
                         @Override // java.lang.Runnable
@@ -124,12 +124,12 @@ public class MyActivity extends Activity {
                                     Intent intent3 = new Intent();
                                     intent3.putExtra("t", "a");
                                     intent3.putExtra("c", stringExtra);
-                                    String a = MyActivity.a((Activity) this.f38573b.get());
+                                    String a = MyActivity.a((Activity) this.f36977b.get());
                                     if (a == null) {
                                         a = "";
                                     }
                                     intent3.putExtra("source", a);
-                                    a.a(this.f38574c.getApplicationContext(), intent3);
+                                    a.a(this.f36978c.getApplicationContext(), intent3);
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.utility.c.a();
                                 }

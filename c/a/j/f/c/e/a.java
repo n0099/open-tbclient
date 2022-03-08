@@ -16,19 +16,19 @@ public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final C0178a f4027e;
+    public static final C0160a f3644e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f4028d;
+    public final String f3645d;
 
     /* renamed from: c.a.j.f.c.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0178a {
+    public static final class C0160a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0178a() {
+        public C0160a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public final class a extends d {
             return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i2)) == null) ? new a(taskInfo, null, i2, null, null, 26, null) : (a) invokeLI.objValue;
         }
 
-        public /* synthetic */ C0178a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0160a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -66,7 +66,7 @@ public final class a extends d {
                 return;
             }
         }
-        f4027e = new C0178a(null);
+        f3644e = new C0160a(null);
     }
 
     public /* synthetic */ a(TaskInfo taskInfo, String str, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
@@ -84,7 +84,7 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4028d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3645d : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,6 +106,6 @@ public final class a extends d {
                 return;
             }
         }
-        this.f4028d = str;
+        this.f3645d = str;
     }
 }

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class MPDParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class MPDInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

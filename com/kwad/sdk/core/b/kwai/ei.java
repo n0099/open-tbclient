@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.jshandler.u;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ei implements com.kwad.sdk.core.d<u.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,7 +11,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
             return;
         }
         aVar.a = jSONObject.optInt("timerName");
-        aVar.f56667b = jSONObject.optInt("time");
+        aVar.f55017b = jSONObject.optInt("time");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "timerName", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f56667b);
+        com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f55017b);
         return jSONObject;
     }
 }

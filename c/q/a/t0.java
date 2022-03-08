@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class t0 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30683e;
+    public Context f29122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30684f;
+    public boolean f29123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BlockingQueue f30685g;
+    public final BlockingQueue f29124g;
 
     public t0(Context context) {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class t0 implements ServiceConnection {
                 return;
             }
         }
-        this.f30684f = false;
-        this.f30685g = new LinkedBlockingQueue();
-        this.f30683e = context;
+        this.f29123f = false;
+        this.f29124g = new LinkedBlockingQueue();
+        this.f29122e = context;
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f30684f) {
+            if (this.f29123f) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder iBinder = (IBinder) this.f30685g.take();
+            IBinder iBinder = (IBinder) this.f29124g.take();
             if (iBinder != null) {
-                this.f30684f = true;
+                this.f29123f = true;
             }
             return iBinder;
         }
@@ -69,12 +69,12 @@ public class t0 implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
             try {
-                this.f30685g.put(iBinder);
+                this.f29124g.put(iBinder);
                 String a = ((com.win.opensdk.a) com.win.opensdk.b.a(iBinder)).a();
                 if (TextUtils.isEmpty(a)) {
                     return;
                 }
-                m2.x(this.f30683e, a);
+                h2.x(this.f29122e, a);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             } catch (InterruptedException e3) {

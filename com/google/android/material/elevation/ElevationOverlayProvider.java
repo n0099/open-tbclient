@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ElevationOverlayProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FORMULA_MULTIPLIER = 4.5f;
@@ -44,8 +44,8 @@ public class ElevationOverlayProvider {
             }
         }
         this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.elevationOverlayEnabled, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, R.attr.elevationOverlayColor, 0);
-        this.colorSurface = MaterialColors.getColor(context, R.attr.colorSurface, 0);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.elevationOverlayColor, 0);
+        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.colorSurface, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }
 

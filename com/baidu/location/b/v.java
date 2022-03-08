@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f35284b;
+    public ExecutorService f33687b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static v a;
@@ -96,11 +96,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f35284b == null || this.f35284b.isShutdown()) {
-                    this.f35284b = null;
-                    this.f35284b = Executors.newFixedThreadPool(2);
+                if (this.f33687b == null || this.f33687b.isShutdown()) {
+                    this.f33687b = null;
+                    this.f33687b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f35284b;
+                executorService = this.f33687b;
             }
             return executorService;
         }
@@ -114,7 +114,7 @@ public class v {
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f35284b;
+            ExecutorService executorService2 = this.f33687b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

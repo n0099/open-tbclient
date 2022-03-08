@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.m.b;
-import c.a.t0.x0.a;
-import c.a.u0.h2.c.k.f;
+import c.a.q0.w0.a;
+import c.a.r0.h2.c.k.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,26 +18,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f46069b;
+    public BaseFragmentActivity f44477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbImageView f46070c;
+    public TbImageView f44478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f46071d;
+    public TextView f44479d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46072e;
+    public TextView f44480e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f46073f;
+    public TbImageView f44481f;
     public TbImageView mNewIcon;
     public ImageView mRedDotIcon;
 
@@ -60,11 +60,11 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f46069b = baseFragmentActivity;
-        this.f46070c = (TbImageView) view.findViewById(R.id.privilege_icon);
-        this.f46071d = (TextView) this.a.findViewById(R.id.privilege_name);
-        this.f46072e = (TextView) this.a.findViewById(R.id.privilege_desc);
-        this.f46073f = (TbImageView) this.a.findViewById(R.id.privilege_spread_icon);
+        this.f44477b = baseFragmentActivity;
+        this.f44478c = (TbImageView) view.findViewById(R.id.privilege_icon);
+        this.f44479d = (TextView) this.a.findViewById(R.id.privilege_name);
+        this.f44480e = (TextView) this.a.findViewById(R.id.privilege_desc);
+        this.f44481f = (TbImageView) this.a.findViewById(R.id.privilege_spread_icon);
         this.mNewIcon = (TbImageView) this.a.findViewById(R.id.privilege_new_icon);
         this.mRedDotIcon = (ImageView) this.a.findViewById(R.id.privilege_red_dot);
     }
@@ -72,7 +72,7 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f46069b.getPageContext(), this.a);
+            a.a(this.f44477b.getPageContext(), this.a);
             this.mNewIcon.setImageResource(R.drawable.icon_new_privilege);
         }
     }
@@ -82,29 +82,29 @@ public class CooperatePrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.f46070c.setIsRound(false);
+        this.f44478c.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f46070c.setDefaultBgResource(R.color.img_bg_color);
+            this.f44478c.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f46070c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f44478c.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f46070c.startLoad(fVar.c(), 10, false);
-        this.f46071d.setText(fVar.g());
+        this.f44478c.startLoad(fVar.c(), 10, false);
+        this.f44479d.setText(fVar.g());
         if (!TbadkCoreApplication.isLogin()) {
-            this.f46073f.setVisibility(4);
+            this.f44481f.setVisibility(4);
         } else {
-            this.f46073f.setVisibility(0);
-            this.f46072e.setText(fVar.a());
+            this.f44481f.setVisibility(0);
+            this.f44480e.setText(fVar.a());
         }
         if (StringUtils.isNull(fVar.e())) {
-            this.f46073f.setVisibility(4);
+            this.f44481f.setVisibility(4);
         } else {
-            this.f46073f.setVisibility(0);
+            this.f44481f.setVisibility(0);
         }
         this.mNewIcon.setAutoChangeStyle(false);
         if (TbadkCoreApplication.isLogin() && fVar.d() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b.g(fVar.h(), 0L) > b.g(c.a.t0.s.j0.b.k().q("member_center_item_red_tip_" + fVar.d() + currentAccount, "0"), 0L)) {
+            if (b.g(fVar.h(), 0L) > b.g(c.a.q0.r.j0.b.k().q("member_center_item_red_tip_" + fVar.d() + currentAccount, "0"), 0L)) {
                 if (fVar.i() == 1) {
                     this.mNewIcon.setVisibility(8);
                     this.mRedDotIcon.setVisibility(0);

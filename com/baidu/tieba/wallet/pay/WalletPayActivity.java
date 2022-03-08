@@ -17,9 +17,9 @@ import c.a.d.c.g.a;
 import c.a.d.f.m.e;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.s.j0.b;
-import c.a.t0.s.t.a;
-import c.a.t0.w.c;
+import c.a.q0.r.j0.b;
+import c.a.q0.r.t.a;
+import c.a.q0.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -70,7 +70,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
 import tbclient.GetOrder.NotifyPopup;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAY_STATUS_FAIL = 1;
@@ -794,23 +794,23 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             }
             TextView textView = this.mTitleView;
             if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
             }
             TextView textView2 = this.mVersionView;
             if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0105);
             }
             TextView textView3 = this.mUpdateTipView;
             if (textView3 != null) {
-                SkinManager.setViewTextColor(textView3, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0105);
             }
             TextView textView4 = this.mDescView;
             if (textView4 != null) {
-                SkinManager.setViewTextColor(textView4, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0105);
             }
             TextView textView5 = this.mOtherApkView;
             if (textView5 != null) {
-                SkinManager.setViewTextColor(textView5, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0108);
             }
         }
     }
@@ -908,7 +908,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     public void overridePendingTransition(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            super.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            super.overridePendingTransition(R.anim.wallet_fade_in, R.anim.wallet_fade_out);
         }
     }
 
@@ -987,7 +987,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         } else {
             str2 = notifyPopup.y_btn_text;
         }
-        c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(getActivity());
+        c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getActivity());
         aVar.setContentViewSize(1);
         aVar.setCanceledOnTouchOutside(false);
         aVar.setContentView(this.mDialogRootView);
@@ -1052,8 +1052,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.this$0 = this;
             }
 
-            @Override // c.a.t0.s.t.a.e
-            public void onClick(c.a.t0.s.t.a aVar2) {
+            @Override // c.a.q0.r.t.a.e
+            public void onClick(c.a.q0.r.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     aVar2.dismiss();
@@ -1086,8 +1086,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.val$data = notifyPopup;
             }
 
-            @Override // c.a.t0.s.t.a.e
-            public void onClick(c.a.t0.s.t.a aVar2) {
+            @Override // c.a.q0.r.t.a.e
+            public void onClick(c.a.q0.r.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     if (!m.isEmpty(this.val$data.y_btn_link)) {
@@ -1105,11 +1105,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         aVar.show();
     }
 
-    public c.a.t0.s.t.a showPaySuccessDialog() {
+    public c.a.q0.r.t.a showPaySuccessDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(getPageContext().getPageActivity());
+            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getPageContext().getPageActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.6
                 public static /* synthetic */ Interceptable $ic;
@@ -1184,7 +1184,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             aVar.show();
             return aVar;
         }
-        return (c.a.t0.s.t.a) invokeV.objValue;
+        return (c.a.q0.r.t.a) invokeV.objValue;
     }
 
     public void showResult(Boolean bool) {
@@ -1224,7 +1224,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, notifyPopup) == null) || notifyPopup == null) {
             return;
         }
-        c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(getActivity());
+        c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getActivity());
         aVar.setMessage(notifyPopup.hint);
         aVar.setCanceledOnTouchOutside(false);
         if (StringUtils.isNull(notifyPopup.n_btn_text)) {
@@ -1260,8 +1260,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.this$0 = this;
             }
 
-            @Override // c.a.t0.s.t.a.e
-            public void onClick(c.a.t0.s.t.a aVar2) {
+            @Override // c.a.q0.r.t.a.e
+            public void onClick(c.a.q0.r.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     aVar2.dismiss();
@@ -1294,8 +1294,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.val$data = notifyPopup;
             }
 
-            @Override // c.a.t0.s.t.a.e
-            public void onClick(c.a.t0.s.t.a aVar2) {
+            @Override // c.a.q0.r.t.a.e
+            public void onClick(c.a.q0.r.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     if (!m.isEmpty(this.val$data.y_btn_link)) {

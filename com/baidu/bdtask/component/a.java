@@ -29,18 +29,18 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000 \u0015:\u0001\u0015B\t\b\u0002¢\u0006\u0004\b\u0013\u0010\u0014J'\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\b\u0010\tJ9\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u00052\n\b\u0002\u0010\u000e\u001a\u0004\u0018\u00010\r¢\u0006\u0004\b\u000f\u0010\u0010J3\u0010\u0011\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u00052\n\b\u0002\u0010\u000e\u001a\u0004\u0018\u00010\rH\u0002¢\u0006\u0004\b\u0011\u0010\u0012¨\u0006\u0016"}, d2 = {"Lcom/baidu/bdtask/component/GuideViewManager;", "Lcom/baidu/bdtask/model/ui/TaskUIData;", "data", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "", "showDialog", "(Lcom/baidu/bdtask/model/ui/TaskUIData;Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)V", "", TaskResponseData.keyUiType, "uiData", "Lcom/baidu/bdtask/framework/ui/toast/ToastLayoutParams;", "toastLayoutParams", "showGuide", "(ILcom/baidu/bdtask/model/ui/TaskUIData;Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;Lcom/baidu/bdtask/framework/ui/toast/ToastLayoutParams;)V", "showToast", "(Lcom/baidu/bdtask/model/ui/TaskUIData;Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;Lcom/baidu/bdtask/framework/ui/toast/ToastLayoutParams;)V", "<init>", "()V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final C1785a f33167b;
+    public static final C1761a f31570b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.bdtask.component.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C1785a {
+    /* loaded from: classes3.dex */
+    public static final class C1761a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ KProperty[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public final class a {
                     return;
                 }
             }
-            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C1785a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
+            a = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(C1761a.class), "INSTANCE", "getINSTANCE()Lcom/baidu/bdtask/component/GuideViewManager;"))};
         }
 
-        public C1785a() {
+        public C1761a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public final class a {
             return (a) invokeV.objValue;
         }
 
-        public /* synthetic */ C1785a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1761a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -104,7 +104,7 @@ public final class a {
                 return;
             }
         }
-        f33167b = new C1785a(null);
+        f31570b = new C1761a(null);
         a = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) GuideViewManager$Companion$INSTANCE$2.INSTANCE);
     }
 
@@ -154,7 +154,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskUIData, taskInfo, taskStatus) == null) {
             com.baidu.bdtask.utils.b bVar = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.a a2 = c.a.j.h.b.b.f4057c.e().a();
+            c.a.j.h.b.i.a a2 = c.a.j.h.b.b.f3674c.e().a();
             c.a.j.h.c.b.a<?> aVar = null;
             Class<? extends b<? extends c.a.j.h.c.b.a<?>>> a3 = a2 != null ? a2.a() : null;
             if (a3 != null) {
@@ -166,7 +166,7 @@ public final class a {
             newInstance = null;
             b<? extends c.a.j.h.c.b.a<?>> bVar2 = newInstance;
             com.baidu.bdtask.utils.b bVar3 = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.a a4 = c.a.j.h.b.b.f4057c.e().a();
+            c.a.j.h.b.i.a a4 = c.a.j.h.b.b.f3674c.e().a();
             Class<? extends c.a.j.h.c.b.a<?>> b2 = a4 != null ? a4.b() : null;
             if (b2 != null) {
                 try {
@@ -198,7 +198,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, taskUIData, taskInfo, taskStatus, cVar) == null) {
             com.baidu.bdtask.utils.b bVar = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.b b2 = c.a.j.h.b.b.f4057c.e().b();
+            c.a.j.h.b.i.b b2 = c.a.j.h.b.b.f3674c.e().b();
             c.a.j.h.c.d.a<?> aVar = null;
             Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> b3 = b2 != null ? b2.b() : null;
             if (b3 != null) {
@@ -210,7 +210,7 @@ public final class a {
             newInstance = null;
             c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>> bVar2 = newInstance;
             com.baidu.bdtask.utils.b bVar3 = com.baidu.bdtask.utils.b.a;
-            c.a.j.h.b.i.b b4 = c.a.j.h.b.b.f4057c.e().b();
+            c.a.j.h.b.i.b b4 = c.a.j.h.b.b.f3674c.e().b();
             Class<? extends c.a.j.h.c.d.a<?>> c2 = b4 != null ? b4.c() : null;
             if (c2 != null) {
                 try {
@@ -225,7 +225,7 @@ public final class a {
             if (bVar2 == null || aVar2 == null) {
                 return;
             }
-            c.a.j.h.b.i.b b5 = c.a.j.h.b.b.f4057c.e().b();
+            c.a.j.h.b.i.b b5 = c.a.j.h.b.b.f3674c.e().b();
             c.a.j.m.c.h(b5 != null ? b5.a() : false);
             TaskUIBtn backBtn = taskUIData.getBackBtn();
             new c.a.j.e.d.b(bVar2, aVar2, new TaskToastViewData(taskInfo, taskStatus, backBtn.isEmpty() ? 1 : 2, taskUIData.getBackColor(), taskUIData.getBgUrl(), taskUIData.getMessage(), taskUIData.getDuration(), taskUIData.getTxtColor(), backBtn.getColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getTxtColor(), backBtn.getScheme(), cVar)).a();

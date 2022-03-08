@@ -1,19 +1,45 @@
 package c.a.b1;
 
-import android.util.Pair;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
+import com.baidu.yalog.LoggerManager;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static b f2285b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) || b.c().g() == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1334311508, "Lc/a/b1/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1334311508, "Lc/a/b1/a;");
+                return;
+            }
         }
-        b.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
+        f2285b = new b();
+    }
+
+    public static LoggerManager.c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = f2285b.a();
+            }
+            return a;
+        }
+        return (LoggerManager.c) invokeV.objValue;
     }
 }

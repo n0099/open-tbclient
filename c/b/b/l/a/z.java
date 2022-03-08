@@ -18,7 +18,6 @@ import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Input;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +25,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class z extends c.b.b.b implements m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class z extends c.b.b.b implements m {
     public boolean T;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.b.b.q.z<d> f27302j;
+    public c.b.b.q.z<d> f27206j;
     public c.b.b.q.z<f> k;
     public ArrayList<View.OnKeyListener> l;
     public ArrayList<d> m;
@@ -74,7 +74,7 @@ public class z extends c.b.b.b implements m {
     public boolean y;
     public final float[] z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends c.b.b.q.z<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class z extends c.b.b.b implements m {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b extends c.b.b.q.z<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class z extends c.b.b.b implements m {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -190,20 +190,20 @@ public class z extends c.b.b.b implements m {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27303b;
+        public int f27207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27304c;
+        public int f27208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public char f27305d;
+        public char f27209d;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -220,13 +220,13 @@ public class z extends c.b.b.b implements m {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class e implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ z f27306e;
+        public final /* synthetic */ z f27210e;
 
         public e(z zVar) {
             Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public class z extends c.b.b.b implements m {
                     return;
                 }
             }
-            this.f27306e = zVar;
+            this.f27210e = zVar;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -258,7 +258,7 @@ public class z extends c.b.b.b implements m {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
                 if (sensorEvent.sensor.getType() == 1) {
-                    z zVar = this.f27306e;
+                    z zVar = this.f27210e;
                     if (zVar.M == Input.Orientation.Portrait) {
                         float[] fArr = sensorEvent.values;
                         float[] fArr2 = zVar.z;
@@ -273,11 +273,11 @@ public class z extends c.b.b.b implements m {
                 }
                 if (sensorEvent.sensor.getType() == 2) {
                     float[] fArr5 = sensorEvent.values;
-                    float[] fArr6 = this.f27306e.H;
+                    float[] fArr6 = this.f27210e.H;
                     System.arraycopy(fArr5, 0, fArr6, 0, fArr6.length);
                 }
                 if (sensorEvent.sensor.getType() == 4) {
-                    z zVar2 = this.f27306e;
+                    z zVar2 = this.f27210e;
                     if (zVar2.M == Input.Orientation.Portrait) {
                         float[] fArr7 = sensorEvent.values;
                         float[] fArr8 = zVar2.A;
@@ -291,7 +291,7 @@ public class z extends c.b.b.b implements m {
                     }
                 }
                 if (sensorEvent.sensor.getType() == 11) {
-                    z zVar3 = this.f27306e;
+                    z zVar3 = this.f27210e;
                     if (zVar3.M == Input.Orientation.Portrait) {
                         float[] fArr11 = sensorEvent.values;
                         float[] fArr12 = zVar3.I;
@@ -308,32 +308,32 @@ public class z extends c.b.b.b implements m {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27307b;
+        public int f27211b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27308c;
+        public int f27212c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27309d;
+        public int f27213d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f27310e;
+        public int f27214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f27311f;
+        public int f27215f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f27312g;
+        public int f27216g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f27313h;
+        public int f27217h;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -365,7 +365,7 @@ public class z extends c.b.b.b implements m {
                 return;
             }
         }
-        this.f27302j = new a(this, 16, 1000);
+        this.f27206j = new a(this, 16, 1000);
         this.k = new b(this, 16, 1000);
         this.l = new ArrayList<>();
         this.m = new ArrayList<>();
@@ -420,7 +420,7 @@ public class z extends c.b.b.b implements m {
         Vibrator vibrator = (Vibrator) context.getSystemService("vibrator");
         int f2 = f();
         Graphics.a f3 = this.B.getGraphics().f();
-        if (((f2 != 0 && f2 != 180) || f3.a < f3.f31274b) && ((f2 != 90 && f2 != 270) || f3.a > f3.f31274b)) {
+        if (((f2 != 0 && f2 != 180) || f3.a < f3.f29678b) && ((f2 != 90 && f2 != 270) || f3.a > f3.f29678b)) {
             this.M = Input.Orientation.Portrait;
         } else {
             this.M = Input.Orientation.Landscape;
@@ -436,7 +436,13 @@ public class z extends c.b.b.b implements m {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
-                        return i2 != 4 ? i2 != 5 ? 144 : 17 : SplashNativePolicy.SPLASH_CMD_SHOW_PLG;
+                        if (i2 != 4) {
+                            if (i2 != 5) {
+                                return Cea708Decoder.COMMAND_SPA;
+                            }
+                            return 17;
+                        }
+                        return 129;
                     }
                     return 33;
                 }
@@ -541,7 +547,7 @@ public class z extends c.b.b.b implements m {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.L.f27252h) {
+            if (this.L.f27156h) {
                 SensorManager sensorManager = (SensorManager) this.C.getSystemService("sensor");
                 this.x = sensorManager;
                 if (sensorManager.getSensorList(1).isEmpty()) {
@@ -554,7 +560,7 @@ public class z extends c.b.b.b implements m {
             } else {
                 this.y = false;
             }
-            if (this.L.f27253i) {
+            if (this.L.f27157i) {
                 SensorManager sensorManager2 = (SensorManager) this.C.getSystemService("sensor");
                 this.x = sensorManager2;
                 if (!sensorManager2.getSensorList(4).isEmpty()) {
@@ -587,7 +593,7 @@ public class z extends c.b.b.b implements m {
                     }
                 }
             }
-            if (this.L.f27254j && !this.G) {
+            if (this.L.f27158j && !this.G) {
                 if (this.x == null) {
                     this.x = (SensorManager) this.C.getSystemService("sensor");
                 }
@@ -643,10 +649,10 @@ public class z extends c.b.b.b implements m {
                         this.w[i2] = false;
                     }
                 }
-                if (this.f27169i) {
-                    this.f27169i = false;
-                    for (int i3 = 0; i3 < this.f27166f.length; i3++) {
-                        this.f27166f[i3] = false;
+                if (this.f27073i) {
+                    this.f27073i = false;
+                    for (int i3 = 0; i3 < this.f27070f.length; i3++) {
+                        this.f27070f[i3] = false;
                     }
                 }
                 if (this.K != null) {
@@ -655,35 +661,35 @@ public class z extends c.b.b.b implements m {
                     for (int i4 = 0; i4 < size; i4++) {
                         d dVar = this.m.get(i4);
                         long j2 = dVar.a;
-                        int i5 = dVar.f27303b;
+                        int i5 = dVar.f27207b;
                         if (i5 == 0) {
-                            gVar.g(dVar.f27304c);
-                            this.f27169i = true;
-                            this.f27166f[dVar.f27304c] = true;
+                            gVar.g(dVar.f27208c);
+                            this.f27073i = true;
+                            this.f27070f[dVar.f27208c] = true;
                         } else if (i5 == 1) {
-                            gVar.f(dVar.f27304c);
+                            gVar.f(dVar.f27208c);
                         } else if (i5 == 2) {
-                            gVar.h(dVar.f27305d);
+                            gVar.h(dVar.f27209d);
                         }
-                        this.f27302j.c(dVar);
+                        this.f27206j.c(dVar);
                     }
                     int size2 = this.n.size();
                     for (int i6 = 0; i6 < size2; i6++) {
                         f fVar = this.n.get(i6);
                         long j3 = fVar.a;
-                        int i7 = fVar.f27307b;
+                        int i7 = fVar.f27211b;
                         if (i7 == 0) {
-                            gVar.b(fVar.f27308c, fVar.f27309d, fVar.f27313h, fVar.f27312g);
+                            gVar.b(fVar.f27212c, fVar.f27213d, fVar.f27217h, fVar.f27216g);
                             this.J = true;
-                            this.w[fVar.f27312g] = true;
+                            this.w[fVar.f27216g] = true;
                         } else if (i7 == 1) {
-                            gVar.a(fVar.f27308c, fVar.f27309d, fVar.f27313h, fVar.f27312g);
+                            gVar.a(fVar.f27212c, fVar.f27213d, fVar.f27217h, fVar.f27216g);
                         } else if (i7 == 2) {
-                            gVar.d(fVar.f27308c, fVar.f27309d, fVar.f27313h);
+                            gVar.d(fVar.f27212c, fVar.f27213d, fVar.f27217h);
                         } else if (i7 == 3) {
-                            gVar.c(fVar.f27310e, fVar.f27311f);
+                            gVar.c(fVar.f27214e, fVar.f27215f);
                         } else if (i7 == 4) {
-                            gVar.e(fVar.f27308c, fVar.f27309d);
+                            gVar.e(fVar.f27212c, fVar.f27213d);
                         }
                         this.k.c(fVar);
                     }
@@ -691,14 +697,14 @@ public class z extends c.b.b.b implements m {
                     int size3 = this.n.size();
                     for (int i8 = 0; i8 < size3; i8++) {
                         f fVar2 = this.n.get(i8);
-                        if (fVar2.f27307b == 0) {
+                        if (fVar2.f27211b == 0) {
                             this.J = true;
                         }
                         this.k.c(fVar2);
                     }
                     int size4 = this.m.size();
                     for (int i9 = 0; i9 < size4; i9++) {
-                        this.f27302j.c(this.m.get(i9));
+                        this.f27206j.c(this.m.get(i9));
                     }
                 }
                 if (this.n.isEmpty()) {
@@ -792,11 +798,11 @@ public class z extends c.b.b.b implements m {
                 if (keyEvent.getKeyCode() == 0 && keyEvent.getAction() == 2) {
                     String characters = keyEvent.getCharacters();
                     for (int i4 = 0; i4 < characters.length(); i4++) {
-                        d e2 = this.f27302j.e();
+                        d e2 = this.f27206j.e();
                         e2.a = System.nanoTime();
-                        e2.f27304c = 0;
-                        e2.f27305d = characters.charAt(i4);
-                        e2.f27303b = 2;
+                        e2.f27208c = 0;
+                        e2.f27209d = characters.charAt(i4);
+                        e2.f27207b = 2;
                         this.m.add(e2);
                     }
                     return false;
@@ -808,46 +814,46 @@ public class z extends c.b.b.b implements m {
                 if (keyEvent.getKeyCode() >= 0 && keyEvent.getKeyCode() <= 255) {
                     int action = keyEvent.getAction();
                     if (action == 0) {
-                        d e3 = this.f27302j.e();
+                        d e3 = this.f27206j.e();
                         e3.a = System.nanoTime();
-                        e3.f27305d = (char) 0;
-                        e3.f27304c = keyEvent.getKeyCode();
-                        e3.f27303b = 0;
+                        e3.f27209d = (char) 0;
+                        e3.f27208c = keyEvent.getKeyCode();
+                        e3.f27207b = 0;
                         if (i2 == 4 && keyEvent.isAltPressed()) {
-                            e3.f27304c = 255;
+                            e3.f27208c = 255;
                             i2 = 255;
                         }
                         this.m.add(e3);
-                        if (!this.f27165e[e3.f27304c]) {
-                            this.f27168h++;
-                            this.f27165e[e3.f27304c] = true;
+                        if (!this.f27069e[e3.f27208c]) {
+                            this.f27072h++;
+                            this.f27069e[e3.f27208c] = true;
                         }
                     } else if (action == 1) {
                         long nanoTime = System.nanoTime();
-                        d e4 = this.f27302j.e();
+                        d e4 = this.f27206j.e();
                         e4.a = nanoTime;
-                        e4.f27305d = (char) 0;
-                        e4.f27304c = keyEvent.getKeyCode();
-                        e4.f27303b = 1;
+                        e4.f27209d = (char) 0;
+                        e4.f27208c = keyEvent.getKeyCode();
+                        e4.f27207b = 1;
                         if (i2 == 4 && keyEvent.isAltPressed()) {
-                            e4.f27304c = 255;
+                            e4.f27208c = 255;
                             i2 = 255;
                         }
                         this.m.add(e4);
-                        d e5 = this.f27302j.e();
+                        d e5 = this.f27206j.e();
                         e5.a = nanoTime;
-                        e5.f27305d = unicodeChar;
-                        e5.f27304c = 0;
-                        e5.f27303b = 2;
+                        e5.f27209d = unicodeChar;
+                        e5.f27208c = 0;
+                        e5.f27207b = 2;
                         this.m.add(e5);
                         if (i2 == 255) {
-                            if (this.f27165e[255]) {
-                                this.f27168h--;
-                                this.f27165e[255] = false;
+                            if (this.f27069e[255]) {
+                                this.f27072h--;
+                                this.f27069e[255] = false;
                             }
-                        } else if (this.f27165e[keyEvent.getKeyCode()]) {
-                            this.f27168h--;
-                            this.f27165e[keyEvent.getKeyCode()] = false;
+                        } else if (this.f27069e[keyEvent.getKeyCode()]) {
+                            this.f27072h--;
+                            this.f27069e[keyEvent.getKeyCode()] = false;
                         }
                     }
                     this.B.getGraphics().c();

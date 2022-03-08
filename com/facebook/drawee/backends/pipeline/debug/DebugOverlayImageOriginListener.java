@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DebugOverlayImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

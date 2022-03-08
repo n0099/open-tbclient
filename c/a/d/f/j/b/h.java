@@ -16,28 +16,28 @@ public class h {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1997b;
+    public int f2623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1998c;
+    public int f2624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1999d;
+    public String f2625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2000e;
+    public String f2626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2001f;
+    public String f2627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, List<String>> f2002g;
+    public Map<String, List<String>> f2628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f2003h;
+    public byte[] f2629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2004i;
+    public int f2630i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public class h {
             }
         }
         this.a = false;
-        this.f1997b = -1;
-        this.f1998c = -1;
-        this.f1999d = "";
-        this.f2000e = "";
-        this.f2001f = "";
+        this.f2623b = -1;
+        this.f2624c = -1;
+        this.f2625d = "";
+        this.f2626e = "";
+        this.f2627f = "";
     }
 
     public void a(IHttpNet iHttpNet) throws Exception {
@@ -65,16 +65,16 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iHttpNet) == null) || iHttpNet == null) {
             return;
         }
-        this.f1997b = iHttpNet.getResponseCode();
-        this.f1999d = iHttpNet.getContentEncoding();
-        this.f2000e = iHttpNet.getContentType();
-        this.f2001f = iHttpNet.getContentLength() + "";
-        this.f2002g = iHttpNet.b();
+        this.f2623b = iHttpNet.getResponseCode();
+        this.f2625d = iHttpNet.getContentEncoding();
+        this.f2626e = iHttpNet.getContentType();
+        this.f2627f = iHttpNet.getContentLength() + "";
+        this.f2628g = iHttpNet.b();
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1997b == 200 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2623b == 200 : invokeV.booleanValue;
     }
 }

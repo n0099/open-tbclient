@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.d.f.p.n;
+import c.a.d.m.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GIF_HEIGHT = 828;
@@ -24,13 +25,13 @@ public class AiAppGuideActivity extends BaseActivity {
     public ImageView mImgClose;
     public View.OnClickListener mOnClickListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AiAppGuideActivity f42081e;
+        public final /* synthetic */ AiAppGuideActivity f40484e;
 
         public a(AiAppGuideActivity aiAppGuideActivity) {
             Interceptable interceptable = $ic;
@@ -47,14 +48,14 @@ public class AiAppGuideActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42081e = aiAppGuideActivity;
+            this.f40484e = aiAppGuideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42081e.closeActivity();
+                this.f40484e.closeActivity();
             }
         }
     }
@@ -95,7 +96,7 @@ public class AiAppGuideActivity extends BaseActivity {
             setContentView(R.layout.activity_aiapp_guide);
             GifView gifView = (GifView) findViewById(R.id.view_gif);
             this.mGifView = gifView;
-            gifView.setGifRaw(R.raw.aiapp_guide);
+            gifView.setGifFile(i.b("aiapp_guide.gif"));
             ImageView imageView = (ImageView) findViewById(R.id.img_close);
             this.mImgClose = imageView;
             imageView.setOnClickListener(this.mOnClickListener);

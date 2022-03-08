@@ -32,7 +32,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,7 +43,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public boolean mInvalidDirDeleted;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KEEP_ALIVE_TIME = 60000;
@@ -100,7 +100,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_GZIP_TMP = ".gz.tmp";
@@ -227,7 +227,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -389,7 +389,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a8, code lost:
         if (r6 == 2) goto L46;
      */
     @Nullable
@@ -785,7 +785,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return (ResponseEntity) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";

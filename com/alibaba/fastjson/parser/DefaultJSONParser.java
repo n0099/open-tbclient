@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class DefaultJSONParser implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE = 0;
@@ -80,7 +80,7 @@ public class DefaultJSONParser implements Closeable {
     public List<ResolveTask> resolveTaskList;
     public final SymbolTable symbolTable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class ResolveTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

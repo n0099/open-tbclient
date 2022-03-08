@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.u0.t1.w.b;
+import c.a.r0.s1.w.b;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.squareup.wire.Wire;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 import protobuf.CommitPersonalMsg.DataRes;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANT_CHAT = 2230303;

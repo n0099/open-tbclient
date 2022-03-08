@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.text.Normalizer;
@@ -14,7 +15,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CR = "\r";
@@ -111,7 +112,7 @@ public class StringUtils {
     public static String center(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) ? center(str, i2, ' ') : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) ? center(str, i2, (char) WebvttCueParser.CHAR_SPACE) : (String) invokeLI.objValue;
     }
 
     public static String chomp(String str) {
@@ -1032,7 +1033,7 @@ public class StringUtils {
     public static String leftPad(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65651, null, str, i2)) == null) ? leftPad(str, i2, ' ') : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65651, null, str, i2)) == null) ? leftPad(str, i2, (char) WebvttCueParser.CHAR_SPACE) : (String) invokeLI.objValue;
     }
 
     public static int length(CharSequence charSequence) {
@@ -1170,7 +1171,7 @@ public class StringUtils {
                 } else {
                     int i5 = i2 + 1;
                     if (charAt == 160) {
-                        charAt = ' ';
+                        charAt = WebvttCueParser.CHAR_SPACE;
                     }
                     cArr[i2] = charAt;
                     i2 = i5;
@@ -1458,7 +1459,7 @@ public class StringUtils {
     public static String rightPad(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65697, null, str, i2)) == null) ? rightPad(str, i2, ' ') : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65697, null, str, i2)) == null) ? rightPad(str, i2, (char) WebvttCueParser.CHAR_SPACE) : (String) invokeLI.objValue;
     }
 
     public static String rotate(String str, int i2) {

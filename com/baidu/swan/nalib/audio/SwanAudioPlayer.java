@@ -10,8 +10,8 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.o.a.b;
-import c.a.s0.o.a.c;
+import c.a.p0.o.a.b;
+import c.a.p0.o.a.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.webrtc.MediaStreamTrack;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAudioPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE_IN_FRAMES = 192;
@@ -54,7 +53,7 @@ public class SwanAudioPlayer {
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public class SwanAudioPlayer {
                     this.a.postRunnable(Long.parseLong(message.obj.toString()));
                 } else if (i2 != 101) {
                 } else {
-                    c.a.s0.o.a.a aVar = (c.a.s0.o.a.a) message.obj;
+                    c.a.p0.o.a.a aVar = (c.a.p0.o.a.a) message.obj;
                     if (this.a.mAudioRecordListener != null) {
                         this.a.mAudioRecordListener.a(aVar);
                     }
@@ -198,7 +197,7 @@ public class SwanAudioPlayer {
     public static final void settingNativeAudioParameters(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
             String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
             try {
@@ -232,10 +231,10 @@ public class SwanAudioPlayer {
         if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j2) == null) || bArr == null) {
             return;
         }
-        c.a.s0.o.a.a aVar = new c.a.s0.o.a.a();
+        c.a.p0.o.a.a aVar = new c.a.p0.o.a.a();
         aVar.a = bArr;
-        aVar.f11689b = j2;
-        aVar.f11690c = System.nanoTime();
+        aVar.f10914b = j2;
+        aVar.f10915c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 

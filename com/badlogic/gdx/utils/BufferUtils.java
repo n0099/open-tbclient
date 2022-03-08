@@ -14,13 +14,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class BufferUtils {
     public static /* synthetic */ Interceptable $ic;
     public static a<ByteBuffer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31365b;
+    public static int f29769b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class BufferUtils {
             }
         }
         a = new a<>();
-        f31365b = 0;
+        f29769b = 0;
     }
 
     public BufferUtils() {
@@ -76,7 +76,7 @@ public final class BufferUtils {
                     throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
                 }
             }
-            f31365b -= capacity;
+            f29769b -= capacity;
             freeMemory(byteBuffer);
         }
     }
@@ -129,7 +129,7 @@ public final class BufferUtils {
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) {
             ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i2);
             newDisposableByteBuffer.order(ByteOrder.nativeOrder());
-            f31365b += i2;
+            f29769b += i2;
             synchronized (a) {
                 a.a(newDisposableByteBuffer);
             }

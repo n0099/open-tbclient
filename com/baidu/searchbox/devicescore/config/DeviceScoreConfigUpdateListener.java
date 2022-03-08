@@ -24,7 +24,7 @@ import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = "device_score", module = "performance")
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

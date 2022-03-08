@@ -9,47 +9,47 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.l0.m;
-import c.a.d0.l0.n;
-import c.a.d0.v.v0.d;
-import c.a.d0.v.z.f;
+import c.a.b0.v.v0.d;
+import c.a.b0.v.z.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlDecoder;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u0010*\u001a\u00020)\u0012\n\b\u0002\u0010,\u001a\u0004\u0018\u00010+\u0012\b\b\u0002\u0010-\u001a\u00020\u0005¢\u0006\u0004\b.\u0010/J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\n\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\n\u0010\bJ\u0017\u0010\f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\f\u0010\bJ\u000f\u0010\r\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\r\u0010\u0004J\u000f\u0010\u000e\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000e\u0010\u0004J'\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u00052\u0006\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0012\u0010\u0013R\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0018\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u0016R$\u0010\u001c\u001a\u0004\u0018\u00010\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R$\u0010#\u001a\u0004\u0018\u00010\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(¨\u00060"}, d2 = {"Lcom/baidu/nadcore/player/widget/BdPlayerSeekBar;", "Landroid/widget/FrameLayout;", "", "inflate", "()V", "", "bufferingPos", "setBufferingPosition", "(I)V", "duration", "setDuration", "position", "setPosition", "switchToFull", "switchToHalf", "pos", "dur", "buffer", "syncPos", "(III)V", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "durationView", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "", "isSeeking", "Z", "progressView", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "seekBarListener", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "getSeekBarListener", "()Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "setSeekBarListener", "(Lcom/baidu/nadcore/player/callback/ISeekBarListener;)V", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "seekBarView", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "getSeekBarView", "()Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "setSeekBarView", "(Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "lib-widget_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u0010*\u001a\u00020)\u0012\n\b\u0002\u0010,\u001a\u0004\u0018\u00010+\u0012\b\b\u0002\u0010-\u001a\u00020\u0005¢\u0006\u0004\b.\u0010/J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\n\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\n\u0010\bJ\u0017\u0010\f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\f\u0010\bJ\u000f\u0010\r\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\r\u0010\u0004J\u000f\u0010\u000e\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000e\u0010\u0004J'\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u00052\u0006\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0012\u0010\u0013R\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0018\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u0016R$\u0010\u001c\u001a\u0004\u0018\u00010\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R$\u0010#\u001a\u0004\u0018\u00010\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(¨\u00060"}, d2 = {"Lcom/baidu/nadcore/player/widget/BdPlayerSeekBar;", "Landroid/widget/FrameLayout;", "", "inflate", "()V", "", "bufferingPos", "setBufferingPosition", "(I)V", "duration", "setDuration", "position", "setPosition", "switchToFull", "switchToHalf", "pos", TtmlDecoder.ATTR_DURATION, "buffer", "syncPos", "(III)V", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "durationView", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "", "isSeeking", "Z", "progressView", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "seekBarListener", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "getSeekBarListener", "()Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "setSeekBarListener", "(Lcom/baidu/nadcore/player/callback/ISeekBarListener;)V", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "seekBarView", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "getSeekBarView", "()Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "setSeekBarView", "(Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
 public class BdPlayerSeekBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdThumbSeekBarView f37339e;
+    public BdThumbSeekBarView f35742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdPlayerProgressView f37340f;
+    public BdPlayerProgressView f35743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdPlayerProgressView f37341g;
+    public BdPlayerProgressView f35744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f37342h;
+    public f f35745h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap f37343i;
+    public HashMap f35746i;
     @JvmField
     public boolean isSeeking;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements BdThumbSeekBarView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f37343i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f35746i) == null) {
             return;
         }
         hashMap.clear();
@@ -174,13 +174,13 @@ public class BdPlayerSeekBar extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f37343i == null) {
-                this.f37343i = new HashMap();
+            if (this.f35746i == null) {
+                this.f35746i = new HashMap();
             }
-            View view = (View) this.f37343i.get(Integer.valueOf(i2));
+            View view = (View) this.f35746i.get(Integer.valueOf(i2));
             if (view == null) {
                 View findViewById = findViewById(i2);
-                this.f37343i.put(Integer.valueOf(i2), findViewById);
+                this.f35746i.put(Integer.valueOf(i2), findViewById);
                 return findViewById;
             }
             return view;
@@ -191,11 +191,11 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(n.nad_bdvideoplayer_seek_bar_view, this);
-            this.f37340f = (BdPlayerProgressView) findViewById(m.nad_main_progress_text);
-            this.f37341g = (BdPlayerProgressView) findViewById(m.nad_main_duration_text);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(m.main_view_seekbar);
-            this.f37339e = bdThumbSeekBarView;
+            LayoutInflater.from(getContext()).inflate(R.layout.nad_bdvideoplayer_seek_bar_view, this);
+            this.f35743f = (BdPlayerProgressView) findViewById(R.id.nad_main_progress_text);
+            this.f35744g = (BdPlayerProgressView) findViewById(R.id.nad_main_duration_text);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.main_view_seekbar);
+            this.f35742e = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));
             }
@@ -205,19 +205,19 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final f getSeekBarListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37342h : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35745h : (f) invokeV.objValue;
     }
 
     public final BdThumbSeekBarView getSeekBarView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37339e : (BdThumbSeekBarView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35742e : (BdThumbSeekBarView) invokeV.objValue;
     }
 
     public void setBufferingPosition(int i2) {
         BdThumbSeekBarView bdThumbSeekBarView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (bdThumbSeekBarView = this.f37339e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (bdThumbSeekBarView = this.f35742e) == null) {
             return;
         }
         bdThumbSeekBarView.setBufferingProgress(i2);
@@ -227,17 +227,17 @@ public class BdPlayerSeekBar extends FrameLayout {
         BdPlayerProgressView bdPlayerProgressView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            BdThumbSeekBarView bdThumbSeekBarView = this.f37339e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f35742e;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setMax(i2);
             }
-            if (this.f37341g != null) {
+            if (this.f35744g != null) {
                 String b2 = d.b(i2, false);
                 if (b2 != null) {
                     if (!(!(b2.length() == 0))) {
                         b2 = null;
                     }
-                    if (b2 == null || (bdPlayerProgressView = this.f37341g) == null) {
+                    if (b2 == null || (bdPlayerProgressView = this.f35744g) == null) {
                         return;
                     }
                     bdPlayerProgressView.setPositionText(b2);
@@ -249,7 +249,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            BdThumbSeekBarView bdThumbSeekBarView = this.f37339e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f35742e;
             boolean z = false;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setProgress(i2);
@@ -258,7 +258,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                 }
             }
             String b2 = d.b(i2, z);
-            BdPlayerProgressView bdPlayerProgressView = this.f37340f;
+            BdPlayerProgressView bdPlayerProgressView = this.f35743f;
             if (bdPlayerProgressView != null) {
                 if (!(true ^ TextUtils.isEmpty(b2))) {
                     bdPlayerProgressView = null;
@@ -273,35 +273,35 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void setSeekBarListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f37342h = fVar;
+            this.f35745h = fVar;
         }
     }
 
     public final void setSeekBarView(BdThumbSeekBarView bdThumbSeekBarView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdThumbSeekBarView) == null) {
-            this.f37339e = bdThumbSeekBarView;
+            this.f35742e = bdThumbSeekBarView;
         }
     }
 
     public void switchToFull() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            BdPlayerProgressView bdPlayerProgressView = this.f37340f;
+            BdPlayerProgressView bdPlayerProgressView = this.f35743f;
             if (bdPlayerProgressView != null) {
                 bdPlayerProgressView.setTextSize(d.a(this, 12.0f));
             }
-            BdPlayerProgressView bdPlayerProgressView2 = this.f37341g;
+            BdPlayerProgressView bdPlayerProgressView2 = this.f35744g;
             if (bdPlayerProgressView2 != null) {
                 bdPlayerProgressView2.setTextSize(d.a(this, 12.0f));
             }
-            BdThumbSeekBarView bdThumbSeekBarView = this.f37339e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f35742e;
             ViewGroup.LayoutParams layoutParams = bdThumbSeekBarView != null ? bdThumbSeekBarView.getLayoutParams() : null;
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.leftMargin = d.a(this, 3.0f);
                 layoutParams2.rightMargin = d.a(this, 1.0f);
-                BdThumbSeekBarView bdThumbSeekBarView2 = this.f37339e;
+                BdThumbSeekBarView bdThumbSeekBarView2 = this.f35742e;
                 if (bdThumbSeekBarView2 != null) {
                     bdThumbSeekBarView2.setLayoutParams(layoutParams2);
                 }
@@ -312,21 +312,21 @@ public class BdPlayerSeekBar extends FrameLayout {
     public void switchToHalf() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BdPlayerProgressView bdPlayerProgressView = this.f37340f;
+            BdPlayerProgressView bdPlayerProgressView = this.f35743f;
             if (bdPlayerProgressView != null) {
                 bdPlayerProgressView.setTextSize(d.a(this, 10.0f));
             }
-            BdPlayerProgressView bdPlayerProgressView2 = this.f37341g;
+            BdPlayerProgressView bdPlayerProgressView2 = this.f35744g;
             if (bdPlayerProgressView2 != null) {
                 bdPlayerProgressView2.setTextSize(d.a(this, 10.0f));
             }
-            BdThumbSeekBarView bdThumbSeekBarView = this.f37339e;
+            BdThumbSeekBarView bdThumbSeekBarView = this.f35742e;
             ViewGroup.LayoutParams layoutParams = bdThumbSeekBarView != null ? bdThumbSeekBarView.getLayoutParams() : null;
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.leftMargin = d.a(this, 3.0f);
                 layoutParams2.rightMargin = d.a(this, 3.0f);
-                BdThumbSeekBarView bdThumbSeekBarView2 = this.f37339e;
+                BdThumbSeekBarView bdThumbSeekBarView2 = this.f35742e;
                 if (bdThumbSeekBarView2 != null) {
                     bdThumbSeekBarView2.setLayoutParams(layoutParams2);
                 }

@@ -1,5 +1,5 @@
 package com.baidu.ar.auth;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface IAuthCallback {
     void onError(String str, int i2);
 

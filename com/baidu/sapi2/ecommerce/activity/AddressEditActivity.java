@@ -50,7 +50,6 @@ import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.activity.BaseOptionActivity;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.MapStatusAndLocateCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
@@ -59,6 +58,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDRESS_4_ELEMENT = 15;
@@ -637,13 +637,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     str = this.editTagEt.getText().toString().trim();
                 } else {
                     int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
-                    if (checkedRadioButtonId == R.id.sapi_sdk_addr_tag_home_rb) {
-                        str = AddressField.VALUE_HOME_TAG;
-                    } else if (checkedRadioButtonId == R.id.sapi_sdk_addr_tag_company_rb) {
-                        str = AddressField.VALUE_COMPANY_TAG;
-                    } else {
-                        str = checkedRadioButtonId == R.id.sapi_sdk_addr_tag_school_rb ? AddressField.VALUE_SCHOOL_TAG : "";
-                    }
+                    str = checkedRadioButtonId == R.id.sapi_sdk_addr_tag_home_rb ? AddressField.VALUE_HOME_TAG : checkedRadioButtonId == R.id.sapi_sdk_addr_tag_company_rb ? AddressField.VALUE_COMPANY_TAG : checkedRadioButtonId == R.id.sapi_sdk_addr_tag_school_rb ? AddressField.VALUE_SCHOOL_TAG : "";
                 }
                 this.newMapObject.putValue("tag", str);
                 if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, this.oldAddressTagValue)) {
@@ -1327,7 +1321,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.context = this;
             permissionsDTO.isDarkMode = this.isDarkMode;
-            permissionsDTO.permissions = new String[]{s.f55458g};
+            permissionsDTO.permissions = new String[]{s.f53808g};
             permissionsDTO.dialogTitle = "定位权限";
             permissionsDTO.dialogMsg = "如你选择通过地图选择收货地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
             permissionsDTO.okBtnTxt = "去设置";

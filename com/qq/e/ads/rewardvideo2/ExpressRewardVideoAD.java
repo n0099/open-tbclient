@@ -22,24 +22,24 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59247g;
+    public boolean f57597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59248h;
+    public boolean f57598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServerSideVerificationOptions f59249i;
+    public ServerSideVerificationOptions f57599i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ExpressRewardVideoAdListener f59250j;
+    public ExpressRewardVideoAdListener f57600j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,9 +129,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
                 return;
             }
         }
-        this.f59248h = true;
+        this.f57598h = true;
         GDTLogger.e("ExpressRewardVideoAD 接口即将被移除，请使用 RewardVideoAD 接口");
-        this.f59250j = expressRewardVideoAdListener;
+        this.f57600j = expressRewardVideoAdListener;
         a(context, str);
     }
 
@@ -161,7 +161,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public RVADI2 a(Context context, POFactory pOFactory, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getExpressRewardVideoADDelegate(context, str, str2, new AdListenerAdapter(this.f59250j)) : (RVADI2) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getExpressRewardVideoADDelegate(context, str, str2, new AdListenerAdapter(this.f57600j)) : (RVADI2) invokeLLLL.objValue;
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -174,11 +174,11 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             RVADI2 rvadi2 = (RVADI2) obj;
-            rvadi2.setVolumeOn(this.f59248h);
-            rvadi2.setServerSideVerificationOptions(this.f59249i);
-            if (this.f59247g) {
+            rvadi2.setVolumeOn(this.f57598h);
+            rvadi2.setServerSideVerificationOptions(this.f57599i);
+            if (this.f57597g) {
                 rvadi2.loadAD();
-                this.f59247g = false;
+                this.f57597g = false;
             }
         }
     }
@@ -187,7 +187,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public void b(int i2) {
         ExpressRewardVideoAdListener expressRewardVideoAdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (expressRewardVideoAdListener = this.f59250j) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (expressRewardVideoAdListener = this.f57600j) == null) {
             return;
         }
         expressRewardVideoAdListener.onError(AdErrorConvertor.formatErrorCode(i2));
@@ -271,7 +271,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f59247g = true;
+                this.f57597g = true;
                 return;
             }
             T t = this.a;
@@ -290,7 +290,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
             if (t != 0) {
                 ((RVADI2) t).setServerSideVerificationOptions(serverSideVerificationOptions);
             } else {
-                this.f59249i = serverSideVerificationOptions;
+                this.f57599i = serverSideVerificationOptions;
             }
         }
     }
@@ -302,7 +302,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
             if (t != 0) {
                 ((RVADI2) t).setVolumeOn(z);
             } else {
-                this.f59248h = z;
+                this.f57598h = z;
             }
         }
     }

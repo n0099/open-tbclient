@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.model.ImageDialogModel;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ImageDialogBinding extends BaseBinding<ImageDialogModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ImageView f54121b;
+    public final ImageView f52607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f54122c;
+    public final TextView f52608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Button f54123d;
+    public final Button f52609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f54124e;
+    public final TextView f52610e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageDialogBinding(View view) {
@@ -49,12 +49,12 @@ public class ImageDialogBinding extends BaseBinding<ImageDialogModel> {
             }
         }
         TextView textView = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_image_tip_1"));
-        this.f54124e = textView;
+        this.f52610e = textView;
         textView.setVisibility(8);
         this.a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_image_tip"));
-        this.f54121b = (ImageView) view.findViewById(ResUtils.id(this.context, "dialog_image"));
-        this.f54122c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_title"));
-        this.f54123d = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
+        this.f52607b = (ImageView) view.findViewById(ResUtils.id(this.context, "dialog_image"));
+        this.f52608c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_title"));
+        this.f52609d = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
     }
 
     @Override // com.dxmpay.wallet.base.widget.dialog.binding.BaseBinding
@@ -69,35 +69,35 @@ public class ImageDialogBinding extends BaseBinding<ImageDialogModel> {
             }
             T t2 = this.viewModel;
             if (((ImageDialogModel) t2).messageTempId != 0) {
-                this.f54124e.setVisibility(0);
-                this.f54124e.setText(((ImageDialogModel) this.viewModel).messageTempId);
+                this.f52610e.setVisibility(0);
+                this.f52610e.setText(((ImageDialogModel) this.viewModel).messageTempId);
             } else if (((ImageDialogModel) t2).messageTemp != null) {
-                this.f54124e.setVisibility(0);
-                this.f54124e.setText(((ImageDialogModel) this.viewModel).messageTemp);
+                this.f52610e.setVisibility(0);
+                this.f52610e.setText(((ImageDialogModel) this.viewModel).messageTemp);
             }
             T t3 = this.viewModel;
             if (((ImageDialogModel) t3).buttonTextId != 0) {
-                this.f54123d.setText(((ImageDialogModel) t3).buttonTextId);
+                this.f52609d.setText(((ImageDialogModel) t3).buttonTextId);
             } else if (((ImageDialogModel) t3).buttonText != null) {
-                this.f54123d.setText(((ImageDialogModel) t3).buttonText);
+                this.f52609d.setText(((ImageDialogModel) t3).buttonText);
             }
             T t4 = this.viewModel;
             if (((ImageDialogModel) t4).imageId != 0) {
-                this.f54121b.setImageResource(((ImageDialogModel) t4).imageId);
+                this.f52607b.setImageResource(((ImageDialogModel) t4).imageId);
             } else if (((ImageDialogModel) t4).imageDrawable != null) {
-                this.f54121b.setImageDrawable(((ImageDialogModel) t4).imageDrawable);
+                this.f52607b.setImageDrawable(((ImageDialogModel) t4).imageDrawable);
             }
             T t5 = this.viewModel;
             if (((ImageDialogModel) t5).titleTextId != 0) {
-                this.f54122c.setText(((ImageDialogModel) t5).titleTextId);
+                this.f52608c.setText(((ImageDialogModel) t5).titleTextId);
             } else if (!TextUtils.isEmpty(((ImageDialogModel) t5).titleText)) {
-                this.f54122c.setText(((ImageDialogModel) this.viewModel).titleText);
+                this.f52608c.setText(((ImageDialogModel) this.viewModel).titleText);
             }
-            TextPaint paint = this.f54123d.getPaint();
+            TextPaint paint = this.f52609d.getPaint();
             if (paint != null) {
                 paint.setFakeBoldText(true);
             }
-            this.f54123d.setOnClickListener(((ImageDialogModel) this.viewModel).defaultClickListener);
+            this.f52609d.setOnClickListener(((ImageDialogModel) this.viewModel).defaultClickListener);
         }
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<?> f46528e;
+    public f<?> f44936e;
 
     public PayVcodeModel(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
                 return;
             }
         }
-        this.f46528e = fVar;
+        this.f44936e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -73,7 +73,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f46528e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+            this.f44936e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
         }
     }
 }

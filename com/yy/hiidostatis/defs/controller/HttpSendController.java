@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class HttpSendController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

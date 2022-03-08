@@ -22,6 +22,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,19 +30,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_CardView = 2131755892;
     public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +54,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public boolean isParentCardViewDoneInitializing;
     public OnCheckedChangeListener onCheckedChangeListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }
@@ -73,7 +75,6 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
         DRAGGED_STATE_SET = new int[]{R.attr.state_dragged};
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_CardView;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -581,7 +582,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_CardView), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -601,8 +602,8 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         this.checked = false;
         this.dragged = false;
         this.isParentCardViewDoneInitializing = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MaterialCardView, i2, DEF_STYLE_RES, new int[0]);
-        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i2, DEF_STYLE_RES);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.cardForegroundColor, R.attr.checkedIcon, R.attr.checkedIconTint, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.state_dragged, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_CardView, new int[0]);
+        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i2, Widget_MaterialComponents_CardView);
         this.cardViewHelper = materialCardViewHelper;
         materialCardViewHelper.setCardBackgroundColor(super.getCardBackgroundColor());
         this.cardViewHelper.setUserContentPadding(super.getContentPaddingLeft(), super.getContentPaddingTop(), super.getContentPaddingRight(), super.getContentPaddingBottom());

@@ -5,7 +5,7 @@ import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                return context.checkPermission(com.kuaishou.weapon.un.s.f55460i, Process.myPid(), Process.myUid()) != -1;
+                return context.checkPermission(com.kuaishou.weapon.un.s.f53810i, Process.myPid(), Process.myUid()) != -1;
             } catch (Throwable unused) {
                 c.a();
                 return false;
@@ -48,7 +48,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                return context.checkPermission(com.kuaishou.weapon.un.s.f55454c, Process.myPid(), Process.myUid()) != -1;
+                return context.checkPermission(com.kuaishou.weapon.un.s.f53804c, Process.myPid(), Process.myUid()) != -1;
             } catch (Throwable unused) {
                 c.a();
                 return false;

@@ -20,9 +20,8 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebRtcAudioTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -50,7 +49,7 @@ public class WebRtcAudioTrack {
     public final ThreadUtils.ThreadChecker threadChecker;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class AudioTrackStartErrorCode {
         public static final /* synthetic */ AudioTrackStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +108,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class AudioTrackThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +198,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface ErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -209,7 +208,7 @@ public class WebRtcAudioTrack {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface WebRtcAudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -256,7 +255,7 @@ public class WebRtcAudioTrack {
         threadChecker.checkIsOnValidThread();
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioTrack = j2;
-        this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
     }
 
     public static void assertTrue(boolean z) {

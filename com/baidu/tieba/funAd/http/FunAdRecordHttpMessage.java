@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FunAdRecordHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLICK_AD_RECORD = "c14116";

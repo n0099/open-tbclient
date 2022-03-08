@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class db {
     public static /* synthetic */ Interceptable $ic;
     public static volatile db a;
@@ -30,7 +30,7 @@ public class db {
     /* renamed from: a  reason: collision with other field name */
     public final ConcurrentLinkedQueue<b> f223a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,14 +66,14 @@ public class db {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class b extends al.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f61182b;
+        public final /* synthetic */ db f59532b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class db {
                     return;
                 }
             }
-            this.f61182b = dbVar;
+            this.f59532b = dbVar;
             this.a = System.currentTimeMillis();
         }
 
@@ -119,7 +119,7 @@ public class db {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class db {
         public boolean f227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61183b;
+        public String f59533b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f228b;
@@ -163,7 +163,7 @@ public class db {
             }
             this.f224a = dbVar;
             this.f226a = str;
-            this.f61183b = str2;
+            this.f59533b = str2;
             this.f225a = file;
             this.f228b = z;
         }
@@ -219,7 +219,7 @@ public class db {
                     if (c()) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("uid", com.xiaomi.push.service.bi.m675a());
-                        hashMap.put("token", this.f61183b);
+                        hashMap.put("token", this.f59533b);
                         hashMap.put("net", bg.m235a(this.f224a.f222a));
                         bg.a(this.f226a, hashMap, this.f225a, "file");
                     }

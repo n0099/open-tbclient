@@ -14,20 +14,20 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.NativeInflater;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public B a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FunNativeAd2.NativeType f54364b;
+    public final FunNativeAd2.NativeType f52850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunNativeInfo f54365c;
+    public final FunNativeInfo f52851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final FunNativeAd2Bridger<A, B> f54366d;
+    public final FunNativeAd2Bridger<A, B> f52852d;
     public final A mAd;
 
     public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeInfo funNativeInfo, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
@@ -45,10 +45,10 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
                 return;
             }
         }
-        this.f54364b = nativeType;
+        this.f52850b = nativeType;
         this.mAd = a;
-        this.f54365c = funNativeInfo;
-        this.f54366d = funNativeAd2Bridger;
+        this.f52851c = funNativeInfo;
+        this.f52852d = funNativeAd2Bridger;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -77,7 +77,7 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                this.a = this.f54366d.createExpressView(this.mAd);
+                this.a = this.f52852d.createExpressView(this.mAd);
             }
             return this.a;
         }
@@ -88,14 +88,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54365c : (FunNativeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52851c : (FunNativeInfo) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
     public FunNativeAd2.NativeType getNativeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54364b : (FunNativeAd2.NativeType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52850b : (FunNativeAd2.NativeType) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
@@ -123,14 +123,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public void showCustom(Activity activity, CustomInflater customInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, customInflater, str, funAdInteractionListener) == null) {
-            this.f54366d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f52852d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, expressInflater, str, funAdInteractionListener) == null) {
-            this.f54366d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f52852d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 }

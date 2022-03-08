@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class TaxiInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TaxiInfo> CREATOR;
@@ -19,19 +19,19 @@ public class TaxiInfo implements Parcelable {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35752b;
+    public String f34155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35753c;
+    public int f34156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35754d;
+    public int f34157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f35755e;
+    public float f34158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f35756f;
+    public float f34159f;
 
     static {
         InterceptResult invokeClinit;
@@ -79,11 +79,11 @@ public class TaxiInfo implements Parcelable {
             }
         }
         this.a = parcel.readFloat();
-        this.f35752b = parcel.readString();
-        this.f35753c = parcel.readInt();
-        this.f35754d = parcel.readInt();
-        this.f35755e = parcel.readFloat();
-        this.f35756f = parcel.readFloat();
+        this.f34155b = parcel.readString();
+        this.f34156c = parcel.readInt();
+        this.f34157d = parcel.readInt();
+        this.f34158e = parcel.readFloat();
+        this.f34159f = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
@@ -99,31 +99,31 @@ public class TaxiInfo implements Parcelable {
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35752b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34155b : (String) invokeV.objValue;
     }
 
     public int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35753c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34156c : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35754d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34157d : invokeV.intValue;
     }
 
     public float getPerKMPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35755e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34158e : invokeV.floatValue;
     }
 
     public float getStartPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35756f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34159f : invokeV.floatValue;
     }
 
     public float getTotalPrice() {
@@ -135,35 +135,35 @@ public class TaxiInfo implements Parcelable {
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f35752b = str;
+            this.f34155b = str;
         }
     }
 
     public void setDistance(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f35753c = i2;
+            this.f34156c = i2;
         }
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f35754d = i2;
+            this.f34157d = i2;
         }
     }
 
     public void setPerKMPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f35755e = f2;
+            this.f34158e = f2;
         }
     }
 
     public void setStartPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f35756f = f2;
+            this.f34159f = f2;
         }
     }
 
@@ -179,11 +179,11 @@ public class TaxiInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
             parcel.writeFloat(this.a);
-            parcel.writeString(this.f35752b);
-            parcel.writeInt(this.f35753c);
-            parcel.writeInt(this.f35754d);
-            parcel.writeFloat(this.f35755e);
-            parcel.writeFloat(this.f35756f);
+            parcel.writeString(this.f34155b);
+            parcel.writeInt(this.f34156c);
+            parcel.writeInt(this.f34157d);
+            parcel.writeFloat(this.f34158e);
+            parcel.writeFloat(this.f34159f);
         }
     }
 }

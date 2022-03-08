@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaseTitleView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HomeCfgResponse.ConfigData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51328b;
+    public b f49747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f51329c;
+    public Context f49748c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTitleView(Context context) {
@@ -43,7 +43,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f51329c = context;
+        this.f49748c = context;
         a();
     }
 
@@ -113,7 +113,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public b getWalletInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51328b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f49747b : (b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -149,7 +149,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, configData, bVar) == null) {
             this.a = configData;
-            this.f51328b = bVar;
+            this.f49747b = bVar;
             if (!isClickable()) {
                 setEnabled(false);
             } else {
@@ -177,7 +177,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f51329c = context;
+        this.f49748c = context;
         a();
     }
 }

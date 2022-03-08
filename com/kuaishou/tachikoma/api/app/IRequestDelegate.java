@@ -1,7 +1,7 @@
 package com.kuaishou.tachikoma.api.app;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IRequestDelegate {
     void get(IRequestCallback iRequestCallback);
 

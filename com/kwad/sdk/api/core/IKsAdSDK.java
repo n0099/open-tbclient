@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkDynamicApi("com.kwad.sdk.KsAdSDKImpl")
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface IKsAdSDK {
     @Keep
     void addHp(@NonNull Map<String, String> map);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseCardInfo implements n, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public abstract class BaseCardInfo implements n, k {
     public j trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public abstract class BaseCardInfo implements n, k {
                     return;
                 }
             }
-            NONE = new SupportType(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new SupportType("NONE", 0);
             FULL = new SupportType(PolyActivity.FULL_PANEL_TYPE, 1);
             TOP = new SupportType("TOP", 2);
             CONTENT = new SupportType("CONTENT", 3);

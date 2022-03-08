@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseAdRipper implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
     public static AdRipper FAKE_AD_RIPPER;
@@ -26,10 +26,10 @@ public abstract class BaseAdRipper implements AdRipper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f54381b;
+    public volatile boolean f52867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<Object, RippedAd> f54382c;
+    public final HashMap<Object, RippedAd> f52868c;
     public final Ssp.Pid mPid;
 
     static {
@@ -64,8 +64,8 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        this.f54381b = false;
-        this.f54382c = new HashMap<>();
+        this.f52867b = false;
+        this.f52868c = new HashMap<>();
         this.mPid = pid;
     }
 
@@ -74,10 +74,10 @@ public abstract class BaseAdRipper implements AdRipper {
         RippedAd rippedAd;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            synchronized (this.f54382c) {
-                rippedAd = this.f54382c.get(obj);
+            synchronized (this.f52868c) {
+                rippedAd = this.f52868c.get(obj);
                 if (rippedAd == null && (rippedAd = getRippedAdInternal(obj)) != null) {
-                    this.f54382c.put(obj, rippedAd);
+                    this.f52868c.put(obj, rippedAd);
                 }
             }
             return rippedAd;
@@ -103,8 +103,8 @@ public abstract class BaseAdRipper implements AdRipper {
     public final void destroy(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            synchronized (this.f54382c) {
-                this.f54382c.remove(obj);
+            synchronized (this.f52868c) {
+                this.f52868c.remove(obj);
             }
         }
     }
@@ -114,8 +114,8 @@ public abstract class BaseAdRipper implements AdRipper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            synchronized (this.f54382c) {
-                RippedAd rippedAd = this.f54382c.get(obj);
+            synchronized (this.f52868c) {
+                RippedAd rippedAd = this.f52868c.get(obj);
                 if (rippedAd != null) {
                     return rippedAd;
                 }
@@ -123,7 +123,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 if (rippedAdInternal == null) {
                     return null;
                 }
-                this.f54382c.put(obj, rippedAdInternal);
+                this.f52868c.put(obj, rippedAdInternal);
                 return rippedAdInternal;
             }
         }
@@ -139,11 +139,11 @@ public abstract class BaseAdRipper implements AdRipper {
             return;
         }
         if (!a()) {
-            this.f54381b = true;
+            this.f52867b = true;
             return;
         }
         a(obj);
-        this.f54381b = true;
+        this.f52867b = true;
     }
 
     @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
@@ -151,9 +151,9 @@ public abstract class BaseAdRipper implements AdRipper {
         RippedAd rippedAd;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, str, Long.valueOf(j2)}) == null) && BuildConfig.IS_ADM_REPORT.booleanValue() && obj != null) {
-            if (this.f54381b) {
-                synchronized (this.f54382c) {
-                    rippedAd = this.f54382c.get(obj);
+            if (this.f52867b) {
+                synchronized (this.f52868c) {
+                    rippedAd = this.f52868c.get(obj);
                 }
             } else if (!a()) {
                 return;

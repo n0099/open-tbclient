@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53265b;
+    public boolean f51684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53266c;
+    public int f51685c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
             this.a = inputStream;
-            this.f53265b = false;
-            this.f53266c = 0;
+            this.f51684b = false;
+            this.f51685c = 0;
         }
     }
 
@@ -48,13 +48,13 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = 0;
-            if (this.f53265b) {
+            if (this.f51684b) {
                 for (int i3 = 24; i3 >= 0; i3 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f53266c++;
+                    this.f51685c++;
                     i2 |= read << i3;
                 }
                 return i2;
@@ -65,7 +65,7 @@ public final class c {
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f53266c++;
+                this.f51685c++;
                 i4 |= read2 << i2;
                 i2 += 8;
             }
@@ -78,7 +78,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long skip = this.a.skip(4L);
-            this.f53266c = (int) (this.f53266c + skip);
+            this.f51685c = (int) (this.f51685c + skip);
             if (skip != 4) {
                 throw new EOFException();
             }

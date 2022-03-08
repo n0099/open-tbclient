@@ -14,20 +14,20 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, Deque<c>> a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<Ssp.Pid> f28676b;
+        public final HashSet<Ssp.Pid> f28514b;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class n {
                 }
             }
             this.a = lVar;
-            this.f28676b = new HashSet<>();
-            for (l.b bVar : lVar.f28658e) {
-                for (l.a aVar : bVar.f28662b) {
-                    this.f28676b.add(aVar.f28660c);
+            this.f28514b = new HashSet<>();
+            for (l.b bVar : lVar.f28496e) {
+                for (l.a aVar : bVar.f28500b) {
+                    this.f28514b.add(aVar.f28498c);
                 }
             }
         }
@@ -57,25 +57,25 @@ public class n {
         public Set<Ssp.Pid> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28676b : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28514b : (Set) invokeV.objValue;
         }
 
         @Override // c.g.n.c
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f28657d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f28495d : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final j a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<Ssp.Pid> f28677b;
+        public final HashSet<Ssp.Pid> f28515b;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -93,10 +93,10 @@ public class n {
                 }
             }
             this.a = jVar;
-            this.f28677b = new HashSet<>();
-            for (j.b bVar : jVar.f28649b) {
-                for (j.a aVar : bVar.f28653b) {
-                    this.f28677b.add(aVar.f28652c);
+            this.f28515b = new HashSet<>();
+            for (j.b bVar : jVar.f28487b) {
+                for (j.a aVar : bVar.f28491b) {
+                    this.f28515b.add(aVar.f28490c);
                 }
             }
         }
@@ -105,18 +105,18 @@ public class n {
         public Set<Ssp.Pid> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28677b : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28515b : (Set) invokeV.objValue;
         }
 
         @Override // c.g.n.c
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f28650c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f28488c : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         Set<Ssp.Pid> a();
 

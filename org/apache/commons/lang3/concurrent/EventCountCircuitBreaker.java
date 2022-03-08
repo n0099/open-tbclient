@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.apache.commons.lang3.concurrent.AbstractCircuitBreaker;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<AbstractCircuitBreaker.State, StateStrategy> STRATEGY_MAP;
@@ -26,13 +26,13 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
     public final int openingThreshold;
 
     /* renamed from: org.apache.commons.lang3.concurrent.EventCountCircuitBreaker$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class CheckIntervalData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class StateStrategyClosed extends StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class EventCountCircuitBreaker extends AbstractCircuitBreaker<Integer> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class StateStrategyOpen extends StateStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -2,13 +2,13 @@ package c.g.b0.a;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.channel.csj.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

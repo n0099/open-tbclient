@@ -1,98 +1,46 @@
 package c.q.a;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import java.io.File;
-/* loaded from: classes9.dex */
-public class n5 extends AsyncTask {
+/* loaded from: classes3.dex */
+public final class n5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ String a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d1 f30629b;
-
-    public n5(d1 d1Var, String str) {
+    public n5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d1Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f30629b = d1Var;
-        this.a = str;
     }
 
-    @Override // android.os.AsyncTask
-    public Object doInBackground(Object[] objArr) {
-        InterceptResult invokeL;
+    public Bitmap a(int i2, int i3, Bitmap.Config config) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-            String str = ((String[]) objArr)[0];
-            if (str != null) {
-                try {
-                    return r0.F(str);
-                } catch (OutOfMemoryError unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) ? Bitmap.createBitmap(i2, i3, config) : (Bitmap) invokeIIL.objValue;
     }
 
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        Context context;
+    public byte[] b(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            byte[] bArr = (byte[]) obj;
-            if (bArr == null) {
-                d1 d1Var = this.f30629b;
-                e1 e1Var = d1Var.f30538e;
-                if (e1Var != null && !d1Var.f30543j) {
-                    e1Var.onFail(PBError.NO_RESUOURCE);
-                    this.f30629b.f30542i = true;
-                }
-            } else {
-                d1 d1Var2 = this.f30629b;
-                e1 e1Var2 = d1Var2.f30538e;
-                if (e1Var2 != null && !d1Var2.f30543j) {
-                    d1Var2.m = bArr;
-                    e1Var2.onLoaded();
-                    this.f30629b.f30542i = true;
-                }
-            }
-            if (bArr != null) {
-                d1 d1Var3 = this.f30629b;
-                if (d1Var3.f30543j) {
-                    StringBuilder sb = new StringBuilder();
-                    context = this.f30629b.a;
-                    sb.append(r0.e(context));
-                    sb.append(File.separator);
-                    sb.append("win");
-                    sb.append(File.separator);
-                    sb.append(r0.D(this.a));
-                    sb.append(".gif");
-                    d1Var3.p = new File(sb.toString());
-                    new Thread(new y(bArr, this.f30629b.p.getPath())).start();
-                }
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new byte[i2] : (byte[]) invokeI.objValue;
+    }
+
+    public int[] c(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new int[i2] : (int[]) invokeI.objValue;
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class z<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27777b;
+    public int f27681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.a<T> f27778c;
+    public final c.b.b.q.a<T> f27682c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void reset();
     }
@@ -52,12 +52,12 @@ public abstract class z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                c.b.b.q.a<T> aVar = this.f27778c;
-                if (aVar.f27595f < this.a) {
+                c.b.b.q.a<T> aVar = this.f27682c;
+                if (aVar.f27499f < this.a) {
                     aVar.a(d());
                 }
             }
-            this.f27777b = Math.max(this.f27777b, this.f27778c.f27595f);
+            this.f27681b = Math.max(this.f27681b, this.f27682c.f27499f);
         }
     }
 
@@ -65,10 +65,10 @@ public abstract class z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             if (t != null) {
-                c.b.b.q.a<T> aVar = this.f27778c;
-                if (aVar.f27595f < this.a) {
+                c.b.b.q.a<T> aVar = this.f27682c;
+                if (aVar.f27499f < this.a) {
                     aVar.a(t);
-                    this.f27777b = Math.max(this.f27777b, this.f27778c.f27595f);
+                    this.f27681b = Math.max(this.f27681b, this.f27682c.f27499f);
                     f(t);
                     return;
                 }
@@ -85,8 +85,8 @@ public abstract class z<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.b.b.q.a<T> aVar = this.f27778c;
-            return aVar.f27595f == 0 ? d() : aVar.pop();
+            c.b.b.q.a<T> aVar = this.f27682c;
+            return aVar.f27499f == 0 ? d() : aVar.pop();
         }
         return (T) invokeV.objValue;
     }
@@ -113,7 +113,7 @@ public abstract class z<T> {
                 return;
             }
         }
-        this.f27778c = new c.b.b.q.a<>(false, i2);
+        this.f27682c = new c.b.b.q.a<>(false, i2);
         this.a = i3;
     }
 }

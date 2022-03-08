@@ -36,7 +36,6 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +77,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry, MouseCursorPlugin.MouseCursorViewDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -109,17 +108,17 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public final SettingsChannel settingsChannel;
     public final SystemChannel systemChannel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +218,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +272,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ZeroSides {
         public static final /* synthetic */ ZeroSides[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -296,7 +295,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                     return;
                 }
             }
-            NONE = new ZeroSides(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new ZeroSides("NONE", 0);
             LEFT = new ZeroSides("LEFT", 1);
             RIGHT = new ZeroSides("RIGHT", 2);
             ZeroSides zeroSides = new ZeroSides("BOTH", 3);

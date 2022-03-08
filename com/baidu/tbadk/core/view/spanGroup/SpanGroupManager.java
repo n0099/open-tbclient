@@ -11,11 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.s.a;
-import c.a.t0.s.l0.s.e;
-import c.a.t0.s.l0.s.f;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.w;
+import c.a.q0.r.l0.s.a;
+import c.a.q0.r.l0.s.e;
+import c.a.q0.r.l0.s.f;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -51,38 +51,38 @@ import org.json.JSONObject;
 import tbclient.GetMyPost.DataRes;
 import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.UrlParser.UrlParserResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SpanGroupManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextWatcher a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f40940b;
+    public BdUniqueId f39346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SpanGroupEditText f40941c;
+    public SpanGroupEditText f39347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinkedList<c.a.t0.s.l0.s.a> f40942d;
+    public LinkedList<c.a.q0.r.l0.s.a> f39348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40943e;
+    public boolean f39349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40944f;
+    public boolean f39350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.InterfaceC0892a f40945g;
+    public a.InterfaceC0864a f39351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f40946h;
+    public c.a.d.c.g.a f39352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f40947i;
+    public c.a.d.c.g.a f39353i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class ChangeSpanGroupType {
         public static final /* synthetic */ ChangeSpanGroupType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,19 +141,19 @@ public class SpanGroupManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40948e;
+        public int f39354e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f40949f;
+        public int f39355f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SpanGroupManager f40950g;
+        public final /* synthetic */ SpanGroupManager f39356g;
 
         public a(SpanGroupManager spanGroupManager) {
             Interceptable interceptable = $ic;
@@ -170,17 +170,17 @@ public class SpanGroupManager {
                     return;
                 }
             }
-            this.f40950g = spanGroupManager;
-            this.f40948e = -1;
-            this.f40949f = -1;
+            this.f39356g = spanGroupManager;
+            this.f39354e = -1;
+            this.f39355f = -1;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f40950g.s();
-                this.f40950g.t();
+                this.f39356g.s();
+                this.f39356g.t();
             }
         }
 
@@ -188,8 +188,8 @@ public class SpanGroupManager {
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f40948e = Selection.getSelectionStart(charSequence);
-                this.f40949f = Selection.getSelectionEnd(charSequence);
+                this.f39354e = Selection.getSelectionStart(charSequence);
+                this.f39355f = Selection.getSelectionEnd(charSequence);
             }
         }
 
@@ -197,14 +197,14 @@ public class SpanGroupManager {
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                SpanGroupManager spanGroupManager = this.f40950g;
-                spanGroupManager.m(spanGroupManager.f40942d, this.f40948e, this.f40949f, i4 - i3, false, ChangeSpanGroupType.ON_TEXT_CHANGE);
-                this.f40950g.p();
+                SpanGroupManager spanGroupManager = this.f39356g;
+                spanGroupManager.m(spanGroupManager.f39348d, this.f39354e, this.f39355f, i4 - i3, false, ChangeSpanGroupType.ON_TEXT_CHANGE);
+                this.f39356g.p();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,13 +256,13 @@ public class SpanGroupManager {
                 }
                 f fVar = new f();
                 fVar.a(responseData);
-                fVar.f13629c = str;
+                fVar.f13045c = str;
                 this.a.O(fVar, i2);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,13 +311,13 @@ public class SpanGroupManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpanGroupManager f40951e;
+        public final /* synthetic */ SpanGroupManager f39357e;
 
         public d(SpanGroupManager spanGroupManager) {
             Interceptable interceptable = $ic;
@@ -334,7 +334,7 @@ public class SpanGroupManager {
                     return;
                 }
             }
-            this.f40951e = spanGroupManager;
+            this.f39357e = spanGroupManager;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -343,7 +343,7 @@ public class SpanGroupManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (i2 == 67 && keyEvent.getAction() == 0) {
-                    return this.f40951e.T();
+                    return this.f39357e.T();
                 }
                 return false;
             }
@@ -367,23 +367,23 @@ public class SpanGroupManager {
             }
         }
         this.a = new a(this);
-        this.f40942d = new LinkedList<>();
-        this.f40943e = true;
-        this.f40944f = true;
-        this.f40946h = new b(this, CmdConfigHttp.CMD_URL_PARSER_MESSAGE, 309686);
-        this.f40947i = new c(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.f39348d = new LinkedList<>();
+        this.f39349e = true;
+        this.f39350f = true;
+        this.f39352h = new b(this, CmdConfigHttp.CMD_URL_PARSER_MESSAGE, 309686);
+        this.f39353i = new c(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
         if (spanGroupEditText == null) {
             return;
         }
-        this.f40940b = bdUniqueId;
-        this.f40941c = spanGroupEditText;
+        this.f39346b = bdUniqueId;
+        this.f39347c = spanGroupEditText;
         spanGroupEditText.addTextChangedListener(this.a);
-        this.f40941c.setEditableFactory(new c.a.t0.s.l0.s.b(new c.a.t0.s.l0.s.c(this)));
-        this.f40941c.setSoftKeyListener(new d(this));
-        this.f40947i.setTag(this.f40940b);
-        MessageManager.getInstance().registerListener(this.f40947i);
-        this.f40946h.setTag(this.f40940b);
-        MessageManager.getInstance().registerListener(this.f40946h);
+        this.f39347c.setEditableFactory(new c.a.q0.r.l0.s.b(new c.a.q0.r.l0.s.c(this)));
+        this.f39347c.setSoftKeyListener(new d(this));
+        this.f39353i.setTag(this.f39346b);
+        MessageManager.getInstance().registerListener(this.f39353i);
+        this.f39352h.setTag(this.f39346b);
+        MessageManager.getInstance().registerListener(this.f39352h);
     }
 
     public synchronized String A() {
@@ -391,21 +391,21 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f40941c == null) {
+                if (this.f39347c == null) {
                     return null;
                 }
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f40941c.getText());
-                int selectionStart = this.f40941c.getSelectionStart();
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f39347c.getText());
+                int selectionStart = this.f39347c.getSelectionStart();
                 spannableStringBuilder.length();
-                LinkedList<c.a.t0.s.l0.s.a> linkedList = new LinkedList<>();
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                LinkedList<c.a.q0.r.l0.s.a> linkedList = new LinkedList<>();
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h()) {
                         if (next instanceof TbLinkSpanGroup) {
                             linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
-                        } else if (next instanceof c.a.t0.s.l0.s.d) {
-                            linkedList.add(c.a.t0.s.l0.s.d.w((c.a.t0.s.l0.s.d) next, spannableStringBuilder));
+                        } else if (next instanceof c.a.q0.r.l0.s.d) {
+                            linkedList.add(c.a.q0.r.l0.s.d.w((c.a.q0.r.l0.s.d) next, spannableStringBuilder));
                         } else if (next instanceof e) {
                             linkedList.add(e.u((e) next, spannableStringBuilder));
                         } else {
@@ -413,9 +413,9 @@ public class SpanGroupManager {
                         }
                     }
                 }
-                Iterator<c.a.t0.s.l0.s.a> it2 = linkedList.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it2 = linkedList.iterator();
                 while (it2.hasNext()) {
-                    c.a.t0.s.l0.s.a next2 = it2.next();
+                    c.a.q0.r.l0.s.a next2 = it2.next();
                     int f2 = next2.f();
                     int c2 = next2.c();
                     if (c2 <= selectionStart) {
@@ -432,42 +432,42 @@ public class SpanGroupManager {
         return (String) invokeV.objValue;
     }
 
-    public c.a.t0.s.l0.s.a B(int i2) {
+    public c.a.q0.r.l0.s.a B(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if (next.h() && i2 > next.f() && i2 < next.c()) {
                     return next;
                 }
             }
             return null;
         }
-        return (c.a.t0.s.l0.s.a) invokeI.objValue;
+        return (c.a.q0.r.l0.s.a) invokeI.objValue;
     }
 
-    public c.a.t0.s.l0.s.a C(int i2) {
+    public c.a.q0.r.l0.s.a C(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if (next.h() && i2 == next.e()) {
                     return next;
                 }
             }
             return null;
         }
-        return (c.a.t0.s.l0.s.a) invokeI.objValue;
+        return (c.a.q0.r.l0.s.a) invokeI.objValue;
     }
 
-    public LinkedList<c.a.t0.s.l0.s.a> D() {
+    public LinkedList<c.a.q0.r.l0.s.a> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40942d : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39348d : (LinkedList) invokeV.objValue;
     }
 
     public synchronized String E() {
@@ -475,19 +475,19 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                if (this.f40941c == null) {
+                if (this.f39347c == null) {
                     return null;
                 }
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f40941c.getText());
-                LinkedList<c.a.t0.s.l0.s.a> linkedList = new LinkedList<>();
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f39347c.getText());
+                LinkedList<c.a.q0.r.l0.s.a> linkedList = new LinkedList<>();
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h()) {
                         if (next instanceof TbLinkSpanGroup) {
                             linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
-                        } else if (next instanceof c.a.t0.s.l0.s.d) {
-                            linkedList.add(c.a.t0.s.l0.s.d.w((c.a.t0.s.l0.s.d) next, spannableStringBuilder));
+                        } else if (next instanceof c.a.q0.r.l0.s.d) {
+                            linkedList.add(c.a.q0.r.l0.s.d.w((c.a.q0.r.l0.s.d) next, spannableStringBuilder));
                         } else if (next instanceof e) {
                             linkedList.add(e.u((e) next, spannableStringBuilder));
                         } else {
@@ -495,10 +495,10 @@ public class SpanGroupManager {
                         }
                     }
                 }
-                Iterator<c.a.t0.s.l0.s.a> it2 = linkedList.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it2 = linkedList.iterator();
                 int i2 = 0;
                 while (it2.hasNext()) {
-                    c.a.t0.s.l0.s.a next2 = it2.next();
+                    c.a.q0.r.l0.s.a next2 = it2.next();
                     int f2 = next2.f();
                     int c2 = next2.c();
                     next2.q(spannableStringBuilder, i2);
@@ -515,10 +515,10 @@ public class SpanGroupManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             int i2 = 0;
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if (next.h() && (next instanceof TbLinkSpanGroup) && ((TbLinkSpanGroup) next).u() != TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK) {
                     i2++;
                 }
@@ -533,9 +533,9 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if ((next instanceof e) && next.h()) {
                     arrayList.add((e) next);
                 }
@@ -547,18 +547,18 @@ public class SpanGroupManager {
 
     public void H(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbLinkSpanGroup) == null) || this.f40942d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbLinkSpanGroup) == null) || this.f39348d == null) {
             return;
         }
-        tbLinkSpanGroup.k(this.f40945g);
-        this.f40942d.add(tbLinkSpanGroup);
+        tbLinkSpanGroup.k(this.f39351g);
+        this.f39348d.add(tbLinkSpanGroup);
     }
 
     public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.f40941c;
+            SpanGroupEditText spanGroupEditText = this.f39347c;
             return spanGroupEditText == null || spanGroupEditText.getText().length() <= 0;
         }
         return invokeV.booleanValue;
@@ -568,9 +568,9 @@ public class SpanGroupManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if ((next instanceof TbLinkSpanGroup) && next.h()) {
                     return true;
                 }
@@ -596,9 +596,9 @@ public class SpanGroupManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i2, i3)) == null) {
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
+                c.a.q0.r.l0.s.a next = it.next();
                 if ((next instanceof e) && next.h()) {
                     e eVar = (e) next;
                     if (i2 >= eVar.f() && eVar.c() > i2) {
@@ -619,14 +619,14 @@ public class SpanGroupManager {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || I()) {
             return;
         }
-        int selectionStart = Selection.getSelectionStart(this.f40941c.getText());
-        int selectionEnd = Selection.getSelectionEnd(this.f40941c.getText());
-        c.a.t0.s.l0.s.a B = B(selectionStart);
-        c.a.t0.s.l0.s.a B2 = B(selectionEnd);
+        int selectionStart = Selection.getSelectionStart(this.f39347c.getText());
+        int selectionEnd = Selection.getSelectionEnd(this.f39347c.getText());
+        c.a.q0.r.l0.s.a B = B(selectionStart);
+        c.a.q0.r.l0.s.a B2 = B(selectionEnd);
         if (B instanceof TbLinkSpanGroup) {
-            Selection.setSelection(this.f40941c.getText(), B.f(), B.f());
+            Selection.setSelection(this.f39347c.getText(), B.f(), B.f());
         } else if (B2 instanceof TbLinkSpanGroup) {
-            Selection.setSelection(this.f40941c.getText(), B2.f(), B2.f());
+            Selection.setSelection(this.f39347c.getText(), B2.f(), B2.f());
         }
     }
 
@@ -635,33 +635,33 @@ public class SpanGroupManager {
         if (interceptable == null || interceptable.invokeLI(1048590, this, fVar, i2) == null) {
             synchronized (this) {
                 if (fVar != null) {
-                    if (fVar.a == 1 && fVar.f13628b != 3) {
-                        this.f40941c.removeTextChangedListener(this.a);
-                        Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                    if (fVar.a == 1 && fVar.f13044b != 3) {
+                        this.f39347c.removeTextChangedListener(this.a);
+                        Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                         while (it.hasNext()) {
-                            c.a.t0.s.l0.s.a next = it.next();
+                            c.a.q0.r.l0.s.a next = it.next();
                             if (next.h() && (next instanceof TbLinkSpanGroup)) {
                                 TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                                if (tbLinkSpanGroup.e() == i2 && (fVar.f13628b == 1 || fVar.f13628b == 2)) {
-                                    tbLinkSpanGroup.z(fVar.f13631e);
-                                    if (fVar.f13628b == 1) {
+                                if (tbLinkSpanGroup.e() == i2 && (fVar.f13044b == 1 || fVar.f13044b == 2)) {
+                                    tbLinkSpanGroup.z(fVar.f13047e);
+                                    if (fVar.f13044b == 1) {
                                         tbLinkSpanGroup.A(TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK);
-                                    } else if (fVar.f13628b == 2) {
+                                    } else if (fVar.f13044b == 2) {
                                         tbLinkSpanGroup.A(TbLinkSpanGroup.LINK_TYPE.PARSABLE_EXTERNAL_LINK);
                                     }
                                     w.c(tbLinkSpanGroup, fVar);
-                                    if (this.f40945g != null) {
-                                        this.f40945g.a(i2, true);
+                                    if (this.f39351g != null) {
+                                        this.f39351g.a(i2, true);
                                     }
                                     int f2 = tbLinkSpanGroup.f();
                                     int c2 = tbLinkSpanGroup.c();
                                     tbLinkSpanGroup.E();
-                                    m(this.f40942d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
+                                    m(this.f39348d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
                                     N();
                                 }
                             }
                         }
-                        this.f40941c.addTextChangedListener(this.a);
+                        this.f39347c.addTextChangedListener(this.a);
                     }
                 }
             }
@@ -672,10 +672,10 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, e2Var) == null) {
             synchronized (this) {
-                this.f40941c.removeTextChangedListener(this.a);
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                this.f39347c.removeTextChangedListener(this.a);
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h() && (next instanceof TbLinkSpanGroup)) {
                         TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
                         if (tbLinkSpanGroup.u() == TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK && StringHelper.equals(e2Var.w1(), tbLinkSpanGroup.v())) {
@@ -687,12 +687,12 @@ public class SpanGroupManager {
                             int f2 = tbLinkSpanGroup.f();
                             int c2 = tbLinkSpanGroup.c();
                             tbLinkSpanGroup.E();
-                            m(this.f40942d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
+                            m(this.f39348d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
                             N();
                         }
                     }
                 }
-                this.f40941c.addTextChangedListener(this.a);
+                this.f39347c.addTextChangedListener(this.a);
             }
         }
     }
@@ -701,7 +701,7 @@ public class SpanGroupManager {
         SpanGroupEditText spanGroupEditText;
         TextWatcher textWatcher;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (spanGroupEditText = this.f40941c) == null || (textWatcher = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (spanGroupEditText = this.f39347c) == null || (textWatcher = this.a) == null) {
             return;
         }
         spanGroupEditText.removeTextChangedListener(textWatcher);
@@ -710,10 +710,10 @@ public class SpanGroupManager {
     public final void R(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048593, this, str, i2) == null) {
-            long forumId = this.f40941c.getForumId();
+            long forumId = this.f39347c.getForumId();
             int F = F() + 1;
             RequestUrlParserNetMessage requestUrlParserNetMessage = new RequestUrlParserNetMessage();
-            requestUrlParserNetMessage.setTag(this.f40940b);
+            requestUrlParserNetMessage.setTag(this.f39346b);
             requestUrlParserNetMessage.setParams(forumId, F, str, i2);
             MessageManager.getInstance().sendMessage(requestUrlParserNetMessage);
         }
@@ -727,7 +727,7 @@ public class SpanGroupManager {
             float f2 = TbadkCoreApplication.getInst().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(this.f40940b);
+            requestGetMyPostNetMessage.setTag(this.f39346b);
             requestGetMyPostNetMessage.setParams(c.a.d.f.m.b.g(str, 0L), 0L, 0L, k, i2, f2, i3);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -738,13 +738,13 @@ public class SpanGroupManager {
         int selectionStart;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            SpanGroupEditText spanGroupEditText = this.f40941c;
-            if (spanGroupEditText != null && (selectionStart = spanGroupEditText.getSelectionStart()) == this.f40941c.getSelectionEnd()) {
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            SpanGroupEditText spanGroupEditText = this.f39347c;
+            if (spanGroupEditText != null && (selectionStart = spanGroupEditText.getSelectionStart()) == this.f39347c.getSelectionEnd()) {
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h() && next.c() == selectionStart) {
-                        Selection.setSelection(this.f40941c.getText(), next.f(), next.c());
+                        Selection.setSelection(this.f39347c.getText(), next.f(), next.c());
                         return true;
                     }
                 }
@@ -755,46 +755,46 @@ public class SpanGroupManager {
         return invokeV.booleanValue;
     }
 
-    public void U(a.InterfaceC0892a interfaceC0892a) {
+    public void U(a.InterfaceC0864a interfaceC0864a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, interfaceC0892a) == null) {
-            this.f40945g = interfaceC0892a;
+        if (interceptable == null || interceptable.invokeL(1048596, this, interfaceC0864a) == null) {
+            this.f39351g = interfaceC0864a;
         }
     }
 
     public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.f40944f = z;
+            this.f39350f = z;
         }
     }
 
     public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.f40943e = z;
+            this.f39349e = z;
         }
     }
 
     public void delete(int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || I() || i2 > i3 || i2 >= this.f40941c.length() || i3 > this.f40941c.length()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || I() || i2 > i3 || i2 >= this.f39347c.length() || i3 > this.f39347c.length()) {
             return;
         }
-        this.f40941c.removeTextChangedListener(this.a);
-        m(this.f40942d, i2, i3, i2 - i3, false, ChangeSpanGroupType.DEFAULT);
+        this.f39347c.removeTextChangedListener(this.a);
+        m(this.f39348d, i2, i3, i2 - i3, false, ChangeSpanGroupType.DEFAULT);
         p();
         if (!z) {
-            this.f40941c.getText().delete(i2, i3);
+            this.f39347c.getText().delete(i2, i3);
         }
-        this.f40941c.addTextChangedListener(this.a);
+        this.f39347c.addTextChangedListener(this.a);
     }
 
     public synchronized void h(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048601, this, str, i2) == null) {
             synchronized (this) {
-                if (this.f40941c != null && str != null) {
+                if (this.f39347c != null && str != null) {
                     if (G().size() > 0) {
                         for (e eVar : G()) {
                             delete(eVar.f(), eVar.c());
@@ -804,9 +804,9 @@ public class SpanGroupManager {
                         }
                     }
                     e eVar2 = new e(str);
-                    eVar2.a(this.f40941c.getText(), i2, eVar2.s().length() + i2, (int) this.f40941c.getTextSize());
-                    if (!c.a.t0.u0.a.g(this.f40941c.getText(), i2)) {
-                        this.f40942d.add(eVar2);
+                    eVar2.a(this.f39347c.getText(), i2, eVar2.s().length() + i2, (int) this.f39347c.getTextSize());
+                    if (!c.a.q0.t0.a.g(this.f39347c.getText(), i2)) {
+                        this.f39348d.add(eVar2);
                     }
                     eVar2.r();
                 }
@@ -818,16 +818,16 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, atSelectData) == null) {
             synchronized (this) {
-                if (this.f40941c != null && atSelectData != null) {
-                    c.a.t0.s.l0.s.d dVar = new c.a.t0.s.l0.s.d(atSelectData);
+                if (this.f39347c != null && atSelectData != null) {
+                    c.a.q0.r.l0.s.d dVar = new c.a.q0.r.l0.s.d(atSelectData);
                     String v = dVar.v();
-                    int selectionStart = this.f40941c.getSelectionStart();
+                    int selectionStart = this.f39347c.getSelectionStart();
                     int length = v.length() + selectionStart;
-                    this.f40941c.getEditableText().insert(selectionStart, v);
-                    Selection.setSelection(this.f40941c.getText(), length);
-                    dVar.a(this.f40941c.getText(), selectionStart, length, (int) this.f40941c.getTextSize());
+                    this.f39347c.getEditableText().insert(selectionStart, v);
+                    Selection.setSelection(this.f39347c.getText(), length);
+                    dVar.a(this.f39347c.getText(), selectionStart, length, (int) this.f39347c.getTextSize());
                     dVar.r();
-                    this.f40942d.add(dVar);
+                    this.f39348d.add(dVar);
                 }
             }
         }
@@ -843,12 +843,12 @@ public class SpanGroupManager {
                 for (AtSelectData atSelectData : list) {
                     if (atSelectData != null) {
                         boolean z = false;
-                        Iterator<c.a.t0.s.l0.s.d> it = v().iterator();
+                        Iterator<c.a.q0.r.l0.s.d> it = v().iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            c.a.t0.s.l0.s.d next = it.next();
+                            c.a.q0.r.l0.s.d next = it.next();
                             if (next.u() != null && next.u().getNameShow() != null && next.u().getPortrait() != null && next.u().getNameShow().equals(atSelectData.getNameShow()) && next.u().getPortrait().equals(atSelectData.getPortrait())) {
                                 z = true;
                                 break;
@@ -867,7 +867,7 @@ public class SpanGroupManager {
         SpanGroupEditText spanGroupEditText;
         TextWatcher textWatcher;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (spanGroupEditText = this.f40941c) == null || (textWatcher = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (spanGroupEditText = this.f39347c) == null || (textWatcher = this.a) == null) {
             return;
         }
         spanGroupEditText.addTextChangedListener(textWatcher);
@@ -878,7 +878,7 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                if (this.f40941c != null && !TextUtils.isEmpty(str)) {
+                if (this.f39347c != null && !TextUtils.isEmpty(str)) {
                     if (G().size() > 0) {
                         i3 = -1;
                         for (e eVar : G()) {
@@ -900,22 +900,22 @@ public class SpanGroupManager {
                     }
                     String s = new e(str).s();
                     if (i2 == -1) {
-                        i2 = this.f40941c.getSelectionStart();
+                        i2 = this.f39347c.getSelectionStart();
                     }
                     s.length();
-                    this.f40941c.getEditableText().insert(i2, s);
+                    this.f39347c.getEditableText().insert(i2, s);
                 }
             }
         }
     }
 
-    public synchronized void m(LinkedList<c.a.t0.s.l0.s.a> linkedList, int i2, int i3, int i4, boolean z, ChangeSpanGroupType changeSpanGroupType) {
+    public synchronized void m(LinkedList<c.a.q0.r.l0.s.a> linkedList, int i2, int i3, int i4, boolean z, ChangeSpanGroupType changeSpanGroupType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{linkedList, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), changeSpanGroupType}) == null) {
             synchronized (this) {
-                Iterator<c.a.t0.s.l0.s.a> it = linkedList.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it = linkedList.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h() && (!z || next.f() != i2)) {
                         if (i2 <= next.f() && i3 <= next.f()) {
                             next.m(next.f() + i4);
@@ -944,9 +944,9 @@ public class SpanGroupManager {
     public void n(List<AtSelectData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, list) == null) {
-            Iterator<c.a.t0.s.l0.s.d> it = v().iterator();
+            Iterator<c.a.q0.r.l0.s.d> it = v().iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.d next = it.next();
+                c.a.q0.r.l0.s.d next = it.next();
                 if (list != null && !list.isEmpty()) {
                     boolean z = false;
                     Iterator<AtSelectData> it2 = list.iterator();
@@ -976,10 +976,10 @@ public class SpanGroupManager {
         w t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f40942d) && !TextUtils.isEmpty(str)) {
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            if (!ListUtils.isEmpty(this.f39348d) && !TextUtils.isEmpty(str)) {
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (!next.h()) {
                         return false;
                     }
@@ -997,7 +997,7 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             synchronized (this) {
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
                     if (!it.next().h()) {
                         it.remove();
@@ -1010,7 +1010,7 @@ public class SpanGroupManager {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.f40942d.clear();
+            this.f39348d.clear();
         }
     }
 
@@ -1018,32 +1018,32 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             synchronized (this) {
-                if (this.f40941c == null) {
+                if (this.f39347c == null) {
                     return;
                 }
-                Editable text = this.f40941c.getText();
+                Editable text = this.f39347c.getText();
                 Matcher matcher = Pattern.compile("#\\(commodity,commo_[\\s\\S]+?_commo\\)").matcher(text);
                 if (matcher.find()) {
                     String group = matcher.group();
                     String substring = group.substring(18, group.length() - 7);
                     int start = matcher.start();
                     int end = matcher.end();
-                    c.a.u0.k1.a aVar = null;
+                    c.a.r0.j1.a aVar = null;
                     try {
-                        aVar = c.a.u0.k1.a.g(new JSONObject(substring));
+                        aVar = c.a.r0.j1.a.g(new JSONObject(substring));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                     if (aVar != null) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                         w b2 = w.b(tbLinkSpanGroup, aVar);
-                        tbLinkSpanGroup.a(text, start, end, (int) this.f40941c.getTextSize());
+                        tbLinkSpanGroup.a(text, start, end, (int) this.f39347c.getTextSize());
                         b2.l = substring;
-                        tbLinkSpanGroup.z(b2.f13983h);
+                        tbLinkSpanGroup.z(b2.f13399h);
                         tbLinkSpanGroup.r();
-                        m(this.f40942d, end, end, (tbLinkSpanGroup.w() - end) + start, false, ChangeSpanGroupType.DEFAULT);
-                        tbLinkSpanGroup.k(this.f40945g);
-                        this.f40942d.add(tbLinkSpanGroup);
+                        m(this.f39348d, end, end, (tbLinkSpanGroup.w() - end) + start, false, ChangeSpanGroupType.DEFAULT);
+                        tbLinkSpanGroup.k(this.f39351g);
+                        this.f39348d.add(tbLinkSpanGroup);
                     }
                     r();
                 }
@@ -1056,8 +1056,8 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             synchronized (this) {
-                if (this.f40941c != null && this.f40943e) {
-                    Editable text = this.f40941c.getText();
+                if (this.f39347c != null && this.f39349e) {
+                    Editable text = this.f39347c.getText();
                     Matcher matcher = TbPatternsCompat.WEB_URL_END_WITH_BLANK.matcher(text);
                     if (matcher.find()) {
                         int start = matcher.start();
@@ -1072,7 +1072,7 @@ public class SpanGroupManager {
                             return;
                         }
                         CharSequence subSequence = text.subSequence(start, end);
-                        if (this.f40941c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT) {
+                        if (this.f39347c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT) {
                             if (UrlManager.getInstance().isPbUrl(subSequence)) {
                                 tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK);
                                 String tidFromPbUrl = UrlManager.getInstance().getTidFromPbUrl(subSequence.toString());
@@ -1081,17 +1081,17 @@ public class SpanGroupManager {
                             } else {
                                 tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.DEAULT);
                             }
-                            tbLinkSpanGroup.a(text, start, end2, (int) this.f40941c.getTextSize());
+                            tbLinkSpanGroup.a(text, start, end2, (int) this.f39347c.getTextSize());
                             tbLinkSpanGroup.r();
-                            tbLinkSpanGroup.k(this.f40945g);
-                            this.f40942d.add(tbLinkSpanGroup);
-                        } else if (this.f40941c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY) {
+                            tbLinkSpanGroup.k(this.f39351g);
+                            this.f39348d.add(tbLinkSpanGroup);
+                        } else if (this.f39347c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY) {
                             TbLinkSpanGroup tbLinkSpanGroup2 = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.DEAULT);
-                            tbLinkSpanGroup2.a(text, start, end2, (int) this.f40941c.getTextSize());
+                            tbLinkSpanGroup2.a(text, start, end2, (int) this.f39347c.getTextSize());
                             tbLinkSpanGroup2.r();
                             R(subSequence.toString(), tbLinkSpanGroup2.e());
-                            tbLinkSpanGroup2.k(this.f40945g);
-                            this.f40942d.add(tbLinkSpanGroup2);
+                            tbLinkSpanGroup2.k(this.f39351g);
+                            this.f39348d.add(tbLinkSpanGroup2);
                         }
                         s();
                     }
@@ -1104,17 +1104,17 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             synchronized (this) {
-                if (this.f40941c != null && this.f40944f) {
-                    Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(this.f40941c.getText());
+                if (this.f39347c != null && this.f39350f) {
+                    Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(this.f39347c.getText());
                     if (matcher.find()) {
                         AtSelectData atSelectData = new AtSelectData(matcher.group(1).trim(), matcher.group(2).trim(), matcher.group(3).trim());
                         int start = matcher.start();
                         int end = matcher.end();
-                        c.a.t0.s.l0.s.d dVar = new c.a.t0.s.l0.s.d(atSelectData);
-                        this.f40941c.getEditableText().replace(start, end, dVar.v());
-                        dVar.a(this.f40941c.getText(), start, dVar.v().length() + start, (int) this.f40941c.getTextSize());
+                        c.a.q0.r.l0.s.d dVar = new c.a.q0.r.l0.s.d(atSelectData);
+                        this.f39347c.getEditableText().replace(start, end, dVar.v());
+                        dVar.a(this.f39347c.getText(), start, dVar.v().length() + start, (int) this.f39347c.getTextSize());
                         dVar.r();
-                        this.f40942d.add(dVar);
+                        this.f39348d.add(dVar);
                         t();
                     }
                 }
@@ -1132,9 +1132,9 @@ public class SpanGroupManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            List<c.a.t0.s.l0.s.d> v = v();
+            List<c.a.q0.r.l0.s.d> v = v();
             ArrayList<AtSelectData> arrayList = new ArrayList<>();
-            for (c.a.t0.s.l0.s.d dVar : v) {
+            for (c.a.q0.r.l0.s.d dVar : v) {
                 if (dVar != null && dVar.u() != null) {
                     arrayList.add(dVar.u());
                 }
@@ -1144,16 +1144,16 @@ public class SpanGroupManager {
         return (ArrayList) invokeV.objValue;
     }
 
-    public List<c.a.t0.s.l0.s.d> v() {
+    public List<c.a.q0.r.l0.s.d> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
-                if ((next instanceof c.a.t0.s.l0.s.d) && next.h()) {
-                    arrayList.add((c.a.t0.s.l0.s.d) next);
+                c.a.q0.r.l0.s.a next = it.next();
+                if ((next instanceof c.a.q0.r.l0.s.d) && next.h()) {
+                    arrayList.add((c.a.q0.r.l0.s.d) next);
                 }
             }
             return arrayList;
@@ -1167,7 +1167,7 @@ public class SpanGroupManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             ArrayList arrayList = new ArrayList();
             if (L()) {
-                for (c.a.t0.s.l0.s.d dVar : v()) {
+                for (c.a.q0.r.l0.s.d dVar : v()) {
                     if (dVar.u() != null && dVar.u().getUid() != null) {
                         arrayList.add(dVar.u().getUid());
                     }
@@ -1184,13 +1184,13 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             int i2 = 0;
-            if (ListUtils.isEmpty(this.f40942d)) {
+            if (ListUtils.isEmpty(this.f39348d)) {
                 return 0;
             }
-            Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+            Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
             while (it.hasNext()) {
-                c.a.t0.s.l0.s.a next = it.next();
-                if ((next instanceof TbLinkSpanGroup) && next.h() && (t = ((TbLinkSpanGroup) next).t()) != null && t.f13981f == 2) {
+                c.a.q0.r.l0.s.a next = it.next();
+                if ((next instanceof TbLinkSpanGroup) && next.h() && (t = ((TbLinkSpanGroup) next).t()) != null && t.f13397f == 2) {
                     i2++;
                 }
             }
@@ -1204,19 +1204,19 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             synchronized (this) {
-                if (this.f40941c == null) {
+                if (this.f39347c == null) {
                     return null;
                 }
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f40941c.getText());
-                LinkedList<c.a.t0.s.l0.s.a> linkedList = new LinkedList<>();
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f39347c.getText());
+                LinkedList<c.a.q0.r.l0.s.a> linkedList = new LinkedList<>();
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h()) {
                         if (next instanceof TbLinkSpanGroup) {
                             linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
-                        } else if (next instanceof c.a.t0.s.l0.s.d) {
-                            linkedList.add(c.a.t0.s.l0.s.d.w((c.a.t0.s.l0.s.d) next, spannableStringBuilder));
+                        } else if (next instanceof c.a.q0.r.l0.s.d) {
+                            linkedList.add(c.a.q0.r.l0.s.d.w((c.a.q0.r.l0.s.d) next, spannableStringBuilder));
                         } else if (next instanceof e) {
                             linkedList.add(e.u((e) next, spannableStringBuilder));
                         } else {
@@ -1224,9 +1224,9 @@ public class SpanGroupManager {
                         }
                     }
                 }
-                Iterator<c.a.t0.s.l0.s.a> it2 = linkedList.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it2 = linkedList.iterator();
                 while (it2.hasNext()) {
-                    c.a.t0.s.l0.s.a next2 = it2.next();
+                    c.a.q0.r.l0.s.a next2 = it2.next();
                     int f2 = next2.f();
                     int c2 = next2.c();
                     next2.p(spannableStringBuilder);
@@ -1243,20 +1243,20 @@ public class SpanGroupManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             synchronized (this) {
-                if (this.f40941c == null) {
+                if (this.f39347c == null) {
                     return null;
                 }
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f40941c.getText());
-                int selectionEnd = this.f40941c.getSelectionEnd();
-                LinkedList<c.a.t0.s.l0.s.a> linkedList = new LinkedList<>();
-                Iterator<c.a.t0.s.l0.s.a> it = this.f40942d.iterator();
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f39347c.getText());
+                int selectionEnd = this.f39347c.getSelectionEnd();
+                LinkedList<c.a.q0.r.l0.s.a> linkedList = new LinkedList<>();
+                Iterator<c.a.q0.r.l0.s.a> it = this.f39348d.iterator();
                 while (it.hasNext()) {
-                    c.a.t0.s.l0.s.a next = it.next();
+                    c.a.q0.r.l0.s.a next = it.next();
                     if (next.h()) {
                         if (next instanceof TbLinkSpanGroup) {
                             linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
-                        } else if (next instanceof c.a.t0.s.l0.s.d) {
-                            linkedList.add(c.a.t0.s.l0.s.d.w((c.a.t0.s.l0.s.d) next, spannableStringBuilder));
+                        } else if (next instanceof c.a.q0.r.l0.s.d) {
+                            linkedList.add(c.a.q0.r.l0.s.d.w((c.a.q0.r.l0.s.d) next, spannableStringBuilder));
                         } else if (next instanceof e) {
                             linkedList.add(e.u((e) next, spannableStringBuilder));
                         } else {
@@ -1264,9 +1264,9 @@ public class SpanGroupManager {
                         }
                     }
                 }
-                Iterator<c.a.t0.s.l0.s.a> it2 = linkedList.iterator();
+                Iterator<c.a.q0.r.l0.s.a> it2 = linkedList.iterator();
                 while (it2.hasNext()) {
-                    c.a.t0.s.l0.s.a next2 = it2.next();
+                    c.a.q0.r.l0.s.a next2 = it2.next();
                     int f2 = next2.f();
                     int c2 = next2.c();
                     int i2 = c2 - f2;

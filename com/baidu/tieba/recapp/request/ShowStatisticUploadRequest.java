@@ -1,8 +1,8 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
-import c.a.t0.t.c.d;
-import c.a.u0.z3.m0.a;
+import c.a.q0.s.c.c;
+import c.a.r0.y3.m0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -26,13 +26,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class ResponseMessage extends HttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         if (netType != null) {
             addParam("net_type", netType);
         }
-        d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         task.setUrl((adAdSense == null || adAdSense.d()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
@@ -127,7 +127,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("tid", cVar.a);
-                            jSONObject.put("locate", cVar.f26273c);
+                            jSONObject.put("locate", cVar.f25093c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -151,9 +151,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f26272b);
+                            jSONObject.put("pid", cVar.f25092b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f26273c);
+                            jSONObject.put("locate", cVar.f25093c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);

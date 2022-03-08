@@ -1,32 +1,24 @@
 package c.q.a;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class h4 {
+/* loaded from: classes3.dex */
+public class h4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public WebView f30569b;
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ b1 f28979e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Info f30570c;
-
-    public h4(Context context) {
+    public h4(b1 b1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {b1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,44 +28,19 @@ public class h4 {
                 return;
             }
         }
-        this.a = context;
-        if (w2.a()) {
-            a();
-        } else {
-            w2.a.post(new s3(this));
-        }
+        this.f28979e = b1Var;
     }
 
-    public void a() {
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f30569b == null) {
-            WebView webView = new WebView(this.a);
-            this.f30569b = webView;
-            WebSettings settings = webView.getSettings();
-            settings.setAllowContentAccess(true);
-            settings.setJavaScriptEnabled(true);
-            if (Build.VERSION.SDK_INT >= 11) {
-                this.f30569b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f30569b.removeJavascriptInterface("accessibility");
-                this.f30569b.removeJavascriptInterface("accessibilityTraversal");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b1 b1Var = this.f28979e;
+            if (b1Var.f28920h == null || b1Var.f28921i == null || (view = b1Var.f28922j) == null) {
+                return;
             }
-            this.f30569b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.f30569b.getSettings().setBlockNetworkImage(true);
-            this.f30569b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.f30569b.getSettings().setCacheMode(2);
-            this.f30569b.getSettings().setAppCacheEnabled(true);
-            this.f30569b.setScrollBarStyle(0);
-            settings.setDomStorageEnabled(true);
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-            settings.setEnableSmoothTransition(true);
-            if (Build.VERSION.SDK_INT >= 21) {
-                settings.setMixedContentMode(0);
-            }
-            settings.setNeedInitialFocus(false);
-            this.f30569b.clearCache(true);
-            this.f30569b.clearHistory();
-            this.f30569b.setWebChromeClient(new w3(this));
-            this.f30569b.setWebViewClient(new z3(this));
+            view.setVisibility(0);
         }
     }
 }

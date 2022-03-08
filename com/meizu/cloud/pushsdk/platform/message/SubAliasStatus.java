@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.platform.message;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SubAliasStatus extends BasicPushStatus {
     public String alias;
     public String pushId;

@@ -5,11 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.q.a.c3;
-import c.q.a.g3;
-import c.q.a.m2;
+import c.q.a.b3;
+import c.q.a.h2;
 import c.q.a.r0;
-import c.q.a.y2;
+import c.q.a.t2;
+import c.q.a.x2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
@@ -21,7 +21,7 @@ import com.kuaishou.weapon.un.w0;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public class WinDReceiver extends BroadcastReceiver {
                 File file = new File(r0.f(context, info.getOpen()));
                 if (file.exists()) {
                     file.delete();
-                    y2 a = c3.a(context);
-                    a.j(new g3(info), info.getDl_pkg(), info.getDl_vsc(), 2);
+                    t2 a = x2.a(context);
+                    a.j(new b3(info), info.getDl_pkg(), info.getDl_vsc(), 2);
                     a.m();
                     ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(w0.c1);
                 }
@@ -67,7 +67,7 @@ public class WinDReceiver extends BroadcastReceiver {
             String dataString = intent.getDataString();
             String str = (TextUtils.isEmpty(dataString) || !dataString.contains(":") || (split = dataString.split(":")) == null || split.length <= 0) ? "" : split[1];
             try {
-                Info info = (Info) m2.i(context, str);
+                Info info = (Info) h2.i(context, str);
                 if (info == null || TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -78,9 +78,9 @@ public class WinDReceiver extends BroadcastReceiver {
                     z = false;
                 }
                 if (z) {
-                    y2 a = c3.a(context);
+                    t2 a = x2.a(context);
                     try {
-                        a.f30763b = c3.d("wie", new g3(info));
+                        a.f29126b = x2.d("wie", new b3(info));
                         a.k("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -108,18 +108,18 @@ public class WinDReceiver extends BroadcastReceiver {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (launchIntentForPackage != null) {
-                    y2 a = c3.a(context);
-                    g3 g3Var = new g3(info);
+                    t2 a = x2.a(context);
+                    b3 b3Var = new b3(info);
                     String open = info.getOpen();
                     try {
-                        a.f30763b = c3.d("wiop", g3Var);
-                        a.l("msg", c3.b(open));
+                        a.f29126b = x2.d("wiop", b3Var);
+                        a.l("msg", x2.b(open));
                     } catch (JSONException unused) {
                     }
                     a.m();
                     launchIntentForPackage.setFlags(268435456);
                     context.startActivity(launchIntentForPackage);
-                    m2.e(context, str);
+                    h2.e(context, str);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

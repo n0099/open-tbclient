@@ -14,7 +14,7 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LEVEL_D = 3;

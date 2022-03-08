@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.core;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ExecutorSupplier {
     Executor forBackgroundTasks();
 

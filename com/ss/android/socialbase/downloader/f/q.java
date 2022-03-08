@@ -6,44 +6,44 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class q {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f60264b;
+    public final String f58614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f60265c;
+    public final String f58615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f60266d;
+    public final boolean f58616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<m> f60267e;
+    public final List<m> f58617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60268f;
+    public int f58618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60269g;
+    public boolean f58619g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60270h;
+    public int f58620h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60271i;
+    public String f58621i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final AtomicLong f60272j;
+    public final AtomicLong f58622j;
 
     public q(String str, boolean z) {
-        this.f60267e = new ArrayList();
-        this.f60272j = new AtomicLong();
+        this.f58617e = new ArrayList();
+        this.f58622j = new AtomicLong();
         this.a = str;
-        this.f60266d = z;
-        this.f60264b = null;
-        this.f60265c = null;
+        this.f58616d = z;
+        this.f58614b = null;
+        this.f58615c = null;
     }
 
     private String a(String str) {
@@ -63,35 +63,35 @@ public class q {
     }
 
     private String e() {
-        if (this.f60271i == null) {
+        if (this.f58621i == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("_");
-            String str = this.f60264b;
+            String str = this.f58614b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f60266d);
-            this.f60271i = sb.toString();
+            sb.append(this.f58616d);
+            this.f58621i = sb.toString();
         }
-        return this.f60271i;
+        return this.f58621i;
     }
 
     public synchronized void b(m mVar) {
         try {
-            this.f60267e.remove(mVar);
+            this.f58617e.remove(mVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void c() {
-        this.f60269g = false;
+        this.f58619g = false;
     }
 
     public synchronized boolean d() {
-        return this.f60269g;
+        return this.f58619g;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -105,39 +105,39 @@ public class q {
     }
 
     public int hashCode() {
-        if (this.f60270h == 0) {
-            this.f60270h = e().hashCode();
+        if (this.f58620h == 0) {
+            this.f58620h = e().hashCode();
         }
-        return this.f60270h;
+        return this.f58620h;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f60264b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f60265c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f60266d + ", failedTimes=" + this.f60268f + ", isCurrentFailed=" + this.f60269g + ExtendedMessageFormat.END_FE;
+        return "UrlRecord{url='" + this.a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f58614b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f58615c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f58616d + ", failedTimes=" + this.f58618f + ", isCurrentFailed=" + this.f58619g + ExtendedMessageFormat.END_FE;
     }
 
     public synchronized void b() {
-        this.f60268f++;
-        this.f60269g = true;
+        this.f58618f++;
+        this.f58619g = true;
     }
 
     public synchronized void a(m mVar) {
-        this.f60267e.add(mVar);
+        this.f58617e.add(mVar);
     }
 
     public q(String str, String str2) {
-        this.f60267e = new ArrayList();
-        this.f60272j = new AtomicLong();
+        this.f58617e = new ArrayList();
+        this.f58622j = new AtomicLong();
         this.a = str;
-        this.f60266d = false;
-        this.f60264b = str2;
-        this.f60265c = a(str2);
+        this.f58616d = false;
+        this.f58614b = str2;
+        this.f58615c = a(str2);
     }
 
     public synchronized int a() {
-        return this.f60267e.size();
+        return this.f58617e.size();
     }
 
     public void a(long j2) {
-        this.f60272j.addAndGet(j2);
+        this.f58622j.addAndGet(j2);
     }
 }

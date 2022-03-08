@@ -7,8 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
-import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class SimpleToken extends Token {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public final class SimpleToken extends Token {
             short s = this.value;
             short s2 = this.bitCount;
             int i2 = (s & ((1 << s2) - 1)) | (1 << s2);
-            return "<" + Integer.toBinaryString(i2 | (1 << this.bitCount)).substring(1) + Typography.greater;
+            return "<" + Integer.toBinaryString(i2 | (1 << this.bitCount)).substring(1) + '>';
         }
         return (String) invokeV.objValue;
     }

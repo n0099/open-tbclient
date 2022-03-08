@@ -6,46 +6,46 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class z {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58175b;
+        public int f56525b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58176c;
+        public int f56526c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58177d;
+        public int f56527d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f58178e;
+        public int f56528e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58179f;
+        public int f56529f;
 
         public a() {
             this.a = -1;
-            this.f58175b = -1;
-            this.f58176c = -1;
-            this.f58177d = -1;
-            this.f58178e = -1;
-            this.f58179f = -1;
+            this.f56525b = -1;
+            this.f56526c = -1;
+            this.f56527d = -1;
+            this.f56528e = -1;
+            this.f56529f = -1;
         }
 
         public a(int i2, int i3) {
             this.a = -1;
-            this.f58175b = -1;
-            this.f58176c = -1;
-            this.f58177d = -1;
-            this.f58178e = -1;
-            this.f58179f = -1;
+            this.f56525b = -1;
+            this.f56526c = -1;
+            this.f56527d = -1;
+            this.f56528e = -1;
+            this.f56529f = -1;
             this.a = i2;
-            this.f58175b = i3;
+            this.f56525b = i3;
         }
 
         public int a() {
@@ -53,43 +53,43 @@ public final class z {
         }
 
         public void a(float f2, float f3) {
-            this.f58176c = (int) f2;
-            this.f58177d = (int) f3;
+            this.f56526c = (int) f2;
+            this.f56527d = (int) f3;
         }
 
         public void a(int i2, int i3) {
             this.a = i2;
-            this.f58175b = i3;
+            this.f56525b = i3;
         }
 
         public int b() {
-            return this.f58175b;
+            return this.f56525b;
         }
 
         public void b(float f2, float f3) {
-            this.f58178e = (int) f2;
-            this.f58179f = (int) f3;
+            this.f56528e = (int) f2;
+            this.f56529f = (int) f3;
         }
 
         public int c() {
-            return this.f58176c;
+            return this.f56526c;
         }
 
         public int d() {
-            return this.f58177d;
+            return this.f56527d;
         }
 
         public int e() {
-            return this.f58178e;
+            return this.f56528e;
         }
 
         public int f() {
-            return this.f58179f;
+            return this.f56529f;
         }
 
         @NonNull
         public String toString() {
-            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f58175b + "," + this.f58176c + "," + this.f58177d + "," + this.f58178e + "," + this.f58179f + PreferencesUtil.RIGHT_MOUNT;
+            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f56525b + "," + this.f56526c + "," + this.f56527d + "," + this.f56528e + "," + this.f56529f + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

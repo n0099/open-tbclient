@@ -24,10 +24,10 @@ public class j extends SSLSocketFactory {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HostnameVerifier f2005b;
+    public HostnameVerifier f2631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpsURLConnection f2006c;
+    public HttpsURLConnection f2632c;
 
     public j(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class j extends SSLSocketFactory {
             }
         }
         this.a = j.class.getSimpleName();
-        this.f2005b = HttpsURLConnection.getDefaultHostnameVerifier();
-        this.f2006c = httpsURLConnection;
+        this.f2631b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.f2632c = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -104,7 +104,7 @@ public class j extends SSLSocketFactory {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            String requestProperty = this.f2006c.getRequestProperty("Host");
+            String requestProperty = this.f2632c.getRequestProperty("Host");
             if (requestProperty != null) {
                 str = requestProperty;
             }
@@ -123,7 +123,7 @@ public class j extends SSLSocketFactory {
                 } catch (Exception unused) {
                 }
             }
-            if (this.f2005b.verify(str, sSLSocket.getSession())) {
+            if (this.f2631b.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Verify hostname(" + str + ") failed.");

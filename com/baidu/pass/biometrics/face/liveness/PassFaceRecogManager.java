@@ -37,28 +37,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogManager implements PassBiometric {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f37791e = 300;
+    public static final long f36194e = 300;
 
     /* renamed from: f  reason: collision with root package name */
-    public static PassFaceRecogManager f37792f;
+    public static PassFaceRecogManager f36195f;
     public transient /* synthetic */ FieldHolder $fh;
     public PassBiometricConfiguration a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PassFaceRecogCallback f37793b;
+    public PassFaceRecogCallback f36196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f37794c;
+    public long f36197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37795d;
+    public boolean f36198d;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements IInitCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class PassFaceRecogManager implements PassBiometric {
         public void initFailure(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.a.f37795d = false;
+                this.a.f36198d = false;
             }
         }
 
@@ -94,25 +94,25 @@ public class PassFaceRecogManager implements PassBiometric {
         public void initSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.f37795d = true;
+                this.a.f36198d = true;
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class b implements IInitCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogResult f37796b;
+        public final /* synthetic */ PassFaceRecogResult f36199b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f37797c;
+        public final /* synthetic */ PassFaceRecogCallback f36200c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogManager f37798d;
+        public final /* synthetic */ PassFaceRecogManager f36201d;
 
         public b(PassFaceRecogManager passFaceRecogManager, Context context, PassFaceRecogResult passFaceRecogResult, PassFaceRecogCallback passFaceRecogCallback) {
             Interceptable interceptable = $ic;
@@ -129,19 +129,19 @@ public class PassFaceRecogManager implements PassBiometric {
                     return;
                 }
             }
-            this.f37798d = passFaceRecogManager;
+            this.f36201d = passFaceRecogManager;
             this.a = context;
-            this.f37796b = passFaceRecogResult;
-            this.f37797c = passFaceRecogCallback;
+            this.f36199b = passFaceRecogResult;
+            this.f36200c = passFaceRecogCallback;
         }
 
         @Override // com.baidu.pass.face.platform.listener.IInitCallback
         public void initFailure(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f37796b.setResultCode(-207);
-                this.f37796b.setResultMsg(PassBiometricResult.ERROR_MSG_SO_ERROR);
-                this.f37797c.onFailure(this.f37796b);
+                this.f36199b.setResultCode(-207);
+                this.f36199b.setResultMsg(PassBiometricResult.ERROR_MSG_SO_ERROR);
+                this.f36200c.onFailure(this.f36199b);
             }
         }
 
@@ -149,7 +149,7 @@ public class PassFaceRecogManager implements PassBiometric {
         public void initSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f37798d.f37795d = true;
+                this.f36201d.f36198d = true;
                 Intent intent = new Intent(this.a, PassLivenessRecogActivity.class);
                 if (!(this.a instanceof Activity)) {
                     intent.setFlags(268435456);
@@ -159,7 +159,7 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,14 +224,14 @@ public class PassFaceRecogManager implements PassBiometric {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.f37794c = System.currentTimeMillis();
+            this.f36197c = System.currentTimeMillis();
         }
     }
 
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? System.currentTimeMillis() - this.f37794c < 300 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? System.currentTimeMillis() - this.f36197c < 300 : invokeV.booleanValue;
     }
 
     public static synchronized PassFaceRecogManager getInstance() {
@@ -240,10 +240,10 @@ public class PassFaceRecogManager implements PassBiometric {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (PassFaceRecogManager.class) {
-                if (f37792f == null) {
-                    f37792f = new PassFaceRecogManager();
+                if (f36195f == null) {
+                    f36195f = new PassFaceRecogManager();
                 }
-                passFaceRecogManager = f37792f;
+                passFaceRecogManager = f36195f;
             }
             return passFaceRecogManager;
         }
@@ -253,7 +253,7 @@ public class PassFaceRecogManager implements PassBiometric {
     public void cleanPassFaceRecogCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37793b = null;
+            this.f36196b = null;
         }
     }
 
@@ -312,7 +312,7 @@ public class PassFaceRecogManager implements PassBiometric {
     public PassFaceRecogCallback getPassFaceRecogCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37793b : (PassFaceRecogCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36196b : (PassFaceRecogCallback) invokeV.objValue;
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometric
@@ -376,12 +376,12 @@ public class PassFaceRecogManager implements PassBiometric {
                 }
                 return;
             }
-            this.f37793b = passFaceRecogCallback;
+            this.f36196b = passFaceRecogCallback;
             if (!e.a(context)) {
                 passFaceRecogResult.setResultCode(-207);
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_SO_ERROR);
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
-            } else if (this.f37795d) {
+            } else if (this.f36198d) {
                 Intent intent = new Intent(context, PassLivenessRecogActivity.class);
                 if (!(context instanceof Activity)) {
                     intent.setFlags(268435456);

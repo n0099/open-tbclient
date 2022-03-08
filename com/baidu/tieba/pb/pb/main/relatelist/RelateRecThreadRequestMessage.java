@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.relatelist;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RelateRecThread.DataReq;
 import tbclient.RelateRecThread.RelateRecThreadReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RelateRecThreadRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class RelateRecThreadRequestMessage extends NetMessage {
             builder.source_type = Integer.valueOf(this.sourceType);
             builder.source_from = Integer.valueOf(this.sourceFrom);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             RelateRecThreadReqIdl.Builder builder2 = new RelateRecThreadReqIdl.Builder();
             builder2.data = builder.build(false);

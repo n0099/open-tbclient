@@ -1,5 +1,5 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ArrayAdapterInterface<T> {
     int getArrayLength(T t);
 

@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes7.dex */
 public abstract class LuminanceSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public abstract class LuminanceSource {
                 bArr = getRow(i3, bArr);
                 for (int i4 = 0; i4 < this.width; i4++) {
                     int i5 = bArr[i4] & 255;
-                    sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? '.' : ' ');
+                    sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? '.' : WebvttCueParser.CHAR_SPACE);
                 }
                 sb.append('\n');
             }

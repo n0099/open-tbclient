@@ -24,12 +24,8 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.d.a.f;
 import c.a.d.f.p.n;
-import c.a.u0.a4.f;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.j;
-import c.a.u0.a4.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,6 +34,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +42,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class NavigationBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +90,7 @@ public class NavigationBar extends RelativeLayout {
     public View topCoverBgView;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class ControlAlign {
         public static final /* synthetic */ ControlAlign[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -157,7 +154,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class ControlType {
         public static final /* synthetic */ ControlType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -214,13 +211,13 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40643e;
+        public final /* synthetic */ NavigationBar f39049e;
 
         public a(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -237,7 +234,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40643e = navigationBar;
+            this.f39049e = navigationBar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -245,22 +242,22 @@ public class NavigationBar extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.f40643e.mContentLayout.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f39049e.mContentLayout.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    this.f40643e.mContentLayout.setLayoutParams(layoutParams);
+                    this.f39049e.mContentLayout.setLayoutParams(layoutParams);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40644e;
+        public final /* synthetic */ NavigationBar f39050e;
 
         public b(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -277,7 +274,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40644e = navigationBar;
+            this.f39050e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -288,13 +285,13 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40645e;
+        public final /* synthetic */ NavigationBar f39051e;
 
         public c(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -311,30 +308,30 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40645e = navigationBar;
+            this.f39051e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f40645e.mClickIsVaild) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f39051e.mClickIsVaild) {
                 int id = view.getId();
-                if (id == g.navigationBarGoBack) {
-                    this.f40645e.mCurrentActivity.finish();
-                } else if (id == g.navigationBarHome) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f40645e.mCurrentActivity));
+                if (id == R.id.navigationBarGoBack) {
+                    this.f39051e.mCurrentActivity.finish();
+                } else if (id == R.id.navigationBarHome) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f39051e.mCurrentActivity));
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40646e;
+        public final /* synthetic */ NavigationBar f39052e;
 
         public d(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -351,7 +348,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40646e = navigationBar;
+            this.f39052e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -365,7 +362,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f40646e.mNavIsShow = false;
+                this.f39052e.mNavIsShow = false;
             }
         }
 
@@ -384,13 +381,13 @@ public class NavigationBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40647e;
+        public final /* synthetic */ NavigationBar f39053e;
 
         public e(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -407,7 +404,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40647e = navigationBar;
+            this.f39053e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -421,7 +418,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f40647e.mNavIsShow = true;
+                this.f39053e.mNavIsShow = true;
             }
         }
 
@@ -436,7 +433,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f40647e.mNavIsShow = true;
+                this.f39053e.mNavIsShow = true;
             }
         }
     }
@@ -464,9 +461,9 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = n.f(getContext(), c.a.u0.a4.e.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = c.a.u0.a4.d.CAM_X0204;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new a(this);
         this.containerWidth = 0;
@@ -479,7 +476,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             View view = new View(getContext());
-            view.setId(g.navigation_bar_status_bar);
+            view.setId(R.id.navigation_bar_status_bar);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight());
             layoutParams.addRule(10, -1);
             view.setLayoutParams(layoutParams);
@@ -500,25 +497,25 @@ public class NavigationBar extends RelativeLayout {
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
             this.mFixedNavHeight = this.mNavHeight;
             this.mCurrentActivity = (Activity) context;
-            View inflate = LayoutInflater.from(context).inflate(h.widget_navigation_bar, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
             this.mRootView = inflate;
-            this.mContentLayout = (FrameLayout) inflate.findViewById(g.navigation_bar_content_layout);
-            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(g.leftBox);
-            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(g.centerBox);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(g.rightBox);
-            this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(g.absoluteCenterBox);
-            this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(g.center_img_box);
-            this.mCenterIcon = (ImageView) this.mRootView.findViewById(g.center_img);
-            this.mCenterText = (TextView) this.mRootView.findViewById(g.center_text);
-            this.mBottomLine = this.mRootView.findViewById(g.bottom_line);
-            View findViewById = this.mRootView.findViewById(g.navigation_bar_view_cover_bg);
+            this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.navigation_bar_content_layout);
+            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.leftBox);
+            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.centerBox);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.rightBox);
+            this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
+            this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
+            this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);
+            this.mCenterText = (TextView) this.mRootView.findViewById(R.id.center_text);
+            this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
+            View findViewById = this.mRootView.findViewById(R.id.navigation_bar_view_cover_bg);
             this.topCoverBgView = findViewById;
             boolean z2 = false;
-            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, f.navigation_cover_top_bg));
-            this.barBgView = this.mRootView.findViewById(g.navigation_bar_view_bg);
+            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.navigation_cover_top_bg));
+            this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.NavigationBar);
-                z = obtainStyledAttributes.getBoolean(l.NavigationBar_canSpread, true);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.canSpread});
+                z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {
                 z = true;
@@ -547,10 +544,10 @@ public class NavigationBar extends RelativeLayout {
     private void initUnloginView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.mUnloginView == null) {
-            View inflate = ((ViewStub) this.mRootView.findViewById(g.unlogin_view_stub)).inflate();
+            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.unlogin_view_stub)).inflate();
             this.mUnloginView = inflate;
-            this.mRegisterView = (TextView) inflate.findViewById(g.top_navi_register);
-            TextView textView = (TextView) this.mUnloginView.findViewById(g.top_navi_login);
+            this.mRegisterView = (TextView) inflate.findViewById(R.id.top_navi_register);
+            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.top_navi_login);
             this.mLoginView = textView;
             textView.setOnClickListener(this.mLoginListener);
             this.mRegisterView.setOnClickListener(this.mRegisterListener);
@@ -570,10 +567,10 @@ public class NavigationBar extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, controlAlign, onClickListener)) == null) {
-            TextView textView = (TextView) getViewFromLayoutFile(h.widget_nb_item_create_group);
+            TextView textView = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_create_group);
             if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                int dimension = (int) getResources().getDimension(c.a.u0.a4.e.ds16);
+                int dimension = (int) getResources().getDimension(R.dimen.ds16);
                 layoutParams.setMargins(0, dimension, dimension, dimension);
                 textView.setLayoutParams(layoutParams);
             }
@@ -605,11 +602,11 @@ public class NavigationBar extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, controlAlign, str)) == null) {
-            Button button = (Button) getViewFromLayoutFile(h.widget_nb_item_stepbtn);
+            Button button = (Button) getViewFromLayoutFile(R.layout.widget_nb_item_stepbtn);
             button.setText(str);
             if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                int dimension = (int) getResources().getDimension(c.a.u0.a4.e.ds16);
+                int dimension = (int) getResources().getDimension(R.dimen.ds16);
                 layoutParams.setMargins(0, dimension, dimension, dimension);
                 button.setLayoutParams(layoutParams);
             }
@@ -772,7 +769,7 @@ public class NavigationBar extends RelativeLayout {
     public void initPadding() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            setPadding(n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)), this.mTopPadding, n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)));
+            setPadding(n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
         }
     }
 
@@ -814,33 +811,33 @@ public class NavigationBar extends RelativeLayout {
             if (i2 < 0) {
                 i2 = TbadkCoreApplication.getInst().getSkinType();
             }
-            SkinManager.setViewTextColor(this.mCenterText, c.a.u0.a4.d.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i2);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(c.a.d.a.f<?> fVar, int i2) {
+    public void onChangeSkinType(f<?> fVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048611, this, fVar, i2) == null) {
             if (this.mIsCorner) {
-                c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this);
+                c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this);
                 d2.m(1);
-                d2.n(j.J_X14);
-                d2.f(c.a.u0.a4.d.CAM_X0208);
+                d2.n(R.string.J_X14);
+                d2.f(R.color.CAM_X0208);
             } else {
-                SkinManager.setBackgroundColor(this, c.a.u0.a4.d.CAM_X0208, i2);
+                SkinManager.setBackgroundColor(this, R.color.CAM_X0208, i2);
             }
             SkinManager.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i2);
             onBackBtnOnChangeSkin(i2);
-            SkinManager.setNavbarTitleColor(this.mTextTitle, c.a.u0.a4.d.CAM_X0105, c.a.u0.a4.d.s_navbar_title_color);
-            SkinManager.setNavbarTitleColor(this.mCenterText, c.a.u0.a4.d.CAM_X0105, c.a.u0.a4.d.s_navbar_title_color);
+            SkinManager.setNavbarTitleColor(this.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+            SkinManager.setNavbarTitleColor(this.mCenterText, R.color.CAM_X0105, R.color.s_navbar_title_color);
             TextView textView = this.mRegisterView;
             if (textView != null) {
-                SkinManager.setViewTextColor(textView, c.a.u0.a4.d.CAM_X0106, 1);
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
             }
             TextView textView2 = this.mLoginView;
             if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, c.a.u0.a4.d.CAM_X0106, 1);
+                SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
             }
             initPadding();
             if (fVar instanceof TbPageContext) {
@@ -977,7 +974,7 @@ public class NavigationBar extends RelativeLayout {
     public void setContentPaddingTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.mContentLayout.setPadding(n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)), i2, n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(c.a.u0.a4.e.ds0)));
+            this.mContentLayout.setPadding(n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i2, n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
         }
     }
 
@@ -991,7 +988,7 @@ public class NavigationBar extends RelativeLayout {
     public void setDefTextButtonColor(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, textView) == null) {
-            SkinManager.setViewTextColor(textView, c.a.u0.a4.d.navi_op_text);
+            SkinManager.setViewTextColor(textView, (int) R.color.navi_op_text);
         }
     }
 
@@ -1074,7 +1071,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
             if (this.mTextTitle == null) {
-                this.mTextTitle = (TextView) getViewFromLayoutFile(h.widget_nb_item_title);
+                this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
                 getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
             }
             this.mTextTitle.setText(str);
@@ -1173,10 +1170,10 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, controlAlign, controlType, onClickListener)) == null) {
             if (controlType == ControlType.BACK_BUTTON) {
-                LinearLayout linearLayout = (LinearLayout) findViewById(g.navigationBarGoBack);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.navigationBarGoBack);
                 if (linearLayout == null) {
-                    LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(h.widget_nb_item_back);
-                    ImageView imageView = (ImageView) linearLayout2.findViewById(g.widget_navi_back_button);
+                    LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.widget_nb_item_back);
+                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.widget_navi_back_button);
                     this.mBackImageView = imageView;
                     imageView.setContentDescription("返回");
                     onBackBtnOnChangeSkin();
@@ -1214,9 +1211,9 @@ public class NavigationBar extends RelativeLayout {
             if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i2);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, f.icon_pure_topbar_close44_svg, c.a.u0.a4.d.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, f.ic_icon_pure_topbar_return40_svg, c.a.u0.a4.d.CAM_X0105, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
             }
         }
     }
@@ -1238,12 +1235,12 @@ public class NavigationBar extends RelativeLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{controlAlign, str, onClickListener, Boolean.valueOf(z)})) == null) {
-            View viewFromLayoutFile = getViewFromLayoutFile(h.navigation_right_button_layout);
-            TextView textView = (TextView) viewFromLayoutFile.findViewById(g.right_textview);
+            View viewFromLayoutFile = getViewFromLayoutFile(R.layout.navigation_right_button_layout);
+            TextView textView = (TextView) viewFromLayoutFile.findViewById(R.id.right_textview);
             textView.setText(str);
             if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                int dimension = (int) getResources().getDimension(c.a.u0.a4.e.M_H_X003);
+                int dimension = (int) getResources().getDimension(R.dimen.M_H_X003);
                 if (z) {
                     layoutParams.setMargins(dimension, dimension, dimension, dimension);
                 } else {
@@ -1252,7 +1249,7 @@ public class NavigationBar extends RelativeLayout {
                 textView.setLayoutParams(layoutParams);
             } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-                int dimension2 = (int) getResources().getDimension(c.a.u0.a4.e.M_H_X003);
+                int dimension2 = (int) getResources().getDimension(R.dimen.M_H_X003);
                 if (z) {
                     layoutParams2.setMargins(dimension2, dimension2, dimension2, dimension2);
                 } else {
@@ -1302,7 +1299,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048635, this, str, f2)) == null) {
             if (this.mTextTitle == null) {
-                TextView textView = (TextView) getViewFromLayoutFile(h.widget_nb_item_title);
+                TextView textView = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
                 this.mTextTitle = textView;
                 textView.setTextSize(0, f2);
                 getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
@@ -1324,9 +1321,9 @@ public class NavigationBar extends RelativeLayout {
             if (i5 > 0 && (i4 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i5, i4, i2);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, f.icon_pure_topbar_close44_svg, i3, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i3, null);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, f.ic_icon_pure_topbar_return40_svg, i3, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i3, null);
             }
         }
     }
@@ -1361,9 +1358,9 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = n.f(getContext(), c.a.u0.a4.e.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = c.a.u0.a4.d.CAM_X0204;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new a(this);
         this.containerWidth = 0;
@@ -1395,9 +1392,9 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = n.f(getContext(), c.a.u0.a4.e.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = c.a.u0.a4.d.CAM_X0204;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new a(this);
         this.containerWidth = 0;

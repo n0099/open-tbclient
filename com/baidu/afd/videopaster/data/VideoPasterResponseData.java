@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
@@ -216,13 +216,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f3592g = optString3;
+                                        aVar6.f3228g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f3591f = optString2;
-                                        aVar7.f3595j = optInt;
-                                        aVar7.f3594i = optString5;
-                                        aVar7.f3593h = optString4;
+                                        aVar7.f3227f = optString2;
+                                        aVar7.f3231j = optInt;
+                                        aVar7.f3230i = optString5;
+                                        aVar7.f3229h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;

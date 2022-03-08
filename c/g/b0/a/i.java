@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28422b;
+    public boolean f28260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTNativeExpressAd f28423c;
+    public final /* synthetic */ TTNativeExpressAd f28261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ f f28424d;
+    public final /* synthetic */ f f28262d;
 
     public i(f fVar, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f28424d = fVar;
-        this.f28423c = tTNativeExpressAd;
+        this.f28262d = fVar;
+        this.f28261c = tTNativeExpressAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -47,8 +47,8 @@ public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28424d.onAdClicked(this.f28422b);
-            this.f28422b = true;
+            this.f28262d.onAdClicked(this.f28260b);
+            this.f28260b = true;
         }
     }
 
@@ -57,7 +57,7 @@ public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28424d.onAdShow(this.f28423c, this.a);
+            this.f28262d.onAdShow(this.f28261c, this.a);
             this.a = true;
         }
     }
@@ -67,8 +67,8 @@ public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) {
             LogPrinter.e("onRenderFail message: " + str + ", code = " + i2, new Object[0]);
-            this.f28424d.isAdLoading = false;
-            this.f28424d.onError(i2, str);
+            this.f28262d.isAdLoading = false;
+            this.f28262d.onError(i2, str);
         }
     }
 
@@ -77,7 +77,7 @@ public class i implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             LogPrinter.d();
-            this.f28424d.onAdLoaded((f) this.f28423c);
+            this.f28262d.onAdLoaded((f) this.f28261c);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.google.common.base;
 
-import c.i.d.a.n;
+import c.i.c.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractIterator<T> implements Iterator<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public State f54618e;
+    public State f52968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f54619f;
+    public T f52969f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -131,7 +131,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
                 return;
             }
         }
-        this.f54618e = State.NOT_READY;
+        this.f52968e = State.NOT_READY;
     }
 
     public abstract T a();
@@ -140,7 +140,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f54618e = State.DONE;
+            this.f52968e = State.DONE;
             return null;
         }
         return (T) invokeV.objValue;
@@ -150,10 +150,10 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f54618e = State.FAILED;
-            this.f54619f = a();
-            if (this.f54618e != State.DONE) {
-                this.f54618e = State.READY;
+            this.f52968e = State.FAILED;
+            this.f52969f = a();
+            if (this.f52968e != State.DONE) {
+                this.f52968e = State.READY;
                 return true;
             }
             return false;
@@ -166,8 +166,8 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.w(this.f54618e != State.FAILED);
-            int i2 = a.a[this.f54618e.ordinal()];
+            n.w(this.f52968e != State.FAILED);
+            int i2 = a.a[this.f52968e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return c();
@@ -185,9 +185,9 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (hasNext()) {
-                this.f54618e = State.NOT_READY;
-                T t = this.f54619f;
-                this.f54619f = null;
+                this.f52968e = State.NOT_READY;
+                T t = this.f52969f;
+                this.f52969f = null;
                 return t;
             }
             throw new NoSuchElementException();

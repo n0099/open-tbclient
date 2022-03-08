@@ -13,14 +13,14 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class o {
     public static Map<String, Resources> a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f55643b = new Object();
+    public static final Object f53993b = new Object();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -35,7 +35,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -60,7 +60,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -85,7 +85,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class d {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -110,7 +110,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class e {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -135,7 +135,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class f {
         public static Resources b(Context context, Resources resources, AssetManager assetManager) {
             try {
@@ -178,7 +178,7 @@ public class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f55643b) {
+        synchronized (f53993b) {
             resources2 = a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);

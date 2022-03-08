@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.Set;
 import org.apache.http.HttpResponse;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class HttpOptions extends HttpRequestBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHOD_NAME = "OPTIONS";

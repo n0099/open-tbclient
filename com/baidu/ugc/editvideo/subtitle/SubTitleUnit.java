@@ -8,8 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.g;
-import c.a.b1.t.h;
+import c.a.y0.r.g;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.synchronization.histroytrace;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface OnHistoryTraceListener {
     void onQueryHistroyTraceData(int i2, String str, HistoryTraceData historyTraceData);
 

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.upload;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IUploadListener {
     void onFailure();
 

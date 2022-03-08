@@ -18,7 +18,7 @@ import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R$styleable;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PLA_ListView extends PLA_AbsListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_SCROLL_FACTOR = 0.33f;
@@ -51,20 +51,20 @@ public class PLA_ListView extends PLA_AbsListView {
     public Drawable mOverScrollHeader;
     public final Rect mTempRect;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f55215b;
+        public Object f53565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f55216c;
+        public boolean f53566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PLA_ListView f55217d;
+        public final /* synthetic */ PLA_ListView f53567d;
 
         public a(PLA_ListView pLA_ListView) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class PLA_ListView extends PLA_AbsListView {
                     return;
                 }
             }
-            this.f55217d = pLA_ListView;
+            this.f53567d = pLA_ListView;
         }
     }
 
@@ -170,7 +170,7 @@ public class PLA_ListView extends PLA_AbsListView {
         for (int i2 = 0; i2 < size; i2++) {
             PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) arrayList.get(i2).a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.f55181c = false;
+                layoutParams.f53531c = false;
             }
         }
     }
@@ -386,7 +386,7 @@ public class PLA_ListView extends PLA_AbsListView {
                 view.setLayoutParams(layoutParams);
             }
             layoutParams.a = this.mAdapter.getItemViewType(i2);
-            layoutParams.f55182d = true;
+            layoutParams.f53532d = true;
             Rect rect = this.mListPadding;
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i3, rect.left + rect.right, ((ViewGroup.LayoutParams) layoutParams).width);
             int i4 = ((ViewGroup.LayoutParams) layoutParams).height;
@@ -483,13 +483,13 @@ public class PLA_ListView extends PLA_AbsListView {
                 layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
             }
             layoutParams.a = this.mAdapter.getItemViewType(i2);
-            layoutParams.f55180b = i2;
-            if ((z3 && !layoutParams.f55182d) || (layoutParams.f55181c && layoutParams.a == -2)) {
+            layoutParams.f53530b = i2;
+            if ((z3 && !layoutParams.f53532d) || (layoutParams.f53531c && layoutParams.a == -2)) {
                 attachViewToParent(view, z ? -1 : 0, layoutParams);
             } else {
-                layoutParams.f55182d = false;
+                layoutParams.f53532d = false;
                 if (layoutParams.a == -2) {
-                    layoutParams.f55181c = true;
+                    layoutParams.f53531c = true;
                 }
                 addViewInLayout(view, z ? -1 : 0, layoutParams, true);
             }
@@ -559,8 +559,8 @@ public class PLA_ListView extends PLA_AbsListView {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             a aVar = new a(this);
             aVar.a = view;
-            aVar.f55215b = obj;
-            aVar.f55216c = z;
+            aVar.f53565b = obj;
+            aVar.f53566c = z;
             if (i2 >= 0 && i2 <= this.mHeaderViewInfos.size()) {
                 this.mHeaderViewInfos.add(i2, aVar);
             } else {
@@ -1751,8 +1751,8 @@ public class PLA_ListView extends PLA_AbsListView {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             a aVar = new a(this);
             aVar.a = view;
-            aVar.f55215b = obj;
-            aVar.f55216c = z;
+            aVar.f53565b = obj;
+            aVar.f53566c = z;
             if (i2 >= 0 && i2 <= this.mFooterViewInfos.size()) {
                 this.mFooterViewInfos.add(i2, aVar);
             } else {
@@ -1833,23 +1833,23 @@ public class PLA_ListView extends PLA_AbsListView {
         this.mItemsCanFocus = false;
         this.mTempRect = new Rect();
         this.mContentPaint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ListView, i2, 0);
-        Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.ListView_overScrollHeader);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.dividerHeight, R.attr.footerDividersEnabled, R.attr.headerDividersEnabled, R.attr.overScrollFooter, R.attr.overScrollHeader, R.attr.plaContentBackground}, i2, 0);
+        Drawable drawable = obtainStyledAttributes.getDrawable(4);
         if (drawable != null) {
             setOverscrollHeader(drawable);
         }
-        Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.ListView_overScrollFooter);
+        Drawable drawable2 = obtainStyledAttributes.getDrawable(3);
         if (drawable2 != null) {
             setOverscrollFooter(drawable2);
         }
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ListView_dividerHeight, 0);
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         if (dimensionPixelSize != 0) {
             setDividerHeight(dimensionPixelSize);
         }
-        this.mHeaderDividersEnabled = obtainStyledAttributes.getBoolean(R$styleable.ListView_headerDividersEnabled, true);
-        this.mFooterDividersEnabled = obtainStyledAttributes.getBoolean(R$styleable.ListView_footerDividersEnabled, true);
-        if (obtainStyledAttributes.hasValue(R$styleable.ListView_plaContentBackground)) {
-            int color = obtainStyledAttributes.getColor(R$styleable.ListView_plaContentBackground, 0);
+        this.mHeaderDividersEnabled = obtainStyledAttributes.getBoolean(2, true);
+        this.mFooterDividersEnabled = obtainStyledAttributes.getBoolean(1, true);
+        if (obtainStyledAttributes.hasValue(5)) {
+            int color = obtainStyledAttributes.getColor(5, 0);
             Paint paint = new Paint();
             this.mContentPaint = paint;
             paint.setColor(color);

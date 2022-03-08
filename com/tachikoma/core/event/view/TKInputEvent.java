@@ -9,7 +9,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.event.base.TKBaseEvent;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKInputEvent extends TKBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TK_INPUT_STATE_BEGAN = 1;

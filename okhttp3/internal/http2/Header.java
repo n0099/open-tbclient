@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Header {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString PSEUDO_PREFIX;

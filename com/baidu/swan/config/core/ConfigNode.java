@@ -2,8 +2,8 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d.g.a;
-import c.a.s0.d.g.b;
+import c.a.p0.d.g.a;
+import c.a.p0.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
 import io.flutter.embedding.android.FlutterActivityAndFragmentDelegate;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class ConfigNode {
     public static final /* synthetic */ ConfigNode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,9 +42,9 @@ public final class ConfigNode {
             }
         }
         HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", a.class, b.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, c.a.s0.d.f.a.class, c.a.s0.d.f.b.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.s0.d.e.a.class, c.a.s0.d.e.b.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.s0.d.h.a.class, c.a.s0.d.h.b.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, c.a.p0.d.f.a.class, c.a.p0.d.f.b.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.p0.d.e.a.class, c.a.p0.d.e.b.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.p0.d.h.a.class, c.a.p0.d.h.b.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

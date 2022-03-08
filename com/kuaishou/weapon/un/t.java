@@ -16,13 +16,13 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "tun";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55468b = "ppp";
+    public static final String f53818b = "ppp";
     public transient /* synthetic */ FieldHolder $fh;
 
     public t() {
@@ -93,7 +93,7 @@ public class t {
                         break;
                     }
                     String a2 = c1.a(readLine);
-                    if (a2.contains(a) || a2.contains(f55468b)) {
+                    if (a2.contains(a) || a2.contains(f53818b)) {
                         hashSet.add(a2.split("\t")[0]);
                     }
                 }

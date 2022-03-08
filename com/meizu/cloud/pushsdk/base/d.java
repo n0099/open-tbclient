@@ -1,44 +1,45 @@
 package com.meizu.cloud.pushsdk.base;
 
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static final char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    public static final char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char f58859b = (char) Integer.parseInt("00000011", 2);
+    public static final char f57209b = (char) Integer.parseInt("00000011", 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f58860c = (char) Integer.parseInt("00001111", 2);
+    public static final char f57210c = (char) Integer.parseInt("00001111", 2);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char f58861d = (char) Integer.parseInt("00111111", 2);
+    public static final char f57211d = (char) Integer.parseInt("00111111", 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58862e;
+    public String f57212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public char[] f58863f;
+    public char[] f57213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58864g = 0;
+    public int f57214g = 0;
 
     public d(String str) {
-        this.f58862e = str;
+        this.f57212e = str;
         a();
     }
 
     private void a() {
         char[] cArr = new char[a.length];
         int i2 = 0;
-        this.f58864g = this.f58862e.charAt(0) % CharUtils.CR;
+        this.f57214g = this.f57212e.charAt(0) % CharUtils.CR;
         while (true) {
             char[] cArr2 = a;
             if (i2 >= cArr2.length) {
-                this.f58863f = cArr;
+                this.f57213f = cArr;
                 return;
             } else {
-                cArr[i2] = cArr2[(this.f58864g + i2) % cArr2.length];
+                cArr[i2] = cArr2[(this.f57214g + i2) % cArr2.length];
                 i2++;
             }
         }
@@ -56,24 +57,24 @@ public class d {
             int i3 = i2 + 1;
             int i4 = bArr[i2] & 255;
             if (i3 == length) {
-                sb.append(this.f58863f[i4 >>> 2]);
-                sb.append(this.f58863f[(i4 & f58859b) << 4]);
+                sb.append(this.f57213f[i4 >>> 2]);
+                sb.append(this.f57213f[(i4 & f57209b) << 4]);
                 str = "==";
             } else {
                 int i5 = i3 + 1;
                 int i6 = bArr[i3] & 255;
                 if (i5 == length) {
-                    sb.append(this.f58863f[i4 >>> 2]);
-                    sb.append(this.f58863f[((i4 & f58859b) << 4) | (i6 >>> 4)]);
-                    sb.append(this.f58863f[(f58860c & i6) << 2]);
+                    sb.append(this.f57213f[i4 >>> 2]);
+                    sb.append(this.f57213f[((i4 & f57209b) << 4) | (i6 >>> 4)]);
+                    sb.append(this.f57213f[(f57210c & i6) << 2]);
                     str = "=";
                 } else {
                     int i7 = i5 + 1;
                     int i8 = bArr[i5] & 255;
-                    sb.append(this.f58863f[i4 >>> 2]);
-                    sb.append(this.f58863f[((i4 & f58859b) << 4) | (i6 >>> 4)]);
-                    sb.append(this.f58863f[((i6 & f58860c) << 2) | (i8 >>> 6)]);
-                    sb.append(this.f58863f[f58861d & i8]);
+                    sb.append(this.f57213f[i4 >>> 2]);
+                    sb.append(this.f57213f[((i4 & f57209b) << 4) | (i6 >>> 4)]);
+                    sb.append(this.f57213f[((i6 & f57210c) << 2) | (i8 >>> 6)]);
+                    sb.append(this.f57213f[f57211d & i8]);
                     i2 = i7;
                 }
             }

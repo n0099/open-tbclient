@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NpsLoadChainLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
@@ -42,7 +42,7 @@ public class NpsLoadChainLog {
     public String sessionId;
     public UBCManager ubcManager;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;
@@ -77,12 +77,6 @@ public class NpsLoadChainLog {
                 }
             }
         }
-    }
-
-    public static /* synthetic */ String access$1084(NpsLoadChainLog npsLoadChainLog, Object obj) {
-        String str = npsLoadChainLog.pathTemp + obj;
-        npsLoadChainLog.pathTemp = str;
-        return str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -242,7 +236,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndDowlonad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndDowlonad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndDowlonad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndDowlonad", this.this$0.genNodeJsonObj(1, Integer.MIN_VALUE, this.val$downloadSize, this.val$totalSize));
                     } catch (JSONException e2) {
@@ -291,7 +286,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("initEnd") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "initEnd");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initEnd";
                     try {
                         this.this$0.pathJsonObj.put("initEnd", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE, this.val$errorMsg));
                     } catch (JSONException e2) {
@@ -342,7 +338,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceEndInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "entranceEndInstall");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndInstall";
                     try {
                         this.this$0.pathJsonObj.put("entranceEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -395,7 +392,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("endInstallLiveNps") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "endInstallLiveNps");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "endInstallLiveNps";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -448,7 +446,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -501,7 +500,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceEndLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "entranceEndLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndLoad";
                     try {
                         this.this$0.pathJsonObj.put("entranceEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -554,7 +554,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndPreLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndPreLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -743,7 +744,8 @@ public class NpsLoadChainLog {
                         return;
                     }
                     this.this$0.entry = this.val$entryValue;
-                    NpsLoadChainLog.access$1084(this.this$0, "entry");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entry";
                     try {
                         this.this$0.pathJsonObj.put("entry", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -834,7 +836,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartDownload") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartDownload");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartDownload";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartDownload", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -879,7 +882,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("initStart") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "initStart");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initStart";
                     try {
                         this.this$0.pathJsonObj.put("initStart", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -924,7 +928,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceStartInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "entranceStartInstall");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartInstall";
                     try {
                         this.this$0.pathJsonObj.put("entranceStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -969,7 +974,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartInstall");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartInstall";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -1014,7 +1020,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -1059,7 +1066,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartPreLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -1104,7 +1112,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceStartLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "entranceStartLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartLoad";
                     try {
                         this.this$0.pathJsonObj.put("entranceStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -1149,7 +1158,8 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartPreLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartPreLoad");
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {

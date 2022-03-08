@@ -11,21 +11,21 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class c0 implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f27878e;
+        public final /* synthetic */ long f27782e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BufferedSource f27879f;
+        public final /* synthetic */ BufferedSource f27783f;
 
         public a(v vVar, long j2, BufferedSource bufferedSource) {
             Interceptable interceptable = $ic;
@@ -42,22 +42,22 @@ public abstract class c0 implements Closeable {
                     return;
                 }
             }
-            this.f27878e = j2;
-            this.f27879f = bufferedSource;
+            this.f27782e = j2;
+            this.f27783f = bufferedSource;
         }
 
         @Override // c.d.b.c0
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27878e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27782e : invokeV.longValue;
         }
 
         @Override // c.d.b.c0
         public BufferedSource f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27879f : (BufferedSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27783f : (BufferedSource) invokeV.objValue;
         }
     }
 

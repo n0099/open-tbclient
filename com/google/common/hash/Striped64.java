@@ -15,7 +15,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.Random;
 import sun.misc.Unsafe;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class Striped64 extends Number {
     public static /* synthetic */ Interceptable $ic;
     public static final int NCPU;
@@ -29,7 +29,7 @@ public abstract class Striped64 extends Number {
     public volatile transient int busy;
     public volatile transient b[] cells;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,15 +69,15 @@ public abstract class Striped64 extends Number {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f55131b;
+        public static final Unsafe f53481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f55132c;
+        public static final long f53482c;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile long a;
 
@@ -96,8 +96,8 @@ public abstract class Striped64 extends Number {
             }
             try {
                 Unsafe unsafe = Striped64.getUnsafe();
-                f55131b = unsafe;
-                f55132c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
+                f53481b = unsafe;
+                f53482c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
@@ -124,7 +124,7 @@ public abstract class Striped64 extends Number {
         public final boolean a(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f55131b.compareAndSwapLong(this, f55132c, j2, j3) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f53481b.compareAndSwapLong(this, f53482c, j2, j3) : invokeCommon.booleanValue;
         }
     }
 

@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
@@ -117,7 +118,7 @@ public class TimeUtils {
             if (i9 == 0) {
                 int i10 = i2 - 1;
                 while (i8 < i10) {
-                    cArr[i8] = ' ';
+                    cArr[i8] = WebvttCueParser.CHAR_SPACE;
                     i8++;
                 }
                 cArr[i8] = '0';
@@ -158,7 +159,7 @@ public class TimeUtils {
                 int accumField4 = accumField3 + accumField(i5, 1, accumField3 > 0, 2);
                 i7 = 0;
                 for (int accumField5 = accumField4 + accumField(i11, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i2; accumField5++) {
-                    cArr[i7] = ' ';
+                    cArr[i7] = WebvttCueParser.CHAR_SPACE;
                     i7++;
                 }
             } else {

@@ -12,29 +12,29 @@ import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKConfigResultData extends BaseResultData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a data;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58320b;
+        public String f56670b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58321c;
+        public String f56671c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58322d;
+        public String f56672d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f58323e;
+        public int f56673e;
 
         public a() {
             Interceptable interceptable = $ic;

@@ -1,23 +1,22 @@
 package c.a.q0.r;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes.dex */
-public class a {
+/* loaded from: classes2.dex */
+public class a implements LayoutInflater.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Class<?> f4971b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Method f4972c;
+    /* renamed from: e  reason: collision with root package name */
+    public c f12813e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,24 +32,24 @@ public class a {
         }
     }
 
-    public final String a(Context context, Method method) {
-        InterceptResult invokeLL;
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.a;
-            if (obj == null || method == null) {
-                return null;
-            }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.f12813e = cVar;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+            if (this.f12813e == null) {
+                this.f12813e = new c();
+            }
+            this.f12813e.i(str, context, attributeSet);
+            return null;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

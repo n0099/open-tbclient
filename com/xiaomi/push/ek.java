@@ -15,7 +15,7 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ek {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -24,7 +24,7 @@ public class ek {
     public static Map<String, hp> f325a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void uploader(Context context, hj hjVar);
     }

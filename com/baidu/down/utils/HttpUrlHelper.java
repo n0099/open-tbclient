@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
@@ -29,8 +30,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class HttpUrlHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -56,7 +56,7 @@ public final class HttpUrlHelper {
     public final String username;
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
         public static /* synthetic */ Interceptable $ic;
@@ -197,10 +197,7 @@ public final class HttpUrlHelper {
             if (str.equals("http")) {
                 return 80;
             }
-            if (str.equals("https")) {
-                return com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL;
-            }
-            return -1;
+            return str.equals("https") ? 443 : -1;
         }
         return invokeL.intValue;
     }
@@ -237,11 +234,11 @@ public final class HttpUrlHelper {
                 String str = list.get(i2);
                 String str2 = list.get(i2 + 1);
                 if (i2 > 0) {
-                    sb.append(Typography.amp);
+                    sb.append('&');
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f31099h);
+                    sb.append(a.f29503h);
                     sb.append(str2);
                 }
             }
@@ -266,7 +263,7 @@ public final class HttpUrlHelper {
         if (interceptable == null || interceptable.invokeLL(65551, null, sb, list) == null) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                sb.append('/');
+                sb.append(WebvttCueParser.CHAR_SLASH);
                 sb.append(list.get(i2));
             }
         }
@@ -388,7 +385,7 @@ public final class HttpUrlHelper {
             ArrayList arrayList = new ArrayList();
             while (indexOf < delimiterOffset) {
                 int i2 = indexOf + 1;
-                int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(this.url, i2, delimiterOffset, '/');
+                int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(this.url, i2, delimiterOffset, (char) WebvttCueParser.CHAR_SLASH);
                 arrayList.add(this.url.substring(i2, delimiterOffset2));
                 indexOf = delimiterOffset2;
             }
@@ -654,7 +651,7 @@ public final class HttpUrlHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -668,7 +665,7 @@ public final class HttpUrlHelper {
         public String scheme;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes4.dex */
         public static final class ParseResult {
             public static final /* synthetic */ ParseResult[] $VALUES;
             public static /* synthetic */ Interceptable $ic;

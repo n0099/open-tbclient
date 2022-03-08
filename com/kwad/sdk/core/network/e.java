@@ -6,7 +6,7 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.utils.q;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static volatile e a;
 

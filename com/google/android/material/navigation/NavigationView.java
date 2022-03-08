@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.R$attr;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -39,6 +40,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +48,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.internal.ContextUtils;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.internal.NavigationMenuPresenter;
@@ -57,11 +58,13 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_Design_NavigationView = 2131755854;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +77,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public final NavigationMenuPresenter presenter;
     public final int[] tmpLocation;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -94,7 +97,6 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
         CHECKED_STATE_SET = new int[]{16842912};
         DISABLED_STATE_SET = new int[]{-16842910};
-        DEF_STYLE_RES = R.style.Widget_Design_NavigationView;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,7 +128,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(i2, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)) {
+                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
                     int i3 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
                     return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i3, defaultColor});
@@ -143,9 +145,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, tintTypedArray)) == null) {
-            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearance, 0), tintTypedArray.getResourceId(R.styleable.NavigationView_itemShapeAppearanceOverlay, 0)).build());
-            materialShapeDrawable.setFillColor(MaterialResources.getColorStateList(getContext(), tintTypedArray, R.styleable.NavigationView_itemShapeFillColor));
-            return new InsetDrawable((Drawable) materialShapeDrawable, tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetStart, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetTop, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetEnd, 0), tintTypedArray.getDimensionPixelSize(R.styleable.NavigationView_itemShapeInsetBottom, 0));
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), tintTypedArray.getResourceId(11, 0), tintTypedArray.getResourceId(12, 0)).build());
+            materialShapeDrawable.setFillColor(MaterialResources.getColorStateList(getContext(), tintTypedArray, 13));
+            return new InsetDrawable((Drawable) materialShapeDrawable, tintTypedArray.getDimensionPixelSize(16, 0), tintTypedArray.getDimensionPixelSize(17, 0), tintTypedArray.getDimensionPixelSize(15, 0), tintTypedArray.getDimensionPixelSize(14, 0));
         }
         return (Drawable) invokeL.objValue;
     }
@@ -165,7 +167,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     private boolean hasShapeAppearance(@NonNull TintTypedArray tintTypedArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, tintTypedArray)) == null) ? tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearance) || tintTypedArray.hasValue(R.styleable.NavigationView_itemShapeAppearanceOverlay) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, tintTypedArray)) == null) ? tintTypedArray.hasValue(11) || tintTypedArray.hasValue(12) : invokeL.booleanValue;
     }
 
     private void setupInsetScrimsListener() {
@@ -502,7 +504,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -646,7 +648,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_NavigationView), attributeSet, i2);
         ColorStateList createDefaultColorStateList;
         int i3;
         boolean z;
@@ -670,9 +672,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, R.styleable.NavigationView, i2, DEF_STYLE_RES, new int[0]);
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_android_background)) {
-            ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(R.styleable.NavigationView_android_background));
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.elevation, R.attr.headerLayout, R.attr.itemBackground, R.attr.itemHorizontalPadding, R.attr.itemIconPadding, R.attr.itemIconSize, R.attr.itemIconTint, R.attr.itemMaxLines, R.attr.itemShapeAppearance, R.attr.itemShapeAppearanceOverlay, R.attr.itemShapeFillColor, R.attr.itemShapeInsetBottom, R.attr.itemShapeInsetEnd, R.attr.itemShapeInsetStart, R.attr.itemShapeInsetTop, R.attr.itemTextAppearance, R.attr.itemTextColor, R.attr.menu}, i2, Widget_Design_NavigationView, new int[0]);
+        if (obtainTintedStyledAttributes.hasValue(0)) {
+            ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }
         if (getBackground() == null || (getBackground() instanceof ColorDrawable)) {
             Drawable background = getBackground();
@@ -683,39 +685,39 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             materialShapeDrawable.initializeElevationOverlay(context2);
             ViewCompat.setBackground(this, materialShapeDrawable);
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_elevation)) {
-            setElevation(obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_elevation, 0));
+        if (obtainTintedStyledAttributes.hasValue(3)) {
+            setElevation(obtainTintedStyledAttributes.getDimensionPixelSize(3, 0));
         }
-        setFitsSystemWindows(obtainTintedStyledAttributes.getBoolean(R.styleable.NavigationView_android_fitsSystemWindows, false));
-        this.maxWidth = obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_android_maxWidth, 0);
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_itemIconTint)) {
-            createDefaultColorStateList = obtainTintedStyledAttributes.getColorStateList(R.styleable.NavigationView_itemIconTint);
+        setFitsSystemWindows(obtainTintedStyledAttributes.getBoolean(1, false));
+        this.maxWidth = obtainTintedStyledAttributes.getDimensionPixelSize(2, 0);
+        if (obtainTintedStyledAttributes.hasValue(9)) {
+            createDefaultColorStateList = obtainTintedStyledAttributes.getColorStateList(9);
         } else {
             createDefaultColorStateList = createDefaultColorStateList(16842808);
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_itemTextAppearance)) {
-            i3 = obtainTintedStyledAttributes.getResourceId(R.styleable.NavigationView_itemTextAppearance, 0);
+        if (obtainTintedStyledAttributes.hasValue(18)) {
+            i3 = obtainTintedStyledAttributes.getResourceId(18, 0);
             z = true;
         } else {
             i3 = 0;
             z = false;
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_itemIconSize)) {
-            setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_itemIconSize, 0));
+        if (obtainTintedStyledAttributes.hasValue(8)) {
+            setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(8, 0));
         }
-        ColorStateList colorStateList = obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_itemTextColor) ? obtainTintedStyledAttributes.getColorStateList(R.styleable.NavigationView_itemTextColor) : null;
+        ColorStateList colorStateList = obtainTintedStyledAttributes.hasValue(19) ? obtainTintedStyledAttributes.getColorStateList(19) : null;
         if (!z && colorStateList == null) {
             colorStateList = createDefaultColorStateList(16842806);
         }
-        Drawable drawable = obtainTintedStyledAttributes.getDrawable(R.styleable.NavigationView_itemBackground);
+        Drawable drawable = obtainTintedStyledAttributes.getDrawable(5);
         if (drawable == null && hasShapeAppearance(obtainTintedStyledAttributes)) {
             drawable = createDefaultItemBackground(obtainTintedStyledAttributes);
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_itemHorizontalPadding)) {
-            this.presenter.setItemHorizontalPadding(obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_itemHorizontalPadding, 0));
+        if (obtainTintedStyledAttributes.hasValue(6)) {
+            this.presenter.setItemHorizontalPadding(obtainTintedStyledAttributes.getDimensionPixelSize(6, 0));
         }
-        int dimensionPixelSize = obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.NavigationView_itemIconPadding, 0);
-        setItemMaxLines(obtainTintedStyledAttributes.getInt(R.styleable.NavigationView_itemMaxLines, 1));
+        int dimensionPixelSize = obtainTintedStyledAttributes.getDimensionPixelSize(7, 0);
+        setItemMaxLines(obtainTintedStyledAttributes.getInt(10, 1));
         this.menu.setCallback(new MenuBuilder.Callback(this) { // from class: com.google.android.material.navigation.NavigationView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -769,11 +771,11 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.presenter.setItemIconPadding(dimensionPixelSize);
         this.menu.addMenuPresenter(this.presenter);
         addView((View) this.presenter.getMenuView(this));
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_menu)) {
-            inflateMenu(obtainTintedStyledAttributes.getResourceId(R.styleable.NavigationView_menu, 0));
+        if (obtainTintedStyledAttributes.hasValue(20)) {
+            inflateMenu(obtainTintedStyledAttributes.getResourceId(20, 0));
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.NavigationView_headerLayout)) {
-            inflateHeaderView(obtainTintedStyledAttributes.getResourceId(R.styleable.NavigationView_headerLayout, 0));
+        if (obtainTintedStyledAttributes.hasValue(4)) {
+            inflateHeaderView(obtainTintedStyledAttributes.getResourceId(4, 0));
         }
         obtainTintedStyledAttributes.recycle();
         setupInsetScrimsListener();

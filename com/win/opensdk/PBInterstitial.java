@@ -1,13 +1,13 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import c.q.a.a5;
-import c.q.a.c5;
+import c.q.a.j1;
 import c.q.a.m0;
-import c.q.a.o1;
 import c.q.a.q0;
 import c.q.a.r0;
 import c.q.a.v;
+import c.q.a.v4;
+import c.q.a.x4;
 import c.q.a.y0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PBInterstitial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public o1 f61014b;
+    public j1 f59364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f61015c;
+    public PBInterstitialListener f59365c;
 
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class PBInterstitial {
         }
         Context applicationContext = context.getApplicationContext();
         this.a = str;
-        o1 o1Var = new o1(applicationContext, str);
-        this.f61014b = o1Var;
-        o1Var.l = new c5(this);
+        j1 j1Var = new j1(applicationContext, str);
+        this.f59364b = j1Var;
+        j1Var.l = new x4(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o1 o1Var = this.f61014b;
-            o1Var.f30635i = false;
-            o1Var.f30633g = false;
-            o1Var.f30634h = false;
-            a5 a5Var = o1Var.m;
-            if (a5Var != null) {
-                a5Var.b();
+            j1 j1Var = this.f59364b;
+            j1Var.f29001i = false;
+            j1Var.f28999g = false;
+            j1Var.f29000h = false;
+            v4 v4Var = j1Var.m;
+            if (v4Var != null) {
+                v4Var.b();
             }
         }
     }
@@ -74,9 +74,9 @@ public class PBInterstitial {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o1 o1Var = this.f61014b;
-            if (!o1Var.c()) {
-                if (!(o1Var.f30634h && !o1Var.f30635i && o1Var.e() && !o1Var.f30636j.isShown() && o1Var.f30636j.isEffective())) {
+            j1 j1Var = this.f59364b;
+            if (!j1Var.c()) {
+                if (!(j1Var.f29000h && !j1Var.f29001i && j1Var.e() && !j1Var.f29002j.isShown() && j1Var.f29002j.isEffective())) {
                     return false;
                 }
             }
@@ -88,43 +88,43 @@ public class PBInterstitial {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o1 o1Var = this.f61014b;
-            if (o1Var.e() && o1Var.f30636j.isEffective() && !o1Var.f30636j.isShown()) {
-                o1Var.b(o1Var.f30636j);
+            j1 j1Var = this.f59364b;
+            if (j1Var.e() && j1Var.f29002j.isEffective() && !j1Var.f29002j.isShown()) {
+                j1Var.b(j1Var.f29002j);
                 return;
             }
-            if (o1Var.m == null) {
-                o1Var.m = new a5(o1Var.f30632f, o1Var.f30631e, L.f61007b);
+            if (j1Var.m == null) {
+                j1Var.m = new v4(j1Var.f28998f, j1Var.f28997e, L.f59357b);
             }
-            o1Var.m.f30509g = new y0(o1Var);
-            o1Var.m.g();
+            j1Var.m.f29158g = new y0(j1Var);
+            j1Var.m.g();
         }
     }
 
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.f61015c = pBInterstitialListener;
+            this.f59365c = pBInterstitialListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            o1 o1Var = this.f61014b;
-            if (!r0.H(o1Var.f30632f)) {
-                PBInterstitialListener pBInterstitialListener = o1Var.l;
+            j1 j1Var = this.f59364b;
+            if (!r0.H(j1Var.f28998f)) {
+                PBInterstitialListener pBInterstitialListener = j1Var.l;
                 if (pBInterstitialListener != null) {
                     pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
                 }
-            } else if (o1Var.g() && o1Var.c() && o1Var.e()) {
-                o1Var.f30633g = false;
-                v.b().d(v.c(o1Var.f30636j.getTraceid(), o1Var.f30636j.getId(), o1Var.f30636j.getPid()), o1Var.k);
-                o1Var.f30636j.setShown(true);
-                r0.l(o1Var.f30632f, o1Var.f30636j);
-                m0.a().c(v.c(o1Var.f30636j.getTraceid(), o1Var.f30636j.getId(), o1Var.f30631e), o1Var.f30636j);
-                H5Activity.a(o1Var.f30632f, o1Var.f30636j, o1Var.f30631e);
-                q0.b(o1Var.f30636j.getId() + o1Var.f30631e, o1Var);
+            } else if (j1Var.g() && j1Var.c() && j1Var.e()) {
+                j1Var.f28999g = false;
+                v.b().d(v.c(j1Var.f29002j.getTraceid(), j1Var.f29002j.getId(), j1Var.f29002j.getPid()), j1Var.k);
+                j1Var.f29002j.setShown(true);
+                r0.l(j1Var.f28998f, j1Var.f29002j);
+                m0.a().c(v.c(j1Var.f29002j.getTraceid(), j1Var.f29002j.getId(), j1Var.f28997e), j1Var.f29002j);
+                H5Activity.a(j1Var.f28998f, j1Var.f29002j, j1Var.f28997e);
+                q0.b(j1Var.f29002j.getId() + j1Var.f28997e, j1Var);
             }
         }
     }

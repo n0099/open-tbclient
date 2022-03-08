@@ -1,8 +1,8 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.d.i;
+import c.i.c.a.n;
+import c.i.c.d.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +19,7 @@ import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLongArray;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
     public static final /* synthetic */ BloomFilterStrategies[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -221,14 +221,14 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (BloomFilterStrategies[]) $VALUES.clone() : (BloomFilterStrategies[]) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicLongArray a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f55109b;
+        public final i f53459b;
 
         public a(long j2) {
             Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             }
             n.e(j2 > 0, "data length is zero!");
             this.a = new AtomicLongArray(Ints.c(LongMath.a(j2, 64L, RoundingMode.CEILING)));
-            this.f55109b = LongAddables.a();
+            this.f53459b = LongAddables.a();
         }
 
         public static long[] g(AtomicLongArray atomicLongArray) {
@@ -267,7 +267,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55109b.sum() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53459b.sum() : invokeV.longValue;
         }
 
         public long b() {
@@ -309,7 +309,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                         }
                     }
                     if (z) {
-                        this.f55109b.add(Long.bitCount(j3) - Long.bitCount(j2));
+                        this.f53459b.add(Long.bitCount(j3) - Long.bitCount(j2));
                     }
                 }
             }
@@ -345,7 +345,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                         return false;
                     }
                 } while (!this.a.compareAndSet(i2, j3, j4));
-                this.f55109b.increment();
+                this.f53459b.increment();
                 return true;
             }
             return invokeJ.booleanValue;
@@ -374,12 +374,12 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             }
             n.e(jArr.length > 0, "data length is zero!");
             this.a = new AtomicLongArray(jArr);
-            this.f55109b = LongAddables.a();
+            this.f53459b = LongAddables.a();
             long j2 = 0;
             for (long j3 : jArr) {
                 j2 += Long.bitCount(j3);
             }
-            this.f55109b.add(j2);
+            this.f53459b.add(j2);
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import c.a.u0.a4.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CONTINUOUS_SIGN_ALL_DAYS = "continuous_sign_all_days";
@@ -58,7 +58,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(j.resign);
+        String string = context.getResources().getString(R.string.resign);
         getIntent().putExtra(FORUM_ID, i2);
         setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);

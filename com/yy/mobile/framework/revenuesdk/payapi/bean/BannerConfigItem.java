@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class BannerConfigItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class BannerConfigItem {
     public int type;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class BannerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AppaElemInfo extends ParamableElem implements Elem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5075819899173282579L;

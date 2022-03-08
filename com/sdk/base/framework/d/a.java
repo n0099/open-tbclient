@@ -29,38 +29,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f59453d = "com.sdk.base.framework.d.a";
+    public static final String f57803d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f59454e;
+    public static final boolean f57804e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59455b;
+    public String f57805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59456c;
+    public String f57806c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f59457f;
+    public PInfo f57807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f59458g;
+    public AInfo f57808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f59459h;
+    public SInfo f57809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<KInfo> f59460i;
+    public ArrayList<KInfo> f57810i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.sdk.base.framework.b.a<T> f59461j;
+    public com.sdk.base.framework.b.a<T> f57811j;
     public e k;
 
     static {
@@ -76,7 +76,7 @@ public class a<T> {
                 return;
             }
         }
-        f59454e = f.f59448b;
+        f57804e = f.f57798b;
     }
 
     public a() {
@@ -109,7 +109,7 @@ public class a<T> {
             }
         }
         this.a = context;
-        this.f59461j = aVar;
+        this.f57811j = aVar;
         this.k = eVar;
     }
 
@@ -126,7 +126,7 @@ public class a<T> {
                     e = e2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f59453d, e.toString(), Boolean.valueOf(f59454e));
+                    c.b(f57803d, e.toString(), Boolean.valueOf(f57804e));
                     return fVar;
                 }
             } else {
@@ -169,7 +169,7 @@ public class a<T> {
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
                     g gVar = g.a;
                 } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                    g gVar2 = g.f59472b;
+                    g gVar2 = g.f57822b;
                 }
                 h hVar = new h(this.a, kVar);
                 com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
@@ -181,13 +181,13 @@ public class a<T> {
                     fVar = fVar2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f59453d, e.toString(), Boolean.valueOf(f59454e));
+                    c.b(f57803d, e.toString(), Boolean.valueOf(f57804e));
                     return fVar;
                 }
             } catch (Exception e4) {
                 a(1, 101006, "公钥出错");
-                String str3 = f59453d;
-                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f59454e));
+                String str3 = f57803d;
+                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f57804e));
                 return null;
             }
         }
@@ -200,17 +200,17 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataInfo, str)) == null) {
             try {
-                if (this.f59458g == null) {
-                    this.f59458g = com.sdk.base.framework.c.a.a(this.a);
+                if (this.f57808g == null) {
+                    this.f57808g = com.sdk.base.framework.c.a.a(this.a);
                 }
-                if (this.f59459h == null) {
-                    this.f59459h = com.sdk.base.framework.c.a.b();
+                if (this.f57809h == null) {
+                    this.f57809h = com.sdk.base.framework.c.a.b();
                 }
-                if (this.f59460i == null) {
-                    this.f59460i = com.sdk.base.framework.c.a.a();
+                if (this.f57810i == null) {
+                    this.f57810i = com.sdk.base.framework.c.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<KInfo> it = this.f59460i.iterator();
+                Iterator<KInfo> it = this.f57810i.iterator();
                 while (it.hasNext()) {
                     KInfo next = it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
@@ -220,15 +220,15 @@ public class a<T> {
                     mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
-                if (this.f59457f == null) {
-                    this.f59457f = com.sdk.base.framework.c.a.c();
+                if (this.f57807f == null) {
+                    this.f57807f = com.sdk.base.framework.c.a.c();
                 }
                 StringBuilder sb = new StringBuilder("{app:");
-                sb.append(this.f59458g);
+                sb.append(this.f57808g);
                 sb.append(",sdk:");
-                sb.append(this.f59459h);
+                sb.append(this.f57809h);
                 sb.append(",device:");
-                sb.append(this.f59457f);
+                sb.append(this.f57807f);
                 sb.append(",sim:");
                 sb.append(arrayList);
                 sb.append(",data:");
@@ -236,7 +236,7 @@ public class a<T> {
                 sb.append("}");
                 str2 = sb.toString();
             } catch (Exception e2) {
-                c.b(f59453d, e2.toString(), Boolean.valueOf(f59454e));
+                c.b(f57803d, e2.toString(), Boolean.valueOf(f57804e));
                 str2 = null;
             }
             return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.a, f.a), str);
@@ -266,20 +266,20 @@ public class a<T> {
     public final void a(int i2, int i3, String str) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.f59461j) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.f57811j) == null) {
             return;
         }
         aVar.a(i2, i3, str);
-        this.f59461j = null;
+        this.f57811j = null;
     }
 
     public final void a(int i2, String str, int i3, T t, String str2) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.f59461j) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.f57811j) == null) {
             return;
         }
         aVar.a(i2, str, i3, t, str2);
-        this.f59461j = null;
+        this.f57811j = null;
     }
 }

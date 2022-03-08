@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class DisplayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f32935b;
+    public static DisplayMetrics f31338b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -33,8 +33,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f32935b == null) {
-            f32935b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f31338b == null) {
+            f31338b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -49,7 +49,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f32935b.heightPixels;
+            return f31338b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -59,7 +59,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f32935b.widthPixels;
+            return f31338b.widthPixels;
         }
         return invokeL.intValue;
     }

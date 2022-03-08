@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final short[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b.b.q.a<c> f27473b;
+    public final c.b.b.q.a<c> f27377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.a<ModelMaterial> f27474c;
+    public final c.b.b.q.a<ModelMaterial> f27378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.a<e> f27475d;
+    public final c.b.b.q.a<e> f27379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27476e;
+    public final c.b.b.q.a<a> f27380e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class b {
             }
         }
         this.a = new short[2];
-        this.f27473b = new c.b.b.q.a<>();
-        this.f27474c = new c.b.b.q.a<>();
-        this.f27475d = new c.b.b.q.a<>();
-        this.f27476e = new c.b.b.q.a<>();
+        this.f27377b = new c.b.b.q.a<>();
+        this.f27378c = new c.b.b.q.a<>();
+        this.f27379d = new c.b.b.q.a<>();
+        this.f27380e = new c.b.b.q.a<>();
     }
 }

@@ -1,5 +1,5 @@
 package com.qq.e.comm.adevent;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface ADEventListener {
     void setAdListener(ADListener aDListener);
 }

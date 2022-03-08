@@ -5,17 +5,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36354b;
+    public int f34757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36355c;
+    public int f34758c;
 
     public c(NetworkInfo networkInfo) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class c {
             }
         }
         this.a = networkInfo.getTypeName();
-        this.f36354b = networkInfo.getType();
+        this.f34757b = networkInfo.getType();
         int i4 = d.a[networkInfo.getState().ordinal()];
         if (i4 == 1) {
-            this.f36355c = 2;
+            this.f34758c = 2;
         } else if (i4 != 2) {
-            this.f36355c = 0;
+            this.f34758c = 0;
         } else {
-            this.f36355c = 1;
+            this.f34758c = 1;
         }
     }
 }

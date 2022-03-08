@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import androidx.annotation.RestrictTo;
 import androidx.core.os.TraceCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class L {
     public static boolean DBG = false;
     public static final int MAX_DEPTH = 20;

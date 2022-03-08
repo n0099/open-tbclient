@@ -6,13 +6,12 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AudioEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "audio/mp4a-latm";
@@ -41,7 +40,7 @@ public class AudioEncoderCore {
             }
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", MediaEncodeParams.AUDIO_SAMPLE_RATE, 1);
+        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", 48000, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);

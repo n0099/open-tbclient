@@ -1,5 +1,5 @@
 package com.baidu.nps.pm;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IBundleInfo {
     int getAbi();
 

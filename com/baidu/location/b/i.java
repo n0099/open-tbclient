@@ -21,40 +21,40 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35235c;
+    public static String f33638c;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.location.c.h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.location.c.a f35236b;
+    public com.baidu.location.c.a f33639b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35237d;
+    public final Handler f33640d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35238e;
+    public boolean f33641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35239f;
+    public boolean f33642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35240g;
+    public boolean f33643g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35241h;
+    public String f33644h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35242i;
+    public String f33645i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f35243j;
+    public boolean f33646j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,23 +92,23 @@ public abstract class i {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b extends com.baidu.location.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35244b;
+        public String f33647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f35245c;
+        public long f33648c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f35246d;
+        public long f33649d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f35247e;
+        public final /* synthetic */ i f33650e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -125,11 +125,11 @@ public abstract class i {
                     return;
                 }
             }
-            this.f35247e = iVar;
+            this.f33650e = iVar;
             this.a = null;
-            this.f35244b = null;
-            this.f35245c = 0L;
-            this.f35246d = 0L;
+            this.f33647b = null;
+            this.f33648c = 0L;
+            this.f33649d = 0L;
             this.k = new HashMap();
         }
 
@@ -137,15 +137,15 @@ public abstract class i {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35391h = com.baidu.location.e.k.e();
-                if ((com.baidu.location.e.k.f35405h || com.baidu.location.e.k.f35407j) && this.f35247e.f35241h != null && this.f35247e.f35242i != null) {
-                    this.f35244b += String.format(Locale.CHINA, "&ki=%s&sn=%s", this.f35247e.f35241h, this.f35247e.f35242i);
+                this.f33794h = com.baidu.location.e.k.e();
+                if ((com.baidu.location.e.k.f33808h || com.baidu.location.e.k.f33810j) && this.f33650e.f33644h != null && this.f33650e.f33645i != null) {
+                    this.f33647b += String.format(Locale.CHINA, "&ki=%s&sn=%s", this.f33650e.f33644h, this.f33650e.f33645i);
                 }
                 if (j.a().b()) {
-                    this.f35244b += "&enc=2";
+                    this.f33647b += "&enc=2";
                 }
-                String encodeTp4 = Jni.encodeTp4(this.f35244b);
-                this.f35244b = null;
+                String encodeTp4 = Jni.encodeTp4(this.f33647b);
+                this.f33647b = null;
                 if (this.a == null) {
                     this.a = w.b();
                 }
@@ -161,22 +161,22 @@ public abstract class i {
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-                this.f35244b = str;
-                this.f35246d = System.currentTimeMillis();
-                this.f35245c = j2;
+                this.f33647b = str;
+                this.f33649d = System.currentTimeMillis();
+                this.f33648c = j2;
                 ExecutorService b2 = v.a().b();
                 if (com.baidu.location.e.k.b()) {
                     a(b2, false, null);
                 } else if (b2 != null) {
-                    a(b2, com.baidu.location.e.k.f35403f);
+                    a(b2, com.baidu.location.e.k.f33806f);
                 } else {
-                    b(com.baidu.location.e.k.f35403f);
+                    b(com.baidu.location.e.k.f33806f);
                 }
             }
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-            r10 = r9.f35393j;
+            r10 = r9.f33796j;
          */
         /* JADX WARN: Removed duplicated region for block: B:46:0x00e6  */
         /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
@@ -195,7 +195,7 @@ public abstract class i {
             }
             if (z && str != null) {
                 try {
-                    i.f35235c = str;
+                    i.f33638c = str;
                     if (str.contains("enc") && j.a().b()) {
                         try {
                             JSONObject jSONObject = new JSONObject(str);
@@ -222,18 +222,18 @@ public abstract class i {
                     }
                     this.a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
-                        obtainMessage = this.f35247e.f35237d.obtainMessage(63);
+                        obtainMessage = this.f33650e.f33640d.obtainMessage(63);
                         obtainMessage.obj = "HttpStatus error";
                     } else {
-                        long currentTimeMillis = (System.currentTimeMillis() - this.f35246d) / 1000;
+                        long currentTimeMillis = (System.currentTimeMillis() - this.f33649d) / 1000;
                         if (currentTimeMillis < 0) {
                             currentTimeMillis = 0;
                         }
-                        if (this.f35245c < 0) {
-                            this.f35245c = 0L;
+                        if (this.f33648c < 0) {
+                            this.f33648c = 0L;
                         }
-                        bDLocation.setDelayTime(this.f35245c + currentTimeMillis);
-                        obtainMessage = this.f35247e.f35237d.obtainMessage(21);
+                        bDLocation.setDelayTime(this.f33648c + currentTimeMillis);
+                        obtainMessage = this.f33650e.f33640d.obtainMessage(21);
                         obtainMessage.obj = bDLocation;
                     }
                     obtainMessage.sendToTarget();
@@ -246,7 +246,7 @@ public abstract class i {
                 }
                 return;
             }
-            Message obtainMessage2 = this.f35247e.f35237d.obtainMessage(63);
+            Message obtainMessage2 = this.f33650e.f33640d.obtainMessage(63);
             obtainMessage2.obj = "HttpStatus error";
             obtainMessage2.sendToTarget();
             map = this.k;
@@ -284,14 +284,14 @@ public abstract class i {
             }
         }
         this.a = null;
-        this.f35236b = null;
-        this.f35238e = true;
-        this.f35239f = true;
-        this.f35240g = false;
-        this.f35237d = new a(this);
-        this.f35241h = null;
-        this.f35242i = null;
-        this.f35243j = false;
+        this.f33639b = null;
+        this.f33641e = true;
+        this.f33642f = true;
+        this.f33643g = false;
+        this.f33640d = new a(this);
+        this.f33644h = null;
+        this.f33645i = null;
+        this.f33646j = false;
     }
 
     public String a(String str) {
@@ -300,23 +300,23 @@ public abstract class i {
         String l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f35241h == null) {
-                this.f35241h = com.baidu.location.a.a.b(com.baidu.location.f.getServiceContext());
+            if (this.f33644h == null) {
+                this.f33644h = com.baidu.location.a.a.b(com.baidu.location.f.getServiceContext());
             }
-            if (this.f35242i == null) {
-                this.f35242i = com.baidu.location.a.a.c(com.baidu.location.f.getServiceContext());
+            if (this.f33645i == null) {
+                this.f33645i = com.baidu.location.a.a.c(com.baidu.location.f.getServiceContext());
             }
-            com.baidu.location.c.a aVar = this.f35236b;
+            com.baidu.location.c.a aVar = this.f33639b;
             if (aVar == null || !aVar.a()) {
-                this.f35236b = com.baidu.location.c.b.a().f();
+                this.f33639b = com.baidu.location.c.b.a().f();
             }
             com.baidu.location.c.h hVar2 = this.a;
             if (hVar2 == null || !hVar2.j()) {
                 this.a = com.baidu.location.c.i.a().o();
             }
             Location g2 = com.baidu.location.c.e.a().i() ? com.baidu.location.c.e.a().g() : null;
-            com.baidu.location.c.a aVar2 = this.f35236b;
-            if ((aVar2 == null || aVar2.d() || this.f35236b.c()) && (((hVar = this.a) == null || hVar.a() == 0) && g2 == null)) {
+            com.baidu.location.c.a aVar2 = this.f33639b;
+            if ((aVar2 == null || aVar2.d() || this.f33639b.c()) && (((hVar = this.a) == null || hVar.a() == 0) && g2 == null)) {
                 return null;
             }
             String b2 = b();
@@ -326,8 +326,8 @@ public abstract class i {
             int b3 = com.baidu.location.e.k.b(com.baidu.location.f.getServiceContext());
             if (b3 >= 0) {
                 b2 = b2 + "&lmd=" + b3;
-                if (Build.VERSION.SDK_INT >= 28 && !this.f35243j) {
-                    this.f35243j = true;
+                if (Build.VERSION.SDK_INT >= 28 && !this.f33646j) {
+                    this.f33646j = true;
                     try {
                         if (com.baidu.location.f.getServiceContext().getPackageManager().hasSystemFeature("android.hardware.wifi.rtt")) {
                             b2 = b2 + "&rtt=1";
@@ -342,11 +342,11 @@ public abstract class i {
                 b2 = l + b2;
             }
             String str2 = b2;
-            if (this.f35239f) {
-                this.f35239f = false;
-                return com.baidu.location.e.k.a(this.f35236b, this.a, g2, str2, 0, true);
+            if (this.f33642f) {
+                this.f33642f = false;
+                return com.baidu.location.e.k.a(this.f33639b, this.a, g2, str2, 0, true);
             }
-            return com.baidu.location.e.k.a(this.f35236b, this.a, g2, str2, 0);
+            return com.baidu.location.e.k.a(this.f33639b, this.a, g2, str2, 0);
         }
         return (String) invokeL.objValue;
     }
@@ -367,15 +367,15 @@ public abstract class i {
                     format = format + "&qcip6c=" + d2;
                 }
             }
-            if (this.f35238e) {
-                this.f35238e = false;
+            if (this.f33641e) {
+                this.f33641e = false;
                 int i2 = Build.VERSION.SDK_INT;
-            } else if (!this.f35240g) {
+            } else if (!this.f33643g) {
                 String e2 = w.e();
                 if (e2 != null) {
                     format = format + e2;
                 }
-                this.f35240g = true;
+                this.f33643g = true;
             }
             return format + c2;
         }

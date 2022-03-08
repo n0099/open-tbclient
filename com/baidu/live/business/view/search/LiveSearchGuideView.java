@@ -8,26 +8,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.y.c.a.b;
-import c.a.y.c.a.c;
-import c.a.y.c.a.d;
-import c.a.y.k.f;
+import c.a.w.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f35057e;
+    public ImageView f33460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35058f;
+    public TextView f33461f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveSearchGuideView(@NonNull Context context) {
@@ -53,26 +51,26 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(d.live_feed_page_search_guide_view, this);
-            this.f35057e = (ImageView) findViewById(c.live_feed_page_search_guide_iv);
-            this.f35058f = (TextView) findViewById(c.live_feed_page_search_guide_tv);
+            LayoutInflater.from(getContext()).inflate(R.layout.live_feed_page_search_guide_view, this);
+            this.f33460e = (ImageView) findViewById(R.id.live_feed_page_search_guide_iv);
+            this.f33461f = (TextView) findViewById(R.id.live_feed_page_search_guide_tv);
         }
     }
 
     public void onDarkModeChange(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f35058f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f33461f) == null) {
             return;
         }
         textView.setTextColor(f.e().a(getContext(), false, "color_search_guide"));
         if ("day".equals(str)) {
-            this.f35057e.setImageResource(b.live_feed_page_search_guide_corner);
-            this.f35058f.setBackgroundResource(b.live_feed_page_search_guide_bg);
+            this.f33460e.setImageResource(R.drawable.live_feed_page_search_guide_corner);
+            this.f33461f.setBackgroundResource(R.drawable.live_feed_page_search_guide_bg);
         } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.f35057e.setImageResource(b.live_feed_page_search_guide_corner_night);
-            this.f35058f.setBackgroundResource(b.live_feed_page_search_guide_bg_night);
-            this.f35058f.setTextColor(-1);
+            this.f33460e.setImageResource(R.drawable.live_feed_page_search_guide_corner_night);
+            this.f33461f.setBackgroundResource(R.drawable.live_feed_page_search_guide_bg_night);
+            this.f33461f.setTextColor(-1);
         }
     }
 

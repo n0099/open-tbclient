@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class al implements Window.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Window.Callback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36621b;
+    public a f35024b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(KeyEvent keyEvent);
 
@@ -52,7 +52,7 @@ public class al implements Window.Callback {
             }
         }
         this.a = callback;
-        this.f36621b = aVar;
+        this.f35024b = aVar;
     }
 
     public Window.Callback a() {
@@ -73,7 +73,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
-            a aVar = this.f36621b;
+            a aVar = this.f35024b;
             if (aVar != null) {
                 aVar.a(keyEvent);
             }
@@ -101,7 +101,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            a aVar = this.f36621b;
+            a aVar = this.f35024b;
             if (aVar != null) {
                 aVar.a(motionEvent);
             }

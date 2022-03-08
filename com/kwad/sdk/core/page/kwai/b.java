@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.page.kwai;
 
 import android.annotation.SuppressLint;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.page.recycle.NestedScrollWebView;
 import com.kwad.sdk.core.page.recycle.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -11,41 +11,41 @@ import com.kwad.sdk.core.webview.jshandler.p;
 import com.kwad.sdk.core.webview.kwai.g;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.be;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends Presenter {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f56158b;
+    public com.kwad.sdk.core.webview.a f54508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NestedScrollWebView f56159c;
+    public NestedScrollWebView f54509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f56160d;
+    public AdTemplate f54510d;
 
     /* renamed from: e  reason: collision with root package name */
-    public p.b f56161e = new p.b() { // from class: com.kwad.sdk.core.page.kwai.b.1
+    public p.b f54511e = new p.b() { // from class: com.kwad.sdk.core.page.kwai.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.p.b
         public void a(p.a aVar) {
         }
     };
 
     private void a(g gVar) {
-        gVar.a(new f(this.f56158b));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f56158b));
-        gVar.a(new p(this.f56161e));
-        gVar.a(new k(this.f56158b));
+        gVar.a(new f(this.f54508b));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f54508b));
+        gVar.a(new p(this.f54511e));
+        gVar.a(new k(this.f54508b));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void e() {
         f();
-        be.a(this.f56159c);
-        g gVar = new g(this.f56159c);
+        be.a(this.f54509c);
+        g gVar = new g(this.f54509c);
         this.a = gVar;
         a(gVar);
-        this.f56159c.addJavascriptInterface(this.a, "KwaiAd");
+        this.f54509c.addJavascriptInterface(this.a, "KwaiAd");
     }
 
     private void f() {
@@ -58,35 +58,35 @@ public class b extends Presenter {
 
     private void g() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f56158b = aVar;
-        aVar.a(this.f56160d);
-        com.kwad.sdk.core.webview.a aVar2 = this.f56158b;
+        this.f54508b = aVar;
+        aVar.a(this.f54510d);
+        com.kwad.sdk.core.webview.a aVar2 = this.f54508b;
         aVar2.a = 0;
-        aVar2.f56542e = this.f56159c;
+        aVar2.f54892e = this.f54509c;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f56160d = ((e) p()).f56198c;
+        this.f54510d = ((e) p()).f54548c;
         NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) m().findViewById(R.id.ksad_video_webView);
-        this.f56159c = nestedScrollWebView;
-        nestedScrollWebView.setTemplateData(this.f56160d);
-        this.f56159c.setNestedScrollingEnabled(true);
+        this.f54509c = nestedScrollWebView;
+        nestedScrollWebView.setTemplateData(this.f54510d);
+        this.f54509c.setNestedScrollingEnabled(true);
         g();
         e();
-        this.f56159c.loadUrl(com.kwad.sdk.core.response.a.a.G(com.kwad.sdk.core.response.a.d.j(this.f56160d)));
-        this.f56159c.b();
+        this.f54509c.loadUrl(com.kwad.sdk.core.response.a.a.G(com.kwad.sdk.core.response.a.d.j(this.f54510d)));
+        this.f54509c.b();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d_() {
         super.d_();
         f();
-        NestedScrollWebView nestedScrollWebView = this.f56159c;
+        NestedScrollWebView nestedScrollWebView = this.f54509c;
         if (nestedScrollWebView != null) {
             nestedScrollWebView.c();
-            this.f56159c = null;
+            this.f54509c = null;
         }
     }
 }

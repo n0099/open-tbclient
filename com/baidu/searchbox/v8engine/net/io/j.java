@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset a;

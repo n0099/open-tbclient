@@ -11,7 +11,7 @@ import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class EnterWalletPreOrderPayAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletPreOrderPayAction f52202b;
+                public final /* synthetic */ EnterWalletPreOrderPayAction f50621b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,7 +58,7 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52202b = this;
+                    this.f50621b = this;
                     this.a = routerCallback;
                 }
 

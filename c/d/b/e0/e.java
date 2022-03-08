@@ -44,37 +44,37 @@ import javax.net.ssl.X509TrustManager;
 import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f27899b;
+    public static final String[] f27803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c0 f27900c;
+    public static final c0 f27804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a0 f27901d;
+    public static final a0 f27805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Charset f27902e;
+    public static final Charset f27806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final TimeZone f27903f;
+    public static final TimeZone f27807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Comparator<String> f27904g;
+    public static final Comparator<String> f27808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Method f27905h;
+    public static final Method f27809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f27906i;
+    public static final Pattern f27810i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,16 +103,16 @@ public final class e {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f27907e;
+        public final /* synthetic */ String f27811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f27908f;
+        public final /* synthetic */ boolean f27812f;
 
         public b(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -129,8 +129,8 @@ public final class e {
                     return;
                 }
             }
-            this.f27907e = str;
-            this.f27908f = z;
+            this.f27811e = str;
+            this.f27812f = z;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -138,8 +138,8 @@ public final class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f27907e);
-                thread.setDaemon(this.f27908f);
+                Thread thread = new Thread(runnable, this.f27811e);
+                thread.setDaemon(this.f27812f);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -161,29 +161,29 @@ public final class e {
         }
         byte[] bArr = new byte[0];
         a = bArr;
-        f27899b = new String[0];
+        f27803b = new String[0];
         Method method = null;
-        f27900c = c0.e(null, bArr);
-        f27901d = a0.c(null, a);
+        f27804c = c0.e(null, bArr);
+        f27805d = a0.c(null, a);
         ByteString.decodeHex("efbbbf");
         ByteString.decodeHex("feff");
         ByteString.decodeHex("fffe");
         ByteString.decodeHex("0000ffff");
         ByteString.decodeHex("ffff0000");
-        f27902e = Charset.forName("UTF-8");
+        f27806e = Charset.forName("UTF-8");
         Charset.forName("ISO-8859-1");
         Charset.forName("UTF-16BE");
         Charset.forName("UTF-16LE");
         Charset.forName("UTF-32BE");
         Charset.forName("UTF-32LE");
-        f27903f = TimeZone.getTimeZone("GMT");
-        f27904g = new a();
+        f27807f = TimeZone.getTimeZone("GMT");
+        f27808g = new a();
         try {
             method = Throwable.class.getDeclaredMethod("addSuppressed", Throwable.class);
         } catch (Exception unused) {
         }
-        f27905h = method;
-        f27906i = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f27809h = method;
+        f27810i = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public static boolean A(Comparator<String> comparator, String[] strArr, String[] strArr2) {
@@ -304,7 +304,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
             r.a aVar = new r.a();
             for (c.d.b.e0.k.a aVar2 : list) {
-                c.d.b.e0.a.a.b(aVar, aVar2.a.utf8(), aVar2.f28012b.utf8());
+                c.d.b.e0.a.a.b(aVar, aVar2.a.utf8(), aVar2.f27916b.utf8());
             }
             return aVar.d();
         }
@@ -324,13 +324,13 @@ public final class e {
     public static boolean I(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f27906i.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f27810i.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(Throwable th, Throwable th2) {
         Method method;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, th, th2) == null) || (method = f27905h) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, th, th2) == null) || (method = f27809h) == null) {
             return;
         }
         try {

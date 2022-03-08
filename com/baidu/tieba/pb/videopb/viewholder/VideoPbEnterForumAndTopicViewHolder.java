@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.m;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.RecommendTopicData;
@@ -19,20 +19,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f47089b;
+    public FlowLabelLayout f45497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f47090c;
+    public ThreadForumEnterButton f45498c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<TopicEnterButton> f47091d;
+    public List<TopicEnterButton> f45499d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbEnterForumAndTopicViewHolder(Context context, View view) {
@@ -53,17 +53,17 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
             }
         }
         this.a = context;
-        this.f47089b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f45497b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f47090c;
+            ThreadForumEnterButton threadForumEnterButton = this.f45498c;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.onChangeSkinType();
             }
-            List<TopicEnterButton> list = this.f47091d;
+            List<TopicEnterButton> list = this.f45499d;
             if (list != null) {
                 for (TopicEnterButton topicEnterButton : list) {
                     topicEnterButton.onChangeSkinType();
@@ -77,29 +77,29 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        this.f47089b.removeAllViews();
-        List<TopicEnterButton> list = this.f47091d;
+        this.f45497b.removeAllViews();
+        List<TopicEnterButton> list = this.f45499d;
         if (list != null) {
             list.clear();
         }
         if (!m.isEmpty(e2Var.b0())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
-            this.f47090c = threadForumEnterButton;
+            this.f45498c = threadForumEnterButton;
             threadForumEnterButton.bindData(e2Var);
-            this.f47089b.addView(this.f47090c, new ViewGroup.LayoutParams(-2, -2));
+            this.f45497b.addView(this.f45498c, new ViewGroup.LayoutParams(-2, -2));
         }
         WorksInfoData worksInfoData = e2Var.O2;
         if (worksInfoData == null || ListUtils.isEmpty(worksInfoData.topicListData)) {
             return;
         }
-        if (this.f47091d == null) {
-            this.f47091d = new LinkedList();
+        if (this.f45499d == null) {
+            this.f45499d = new LinkedList();
         }
         for (RecommendTopicData.RecommendTopicListData recommendTopicListData : e2Var.O2.topicListData) {
             TopicEnterButton topicEnterButton = new TopicEnterButton(this.a);
             topicEnterButton.bindData(recommendTopicListData);
-            this.f47089b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
-            this.f47091d.add(topicEnterButton);
+            this.f45497b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
+            this.f45499d.add(topicEnterButton);
         }
     }
 }

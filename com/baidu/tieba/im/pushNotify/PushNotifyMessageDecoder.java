@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.PushNotify.PushNotifyResIdl;
 import protobuf.PushNotify.PusherMsg;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

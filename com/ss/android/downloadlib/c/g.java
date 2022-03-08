@@ -7,11 +7,11 @@ import com.ss.android.download.api.model.b;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g extends com.ss.android.socialbase.appdownloader.c.a {
     public static String a = "g";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements k {
         public Dialog a;
 
@@ -45,87 +45,87 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
         return new l() { // from class: com.ss.android.downloadlib.c.g.1
 
             /* renamed from: c  reason: collision with root package name */
-            public b.a f59819c;
+            public b.a f58169c;
 
             /* renamed from: d  reason: collision with root package name */
-            public DialogInterface.OnClickListener f59820d;
+            public DialogInterface.OnClickListener f58170d;
 
             /* renamed from: e  reason: collision with root package name */
-            public DialogInterface.OnClickListener f59821e;
+            public DialogInterface.OnClickListener f58171e;
 
             /* renamed from: f  reason: collision with root package name */
-            public DialogInterface.OnCancelListener f59822f;
+            public DialogInterface.OnCancelListener f58172f;
 
             {
-                this.f59819c = new b.a(context);
+                this.f58169c = new b.a(context);
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(int i2) {
-                this.f59819c.a(context.getResources().getString(i2));
+                this.f58169c.a(context.getResources().getString(i2));
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l b(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f59819c.d(context.getResources().getString(i2));
-                this.f59821e = onClickListener;
+                this.f58169c.d(context.getResources().getString(i2));
+                this.f58171e = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(String str) {
-                this.f59819c.b(str);
+                this.f58169c.b(str);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f59819c.c(context.getResources().getString(i2));
-                this.f59820d = onClickListener;
+                this.f58169c.c(context.getResources().getString(i2));
+                this.f58170d = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(DialogInterface.OnCancelListener onCancelListener) {
-                this.f59822f = onCancelListener;
+                this.f58172f = onCancelListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(boolean z) {
-                this.f59819c.a(z);
+                this.f58169c.a(z);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public k a() {
-                this.f59819c.a(new b.InterfaceC2195b() { // from class: com.ss.android.downloadlib.c.g.1.1
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2195b
+                this.f58169c.a(new b.InterfaceC2174b() { // from class: com.ss.android.downloadlib.c.g.1.1
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
                     public void a(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f59820d != null) {
-                            AnonymousClass1.this.f59820d.onClick(dialogInterface, -1);
+                        if (AnonymousClass1.this.f58170d != null) {
+                            AnonymousClass1.this.f58170d.onClick(dialogInterface, -1);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2195b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
                     public void b(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f59821e != null) {
-                            AnonymousClass1.this.f59821e.onClick(dialogInterface, -2);
+                        if (AnonymousClass1.this.f58171e != null) {
+                            AnonymousClass1.this.f58171e.onClick(dialogInterface, -2);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2195b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
                     public void c(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f59822f == null || dialogInterface == null) {
+                        if (AnonymousClass1.this.f58172f == null || dialogInterface == null) {
                             return;
                         }
-                        AnonymousClass1.this.f59822f.onCancel(dialogInterface);
+                        AnonymousClass1.this.f58172f.onCancel(dialogInterface);
                     }
                 });
                 com.ss.android.downloadlib.g.k.a(g.a, "getThemedAlertDlgBuilder", null);
-                this.f59819c.a(3);
-                return new a(j.c().b(this.f59819c.a()));
+                this.f58169c.a(3);
+                return new a(j.c().b(this.f58169c.a()));
             }
         };
     }

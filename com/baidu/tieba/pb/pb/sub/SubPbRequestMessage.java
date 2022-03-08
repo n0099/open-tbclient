@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SubPbRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SubPbRequestMessage extends NetMessage {
             builder.top_ugc_pid = this.oriUgcTopPid;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
             builder2.data = builder.build(false);

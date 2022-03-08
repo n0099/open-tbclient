@@ -4,6 +4,7 @@ import android.util.Property;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static /* synthetic */ Interceptable $ic;
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA;

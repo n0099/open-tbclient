@@ -14,7 +14,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MethodChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MethodChannel#";
@@ -23,7 +23,7 @@ public class MethodChannel {
     public final BinaryMessenger messenger;
     public final String name;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class MethodChannel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class IncomingResultHandler implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,13 +171,13 @@ public class MethodChannel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface MethodCallHandler {
         @UiThread
         void onMethodCall(@NonNull MethodCall methodCall, @NonNull Result result);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface Result {
         @UiThread
         void error(String str, @Nullable String str2, @Nullable Object obj);

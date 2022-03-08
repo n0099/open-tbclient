@@ -6,35 +6,34 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.u0.s4.d;
-import c.a.u0.s4.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlbumCompressProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49865e;
+    public int f48284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49866f;
+    public int f48285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49867g;
+    public int f48286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f49868h;
+    public Paint f48287h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49869i;
+    public Paint f48288i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f49870j;
+    public RectF f48289j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,24 +62,24 @@ public class AlbumCompressProgressView extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49865e = getResources().getDimensionPixelSize(e.ds100);
-            this.f49866f = getResources().getDimensionPixelSize(e.ds4);
-            this.f49867g = getResources().getDimensionPixelSize(e.ds2);
+            this.f48284e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f48285f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f48286g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f49868h = paint;
-            paint.setStrokeWidth(this.f49866f);
-            this.f49868h.setColor(getResources().getColor(d.CAM_X0201));
-            this.f49868h.setStyle(Paint.Style.STROKE);
-            this.f49868h.setAntiAlias(true);
+            this.f48287h = paint;
+            paint.setStrokeWidth(this.f48285f);
+            this.f48287h.setColor(getResources().getColor(R.color.CAM_X0201));
+            this.f48287h.setStyle(Paint.Style.STROKE);
+            this.f48287h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f49869i = paint2;
-            paint2.setStrokeWidth(this.f49867g);
-            this.f49869i.setColor(getResources().getColor(d.CAM_X0101));
-            this.f49869i.setStyle(Paint.Style.STROKE);
-            this.f49869i.setAntiAlias(true);
-            int i2 = this.f49866f;
-            int i3 = this.f49865e;
-            this.f49870j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f48288i = paint2;
+            paint2.setStrokeWidth(this.f48286g);
+            this.f48288i.setColor(getResources().getColor(R.color.CAM_X0101));
+            this.f48288i.setStyle(Paint.Style.STROKE);
+            this.f48288i.setAntiAlias(true);
+            int i2 = this.f48285f;
+            int i3 = this.f48284e;
+            this.f48289j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -88,8 +87,8 @@ public class AlbumCompressProgressView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f49870j, 270.0f, 360.0f, false, this.f49869i);
-            canvas.drawArc(this.f49870j, 270.0f, (this.k * 360) / 100, false, this.f49868h);
+            canvas.drawArc(this.f48289j, 270.0f, 360.0f, false, this.f48288i);
+            canvas.drawArc(this.f48289j, 270.0f, (this.k * 360) / 100, false, this.f48287h);
         }
     }
 

@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class TaskNetRequestMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.topic.model;
 
-import c.a.u0.s4.e0.p.a0.a.a;
+import c.a.r0.q4.u.p.a0.a.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -16,7 +16,7 @@ import tbclient.GetRecommendTopic.DataRes;
 import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
 import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // c.a.u0.s4.e0.p.a0.a.a
+    @Override // c.a.r0.q4.u.p.a0.a.a
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

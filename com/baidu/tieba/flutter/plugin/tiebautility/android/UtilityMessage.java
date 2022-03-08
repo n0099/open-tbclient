@@ -2,8 +2,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
 import c.a.d.f.p.m;
-import c.a.u0.m3.a;
-import c.a.u0.t1.t.d;
+import c.a.r0.s1.t.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -14,13 +13,14 @@ import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityMessageAuto;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,11 +48,11 @@ public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessag
                 return;
             }
             if ("bookmarkNum".equals(result)) {
-                a.v().L(3, false, true);
+                PersonRedTipManager.getInstance().updateRedTipState(3, false, true);
             } else if ("fansNum".equals(result)) {
-                a.v().L(2, false, true);
+                PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
             } else if ("giftNum".equals(result)) {
-                a.v().L(1, false, true);
+                PersonRedTipManager.getInstance().updateRedTipState(1, false, true);
             }
         }
     }
@@ -87,8 +87,8 @@ public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("bookmarkNum", Integer.valueOf(a.v().A() ? 1 : 0));
-            hashMap.put("fansNum", Integer.valueOf(a.v().B() ? 1 : 0));
+            hashMap.put("bookmarkNum", Integer.valueOf(PersonRedTipManager.getInstance().isShowBookTip() ? 1 : 0));
+            hashMap.put("fansNum", Integer.valueOf(PersonRedTipManager.getInstance().isShowFanTip() ? 1 : 0));
             TiebaUtilityMessageAuto.NewMessage newMessage = new TiebaUtilityMessageAuto.NewMessage();
             newMessage.setResult(hashMap);
             result.success(newMessage);
@@ -100,7 +100,7 @@ public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
             TiebaUtilityMessageAuto.MessageBoolResult messageBoolResult = new TiebaUtilityMessageAuto.MessageBoolResult();
-            messageBoolResult.setResult(Boolean.valueOf(a.v().C()));
+            messageBoolResult.setResult(Boolean.valueOf(PersonRedTipManager.getInstance().isShowMemberTip()));
             result.success(messageBoolResult);
         }
     }

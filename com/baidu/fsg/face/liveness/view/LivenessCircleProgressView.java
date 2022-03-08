@@ -10,31 +10,31 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LivenessCircleProgressView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f34642b;
+    public Paint f33045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f34643c;
+    public Paint f33046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34644d;
+    public int f33047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f34645e;
+    public RectF f33048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34646f;
+    public int f33049f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LivenessCircleProgressView(@NonNull Context context) {
@@ -60,26 +60,26 @@ public class LivenessCircleProgressView extends FrameLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f34646f = 12;
+            this.f33049f = 12;
             Paint paint = new Paint();
             this.a = paint;
             paint.setColor(Color.argb(127, 255, 255, 255));
             this.a.setAntiAlias(true);
-            this.a.setStrokeWidth(this.f34646f);
+            this.a.setStrokeWidth(this.f33049f);
             this.a.setStyle(Paint.Style.STROKE);
             Paint paint2 = new Paint();
-            this.f34642b = paint2;
+            this.f33045b = paint2;
             paint2.setColor(Color.argb(255, 255, 255, 255));
-            this.f34642b.setAntiAlias(true);
-            this.f34642b.setStrokeWidth(this.f34646f);
-            this.f34642b.setStyle(Paint.Style.STROKE);
+            this.f33045b.setAntiAlias(true);
+            this.f33045b.setStrokeWidth(this.f33049f);
+            this.f33045b.setStyle(Paint.Style.STROKE);
             Paint paint3 = new Paint();
-            this.f34643c = paint3;
+            this.f33046c = paint3;
             paint3.setColor(Color.rgb(255, 255, 255));
-            this.f34643c.setAntiAlias(true);
-            this.f34643c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
-            this.f34643c.setTextAlign(Paint.Align.CENTER);
-            this.f34645e = new RectF();
+            this.f33046c.setAntiAlias(true);
+            this.f33046c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
+            this.f33046c.setTextAlign(Paint.Align.CENTER);
+            this.f33048e = new RectF();
         }
     }
 
@@ -88,22 +88,22 @@ public class LivenessCircleProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f34646f / 2), this.a);
-            RectF rectF = this.f34645e;
-            int i2 = this.f34646f;
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f33049f / 2), this.a);
+            RectF rectF = this.f33048e;
+            int i2 = this.f33049f;
             rectF.left = i2 / 2;
             rectF.top = i2 / 2;
-            rectF.right = getWidth() - (this.f34646f / 2);
-            this.f34645e.bottom = getHeight() - (this.f34646f / 2);
-            canvas.drawArc(this.f34645e, -90.0f, (this.f34644d / 100.0f) * 360.0f, false, this.f34642b);
-            canvas.drawText(this.f34644d + "%", getWidth() / 2, getHeight() / 2, this.f34643c);
+            rectF.right = getWidth() - (this.f33049f / 2);
+            this.f33048e.bottom = getHeight() - (this.f33049f / 2);
+            canvas.drawArc(this.f33048e, -90.0f, (this.f33047d / 100.0f) * 360.0f, false, this.f33045b);
+            canvas.drawText(this.f33047d + "%", getWidth() / 2, getHeight() / 2, this.f33046c);
         }
     }
 
     public void updateProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f34644d = i2;
+            this.f33047d = i2;
             invalidate();
         }
     }

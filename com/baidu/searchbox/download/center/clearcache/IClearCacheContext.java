@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.download.center.clearcache.DiskManager;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IClearCacheContext {
     void addClearCache(List<BaseClearCache> list);
 

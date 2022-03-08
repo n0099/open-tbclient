@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C2269a {
+    /* loaded from: classes8.dex */
+    public static final class C2248a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +49,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements BaseColumns {
         public static /* synthetic */ Interceptable $ic;
         public static final Uri CONTENT_URI;

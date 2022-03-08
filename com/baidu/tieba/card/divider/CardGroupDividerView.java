@@ -19,45 +19,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CardGroupDividerView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f42621i;
+    public static final int f41024i = 2131099693;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f42622j;
+    public static final int f41025j = 2131099693;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42623e;
+    public View f41026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42624f;
+    public TextView f41027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f42625g;
+    public View f41028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42626h;
+    public int f41029h;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(984270469, "Lcom/baidu/tieba/card/divider/CardGroupDividerView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(984270469, "Lcom/baidu/tieba/card/divider/CardGroupDividerView;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(984270469, "Lcom/baidu/tieba/card/divider/CardGroupDividerView;")) == null) {
+            return;
         }
-        int i2 = R.color.CAM_X0204;
-        f42621i = i2;
-        f42622j = i2;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(984270469, "Lcom/baidu/tieba/card/divider/CardGroupDividerView;");
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,15 +75,15 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.f42626h = f42622j;
+        this.f41029h = f41025j;
         a();
     }
 
     private void setDividerColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.f42626h = i2;
-            SkinManager.setBackgroundColor(this.f42625g, i2);
+            this.f41029h = i2;
+            SkinManager.setBackgroundColor(this.f41028g, i2);
         }
     }
 
@@ -94,9 +91,9 @@ public class CardGroupDividerView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
-            this.f42623e = findViewById(R.id.card_divider_top_margin);
-            this.f42624f = (TextView) findViewById(R.id.card_divider_tv);
-            this.f42625g = findViewById(R.id.bottom_line);
+            this.f41026e = findViewById(R.id.card_divider_top_margin);
+            this.f41027f = (TextView) findViewById(R.id.card_divider_tv);
+            this.f41028g = findViewById(R.id.bottom_line);
             onChangeSkinType();
         }
     }
@@ -104,31 +101,31 @@ public class CardGroupDividerView extends LinearLayout {
     public View getBotttomLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42625g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41028g : (View) invokeV.objValue;
     }
 
     public void hideTopMargin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f42623e.getVisibility() == 8) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f41026e.getVisibility() == 8) {
             return;
         }
-        this.f42623e.setVisibility(8);
+        this.f41026e.setVisibility(8);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f42623e, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f42624f, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.f42625g, this.f42626h);
+            SkinManager.setBackgroundColor(this.f41026e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f41027f, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.f41028g, this.f41029h);
         }
     }
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.f42624f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.f41027f) == null) {
             return;
         }
         textView.setOnClickListener(onClickListener);
@@ -137,14 +134,14 @@ public class CardGroupDividerView extends LinearLayout {
     public void setTitleText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f42624f.setText(str);
+            this.f41027f.setText(str);
         }
     }
 
     public void setTitleTextSize(int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.f42624f.setTextSize(i2, f2);
+            this.f41027f.setTextSize(i2, f2);
         }
     }
 
@@ -157,14 +154,14 @@ public class CardGroupDividerView extends LinearLayout {
                 hideTopMargin();
             }
             if (TextUtils.isEmpty(str)) {
-                this.f42624f.setVisibility(8);
+                this.f41027f.setVisibility(8);
             } else {
-                this.f42624f.setVisibility(0);
-                this.f42624f.setText(str);
+                this.f41027f.setVisibility(0);
+                this.f41027f.setText(str);
             }
-            if (this.f42625g.getVisibility() != 0) {
-                this.f42625g.setVisibility(0);
-                setDividerColor(f42621i);
+            if (this.f41028g.getVisibility() != 0) {
+                this.f41028g.setVisibility(0);
+                setDividerColor(f41024i);
             }
         }
     }
@@ -173,22 +170,22 @@ public class CardGroupDividerView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             hideTopMargin();
-            if (this.f42624f.getVisibility() != 8) {
-                this.f42624f.setVisibility(8);
+            if (this.f41027f.getVisibility() != 8) {
+                this.f41027f.setVisibility(8);
             }
-            if (this.f42625g.getVisibility() != 0) {
-                this.f42625g.setVisibility(0);
-                setDividerColor(f42622j);
+            if (this.f41028g.getVisibility() != 0) {
+                this.f41028g.setVisibility(0);
+                setDividerColor(f41025j);
             }
         }
     }
 
     public void showTopMargin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f42623e.getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f41026e.getVisibility() == 0) {
             return;
         }
-        this.f42623e.setVisibility(0);
+        this.f41026e.setVisibility(0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -210,7 +207,7 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.f42626h = f42622j;
+        this.f41029h = f41025j;
         a();
     }
 
@@ -233,7 +230,7 @@ public class CardGroupDividerView extends LinearLayout {
                 return;
             }
         }
-        this.f42626h = f42622j;
+        this.f41029h = f41025j;
         a();
     }
 }

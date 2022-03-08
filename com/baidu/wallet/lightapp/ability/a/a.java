@@ -20,7 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,10 +83,10 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                 public final /* synthetic */ ILightappInvokerCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f51507b;
+                public final /* synthetic */ String f49926b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f51508c;
+                public final /* synthetic */ a f49927c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -103,9 +103,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f51508c = this;
+                    this.f49927c = this;
                     this.a = iLightappInvokerCallback;
-                    this.f51507b = str2;
+                    this.f49926b = str2;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -119,7 +119,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             int intValue = ((Integer) hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue();
                             String str4 = (String) hashMap.get("params");
                             if (intValue != 0) {
-                                this.f51508c.a(this.a, this.f51507b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
+                                this.f49927c.a(this.a, this.f49926b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
                                 return;
                             } else {
                                 this.a.onResult(0, str4);
@@ -127,9 +127,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             }
                         }
                         String str5 = (String) hashMap.get("errorMsg");
-                        a aVar = this.f51508c;
+                        a aVar = this.f49927c;
                         ILightappInvokerCallback iLightappInvokerCallback2 = this.a;
-                        String str6 = this.f51507b;
+                        String str6 = this.f49926b;
                         String num = Integer.toString(i2);
                         if (!TextUtils.isEmpty(str5)) {
                             str5 = LightappConstants.ROUTER_INVOKE_FAIL;

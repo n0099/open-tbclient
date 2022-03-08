@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,23 +15,23 @@ public class h {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f53110b;
+    public Object f51529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53111c;
+    public String f51530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?>[] f53112d;
+    public Class<?>[] f51531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f53113e;
+    public Object[] f51532e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f53114f;
+    public Class<?> f51533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53115g;
+    public boolean f51534g;
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public class h {
                 return;
             }
         }
-        this.f53115g = false;
+        this.f51534g = false;
         this.a = cls;
-        this.f53110b = obj;
-        this.f53111c = str;
-        this.f53112d = clsArr;
-        this.f53113e = objArr;
+        this.f51529b = obj;
+        this.f51530c = str;
+        this.f51531d = clsArr;
+        this.f51532e = objArr;
     }
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr, Class<?> cls2) {
@@ -71,13 +71,13 @@ public class h {
                 return;
             }
         }
-        this.f53115g = false;
+        this.f51534g = false;
         this.a = cls;
-        this.f53110b = obj;
-        this.f53111c = str;
-        this.f53112d = clsArr;
-        this.f53113e = objArr;
-        this.f53114f = cls2;
+        this.f51529b = obj;
+        this.f51530c = str;
+        this.f51531d = clsArr;
+        this.f51532e = objArr;
+        this.f51533f = cls2;
     }
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr, boolean z) {
@@ -95,31 +95,31 @@ public class h {
                 return;
             }
         }
-        this.f53115g = false;
+        this.f51534g = false;
         this.a = cls;
-        this.f53110b = obj;
-        this.f53111c = str;
-        this.f53112d = clsArr;
-        this.f53113e = objArr;
-        this.f53115g = z;
+        this.f51529b = obj;
+        this.f51530c = str;
+        this.f51531d = clsArr;
+        this.f51532e = objArr;
+        this.f51534g = z;
     }
 
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaredMethod(this.f53111c, this.f53112d).invoke(this.f53110b, this.f53113e) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaredMethod(this.f51530c, this.f51531d).invoke(this.f51529b, this.f51532e) : invokeV.objValue;
     }
 
     @Nullable
     public Class<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53114f : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51533f : (Class) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53115g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51534g : invokeV.booleanValue;
     }
 }

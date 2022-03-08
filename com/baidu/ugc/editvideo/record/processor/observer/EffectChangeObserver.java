@@ -4,7 +4,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface EffectChangeObserver {
     void onChanged(Map<String, ShaderConfig> map, List<MediaTrack> list);
 }

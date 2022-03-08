@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class CloudLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LOOP_TIME_INTERVAL = 0;

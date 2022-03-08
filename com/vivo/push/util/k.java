@@ -20,26 +20,26 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f60976b;
+    public InsideNotificationItem f59326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60977c;
+    public long f59327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60978d;
+    public boolean f59328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60979e;
+    public int f59329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public r.a f60980f;
+    public r.a f59330f;
 
     public k(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z, r.a aVar) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
                 return;
             }
         }
-        this.f60979e = 0;
+        this.f59329e = 0;
         this.a = context;
-        this.f60976b = insideNotificationItem;
-        this.f60977c = j2;
-        this.f60978d = z;
-        this.f60980f = aVar;
+        this.f59326b = insideNotificationItem;
+        this.f59327c = j2;
+        this.f59328d = z;
+        this.f59330f = aVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -98,9 +98,9 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
-            this.f60979e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+            this.f59329e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
             InputStream inputStream2 = null;
-            if (!this.f60978d) {
+            if (!this.f59328d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }

@@ -9,21 +9,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.pass.ecommerce.common.adapter.CommonAdapter;
 import com.baidu.pass.ecommerce.common.adapter.ViewHolder;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public String queryContent;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

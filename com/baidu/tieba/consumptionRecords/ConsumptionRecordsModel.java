@@ -16,32 +16,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42634e;
+    public int f41037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42635f;
+    public int f41038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42636g;
+    public int f41039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c.a.u0.j0.a> f42637h;
+    public ArrayList<c.a.r0.i0.a> f41040h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.u0.j0.b f42638i;
+    public c.a.r0.i0.b f41041i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f42639j;
+    public boolean f41042j;
     public b k;
     public HttpMessageListener l;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,24 +80,24 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                         this.a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
                     if (this.a.k != null) {
-                        this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f42637h, this.a.f42638i, this.a.f42639j);
+                        this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f41040h, this.a.f41041i, this.a.f41042j);
                         return;
                     }
                     return;
                 }
                 ConsumptionRecordsModel.w(this.a);
                 if (this.a.k != null) {
-                    this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f42637h, this.a.f42638i, this.a.f42639j);
+                    this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f41040h, this.a.f41041i, this.a.f41042j);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
-        void b(int i2, String str, ArrayList<c.a.u0.j0.a> arrayList, c.a.u0.j0.b bVar, boolean z);
+        void b(int i2, String str, ArrayList<c.a.r0.i0.a> arrayList, c.a.r0.i0.b bVar, boolean z);
     }
 
     public ConsumptionRecordsModel(BdUniqueId bdUniqueId) {
@@ -115,10 +115,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 return;
             }
         }
-        this.f42634e = 0;
-        this.f42635f = 1;
-        this.f42636g = 1;
-        this.f42639j = false;
+        this.f41037e = 0;
+        this.f41038f = 1;
+        this.f41039g = 1;
+        this.f41042j = false;
         this.l = new a(this, CmdConfigHttp.CMD_GET_USER_ORDER);
         this.unique_id = bdUniqueId;
         registerTask();
@@ -127,8 +127,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int w(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i2 = consumptionRecordsModel.f42634e;
-        consumptionRecordsModel.f42634e = i2 - 1;
+        int i2 = consumptionRecordsModel.f41037e;
+        consumptionRecordsModel.f41037e = i2 - 1;
         return i2;
     }
 
@@ -136,11 +136,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            this.f42634e = 1;
+            this.f41037e = 1;
             newGetUserOrderRequestMessage.setPn(1);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f42635f);
-            newGetUserOrderRequestMessage.setShowMember(this.f42636g);
+            newGetUserOrderRequestMessage.setOrderType(this.f41038f);
+            newGetUserOrderRequestMessage.setShowMember(this.f41039g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -148,7 +148,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.f42639j) {
+            if (!this.f41042j) {
                 b bVar = this.k;
                 if (bVar != null) {
                     bVar.a();
@@ -156,33 +156,33 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 }
                 return;
             }
-            this.f42634e++;
+            this.f41037e++;
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            newGetUserOrderRequestMessage.setPn(this.f42634e);
+            newGetUserOrderRequestMessage.setPn(this.f41037e);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f42635f);
-            newGetUserOrderRequestMessage.setShowMember(this.f42636g);
+            newGetUserOrderRequestMessage.setOrderType(this.f41038f);
+            newGetUserOrderRequestMessage.setShowMember(this.f41039g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
 
-    public final void E(ArrayList<c.a.u0.j0.a> arrayList, c.a.u0.j0.b bVar, boolean z) {
+    public final void E(ArrayList<c.a.r0.i0.a> arrayList, c.a.r0.i0.b bVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, bVar, z) == null) {
             if (bVar != null) {
-                this.f42638i = bVar;
+                this.f41041i = bVar;
             }
-            this.f42639j = z;
+            this.f41042j = z;
             if (arrayList == null) {
                 return;
             }
-            if (this.f42637h == null) {
-                this.f42637h = new ArrayList<>();
+            if (this.f41040h == null) {
+                this.f41040h = new ArrayList<>();
             }
-            if (this.f42634e == 1) {
-                this.f42637h.clear();
+            if (this.f41037e == 1) {
+                this.f41040h.clear();
             }
-            this.f42637h.addAll(arrayList);
+            this.f41040h.addAll(arrayList);
         }
     }
 
@@ -214,7 +214,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42635f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41038f : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -242,14 +242,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void setShowMember(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f42636g = i2;
+            this.f41039g = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f42635f = i2;
+            this.f41038f = i2;
         }
     }
 }

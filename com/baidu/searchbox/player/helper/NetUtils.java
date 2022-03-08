@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -43,7 +43,7 @@ public class NetUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

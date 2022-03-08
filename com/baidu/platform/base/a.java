@@ -20,26 +20,26 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AsyncHttpClient f37958b;
+    public AsyncHttpClient f36361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f37959c;
+    public Handler f36362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37960d;
+    public boolean f36363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DistrictResult f37961e;
+    public DistrictResult f36364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SearchType f37962f;
+    public SearchType f36365f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -54,11 +54,11 @@ public abstract class a {
                 return;
             }
         }
-        this.f37958b = new AsyncHttpClient();
-        this.f37959c = new Handler(Looper.getMainLooper());
+        this.f36361b = new AsyncHttpClient();
+        this.f36362c = new Handler(Looper.getMainLooper());
         this.a = new ReentrantLock();
-        this.f37960d = true;
-        this.f37961e = null;
+        this.f36363d = true;
+        this.f36364e = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +79,7 @@ public abstract class a {
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncHttpClient, protoResultCallback, searchResult) == null) {
-            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f37962f), protoResultCallback);
+            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f36365f), protoResultCallback);
         }
     }
 
@@ -94,7 +94,7 @@ public abstract class a {
     private void a(SearchResult searchResult, Object obj, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, this, searchResult, obj, dVar) == null) {
-            this.f37959c.post(new c(this, dVar, searchResult, obj));
+            this.f36362c.post(new c(this, dVar, searchResult, obj));
         }
     }
 
@@ -109,15 +109,15 @@ public abstract class a {
             } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
                 a(a, obj, dVar);
             } else {
-                DistrictResult districtResult = this.f37961e;
+                DistrictResult districtResult = this.f36364e;
                 if (districtResult != null) {
                     DistrictResult districtResult2 = (DistrictResult) a;
                     districtResult2.setCityCode(districtResult.getCityCode());
-                    districtResult2.setCenterPt(this.f37961e.getCenterPt());
+                    districtResult2.setCenterPt(this.f36364e.getCenterPt());
                 }
                 a(a, obj, dVar);
-                this.f37960d = true;
-                this.f37961e = null;
+                this.f36363d = true;
+                this.f36364e = null;
                 ((com.baidu.platform.core.a.b) dVar).a(false);
             }
         }
@@ -129,9 +129,9 @@ public abstract class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, dVar, searchResult)) == null) {
             if (dVar instanceof com.baidu.platform.core.a.b) {
                 DistrictResult districtResult = (DistrictResult) searchResult;
-                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f37960d) {
-                    this.f37960d = false;
-                    this.f37961e = districtResult;
+                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f36363d) {
+                    this.f36363d = false;
+                    this.f36364e = districtResult;
                     ((com.baidu.platform.core.a.b) dVar).a(true);
                     return true;
                 }
@@ -194,10 +194,10 @@ public abstract class a {
                 return false;
             }
             SearchType a = dVar.a();
-            this.f37962f = a;
+            this.f36365f = a;
             String a2 = eVar.a(a);
             if (a2 != null) {
-                this.f37958b.get(a2, new b(this, dVar, obj));
+                this.f36361b.get(a2, new b(this, dVar, obj));
                 return true;
             }
             String str = "The sendurl is: " + a2;

@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

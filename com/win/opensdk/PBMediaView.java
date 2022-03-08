@@ -4,19 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.q.a.j1;
-import c.q.a.j3;
+import c.q.a.e3;
 import c.q.a.r0;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j3 a;
+    public e3 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -79,22 +79,22 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.a = new j3(context);
-        addView(this.a.f30578c, new FrameLayout.LayoutParams(-1, -1));
+        this.a = new e3(context);
+        addView(this.a.f28945c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int b2 = r0.b(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
             layoutParams.gravity = 3;
-            imageView.setImageResource(j1.win_btn_op);
+            imageView.setImageResource(R.drawable.win_btn_op);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
     }
 
-    public j3 getHtmlWebView() {
+    public e3 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (j3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e3) invokeV.objValue;
     }
 }

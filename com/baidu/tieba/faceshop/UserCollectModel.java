@@ -1,9 +1,9 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
-import c.a.t0.c0.d;
-import c.a.t0.m.e;
-import c.a.u0.z0.g;
+import c.a.q0.b0.d;
+import c.a.q0.l.e;
+import c.a.r0.y0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -25,22 +25,22 @@ import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UserCollectModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL_DELETE = "all_delete";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f43119e;
+    public final HttpMessageListener f41522e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f43120e;
+        public final /* synthetic */ UserCollectModel f41523e;
 
         public a(UserCollectModel userCollectModel) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f43120e = userCollectModel;
+            this.f41523e = userCollectModel;
         }
 
         @Override // java.lang.Runnable
@@ -72,7 +72,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : n) {
-                        if (!d.f12672d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                        if (!d.f12089d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.sharpText);
                         }
@@ -88,25 +88,25 @@ public class UserCollectModel extends FaceBaseModel {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
-                this.f43120e.sendMessage(httpMessage);
-                c.a.u0.p2.d.s(currentTimeMillis);
+                this.f41523e.sendMessage(httpMessage);
+                c.a.r0.p2.d.s(currentTimeMillis);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserCollectModel a;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f43121e;
+            public final /* synthetic */ b f41524e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class UserCollectModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.f43121e = bVar;
+                this.f41524e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -131,7 +131,7 @@ public class UserCollectModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f43121e.a.cancelLoadData();
+                        this.f41524e.a.cancelLoadData();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -184,12 +184,12 @@ public class UserCollectModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f43119e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+        this.f41522e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f43119e.setTag(getUniqueId());
-        this.f43119e.setSelfListener(true);
-        registerListener(this.f43119e);
+        this.f41522e.setTag(getUniqueId());
+        this.f41522e.setSelfListener(true);
+        registerListener(this.f41522e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -197,7 +197,7 @@ public class UserCollectModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f43119e);
+            MessageManager.getInstance().unRegisterListener(this.f41522e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
             return true;
         }

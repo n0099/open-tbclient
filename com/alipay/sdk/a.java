@@ -4,38 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30960b = "com.alipay.sdk";
+    public static final String f29364b = "com.alipay.sdk";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30961c = "com.alipay.sdk";
+    public static final String f29365c = "com.alipay.sdk";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30962d = "release";
+    public static final String f29366d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30963e = "alipaySdk";
+    public static final String f29367e = "alipaySdk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f30964f = 1;
+    public static final int f29368f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f30965g = "15.8.02";
+    public static final String f29369g = "15.8.02";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f30966h = "ad163e0-clean";
+    public static final String f29370h = "ad163e0-clean";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f30967i = "15.8.02";
+    public static final String f29371i = "15.8.02";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f30968j = "h.a.3.8.02";
+    public static final String f29372j = "h.a.3.8.02";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

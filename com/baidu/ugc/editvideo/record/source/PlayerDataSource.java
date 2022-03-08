@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.c;
-import c.a.b1.t.h;
-import c.a.b1.t.w;
+import c.a.y0.r.c;
+import c.a.y0.r.h;
+import c.a.y0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -45,7 +45,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public int mVideoWidth;
     public OnPlayStateListener onPlayStateListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnPlayStateListener {
         void pause();
 

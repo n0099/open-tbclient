@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ManualObservableScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49751e;
+    public boolean f48170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f49752f;
+    public a f48171f;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onScrollChanged(int i2, int i3, int i4, int i5);
     }
@@ -49,7 +49,7 @@ public class ManualObservableScrollView extends ScrollView {
     public a getScrollChangedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49752f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48171f : (a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -58,7 +58,7 @@ public class ManualObservableScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            if (!this.f49751e || (aVar = this.f49752f) == null) {
+            if (!this.f48170e || (aVar = this.f48171f) == null) {
                 return;
             }
             aVar.onScrollChanged(i2, i3, i4, i5);
@@ -82,10 +82,10 @@ public class ManualObservableScrollView extends ScrollView {
                     if (action != 2) {
                     }
                 }
-                this.f49751e = false;
+                this.f48170e = false;
                 return super.onTouchEvent(motionEvent);
             }
-            this.f49751e = true;
+            this.f48170e = true;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -94,7 +94,7 @@ public class ManualObservableScrollView extends ScrollView {
     public void setScrollChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f49752f = aVar;
+            this.f48171f = aVar;
         }
     }
 

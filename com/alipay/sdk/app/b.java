@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31022b;
+    public static String f29426b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class b {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f31022b = str;
+            f29426b = str;
         }
     }
 
@@ -57,7 +57,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            c b2 = c.b(c.f31028h.b());
+            c b2 = c.b(c.f29432h.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;
@@ -72,14 +72,14 @@ public class b {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f31022b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f29426b : (String) invokeV.objValue;
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            c b2 = c.b(c.f31027g.b());
+            c b2 = c.b(c.f29431g.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;
@@ -96,7 +96,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            c b2 = c.b(c.f31025e.b());
+            c b2 = c.b(c.f29429e.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;

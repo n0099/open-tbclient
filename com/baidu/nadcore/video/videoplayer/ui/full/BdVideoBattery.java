@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.d0.i0.a.d.b;
+import c.a.b0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,29 +16,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37404h;
+    public static final int f35807h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37405i;
+    public static final int f35808i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f37406j;
+    public static final int f35809j;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f37407e;
+    public final Context f35810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f37408f;
+    public Bitmap f35811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f37409g;
+    public Paint f35812g;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        f37404h = b.d(2.0f);
-        f37405i = b.d(2.0f);
-        f37406j = b.d(2.0f);
+        f35807h = b.d(2.0f);
+        f35808i = b.d(2.0f);
+        f35809j = b.d(2.0f);
         k = b.d(4.0f);
     }
 
@@ -77,7 +77,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37407e = context;
+        this.f35810e = context;
         a();
     }
 
@@ -85,7 +85,7 @@ public class BdVideoBattery extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f37409g = paint;
+            this.f35812g = paint;
             paint.setColor(-1);
         }
     }
@@ -97,15 +97,15 @@ public class BdVideoBattery extends View {
             super.onDraw(canvas);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.f37408f;
+            Bitmap bitmap = this.f35811f;
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f2 = (float) (c.a.d0.v.v0.b.a / 100.0d);
+            float f2 = (float) (c.a.b0.v.v0.b.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
             int i2 = measuredWidth - k;
-            int i3 = f37406j;
-            canvas.drawRect(i3, f37404h, i3 + ((i2 - i3) * f3), measuredHeight - f37405i, this.f37409g);
+            int i3 = f35809j;
+            canvas.drawRect(i3, f35807h, i3 + ((i2 - i3) * f3), measuredHeight - f35808i, this.f35812g);
         }
     }
 
@@ -115,14 +115,14 @@ public class BdVideoBattery extends View {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             View.MeasureSpec.getSize(i2);
             View.MeasureSpec.getSize(i3);
-            setMeasuredDimension(this.f37408f.getWidth(), this.f37408f.getHeight());
+            setMeasuredDimension(this.f35811f.getWidth(), this.f35811f.getHeight());
         }
     }
 
     public void setImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f37408f = BitmapFactory.decodeResource(this.f37407e.getResources(), i2);
+            this.f35811f = BitmapFactory.decodeResource(this.f35810e.getResources(), i2);
         }
     }
 
@@ -145,7 +145,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37407e = context;
+        this.f35810e = context;
         a();
     }
 
@@ -168,7 +168,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37407e = context;
+        this.f35810e = context;
         a();
     }
 }

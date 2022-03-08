@@ -25,20 +25,20 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.f.i.a;
+import c.a.d.f.p.l;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.d.f.p.q;
-import c.a.t0.c1.a;
-import c.a.t0.d1.g0;
-import c.a.t0.d1.r;
-import c.a.t0.s.g;
-import c.a.t0.s.k;
-import c.a.t0.s.r.j1;
-import c.a.t0.s0.l;
-import c.a.t0.t.c.c0;
-import c.a.t0.t.c.e0;
-import c.a.t0.t.c.h0;
-import c.a.t0.t.c.v;
+import c.a.q0.b1.a;
+import c.a.q0.c1.r;
+import c.a.q0.r.g;
+import c.a.q0.r.k;
+import c.a.q0.r.r.j1;
+import c.a.q0.s.c.a0;
+import c.a.q0.s.c.c0;
+import c.a.q0.s.c.f0;
+import c.a.q0.s.c.j;
+import c.a.q0.s.c.t;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -70,6 +70,7 @@ import com.baidu.tbadk.core.util.RegisterIntentConfigHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.coreExtra.data.ActivityPrizeData;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
@@ -86,6 +87,7 @@ import com.baidu.tbadk.switchs.LoginPassV6Switch;
 import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
 import com.baidu.tbadk.switchs.RichTextGifViewSwitch;
 import com.baidu.tbadk.switchs.WalletSwitch;
+import com.baidu.tieba.R;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.tieba.frs.mc.FrsNetModel;
@@ -113,7 +115,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
 @ModifyClass
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACTION_TEST = 1;
@@ -134,7 +136,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public static TbadkCoreApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean _isMainProcess;
-    public c.a.t0.t.c.b activityPrizeData;
+    public ActivityPrizeData activityPrizeData;
     public int canShowHotSplash;
     public int cardShowType;
     public String checkUrl;
@@ -174,16 +176,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public int keyboardHeight;
     public long lastUpdateMemberCenterTime;
     public long lastUpdateThemeTime;
-    public e0 listItemRule;
+    public c0 listItemRule;
     public a.c locationCallBack;
-    public c.a.t0.t.c.c mActivitySwitch;
-    public c.a.t0.t.c.d mAdAdSense;
+    public c.a.q0.s.c.b mActivitySwitch;
+    public c.a.q0.s.c.c mAdAdSense;
     public String mAndroidId;
     public boolean mCapableOfWebp;
     public String mChannelId;
     public CombineDownload mCombineDownload;
     public String mConfigVersion;
-    public v mConsumePathData;
+    public t mConsumePathData;
     public k mCoreActivityLifecycleCallbacks;
     public String mCuid;
     public String mCurAiAppid;
@@ -204,7 +206,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public String mImei;
     public long mInitTime;
     public String mInstallAppIds;
-    public c0 mInterestBoardConfigData;
+    public a0 mInterestBoardConfigData;
     public long mInterviewLivePollingInterval;
     public int mIsAbstractOn;
     public boolean mIsAppOn;
@@ -228,15 +230,15 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public int mNewVcodeWebviewCrashCount;
     public int mPerformSampleCount;
     public final j1 mPersonalizeViewData;
-    public c.a.u0.z3.q0.c mPhotoLiveReadHistory;
-    public h0 mProfileData;
+    public c.a.r0.y3.q0.c mPhotoLiveReadHistory;
+    public f0 mProfileData;
     public boolean mPromotedMessageOn;
-    public c.a.u0.z3.q0.d mReadThreadHistory;
+    public c.a.r0.y3.q0.d mReadThreadHistory;
     public int mReadThreadPlayerScreenMaxHeight;
     public ArrayList<BaseActivity<?>> mRemoteActivity;
     public ShareItem mShareItem;
     public Hashtable<String, Integer> mSignLevelUpList;
-    public c.a.u0.k2.a mSplash;
+    public c.a.r0.k2.a mSplash;
     public int mTempFaceShopVersion;
     public boolean mThemeWebviewOpened;
     public n.c mToast;
@@ -265,16 +267,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public int useNewResign;
     public long useTimeInterval;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f40371e;
+        public final /* synthetic */ boolean f38775e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbadkCoreApplication f40372f;
+        public final /* synthetic */ TbadkCoreApplication f38776f;
 
         public a(TbadkCoreApplication tbadkCoreApplication, boolean z) {
             Interceptable interceptable = $ic;
@@ -291,26 +293,26 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
                     return;
                 }
             }
-            this.f40372f = tbadkCoreApplication;
-            this.f40371e = z;
+            this.f38776f = tbadkCoreApplication;
+            this.f38775e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new c.a.t0.i0.a(this.f40371e)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new c.a.q0.h0.a(this.f38775e)));
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbadkCoreApplication f40373e;
+        public final /* synthetic */ TbadkCoreApplication f38777e;
 
         public b(TbadkCoreApplication tbadkCoreApplication) {
             Interceptable interceptable = $ic;
@@ -327,7 +329,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
                     return;
                 }
             }
-            this.f40373e = tbadkCoreApplication;
+            this.f38777e = tbadkCoreApplication;
         }
 
         @Override // android.os.Handler.Callback
@@ -336,9 +338,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 if (message.what == 1) {
-                    c.a.t0.s.d0.a.a("account", -1L, 0, "application_clear_account", 0, "", new Object[0]);
-                    TbadkCoreApplication.setCurrentAccount(null, this.f40373e.getContext());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f40373e.getContext(), true)));
+                    c.a.q0.r.d0.a.a("account", -1L, 0, "application_clear_account", 0, "", new Object[0]);
+                    TbadkCoreApplication.setCurrentAccount(null, this.f38777e.getContext());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f38777e.getContext(), true)));
                 }
                 return false;
             }
@@ -346,7 +348,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -383,9 +385,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
                     this.a.setLocationLat(valueOf);
                     this.a.setLocationLng(valueOf2);
                     this.a.setLocationPos(address.getAddressLine(0));
-                    c.a.u0.l3.j0.a.e().i(valueOf);
-                    c.a.u0.l3.j0.a.e().j(valueOf2);
-                    c.a.u0.l3.j0.a.e().k(System.currentTimeMillis());
+                    c.a.r0.j3.k0.a.e().i(valueOf);
+                    c.a.r0.j3.k0.a.e().j(valueOf2);
+                    c.a.r0.j3.k0.a.e().k(System.currentTimeMillis());
                 } catch (IllegalStateException e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -393,13 +395,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbadkCoreApplication f40374e;
+        public final /* synthetic */ TbadkCoreApplication f38778e;
 
         public d(TbadkCoreApplication tbadkCoreApplication) {
             Interceptable interceptable = $ic;
@@ -416,19 +418,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
                     return;
                 }
             }
-            this.f40374e = tbadkCoreApplication;
+            this.f38778e = tbadkCoreApplication;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.d.f.i.a.n().k(false, this.f40374e.locationCallBack);
+                c.a.d.f.i.a.n().k(false, this.f38778e.locationCallBack);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class e implements CyberPlayerManager.InstallListener2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -489,7 +491,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class f implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -513,7 +515,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             this.a = tbadkCoreApplication;
         }
 
-        @Override // c.a.t0.c1.a.b
+        @Override // c.a.q0.b1.a.b
         public void a(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -668,7 +670,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             try {
-                int l = c.a.t0.s.j0.b.k().l("crash_limit_count", 100);
+                int l = c.a.q0.r.j0.b.k().l("crash_limit_count", 100);
                 if (l < 10) {
                     return 10;
                 }
@@ -683,73 +685,73 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public static String getCurrentAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a.t0.s.m.b.t().h() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a.q0.r.m.b.t().h() : (String) invokeV.objValue;
     }
 
     public static String getCurrentAccountForEmotion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.a.t0.s.m.b.t().i() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.a.q0.r.m.b.t().i() : (String) invokeV.objValue;
     }
 
     public static long getCurrentAccountId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? c.a.t0.s.m.b.t().j() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? c.a.q0.r.m.b.t().j() : invokeV.longValue;
     }
 
     public static AccountData getCurrentAccountInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.t0.s.m.b.t().k() : (AccountData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.q0.r.m.b.t().k() : (AccountData) invokeV.objValue;
     }
 
     public static String getCurrentAccountName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? c.a.t0.s.m.b.t().l() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? c.a.q0.r.m.b.t().l() : (String) invokeV.objValue;
     }
 
     public static String getCurrentAccountNameShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? c.a.t0.s.m.b.t().m() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? c.a.q0.r.m.b.t().m() : (String) invokeV.objValue;
     }
 
     public static AccountData getCurrentAccountObj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.a.t0.s.m.b.t().n() : (AccountData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.a.q0.r.m.b.t().n() : (AccountData) invokeV.objValue;
     }
 
     public static String getCurrentAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? c.a.t0.s.m.b.t().o() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? c.a.q0.r.m.b.t().o() : (String) invokeV.objValue;
     }
 
     public static String getCurrentBduss() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? c.a.t0.s.m.b.t().p() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? c.a.q0.r.m.b.t().p() : (String) invokeV.objValue;
     }
 
     public static int getCurrentMemberType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? c.a.t0.s.m.b.t().q() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? c.a.q0.r.m.b.t().q() : invokeV.intValue;
     }
 
     public static String getCurrentPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? c.a.t0.s.m.b.t().r() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? c.a.q0.r.m.b.t().r() : (String) invokeV.objValue;
     }
 
     public static String getCurrentTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? c.a.t0.s.m.b.t().p() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? c.a.q0.r.m.b.t().p() : (String) invokeV.objValue;
     }
 
     public static String getCurrentVerson(Context context) {
@@ -769,7 +771,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public static int getCurrentVipLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.a.t0.s.m.b.t().s() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.a.q0.r.m.b.t().s() : invokeV.intValue;
     }
 
     public static String getFrom() {
@@ -826,10 +828,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (isMainProcess(true) && c.a.t0.s.m.b.t().h() == null) {
+            if (isMainProcess(true) && c.a.q0.r.m.b.t().h() == null) {
                 tryLbs();
             }
-            l.b().v(System.currentTimeMillis() - currentTimeMillis);
+            c.a.q0.r0.k.b().v(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -853,7 +855,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             if (i2 == -1) {
                 i2 = 0;
             }
-            if ((i2 != 0 || (!c.a.d.f.p.l.H() && c.a.d.f.p.l.z())) && i2 != 2) {
+            if ((i2 != 0 || (!l.H() && l.z())) && i2 != 2) {
                 if (i2 == 1) {
                 }
                 return false;
@@ -889,13 +891,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         if (!(interceptable == null || interceptable.invokeLL(65570, null, context, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        c.a.t0.s.j0.b.k().y("client_id", TbConfig.getVersion() + "\t" + str);
+        c.a.q0.r.j0.b.k().y("client_id", TbConfig.getVersion() + "\t" + str);
     }
 
     public static void setBdussAndTbsFromBackgroundInRelogin(AccountData accountData, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65571, null, accountData, str, str2) == null) {
-            c.a.t0.s.m.b.t().K(accountData, str, str2);
+            c.a.q0.r.m.b.t().K(accountData, str, str2);
         }
     }
 
@@ -909,21 +911,21 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public static void setCurrentAccount(AccountData accountData, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65573, null, accountData, context) == null) {
-            c.a.t0.s.m.b.t().L(accountData, context);
+            c.a.q0.r.m.b.t().L(accountData, context);
         }
     }
 
     public static void setCurrentAccountFromRemoteProcessInUIThread(AccountData accountData, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65574, null, accountData, context) == null) {
-            c.a.t0.s.m.b.t().M(accountData, context);
+            c.a.q0.r.m.b.t().M(accountData, context);
         }
     }
 
     public static void setCurrentMemberType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65575, null, i2) == null) {
-            c.a.t0.s.m.b.t().O(i2);
+            c.a.q0.r.m.b.t().O(i2);
         }
     }
 
@@ -979,7 +981,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void SendSkinTypeBroadcast(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c.a.t0.s.m.b.t().a(i2);
+            c.a.q0.r.m.b.t().a(i2);
         }
     }
 
@@ -1075,7 +1077,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public boolean cashNoAccountData(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i2)) == null) ? c.a.t0.s.m.b.t().e(str, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i2)) == null) ? c.a.q0.r.m.b.t().e(str, i2) : invokeLI.booleanValue;
     }
 
     public boolean checkNeedShowNewVersionFlag() {
@@ -1173,7 +1175,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void deleteAccountAllInfo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            c.a.t0.s.m.b.t().g(str);
+            c.a.q0.r.m.b.t().g(str);
         }
     }
 
@@ -1231,17 +1233,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (String) invokeV.objValue;
     }
 
-    public c.a.t0.t.c.b getActivityPrizeData() {
+    public ActivityPrizeData getActivityPrizeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (this.activityPrizeData == null) {
-                this.activityPrizeData = new c.a.t0.t.c.b();
-                c.a.t0.s.j0.b k = c.a.t0.s.j0.b.k();
+                this.activityPrizeData = new ActivityPrizeData();
+                c.a.q0.r.j0.b k = c.a.q0.r.j0.b.k();
                 String q = k.q("activity_prize_data" + getCurrentAccount(), "");
                 if (!StringUtils.isNull(q)) {
                     try {
-                        this.activityPrizeData.i(new JSONObject(q));
+                        this.activityPrizeData.parse(new JSONObject(q));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -1249,25 +1251,25 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             }
             return this.activityPrizeData;
         }
-        return (c.a.t0.t.c.b) invokeV.objValue;
+        return (ActivityPrizeData) invokeV.objValue;
     }
 
-    public c.a.t0.t.c.c getActivitySwitch() {
+    public c.a.q0.s.c.b getActivitySwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mActivitySwitch : (c.a.t0.t.c.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mActivitySwitch : (c.a.q0.s.c.b) invokeV.objValue;
     }
 
-    public c.a.t0.t.c.d getAdAdSense() {
+    public c.a.q0.s.c.c getAdAdSense() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mAdAdSense : (c.a.t0.t.c.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mAdAdSense : (c.a.q0.s.c.c) invokeV.objValue;
     }
 
     public int getAdVideoPageStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? c.a.t0.s.j0.b.k().l("video_page_style", 3) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? c.a.q0.r.j0.b.k().l("video_page_style", 3) : invokeV.intValue;
     }
 
     public String getAndroidId() {
@@ -1311,7 +1313,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             if (!this.hasInit) {
-                this.cardShowType = c.a.t0.s.j0.b.k().l("key_card_show_type", 0);
+                this.cardShowType = c.a.q0.r.j0.b.k().l("key_card_show_type", 0);
             }
             return this.cardShowType;
         }
@@ -1336,10 +1338,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mConfigVersion : (String) invokeV.objValue;
     }
 
-    public v getConsumePathData() {
+    public t getConsumePathData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mConsumePathData : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mConsumePathData : (t) invokeV.objValue;
     }
 
     @Modify(description = "贴吧原有CUID获取", type = 32)
@@ -1537,8 +1539,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-                boolean z = c.a.t0.s.j0.b.k().l("auto_play_video_frs", 0) == 1;
-                if (c.a.t0.s.j0.b.k().l("auto_play_video_frs_have_4g", 0) == 1) {
+                boolean z = c.a.q0.r.j0.b.k().l("auto_play_video_frs", 0) == 1;
+                if (c.a.q0.r.j0.b.k().l("auto_play_video_frs_have_4g", 0) == 1) {
                     return 2;
                 }
                 return z ? 0 : 1;
@@ -1602,8 +1604,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-                boolean z = c.a.t0.s.j0.b.k().l("auto_play_video_homepage", 0) == 1;
-                if (c.a.t0.s.j0.b.k().l("auto_play_video_homepage_have_4g", 0) == 1) {
+                boolean z = c.a.q0.r.j0.b.k().l("auto_play_video_homepage", 0) == 1;
+                if (c.a.q0.r.j0.b.k().l("auto_play_video_homepage_have_4g", 0) == 1) {
                     return 2;
                 }
                 return z ? 0 : 1;
@@ -1694,10 +1696,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, cls)) == null) ? RegisterIntentConfigHelper.getInst().getIntentClass(cls) : (Class) invokeL.objValue;
     }
 
-    public c0 getInterestBoardConfigData() {
+    public a0 getInterestBoardConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.mInterestBoardConfigData : (c0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.mInterestBoardConfigData : (a0) invokeV.objValue;
     }
 
     public long getInterviewLivePollingInterval() {
@@ -1712,7 +1714,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
             int i2 = this.mIsAbstractOn;
             if (i2 == 0) {
-                if (c.a.d.f.p.l.H()) {
+                if (l.H()) {
                     return true;
                 }
             } else if (i2 == 1) {
@@ -1858,16 +1860,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.mLikeChanged : invokeV.booleanValue;
     }
 
-    public e0 getListItemRule() {
+    public c0 getListItemRule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             if (this.listItemRule == null) {
-                this.listItemRule = new e0();
+                this.listItemRule = new c0();
             }
             return this.listItemRule;
         }
-        return (e0) invokeV.objValue;
+        return (c0) invokeV.objValue;
     }
 
     public String getLocationLat() {
@@ -1902,9 +1904,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
             if (DeviceInfoUtil.isfullScreen()) {
-                return n.f(this, c.a.u0.a4.e.tbds162);
+                return n.f(this, R.dimen.tbds162);
             }
-            return n.f(this, c.a.u0.a4.e.tbds152);
+            return n.f(this, R.dimen.tbds152);
         }
         return invokeV.intValue;
     }
@@ -1912,13 +1914,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public final int getMainTabBottomBarHeightId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
-            if (DeviceInfoUtil.isfullScreen()) {
-                return c.a.u0.a4.e.ds100;
-            }
-            return c.a.u0.a4.e.ds90;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) ? DeviceInfoUtil.isfullScreen() ? R.dimen.ds100 : R.dimen.ds90 : invokeV.intValue;
     }
 
     public int getNetWorkCoreType() {
@@ -1936,13 +1932,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public String getNoAccountData(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048684, this, i2)) == null) ? c.a.t0.s.m.b.t().u(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048684, this, i2)) == null) ? c.a.q0.r.m.b.t().u(i2) : (String) invokeI.objValue;
     }
 
     public int getOldSkinType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) ? c.a.t0.s.m.b.t().v() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) ? c.a.q0.r.m.b.t().v() : invokeV.intValue;
     }
 
     public PayMemberInfoData getPaymemberInfo() {
@@ -1963,16 +1959,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.mPersonalizeViewData : (j1) invokeV.objValue;
     }
 
-    public c.a.u0.z3.q0.c getPhotoLiveReadThreadHistory() {
+    public c.a.r0.y3.q0.c getPhotoLiveReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.mPhotoLiveReadHistory : (c.a.u0.z3.q0.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.mPhotoLiveReadHistory : (c.a.r0.y3.q0.c) invokeV.objValue;
     }
 
-    public h0 getProfileData() {
+    public f0 getProfileData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) ? this.mProfileData : (h0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) ? this.mProfileData : (f0) invokeV.objValue;
     }
 
     @Modify(description = "flutter代理ip")
@@ -2001,10 +1997,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) ? loadString("push_channel_userId", "") : (String) invokeV.objValue;
     }
 
-    public c.a.u0.z3.q0.d getReadThreadHistory() {
+    public c.a.r0.y3.q0.d getReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? this.mReadThreadHistory : (c.a.u0.z3.q0.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? this.mReadThreadHistory : (c.a.r0.y3.q0.d) invokeV.objValue;
     }
 
     public int getReadThreadPlayerScreenMaxHeight() {
@@ -2073,7 +2069,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public int getSkinType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? c.a.t0.s.m.b.t().w() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? c.a.q0.r.m.b.t().w() : invokeV.intValue;
     }
 
     public int[] getSocketGetMsgStratgy() {
@@ -2142,16 +2138,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         return (int[]) invokeV.objValue;
     }
 
-    public c.a.u0.k2.a getSplash() {
+    public c.a.r0.k2.a getSplash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
             if (this.mSplash == null) {
-                this.mSplash = new c.a.u0.k2.a(this);
+                this.mSplash = new c.a.r0.k2.a(this);
             }
             return this.mSplash;
         }
-        return (c.a.u0.k2.a) invokeV.objValue;
+        return (c.a.r0.k2.a) invokeV.objValue;
     }
 
     public int getStartType() {
@@ -2175,7 +2171,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public String getTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) ? c.a.t0.s.m.b.t().x() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) ? c.a.q0.r.m.b.t().x() : (String) invokeV.objValue;
     }
 
     public int getTempFaceShopVersion() {
@@ -2236,13 +2232,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public int getUsedThemeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? c.a.t0.s.m.b.t().y() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? c.a.q0.r.m.b.t().y() : invokeV.intValue;
     }
 
     public int getUsedThemeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? c.a.t0.s.m.b.t().z() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? c.a.q0.r.m.b.t().z() : invokeV.intValue;
     }
 
     public int getVersionCode() {
@@ -2291,10 +2287,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
             if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-                boolean z = c.a.t0.s.j0.b.k().l("auto_play_video_homepage", 0) == 1;
-                boolean z2 = c.a.t0.s.j0.b.k().l("auto_play_video_frs", 0) == 1;
-                boolean z3 = c.a.t0.s.j0.b.k().l("auto_play_video_homepage_have_4g", 0) == 1;
-                boolean z4 = c.a.t0.s.j0.b.k().l("auto_play_video_frs_have_4g", 0) == 1;
+                boolean z = c.a.q0.r.j0.b.k().l("auto_play_video_homepage", 0) == 1;
+                boolean z2 = c.a.q0.r.j0.b.k().l("auto_play_video_frs", 0) == 1;
+                boolean z3 = c.a.q0.r.j0.b.k().l("auto_play_video_homepage_have_4g", 0) == 1;
+                boolean z4 = c.a.q0.r.j0.b.k().l("auto_play_video_frs_have_4g", 0) == 1;
                 if (z3 || z4) {
                     return 2;
                 }
@@ -2334,7 +2330,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) {
             if (TextUtils.isEmpty(this.mChannelId)) {
-                this.mChannelId = c.a.t0.s.j0.b.k().q("yunpush_channel_id", "");
+                this.mChannelId = c.a.q0.r.j0.b.k().q("yunpush_channel_id", "");
             }
             return this.mChannelId;
         }
@@ -2463,7 +2459,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void initCrabSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048747, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            c.a.u0.e4.a.getInstance().initSdk(this);
+            c.a.r0.c4.a.getInstance().initSdk(this);
         }
     }
 
@@ -2473,7 +2469,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             String loadString = loadString("cuid", null);
             if (loadString != null && loadString.length() > 0) {
                 saveString("new_cuid", loadString);
-                c.a.t0.s.j0.b.k().D("cuid");
+                c.a.q0.r.j0.b.k().D("cuid");
                 this.mCuid = loadString;
                 return;
             }
@@ -2506,7 +2502,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             String loadString = loadString("new_cuid_galaxy3", null);
             this.cuid_galaxy3 = loadString;
             if (loadString == null || loadString.length() <= 0) {
-                String c2 = c.a.r.b.f(getContext()).c();
+                String c2 = c.a.q.b.f(getContext()).c();
                 this.cuid_galaxy3 = c2;
                 saveString("new_cuid_galaxy3", c2);
             }
@@ -2561,7 +2557,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             getInst().setIsLocationON(this.mIsLocationOn);
             this.mIsExitAppCloseWebSocket = TbadkSettings.getInst().loadBoolean("is_exit_app_not_start_websocket", false);
             this.mFaceShopVersion = TbadkSettings.getInst().loadInt("faceshop_version", -1);
-            this.useTimeInterval = c.a.t0.s.j0.b.k().m("use_time_interval", TbConfig.DEFALT_USE_TIME_INTERVAL);
+            this.useTimeInterval = c.a.q0.r.j0.b.k().m("use_time_interval", TbConfig.DEFALT_USE_TIME_INTERVAL);
         }
     }
 
@@ -2588,7 +2584,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             } else {
                 SpeedStats.getInstance().onAppProcessUpgrade(1);
                 if (getInst().isMainProcess(false)) {
-                    c.a.t0.s.h0.a.q().m();
+                    c.a.q0.r.h0.a.q().m();
                 }
             }
         }
@@ -2740,7 +2736,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048776, this)) == null) {
             if (!this.isImmersiveStickyPrefHasRead) {
-                this.isImmersiveStickyCanUse = c.a.t0.s.j0.b.k().h("switch_immersive_sticky_status", true);
+                this.isImmersiveStickyCanUse = c.a.q0.r.j0.b.k().h("switch_immersive_sticky_status", true);
                 this.isImmersiveStickyPrefHasRead = true;
             }
             return this.isImmersiveStickyCanUse;
@@ -2757,13 +2753,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public boolean isKeyboardHeightCanSet(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048778, this, i2)) == null) ? i2 > getResources().getDimensionPixelSize(c.a.u0.a4.e.ds460) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048778, this, i2)) == null) ? i2 > getResources().getDimensionPixelSize(R.dimen.ds460) : invokeI.booleanValue;
     }
 
     public boolean isKeyboardHeightCanUsed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) ? this.keyboardHeight > getResources().getDimensionPixelSize(c.a.u0.a4.e.ds460) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) ? this.keyboardHeight > getResources().getDimensionPixelSize(R.dimen.ds460) : invokeV.booleanValue;
     }
 
     public boolean isLbsWebViewSwitchOn() {
@@ -2932,7 +2928,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public boolean isPicReqSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048791, this)) == null) ? c.a.t0.s.j0.b.k().l("key_pic_req_switch", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048791, this)) == null) ? c.a.q0.r.j0.b.k().l("key_pic_req_switch", 0) == 1 : invokeV.booleanValue;
     }
 
     public boolean isProcessBackground() {
@@ -3003,7 +2999,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public boolean isThemeIconCover() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048801, this)) == null) ? c.a.t0.s.m.b.t().G() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048801, this)) == null) ? c.a.q0.r.m.b.t().G() : invokeV.booleanValue;
     }
 
     public boolean isWalletShouldOpen() {
@@ -3046,13 +3042,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public boolean loadBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048806, this, str, z)) == null) ? c.a.t0.s.j0.b.k().h(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048806, this, str, z)) == null) ? c.a.q0.r.j0.b.k().h(str, z) : invokeLZ.booleanValue;
     }
 
     public int loadInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048807, this, str, i2)) == null) ? c.a.t0.s.j0.b.k().l(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048807, this, str, i2)) == null) ? c.a.q0.r.j0.b.k().l(str, i2) : invokeLI.intValue;
     }
 
     public void loadLcsSwitchStratgy() {
@@ -3062,9 +3058,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.t0.t.e.d dVar = new c.a.t0.t.e.d();
+            c.a.q0.s.e.d dVar = new c.a.q0.s.e.d();
             dVar.e(loadString);
-            c.a.t0.t.j.c a2 = c.a.t0.t.j.c.a();
+            c.a.q0.s.j.c a2 = c.a.q0.s.j.c.a();
             a2.g(dVar.b() == 1);
             a2.h(dVar.c());
             a2.i(dVar.d() * 1000);
@@ -3077,13 +3073,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public long loadLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048809, this, str, j2)) == null) ? c.a.t0.s.j0.b.k().m(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048809, this, str, j2)) == null) ? c.a.q0.r.j0.b.k().m(str, j2) : invokeLJ.longValue;
     }
 
     public String loadString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048810, this, str, str2)) == null) ? c.a.t0.s.j0.b.k().q(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048810, this, str, str2)) == null) ? c.a.q0.r.j0.b.k().q(str, str2) : (String) invokeLL.objValue;
     }
 
     public void login(TbPageContext<?> tbPageContext, CustomMessage<LoginActivityConfig> customMessage) {
@@ -3125,11 +3121,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048815, this) == null) {
-            int n = c.a.t0.c0.c.k().n();
+            int n = c.a.q0.b0.c.k().n();
             int max = (int) Math.max(n * 0.8d, TbConfig.getBigImageMaxUsedMemory());
             if (max < n) {
                 BdLog.isDebugMode();
-                c.a.t0.c0.c.k().u(max);
+                c.a.q0.b0.c.k().u(max);
             }
             BitmapHelper.clearCashBitmap();
             c.a.d.f.p.f.d().b();
@@ -3161,9 +3157,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2005007));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
-            c.a.t0.t.d.b.g0().X(true);
+            c.a.q0.s.d.b.g0().X(true);
             NotificationHelper.cancelAllNotification(this);
-            c.a.u0.z3.q0.a.n();
+            c.a.r0.y3.q0.a.n();
         }
     }
 
@@ -3218,7 +3214,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void removeClientId(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048824, this, context) == null) {
-            c.a.t0.s.j0.b.k().D("client_id");
+            c.a.q0.r.j0.b.k().D("client_id");
         }
     }
 
@@ -3239,28 +3235,28 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void saveBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048827, this, str, z) == null) {
-            c.a.t0.s.j0.b.k().u(str, z);
+            c.a.q0.r.j0.b.k().u(str, z);
         }
     }
 
     public void saveInt(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048828, this, str, i2) == null) {
-            c.a.t0.s.j0.b.k().w(str, i2);
+            c.a.q0.r.j0.b.k().w(str, i2);
         }
     }
 
     public void saveLong(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048829, this, str, j2) == null) {
-            c.a.t0.s.j0.b.k().x(str, j2);
+            c.a.q0.r.j0.b.k().x(str, j2);
         }
     }
 
     public void saveString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048830, this, str, str2) == null) {
-            c.a.t0.s.j0.b.k().y(str, str2);
+            c.a.q0.r.j0.b.k().y(str, str2);
         }
     }
 
@@ -3287,28 +3283,28 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         FileHelper.DataDir.createFile("/package.last/" + str);
     }
 
-    public void setActivityPrizeData(c.a.t0.t.c.b bVar) {
+    public void setActivityPrizeData(ActivityPrizeData activityPrizeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048835, this, bVar) == null) {
-            this.activityPrizeData = bVar;
+        if (interceptable == null || interceptable.invokeL(1048835, this, activityPrizeData) == null) {
+            this.activityPrizeData = activityPrizeData;
         }
     }
 
-    public void setActivitySwitch(c.a.t0.t.c.c cVar) {
+    public void setActivitySwitch(c.a.q0.s.c.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048836, this, cVar) == null) {
-            this.mActivitySwitch = cVar;
+        if (interceptable == null || interceptable.invokeL(1048836, this, bVar) == null) {
+            this.mActivitySwitch = bVar;
         }
     }
 
-    public void setAdAdSense(c.a.t0.t.c.d dVar) {
+    public void setAdAdSense(c.a.q0.s.c.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048837, this, dVar) == null) {
-            this.mAdAdSense = dVar;
-            if (dVar == null || dVar.a() == null) {
+        if (interceptable == null || interceptable.invokeL(1048837, this, cVar) == null) {
+            this.mAdAdSense = cVar;
+            if (cVar == null || cVar.a() == null) {
                 return;
             }
-            c.a.t0.t.c.k a2 = this.mAdAdSense.a();
+            j a2 = this.mAdAdSense.a();
             MessageManager.getInstance().registerStickyMode(2001434);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001434, a2));
         }
@@ -3365,10 +3361,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    public void setConsumePathData(v vVar) {
+    public void setConsumePathData(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048845, this, vVar) == null) {
-            this.mConsumePathData = vVar;
+        if (interceptable == null || interceptable.invokeL(1048845, this, tVar) == null) {
+            this.mConsumePathData = tVar;
         }
     }
 
@@ -3581,10 +3577,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    public void setInterestBoardConfigData(c0 c0Var) {
+    public void setInterestBoardConfigData(a0 a0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048871, this, c0Var) == null) {
-            this.mInterestBoardConfigData = c0Var;
+        if (interceptable == null || interceptable.invokeL(1048871, this, a0Var) == null) {
+            this.mInterestBoardConfigData = a0Var;
         }
     }
 
@@ -3643,7 +3639,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             boolean z = i2 == 1;
             this.mIsNeedNewUserLead = z;
             if (z) {
-                c.a.t0.s.j0.b.k().x("key_new_user_logon_time", System.currentTimeMillis());
+                c.a.q0.r.j0.b.k().x("key_new_user_logon_time", System.currentTimeMillis());
             }
         }
     }
@@ -3846,10 +3842,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
         }
     }
 
-    public void setProfileData(h0 h0Var) {
+    public void setProfileData(f0 f0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048906, this, h0Var) == null) {
-            this.mProfileData = h0Var;
+        if (interceptable == null || interceptable.invokeL(1048906, this, f0Var) == null) {
+            this.mProfileData = f0Var;
         }
     }
 
@@ -3948,14 +3944,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048920, this, i2) == null) {
-            c.a.t0.s.m.b.t().P(i2);
+            c.a.q0.r.m.b.t().P(i2);
         }
     }
 
     public void setSkinTypeValue(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048921, this, i2) == null) {
-            c.a.t0.s.m.b.t().Q(i2);
+            c.a.q0.r.m.b.t().Q(i2);
         }
     }
 
@@ -4004,7 +4000,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setTbs(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048928, this, str) == null) {
-            c.a.t0.s.m.b.t().R(str);
+            c.a.q0.r.m.b.t().R(str);
         }
     }
 
@@ -4026,7 +4022,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setThemeIconCover(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048931, this, z) == null) {
-            c.a.t0.s.m.b.t().S(z);
+            c.a.q0.r.m.b.t().S(z);
         }
     }
 
@@ -4068,7 +4064,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setUseTimeInterval(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048937, this, j2) == null) {
-            c.a.t0.s.j0.b.k().x("use_time_interval", j2);
+            c.a.q0.r.j0.b.k().x("use_time_interval", j2);
             this.useTimeInterval = j2;
         }
     }
@@ -4084,7 +4080,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setUsedThemeColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048939, this, i2) == null) {
-            c.a.t0.s.m.b.t().T(i2);
+            c.a.q0.r.m.b.t().T(i2);
         }
     }
 
@@ -4123,7 +4119,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void setYunpushChannelId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048944, this, str) == null) {
-            c.a.t0.s.j0.b.k().y("yunpush_channel_id", str);
+            c.a.q0.r.j0.b.k().y("yunpush_channel_id", str);
         }
     }
 
@@ -4207,7 +4203,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
     public void startTrackConfigRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048952, this) == null) {
-            c.a.t0.c1.a aVar = new c.a.t0.c1.a();
+            c.a.q0.b1.a aVar = new c.a.q0.b1.a();
             aVar.c();
             aVar.b(new f(this));
         }
@@ -4264,9 +4260,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a {
             if (this.imagePvThread == null) {
                 this.imagePvThread = Executors.newSingleThreadExecutor();
             }
-            g0 g0Var = new g0(i2, i3);
-            g0Var.a(str);
-            this.imagePvThread.execute(g0Var);
+            c.a.q0.c1.f0 f0Var = new c.a.q0.c1.f0(i2, i3);
+            f0Var.a(str);
+            this.imagePvThread.execute(f0Var);
             TiebaStatic.eventStat(getInst().getApp(), "img_browse", null, 1, "img_num", Integer.valueOf(i2), "img_total", Integer.valueOf(i3), "img_type", str, "img_begin", Integer.valueOf(i4), "img_end", Integer.valueOf(i5));
         }
     }

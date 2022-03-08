@@ -2,7 +2,7 @@ package com.baidu.tieba.square.flist;
 
 import c.a.d.a.f;
 import c.a.d.f.d.l;
-import c.a.t0.s.s.a;
+import c.a.q0.r.s.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,9 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.utils.ContactPermissionUtil;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "_list";
@@ -37,7 +36,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class List extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3206282936395220632L;
@@ -62,7 +61,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8487620337266534315L;
@@ -143,7 +142,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             if (requestParams.menu_id == 0) {
                 i2 = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
             } else {
-                i2 = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS : 136;
+                i2 = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
             }
             menu_name = requestParams.menu_name;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumrank");

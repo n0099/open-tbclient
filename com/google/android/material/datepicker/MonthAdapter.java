@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MonthAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAXIMUM_WEEKS;
@@ -154,8 +154,8 @@ public class MonthAdapter extends BaseAdapter {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0074  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0074 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0075  */
     @Override // android.widget.Adapter
     @NonNull
     /*

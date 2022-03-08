@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.l.w0.a;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RoundCornerFrameLayout;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class i extends c.a.l.a<c.a.t0.s.r.a> {
+public class i extends c.a.l.a<c.a.q0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
     public static int s;
@@ -35,9 +35,9 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4375j;
+    public View f4029j;
     public TextView k;
-    public c.a.t0.s.r.a l;
+    public c.a.q0.r.r.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
     public int o;
@@ -50,10 +50,10 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f4376e;
+        public final /* synthetic */ ViewGroup.LayoutParams f4030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f4377f;
+        public final /* synthetic */ i f4031f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
                     return;
                 }
             }
-            this.f4377f = iVar;
-            this.f4376e = layoutParams;
+            this.f4031f = iVar;
+            this.f4030e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4376e.width = this.f4377f.f4375j.getWidth();
-                this.f4376e.height = (this.f4377f.f4375j.getWidth() / 16) * 9;
-                this.f4377f.m.setLayoutParams(this.f4376e);
+                this.f4030e.width = this.f4031f.f4029j.getWidth();
+                this.f4030e.height = (this.f4031f.f4029j.getWidth() / 16) * 9;
+                this.f4031f.m.setLayoutParams(this.f4030e);
             }
         }
     }
@@ -110,15 +110,15 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0210a c0210a) {
+        public boolean a(a.C0203a c0203a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0210a)) == null) {
-                if (c0210a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0203a)) == null) {
+                if (c0203a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0210a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0203a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -175,17 +175,17 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f4375j == null) {
-                View inflate = LayoutInflater.from(this.f4353f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f4375j = inflate;
+            if (this.f4029j == null) {
+                View inflate = LayoutInflater.from(this.f4007f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f4029j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f4375j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4353f);
+                this.m = (RoundCornerFrameLayout) this.f4029j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4007f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f4375j;
+            return this.f4029j;
         }
         return (View) invokeV.objValue;
     }
@@ -209,14 +209,14 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
         r8 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
-        r0 = c.a.t0.b.g.b.o(r11, r8, null, r0, r1);
+        r0 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleVerticalVideoSize(r11, r8, null, r0, r1);
      */
     @Override // c.a.l.p
     /* renamed from: n */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
@@ -293,12 +293,12 @@ public class i extends c.a.l.a<c.a.t0.s.r.a> {
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        c.a.t0.s.r.a aVar;
+        c.a.q0.r.r.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.u0.g0.m.l(this.k, this.l.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.r0.f0.m.l(this.k, this.l.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

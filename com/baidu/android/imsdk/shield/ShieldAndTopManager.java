@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class ShieldAndTopManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MSG_UPDATE_MAX_COUNT = 2;

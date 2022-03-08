@@ -1,5 +1,5 @@
 package com.baidu.apollon.restnet.rest;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface c {
     e a(d dVar) throws Exception;
 

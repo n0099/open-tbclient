@@ -8,7 +8,7 @@ import io.reactivex.Flowable;
 import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableFlatMapPublisher<T, U> extends Flowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

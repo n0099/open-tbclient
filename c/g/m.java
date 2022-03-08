@@ -12,7 +12,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class m {
             synchronized (this) {
                 LogPrinter.d("new dey", new Object[0]);
                 double a = c0.a();
-                c0.f28606b.clear().apply();
+                c0.f28444b.clear().apply();
                 this.a.clear();
                 if (a <= 0.0d) {
                     return;
@@ -79,7 +79,7 @@ public class m {
                     if (i4 != 0) {
                         a -= c0.b(string);
                         i2 += i4 * d2;
-                        c0.f28606b.remove(string).remove(string + "_");
+                        c0.f28444b.remove(string).remove(string + "_");
                         z = true;
                     }
                 }
@@ -89,7 +89,7 @@ public class m {
                     if (a < 0.0d) {
                         a = 0.0d;
                     }
-                    SharedPreferences.Editor editor = c0.f28606b;
+                    SharedPreferences.Editor editor = c0.f28444b;
                     editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(a));
                     editor.apply();
                     a0.c(i2);

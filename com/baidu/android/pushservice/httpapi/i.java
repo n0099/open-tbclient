@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32453b;
+    public String f30856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32454c;
+    public String f30857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32455d;
+    public String f30858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32456e;
+    public String f30859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32457f;
+    public String f30860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32458g;
+    public String f30861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32459h;
+    public boolean f30862h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32460i;
+    public String f30863i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f32461j;
+    public boolean f30864j;
     public boolean k;
 
     public i() {
@@ -57,15 +57,15 @@ public class i {
             }
         }
         this.a = "";
-        this.f32453b = "";
-        this.f32454c = "";
-        this.f32455d = "";
-        this.f32456e = "";
-        this.f32457f = "";
-        this.f32458g = "";
-        this.f32459h = false;
-        this.f32460i = "";
-        this.f32461j = true;
+        this.f30856b = "";
+        this.f30857c = "";
+        this.f30858d = "";
+        this.f30859e = "";
+        this.f30860f = "";
+        this.f30861g = "";
+        this.f30862h = false;
+        this.f30863i = "";
+        this.f30864j = true;
     }
 
     public i(Intent intent) {
@@ -84,30 +84,30 @@ public class i {
             }
         }
         this.a = "";
-        this.f32453b = "";
-        this.f32454c = "";
-        this.f32455d = "";
-        this.f32456e = "";
-        this.f32457f = "";
-        this.f32458g = "";
-        this.f32459h = false;
-        this.f32460i = "";
-        this.f32461j = true;
+        this.f30856b = "";
+        this.f30857c = "";
+        this.f30858d = "";
+        this.f30859e = "";
+        this.f30860f = "";
+        this.f30861g = "";
+        this.f30862h = false;
+        this.f30863i = "";
+        this.f30864j = true;
         PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
         if (pendingIntent != null) {
-            this.f32455d = pendingIntent.getTargetPackage();
+            this.f30858d = pendingIntent.getTargetPackage();
         }
-        if (TextUtils.isEmpty(this.f32455d)) {
-            this.f32455d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        if (TextUtils.isEmpty(this.f30858d)) {
+            this.f30858d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
         }
-        this.f32454c = intent.getStringExtra("access_token");
-        this.f32458g = intent.getStringExtra("secret_key");
+        this.f30857c = intent.getStringExtra("access_token");
+        this.f30861g = intent.getStringExtra("secret_key");
         this.a = intent.getStringExtra("method");
-        this.f32453b = intent.getStringExtra("method_type");
-        this.f32456e = intent.getStringExtra("appid");
-        this.f32459h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
-        this.f32460i = intent.getStringExtra("push_proxy");
-        this.f32461j = intent.getBooleanExtra("should_notify_user", true);
+        this.f30856b = intent.getStringExtra("method_type");
+        this.f30859e = intent.getStringExtra("appid");
+        this.f30862h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.f30863i = intent.getStringExtra("push_proxy");
+        this.f30864j = intent.getBooleanExtra("should_notify_user", true);
         this.k = intent.getBooleanExtra("ignore_token", false);
     }
 
@@ -115,7 +115,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "method=" + this.a + ", accessToken=" + this.f32454c + ", packageName=" + this.f32455d + ", appId=" + this.f32456e + ", userId=" + this.f32457f;
+            return "method=" + this.a + ", accessToken=" + this.f30857c + ", packageName=" + this.f30858d + ", appId=" + this.f30859e + ", userId=" + this.f30860f;
         }
         return (String) invokeV.objValue;
     }

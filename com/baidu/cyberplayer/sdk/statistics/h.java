@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33837b;
+    public boolean f32240b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        this.f33837b = false;
+        this.f32240b = false;
         this.a = new g();
     }
 
@@ -139,7 +139,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f33837b;
+                z = this.f32240b;
             }
             return z;
         }
@@ -153,7 +153,7 @@ public class h {
                 if (this.a != null) {
                     this.a.b();
                 }
-                this.f33837b = false;
+                this.f32240b = false;
             }
         }
     }
@@ -165,7 +165,7 @@ public class h {
             synchronized (this) {
                 if (kVar != null) {
                     if (this.a != null && (a = a()) != null) {
-                        this.f33837b = true;
+                        this.f32240b = true;
                         DpSessionDatasUploader.getInstance().upload(a, "sailor_monitor");
                     }
                 }

@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypeMap;
@@ -89,7 +88,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, 64000);
-        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) MediaEncodeParams.AUDIO_SAMPLE_RATE));
+        samplingFrequencyIndexMap.put(3, 48000);
         samplingFrequencyIndexMap.put(4, 44100);
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);

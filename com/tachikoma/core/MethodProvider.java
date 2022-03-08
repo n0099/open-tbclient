@@ -12,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import com.kuaishou.weapon.un.w0;
 import com.kwad.v8.V8Function;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             }
         }
         this.exportMethodMap = new HashMap<>(38);
-        this.methodNameMap = new HashMap<>((int) w0.p0);
+        this.methodNameMap = new HashMap<>(157);
     }
 
     @Override // com.tachikoma.core.manager.IProvider

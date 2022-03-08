@@ -12,7 +12,7 @@ import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.StringUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BeanResponseBase implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class BeanResponseBase implements NoProguard {
     public String signature;
     public String token;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Session implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

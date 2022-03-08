@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.searchbox.logsystem.basic.upload.CrashPadUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +20,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class f extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +127,7 @@ public class f extends d {
             try {
                 try {
                     eVar.a((int) s);
-                    if (s != h.f32537f.b() && s != h.f32538g.b()) {
+                    if (s != h.f30940f.b() && s != h.f30941g.b()) {
                         eVar.a((int) com.baidu.android.pushservice.a.a());
                         eVar.b(0);
                         eVar.a(a(m.d(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
@@ -180,7 +179,7 @@ public class f extends d {
             com.baidu.android.pushservice.i.d dVar = new com.baidu.android.pushservice.i.d(byteArrayInputStream);
             short c2 = dVar.c();
             e eVar = new e(c2);
-            if (c2 != h.f32538g.b() && c2 != h.f32537f.b()) {
+            if (c2 != h.f30941g.b() && c2 != h.f30940f.b()) {
                 dVar.c();
                 dVar.b();
                 dVar.a(new byte[16]);
@@ -190,12 +189,12 @@ public class f extends d {
                 byte[] bArr2 = null;
                 if (b2 > 0) {
                     if (b2 > 20480) {
-                        b2 = CrashPadUtil.MAX_READ_EXTRA;
+                        b2 = 20480;
                     }
                     bArr2 = new byte[b2];
                     dVar.a(bArr2);
                 }
-                eVar.f32527b = bArr2;
+                eVar.f30930b = bArr2;
             }
             byteArrayInputStream.close();
             dVar.a();
@@ -285,10 +284,10 @@ public class f extends d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            byte[] a3 = a(h.f32533b.b(), str.getBytes());
-            e eVar = new e(h.f32533b.b());
-            eVar.f32527b = a3;
-            eVar.f32528c = true;
+            byte[] a3 = a(h.f30936b.b(), str.getBytes());
+            e eVar = new e(h.f30936b.b());
+            eVar.f30930b = a3;
+            eVar.f30931c = true;
             eVar.a(false);
             a(eVar);
         }
@@ -303,9 +302,9 @@ public class f extends d {
             if (bArr != null) {
                 gVar.a(bArr);
             }
-            e eVar = new e(h.f32536e.b());
+            e eVar = new e(h.f30939e.b());
             try {
-                eVar.f32527b = a(h.f32536e.b(), a(Long.parseLong(str), gVar));
+                eVar.f30930b = a(h.f30939e.b(), a(Long.parseLong(str), gVar));
                 a(eVar);
             } catch (NumberFormatException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
@@ -330,14 +329,14 @@ public class f extends d {
         a aVar = new a(this.a);
         h a2 = h.a(eVar.a);
         c a3 = aVar.a(a2);
-        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f32529d) {
+        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f30932d) {
             return;
         }
         e eVar2 = new e(eVar.a);
-        if (a2 == h.f32536e) {
-            eVar2.f32527b = a(h.f32536e.b(), a(eVar.e().g(), a));
-        } else if (a2 == h.f32538g || a2 == h.f32534c) {
-            eVar2.f32527b = a(eVar.a, (byte[]) null);
+        if (a2 == h.f30939e) {
+            eVar2.f30930b = a(h.f30939e.b(), a(eVar.e().g(), a));
+        } else if (a2 == h.f30941g || a2 == h.f30937c) {
+            eVar2.f30930b = a(eVar.a, (byte[]) null);
         }
         a(eVar2);
     }
@@ -346,10 +345,10 @@ public class f extends d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] a = a(h.f32537f.b(), (byte[]) null);
-            e eVar = new e(h.f32537f.b());
-            eVar.f32527b = a;
-            eVar.f32528c = true;
+            byte[] a = a(h.f30940f.b(), (byte[]) null);
+            e eVar = new e(h.f30940f.b());
+            eVar.f30930b = a;
+            eVar.f30931c = true;
             eVar.a(true);
             a(eVar);
         }

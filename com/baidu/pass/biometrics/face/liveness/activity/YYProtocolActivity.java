@@ -15,9 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
-import com.baidu.pass.biometrics.R;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,16 +26,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class YYProtocolActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f37816b;
+    public WebView f36219b;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,10 +94,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_back);
             WebView webView = (WebView) findViewById(R.id.webView);
-            this.f37816b = webView;
+            this.f36219b = webView;
             webView.setWebChromeClient(new WebChromeClient());
-            this.f37816b.setWebViewClient(new WebViewClient());
-            this.f37816b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
+            this.f36219b.setWebViewClient(new WebViewClient());
+            this.f36219b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
     }
 
@@ -166,10 +166,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            WebView webView = this.f37816b;
+            WebView webView = this.f36219b;
             if (webView != null) {
                 webView.destroy();
-                this.f37816b = null;
+                this.f36219b = null;
             }
         }
     }

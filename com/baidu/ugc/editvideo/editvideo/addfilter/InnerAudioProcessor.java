@@ -8,7 +8,7 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
-import c.a.b1.t.m;
+import c.a.y0.r.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class InnerAudioProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerAudioProcessor";

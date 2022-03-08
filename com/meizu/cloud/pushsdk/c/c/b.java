@@ -1,65 +1,66 @@
 package com.meizu.cloud.pushsdk.c.c;
 
 import com.baidu.fsg.base.statistics.h;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58915d;
+    public String f57265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58916e;
+    public String f57266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58917f;
+    public String f57267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58918g;
+    public String f57268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58919h;
+    public String f57269h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58920i;
+    public String f57270i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f58921j;
+    public String f57271j;
     public String k;
     public int l;
 
-    /* loaded from: classes4.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC2185a<T> {
+    /* loaded from: classes8.dex */
+    public static abstract class a<T extends a<T>> extends a.AbstractC2164a<T> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58922b;
+        public String f57272b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58923c;
+        public String f57273c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58924d;
+        public String f57274d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f58925e;
+        public String f57275e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f58926f;
+        public String f57276f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f58927g;
+        public String f57277g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f58928h;
+        public String f57278h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f58929i = 0;
+        public int f57279i = 0;
 
         public T a(int i2) {
-            this.f58929i = i2;
+            this.f57279i = i2;
             return (T) a();
         }
 
@@ -69,7 +70,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T b(String str) {
-            this.f58922b = str;
+            this.f57272b = str;
             return (T) a();
         }
 
@@ -78,78 +79,78 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T c(String str) {
-            this.f58923c = str;
+            this.f57273c = str;
             return (T) a();
         }
 
         public T d(String str) {
-            this.f58924d = str;
+            this.f57274d = str;
             return (T) a();
         }
 
         public T e(String str) {
-            this.f58925e = str;
+            this.f57275e = str;
             return (T) a();
         }
 
         public T f(String str) {
-            this.f58926f = str;
+            this.f57276f = str;
             return (T) a();
         }
 
         public T g(String str) {
-            this.f58927g = str;
+            this.f57277g = str;
             return (T) a();
         }
 
         public T h(String str) {
-            this.f58928h = str;
+            this.f57278h = str;
             return (T) a();
         }
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2186b extends a<C2186b> {
-        public C2186b() {
+    /* loaded from: classes8.dex */
+    public static class C2165b extends a<C2165b> {
+        public C2165b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2185a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2164a
         /* renamed from: c */
-        public C2186b a() {
+        public C2165b a() {
             return this;
         }
     }
 
     public b(a<?> aVar) {
         super(aVar);
-        this.f58916e = aVar.f58922b;
-        this.f58917f = aVar.f58923c;
-        this.f58915d = aVar.a;
-        this.f58918g = aVar.f58924d;
-        this.f58919h = aVar.f58925e;
-        this.f58920i = aVar.f58926f;
-        this.f58921j = aVar.f58927g;
-        this.k = aVar.f58928h;
-        this.l = aVar.f58929i;
+        this.f57266e = aVar.f57272b;
+        this.f57267f = aVar.f57273c;
+        this.f57265d = aVar.a;
+        this.f57268g = aVar.f57274d;
+        this.f57269h = aVar.f57275e;
+        this.f57270i = aVar.f57276f;
+        this.f57271j = aVar.f57277g;
+        this.k = aVar.f57278h;
+        this.l = aVar.f57279i;
     }
 
     public static a<?> d() {
-        return new C2186b();
+        return new C2165b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a(h.a, this.f58915d);
-        cVar.a("ti", this.f58916e);
-        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f58917f);
-        cVar.a("pv", this.f58918g);
-        cVar.a("pn", this.f58919h);
-        cVar.a("si", this.f58920i);
-        cVar.a("ms", this.f58921j);
+        cVar.a(h.a, this.f57265d);
+        cVar.a("ti", this.f57266e);
+        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f57267f);
+        cVar.a("pv", this.f57268g);
+        cVar.a("pn", this.f57269h);
+        cVar.a("si", this.f57270i);
+        cVar.a("ms", this.f57271j);
         cVar.a("ect", this.k);
-        cVar.a("br", Integer.valueOf(this.l));
+        cVar.a(TtmlNode.TAG_BR, Integer.valueOf(this.l));
         return a(cVar);
     }
 }

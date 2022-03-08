@@ -14,12 +14,11 @@ import com.google.zxing.common.BitSource;
 import com.google.zxing.common.CharacterSetECI;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.common.StringUtils;
-import com.kuaishou.weapon.un.w0;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHANUMERIC_CHARS;
@@ -313,7 +312,7 @@ public final class DecodedBitStreamParser {
             if ((readBits & 192) == 128) {
                 return bitSource.readBits(8) | ((readBits & 63) << 8);
             }
-            if ((readBits & w0.Q) == 192) {
+            if ((readBits & 224) == 192) {
                 return bitSource.readBits(16) | ((readBits & 31) << 16);
             }
             throw FormatException.getFormatInstance();

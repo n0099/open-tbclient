@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ag extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PaintFlagsDrawFilter f36608b;
+    public PaintFlagsDrawFilter f35011b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(Context context) {
@@ -38,7 +38,7 @@ public class ag extends TextView {
             }
         }
         this.a = new Paint();
-        this.f36608b = new PaintFlagsDrawFilter(0, 3);
+        this.f35011b = new PaintFlagsDrawFilter(0, 3);
         this.a.setColor(-1);
         this.a.setAntiAlias(true);
     }
@@ -47,7 +47,7 @@ public class ag extends TextView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f36608b);
+            canvas.setDrawFilter(this.f35011b);
             canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
             super.draw(canvas);
         }

@@ -1,7 +1,7 @@
 package com.baidu.voyager.impl.service;
 
 import android.os.RemoteException;
-import c.a.d1.b.c;
+import c.a.a1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +12,12 @@ import com.baidu.voyager.impl.IVoyagerService;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
             this.a = iVoyagerCallback;
         }
 
-        @Override // c.a.d1.b.c
+        @Override // c.a.a1.b.c
         public void onFailure(String str, JSONObject jSONObject) {
             IVoyagerCallback iVoyagerCallback;
             String jSONObject2;
@@ -56,7 +56,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
                 try {
                     jSONObject2 = jSONObject.toString();
                 } catch (RemoteException e2) {
-                    z = c.a.d1.a.g.b.a;
+                    z = c.a.a1.a.g.b.a;
                     if (z) {
                         e2.printStackTrace();
                         return;
@@ -67,7 +67,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
             iVoyagerCallback.onFailure(str, jSONObject2);
         }
 
-        @Override // c.a.d1.b.c
+        @Override // c.a.a1.b.c
         public void onSuccess(String str, JSONObject jSONObject) {
             IVoyagerCallback iVoyagerCallback;
             String jSONObject2;
@@ -82,7 +82,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
                 try {
                     jSONObject2 = jSONObject.toString();
                 } catch (RemoteException e2) {
-                    z = c.a.d1.a.g.b.a;
+                    z = c.a.a1.a.g.b.a;
                     if (z) {
                         e2.printStackTrace();
                         return;
@@ -94,7 +94,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
             this.a = iVoyagerCallback;
         }
 
-        @Override // c.a.d1.b.c
+        @Override // c.a.a1.b.c
         public void onFailure(String str, JSONObject jSONObject) {
             IVoyagerCallback iVoyagerCallback;
             String jSONObject2;
@@ -133,7 +133,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
                 try {
                     jSONObject2 = jSONObject.toString();
                 } catch (RemoteException e2) {
-                    z = c.a.d1.a.g.b.a;
+                    z = c.a.a1.a.g.b.a;
                     if (z) {
                         e2.printStackTrace();
                         return;
@@ -144,7 +144,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
             iVoyagerCallback.onFailure(str, jSONObject2);
         }
 
-        @Override // c.a.d1.b.c
+        @Override // c.a.a1.b.c
         public void onSuccess(String str, JSONObject jSONObject) {
             IVoyagerCallback iVoyagerCallback;
             String jSONObject2;
@@ -159,7 +159,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
                 try {
                     jSONObject2 = jSONObject.toString();
                 } catch (RemoteException e2) {
-                    z = c.a.d1.a.g.b.a;
+                    z = c.a.a1.a.g.b.a;
                     if (z) {
                         e2.printStackTrace();
                         return;
@@ -191,9 +191,9 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) {
             try {
-                c.a.d1.a.a.m().p(list, str, j2, i2, i3, new JSONObject(str2));
+                c.a.a1.a.a.m().p(list, str, j2, i2, i3, new JSONObject(str2));
             } catch (JSONException e2) {
-                z = c.a.d1.a.g.b.a;
+                z = c.a.a1.a.g.b.a;
                 if (z) {
                     e2.printStackTrace();
                 }
@@ -205,7 +205,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
     public void uploadFileListWithCallback(List<String> list, String str, long j2, int i2, IVoyagerCallback iVoyagerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j2), Integer.valueOf(i2), iVoyagerCallback}) == null) {
-            c.a.d1.a.a.m().q(list, str, j2, i2, new a(this, iVoyagerCallback));
+            c.a.a1.a.a.m().q(list, str, j2, i2, new a(this, iVoyagerCallback));
         }
     }
 
@@ -215,9 +215,9 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), str3}) == null) {
             try {
-                c.a.d1.a.a.m().r(str, str2, i2, i3, new JSONObject(str3));
+                c.a.a1.a.a.m().r(str, str2, i2, i3, new JSONObject(str3));
             } catch (JSONException e2) {
-                z = c.a.d1.a.g.b.a;
+                z = c.a.a1.a.g.b.a;
                 if (z) {
                     e2.printStackTrace();
                 }
@@ -229,7 +229,7 @@ public final class VoyagerIPCManager$1 extends IVoyagerService.Stub {
     public void uploadZipFileWithCallback(String str, String str2, int i2, IVoyagerCallback iVoyagerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, str, str2, i2, iVoyagerCallback) == null) {
-            c.a.d1.a.a.m().s(str, str2, new b(this, iVoyagerCallback));
+            c.a.a1.a.a.m().s(str, str2, new b(this, iVoyagerCallback));
         }
     }
 }

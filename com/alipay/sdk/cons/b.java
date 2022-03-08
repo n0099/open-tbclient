@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "https";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31053b = "user_agent";
+    public static final String f29457b = "user_agent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31054c = "tid";
+    public static final String f29458c = "tid";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31055d = "external_info";
+    public static final String f29459d = "external_info";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31056e = "has_alipay";
+    public static final String f29460e = "has_alipay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31057f = "has_msp_app";
+    public static final String f29461f = "has_msp_app";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31058g = "utdid";
+    public static final String f29462g = "utdid";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31059h = "app_key";
+    public static final String f29463h = "app_key";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31060i = "trideskey";
+    public static final String f29464i = "trideskey";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31061j = "new_client_key";
+    public static final String f29465j = "new_client_key";
     public static final String k = "pa";
     public transient /* synthetic */ FieldHolder $fh;
 

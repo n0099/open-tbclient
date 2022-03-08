@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.g.a;
-import c.a.t0.s.c;
+import c.a.q0.r.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -2,10 +2,10 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.d1.l0;
-import c.a.t0.d1.o0;
-import c.a.t0.d1.s;
-import c.a.u0.t1.h.d;
+import c.a.q0.c1.k0;
+import c.a.q0.c1.n0;
+import c.a.q0.c1.s;
+import c.a.r0.s1.h.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UpdatesModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class UpdatesModel {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, sVar) == null) || updatesItemData == null) {
             return;
         }
-        o0.c(new l0<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+        n0.c(new k0<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UpdatesItemData val$data;
@@ -132,7 +132,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.t0.d1.l0
+            @Override // c.a.q0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public class UpdatesModel {
     public static void requestUpdatesDataFromDB(s<LinkedList<GroupNewsPojo>> sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, sVar) == null) {
-            o0.c(new l0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+            n0.c(new k0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,7 +163,7 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.t0.d1.l0
+                @Override // c.a.q0.c1.k0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -182,7 +182,7 @@ public class UpdatesModel {
         for (UpdatesItemData updatesItemData : updatesItemDataArr) {
             linkedList.add(updatesItemData.toGroupNewsPojo());
         }
-        o0.c(new l0<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+        n0.c(new k0<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList val$list;
@@ -207,7 +207,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.t0.d1.l0
+            @Override // c.a.q0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -252,7 +252,7 @@ public class UpdatesModel {
     public void deleteDatas(s<Boolean> sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, sVar) == null) {
-            o0.c(new l0<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+            n0.c(new k0<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UpdatesModel this$0;
@@ -277,7 +277,7 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.t0.d1.l0
+                @Override // c.a.q0.c1.k0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

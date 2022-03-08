@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.data;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageBroadcast;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageUnicast;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface IRevenueDataReceiver {
     void onBroadcastData(int i2, PSCIMessageBroadcast pSCIMessageBroadcast);
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResetSplashAdConfigSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "is_reset_android_splash_ad_config";

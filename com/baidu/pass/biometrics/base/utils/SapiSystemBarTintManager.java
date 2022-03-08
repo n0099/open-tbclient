@@ -25,70 +25,70 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SapiSystemBarTintManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f37771f = -1728053248;
+    public static final int f36174f = -1728053248;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f37772g;
+    public static String f36175g;
     public transient /* synthetic */ FieldHolder $fh;
     public final SystemBarConfig a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37773b;
+    public boolean f36176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37774c;
+    public boolean f36177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f37775d;
+    public View f36178d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f37776e;
+    public View f36179e;
 
     /* renamed from: com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class SystemBarConfig {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f37777g = "status_bar_height";
+        public static final String f36180g = "status_bar_height";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f37778h = "navigation_bar_height";
+        public static final String f36181h = "navigation_bar_height";
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f37779i = "navigation_bar_height_landscape";
+        public static final String f36182i = "navigation_bar_height_landscape";
 
         /* renamed from: j  reason: collision with root package name */
-        public static final String f37780j = "navigation_bar_width";
+        public static final String f36183j = "navigation_bar_width";
         public static final String k = "config_showNavigationBar";
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f37781b;
+        public final boolean f36184b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f37782c;
+        public final int f36185c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f37783d;
+        public final int f36186d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f37784e;
+        public final boolean f36187e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final float f37785f;
+        public final float f36188f;
 
         public /* synthetic */ SystemBarConfig(Activity activity, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
             this(activity, z, z2);
@@ -103,7 +103,7 @@ public class SapiSystemBarTintManager {
                 if (Build.VERSION.SDK_INT < 14 || !c(context)) {
                     return 0;
                 }
-                return a(resources, this.f37784e ? "navigation_bar_height" : "navigation_bar_height_landscape");
+                return a(resources, this.f36187e ? "navigation_bar_height" : "navigation_bar_height_landscape");
             }
             return invokeL.intValue;
         }
@@ -131,10 +131,10 @@ public class SapiSystemBarTintManager {
                 int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
                 if (identifier != 0) {
                     boolean z = resources.getBoolean(identifier);
-                    if ("1".equals(SapiSystemBarTintManager.f37772g)) {
+                    if ("1".equals(SapiSystemBarTintManager.f36175g)) {
                         return false;
                     }
-                    if ("0".equals(SapiSystemBarTintManager.f37772g)) {
+                    if ("0".equals(SapiSystemBarTintManager.f36175g)) {
                         return true;
                     }
                     return z;
@@ -147,13 +147,13 @@ public class SapiSystemBarTintManager {
         public int getNavigationBarHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37782c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36185c : invokeV.intValue;
         }
 
         public int getNavigationBarWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37783d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36186d : invokeV.intValue;
         }
 
         public int getStatusBarHeight() {
@@ -165,13 +165,13 @@ public class SapiSystemBarTintManager {
         public boolean hasNavigtionBar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37781b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36184b : invokeV.booleanValue;
         }
 
         public boolean isNavigationAtBottom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37785f >= 600.0f || this.f37784e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36188f >= 600.0f || this.f36187e : invokeV.booleanValue;
         }
 
         public SystemBarConfig(Activity activity, boolean z, boolean z2) {
@@ -190,12 +190,12 @@ public class SapiSystemBarTintManager {
                 }
             }
             Resources resources = activity.getResources();
-            this.f37784e = resources.getConfiguration().orientation == 1;
-            this.f37785f = a(activity);
+            this.f36187e = resources.getConfiguration().orientation == 1;
+            this.f36188f = a(activity);
             this.a = a(resources, "status_bar_height");
-            this.f37782c = a((Context) activity);
-            this.f37783d = b(activity);
-            this.f37781b = this.f37782c > 0;
+            this.f36185c = a((Context) activity);
+            this.f36186d = b(activity);
+            this.f36184b = this.f36185c > 0;
         }
 
         private int a(Resources resources, String str) {
@@ -246,9 +246,9 @@ public class SapiSystemBarTintManager {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                f37772g = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f36175g = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
-                f37772g = null;
+                f36175g = null;
             }
         }
     }
@@ -274,30 +274,30 @@ public class SapiSystemBarTintManager {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.f37773b = obtainStyledAttributes.getBoolean(0, false);
-                this.f37774c = obtainStyledAttributes.getBoolean(1, false);
+                this.f36176b = obtainStyledAttributes.getBoolean(0, false);
+                this.f36177c = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((attributes.flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0) {
-                    this.f37773b = true;
+                    this.f36176b = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
-                    this.f37774c = true;
+                    this.f36177c = true;
                 }
             } catch (Throwable th) {
                 obtainStyledAttributes.recycle();
                 throw th;
             }
         }
-        SystemBarConfig systemBarConfig = new SystemBarConfig(activity, this.f37773b, this.f37774c, null);
+        SystemBarConfig systemBarConfig = new SystemBarConfig(activity, this.f36176b, this.f36177c, null);
         this.a = systemBarConfig;
         if (!systemBarConfig.hasNavigtionBar()) {
-            this.f37774c = false;
+            this.f36177c = false;
         }
-        if (this.f37773b) {
+        if (this.f36176b) {
             b(activity, viewGroup);
         }
-        if (this.f37774c) {
+        if (this.f36177c) {
             a(activity, viewGroup);
         }
     }
@@ -305,16 +305,16 @@ public class SapiSystemBarTintManager {
     private void b(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, viewGroup) == null) {
-            this.f37775d = new View(context);
+            this.f36178d = new View(context);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.getStatusBarHeight());
             layoutParams.gravity = 48;
-            if (this.f37774c && !this.a.isNavigationAtBottom()) {
+            if (this.f36177c && !this.a.isNavigationAtBottom()) {
                 layoutParams.rightMargin = this.a.getNavigationBarWidth();
             }
-            this.f37775d.setLayoutParams(layoutParams);
-            this.f37775d.setBackgroundColor(-1728053248);
-            this.f37775d.setVisibility(8);
-            viewGroup.addView(this.f37775d);
+            this.f36178d.setLayoutParams(layoutParams);
+            this.f36178d.setBackgroundColor(-1728053248);
+            this.f36178d.setVisibility(8);
+            viewGroup.addView(this.f36178d);
         }
     }
 
@@ -326,29 +326,29 @@ public class SapiSystemBarTintManager {
 
     public void setNavigationBarTintColor(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f37774c) {
-            this.f37776e.setBackgroundColor(i2);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f36177c) {
+            this.f36179e.setBackgroundColor(i2);
         }
     }
 
     public void setNavigationBarTintEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f37774c) {
-            this.f37776e.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f36177c) {
+            this.f36179e.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setStatusBarTintColor(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f37773b) {
-            this.f37775d.setBackgroundColor(i2);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f36176b) {
+            this.f36178d.setBackgroundColor(i2);
         }
     }
 
     public void setStatusBarTintEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.f37773b) {
-            this.f37775d.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.f36176b) {
+            this.f36178d.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -356,7 +356,7 @@ public class SapiSystemBarTintManager {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, viewGroup) == null) {
-            this.f37776e = new View(context);
+            this.f36179e = new View(context);
             if (this.a.isNavigationAtBottom()) {
                 layoutParams = new FrameLayout.LayoutParams(-1, this.a.getNavigationBarHeight());
                 layoutParams.gravity = 80;
@@ -364,10 +364,10 @@ public class SapiSystemBarTintManager {
                 layoutParams = new FrameLayout.LayoutParams(this.a.getNavigationBarWidth(), -1);
                 layoutParams.gravity = 5;
             }
-            this.f37776e.setLayoutParams(layoutParams);
-            this.f37776e.setBackgroundColor(-1728053248);
-            this.f37776e.setVisibility(8);
-            viewGroup.addView(this.f37776e);
+            this.f36179e.setLayoutParams(layoutParams);
+            this.f36179e.setBackgroundColor(-1728053248);
+            this.f36179e.setVisibility(8);
+            viewGroup.addView(this.f36179e);
         }
     }
 }

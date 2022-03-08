@@ -3,14 +3,14 @@ package com.baidu.tieba.play;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.u0.a4.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoListMediaControllerView extends VideoControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class VideoListMediaControllerView extends VideoControllerView {
     public View getLayout(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, h.video_list_video_controller, null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.video_list_video_controller, null) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView

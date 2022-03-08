@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Closeable;
@@ -30,7 +30,7 @@ import java.util.Properties;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ASCII_CHARS;
@@ -178,7 +178,7 @@ public class IOUtils {
         cArr[13] = 'r';
         cArr[34] = '\"';
         cArr[39] = ExtendedMessageFormat.QUOTE;
-        cArr[47] = '/';
+        cArr[47] = WebvttCueParser.CHAR_SLASH;
         cArr[92] = FileUtil.WINDOWS_SEPARATOR;
         ASCII_CHARS = new char[]{'0', '0', '0', '1', '0', '2', '0', '3', '0', '4', '0', '5', '0', '6', '0', '7', '0', '8', '0', '9', '0', 'A', '0', 'B', '0', 'C', '0', 'D', '0', 'E', '0', 'F', '1', '0', '1', '1', '1', '2', '1', '3', '1', '4', '1', '5', '1', '6', '1', '7', '1', '8', '1', '9', '1', 'A', '1', 'B', '1', 'C', '1', 'D', '1', 'E', '1', 'F', '2', '0', '2', '1', '2', '2', '2', '3', '2', '4', '2', '5', '2', '6', '2', '7', '2', '8', '2', '9', '2', 'A', '2', 'B', '2', 'C', '2', 'D', '2', 'E', '2', 'F'};
         digits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -421,7 +421,7 @@ public class IOUtils {
                         bArr[i9] = (byte) ((c2 & 63) | 128);
                     } else if (c2 < 55296 || c2 >= 57344) {
                         int i10 = i7 + 1;
-                        bArr[i7] = (byte) ((c2 >> 12) | w0.Q);
+                        bArr[i7] = (byte) ((c2 >> 12) | 224);
                         int i11 = i10 + 1;
                         bArr[i10] = (byte) ((63 & (c2 >> 6)) | 128);
                         i4 = i11 + 1;

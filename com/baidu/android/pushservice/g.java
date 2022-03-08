@@ -17,37 +17,37 @@ import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f32162b = 5288;
+    public static int f30565b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32163c = "https://info.tuisong.baidu.com";
+    public static String f30566c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f32164d = "/setter";
+    public static String f30567d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f32165e = "/v2/setter";
+    public static String f30568e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f32166f = "/getter";
+    public static String f30569f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f32167g = "/v2/getter";
+    public static String f30570g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f32168h = "/bccs/upload";
+    public static String f30571h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f32169i = "https://ack.tuisong.baidu.com";
+    public static String f30572i = "https://ack.tuisong.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f32170j = "/click";
+    public static String f30573j = "/click";
     public static String k = "api.tuisong.baidu.com";
     public static String[] l = null;
     public static String m = "sa.tuisong.baidu.com";
@@ -75,7 +75,7 @@ public final class g {
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f32162b : a : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f30565b : a : invokeL.intValue;
     }
 
     public static String a() {
@@ -160,16 +160,16 @@ public final class g {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f32163c = property3;
+                f30566c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f32169i = property4;
+                f30572i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f32162b = Integer.parseInt(property5);
+                    f30565b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
@@ -180,7 +180,7 @@ public final class g {
             if (e.a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    e.f32117b = property7;
+                    e.f30520b = property7;
                 }
             }
             o = true;

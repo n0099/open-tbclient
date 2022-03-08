@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LrcView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static int A = 12;
@@ -28,31 +28,31 @@ public class LrcView extends FrameLayout {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34684b;
+    public boolean f33087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34685c;
+    public boolean f33088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34686d;
+    public int f33089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34687e;
+    public int f33090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34688f;
+    public int f33091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f34689g;
+    public int f33092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34690h;
+    public int f33093h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f34691i;
+    public int f33094i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f34692j;
+    public int f33095j;
     public int k;
     public int l;
     public Runnable m;
@@ -70,7 +70,7 @@ public class LrcView extends FrameLayout {
     public int y;
     public int z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
@@ -109,10 +109,10 @@ public class LrcView extends FrameLayout {
             }
         }
         this.a = false;
-        this.f34684b = false;
-        this.f34685c = false;
-        this.f34686d = 255;
-        this.f34687e = 127;
+        this.f33087b = false;
+        this.f33088c = false;
+        this.f33089d = 255;
+        this.f33090e = 127;
         this.y = 72;
         this.z = 54;
         this.m = new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.LrcView.1
@@ -150,7 +150,7 @@ public class LrcView extends FrameLayout {
                         return;
                     }
                     LrcView lrcView = this.a;
-                    lrcView.f34684b = false;
+                    lrcView.f33087b = false;
                     LrcView.d(lrcView);
                     this.a.toInvalidate();
                     this.a.a = false;
@@ -177,10 +177,10 @@ public class LrcView extends FrameLayout {
                 return;
             }
             a(canvas, this.p);
-            if (this.f34685c) {
+            if (this.f33088c) {
                 return;
             }
-            if (this.f34684b && !this.a) {
+            if (this.f33087b && !this.a) {
                 this.a = true;
                 int i2 = this.q;
                 if (i2 == 0) {
@@ -238,7 +238,7 @@ public class LrcView extends FrameLayout {
     public void stopLrc() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f34685c = true;
+            this.f33088c = true;
             this.r = null;
         }
     }
@@ -246,8 +246,8 @@ public class LrcView extends FrameLayout {
     public void toInvalidate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f34688f = 0;
-            this.f34689g = 0;
+            this.f33091f = 0;
+            this.f33092g = 0;
             this.l = 0;
             setBackgroundColor(Color.argb(0, 0, 0, 0));
             invalidate();
@@ -300,10 +300,10 @@ public class LrcView extends FrameLayout {
             }
         }
         this.a = false;
-        this.f34684b = false;
-        this.f34685c = false;
-        this.f34686d = 255;
-        this.f34687e = 127;
+        this.f33087b = false;
+        this.f33088c = false;
+        this.f33089d = 255;
+        this.f33090e = 127;
         this.y = 72;
         this.z = 54;
         this.m = new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.LrcView.1
@@ -341,7 +341,7 @@ public class LrcView extends FrameLayout {
                         return;
                     }
                     LrcView lrcView = this.a;
-                    lrcView.f34684b = false;
+                    lrcView.f33087b = false;
                     LrcView.d(lrcView);
                     this.a.toInvalidate();
                     this.a.a = false;
@@ -364,13 +364,13 @@ public class LrcView extends FrameLayout {
                 int i9 = this.q;
                 if (i9 == 0) {
                     if (i8 == 0) {
-                        int i10 = this.f34688f;
+                        int i10 = this.f33091f;
                         if (i10 < 108) {
-                            this.f34688f = i10 + 2;
+                            this.f33091f = i10 + 2;
                         } else if (i10 >= 108 && i10 <= 144) {
-                            this.f34688f = i10 + 2;
+                            this.f33091f = i10 + 2;
                         } else {
-                            this.f34684b = true;
+                            this.f33087b = true;
                         }
                         this.u.setColor(Color.argb(111, 255, 255, 255));
                         float[] fArr = this.v;
@@ -379,7 +379,7 @@ public class LrcView extends FrameLayout {
                         canvas.drawCircle(fArr2[2], fArr2[3], this.w, this.u);
                         float[] fArr3 = this.v;
                         canvas.drawCircle(fArr3[4], fArr3[5], this.w, this.u);
-                        int i11 = this.f34688f;
+                        int i11 = this.f33091f;
                         if (i11 >= 144) {
                             this.u.setColor(Color.argb(255, 255, 255, 255));
                             float[] fArr4 = this.v;
@@ -394,14 +394,14 @@ public class LrcView extends FrameLayout {
                             canvas.drawCircle(fArr7[0], fArr7[1], this.w, this.u);
                             float[] fArr8 = this.v;
                             canvas.drawCircle(fArr8[2], fArr8[3], this.w, this.u);
-                            this.u.setAlpha(((int) (((this.f34688f - 108) / 36.0f) * 144.0f)) + 111);
+                            this.u.setAlpha(((int) (((this.f33091f - 108) / 36.0f) * 144.0f)) + 111);
                             float[] fArr9 = this.v;
                             canvas.drawCircle(fArr9[4], fArr9[5], this.w, this.u);
                         } else if (i11 >= 72) {
                             this.u.setColor(Color.argb(255, 255, 255, 255));
                             float[] fArr10 = this.v;
                             canvas.drawCircle(fArr10[0], fArr10[1], this.w, this.u);
-                            this.u.setAlpha(((int) (((this.f34688f - 72) / 36.0f) * 144.0f)) + 111);
+                            this.u.setAlpha(((int) (((this.f33091f - 72) / 36.0f) * 144.0f)) + 111);
                             float[] fArr11 = this.v;
                             canvas.drawCircle(fArr11[2], fArr11[3], this.w, this.u);
                         } else if (i11 >= 36) {
@@ -411,43 +411,43 @@ public class LrcView extends FrameLayout {
                             canvas.drawCircle(fArr12[0], fArr12[1], this.w, this.u);
                         }
                     } else if (i8 == 1) {
-                        if (this.f34690h <= A) {
+                        if (this.f33093h <= A) {
                             this.s.setTextSize(this.z);
-                            this.s.setAlpha(this.f34687e);
+                            this.s.setAlpha(this.f33090e);
                             int i12 = B;
                             int i13 = A;
-                            canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + i12 + ((i12 * (i13 - this.f34690h)) / i13), this.s);
-                            this.f34690h++;
+                            canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + i12 + ((i12 * (i13 - this.f33093h)) / i13), this.s);
+                            this.f33093h++;
                         } else {
                             this.s.setTextSize(this.z);
-                            this.s.setAlpha(this.f34687e);
+                            this.s.setAlpha(this.f33090e);
                             canvas.drawText(list.get(1), this.n / 2, (this.o / 2) + B, this.s);
                         }
                     } else if (i8 == 2) {
-                        if (this.f34691i <= A) {
+                        if (this.f33094i <= A) {
                             this.s.setTextSize(this.z);
-                            this.s.setAlpha(this.f34687e);
+                            this.s.setAlpha(this.f33090e);
                             int i14 = A;
-                            canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + 300 + ((B * (i14 - this.f34691i)) / i14), this.s);
-                            this.f34691i++;
+                            canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + 300 + ((B * (i14 - this.f33094i)) / i14), this.s);
+                            this.f33094i++;
                         } else {
                             this.s.setTextSize(this.z);
-                            this.s.setAlpha(this.f34687e);
+                            this.s.setAlpha(this.f33090e);
                             canvas.drawText(list.get(2), this.n / 2, (this.o / 2) + (B * 2), this.s);
                         }
                     }
                 } else if (i9 == 1) {
                     if (i8 == 1) {
-                        if (this.f34692j < A) {
+                        if (this.f33095j < A) {
                             this.s.setTextSize(this.z + i6);
-                            this.s.setAlpha(this.f34687e + ((int) (((this.f34686d - i7) * this.f34692j) / A)));
+                            this.s.setAlpha(this.f33090e + ((int) (((this.f33089d - i7) * this.f33095j) / A)));
                             int i15 = A;
-                            canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i15 - this.f34692j)) / i15)), this.s);
-                            this.f34692j++;
+                            canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i15 - this.f33095j)) / i15)), this.s);
+                            this.f33095j++;
                         } else {
-                            this.f34684b = true;
+                            this.f33087b = true;
                             this.s.setTextSize(this.y);
-                            this.s.setAlpha(this.f34686d);
+                            this.s.setAlpha(this.f33089d);
                             canvas.drawText(list.get(i8), this.n / 2, this.o / 2, this.s);
                         }
                     } else if (i8 == 2) {
@@ -455,48 +455,48 @@ public class LrcView extends FrameLayout {
                         if (i16 < A) {
                             this.k = i16 + 1;
                         } else {
-                            this.f34684b = true;
+                            this.f33087b = true;
                         }
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f34687e);
+                        this.s.setAlpha(this.f33090e);
                         int i17 = B;
                         int i18 = A;
                         canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + i17 + ((int) ((i17 * (i18 - this.k)) / i18)), this.s);
                     }
                 } else if (i8 == i9) {
-                    if (this.f34688f < A) {
+                    if (this.f33091f < A) {
                         this.s.setTextSize(this.z + i4);
-                        this.s.setAlpha(this.f34687e + ((int) (((this.f34686d - i5) * this.f34688f) / A)));
+                        this.s.setAlpha(this.f33090e + ((int) (((this.f33089d - i5) * this.f33091f) / A)));
                         int i19 = A;
-                        canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i19 - this.f34688f)) / i19)), this.s);
-                        this.f34688f++;
+                        canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + ((int) ((B * (i19 - this.f33091f)) / i19)), this.s);
+                        this.f33091f++;
                     } else {
-                        this.f34684b = true;
+                        this.f33087b = true;
                         this.s.setTextSize(this.y);
-                        this.s.setAlpha(this.f34686d);
+                        this.s.setAlpha(this.f33089d);
                         canvas.drawText(list.get(i8), this.n / 2, this.o / 2, this.s);
                     }
                 } else if (i8 == i9 - 1) {
-                    if (this.f34689g < A) {
+                    if (this.f33092g < A) {
                         this.s.setTextSize(this.y - i2);
-                        this.s.setAlpha(this.f34686d - ((int) (((i3 - this.f34687e) * this.f34689g) / A)));
-                        canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) - ((int) (((B * this.f34689g) * 1.0d) / A)), this.s);
-                        this.f34689g++;
+                        this.s.setAlpha(this.f33089d - ((int) (((i3 - this.f33090e) * this.f33092g) / A)));
+                        canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) - ((int) (((B * this.f33092g) * 1.0d) / A)), this.s);
+                        this.f33092g++;
                     } else {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f34687e);
+                        this.s.setAlpha(this.f33090e);
                         canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) - B, this.s);
                     }
                 } else if (i8 == i9 + 1) {
                     if (this.l < A) {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f34687e);
+                        this.s.setAlpha(this.f33090e);
                         int i20 = B;
                         canvas.drawText(list.get(i8), this.n / 2, ((this.o / 2) + (i20 * 2)) - ((int) (((i20 * this.l) * 1.0d) / A)), this.s);
                         this.l++;
                     } else {
                         this.s.setTextSize(this.z);
-                        this.s.setAlpha(this.f34687e);
+                        this.s.setAlpha(this.f33090e);
                         canvas.drawText(list.get(i8), this.n / 2, (this.o / 2) + B, this.s);
                     }
                 }

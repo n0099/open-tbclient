@@ -24,26 +24,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static f a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37113b;
+    public String f35516b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37114b;
+        public String f35517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37115c;
+        public String f35518c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -61,8 +61,8 @@ public class f {
                 }
             }
             this.a = str == null ? "" : str;
-            this.f37114b = str2 == null ? "" : str2;
-            this.f37115c = str3 == null ? "" : str3;
+            this.f35517b = str2 == null ? "" : str2;
+            this.f35518c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -72,8 +72,8 @@ public class f {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f37114b);
-                    jSONObject.put("w", this.f37115c);
+                    jSONObject.put("v", this.f35517b);
+                    jSONObject.put("w", this.f35518c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -119,7 +119,7 @@ public class f {
                 return;
             }
         }
-        this.f37113b = "";
+        this.f35516b = "";
     }
 
     private boolean a(int i2) {
@@ -201,8 +201,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f37113b)) {
-                this.f37113b = b2;
+            if (a(b2, this.f35516b)) {
+                this.f35516b = b2;
             }
         }
         a(context, a2, z);
@@ -223,7 +223,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f37113b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f35516b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -273,7 +273,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f37128c.a(System.currentTimeMillis(), str);
+            k.f35531c.a(System.currentTimeMillis(), str);
         }
     }
 

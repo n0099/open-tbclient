@@ -2,7 +2,7 @@ package com.baidu.tbadk.editortools.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PbEditorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_PB = 0;
@@ -21,11 +21,11 @@ public class PbEditorData implements Serializable {
     public int mEditorType;
     public String mSubPbReplyPrefix;
     public ThreadData mThreadData;
-    public VoiceData$VoiceModel mVoiceModel;
+    public VoiceData.VoiceModel mVoiceModel;
     public WriteImagesInfo mWriteImagesInfo;
     public boolean openVoiceRecordButton;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class ThreadData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,10 +218,10 @@ public class PbEditorData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mThreadData : (ThreadData) invokeV.objValue;
     }
 
-    public VoiceData$VoiceModel getVoiceModel() {
+    public VoiceData.VoiceModel getVoiceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mVoiceModel : (VoiceData$VoiceModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mVoiceModel : (VoiceData.VoiceModel) invokeV.objValue;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
@@ -278,10 +278,10 @@ public class PbEditorData implements Serializable {
         }
     }
 
-    public void setVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {
+    public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, voiceData$VoiceModel) == null) {
-            this.mVoiceModel = voiceData$VoiceModel;
+        if (interceptable == null || interceptable.invokeL(1048590, this, voiceModel) == null) {
+            this.mVoiceModel = voiceModel;
         }
     }
 

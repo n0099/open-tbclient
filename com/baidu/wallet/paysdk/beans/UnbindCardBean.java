@@ -17,20 +17,20 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52120b;
+    public String f50539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52121c;
+    public String f50540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52122d;
+    public boolean f50541d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UnbindCardBean(Context context) {
@@ -50,14 +50,14 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
                 return;
             }
         }
-        this.f52122d = true;
+        this.f50541d = true;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.f52121c)) {
+            if (!TextUtils.isEmpty(this.f50540c)) {
                 super.execBean(null);
             } else {
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
@@ -71,19 +71,19 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f52121c)) {
+            if (TextUtils.isEmpty(this.f50540c)) {
                 return arrayList;
             }
             arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a)));
-            if (this.f52122d) {
+            if (this.f50541d) {
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f52121c, seed);
+                String handlePwd = PasswordController.handlePwd(this.f50540c, seed);
                 String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
                 arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f52120b)));
-                arrayList.add(new RestNameValuePair("vcode", this.f52121c));
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f50539b)));
+                arrayList.add(new RestNameValuePair("vcode", this.f50540c));
             }
             return arrayList;
         }
@@ -120,21 +120,21 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public void setPhoneNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f52120b = str;
+            this.f50539b = str;
         }
     }
 
     public void setUsePass(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f52122d = z;
+            this.f50541d = z;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f52121c = str;
+            this.f50540c = str;
         }
     }
 }

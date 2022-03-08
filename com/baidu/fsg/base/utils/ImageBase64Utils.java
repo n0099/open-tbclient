@@ -17,32 +17,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34077b = 70;
+    public static int f32480b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f34078c;
+    public static ImageBase64Utils f32481c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageBase64Listener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34079b;
+        public String f32482b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34080c;
+        public int f32483c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ImageBase64Utils f34081d;
+        public final /* synthetic */ ImageBase64Utils f32484d;
 
         public ImageBase64AsyncTask(ImageBase64Utils imageBase64Utils, ImageBase64Listener imageBase64Listener, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class ImageBase64Utils {
                     return;
                 }
             }
-            this.f34081d = imageBase64Utils;
+            this.f32484d = imageBase64Utils;
             this.a = imageBase64Listener;
-            this.f34079b = str;
-            this.f34080c = i2;
+            this.f32482b = str;
+            this.f32483c = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class ImageBase64Utils {
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f34079b, this.f34080c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f32482b, this.f32483c) : (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class ImageBase64Utils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
@@ -149,7 +149,7 @@ public class ImageBase64Utils {
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f34077b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f32480b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("compress size:\t");
@@ -251,10 +251,10 @@ public class ImageBase64Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f34078c == null) {
-                f34078c = new ImageBase64Utils();
+            if (f32481c == null) {
+                f32481c = new ImageBase64Utils();
             }
-            return f34078c;
+            return f32481c;
         }
         return (ImageBase64Utils) invokeV.objValue;
     }

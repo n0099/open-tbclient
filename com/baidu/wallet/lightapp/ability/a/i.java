@@ -16,7 +16,7 @@ import com.baidu.wallet.router.RouterRequest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class i extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
             public final /* synthetic */ ILightappInvokerCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f51543b;
+            public final /* synthetic */ i f49962b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -71,7 +71,7 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f51543b = this;
+                this.f49962b = this;
                 this.a = iLightappInvokerCallback;
             }
 

@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52758b;
+    public boolean f51177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f52759c;
+    public LayoutInflater f51178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2036a f52760d;
+    public InterfaceC2012a f51179d;
 
     /* renamed from: com.baidu.wallet.personal.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2036a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC2012a {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface b<T> {
         void a(int i2, T t);
 
@@ -64,14 +64,14 @@ public abstract class a<T> extends BaseAdapter {
             }
         }
         this.a = new ArrayList();
-        this.f52759c = LayoutInflater.from(context);
+        this.f51178c = LayoutInflater.from(context);
     }
 
     private View a(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewGroup, i2)) == null) {
-            View inflate = this.f52758b ? this.f52759c.inflate(a(i2), viewGroup, false) : this.f52759c.inflate(a(i2), (ViewGroup) null);
+            View inflate = this.f51177b ? this.f51178c.inflate(a(i2), viewGroup, false) : this.f51178c.inflate(a(i2), (ViewGroup) null);
             inflate.setTag(a(i2, inflate));
             if (inflate != null) {
                 a(inflate, i2);
@@ -168,24 +168,24 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter
     public void notifyDataSetChanged() {
-        InterfaceC2036a interfaceC2036a;
+        InterfaceC2012a interfaceC2012a;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.notifyDataSetChanged();
-            if (this.f52760d == null) {
+            if (this.f51179d == null) {
                 return;
             }
             if (this.a.size() == 0) {
-                interfaceC2036a = this.f52760d;
+                interfaceC2012a = this.f51179d;
                 z = true;
             } else if (this.a.size() <= 0) {
                 return;
             } else {
-                interfaceC2036a = this.f52760d;
+                interfaceC2012a = this.f51179d;
                 z = false;
             }
-            interfaceC2036a.a(z);
+            interfaceC2012a.a(z);
         }
     }
 }

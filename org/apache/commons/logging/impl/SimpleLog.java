@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.util.Properties;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SimpleLog implements Log, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss:SSS zzz";

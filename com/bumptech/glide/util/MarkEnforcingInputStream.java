@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MarkEnforcingInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int END_OF_STREAM = -1;

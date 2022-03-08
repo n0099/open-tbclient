@@ -29,16 +29,16 @@ import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\"\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\bÇ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b(\u0010)J=\u0010\n\u001a\u00020\t\"\b\b\u0000\u0010\u0002*\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u00052\u000e\u0010\b\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ\u001f\u0010\u000e\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\b\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u001d\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u001d\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0016J;\u0010\u0019\u001a&\u0012 \u0012\u001e\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00010\u0005\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00010\u00070\u0018\u0018\u00010\u00172\u0006\u0010\u0015\u001a\u00020\u0014H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ!\u0010\u001b\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\f\u0018\u00010\u00172\u0006\u0010\u0015\u001a\u00020\u0014H\u0002¢\u0006\u0004\b\u001b\u0010\u001aJ'\u0010\u001d\u001a\u00020\t2\u0006\u0010\u001c\u001a\u00020\u00142\u0010\u0010\b\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0001\u0018\u00010\u0007¢\u0006\u0004\b\u001d\u0010\u001eJ\u001f\u0010\u001f\u001a\u00020\t2\u0006\u0010\u001c\u001a\u00020\u00142\b\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u001f\u0010 R\"\u0010#\u001a\u000e\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\"0!8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b&\u0010'¨\u0006*"}, d2 = {"Lcom/baidu/bdtask/event/TaskBusinessEventManager;", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", "T", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Ljava/lang/Class;", "eventClass", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "", "addBusinessEventAction", "(Lcom/baidu/bdtask/model/info/TaskInfo;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", WebChromeClient.KEY_ARG_CALLBACK, "addBusinessEventCallback", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/utils/UniqueId;", TbEnum.SystemMessage.KEY_EVENT_ID, "dispatchBusinessEvent", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/utils/UniqueId;)V", "", "singleKey", "(Ljava/lang/String;Lcom/baidu/bdtask/utils/UniqueId;)V", "", "Lkotlin/Pair;", "getBusinessEventActions", "(Ljava/lang/String;)Ljava/util/Set;", "getBusinessEventCallbacks", "actionId", "removeBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "removeBusinessEventCallback", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Ljava/util/concurrent/ConcurrentHashMap;", "Lcom/baidu/bdtask/event/TaskBusinessEventCache;", "cacheMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/locks/ReentrantLock;", "fairLock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class TaskBusinessEventManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, e> f33197b;
+    public static final ConcurrentHashMap<String, e> f31600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final TaskBusinessEventManager f33198c;
+    public static final TaskBusinessEventManager f31601c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,9 +54,9 @@ public final class TaskBusinessEventManager {
                 return;
             }
         }
-        f33198c = new TaskBusinessEventManager();
+        f31601c = new TaskBusinessEventManager();
         a = new ReentrantLock(true);
-        f33197b = new ConcurrentHashMap<>();
+        f31600b = new ConcurrentHashMap<>();
     }
 
     public TaskBusinessEventManager() {
@@ -80,15 +80,15 @@ public final class TaskBusinessEventManager {
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
-                if (!f33197b.containsKey(singleKey)) {
-                    f33197b.put(singleKey, new e(taskInfo.deepCopy()));
+                if (!f31600b.containsKey(singleKey)) {
+                    f31600b.put(singleKey, new e(taskInfo.deepCopy()));
                 } else {
-                    e eVar = f33197b.get(singleKey);
+                    e eVar = f31600b.get(singleKey);
                     if (eVar != null) {
                         eVar.d(taskInfo.deepCopy());
                     }
                 }
-                e eVar2 = f33197b.get(singleKey);
+                e eVar2 = f31600b.get(singleKey);
                 if (eVar2 != null) {
                     eVar2.e(cls, bVar);
                     Unit unit = Unit.INSTANCE;
@@ -106,15 +106,15 @@ public final class TaskBusinessEventManager {
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
-                if (!f33197b.containsKey(singleKey)) {
-                    f33197b.put(singleKey, new e(taskInfo.deepCopy()));
+                if (!f31600b.containsKey(singleKey)) {
+                    f31600b.put(singleKey, new e(taskInfo.deepCopy()));
                 } else {
-                    e eVar = f33197b.get(singleKey);
+                    e eVar = f31600b.get(singleKey);
                     if (eVar != null) {
                         eVar.d(taskInfo.deepCopy());
                     }
                 }
-                e eVar2 = f33197b.get(singleKey);
+                e eVar2 = f31600b.get(singleKey);
                 if (eVar2 != null) {
                     eVar2.c(cVar);
                     Unit unit = Unit.INSTANCE;
@@ -134,8 +134,8 @@ public final class TaskBusinessEventManager {
                 a a2 = d.a.a(taskInfo, uniqueId);
                 if (a2 != null) {
                     DebugTrace.a.c(new TaskBusinessEventManager$dispatchBusinessEvent$1$1(a2));
-                    Set<Pair<Class<? extends a>, b<? extends a>>> e2 = f33198c.e(taskInfo.getSingleKey());
-                    Set<c> f2 = f33198c.f(taskInfo.getSingleKey());
+                    Set<Pair<Class<? extends a>, b<? extends a>>> e2 = f31601c.e(taskInfo.getSingleKey());
+                    Set<c> f2 = f31601c.f(taskInfo.getSingleKey());
                     if (f2 != null) {
                         for (c cVar : f2) {
                             if (cVar != null) {
@@ -171,7 +171,7 @@ public final class TaskBusinessEventManager {
         e eVar;
         TaskInfo h2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (eVar = f33197b.get(str)) == null || (h2 = eVar.h()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (eVar = f31600b.get(str)) == null || (h2 = eVar.h()) == null) {
             return;
         }
         c(h2, uniqueId);
@@ -181,7 +181,7 @@ public final class TaskBusinessEventManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            e eVar = f33197b.get(str);
+            e eVar = f31600b.get(str);
             if (eVar == null || (!Intrinsics.areEqual(eVar.h().getSingleKey(), str))) {
                 return null;
             }
@@ -194,7 +194,7 @@ public final class TaskBusinessEventManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            e eVar = f33197b.get(str);
+            e eVar = f31600b.get(str);
             if (eVar == null || (!Intrinsics.areEqual(eVar.h().getSingleKey(), str))) {
                 return null;
             }
@@ -209,7 +209,7 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, e> entry : f33197b.entrySet()) {
+                for (Map.Entry<String, e> entry : f31600b.entrySet()) {
                     e value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
                         value.b(bVar);
@@ -228,7 +228,7 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, e> entry : f33197b.entrySet()) {
+                for (Map.Entry<String, e> entry : f31600b.entrySet()) {
                     e value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
                         value.g(cVar);

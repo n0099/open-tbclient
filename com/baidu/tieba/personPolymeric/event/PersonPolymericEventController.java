@@ -3,9 +3,9 @@ package com.baidu.tieba.personPolymeric.event;
 import android.os.Bundle;
 import android.view.View;
 import c.a.d.f.m.b;
-import c.a.t0.u.q;
-import c.a.u0.z2.d.g;
-import c.a.u0.z2.f.a;
+import c.a.q0.t.q;
+import c.a.r0.z2.d.g;
+import c.a.r0.z2.f.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -40,6 +40,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,13 +54,13 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PersonPolymericEventController extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f47388e;
+    public g f45796e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericEventController(TbPageContext tbPageContext, g gVar) {
@@ -79,11 +80,11 @@ public class PersonPolymericEventController extends a {
                 return;
             }
         }
-        this.f47388e = gVar;
+        this.f45796e = gVar;
     }
 
-    @Override // c.a.u0.z2.f.a, c.a.u0.q4.e
-    public void a(View view, c.a.u0.w0.a aVar) {
+    @Override // c.a.r0.z2.f.a, c.a.r0.o4.e
+    public void a(View view, c.a.r0.v0.a aVar) {
         String str;
         int i2;
         MembershipUserInfo membershipUserInfo;
@@ -93,7 +94,7 @@ public class PersonPolymericEventController extends a {
             if (aVar == null) {
                 return;
             }
-            Bundle bundle = aVar.f24953b;
+            Bundle bundle = aVar.f24217b;
             String str2 = null;
             UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
             int i3 = 1;
@@ -112,7 +113,7 @@ public class PersonPolymericEventController extends a {
                     qVar.h(true);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(qVar);
-                    this.f47388e.o().r(qVar, arrayList, 0);
+                    this.f45796e.o().r(qVar, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -134,12 +135,12 @@ public class PersonPolymericEventController extends a {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    g gVar = this.f47388e;
+                    g gVar = this.f45796e;
                     if (gVar == null || gVar.m() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
-                    this.f47388e.m().e();
+                    this.f45796e.m().e();
                     return;
                 case 10:
                     if (userData != null) {
@@ -178,7 +179,7 @@ public class PersonPolymericEventController extends a {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = aVar.f24953b;
+                        Bundle bundle2 = aVar.f24217b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -216,7 +217,7 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 16:
                     b(7);
-                    c.a.u0.m3.a.v().L(7, false, this.f26027d);
+                    PersonRedTipManager.getInstance().updateRedTipState(7, false, this.f25689d);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.a.getPageActivity())));
                     return;
                 case 17:
@@ -225,17 +226,17 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 20:
                     b(2);
-                    c.a.u0.m3.a.v().L(3, false, this.f26027d);
+                    PersonRedTipManager.getInstance().updateRedTipState(3, false, this.f25689d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.a.getPageActivity())));
                     return;
                 case 21:
                     b(5);
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f26026c));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f25688c));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.a.getPageActivity())));
                     return;
                 case 22:
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f26026c));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f25688c));
                     if (userData == null) {
                         return;
                     }
@@ -243,7 +244,7 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 24:
                     b(3);
-                    c.a.u0.m3.a.v().L(4, false, this.f26027d);
+                    PersonRedTipManager.getInstance().updateRedTipState(4, false, this.f25689d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.a.getPageActivity())));
                     return;
@@ -261,17 +262,17 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 30:
                     b(1);
-                    c.a.u0.m3.a.v().L(8, false, this.f26027d);
+                    PersonRedTipManager.getInstance().updateRedTipState(8, false, this.f25689d);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.a.getPageActivity())));
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{aVar.f24953b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{aVar.f24217b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                         b(4);
-                        c.a.u0.m3.a.v().L(1, false, this.f26027d);
+                        PersonRedTipManager.getInstance().updateRedTipState(1, false, this.f25689d);
                         if (userData == null || !TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             return;
                         }
@@ -302,7 +303,7 @@ public class PersonPolymericEventController extends a {
                     StringBuilder sb = new StringBuilder();
                     sb.append("http://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter?is_yy_user=");
                     sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    c.a.t0.m.a.m(this.a.getPageActivity(), sb.toString());
+                    c.a.q0.l.a.m(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
                     if (userData == null || !ViewHelper.checkUpIsLogin(this.a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -326,8 +327,8 @@ public class PersonPolymericEventController extends a {
                     qVar2.h(false);
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.add(qVar2);
-                    if (this.f47388e.o() != null) {
-                        this.f47388e.o().s(qVar2, arrayList2, 0, true);
+                    if (this.f45796e.o() != null) {
+                        this.f45796e.o().s(qVar2, arrayList2, 0, true);
                         return;
                     }
                     return;

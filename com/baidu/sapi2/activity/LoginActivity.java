@@ -13,9 +13,6 @@ import android.view.View;
 import android.webkit.JsPromptResult;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.e;
-import c.a.f0.a.f;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
@@ -45,6 +42,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +56,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "LoginActivity";
@@ -428,7 +426,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                    setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 }
                 init();
                 setupViews();
@@ -468,7 +466,7 @@ public class LoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
             super.onNewIntent(intent);
             this.sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(g.sapi_sdk_title_sms_login);
+            setTitleText(R.string.sapi_sdk_title_sms_login);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -494,7 +492,7 @@ public class LoginActivity extends BaseActivity {
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
-            SapiWebView sapiWebView = (SapiWebView) findViewById(e.sapi_webview);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
             this.sapiWebView = sapiWebView;
             sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
@@ -791,7 +789,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(g.sapi_sdk_title_sms_login);
+                    setTitleText(R.string.sapi_sdk_title_sms_login);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -807,7 +805,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.x));
                     }
-                    setTitleText(g.sapi_sdk_title_login);
+                    setTitleText(R.string.sapi_sdk_title_login);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }

@@ -22,12 +22,12 @@ import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Function;
 import com.kwad.yoga.YogaValue;
@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AXIS_X = 1;
@@ -87,7 +87,7 @@ public class TKBasicAnimation {
     public String timeFunction;
     public String timingFunction;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface AnimationJsCallback {
         void onJsExecuteComplete(double d2);
     }

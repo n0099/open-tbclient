@@ -23,26 +23,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlDecoder;
 /* loaded from: classes.dex */
-public class e implements c.a.u0.z3.s0.a {
+public class e implements c.a.r0.y3.s0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.d.f.q.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f3723b;
+    public Handler f3524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3724c;
+    public String f3525c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f3725d;
+    public g f3526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f3726e;
+    public Runnable f3527e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f3727f;
+    public TbPageContext<?> f3528f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -50,7 +51,7 @@ public class e implements c.a.u0.z3.s0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3728e;
+        public final /* synthetic */ String f3529e;
 
         public a(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -67,14 +68,14 @@ public class e implements c.a.u0.z3.s0.a {
                     return;
                 }
             }
-            this.f3728e = str;
+            this.f3529e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.t0.s.m0.a.a(c.a.t0.s.m0.a.b(this.f3728e));
+                c.a.q0.r.m0.a.a(c.a.q0.r.m0.a.b(this.f3529e));
             }
         }
     }
@@ -85,13 +86,13 @@ public class e implements c.a.u0.z3.s0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3729e;
+        public final /* synthetic */ String f3530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f3730f;
+        public final /* synthetic */ int f3531f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f3731g;
+        public final /* synthetic */ e f3532g;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -99,7 +100,7 @@ public class e implements c.a.u0.z3.s0.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f3732e;
+            public final /* synthetic */ b f3533e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -116,15 +117,15 @@ public class e implements c.a.u0.z3.s0.a {
                         return;
                     }
                 }
-                this.f3732e = bVar;
+                this.f3533e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e eVar = this.f3732e.f3731g;
-                    eVar.a.onShowErr(4, eVar.f3727f.getString(R.string.voice_error_file_md5));
+                    e eVar = this.f3533e.f3532g;
+                    eVar.a.onShowErr(4, eVar.f3528f.getString(R.string.voice_error_file_md5));
                     h.a = 1;
                 }
             }
@@ -132,17 +133,17 @@ public class e implements c.a.u0.z3.s0.a {
 
         /* renamed from: c.a.h.a.a.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0150b implements Runnable {
+        public class RunnableC0152b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3733e;
+            public final /* synthetic */ String f3534e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3734f;
+            public final /* synthetic */ b f3535f;
 
-            public RunnableC0150b(b bVar, String str) {
+            public RunnableC0152b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,8 +158,8 @@ public class e implements c.a.u0.z3.s0.a {
                         return;
                     }
                 }
-                this.f3734f = bVar;
-                this.f3733e = str;
+                this.f3535f = bVar;
+                this.f3534e = str;
             }
 
             @Override // java.lang.Runnable
@@ -166,8 +167,8 @@ public class e implements c.a.u0.z3.s0.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     h.a = 1;
-                    b bVar = this.f3734f;
-                    bVar.f3731g.a.onSendVoice(this.f3733e, bVar.f3730f);
+                    b bVar = this.f3535f;
+                    bVar.f3532g.a.onSendVoice(this.f3534e, bVar.f3531f);
                 }
             }
         }
@@ -187,22 +188,22 @@ public class e implements c.a.u0.z3.s0.a {
                     return;
                 }
             }
-            this.f3731g = eVar;
-            this.f3729e = str;
-            this.f3730f = i2;
+            this.f3532g = eVar;
+            this.f3530e = str;
+            this.f3531f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = c.a.t0.s.m0.b.b.c(c.a.t0.s.m0.a.d(this.f3729e)).a;
-                if (this.f3731g.f3723b != null) {
-                    this.f3731g.f3723b.removeCallbacks(this.f3731g.f3726e);
+                String str = c.a.q0.r.m0.b.b.c(c.a.q0.r.m0.a.d(this.f3530e)).a;
+                if (this.f3532g.f3524b != null) {
+                    this.f3532g.f3524b.removeCallbacks(this.f3532g.f3527e);
                     if (StringUtils.isNull(str)) {
-                        this.f3731g.f3723b.post(new a(this));
+                        this.f3532g.f3524b.post(new a(this));
                     } else {
-                        this.f3731g.f3723b.post(new RunnableC0150b(this, str));
+                        this.f3532g.f3524b.post(new RunnableC0152b(this, str));
                     }
                 }
             }
@@ -215,7 +216,7 @@ public class e implements c.a.u0.z3.s0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3735e;
+        public final /* synthetic */ e f3536e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -232,14 +233,14 @@ public class e implements c.a.u0.z3.s0.a {
                     return;
                 }
             }
-            this.f3735e = eVar;
+            this.f3536e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.a.d.f.q.f fVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fVar = this.f3735e.a) != null && h.a == 2) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fVar = this.f3536e.a) != null && h.a == 2) {
                 fVar.onStopingRecorder();
             }
         }
@@ -295,35 +296,35 @@ public class e implements c.a.u0.z3.s0.a {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
                 this.a.n();
                 h.a = 1;
-                if (this.a.f3724c != null && str != null) {
+                if (this.a.f3525c != null && str != null) {
                     e eVar = this.a;
                     c.a.d.f.q.f fVar = eVar.a;
                     if (fVar == null) {
                         return;
                     }
                     if (i2 > 1000) {
-                        if (!str.endsWith(eVar.f3724c)) {
+                        if (!str.endsWith(eVar.f3525c)) {
                             FieldBuilder fieldBuilder = new FieldBuilder();
                             fieldBuilder.append("file", str);
-                            fieldBuilder.append("dur", Integer.valueOf(i2));
+                            fieldBuilder.append(TtmlDecoder.ATTR_DURATION, Integer.valueOf(i2));
                             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", fieldBuilder.toString());
                             return;
                         }
                         e eVar2 = this.a;
-                        eVar2.l(eVar2.f3724c, (int) Math.round((i2 * 1.0d) / 1000.0d));
-                        this.a.f3724c = null;
+                        eVar2.l(eVar2.f3525c, (int) Math.round((i2 * 1.0d) / 1000.0d));
+                        this.a.f3525c = null;
                         return;
                     }
                     fVar.onShowErr(2, h.a(R.string.voice_record_short_tip));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
-                    fieldBuilder2.append("dur", Integer.valueOf(i2));
+                    fieldBuilder2.append(TtmlDecoder.ATTR_DURATION, Integer.valueOf(i2));
                     TiebaStatic.voiceError(TbErrInfo.ERR_VOI_LEN, "voice too short", fieldBuilder2.toString());
                     return;
                 }
                 FieldBuilder fieldBuilder3 = new FieldBuilder();
                 fieldBuilder3.append("file", str);
-                fieldBuilder3.append("dur", Integer.valueOf(i2));
+                fieldBuilder3.append(TtmlDecoder.ATTR_DURATION, Integer.valueOf(i2));
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", fieldBuilder3.toString());
             }
         }
@@ -346,15 +347,15 @@ public class e implements c.a.u0.z3.s0.a {
                 if (eVar.a == null) {
                     h.a = 1;
                 } else if (i2 == 7) {
-                    if (eVar.f3724c == null) {
+                    if (eVar.f3525c == null) {
                         TiebaStatic.voiceError(i2, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                         return;
                     }
                     e eVar2 = this.a;
-                    eVar2.l(eVar2.f3724c, c.a.d.f.q.d.a / 1000);
-                    this.a.f3724c = null;
+                    eVar2.l(eVar2.f3525c, c.a.d.f.q.d.a / 1000);
+                    this.a.f3525c = null;
                     e eVar3 = this.a;
-                    eVar3.a.onShowErr(3, eVar3.f3727f.getString(R.string.voice_record_timeout_tip));
+                    eVar3.a.onShowErr(3, eVar3.f3528f.getString(R.string.voice_record_timeout_tip));
                 } else {
                     h.a = 1;
                     if (i2 == 8) {
@@ -400,10 +401,10 @@ public class e implements c.a.u0.z3.s0.a {
                 return;
             }
         }
-        this.f3724c = null;
-        this.f3725d = null;
-        this.f3726e = new c(this);
-        this.f3723b = new Handler();
+        this.f3525c = null;
+        this.f3526d = null;
+        this.f3527e = new c(this);
+        this.f3524b = new Handler();
     }
 
     public static e m() {
@@ -412,15 +413,15 @@ public class e implements c.a.u0.z3.s0.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new e() : (e) invokeV.objValue;
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f3727f = tbPageContext;
+            this.f3528f = tbPageContext;
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -430,7 +431,7 @@ public class e implements c.a.u0.z3.s0.a {
             if (fVar != null) {
                 fVar.onDeletedVoice(str);
             }
-            Handler handler = this.f3723b;
+            Handler handler = this.f3524b;
             if (handler == null) {
                 return;
             }
@@ -438,13 +439,13 @@ public class e implements c.a.u0.z3.s0.a {
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public boolean c(c.a.d.f.q.f fVar, int i2) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, fVar, i2)) == null) {
-            if (fVar == null || (tbPageContext = this.f3727f) == null || !PermissionUtil.checkWriteExternalStorage(tbPageContext.getPageActivity())) {
+            if (fVar == null || (tbPageContext = this.f3528f) == null || !PermissionUtil.checkWriteExternalStorage(tbPageContext.getPageActivity())) {
                 return false;
             }
             this.a = fVar;
@@ -457,15 +458,15 @@ public class e implements c.a.u0.z3.s0.a {
                 return false;
             }
             p(true);
-            String e2 = c.a.t0.s.m0.a.e();
-            this.f3724c = e2;
-            String c2 = c.a.t0.s.m0.a.c(e2);
-            if (this.f3725d == null) {
-                this.f3725d = new d(this, null);
+            String e2 = c.a.q0.r.m0.a.e();
+            this.f3525c = e2;
+            String c2 = c.a.q0.r.m0.a.c(e2);
+            if (this.f3526d == null) {
+                this.f3526d = new d(this, null);
             }
             c.a.h.a.a.a.g();
             n();
-            boolean f2 = c.a.h.a.a.a.f(c2, i2, this.f3725d);
+            boolean f2 = c.a.h.a.a.a.f(c2, i2, this.f3526d);
             if (f2) {
                 this.a.onStartedRecorder(true);
                 h.a = 2;
@@ -482,7 +483,7 @@ public class e implements c.a.u0.z3.s0.a {
         return invokeLI.booleanValue;
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -490,7 +491,7 @@ public class e implements c.a.u0.z3.s0.a {
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void d(c.a.d.f.q.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
@@ -498,7 +499,7 @@ public class e implements c.a.u0.z3.s0.a {
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -534,33 +535,33 @@ public class e implements c.a.u0.z3.s0.a {
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             stopRecord();
-            TbPageContext<?> tbPageContext = this.f3727f;
+            TbPageContext<?> tbPageContext = this.f3528f;
             if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-                MediaService.stopMy(this.f3727f.getPageActivity());
+                MediaService.stopMy(this.f3528f.getPageActivity());
             }
-            Handler handler = this.f3723b;
+            Handler handler = this.f3524b;
             if (handler != null) {
-                handler.removeCallbacks(this.f3726e);
+                handler.removeCallbacks(this.f3527e);
             }
-            this.f3727f = null;
+            this.f3528f = null;
             this.a = null;
-            this.f3723b = null;
+            this.f3524b = null;
         }
     }
 
-    @Override // c.a.u0.z3.s0.a
+    @Override // c.a.r0.y3.s0.a
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             c.a.h.a.a.a.g();
-            Handler handler = this.f3723b;
+            Handler handler = this.f3524b;
             if (handler != null) {
-                handler.postDelayed(this.f3726e, 100L);
+                handler.postDelayed(this.f3527e, 100L);
             }
             n();
         }

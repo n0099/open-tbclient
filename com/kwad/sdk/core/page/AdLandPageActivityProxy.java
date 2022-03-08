@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_DIALOG_URL = "key_dialog_url";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -70,8 +70,8 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         aVar.a(this.mAdTemplate);
         com.kwad.sdk.core.webview.a aVar2 = this.mJsBridgeContext;
         aVar2.a = 0;
-        aVar2.f56542e = this.mAdWebView;
-        aVar2.f56541d = this.mWebContainer;
+        aVar2.f54892e = this.mAdWebView;
+        aVar2.f54891d = this.mWebContainer;
     }
 
     private void initTipBarView() {
@@ -97,8 +97,8 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         this.mWebTipBarTitle.setSelected(true);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x00c2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.util.UriUtil;
-import com.facebook.drawee.R;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
@@ -74,11 +74,11 @@ public class SimpleDraweeView extends GenericDraweeView {
                 this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
             }
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
-                if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageUri)) {
-                    setImageURI(Uri.parse(obtainStyledAttributes.getString(R.styleable.SimpleDraweeView_actualImageUri)), (Object) null);
-                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageResource)) {
-                    int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_actualImageResource, -1);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.actualImageResource, R.attr.actualImageScaleType, R.attr.actualImageUri, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.viewAspectRatio, R.attr.svgImage});
+                if (obtainStyledAttributes.hasValue(2)) {
+                    setImageURI(Uri.parse(obtainStyledAttributes.getString(2)), (Object) null);
+                } else if (obtainStyledAttributes.hasValue(0)) {
+                    int resourceId2 = obtainStyledAttributes.getResourceId(0, -1);
                     if (resourceId2 != -1) {
                         if (isInEditMode()) {
                             setImageResource(resourceId2);
@@ -86,7 +86,7 @@ public class SimpleDraweeView extends GenericDraweeView {
                             setActualImageResource(resourceId2);
                         }
                     }
-                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_svgImage, -1)) != -1) {
+                } else if (obtainStyledAttributes.hasValue(31) && (resourceId = obtainStyledAttributes.getResourceId(31, -1)) != -1) {
                     setImageURI(UriUtil.getUriForResourceId(resourceId), (Object) null);
                 }
                 obtainStyledAttributes.recycle();

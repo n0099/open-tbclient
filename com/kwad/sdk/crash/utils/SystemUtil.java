@@ -21,26 +21,26 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SystemUtil {
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f56765b;
+    public static volatile Boolean f55115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f56766c;
+    public static long f55116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f56767d;
+    public static long f55117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f56768e;
+    public static int f55118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f56769f;
+    public static LEVEL f55119f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -60,24 +60,24 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f56770b;
+        public long f55120b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f56771c;
+        public long f55121c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f56772d;
+        public long f55122d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f56773e;
+        public long f55123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56774f;
+        public int f55124f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -271,11 +271,11 @@ public class SystemUtil {
     }
 
     public static boolean b(Context context) {
-        if (f56765b == null) {
+        if (f55115b == null) {
             String a2 = a(context);
-            f56765b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+            f55115b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
         }
-        return f56765b.booleanValue();
+        return f55115b.booleanValue();
     }
 
     public static long c(Context context) {
@@ -300,15 +300,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f56770b = Long.valueOf(a3).longValue();
+                                    aVar.f55120b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f56771c = Long.valueOf(a4).longValue();
+                                    aVar.f55121c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f56774f = Integer.valueOf(a2).intValue();
+                                aVar.f55124f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

@@ -4,7 +4,7 @@ import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.model.content.ShapeGroup;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class FontCharacter {
     public final char character;
     public final String fontFamily;

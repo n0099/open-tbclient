@@ -8,37 +8,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f36105b;
+    public static final h f34508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f36106c;
+    public static final h f34509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f36107d;
+    public static final h f34510d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f36108e;
+    public static final h f34511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f36109f;
+    public static final h f34512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f36110g;
+    public static final h f34513g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f36111h;
+    public static final h f34514h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f36112i;
+    public static final h f34515i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f36113j;
+    public static final h f34516j;
     public static final /* synthetic */ h[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,17 +56,17 @@ public final class h {
             }
         }
         a = new h("logo", 0);
-        f36105b = new h("popup", 1);
-        f36106c = new h("marker", 2);
-        f36107d = new h("ground", 3);
-        f36108e = new h("text", 4);
-        f36109f = new h("arc", 5);
-        f36110g = new h("dot", 6);
-        f36111h = new h("circle", 7);
-        f36112i = new h("polyline", 8);
+        f34508b = new h("popup", 1);
+        f34509c = new h("marker", 2);
+        f34510d = new h("ground", 3);
+        f34511e = new h("text", 4);
+        f34512f = new h("arc", 5);
+        f34513g = new h("dot", 6);
+        f34514h = new h("circle", 7);
+        f34515i = new h("polyline", 8);
         h hVar = new h("polygon", 9);
-        f36113j = hVar;
-        k = new h[]{a, f36105b, f36106c, f36107d, f36108e, f36109f, f36110g, f36111h, f36112i, hVar};
+        f34516j = hVar;
+        k = new h[]{a, f34508b, f34509c, f34510d, f34511e, f34512f, f34513g, f34514h, f34515i, hVar};
     }
 
     public h(String str, int i2) {

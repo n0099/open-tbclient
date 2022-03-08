@@ -8,6 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.xiaomi.push.ga;
 import com.xiaomi.push.ge;
 import com.xiaomi.push.gg;
@@ -20,7 +22,7 @@ import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class gk {
     public static /* synthetic */ Interceptable $ic;
     public static XmlPullParser a;
@@ -87,14 +89,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.a == a2 || ga.a.f61313b == a2) {
+                if (ga.a.a == a2 || ga.a.f59663b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f61315d);
+                    glVar.a(ga.a.f59665d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f61352e));
+                    glVar.a(new gg(gg.a.f59702e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -155,7 +157,7 @@ public class gk {
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f61636h, attributeValue2), text));
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f59986h, attributeValue2), text));
                             a.next();
                             gcVar = a(a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {
@@ -231,7 +233,7 @@ public class gk {
                     if (name.equals("subject")) {
                         b(xmlPullParser);
                         gbVar2.g(m418a(xmlPullParser));
-                    } else if (name.equals("body")) {
+                    } else if (name.equals(TtmlNode.TAG_BODY)) {
                         String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
                         String m418a = m418a(xmlPullParser);
                         if (TextUtils.isEmpty(attributeValue11)) {
@@ -428,7 +430,7 @@ public class gk {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, xmlPullParser)) == null) {
             for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
                 String attributeName = xmlPullParser.getAttributeName(i2);
-                if ("xml:lang".equals(attributeName) || ("lang".equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i2)))) {
+                if ("xml:lang".equals(attributeName) || (WebvttCueParser.TAG_LANG.equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i2)))) {
                     return xmlPullParser.getAttributeValue(i2);
                 }
             }

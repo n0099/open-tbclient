@@ -13,11 +13,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.c;
-import c.a.b1.t.h;
-import c.a.b1.t.m;
-import c.a.b1.t.u;
-import c.a.c0.b.a.g;
+import c.a.a0.b.a.g;
+import c.a.y0.r.c;
+import c.a.y0.r.h;
+import c.a.y0.r.m;
+import c.a.y0.r.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -40,6 +40,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -49,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMultiMediaDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMultiMediaProcessor";
@@ -104,7 +105,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             if (mediaCodecInfo != null && (supportedTypes = mediaCodecInfo.getSupportedTypes()) != null) {
                 for (int i3 = 0; i3 < supportedTypes.length; i3++) {
                     MediaCodecInfo.CodecCapabilities capabilitiesForType = mediaCodecInfo.getCapabilitiesForType(supportedTypes[i3]);
-                    if (capabilitiesForType != null && (supportedTypes[i3].equals("video/avc") || supportedTypes[i3].equals("video/hevc"))) {
+                    if (capabilitiesForType != null && (supportedTypes[i3].equals("video/avc") || supportedTypes[i3].equals(MimeTypes.VIDEO_H265))) {
                         sb.append(" -- maxInstances : " + capabilitiesForType.getMaxSupportedInstances() + " type : " + supportedTypes[i3] + " j : " + i3 + " i : " + i2 + " isEncoder : " + mediaCodecInfo.isEncoder() + " name : " + mediaCodecInfo.getName() + ",");
                     }
                 }
@@ -597,7 +598,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = c.a.c0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = c.a.a0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -691,7 +692,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.c0.b.a.k.c.l();
+            c.a.a0.b.a.k.c.l();
         }
     }
 
@@ -935,10 +936,10 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 try {
                     i2 = this.mOutWidth == 0 ? RecordConstants.VIDEO_CONSTANT_WIDTH : this.mOutWidth;
                     i3 = this.mOutHeight == 0 ? RecordConstants.VIDEO_CONSTANT_HEIGHT : this.mOutHeight;
-                    if (this.mEncodeHevcVideo && (m = m.m("video/hevc")) != null) {
+                    if (this.mEncodeHevcVideo && (m = m.m(MimeTypes.VIDEO_H265)) != null) {
                         this.mCurrentEncodeHevcVideo = true;
                         m2 = m;
-                        str = "video/hevc";
+                        str = MimeTypes.VIDEO_H265;
                     }
                     MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
                     createVideoFormat.setInteger("color-format", 2130708361);

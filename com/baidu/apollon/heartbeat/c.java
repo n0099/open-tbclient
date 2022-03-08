@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32701b = "last_cfg_request_time";
+    public static final String f31104b = "last_cfg_request_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32702c = "heartbeat_cfg_fingerprint";
+    public static final String f31105c = "heartbeat_cfg_fingerprint";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32703d = 300;
+    public static final int f31106d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32704e = "HeartBeatSP";
+    public static final String f31107e = "HeartBeatSP";
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f32705f;
+    public static SharedPreferences f31108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences.Editor f32706g;
+    public static SharedPreferences.Editor f31109g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,10 +66,10 @@ public final class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f32705f == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f32704e, 0);
-            f32705f = sharedPreferences;
-            f32706g = sharedPreferences.edit();
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f31108f == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f31107e, 0);
+            f31108f = sharedPreferences;
+            f31109g = sharedPreferences.edit();
         }
     }
 
@@ -78,7 +78,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             a(context);
-            return f32705f.getLong(str, j2);
+            return f31108f.getLong(str, j2);
         }
         return invokeCommon.longValue;
     }
@@ -88,7 +88,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
             a(context);
-            return f32705f.getString(str, str2);
+            return f31108f.getString(str, str2);
         }
         return (String) invokeLLL.objValue;
     }
@@ -97,8 +97,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
             a(context);
-            f32706g.putLong(str, j2);
-            f32706g.commit();
+            f31109g.putLong(str, j2);
+            f31109g.commit();
         }
     }
 
@@ -106,8 +106,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
             a(context);
-            f32706g.putString(str, str2);
-            f32706g.commit();
+            f31109g.putString(str, str2);
+            f31109g.commit();
         }
     }
 
@@ -115,8 +115,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             a(context);
-            f32706g.remove(str);
-            f32706g.commit();
+            f31109g.remove(str);
+            f31109g.commit();
         }
     }
 }

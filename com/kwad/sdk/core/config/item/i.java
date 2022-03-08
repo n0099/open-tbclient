@@ -4,15 +4,15 @@ import android.content.SharedPreferences;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class i extends b<a> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a = TiebaStatic.MAX_COST_VALUE;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55859b = 90000;
+        public int f54209b = 90000;
     }
 
     public i(String str) {

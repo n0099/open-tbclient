@@ -28,7 +28,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FPS = 25;
@@ -54,7 +54,7 @@ public class VideoPlayer {
     public int mVideoHeight;
     public int mVideoWidth;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -63,12 +63,12 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i2, int i3);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class PlayTask implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_PLAY_ERROR = 1;
@@ -81,7 +81,7 @@ public class VideoPlayer {
         public boolean mStopped;
         public Thread mThread;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class LocalHandler extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -262,11 +262,11 @@ public class VideoPlayer {
 
     /* JADX DEBUG: Multi-variable search result rejected for r27v0, resolved type: android.media.MediaExtractor */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0177 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0176 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:83:0x0148  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x014d  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -40,6 +40,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +48,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.MaterialShapeDrawable;
@@ -58,10 +58,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_Design_AppBarLayout = 2131755849;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;
@@ -92,7 +94,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public int[] tmpStatesArray;
     public int totalScrollRange;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
@@ -108,7 +110,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         public float offsetToChildIndexOnLayoutPerc;
         public BaseDragCallback onDragCallback;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -897,7 +899,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             this.offsetToChildIndexOnLayout = -1;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static class SavedState extends AbsSavedState {
             public static /* synthetic */ Interceptable $ic;
             public static final Parcelable.Creator<SavedState> CREATOR;
@@ -1024,17 +1026,17 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
         void onOffsetChanged(T t, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1175,13 +1177,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1389,8 +1391,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ScrollingViewBehavior_Layout);
-            setOverlayTop(obtainStyledAttributes.getDimensionPixelSize(R.styleable.ScrollingViewBehavior_Layout_behavior_overlapTop, 0));
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.behavior_overlapTop});
+            setOverlayTop(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             obtainStyledAttributes.recycle();
         }
 
@@ -1416,17 +1418,16 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-292185682, "Lcom/google/android/material/appbar/AppBarLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-292185682, "Lcom/google/android/material/appbar/AppBarLayout;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-292185682, "Lcom/google/android/material/appbar/AppBarLayout;")) == null) {
+            return;
         }
-        DEF_STYLE_RES = R.style.Widget_Design_AppBarLayout;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-292185682, "Lcom/google/android/material/appbar/AppBarLayout;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1882,10 +1883,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
             int[] iArr = this.tmpStatesArray;
             int[] onCreateDrawableState = super.onCreateDrawableState(i2 + iArr.length);
-            iArr[0] = this.liftable ? R.attr.state_liftable : -R.attr.state_liftable;
-            iArr[1] = (this.liftable && this.lifted) ? R.attr.state_lifted : -R.attr.state_lifted;
-            iArr[2] = this.liftable ? R.attr.state_collapsible : -R.attr.state_collapsible;
-            iArr[3] = (this.liftable && this.lifted) ? R.attr.state_collapsed : -R.attr.state_collapsed;
+            iArr[0] = this.liftable ? R.attr.state_liftable : -2130970034;
+            iArr[1] = (this.liftable && this.lifted) ? R.attr.state_lifted : -2130970035;
+            iArr[2] = this.liftable ? R.attr.state_collapsible : -2130970032;
+            iArr[3] = (this.liftable && this.lifted) ? R.attr.state_collapsed : -2130970031;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -2197,7 +2198,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_AppBarLayout), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2222,33 +2223,33 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
             ViewUtilsLollipop.setBoundsViewOutlineProvider(this);
-            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i2, DEF_STYLE_RES);
+            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i2, Widget_Design_AppBarLayout);
         }
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.AppBarLayout, i2, DEF_STYLE_RES, new int[0]);
-        ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.AppBarLayout_android_background));
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.elevation, R.attr.expanded, R.attr.liftOnScroll, R.attr.liftOnScrollTargetViewId, R.attr.statusBarForeground}, i2, Widget_Design_AppBarLayout, new int[0]);
+        ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(0));
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(((ColorDrawable) getBackground()).getColor()));
             materialShapeDrawable.initializeElevationOverlay(context2);
             ViewCompat.setBackground(this, materialShapeDrawable);
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_expanded)) {
-            setExpanded(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_expanded, false), false, false);
+        if (obtainStyledAttributes.hasValue(4)) {
+            setExpanded(obtainStyledAttributes.getBoolean(4, false), false, false);
         }
-        if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_elevation)) {
-            ViewUtilsLollipop.setDefaultAppBarLayoutStateListAnimator(this, obtainStyledAttributes.getDimensionPixelSize(R.styleable.AppBarLayout_elevation, 0));
+        if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(3)) {
+            ViewUtilsLollipop.setDefaultAppBarLayoutStateListAnimator(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_android_keyboardNavigationCluster)) {
-                setKeyboardNavigationCluster(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_android_keyboardNavigationCluster, false));
+            if (obtainStyledAttributes.hasValue(2)) {
+                setKeyboardNavigationCluster(obtainStyledAttributes.getBoolean(2, false));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_android_touchscreenBlocksFocus)) {
-                setTouchscreenBlocksFocus(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_android_touchscreenBlocksFocus, false));
+            if (obtainStyledAttributes.hasValue(1)) {
+                setTouchscreenBlocksFocus(obtainStyledAttributes.getBoolean(1, false));
             }
         }
-        this.liftOnScroll = obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_liftOnScroll, false);
-        this.liftOnScrollTargetViewId = obtainStyledAttributes.getResourceId(R.styleable.AppBarLayout_liftOnScrollTargetViewId, -1);
-        setStatusBarForeground(obtainStyledAttributes.getDrawable(R.styleable.AppBarLayout_statusBarForeground));
+        this.liftOnScroll = obtainStyledAttributes.getBoolean(5, false);
+        this.liftOnScrollTargetViewId = obtainStyledAttributes.getResourceId(6, -1);
+        setStatusBarForeground(obtainStyledAttributes.getDrawable(7));
         obtainStyledAttributes.recycle();
         ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.appbar.AppBarLayout.1
             public static /* synthetic */ Interceptable $ic;
@@ -2337,7 +2338,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSIBLE_FLAGS = 10;
@@ -2356,7 +2357,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public @interface ScrollFlags {
         }
 
@@ -2380,10 +2381,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 }
             }
             this.scrollFlags = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.AppBarLayout_Layout);
-            this.scrollFlags = obtainStyledAttributes.getInt(R.styleable.AppBarLayout_Layout_layout_scrollFlags, 0);
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_Layout_layout_scrollInterpolator)) {
-                this.scrollInterpolator = android.view.animation.AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(R.styleable.AppBarLayout_Layout_layout_scrollInterpolator, 0));
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.layout_scrollFlags, R.attr.layout_scrollInterpolator});
+            this.scrollFlags = obtainStyledAttributes.getInt(0, 0);
+            if (obtainStyledAttributes.hasValue(1)) {
+                this.scrollInterpolator = android.view.animation.AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));
             }
             obtainStyledAttributes.recycle();
         }

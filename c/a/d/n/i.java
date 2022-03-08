@@ -32,7 +32,7 @@ public class i {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f2418b;
+    public static volatile boolean f3047b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -42,10 +42,10 @@ public class i {
         public final /* synthetic */ f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f2419b;
+        public final /* synthetic */ String f3048b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f2420c;
+        public final /* synthetic */ Context f3049c;
 
         public a(f fVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class i {
                 }
             }
             this.a = fVar;
-            this.f2419b = str;
-            this.f2420c = context;
+            this.f3048b = str;
+            this.f3049c = context;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -74,45 +74,45 @@ public class i {
         public void b(int i2, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, jSONObject) == null) {
-                this.a.a(this.f2419b, -1, null);
+                this.a.a(this.f3048b, -1, null);
                 try {
                     try {
                         if (jSONObject != null) {
                             if (i.a) {
                                 String str2 = "onResponse " + jSONObject;
                             }
-                            PackageInfo k = i.k(this.f2420c, jSONObject);
+                            PackageInfo k = i.k(this.f3049c, jSONObject);
                             if (k.errNo != 0) {
                                 boolean unused = i.a;
                                 if (k.errNo != -2) {
                                     String str3 = "patch data errno = " + k.errNo;
                                 }
-                                this.a.a(this.f2419b, -1, null);
+                                this.a.a(this.f3048b, -1, null);
                                 synchronized (i.class) {
-                                    boolean unused2 = i.f2418b = false;
+                                    boolean unused2 = i.f3047b = false;
                                 }
                                 return;
                             }
-                            j.b(this.f2420c, this.a, k, true);
+                            j.b(this.f3049c, this.a, k, true);
                             synchronized (i.class) {
-                                boolean unused3 = i.f2418b = false;
+                                boolean unused3 = i.f3047b = false;
                             }
                             return;
                         }
-                        this.a.a(this.f2419b, -1, null);
+                        this.a.a(this.f3048b, -1, null);
                         synchronized (i.class) {
-                            boolean unused4 = i.f2418b = false;
+                            boolean unused4 = i.f3047b = false;
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        this.a.a(this.f2419b, -1, null);
+                        this.a.a(this.f3048b, -1, null);
                         synchronized (i.class) {
-                            boolean unused5 = i.f2418b = false;
+                            boolean unused5 = i.f3047b = false;
                         }
                     }
                 } catch (Throwable th) {
                     synchronized (i.class) {
-                        boolean unused6 = i.f2418b = false;
+                        boolean unused6 = i.f3047b = false;
                         throw th;
                     }
                 }
@@ -127,7 +127,7 @@ public class i {
         public final /* synthetic */ File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f2421b;
+        public final /* synthetic */ String f3050b;
 
         public b(File file, String str) {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class i {
                 }
             }
             this.a = file;
-            this.f2421b = str;
+            this.f3050b = str;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -200,7 +200,7 @@ public class i {
                         if (i.a) {
                             String str2 = "download file md5 = " + e3;
                         }
-                        if (!TextUtils.equals(this.f2421b, e3)) {
+                        if (!TextUtils.equals(this.f3050b, e3)) {
                             fileOutputStream.close();
                             this.a.delete();
                         }
@@ -252,7 +252,7 @@ public class i {
             }
         }
         a = c.a.d.n.a.a;
-        f2418b = false;
+        f3047b = false;
     }
 
     public i() {
@@ -293,11 +293,11 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, fVar) == null) {
             synchronized (i.class) {
-                if (f2418b) {
+                if (f3047b) {
                     boolean z = a;
                     return;
                 }
-                f2418b = true;
+                f3047b = true;
                 String z2 = e.p().z(i());
                 if (a) {
                     String str2 = "url = " + z2;

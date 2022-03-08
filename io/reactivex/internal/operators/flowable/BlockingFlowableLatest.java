@@ -18,13 +18,13 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class BlockingFlowableLatest<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<? extends T> source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class LatestSubscriberIterator<T> extends DisposableSubscriber<Notification<T>> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

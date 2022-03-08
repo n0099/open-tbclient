@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Http2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BINARY;
@@ -63,7 +64,7 @@ public final class Http2 {
             if (i3 >= strArr.length) {
                 break;
             }
-            strArr[i3] = Util.format("%8s", Integer.toBinaryString(i3)).replace(' ', '0');
+            strArr[i3] = Util.format("%8s", Integer.toBinaryString(i3)).replace(WebvttCueParser.CHAR_SPACE, '0');
             i3++;
         }
         String[] strArr2 = FLAGS;

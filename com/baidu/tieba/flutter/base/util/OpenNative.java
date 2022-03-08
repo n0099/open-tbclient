@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.k0.h;
-import c.a.t0.u0.a;
-import c.a.u0.z1.o.k.b;
+import c.a.q0.j0.h;
+import c.a.q0.t0.a;
+import c.a.r0.z1.o.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -118,7 +118,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class OpenNative {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NATIVE_PAGEKEY_DYNAMIC_BAR_ORG_TITLE_PAGE = "kNativePageKeyDynamicBarOrgTitlePage";
@@ -412,8 +412,8 @@ public class OpenNative {
             v.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             v.getIntent().putExtra("from", "index");
             if (map.containsKey("enter_type")) {
-                TbPageExtraHelper.w((String) map.get("enter_type"));
-                h.i(new PrePageKeyEvent(TbPageExtraHelper.m()));
+                TbPageExtraHelper.setPrePageKeyByFlutterStart((String) map.get("enter_type"));
+                h.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
         }
@@ -507,7 +507,7 @@ public class OpenNative {
                 }
             }
             if (map.containsKey(FrsActivityConfig.FRS_CALL_FROM)) {
-                TbPageExtraHelper.w((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
+                TbPageExtraHelper.setPrePageKeyByFlutterStart((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalCfg));
         }
@@ -787,13 +787,13 @@ public class OpenNative {
         if (!(interceptable == null || interceptable.invokeLL(65578, null, context, map) == null) || map == null || map.isEmpty() || (tbPageContextSupport = (TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()) == null || tbPageContextSupport.getPageContext() == null) {
             return;
         }
-        ((c.a.t0.j0.c.a) ServiceManager.getService(c.a.t0.j0.c.a.a.a())).a(tbPageContextSupport.getPageContext(), c.a.d.f.m.b.g((String) map.get(ILiveNPSPlugin.PARAMS_ROOM_ID), 0L));
+        ((c.a.q0.i0.c.a) ServiceManager.getService(c.a.q0.i0.c.a.a.a())).a(tbPageContextSupport.getPageContext(), c.a.d.f.m.b.g((String) map.get(ILiveNPSPlugin.PARAMS_ROOM_ID), 0L));
     }
 
     public static void openNativePageKeyVoiceRoomSecondPage(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65579, null, context, map) == null) {
-            ((c.a.t0.j0.c.a) ServiceManager.getService(c.a.t0.j0.c.a.a.a())).b(context, Frs$From.ENTER_FORUM_PAGE, 0L, null);
+            ((c.a.q0.i0.c.a) ServiceManager.getService(c.a.q0.i0.c.a.a.a())).b(context, Frs$From.ENTER_FORUM_PAGE, 0L, null);
         }
     }
 
@@ -1047,7 +1047,7 @@ public class OpenNative {
             }
         }
         if (map.containsKey("from")) {
-            TbPageExtraHelper.w((String) map.get("from"));
+            TbPageExtraHelper.setPrePageKeyByFlutterStart((String) map.get("from"));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
     }
@@ -1095,8 +1095,8 @@ public class OpenNative {
             }
             if (map.containsKey("enter_type")) {
                 String str2 = (String) map.get("enter_type");
-                TbPageExtraHelper.w(str2);
-                if (TbPageExtraHelper.p(str2)) {
+                TbPageExtraHelper.setPrePageKeyByFlutterStart(str2);
+                if (TbPageExtraHelper.prePageKeyIsPersonalCenter(str2)) {
                     pbActivityConfig.setStartFrom(4);
                 }
             }
@@ -1115,7 +1115,7 @@ public class OpenNative {
             if (m.isEmpty(str2)) {
                 BdLog.e("openNativeWKWebView param is empty.");
             } else {
-                c.a.t0.m.a.x(true, context, str, str2);
+                c.a.q0.l.a.x(true, context, str, str2);
             }
         }
     }
@@ -1208,8 +1208,8 @@ public class OpenNative {
                 v.getIntent().putExtra("from", "index");
             }
             if (map.containsKey("enter_type")) {
-                TbPageExtraHelper.w((String) map.get("enter_type"));
-                h.i(new PrePageKeyEvent(TbPageExtraHelper.m()));
+                TbPageExtraHelper.setPrePageKeyByFlutterStart((String) map.get("enter_type"));
+                h.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
         }

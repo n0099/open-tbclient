@@ -5,23 +5,23 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.f1.f.a.b;
+import c.a.q0.e1.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41517e;
+    public boolean f39923e;
     public b mAdapter;
     public DataSetObserver mObserver;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,21 +79,21 @@ public abstract class AdapterLayout extends ViewGroup {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f41517e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f39923e) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f41517e = true;
+        this.f39923e = true;
     }
 
     public final void b() {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f41517e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f39923e) {
             return;
         }
-        this.f41517e = false;
+        this.f39923e = false;
         bVar.e(dataSetObserver);
     }
 
@@ -196,6 +196,6 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41517e = false;
+        this.f39923e = false;
     }
 }

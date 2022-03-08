@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tachikoma.core.component.TKBase;
@@ -59,7 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PropertyProvider implements IProvider<ArrayList<String>> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> attributeMap;
@@ -119,7 +120,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
                     break;
                 case -1815682644:
                     if (str.equals("com.tachikoma.core.component.listview.TKWaterListView")) {
-                        c2 = ' ';
+                        c2 = WebvttCueParser.CHAR_SPACE;
                         break;
                     }
                     c2 = 65535;
@@ -1089,8 +1090,8 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
                     if (hashMap.get("imageUrl") != null) {
                         spanItem.imageUrl = (String) hashMap.get("imageUrl");
                     }
-                    if (hashMap.get(SpanItem.TYPE_FONT_FAMILY) != null) {
-                        spanItem.fontFamily = (String) hashMap.get(SpanItem.TYPE_FONT_FAMILY);
+                    if (hashMap.get("fontFamily") != null) {
+                        spanItem.fontFamily = (String) hashMap.get("fontFamily");
                         return;
                     }
                     return;
@@ -1469,7 +1470,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
             arrayList32.add("offsetX");
             arrayList32.add("start");
             arrayList32.add("imageUrl");
-            arrayList32.add(SpanItem.TYPE_FONT_FAMILY);
+            arrayList32.add("fontFamily");
             attributeMap.put("com_tachikoma_core_component_text_SpanItem", arrayList32);
             ArrayList<String> arrayList33 = new ArrayList<>();
             arrayList33.add("lottieRes");

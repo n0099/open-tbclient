@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.itemtab.holder;
 
 import android.view.View;
-import c.a.t0.s.l0.p.b;
-import c.a.u0.e1.n2.g.a;
+import c.a.q0.r.l0.p.b;
+import c.a.r0.d1.d2.g.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsItemAcceleratorView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f43893b;
+    public BdUniqueId f42296b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsItemAcceleratorHolder(View view, BdUniqueId bdUniqueId) {
@@ -45,7 +45,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         if (view instanceof FrsItemAcceleratorView) {
             this.a = (FrsItemAcceleratorView) view;
         }
-        this.f43893b = bdUniqueId;
+        this.f42296b = bdUniqueId;
     }
 
     public /* synthetic */ void a(View view) {
@@ -65,7 +65,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
             return;
         }
         frsItemAcceleratorView.setBtnColor(aVar.d());
-        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: c.a.u0.e1.n2.i.b
+        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: c.a.r0.d1.d2.i.b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +77,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 }
             }
         });
-        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: c.a.u0.e1.n2.i.a
+        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: c.a.r0.d1.d2.i.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,9 +94,9 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new c.a.u0.e1.q1.b.a(i2));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new c.a.r0.d1.g1.b.a(i2));
             CustomMessage customMessage = new CustomMessage(2921662);
-            customMessage.setTag(this.f43893b);
+            customMessage.setTag(this.f42296b);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }

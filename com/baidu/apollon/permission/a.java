@@ -12,36 +12,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f32736b = 1;
+    public static final int f31139b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32737c = 3;
+    public static final int f31140c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f32738d;
+    public static final b f31141d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.apollon.permission.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.apollon.permission.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1763a extends b {
+    /* loaded from: classes3.dex */
+    public static class C1739a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1763a() {
+        public C1739a() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,7 +65,7 @@ public final class a {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? com.baidu.apollon.permission.b.a(str) : (String) invokeL.objValue;
         }
 
-        public /* synthetic */ C1763a(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1739a(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -84,7 +84,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,9 +149,9 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f32738d = new C1763a(null);
+            f31141d = new C1739a(null);
         } else {
-            f32738d = new b(null);
+            f31141d = new b(null);
         }
     }
 
@@ -172,18 +172,18 @@ public final class a {
     public static String a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f32738d.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f31141d.a(str) : (String) invokeL.objValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f32738d.a(context, str, i2, str2) : invokeLLIL.intValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f31141d.a(context, str, i2, str2) : invokeLLIL.intValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f32738d.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f31141d.a(context, str, str2) : invokeLLL.intValue;
     }
 }

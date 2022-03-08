@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Runnable f51002b;
+    public static final Runnable f49421b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
                 return;
             }
         }
-        f51002b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
+        f49421b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && a) {
             a = false;
-            view.post(f51002b);
+            view.post(f49421b);
             doClick(view);
         }
     }

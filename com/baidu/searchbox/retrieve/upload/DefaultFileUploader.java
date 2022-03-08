@@ -1,14 +1,14 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import androidx.annotation.NonNull;
-import c.a.d1.a.f.a;
+import c.a.a1.a.f.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DefaultFileUploader extends BaseFileUploader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

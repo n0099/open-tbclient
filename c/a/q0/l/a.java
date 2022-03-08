@@ -1,65 +1,368 @@
 package c.a.q0.l;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebSettings;
+import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.p.m;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.i1;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes.dex */
-public final class a {
+import com.baidu.util.Base64Encoder;
+import com.dxmpay.wallet.core.Domains;
+import java.util.List;
+/* loaded from: classes2.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static void a(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(i1.f55288c);
-                byte[] bArr3 = new byte[16];
-                for (int i2 = 0; i2 < 16; i2++) {
-                    bArr3[i2] = 0;
-                }
-                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                byte[] doFinal = cipher.doFinal(bArr2);
-                byte[] e2 = g.e(bArr2);
-                byte[] bArr4 = new byte[doFinal.length + e2.length];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(e2, 0, bArr4, doFinal.length, e2.length);
-                return bArr4;
-            } catch (Throwable th) {
-                c.d(th);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) {
+            CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (m.isEmpty(str) || str.indexOf("cuid=") > -1) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            if (!UtilHelper.isNativeAdURL(str)) {
+                sb.append("cuid=");
+                sb.append(TbadkCoreApplication.getInst().getCuid());
+                sb.append("&cuid_galaxy2=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                sb.append("&cuid_gid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGid());
+            }
+            sb.append("&timestamp=");
+            sb.append(Long.toString(System.currentTimeMillis()));
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str, List<Pair<String, String>> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (m.isEmpty(str) || list == null) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") < 0) {
+                sb.append("?");
+            }
+            for (Pair<String, String> pair : list) {
+                if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
+                    sb.append("&");
+                    sb.append((String) pair.first);
+                    sb.append("=");
+                    sb.append((String) pair.second);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (m.isEmpty(str) || str.indexOf("_client_version=") <= -1) {
+                return str + "&_client_version=" + TbConfig.getVersion();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        CookieManager cookieManager;
+        String[] split;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(i1.f55288c);
-                byte[] bArr3 = new byte[16];
-                for (int i2 = 0; i2 < 16; i2++) {
-                    bArr3[i2] = 0;
+                cookieManager = CookieManager.getInstance();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                cookieManager = null;
+            }
+            if (cookieManager == null) {
+                return "";
+            }
+            String cookie = cookieManager.getCookie("*.baidu.com");
+            if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
+                cookie = a;
+            }
+            if (cookie != null) {
+                for (String str : cookie.split(";")) {
+                    if (str.contains("BAIDUID=")) {
+                        return str.trim().substring(8);
+                    }
                 }
-                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                if (z) {
-                    byte[] bArr4 = new byte[bArr2.length - 16];
-                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                    bArr2 = bArr4;
+                return "";
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f(Context context) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            try {
+                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                BdLog.e(th);
+                cookieManager = null;
+            }
+            if (cookieManager == null) {
+                return;
+            }
+            cookieManager.setAcceptCookie(true);
+            if ((c.a.q0.r.m.a.b() != null ? c.a.q0.r.m.a.b().c(TbadkCoreApplication.getCurrentBduss()) : null) != null) {
+                String a2 = c.a.q0.r.m.e.a(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(a2)) {
+                    sb.append("STOKEN=");
+                    sb.append(a2);
+                    sb.append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie(TbPatternsCompat.TB_DOMAIN_NAME, sb.toString());
                 }
-                return cipher.doFinal(bArr2);
-            } catch (Throwable unused) {
-                return null;
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            }
+            cookieManager.setCookie(Domains.BAIDU, "CUID=" + TbadkCoreApplication.getInst().getCuid() + ";");
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            cookieManager.setCookie(Domains.BAIDU, "BAIDUCUID=" + (!TextUtils.isEmpty(cuidGalaxy2) ? new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())) : "") + ";");
+            cookieManager.setCookie(Domains.BAIDU, "TBBRAND=" + Build.MODEL + ";");
+            cookieManager.setCookie(Domains.BAIDU, "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ";");
+            cookieManager.setCookie(Domains.BAIDU, "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ";");
+            cookieManager.setCookie(Domains.BAIDU, "cuid_galaxy2=" + cuidGalaxy2 + ";");
+            cookieManager.setCookie(Domains.BAIDU, "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ";");
+            cookieManager.setCookie(Domains.BAIDU, "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ";HttpOnly");
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+                SapiAccountManager.getInstance().getAccountService().webLogin(context);
+            } catch (Throwable th2) {
+                BdLog.e(th2);
             }
         }
-        return (byte[]) invokeLLZ.objValue;
+    }
+
+    public static String g(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                str = "http://".concat(str);
+            }
+            if (str.contains("?")) {
+                str3 = "&st_type=" + str2;
+            } else {
+                str3 = "?st_type=" + str2;
+            }
+            return str.concat(str3);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+            new PvThread("open_webview", true).start();
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            a = str;
+        }
+    }
+
+    public static void j(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
+            k(context, str, true);
+        }
+    }
+
+    public static void k(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65546, null, context, str, z) == null) {
+            if (z) {
+                str = d(b(str));
+            }
+            try {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(str));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(268435456);
+                }
+                context.startActivity(intent);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    public static void l(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, str) == null) {
+            m(context, str);
+        }
+    }
+
+    public static void m(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            v(context, true, str);
+        }
+    }
+
+    public static void n(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, str, str2) == null) {
+            r(context, str, str2, true, true, true, true, true);
+        }
+    }
+
+    public static void o(Context context, String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65550, null, context, str, str2, bundle) == null) {
+            u(context, str, str2, true, true, true, true, true, false, false, bundle);
+        }
+    }
+
+    public static void p(Context context, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) {
+            r(context, str, str2, true, z, true, true, true);
+        }
+    }
+
+    public static void q(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            r(context, str, str2, z, z2, z3, true, true);
+        }
+    }
+
+    public static void r(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
+            t(context, str, str2, z, z2, z3, z4, z5, false, false);
+        }
+    }
+
+    public static void s(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)}) == null) {
+            t(context, str, str2, z, z2, z3, z4, z5, z6, false);
+        }
+    }
+
+    public static void t(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
+            u(context, str, str2, z, z2, z3, z4, z5, z6, z7, null);
+        }
+    }
+
+    public static void u(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), bundle}) == null) {
+            h();
+            try {
+                if (StringUtils.isNull(str2)) {
+                    return;
+                }
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, (bundle == null || bundle.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) ? z5 : false ? d(b(str2)) : str2, z, z2, z3);
+                tbWebViewActivityConfig.setNeedImmerSiveSticky(z6);
+                tbWebViewActivityConfig.setFixTitle(z7);
+                tbWebViewActivityConfig.setBundle(bundle);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    public static void v(Context context, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, Boolean.valueOf(z), str}) == null) {
+            r(context, "", str, true, true, true, true, z);
+        }
+    }
+
+    public static void w(Context context, boolean z, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
+            r(context, str2, str, true, true, true, true, z);
+        }
+    }
+
+    public static void x(boolean z, Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Boolean.valueOf(z), context, str, str2}) == null) {
+            t(context, str, str2, true, true, true, true, true, false, z);
+        }
     }
 }

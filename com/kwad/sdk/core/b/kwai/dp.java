@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class dp implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,7 +10,7 @@ public class dp implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.e> {
             return;
         }
         eVar.a = jSONObject.optInt("sensorType");
-        eVar.f55741c = jSONObject.optLong("timestamp");
+        eVar.f54091c = jSONObject.optLong("timestamp");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dp implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.e> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "sensorType", eVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", eVar.f55741c);
+        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", eVar.f54091c);
         return jSONObject;
     }
 }

@@ -168,7 +168,7 @@ public class Explode extends Visibility {
             int i3 = rect.top;
             float translationX = view.getTranslationX();
             float translationY = view.getTranslationY();
-            int[] iArr = (int[]) transitionValues.view.getTag(R.id.transition_position);
+            int[] iArr = (int[]) transitionValues.view.getTag(R$id.transition_position);
             if (iArr != null) {
                 f2 = (iArr[0] - rect.left) + translationX;
                 f3 = (iArr[1] - rect.top) + translationY;

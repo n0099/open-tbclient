@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import c.a.d.c.e.c.h;
 import c.a.d.c.e.c.j.d;
 import c.a.d.c.e.c.k.c;
-import c.a.t0.a1.b;
-import c.a.t0.d1.p;
-import c.a.t0.s0.l;
-import c.a.t0.t.j.a;
-import c.a.t0.t.j.e;
-import c.a.t0.t.j.g;
-import c.a.t0.t.j.i;
+import c.a.q0.c1.p;
+import c.a.q0.r0.k;
+import c.a.q0.s.j.a;
+import c.a.q0.s.j.e;
+import c.a.q0.s.j.g;
+import c.a.q0.s.j.i;
+import c.a.q0.z0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketDaemonService;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitWebsocketBaseTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,13 +119,13 @@ public class InitWebsocketBaseTask extends LaunchTask {
                                 this.this$0 = this;
                             }
 
-                            @Override // c.a.t0.d1.p.b
+                            @Override // c.a.q0.c1.p.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (!(interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) || z) {
                                     return;
                                 }
-                                c.a.t0.f0.a.b(0, 0, 0, 1, 8);
+                                c.a.q0.e0.a.b(0, 0, 0, 1, 8);
                                 BdSocketLinkService.startService(false, "restart");
                             }
                         });
@@ -133,7 +133,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
                 }
             });
             BdSocketLinkService.init();
-            c.a.t0.f0.a.b(0, 0, 0, 1, 9);
+            c.a.q0.e0.a.b(0, 0, 0, 1, 9);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 BdSocketLinkService.startService(false, "TiebaImApplication init");
             }
@@ -191,10 +191,10 @@ public class InitWebsocketBaseTask extends LaunchTask {
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            c.a.t0.t.j.h.j().k();
+            c.a.q0.s.j.h.j().k();
             g.y().z();
             initSocket();
-            l.b().s(System.currentTimeMillis() - currentTimeMillis);
+            k.b().s(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

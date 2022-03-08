@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DevicePortraitManager implements IDevicePortraitManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -29,7 +29,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
     public IDevicePortraitThresholdsConfig mThresholdsConfig;
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager$4  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType;
         public static /* synthetic */ Interceptable $ic;

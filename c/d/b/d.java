@@ -14,69 +14,69 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f27880b;
+    public final boolean f27784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f27881c;
+    public final int f27785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f27882d;
+    public final int f27786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f27883e;
+    public final boolean f27787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f27884f;
+    public final boolean f27788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f27885g;
+    public final boolean f27789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f27886h;
+    public final int f27790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f27887i;
+    public final int f27791i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final boolean f27888j;
+    public final boolean f27792j;
     public final boolean k;
     public final boolean l;
     @Nullable
     public String m;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27889b;
+        public boolean f27793b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27890c;
+        public int f27794c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27891d;
+        public int f27795d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f27892e;
+        public int f27796e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f27893f;
+        public boolean f27797f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f27894g;
+        public boolean f27798g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f27895h;
+        public boolean f27799h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -91,9 +91,9 @@ public final class d {
                     return;
                 }
             }
-            this.f27890c = -1;
-            this.f27891d = -1;
-            this.f27892e = -1;
+            this.f27794c = -1;
+            this.f27795d = -1;
+            this.f27796e = -1;
         }
 
         public d a() {
@@ -108,7 +108,7 @@ public final class d {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, timeUnit)) == null) {
                 if (i2 >= 0) {
                     long seconds = timeUnit.toSeconds(i2);
-                    this.f27891d = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
+                    this.f27795d = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
                     return this;
                 }
                 throw new IllegalArgumentException("maxStale < 0: " + i2);
@@ -130,7 +130,7 @@ public final class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.f27893f = true;
+                this.f27797f = true;
                 return this;
             }
             return (a) invokeV.objValue;
@@ -175,15 +175,15 @@ public final class d {
             }
         }
         this.a = z;
-        this.f27880b = z2;
-        this.f27881c = i2;
-        this.f27882d = i3;
-        this.f27883e = z3;
-        this.f27884f = z4;
-        this.f27885g = z5;
-        this.f27886h = i4;
-        this.f27887i = i5;
-        this.f27888j = z6;
+        this.f27784b = z2;
+        this.f27785c = i2;
+        this.f27786d = i3;
+        this.f27787e = z3;
+        this.f27788f = z4;
+        this.f27789g = z5;
+        this.f27790h = i4;
+        this.f27791i = i5;
+        this.f27792j = z6;
         this.k = z7;
         this.l = z8;
         this.m = str;
@@ -293,39 +293,39 @@ public final class d {
             if (this.a) {
                 sb.append("no-cache, ");
             }
-            if (this.f27880b) {
+            if (this.f27784b) {
                 sb.append("no-store, ");
             }
-            if (this.f27881c != -1) {
+            if (this.f27785c != -1) {
                 sb.append("max-age=");
-                sb.append(this.f27881c);
+                sb.append(this.f27785c);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            if (this.f27882d != -1) {
+            if (this.f27786d != -1) {
                 sb.append("s-maxage=");
-                sb.append(this.f27882d);
+                sb.append(this.f27786d);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            if (this.f27883e) {
+            if (this.f27787e) {
                 sb.append("private, ");
             }
-            if (this.f27884f) {
+            if (this.f27788f) {
                 sb.append("public, ");
             }
-            if (this.f27885g) {
+            if (this.f27789g) {
                 sb.append("must-revalidate, ");
             }
-            if (this.f27886h != -1) {
+            if (this.f27790h != -1) {
                 sb.append("max-stale=");
-                sb.append(this.f27886h);
+                sb.append(this.f27790h);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            if (this.f27887i != -1) {
+            if (this.f27791i != -1) {
                 sb.append("min-fresh=");
-                sb.append(this.f27887i);
+                sb.append(this.f27791i);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            if (this.f27888j) {
+            if (this.f27792j) {
                 sb.append("only-if-cached, ");
             }
             if (this.k) {
@@ -346,37 +346,37 @@ public final class d {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27883e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27787e : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27884f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27788f : invokeV.booleanValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27881c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27785c : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27886h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27790h : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27887i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27791i : invokeV.intValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27885g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27789g : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -388,13 +388,13 @@ public final class d {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27880b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27784b : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27888j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27792j : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -428,16 +428,16 @@ public final class d {
             }
         }
         this.a = aVar.a;
-        this.f27880b = aVar.f27889b;
-        this.f27881c = aVar.f27890c;
-        this.f27882d = -1;
-        this.f27883e = false;
-        this.f27884f = false;
-        this.f27885g = false;
-        this.f27886h = aVar.f27891d;
-        this.f27887i = aVar.f27892e;
-        this.f27888j = aVar.f27893f;
-        this.k = aVar.f27894g;
-        this.l = aVar.f27895h;
+        this.f27784b = aVar.f27793b;
+        this.f27785c = aVar.f27794c;
+        this.f27786d = -1;
+        this.f27787e = false;
+        this.f27788f = false;
+        this.f27789g = false;
+        this.f27790h = aVar.f27795d;
+        this.f27791i = aVar.f27796e;
+        this.f27792j = aVar.f27797f;
+        this.k = aVar.f27798g;
+        this.l = aVar.f27799h;
     }
 }

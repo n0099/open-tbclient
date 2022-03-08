@@ -24,7 +24,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NHHeadItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public class NHHeadItem extends BaseItemView {
                     public final /* synthetic */ HomeCfgResponse.DataButton a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NHHeadItem f51458b;
+                    public final /* synthetic */ NHHeadItem f49877b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -237,7 +237,7 @@ public class NHHeadItem extends BaseItemView {
                                 return;
                             }
                         }
-                        this.f51458b = this;
+                        this.f49877b = this;
                         this.a = dataButton;
                     }
 
@@ -247,7 +247,7 @@ public class NHHeadItem extends BaseItemView {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                             return;
                         }
-                        b walletInterface = this.f51458b.getWalletInterface();
+                        b walletInterface = this.f49877b.getWalletInterface();
                         HomeCfgResponse.DataButton dataButton2 = this.a;
                         walletInterface.jump(dataButton2.name, dataButton2.type, dataButton2.link_addr, false);
                     }

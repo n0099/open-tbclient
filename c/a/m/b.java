@@ -12,13 +12,13 @@ public class b {
     public ApplicationInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4454b;
+    public int f4129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4455c;
+    public boolean f4130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4456d;
+    public boolean f4131d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class b {
                 return;
             }
         }
-        this.f4454b = 0;
-        this.f4455c = false;
-        this.f4456d = false;
+        this.f4129b = 0;
+        this.f4130c = false;
+        this.f4131d = false;
     }
 }

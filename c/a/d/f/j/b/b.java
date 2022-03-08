@@ -45,31 +45,31 @@ public class b {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f1959b;
+    public HttpURLConnection f2585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1960c;
+    public long f2586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1961d;
+    public long f2587d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1962e;
+    public long f2588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1963f;
+    public long f2589f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1964g;
+    public long f2590g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f1965h;
+    public boolean f2591h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f1966i;
+    public boolean f2592i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1967j;
+    public boolean f2593j;
     public boolean k;
     public int l;
     public TimerTask m;
@@ -82,7 +82,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f1968e;
+        public final /* synthetic */ b f2594e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class b {
                     return;
                 }
             }
-            this.f1968e = bVar;
+            this.f2594e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -107,7 +107,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f1968e.b();
+                    this.f2594e.b();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -117,14 +117,14 @@ public class b {
 
     /* renamed from: c.a.d.f.j.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0047b extends TimerTask {
+    public class C0106b extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f1969e;
+        public final /* synthetic */ b f2595e;
 
-        public C0047b(b bVar) {
+        public C0106b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +139,7 @@ public class b {
                     return;
                 }
             }
-            this.f1969e = bVar;
+            this.f2595e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -147,7 +147,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.d.f.m.a.e(this.f1969e.f1959b);
+                    c.a.d.f.m.a.e(this.f2595e.f2585b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -225,18 +225,18 @@ public class b {
                 return;
             }
         }
-        this.f1960c = 0L;
-        this.f1961d = 0L;
-        this.f1962e = 0L;
-        this.f1963f = 0L;
-        this.f1964g = 0L;
-        this.f1965h = false;
-        this.f1966i = true;
-        this.f1967j = true;
+        this.f2586c = 0L;
+        this.f2587d = 0L;
+        this.f2588e = 0L;
+        this.f2589f = 0L;
+        this.f2590g = 0L;
+        this.f2591h = false;
+        this.f2592i = true;
+        this.f2593j = true;
         this.k = true;
         this.l = 0;
         this.m = new a(this);
-        this.n = new C0047b(this);
+        this.n = new C0106b(this);
         this.o = new Timer();
         if (fVar != null) {
             this.a = fVar;
@@ -249,7 +249,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.c().a = true;
-            c.a.d.f.m.a.e(this.f1959b);
+            c.a.d.f.m.a.e(this.f2585b);
         }
     }
 
@@ -261,11 +261,11 @@ public class b {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                 c.a.d.f.p.i.c(byteArrayInputStream, byteArrayOutputStream);
-                this.f1964g = System.currentTimeMillis();
+                this.f2590g = System.currentTimeMillis();
                 return byteArrayOutputStream.toByteArray();
             }
-            if (this.f1964g == 0) {
-                this.f1964g = System.currentTimeMillis();
+            if (this.f2590g == 0) {
+                this.f2590g = System.currentTimeMillis();
             }
             return bArr;
         }
@@ -294,9 +294,9 @@ public class b {
         r12 = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:122:0x02de, code lost:
-        r21.f1963f = java.lang.System.currentTimeMillis();
+        r21.f2589f = java.lang.System.currentTimeMillis();
         c.a.d.f.m.a.c(r1);
-        c.a.d.f.m.a.e(r21.f1959b);
+        c.a.d.f.m.a.e(r21.f2585b);
         c.a.d.f.m.a.d(r10);
      */
     /* JADX WARN: Code restructure failed: missing block: B:123:0x02ef, code lost:
@@ -329,15 +329,15 @@ public class b {
                 l = this.a.b().l();
                 eVar2.s = l;
                 m = m(l, eVar2);
-                this.f1959b = g(m, i3, i2);
+                this.f2585b = g(m, i3, i2);
             } catch (Throwable th) {
                 th = th;
                 fileOutputStream = null;
             }
             if (this.a.c().a) {
-                this.f1963f = System.currentTimeMillis();
+                this.f2589f = System.currentTimeMillis();
                 c.a.d.f.m.a.c(null);
-                c.a.d.f.m.a.e(this.f1959b);
+                c.a.d.f.m.a.e(this.f2585b);
                 c.a.d.f.m.a.d(null);
                 return false;
             }
@@ -354,35 +354,35 @@ public class b {
                 try {
                     FileOutputStream fileOutputStream2 = new FileOutputStream(i4, true);
                     try {
-                        this.a.b().u(this.f1959b);
-                        this.f1959b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                        this.f1959b.connect();
-                        if (this.f1960c <= 0) {
+                        this.a.b().u(this.f2585b);
+                        this.f2585b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.f2585b.connect();
+                        if (this.f2586c <= 0) {
                             try {
-                                this.f1960c = System.currentTimeMillis();
+                                this.f2586c = System.currentTimeMillis();
                             } catch (Throwable th2) {
                                 th = th2;
                                 fileOutputStream = fileOutputStream2;
                                 inputStream3 = null;
                             }
                         }
-                        this.f1961d = System.currentTimeMillis();
-                        int responseCode = this.f1959b.getResponseCode();
-                        this.f1962e = System.currentTimeMillis();
+                        this.f2587d = System.currentTimeMillis();
+                        int responseCode = this.f2585b.getResponseCode();
+                        this.f2588e = System.currentTimeMillis();
                         if (responseCode == 302) {
-                            url = this.f1959b.getURL();
+                            url = this.f2585b.getURL();
                             if (url != null) {
                                 eVar2.r = url.toString();
                             }
                             if (url != null) {
                                 i5 = responseCode;
                                 if (!TextUtils.equals(url.getProtocol(), m.getProtocol())) {
-                                    c.a.d.f.m.a.e(this.f1959b);
-                                    this.f1959b = g(new URL(url.toString()), i3, i2);
-                                    this.a.b().u(this.f1959b);
-                                    this.f1959b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                                    this.f1959b.connect();
-                                    responseCode = this.f1959b.getResponseCode();
+                                    c.a.d.f.m.a.e(this.f2585b);
+                                    this.f2585b = g(new URL(url.toString()), i3, i2);
+                                    this.a.b().u(this.f2585b);
+                                    this.f2585b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.f2585b.connect();
+                                    responseCode = this.f2585b.getResponseCode();
                                     z3 = true;
                                 }
                             } else {
@@ -394,54 +394,54 @@ public class b {
                             z3 = false;
                             url = null;
                         }
-                        this.a.c().f1997b = responseCode;
-                        String headerField2 = this.f1959b.getHeaderField("Content-Range");
+                        this.a.c().f2623b = responseCode;
+                        String headerField2 = this.f2585b.getHeaderField("Content-Range");
                         int e2 = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : c.a.d.f.m.b.e(headerField2.substring(indexOf + 1), 0);
-                        if (e2 == 0 && this.a.c().f1997b == 200 && (headerField = this.f1959b.getHeaderField("Content-Length")) != null) {
+                        if (e2 == 0 && this.a.c().f2623b == 200 && (headerField = this.f2585b.getHeaderField("Content-Length")) != null) {
                             e2 = c.a.d.f.m.b.e(headerField, 0);
                         }
-                        this.a.c().f2001f = String.valueOf(e2);
+                        this.a.c().f2627f = String.valueOf(e2);
                         if (!n()) {
                             str2 = "";
                             if (responseCode == 302) {
                                 str2 = (z3 ? "isReConn " : "") + "url=" + m + "-newUrl=" + url;
                             } else if (responseCode == 416) {
                                 if (e2 > 0 && e2 == length) {
-                                    this.f1963f = System.currentTimeMillis();
+                                    this.f2589f = System.currentTimeMillis();
                                     c.a.d.f.m.a.c(null);
-                                    c.a.d.f.m.a.e(this.f1959b);
+                                    c.a.d.f.m.a.e(this.f2585b);
                                     c.a.d.f.m.a.d(fileOutputStream2);
                                     return false;
                                 }
                                 str2 = "fileLen=" + length + "-contentLen=" + e2;
                             }
                             throw new UnsupportedOperationException(str2);
-                        } else if (this.f1959b.getContentType() != null && this.f1959b.getContentType().contains("text/vnd.wap.wml")) {
-                            this.f1959b.disconnect();
-                            this.a.c().f1997b = 0;
+                        } else if (this.f2585b.getContentType() != null && this.f2585b.getContentType().contains("text/vnd.wap.wml")) {
+                            this.f2585b.disconnect();
+                            this.a.c().f2623b = 0;
                             boolean d2 = d(str, iVar, i2, i3, z, eVar2, z2);
-                            this.f1963f = System.currentTimeMillis();
+                            this.f2589f = System.currentTimeMillis();
                             c.a.d.f.m.a.c(null);
-                            c.a.d.f.m.a.e(this.f1959b);
+                            c.a.d.f.m.a.e(this.f2585b);
                             c.a.d.f.m.a.d(fileOutputStream2);
                             return d2;
                         } else {
                             eVar2.a = l.getBytes().length;
-                            long length2 = this.f1959b.getHeaderFields().toString().getBytes().length;
-                            eVar2.f1978b = length2;
+                            long length2 = this.f2585b.getHeaderFields().toString().getBytes().length;
+                            eVar2.f2604b = length2;
                             long j2 = e2;
-                            eVar2.f1978b = length2 + j2;
+                            eVar2.f2604b = length2 + j2;
                             if (e2 != 0 && length >= j2) {
-                                this.f1963f = System.currentTimeMillis();
-                                this.f1963f = System.currentTimeMillis();
+                                this.f2589f = System.currentTimeMillis();
+                                this.f2589f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(null);
-                                c.a.d.f.m.a.e(this.f1959b);
+                                c.a.d.f.m.a.e(this.f2585b);
                                 c.a.d.f.m.a.d(fileOutputStream2);
                                 return true;
                             }
                             inputStream2 = null;
                             try {
-                                inputStream2 = this.f1959b.getInputStream();
+                                inputStream2 = this.f2585b.getInputStream();
                                 byte[] bArr = new byte[1024];
                                 int i6 = e2 > 0 ? e2 / 50 : 0;
                                 if (iVar != null && length > 0) {
@@ -479,9 +479,9 @@ public class b {
                                 th = th3;
                                 inputStream3 = inputStream2;
                                 fileOutputStream = fileOutputStream2;
-                                this.f1963f = System.currentTimeMillis();
+                                this.f2589f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(inputStream3);
-                                c.a.d.f.m.a.e(this.f1959b);
+                                c.a.d.f.m.a.e(this.f2585b);
                                 c.a.d.f.m.a.d(fileOutputStream);
                                 throw th;
                             }
@@ -504,9 +504,9 @@ public class b {
             }
             inputStream3 = inputStream;
             fileOutputStream = inputStream;
-            this.f1963f = System.currentTimeMillis();
+            this.f2589f = System.currentTimeMillis();
             c.a.d.f.m.a.c(inputStream3);
-            c.a.d.f.m.a.e(this.f1959b);
+            c.a.d.f.m.a.e(this.f2585b);
             c.a.d.f.m.a.d(fileOutputStream);
             throw th;
         }
@@ -516,7 +516,7 @@ public class b {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1964g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2590g : invokeV.longValue;
     }
 
     public final HttpURLConnection f(URL url) {
@@ -557,7 +557,7 @@ public class b {
                 if (httpsURLConnection == null) {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                if (this.f1965h && url.getProtocol().equals("https")) {
+                if (this.f2591h && url.getProtocol().equals("https")) {
                     HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
                     httpsURLConnection2.setSSLSocketFactory(new j(httpsURLConnection2));
                     httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
@@ -589,19 +589,19 @@ public class b {
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1962e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2588e : invokeV.longValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1960c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2586c : invokeV.longValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f1961d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2587d : invokeV.longValue;
     }
 
     public void k(int i2, int i3, e eVar) throws Exception {
@@ -611,7 +611,7 @@ public class b {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, eVar) == null) {
-            eVar.f1986j = -1;
+            eVar.f2612j = -1;
             IHttpNet iHttpNet = null;
             try {
                 if (!this.a.c().a) {
@@ -619,56 +619,56 @@ public class b {
                     eVar.s = f2;
                     URL m = m(f2, eVar);
                     if (!this.a.c().a) {
-                        eVar.f1986j = -2;
-                        if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).a()) {
+                        eVar.f2612j = -2;
+                        if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).netABTest()) {
                             kVar = new d(this.a, IHttpNet.HttpNetType.GET);
                         } else {
                             kVar = new k(this.a, IHttpNet.HttpNetType.GET);
                         }
                         IHttpNet iHttpNet2 = kVar;
                         iHttpNet2.e(m);
-                        iHttpNet2.g(m, this.f1965h);
-                        eVar.f1986j = -3;
+                        iHttpNet2.g(m, this.f2591h);
+                        eVar.f2612j = -3;
                         long currentTimeMillis = System.currentTimeMillis();
                         iHttpNet2.a(m, i3, i2);
                         iHttpNet2.f();
                         if (!this.a.c().a) {
-                            eVar.f1983g = new Date().getTime() - currentTimeMillis;
-                            eVar.f1986j = -4;
+                            eVar.f2609g = new Date().getTime() - currentTimeMillis;
+                            eVar.f2612j = -4;
                             iHttpNet2.connect();
-                            if (this.f1960c <= 0) {
-                                this.f1960c = System.currentTimeMillis();
+                            if (this.f2586c <= 0) {
+                                this.f2586c = System.currentTimeMillis();
                             }
-                            this.f1961d = System.currentTimeMillis();
-                            eVar.f1986j = -5;
-                            eVar.f1979c = (new Date().getTime() - currentTimeMillis) - eVar.f1983g;
+                            this.f2587d = System.currentTimeMillis();
+                            eVar.f2612j = -5;
+                            eVar.f2605c = (new Date().getTime() - currentTimeMillis) - eVar.f2609g;
                             if (!this.a.c().a) {
                                 byte[] execute = iHttpNet2.execute();
                                 this.a.c().a(iHttpNet2);
                                 if (this.a.b().n() && this.o != null && this.l >= 0 && this.l < 3) {
                                     this.o.schedule(this.n, (this.l + 1) * 3000);
                                 }
-                                this.f1962e = System.currentTimeMillis();
+                                this.f2588e = System.currentTimeMillis();
                                 iHttpNet2.h();
-                                eVar.f1986j = -8;
-                                if (f2.contains("c.tieba.baidu.com") && (map = this.a.c().f2002g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                eVar.f2612j = -8;
+                                if (f2.contains("c.tieba.baidu.com") && (map = this.a.c().f2628g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                                     eVar.t = list.get(0);
                                     eVar.u = list.get(1);
                                 }
-                                if (this.a.c().f1997b == 302 && (d2 = iHttpNet2.d()) != null) {
+                                if (this.a.c().f2623b == 302 && (d2 = iHttpNet2.d()) != null) {
                                     eVar.r = d2.toString();
                                 }
-                                eVar.f1985i = this.a.c().f1997b;
-                                eVar.f1978b = iHttpNet2.b().toString().getBytes().length;
+                                eVar.f2611i = this.a.c().f2623b;
+                                eVar.f2604b = iHttpNet2.b().toString().getBytes().length;
                                 if (this.o != null) {
                                     this.o.cancel();
                                 }
                                 if (execute != null) {
-                                    eVar.f1978b += execute.length;
-                                    this.a.c().f2003h = c(this.a.c().f1999d, execute);
+                                    eVar.f2604b += execute.length;
+                                    this.a.c().f2629h = c(this.a.c().f2625d, execute);
                                 }
-                                eVar.f1986j = -9;
-                                eVar.f1980d = new Date().getTime() - currentTimeMillis;
+                                eVar.f2612j = -9;
+                                eVar.f2606d = new Date().getTime() - currentTimeMillis;
                                 Timer timer = this.o;
                                 if (timer != null) {
                                     timer.cancel();
@@ -699,7 +699,7 @@ public class b {
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1963f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2589f : invokeV.longValue;
     }
 
     public final URL m(String str, e eVar) throws Exception {
@@ -708,12 +708,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
             String str2 = "hiphotos.baidu.com";
-            boolean a2 = ((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).a();
+            boolean netABTest = ((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).netABTest();
             URL url = new URL(str);
-            if (a2 && url.getProtocol().equals("https")) {
+            if (netABTest && url.getProtocol().equals("https")) {
                 return url;
             }
-            if (!TextUtils.isEmpty(str) && this.f1967j && this.k) {
+            if (!TextUtils.isEmpty(str) && this.f2593j && this.k) {
                 try {
                     String host = url.getHost();
                     if (!TextUtils.isEmpty(host)) {
@@ -724,16 +724,16 @@ public class b {
                         if (r != null) {
                             eVar.m = r.d();
                             eVar.o = r.c();
-                            ArrayList<String> a3 = r.a();
-                            if (a3 != null && a3.size() > 0) {
-                                eVar.p = a3.toString();
-                                int size = this.l % a3.size();
-                                String str3 = a3.get(size);
+                            ArrayList<String> a2 = r.a();
+                            if (a2 != null && a2.size() > 0) {
+                                eVar.p = a2.toString();
+                                int size = this.l % a2.size();
+                                String str3 = a2.get(size);
                                 if (!TextUtils.isEmpty(str3) && (!str3.startsWith("10.") || !url.getProtocol().equals("https"))) {
                                     this.a.b().a("Host", str2);
                                     URL url2 = new URL(str.replaceFirst("://(.*)" + str2, "://" + str3));
                                     try {
-                                        this.f1965h = true;
+                                        this.f2591h = true;
                                         eVar.q = size;
                                         eVar.l = str3;
                                         eVar.n = true;
@@ -742,7 +742,7 @@ public class b {
                                         e = e2;
                                         url = url2;
                                         BdLog.e(e);
-                                        return this.f1966i ? url : url;
+                                        return this.f2592i ? url : url;
                                     }
                                 }
                             }
@@ -752,17 +752,17 @@ public class b {
                     e = e3;
                 }
             }
-            if (this.f1966i || !this.k || (b2 = c.a.d.f.j.b.a.b()) == null) {
+            if (this.f2592i || !this.k || (b2 = c.a.d.f.j.b.a.b()) == null) {
                 return url;
             }
-            String a4 = b2.a(str);
-            if (TextUtils.isEmpty(a4)) {
+            String a3 = b2.a(str);
+            if (TextUtils.isEmpty(a3)) {
                 return url;
             }
             this.a.b().a("Host", url.getHost());
-            URL url3 = new URL(str.replace("://" + url.getHost(), "://" + a4));
-            this.f1965h = true;
-            eVar.l = a4;
+            URL url3 = new URL(str.replace("://" + url.getHost(), "://" + a3));
+            this.f2591h = true;
+            eVar.l = a3;
             return url3;
         }
         return (URL) invokeLL.objValue;
@@ -771,74 +771,74 @@ public class b {
     public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.c().f1997b == 200 || this.a.c().f1997b == 206 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.c().f2623b == 200 || this.a.c().f2623b == 206 : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1965h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2591h : invokeV.booleanValue;
     }
 
     public void p(int i2, int i3, e eVar) throws Exception {
         IHttpNet kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048590, this, i2, i3, eVar) == null) {
-            eVar.f1986j = -1;
+            eVar.f2612j = -1;
             IHttpNet iHttpNet = null;
             try {
                 String l = this.a.b().l();
                 eVar.s = l;
                 URL m = m(l, eVar);
                 if (!this.a.c().a) {
-                    eVar.f1986j = -2;
-                    if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).a()) {
+                    eVar.f2612j = -2;
+                    if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).netABTest()) {
                         kVar = new d(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     } else {
                         kVar = new k(this.a, IHttpNet.HttpNetType.POST_BYTE);
                     }
                     IHttpNet iHttpNet2 = kVar;
                     iHttpNet2.e(m);
-                    iHttpNet2.g(m, this.f1965h);
-                    eVar.f1986j = -3;
+                    iHttpNet2.g(m, this.f2591h);
+                    eVar.f2612j = -3;
                     System.currentTimeMillis();
                     iHttpNet2.a(m, i3, i2);
                     if (!this.a.c().a) {
                         iHttpNet2.f();
                         if (!this.a.c().a) {
                             long time = new Date().getTime();
-                            eVar.f1983g = new Date().getTime() - time;
-                            eVar.f1986j = -4;
+                            eVar.f2609g = new Date().getTime() - time;
+                            eVar.f2612j = -4;
                             iHttpNet2.connect();
-                            if (this.f1960c <= 0) {
-                                this.f1960c = System.currentTimeMillis();
+                            if (this.f2586c <= 0) {
+                                this.f2586c = System.currentTimeMillis();
                             }
-                            this.f1961d = System.currentTimeMillis();
-                            eVar.f1986j = -5;
-                            eVar.f1979c = (new Date().getTime() - time) - eVar.f1983g;
+                            this.f2587d = System.currentTimeMillis();
+                            eVar.f2612j = -5;
+                            eVar.f2605c = (new Date().getTime() - time) - eVar.f2609g;
                             if (!this.a.c().a) {
                                 if (this.o != null) {
                                     this.o.schedule(this.m, 45000L);
                                 }
-                                eVar.f1986j = -6;
+                                eVar.f2612j = -6;
                                 iHttpNet2.c();
-                                eVar.f1986j = -7;
+                                eVar.f2612j = -7;
                                 byte[] execute = iHttpNet2.execute();
                                 this.a.c().a(iHttpNet2);
                                 iHttpNet2.h();
-                                this.f1962e = System.currentTimeMillis();
+                                this.f2588e = System.currentTimeMillis();
                                 if (!this.a.c().a) {
-                                    eVar.f1986j = -8;
-                                    eVar.f1985i = this.a.c().f1997b;
+                                    eVar.f2612j = -8;
+                                    eVar.f2611i = this.a.c().f2623b;
                                     long length = iHttpNet2.b().toString().getBytes().length;
-                                    eVar.f1978b = length;
+                                    eVar.f2604b = length;
                                     if (execute != null) {
-                                        eVar.f1978b = length + execute.length;
-                                        this.a.c().f2004i = execute.length;
-                                        this.a.c().f2003h = c(this.a.c().f1999d, execute);
+                                        eVar.f2604b = length + execute.length;
+                                        this.a.c().f2630i = execute.length;
+                                        this.a.c().f2629h = c(this.a.c().f2625d, execute);
                                     }
-                                    eVar.f1980d = new Date().getTime() - time;
-                                    eVar.f1986j = -9;
+                                    eVar.f2606d = new Date().getTime() - time;
+                                    eVar.f2612j = -9;
                                     Timer timer = this.o;
                                     if (timer != null) {
                                         timer.cancel();
@@ -872,58 +872,58 @@ public class b {
         IHttpNet kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, eVar) == null) {
-            eVar.f1986j = -1;
+            eVar.f2612j = -1;
             IHttpNet iHttpNet = null;
             try {
                 String l = this.a.b().l();
                 eVar.s = l;
                 URL m = m(l, eVar);
                 if (!this.a.c().a) {
-                    eVar.f1986j = -2;
-                    if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).a()) {
+                    eVar.f2612j = -2;
+                    if (((c.a.d.f.j.a.a) ServiceManager.getService(c.a.d.f.j.a.a.a)).netABTest()) {
                         kVar = new d(this.a, IHttpNet.HttpNetType.POST_FORM);
                     } else {
                         kVar = new k(this.a, IHttpNet.HttpNetType.POST_FORM);
                     }
                     IHttpNet iHttpNet2 = kVar;
                     iHttpNet2.e(m);
-                    iHttpNet2.g(m, this.f1965h);
+                    iHttpNet2.g(m, this.f2591h);
                     iHttpNet2.a(m, i3, i2);
-                    eVar.f1986j = -3;
+                    eVar.f2612j = -3;
                     long currentTimeMillis = System.currentTimeMillis();
                     if (!this.a.c().a) {
                         iHttpNet2.f();
                         if (!this.a.c().a) {
-                            eVar.f1983g = System.currentTimeMillis() - currentTimeMillis;
-                            eVar.f1986j = -4;
+                            eVar.f2609g = System.currentTimeMillis() - currentTimeMillis;
+                            eVar.f2612j = -4;
                             iHttpNet2.connect();
-                            if (this.f1960c <= 0) {
-                                this.f1960c = System.currentTimeMillis();
+                            if (this.f2586c <= 0) {
+                                this.f2586c = System.currentTimeMillis();
                             }
-                            this.f1961d = System.currentTimeMillis();
-                            eVar.f1986j = -5;
-                            eVar.f1979c = (System.currentTimeMillis() - currentTimeMillis) - eVar.f1983g;
+                            this.f2587d = System.currentTimeMillis();
+                            eVar.f2612j = -5;
+                            eVar.f2605c = (System.currentTimeMillis() - currentTimeMillis) - eVar.f2609g;
                             if (!this.a.c().a) {
-                                eVar.f1986j = -6;
+                                eVar.f2612j = -6;
                                 eVar.a = iHttpNet2.c();
-                                eVar.f1986j = -7;
+                                eVar.f2612j = -7;
                                 if (!this.a.c().a) {
                                     iHttpNet2.h();
-                                    this.f1962e = System.currentTimeMillis();
-                                    eVar.f1986j = -8;
+                                    this.f2588e = System.currentTimeMillis();
+                                    eVar.f2612j = -8;
                                     byte[] execute = iHttpNet2.execute();
-                                    this.f1963f = System.currentTimeMillis();
+                                    this.f2589f = System.currentTimeMillis();
                                     this.a.c().a(iHttpNet2);
-                                    eVar.f1985i = this.a.c().f1997b;
-                                    long length = this.a.c().f2002g.toString().getBytes().length;
-                                    eVar.f1978b = length;
+                                    eVar.f2611i = this.a.c().f2623b;
+                                    long length = this.a.c().f2628g.toString().getBytes().length;
+                                    eVar.f2604b = length;
                                     if (execute != null) {
-                                        eVar.f1978b = length + execute.length;
-                                        this.a.c().f2004i = execute.length;
-                                        this.a.c().f2003h = c(this.a.c().f1999d, execute);
+                                        eVar.f2604b = length + execute.length;
+                                        this.a.c().f2630i = execute.length;
+                                        this.a.c().f2629h = c(this.a.c().f2625d, execute);
                                     }
-                                    eVar.f1980d = new Date().getTime() - currentTimeMillis;
-                                    eVar.f1986j = -9;
+                                    eVar.f2606d = new Date().getTime() - currentTimeMillis;
+                                    eVar.f2612j = -9;
                                     iHttpNet2.disconnect();
                                     return;
                                 }
@@ -962,7 +962,7 @@ public class b {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f1967j = z;
+            this.f2593j = z;
         }
     }
 }

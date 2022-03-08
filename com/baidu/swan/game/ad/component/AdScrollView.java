@@ -4,20 +4,20 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import c.a.s0.h.i.c;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39905e;
+    public int f38309e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdScrollView(Context context) {
@@ -37,7 +37,7 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39905e = -1;
+        this.f38309e = -1;
     }
 
     private int getLimitHeight() {
@@ -48,7 +48,7 @@ public class AdScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i2 = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i2 - (getContext().getResources().getDimensionPixelSize(c.swan_ad_dialog_message_margin_bottom) * 2)) - getContext().getResources().getDimensionPixelSize(c.swan_ad_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(c.swan_ad_dialog_btns_height);
+            return ((i2 - (getContext().getResources().getDimensionPixelSize(R.dimen.swan_ad_dialog_message_margin_bottom) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.swan_ad_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(R.dimen.swan_ad_dialog_btns_height);
         }
         return invokeV.intValue;
     }
@@ -68,7 +68,7 @@ public class AdScrollView extends ScrollView {
             super.onMeasure(i2, i3);
             int size = View.MeasureSpec.getSize(i3);
             int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f39905e;
+            int i4 = this.f38309e;
             if (i4 > 0) {
                 size = Math.min(size, i4);
             }
@@ -91,7 +91,7 @@ public class AdScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f39905e = i2;
+            this.f38309e = i2;
         }
     }
 
@@ -114,7 +114,7 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39905e = -1;
+        this.f38309e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +136,6 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39905e = -1;
+        this.f38309e = -1;
     }
 }

@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.d.o.e.a;
-import c.a.u0.p1.d.f.b;
+import c.a.r0.o1.d.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int m;
     public static int n;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,14 +63,14 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.tip, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.tip, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.topDivider, R.color.CAM_X0205);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, b.f20419j);
+        super(context, b.f19758j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,12 +117,12 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.tip.setText(bVar.f20421f);
+            concernTipViewHolder.tip.setText(bVar.f19760f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
-            if (bVar.f20422g) {
+            if (bVar.f19761g) {
                 layoutParams.height = n;
                 concernTipViewHolder.topDivider.setVisibility(0);
-            } else if (bVar.f20423h) {
+            } else if (bVar.f19762h) {
                 layoutParams.height = m;
             }
             concernTipViewHolder.tip.setLayoutParams(layoutParams);

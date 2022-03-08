@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -37,13 +37,13 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseFragmentActivity f31479e;
+        public final /* synthetic */ PluginAdpBaseFragmentActivity f29882e;
 
         public a(PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
                     return;
                 }
             }
-            this.f31479e = pluginAdpBaseFragmentActivity;
+            this.f29882e = pluginAdpBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f31479e;
+                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f29882e;
                 pluginAdpBaseFragmentActivity.onPreLoad(pluginAdpBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -154,7 +154,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().n(getPageContext().getPageActivity());
+            b.g().o(getPageContext().getPageActivity());
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.f().l(getPageContext().getPageActivity());
+            b.g().m(getPageContext().getPageActivity());
         }
     }
 

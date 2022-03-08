@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,7 +10,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
             return;
         }
         fVar.a = jSONObject.optInt("phoneCount");
-        fVar.f55742b = jSONObject.optInt("activePhoneCount");
+        fVar.f54092b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "phoneCount", fVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f55742b);
+        com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f54092b);
         return jSONObject;
     }
 }

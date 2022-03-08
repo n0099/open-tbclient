@@ -20,7 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$id;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.cursoradapter.widget.ResourceCursorAdapter;
@@ -93,7 +94,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view.findViewById(16908309);
             this.mIcon1 = (ImageView) view.findViewById(16908295);
             this.mIcon2 = (ImageView) view.findViewById(16908296);
-            this.mIconRefine = (ImageView) view.findViewById(R.id.edit_query);
+            this.mIconRefine = (ImageView) view.findViewById(R$id.edit_query);
         }
     }
 
@@ -150,7 +151,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, charSequence)) == null) {
             if (this.mUrlColor == null) {
                 TypedValue typedValue = new TypedValue();
-                this.mContext.getTheme().resolveAttribute(R.attr.textColorSearchUrl, typedValue, true);
+                this.mContext.getTheme().resolveAttribute(R$attr.textColorSearchUrl, typedValue, true);
                 this.mUrlColor = this.mContext.getResources().getColorStateList(typedValue.resourceId);
             }
             SpannableString spannableString = new SpannableString(charSequence);
@@ -610,7 +611,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cursor, viewGroup)) == null) {
             View newView = super.newView(context, cursor, viewGroup);
             newView.setTag(new ChildViewCache(newView));
-            ((ImageView) newView.findViewById(R.id.edit_query)).setImageResource(this.mCommitIconResId);
+            ((ImageView) newView.findViewById(R$id.edit_query)).setImageResource(this.mCommitIconResId);
             return newView;
         }
         return (View) invokeLLL.objValue;

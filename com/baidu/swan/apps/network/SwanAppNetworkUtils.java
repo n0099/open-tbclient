@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.h0.u.g;
-import c.a.s0.a.k;
-import c.a.s0.a.p1.l;
-import c.a.s0.a.y1.b.e;
-import c.a.s0.a.z2.q0;
-import com.baidu.poly.widget.PolyActivity;
+import c.a.p0.a.f1.l;
+import c.a.p0.a.o1.b.e;
+import c.a.p0.a.p2.q0;
+import c.a.p0.a.x.u.g;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -28,14 +26,14 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +60,7 @@ public class SwanAppNetworkUtils {
                     return;
                 }
             }
-            NONE = new NetType(PolyActivity.NONE_PANEL_TYPE, 0, "no");
+            NONE = new NetType("NONE", 0, "no");
             WIFI = new NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
             _2G = new NetType("_2G", 2, "2g");
             _3G = new NetType("_3G", 3, "3g");
@@ -107,8 +105,8 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes11.dex */
-    public static class a implements c.a.s0.a.y1.b.a<Bundle> {
+    /* loaded from: classes5.dex */
+    public static class a implements c.a.p0.a.o1.b.a<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -132,7 +130,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.a.y1.b.a
+        @Override // c.a.p0.a.o1.b.a
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -144,7 +142,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onResult(int i2);
     }
@@ -162,7 +160,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = k.a;
+        a = c.a.p0.a.a.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {

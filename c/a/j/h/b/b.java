@@ -31,10 +31,10 @@ public abstract class b implements c.a.j.h.b.a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.j.h.b.a f4056b;
+    public static c.a.j.h.b.a f3673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f4057c;
+    public static final a f3674c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -135,7 +135,7 @@ public abstract class b implements c.a.j.h.b.a {
         public final void n(c.a.j.h.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-                b.f4056b = aVar;
+                b.f3673b = aVar;
             }
         }
 
@@ -290,7 +290,7 @@ public abstract class b implements c.a.j.h.b.a {
                             } else {
                                 lVar.b(-1);
                             }
-                            if (b.f4057c.h().d()) {
+                            if (b.f3674c.h().d()) {
                                 if (a3.b() != null) {
                                     DebugTrace debugTrace2 = DebugTrace.a;
                                     debugTrace2.a("BdtlsPostRequest response alert message=" + b2);
@@ -327,7 +327,7 @@ public abstract class b implements c.a.j.h.b.a {
                     if (b2 == null) {
                         return null;
                     }
-                    k a2 = k.f4082i.a();
+                    k a2 = k.f3699i.a();
                     a2.a((byte) 22);
                     a2.c((short) b2.length);
                     a2.j(b2);
@@ -349,7 +349,7 @@ public abstract class b implements c.a.j.h.b.a {
                     return null;
                 }
                 try {
-                    k a2 = k.f4082i.a();
+                    k a2 = k.f3699i.a();
                     a2.a((byte) 23);
                     byte[] r = mVar.r();
                     if (r != null && r.length > 0 && r.length <= 32767) {
@@ -377,15 +377,15 @@ public abstract class b implements c.a.j.h.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static volatile h f4109d;
+        public static volatile h f3726d;
         public transient /* synthetic */ FieldHolder $fh;
         public m a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ConcurrentLinkedQueue<c.a.j.h.b.b$b.h> f4110b;
+        public ConcurrentLinkedQueue<c.a.j.h.b.b$b.h> f3727b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f4111c;
+        public volatile boolean f3728c;
 
         /* loaded from: classes.dex */
         public static class a implements Function0<Unit> {
@@ -422,20 +422,20 @@ public abstract class b implements c.a.j.h.b.a {
 
         /* renamed from: c.a.j.h.b.b$h$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0186b implements Runnable {
+        public class RunnableC0168b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f4112e;
+            public final /* synthetic */ String f3729e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.j.h.b.b$f.b f4113f;
+            public final /* synthetic */ c.a.j.h.b.b$f.b f3730f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h f4114g;
+            public final /* synthetic */ h f3731g;
 
-            public RunnableC0186b(h hVar, String str, c.a.j.h.b.b$f.b bVar) {
+            public RunnableC0168b(h hVar, String str, c.a.j.h.b.b$f.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -450,16 +450,16 @@ public abstract class b implements c.a.j.h.b.a {
                         return;
                     }
                 }
-                this.f4114g = hVar;
-                this.f4112e = str;
-                this.f4113f = bVar;
+                this.f3731g = hVar;
+                this.f3729e = str;
+                this.f3730f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f4114g.l(this.f4112e, this.f4113f);
+                    this.f3731g.l(this.f3729e, this.f3730f);
                 }
             }
         }
@@ -517,7 +517,7 @@ public abstract class b implements c.a.j.h.b.a {
                                             DebugTrace.a.a("doHandShake serverHello");
                                             this.a.a.b(1);
                                             while (true) {
-                                                c.a.j.h.b.b$b.h hVar = (c.a.j.h.b.b$b.h) this.a.f4110b.poll();
+                                                c.a.j.h.b.b$b.h hVar = (c.a.j.h.b.b$b.h) this.a.f3727b.poll();
                                                 if (hVar == null) {
                                                     return;
                                                 }
@@ -535,7 +535,7 @@ public abstract class b implements c.a.j.h.b.a {
                         }
                         this.a.f(str);
                     } finally {
-                        this.a.f4111c = false;
+                        this.a.f3728c = false;
                     }
                 }
             }
@@ -555,7 +555,7 @@ public abstract class b implements c.a.j.h.b.a {
                 }
             }
             c.a.j.h.d.h.a(new a());
-            f4109d = new h();
+            f3726d = new h();
         }
 
         public h() {
@@ -572,14 +572,14 @@ public abstract class b implements c.a.j.h.b.a {
                 }
             }
             this.a = new m();
-            this.f4111c = false;
-            this.f4110b = new ConcurrentLinkedQueue<>();
+            this.f3728c = false;
+            this.f3727b = new ConcurrentLinkedQueue<>();
         }
 
         public static h b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4109d : (h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3726d : (h) invokeV.objValue;
         }
 
         public final void c(int i2, c.a.j.h.b.b$f.b bVar) {
@@ -599,7 +599,7 @@ public abstract class b implements c.a.j.h.b.a {
             int i2 = TextUtils.equals(str, "down grade") ? 2 : -1;
             this.a.b(i2);
             while (true) {
-                c.a.j.h.b.b$b.h poll = this.f4110b.poll();
+                c.a.j.h.b.b$b.h poll = this.f3727b.poll();
                 if (poll == null) {
                     return;
                 }
@@ -617,7 +617,7 @@ public abstract class b implements c.a.j.h.b.a {
         public void g(String str, c.a.j.h.b.b$f.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0186b(this, str, bVar), "SessionController");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0168b(this, str, bVar), "SessionController");
             }
         }
 
@@ -638,10 +638,10 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, bVar) == null) {
                 if (this.a.a() != 2) {
                     if (!this.a.k()) {
-                        if (this.f4110b == null) {
-                            this.f4110b = new ConcurrentLinkedQueue<>();
+                        if (this.f3727b == null) {
+                            this.f3727b = new ConcurrentLinkedQueue<>();
                         }
-                        this.f4110b.offer(new c.a.j.h.b.b$b.h(str, bVar));
+                        this.f3727b.offer(new c.a.j.h.b.b$b.h(str, bVar));
                         m();
                         return;
                     }
@@ -656,17 +656,17 @@ public abstract class b implements c.a.j.h.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 DebugTrace.a.a("doHandShake");
-                if (this.f4111c) {
+                if (this.f3728c) {
                     DebugTrace.a.a("doHandShake isHandshakeRunning");
                     return;
                 }
-                this.f4111c = true;
+                this.f3728c = true;
                 byte[] e2 = g.c().e(this.a);
                 if (e2 != null && e2.length > 0) {
                     new c.a.j.h.b.b$f.c().a(e2, new c(this));
                     return;
                 }
-                this.f4111c = false;
+                this.f3728c = false;
                 f("record data error");
             }
         }
@@ -721,7 +721,7 @@ public abstract class b implements c.a.j.h.b.a {
                 return;
             }
         }
-        f4057c = new a(null);
+        f3674c = new a(null);
     }
 
     public b() {
@@ -739,7 +739,7 @@ public abstract class b implements c.a.j.h.b.a {
     }
 
     public static final /* synthetic */ c.a.j.h.b.a m() {
-        c.a.j.h.b.a aVar = f4056b;
+        c.a.j.h.b.a aVar = f3673b;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException(Transition.MATCH_INSTANCE_STR);
         }

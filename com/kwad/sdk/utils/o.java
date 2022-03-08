@@ -4,7 +4,7 @@ import androidx.annotation.RequiresApi;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class o {
     @RequiresApi(api = 19)
     public static byte[] a(byte[] bArr) {

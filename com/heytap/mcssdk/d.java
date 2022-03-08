@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.mcs.aidl.IMcsSdkService;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class d implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Intent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f55164b;
+    public final /* synthetic */ PushManager f53514b;
 
     public d(PushManager pushManager, Intent intent) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class d implements ServiceConnection {
                 return;
             }
         }
-        this.f55164b = pushManager;
+        this.f53514b = pushManager;
         this.a = intent;
     }
 
@@ -53,7 +53,7 @@ public final class d implements ServiceConnection {
             } catch (Exception e2) {
                 LogUtil.d("bindMcsService exception:" + e2);
             }
-            context = this.f55164b.mContext;
+            context = this.f53514b.mContext;
             context.unbindService(this);
         }
     }

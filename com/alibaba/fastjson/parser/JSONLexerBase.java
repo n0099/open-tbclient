@@ -13,6 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import java.io.Closeable;
 import java.math.BigDecimal;
@@ -29,7 +31,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INT_MULTMIN_RADIX_TEN = -214748364;
@@ -158,7 +160,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                     switch (c3) {
                                         case '/':
                                             i3 = i5 + 1;
-                                            cArr2[i5] = '/';
+                                            cArr2[i5] = WebvttCueParser.CHAR_SLASH;
                                             break;
                                         case '0':
                                             i3 = i5 + 1;
@@ -288,7 +290,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                 } else if (next2 != 'x') {
                                     switch (next2) {
                                         case '/':
-                                            putChar('/');
+                                            putChar(WebvttCueParser.CHAR_SLASH);
                                             continue;
                                         case '0':
                                             putChar((char) 0);
@@ -565,7 +567,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             }
             int i2 = this.np;
             int i3 = this.sp + i2;
-            char c2 = ' ';
+            char c2 = WebvttCueParser.CHAR_SPACE;
             char charAt = charAt(i3 - 1);
             if (charAt == 'B') {
                 i3--;
@@ -582,7 +584,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i2++;
                 z = true;
             } else {
-                j2 = -9223372036854775807L;
+                j2 = C.TIME_UNSET;
             }
             long j4 = -922337203685477580L;
             if (i2 < i3) {
@@ -707,7 +709,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i2++;
             z = true;
         } else {
-            j2 = -9223372036854775807L;
+            j2 = C.TIME_UNSET;
         }
         if (i2 < i3) {
             int i4 = i2 + 1;
@@ -1625,7 +1627,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     return 0L;
                 }
             }
-            j2 = (j2 ^ ((charAt < 'A' || charAt > 'Z') ? charAt : charAt + ' ')) * 1099511628211L;
+            j2 = (j2 ^ ((charAt < 'A' || charAt > 'Z') ? charAt : charAt + WebvttCueParser.CHAR_SPACE)) * 1099511628211L;
             if (charAt == '\\') {
                 this.matchStat = -1;
                 return 0L;
@@ -4519,7 +4521,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                 } else if (next2 != 'x') {
                                     switch (next2) {
                                         case '/':
-                                            putChar('/');
+                                            putChar(WebvttCueParser.CHAR_SLASH);
                                             continue;
                                         case '0':
                                             putChar((char) 0);
@@ -5488,7 +5490,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                     switch (next2) {
                                         case '/':
                                             i2 = (i2 * 31) + 47;
-                                            putChar('/');
+                                            putChar(WebvttCueParser.CHAR_SLASH);
                                             continue;
                                         case '0':
                                             i2 = (i2 * 31) + next2;

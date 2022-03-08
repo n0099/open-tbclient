@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.ix;
 import com.xiaomi.push.jh;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

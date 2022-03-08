@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,31 +39,31 @@ public class b {
     public g D;
 
     /* renamed from: b  reason: collision with root package name */
-    public Looper f33050b;
+    public Looper f31453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f33051c;
+    public a f31454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f33052d;
+    public DefaultParams f31455d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.ar.mdl.b f33053e;
+    public com.baidu.ar.mdl.b f31456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f33054f;
+    public com.baidu.ar.lua.b f31457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f33055g;
+    public com.baidu.ar.arrender.c f31458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.ar.d.g f33056h;
+    public com.baidu.ar.d.g f31459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.ar.imu.c f33057i;
+    public com.baidu.ar.imu.c f31460i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ConcurrentHashMap<String, String> f33058j;
+    public ConcurrentHashMap<String, String> f31461j;
     public ConcurrentHashMap<String, String> k;
     public ConcurrentHashMap<String, com.baidu.ar.c> l;
     public ARProxyManager m;
@@ -79,7 +79,7 @@ public class b {
     public List<String> v;
     public com.baidu.ar.a.b w;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,8 +117,8 @@ public class b {
                             this.F.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                             return;
                         case 1002:
-                            C1775b c1775b = (C1775b) message.obj;
-                            this.F.a(c1775b.mClassName, c1775b.G);
+                            C1751b c1751b = (C1751b) message.obj;
+                            this.F.a(c1751b.mClassName, c1751b.G);
                             return;
                         case 1003:
                             d dVar = (d) message.obj;
@@ -136,15 +136,15 @@ public class b {
     }
 
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C1775b {
+    /* loaded from: classes3.dex */
+    public class C1751b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b F;
         public HashMap<String, Object> G;
         public String mClassName;
 
-        public C1775b(b bVar, String str, HashMap<String, Object> hashMap) {
+        public C1751b(b bVar, String str, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,7 +246,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,7 +311,7 @@ public class b {
                 return;
             }
         }
-        this.f33058j = new ConcurrentHashMap<>();
+        this.f31461j = new ConcurrentHashMap<>();
         this.k = new ConcurrentHashMap<>();
         this.l = new ConcurrentHashMap<>();
         this.t = new ArrayList();
@@ -319,9 +319,9 @@ public class b {
         this.v = new ArrayList();
         this.A = true;
         this.mContext = context;
-        this.f33050b = looper;
-        this.f33051c = new a(this, looper);
-        this.f33052d = defaultParams;
+        this.f31453b = looper;
+        this.f31454c = new a(this, looper);
+        this.f31455d = defaultParams;
         setMdlModelPath(defaultParams.getMdlAlgoModelPath());
         this.m = new ARProxyManager();
         this.w = bVar;
@@ -414,10 +414,10 @@ public class b {
                         if (list != null) {
                             cVar.b(list);
                         }
-                        if (!TextUtils.isEmpty(this.f33052d.getFaceAlgoModelPath())) {
-                            cVar.setFaceModelPath(this.f33052d.getFaceAlgoModelPath());
+                        if (!TextUtils.isEmpty(this.f31455d.getFaceAlgoModelPath())) {
+                            cVar.setFaceModelPath(this.f31455d.getFaceAlgoModelPath());
                         }
-                        cVar.setMdlConfigParams(this.f33053e);
+                        cVar.setMdlConfigParams(this.f31456e);
                         cVar.setup(hashMap);
                     }
                 }
@@ -509,12 +509,12 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, aRType, str, str2) == null) {
                         this.F.u.addAll(this.F.t);
-                        String str3 = (String) this.F.f33058j.get("ability_face_filter");
-                        if (TextUtils.isEmpty(str3) || this.F.f33051c == null) {
+                        String str3 = (String) this.F.f31461j.get("ability_face_filter");
+                        if (TextUtils.isEmpty(str3) || this.F.f31454c == null) {
                             return;
                         }
                         if (this.F.l.get(str3) == null) {
-                            this.F.f33051c.sendMessage(this.F.f33051c.obtainMessage(1001, new c(this.F, str3, (List<String>) this.E, true, (HashMap<String, Object>) null)));
+                            this.F.f31454c.sendMessage(this.F.f31454c.obtainMessage(1001, new c(this.F, str3, (List<String>) this.E, true, (HashMap<String, Object>) null)));
                             return;
                         }
                         ((com.baidu.ar.c) this.F.l.get(str3)).o();
@@ -609,10 +609,10 @@ public class b {
                 return null;
             }
             this.l.put(str, cVar);
-            cVar.a(this.mContext, this.f33050b);
-            cVar.a(this.f33056h, this.f33055g, this.B);
-            cVar.a(this.f33054f);
-            cVar.a(this.f33057i);
+            cVar.a(this.mContext, this.f31453b);
+            cVar.a(this.f31459h, this.f31458g, this.B);
+            cVar.a(this.f31457f);
+            cVar.a(this.f31460i);
             cVar.a(this.C);
             com.baidu.ar.a.b bVar = this.w;
             if (bVar != null) {
@@ -635,7 +635,7 @@ public class b {
                 return;
             }
             this.u.add(str);
-            if ((str.equals("ability_makeup_filter") || str.equals("ability_face_filter")) && this.f33052d.isUseMakeupFilter()) {
+            if ((str.equals("ability_makeup_filter") || str.equals("ability_face_filter")) && this.f31455d.isUseMakeupFilter()) {
                 this.u.add("ability_makeup_filter");
             }
         }
@@ -648,7 +648,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65561, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        ConcurrentHashMap<String, String> concurrentHashMap2 = this.f33058j;
+        ConcurrentHashMap<String, String> concurrentHashMap2 = this.f31461j;
         if (concurrentHashMap2 != null) {
             String str2 = concurrentHashMap2.get(str);
             if (!TextUtils.isEmpty(str2) && (concurrentHashMap = this.l) != null && (cVar = concurrentHashMap.get(str2)) != null) {
@@ -667,7 +667,7 @@ public class b {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || this.f33054f == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || this.f31457f == null) {
             return;
         }
         this.n = Arrays.asList(301, 303);
@@ -710,7 +710,7 @@ public class b {
             }
         };
         this.o = cVar;
-        this.f33054f.c(cVar);
+        this.f31457f.c(cVar);
         this.p = Arrays.asList("id");
         this.q = new LuaMsgListener(this) { // from class: com.baidu.ar.b.3
             public static /* synthetic */ Interceptable $ic;
@@ -750,7 +750,7 @@ public class b {
                 }
             }
         };
-        this.f33054f.fk().addLuaMsgListener(this.q);
+        this.f31457f.fk().addLuaMsgListener(this.q);
         this.r = Arrays.asList("event_name");
         this.s = new LuaMsgListener(this) { // from class: com.baidu.ar.b.4
             public static /* synthetic */ Interceptable $ic;
@@ -791,17 +791,17 @@ public class b {
                 }
             }
         };
-        this.f33054f.fk().addLuaMsgListener(this.s);
+        this.f31457f.fk().addLuaMsgListener(this.s);
     }
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f33054f == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f31457f == null) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("ability_name", this.u);
-        this.f33054f.b(1902, hashMap);
+        this.f31457f.b(1902, hashMap);
     }
 
     private void j() {
@@ -811,11 +811,11 @@ public class b {
             ClassLoader classLoader = b.class.getClassLoader();
             for (Map.Entry<String, String> entry : com.baidu.ar.ability.b.bx.entrySet()) {
                 if (n.a(entry.getValue(), classLoader)) {
-                    this.f33058j.put(entry.getKey(), entry.getValue());
+                    this.f31461j.put(entry.getKey(), entry.getValue());
                 }
             }
             this.k.putAll(com.baidu.ar.ability.b.bC);
-            com.baidu.ar.h.b.k("AbilityManager", "initSupportedARClasses mSupportedARClasses = " + this.f33058j.values());
+            com.baidu.ar.h.b.k("AbilityManager", "initSupportedARClasses mSupportedARClasses = " + this.f31461j.values());
             com.baidu.ar.h.b.c("AbilityManager", "initSupportedARClasses time cost = " + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
@@ -855,10 +855,10 @@ public class b {
                             return false;
                         }
                         String str2 = (String) this.F.k.get(str);
-                        if (TextUtils.isEmpty(str2) || this.F.f33051c == null) {
+                        if (TextUtils.isEmpty(str2) || this.F.f31454c == null) {
                             return false;
                         }
-                        this.F.f33051c.sendMessage(this.F.f33051c.obtainMessage(1003, new d(this.F, str2, str, eVar)));
+                        this.F.f31454c.sendMessage(this.F.f31454c.obtainMessage(1003, new d(this.F, str2, str, eVar)));
                         return true;
                     }
                     return invokeLL.booleanValue;
@@ -873,10 +873,10 @@ public class b {
                             return false;
                         }
                         String str2 = (String) this.F.k.get(str);
-                        if (TextUtils.isEmpty(str2) || this.F.f33051c == null) {
+                        if (TextUtils.isEmpty(str2) || this.F.f31454c == null) {
                             return false;
                         }
-                        this.F.f33051c.sendMessage(this.F.f33051c.obtainMessage(1001, new c(this.F, str2, hashMap, str, eVar)));
+                        this.F.f31454c.sendMessage(this.F.f31454c.obtainMessage(1001, new c(this.F, str2, hashMap, str, eVar)));
                         return true;
                     }
                     return invokeLLL.booleanValue;
@@ -922,7 +922,7 @@ public class b {
                 }
             };
             this.D = gVar;
-            this.f33055g.setCameraSwitchListener(gVar);
+            this.f31458g.setCameraSwitchListener(gVar);
         }
     }
 
@@ -932,7 +932,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : this.t) {
-                String str2 = this.f33058j.get(str);
+                String str2 = this.f31461j.get(str);
                 if (!arrayList.contains(str2)) {
                     arrayList.add(str2);
                 }
@@ -950,25 +950,25 @@ public class b {
             } else if (!com.baidu.ar.ability.a.p("ability_face_model")) {
                 return;
             } else {
-                if (this.f33052d.isUseFaceFilter()) {
+                if (this.f31455d.isUseFaceFilter()) {
                     f("ability_face_model");
                 }
             }
-            this.B.a(FilterParam.SkinFilter.whiten, aRType == ARType.FACE || this.f33052d.isUseBeautyFilter());
+            this.B.a(FilterParam.SkinFilter.whiten, aRType == ARType.FACE || this.f31455d.isUseBeautyFilter());
             String str = com.baidu.ar.ability.b.bB.get(aRType);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            String str2 = this.f33058j.get(str);
+            String str2 = this.f31461j.get(str);
             if (!TextUtils.isEmpty(str2) && this.l.get(str2) != null) {
                 this.l.get(str2).i(str);
             }
-            if (this.u.contains(str) || aRType == ARType.IMU || TextUtils.isEmpty(str2) || this.f33051c == null) {
+            if (this.u.contains(str) || aRType == ARType.IMU || TextUtils.isEmpty(str2) || this.f31454c == null) {
                 return;
             }
             this.u.add(str);
             c cVar = new c(this, str2, str, false, (HashMap<String, Object>) null);
-            a aVar = this.f33051c;
+            a aVar = this.f31454c;
             aVar.sendMessage(aVar.obtainMessage(1001, cVar));
         }
     }
@@ -976,13 +976,13 @@ public class b {
     public void a(com.baidu.ar.lua.b bVar, com.baidu.ar.arrender.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, cVar) == null) {
-            this.f33054f = bVar;
-            this.f33055g = cVar;
+            this.f31457f = bVar;
+            this.f31458g = cVar;
             cVar.d(this.u);
             l();
-            this.f33056h = new com.baidu.ar.d.g(cVar, this.f33050b);
+            this.f31459h = new com.baidu.ar.d.g(cVar, this.f31453b);
             com.baidu.ar.imu.c a2 = com.baidu.ar.a.a();
-            this.f33057i = a2;
+            this.f31460i = a2;
             if (a2 != null) {
                 try {
                     a2.setContext(this.mContext);
@@ -1007,12 +1007,12 @@ public class b {
                     this.v.add(str);
                 }
                 if (!this.u.contains(str)) {
-                    String str3 = this.f33058j.get(str);
+                    String str3 = this.f31461j.get(str);
                     if (!TextUtils.isEmpty(str3)) {
                         f(str);
-                        if (this.f33051c != null) {
+                        if (this.f31454c != null) {
                             c cVar = new c(this, str3, str, false, hashMap);
-                            a aVar = this.f33051c;
+                            a aVar = this.f31454c;
                             aVar.sendMessage(aVar.obtainMessage(1001, cVar));
                             return true;
                         }
@@ -1044,7 +1044,7 @@ public class b {
                 return false;
             }
             for (String str3 : list) {
-                this.f33058j.put(str3, str);
+                this.f31461j.put(str3, str);
             }
             if (TextUtils.isEmpty(str2)) {
                 return true;
@@ -1066,13 +1066,13 @@ public class b {
             g(str);
             ArrayList arrayList = new ArrayList();
             for (String str2 : this.u) {
-                String str3 = this.f33058j.get(str2);
+                String str3 = this.f31461j.get(str2);
                 if (!TextUtils.isEmpty(str3) && !arrayList.contains(str3)) {
                     arrayList.add(str3);
                 }
             }
-            String str4 = this.f33058j.get(str);
-            if (arrayList.contains(str4) || (aVar = this.f33051c) == null) {
+            String str4 = this.f31461j.get(str);
+            if (arrayList.contains(str4) || (aVar = this.f31454c) == null) {
                 return false;
             }
             aVar.sendMessage(aVar.obtainMessage(1003, new d(this, str4)));
@@ -1086,10 +1086,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
             if (this.u.contains(str)) {
-                if (this.f33051c != null) {
-                    C1775b c1775b = new C1775b(this, this.f33058j.get(str), hashMap);
-                    a aVar = this.f33051c;
-                    aVar.sendMessage(aVar.obtainMessage(1002, c1775b));
+                if (this.f31454c != null) {
+                    C1751b c1751b = new C1751b(this, this.f31461j.get(str), hashMap);
+                    a aVar = this.f31454c;
+                    aVar.sendMessage(aVar.obtainMessage(1002, c1751b));
                     return true;
                 }
                 return false;
@@ -1102,7 +1102,7 @@ public class b {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f33052d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f31455d == null) {
             return;
         }
         this.t.clear();
@@ -1112,7 +1112,7 @@ public class b {
         if (list != null && list.size() > 0) {
             this.u.addAll(this.v);
         }
-        if (this.f33052d.isUseFaceFilter() && com.baidu.ar.ability.a.q("ability_face_filter")) {
+        if (this.f31455d.isUseFaceFilter() && com.baidu.ar.ability.a.q("ability_face_filter")) {
             this.t.add("ability_face_filter");
             com.baidu.ar.filter.a aVar = this.B;
             if (aVar != null) {
@@ -1125,7 +1125,7 @@ public class b {
                 StatisticApi.onEventDebounce(StatisticConstants.EVENT_BEAUTIFY_ADJUST, 200L, "");
             }
         }
-        if (this.f33052d.isUseMakeupFilter()) {
+        if (this.f31455d.isUseMakeupFilter()) {
             if (com.baidu.ar.ability.a.q("ability_makeup_filter")) {
                 this.t.add("ability_makeup_filter");
             }
@@ -1156,15 +1156,15 @@ public class b {
             ArrayList<String> arrayList = new ArrayList();
             List<String> m = m();
             for (String str : this.u) {
-                String str2 = TextUtils.isEmpty(str) ? null : this.f33058j.get(str);
+                String str2 = TextUtils.isEmpty(str) ? null : this.f31461j.get(str);
                 if (!TextUtils.isEmpty(str2) && !m.contains(str2) && !arrayList.contains(str2)) {
                     arrayList.add(str2);
                 }
             }
             e();
-            if (this.f33051c != null) {
+            if (this.f31454c != null) {
                 for (String str3 : arrayList) {
-                    a aVar = this.f33051c;
+                    a aVar = this.f31454c;
                     aVar.sendMessage(aVar.obtainMessage(1003, new d(this, str3)));
                 }
             }
@@ -1192,10 +1192,10 @@ public class b {
             if (list != null && list.size() > 0) {
                 this.u.addAll(this.v);
             }
-            if (this.f33051c != null) {
+            if (this.f31454c != null) {
                 for (Map.Entry<String, com.baidu.ar.c> entry : this.l.entrySet()) {
                     if (!h(entry.getKey())) {
-                        a aVar2 = this.f33051c;
+                        a aVar2 = this.f31454c;
                         aVar2.sendMessage(aVar2.obtainMessage(1003, new d(this, entry.getKey())));
                     }
                 }
@@ -1220,7 +1220,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, String> entry : this.f33058j.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f31461j.entrySet()) {
                 arrayList.add(entry.getKey());
             }
             return arrayList;
@@ -1237,7 +1237,7 @@ public class b {
                 return false;
             }
             for (String str2 : list) {
-                if (str.equals(this.f33058j.get(str2))) {
+                if (str.equals(this.f31461j.get(str2))) {
                     return true;
                 }
             }
@@ -1255,7 +1255,7 @@ public class b {
     public boolean isAbilitySupported(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.f33058j.get(str) != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.f31461j.get(str) != null : invokeL.booleanValue;
     }
 
     public void onCaseCreate(String str) {
@@ -1301,13 +1301,13 @@ public class b {
                 cVar.release();
             }
             this.l.clear();
-            this.f33058j.clear();
-            com.baidu.ar.lua.b bVar = this.f33054f;
+            this.f31461j.clear();
+            com.baidu.ar.lua.b bVar = this.f31457f;
             if (bVar != null && bVar.fk() != null) {
-                this.f33054f.d(this.o);
-                this.f33054f.fk().removeLuaMsgListener(this.q);
-                this.f33054f.fk().removeLuaMsgListener(this.s);
-                this.f33054f = null;
+                this.f31457f.d(this.o);
+                this.f31457f.fk().removeLuaMsgListener(this.q);
+                this.f31457f.fk().removeLuaMsgListener(this.s);
+                this.f31457f = null;
                 this.o = null;
                 this.q = null;
                 this.s = null;
@@ -1315,15 +1315,15 @@ public class b {
             this.n = null;
             this.p = null;
             this.r = null;
-            com.baidu.ar.imu.c cVar2 = this.f33057i;
+            com.baidu.ar.imu.c cVar2 = this.f31460i;
             if (cVar2 != null) {
                 cVar2.destroy();
-                this.f33057i = null;
+                this.f31460i = null;
             }
-            com.baidu.ar.d.g gVar = this.f33056h;
+            com.baidu.ar.d.g gVar = this.f31459h;
             if (gVar != null) {
                 gVar.release();
-                this.f33056h = null;
+                this.f31459h = null;
             }
             List<String> list = this.v;
             if (list != null) {
@@ -1331,11 +1331,11 @@ public class b {
                 this.v = null;
             }
             this.mContext = null;
-            this.f33050b = null;
-            this.f33052d = null;
-            this.f33053e = null;
+            this.f31453b = null;
+            this.f31455d = null;
+            this.f31456e = null;
             this.B = null;
-            this.f33055g = null;
+            this.f31458g = null;
             if (this.w != null) {
                 this.w = null;
             }
@@ -1355,10 +1355,10 @@ public class b {
     public void setMdlModelPath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            if (this.f33053e == null) {
-                this.f33053e = new com.baidu.ar.mdl.b();
+            if (this.f31456e == null) {
+                this.f31456e = new com.baidu.ar.mdl.b();
             }
-            this.f33053e.a(str, this.mContext);
+            this.f31456e.a(str, this.mContext);
         }
     }
 

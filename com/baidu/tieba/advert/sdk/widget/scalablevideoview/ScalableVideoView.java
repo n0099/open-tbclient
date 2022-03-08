@@ -10,17 +10,17 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.y.a.j.a.a;
-import c.a.u0.y.a.j.a.b;
+import c.a.r0.y.a.j.a.a;
+import c.a.r0.y.a.j.a.b;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R$styleable;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -340,10 +340,10 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.mScalableType = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.scaleStyle, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.scalableType}, 0, 0)) == null) {
             return;
         }
-        int i5 = obtainStyledAttributes.getInt(R$styleable.scaleStyle_scalableType, ScalableType.NONE.ordinal());
+        int i5 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
         obtainStyledAttributes.recycle();
         this.mScalableType = ScalableType.values()[i5];
     }

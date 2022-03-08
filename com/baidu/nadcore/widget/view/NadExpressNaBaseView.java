@@ -8,21 +8,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.d.e;
-import c.a.d0.l0.x.a;
-import c.a.d0.l0.z.b;
-import c.a.d0.l0.z.c;
-import c.a.d0.s.s;
+import c.a.b0.l0.p.a;
+import c.a.b0.l0.r.b;
+import c.a.b0.l0.r.c;
+import c.a.b0.s.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
 import com.baidu.nadcore.widget.uitemplate.NadExpressBottomView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public void doInitLayout(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.mTitle = (TextView) findViewById(e.nad_feed_template_base_title_id);
-            this.mLabelView = (NadExpressBottomView) findViewById(e.nad_feed_ad_label_view);
+            this.mTitle = (TextView) findViewById(R.id.nad_feed_template_base_title_id);
+            this.mLabelView = (NadExpressBottomView) findViewById(R.id.nad_feed_ad_label_view);
             initLayout(context);
         }
     }
@@ -154,7 +154,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(c.a.d0.l0.x.b bVar) {
+    public void setViewStatChangeListener(c.a.b0.l0.p.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             super.setViewStatChangeListener(bVar);
@@ -180,7 +180,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             updateTitleColor(adBaseModel);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setText(adBaseModel.f37258f.f3096g);
+                textView.setText(adBaseModel.f35661f.f1926g);
             }
         }
     }
@@ -198,7 +198,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 if (aVar != null) {
                     this.mNadExpressOperateBar.h(aVar);
                 }
-                c.a.d0.l0.x.b bVar = this.mFeedListener;
+                c.a.b0.l0.p.b bVar = this.mFeedListener;
                 if (bVar != null) {
                     this.mNadExpressOperateBar.f(bVar);
                 }
@@ -217,7 +217,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         }
         s sVar = adBaseModel.q;
         if (sVar == null || sVar.l) {
-            int i2 = adBaseModel.f37254b ? c.a.d0.d.b.NAD_FC4 : c.a.d0.d.b.NAD_FC1;
+            int i2 = adBaseModel.f35657b ? R.color.NAD_FC4 : R.color.NAD_FC1;
             TextView textView = this.mTitle;
             textView.setTextColor(textView.getContext().getResources().getColor(i2));
         }

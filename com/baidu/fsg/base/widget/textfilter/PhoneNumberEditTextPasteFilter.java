@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PhoneNumberEditTextPasteFilter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34207b = "86";
+    public static final String f32610b = "86";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

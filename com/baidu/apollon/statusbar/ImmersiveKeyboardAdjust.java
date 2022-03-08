@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class ImmersiveKeyboardAdjust {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class ImmersiveKeyboardAdjust {
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ImmersiveKeyboardAdjust f32887b;
+                public final /* synthetic */ ImmersiveKeyboardAdjust f31290b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class ImmersiveKeyboardAdjust {
                             return;
                         }
                     }
-                    this.f32887b = this;
+                    this.f31290b = this;
                     this.a = view;
                 }
 
@@ -85,12 +85,12 @@ public class ImmersiveKeyboardAdjust {
                     int computeUsableHeight;
                     View view2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f32887b.computeUsableHeight(this.a)) == this.f32887b.usableHeightPrevious || (view2 = this.a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f31290b.computeUsableHeight(this.a)) == this.f31290b.usableHeightPrevious || (view2 = this.a) == null) {
                         return;
                     }
                     view2.getLayoutParams().height = computeUsableHeight;
                     this.a.requestLayout();
-                    this.f32887b.usableHeightPrevious = computeUsableHeight;
+                    this.f31290b.usableHeightPrevious = computeUsableHeight;
                 }
             };
         }

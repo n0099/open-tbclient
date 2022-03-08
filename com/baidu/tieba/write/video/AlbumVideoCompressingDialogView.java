@@ -5,24 +5,23 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f49871e;
+    public AlbumCompressProgressView f48290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49872f;
+    public TextView f48291f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -48,9 +47,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(h.dailog_album_video_compress, this);
-            this.f49871e = (AlbumCompressProgressView) findViewById(g.view_compress_progress);
-            this.f49872f = (TextView) findViewById(g.txt_compress_progress);
+            LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
+            this.f48290e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+            this.f48291f = (TextView) findViewById(R.id.txt_compress_progress);
         }
     }
 
@@ -65,8 +64,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f49871e.setProgress(i2);
-        TextView textView = this.f49872f;
+        this.f48290e.setProgress(i2);
+        TextView textView = this.f48291f;
         textView.setText(i2 + "%");
     }
 

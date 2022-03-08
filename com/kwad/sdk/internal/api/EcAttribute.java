@@ -1,7 +1,7 @@
 package com.kwad.sdk.internal.api;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class EcAttribute implements Serializable {
     public static final long serialVersionUID = 5648759570127504312L;
     public String comment;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class hp {
     public static /* synthetic */ Interceptable $ic;
     public static final hp A;
@@ -42,31 +42,31 @@ public final class hp {
     public static final /* synthetic */ hp[] f513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hp f61416b;
+    public static final hp f59766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hp f61417c;
+    public static final hp f59767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hp f61418d;
+    public static final hp f59768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hp f61419e;
+    public static final hp f59769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hp f61420f;
+    public static final hp f59770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hp f61421g;
+    public static final hp f59771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hp f61422h;
+    public static final hp f59772h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hp f61423i;
+    public static final hp f59773i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hp f61424j;
+    public static final hp f59774j;
     public static final hp k;
     public static final hp l;
     public static final hp m;
@@ -102,15 +102,15 @@ public final class hp {
             }
         }
         a = new hp("Invalid", 0, "INVALID");
-        f61416b = new hp("BarClick", 1, "bar:click");
-        f61417c = new hp("BarCancel", 2, "bar:cancel");
-        f61418d = new hp("AppOpen", 3, "app:open");
-        f61419e = new hp("PackageUninstall", 4, "package uninstalled");
-        f61420f = new hp("AppUninstall", 5, "app_uninstalled");
-        f61421g = new hp("ClientInfoUpdate", 6, "client_info_update");
-        f61422h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
-        f61423i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
-        f61424j = new hp("PullOfflineMessage", 9, "pull");
+        f59766b = new hp("BarClick", 1, "bar:click");
+        f59767c = new hp("BarCancel", 2, "bar:cancel");
+        f59768d = new hp("AppOpen", 3, "app:open");
+        f59769e = new hp("PackageUninstall", 4, "package uninstalled");
+        f59770f = new hp("AppUninstall", 5, "app_uninstalled");
+        f59771g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        f59772h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        f59773i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
+        f59774j = new hp("PullOfflineMessage", 9, "pull");
         k = new hp("IosSleep", 10, "ios_sleep");
         l = new hp("IosWakeUp", 11, "ios_wakeup");
         m = new hp("AwakeApp", 12, "awake_app");
@@ -152,7 +152,7 @@ public final class hp {
         W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
         hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
         X = hpVar;
-        f513a = new hp[]{a, f61416b, f61417c, f61418d, f61419e, f61420f, f61421g, f61422h, f61423i, f61424j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+        f513a = new hp[]{a, f59766b, f59767c, f59768d, f59769e, f59770f, f59771g, f59772h, f59773i, f59774j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
     }
 
     public hp(String str, int i2, String str2) {

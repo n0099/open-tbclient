@@ -3,7 +3,7 @@ package com.kwad.sdk.core.a;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.p;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g implements i {
     @Override // com.kwad.sdk.core.a.i
     public String a(String str) {

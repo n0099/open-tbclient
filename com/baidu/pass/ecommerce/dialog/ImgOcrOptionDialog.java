@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public OptionOnClickListener optionOnClickListener;
     public TextView takePhotoTv;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OptionOnClickListener {
         public static final int OPTION_CHOOSE_IMG_TYPE = 1002;
         public static final int OPTION_TAKE_PHOTO_TYPE = 1001;

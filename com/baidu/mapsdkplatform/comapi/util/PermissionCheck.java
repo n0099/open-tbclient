@@ -19,41 +19,41 @@ import com.kuaishou.weapon.un.x;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class PermissionCheck {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36304b = 202;
+    public static int f34707b = 202;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f36305c = 252;
+    public static int f34708c = 252;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36306d = "PermissionCheck";
+    public static final String f34709d = "PermissionCheck";
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f36307e = null;
+    public static Context f34710e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36308f = null;
+    public static String f34711f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Hashtable<String, String> f36309g = null;
+    public static Hashtable<String, String> f34712g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static LBSAuthManager f36310h = null;
+    public static LBSAuthManager f34713h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static LBSAuthManagerListener f36311i = null;
+    public static LBSAuthManagerListener f34714i = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static c f36312j = null;
+    public static c f34715j = null;
     public static int k = 601;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a implements LBSAuthManagerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +81,9 @@ public class PermissionCheck {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (str == null) {
-                    String unused = PermissionCheck.f36306d;
+                    String unused = PermissionCheck.f34709d;
                     int permissionCheck = PermissionCheck.permissionCheck();
-                    String unused2 = PermissionCheck.f36306d;
+                    String unused2 = PermissionCheck.f34709d;
                     String str2 = "onAuthResult try permissionCheck result is: " + permissionCheck;
                     return;
                 }
@@ -94,51 +94,51 @@ public class PermissionCheck {
                         bVar.a = jSONObject.optInt("status");
                     }
                     if (jSONObject.has("appid")) {
-                        bVar.f36314c = jSONObject.optString("appid");
+                        bVar.f34717c = jSONObject.optString("appid");
                     }
                     if (jSONObject.has("uid")) {
-                        bVar.f36313b = jSONObject.optString("uid");
+                        bVar.f34716b = jSONObject.optString("uid");
                     }
                     if (jSONObject.has("message")) {
-                        bVar.f36315d = jSONObject.optString("message");
+                        bVar.f34718d = jSONObject.optString("message");
                     }
                     if (jSONObject.has("token")) {
-                        bVar.f36316e = jSONObject.optString("token");
+                        bVar.f34719e = jSONObject.optString("token");
                     }
                     if (jSONObject.has("ak_permission")) {
-                        bVar.f36317f = jSONObject.optInt("ak_permission");
+                        bVar.f34720f = jSONObject.optInt("ak_permission");
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
                 int unused3 = PermissionCheck.k = bVar.a;
-                if (PermissionCheck.f36312j != null) {
-                    PermissionCheck.f36312j.a(bVar);
+                if (PermissionCheck.f34715j != null) {
+                    PermissionCheck.f34715j.a(bVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36313b;
+        public String f34716b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36314c;
+        public String f34717c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36315d;
+        public String f34718d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f36316e;
+        public String f34719e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f36317f;
+        public int f34720f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -154,19 +154,19 @@ public class PermissionCheck {
                 }
             }
             this.a = 0;
-            this.f36313b = "-1";
-            this.f36314c = "-1";
-            this.f36315d = "";
+            this.f34716b = "-1";
+            this.f34717c = "-1";
+            this.f34718d = "";
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f36307e), PermissionCheck.f36308f, Integer.valueOf(this.a), this.f36313b, this.f36314c, this.f36315d) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f34710e), PermissionCheck.f34711f, Integer.valueOf(this.a), this.f34716b, this.f34717c, this.f34718d) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(b bVar);
     }
@@ -203,9 +203,9 @@ public class PermissionCheck {
     public static void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f36312j = null;
-            f36307e = null;
-            f36311i = null;
+            f34715j = null;
+            f34710e = null;
+            f34714i = null;
         }
     }
 
@@ -220,49 +220,49 @@ public class PermissionCheck {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            f36307e = context;
+            f34710e = context;
             try {
-                applicationInfo = context.getPackageManager().getApplicationInfo(f36307e.getPackageName(), 128);
+                applicationInfo = context.getPackageManager().getApplicationInfo(f34710e.getPackageName(), 128);
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
                 applicationInfo = null;
             }
             if (applicationInfo != null) {
-                f36308f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
+                f34711f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
             }
-            if (f36309g == null) {
-                f36309g = new Hashtable<>();
+            if (f34712g == null) {
+                f34712g = new Hashtable<>();
             }
-            if (f36310h == null) {
-                f36310h = LBSAuthManager.getInstance(f36307e);
+            if (f34713h == null) {
+                f34713h = LBSAuthManager.getInstance(f34710e);
             }
-            if (f36311i == null) {
-                f36311i = new a(null);
+            if (f34714i == null) {
+                f34714i = new a(null);
             }
             try {
-                str = context.getPackageManager().getPackageInfo(f36307e.getPackageName(), 0).applicationInfo.loadLabel(f36307e.getPackageManager()).toString();
+                str = context.getPackageManager().getPackageInfo(f34710e.getPackageName(), 0).applicationInfo.loadLabel(f34710e.getPackageManager()).toString();
             } catch (Exception e3) {
                 e3.printStackTrace();
                 str = "";
             }
             Bundle b2 = i.b();
             if (b2 != null) {
-                f36309g.put(FunAdSdk.PLATFORM_MB, b2.getString(FunAdSdk.PLATFORM_MB));
-                f36309g.put(UrlOcrConfig.IdCardKey.OS, b2.getString(UrlOcrConfig.IdCardKey.OS));
-                f36309g.put("sv", b2.getString("sv"));
-                f36309g.put("imt", "1");
-                f36309g.put("net", b2.getString("net"));
-                f36309g.put("cpu", b2.getString("cpu"));
-                f36309g.put("glr", b2.getString("glr"));
-                f36309g.put("glv", b2.getString("glv"));
-                f36309g.put("resid", b2.getString("resid"));
-                f36309g.put("appid", "-1");
-                f36309g.put("ver", "1");
-                f36309g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
-                f36309g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
-                f36309g.put(x.x, b2.getString(x.x));
-                f36309g.put("cuid", b2.getString("cuid"));
-                f36309g.put("name", str);
+                f34712g.put(FunAdSdk.PLATFORM_MB, b2.getString(FunAdSdk.PLATFORM_MB));
+                f34712g.put(UrlOcrConfig.IdCardKey.OS, b2.getString(UrlOcrConfig.IdCardKey.OS));
+                f34712g.put("sv", b2.getString("sv"));
+                f34712g.put("imt", "1");
+                f34712g.put("net", b2.getString("net"));
+                f34712g.put("cpu", b2.getString("cpu"));
+                f34712g.put("glr", b2.getString("glr"));
+                f34712g.put("glv", b2.getString("glv"));
+                f34712g.put("resid", b2.getString("resid"));
+                f34712g.put("appid", "-1");
+                f34712g.put("ver", "1");
+                f34712g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
+                f34712g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
+                f34712g.put(x.x, b2.getString(x.x));
+                f34712g.put("cuid", b2.getString("cuid"));
+                f34712g.put("name", str);
             }
         }
     }
@@ -272,14 +272,14 @@ public class PermissionCheck {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (PermissionCheck.class) {
-                if (f36310h != null && f36311i != null && f36307e != null) {
-                    int authenticate = f36310h.authenticate(false, "lbs_androidmapsdk", f36309g, f36311i);
+                if (f34713h != null && f34714i != null && f34710e != null) {
+                    int authenticate = f34713h.authenticate(false, "lbs_androidmapsdk", f34712g, f34714i);
                     if (authenticate != 0) {
                         String str = "permission check result is: " + authenticate;
                     }
                     return authenticate;
                 }
-                String str2 = "The authManager is: " + f36310h + "; the authCallback is: " + f36311i + "; the mContext is: " + f36307e;
+                String str2 = "The authManager is: " + f34713h + "; the authCallback is: " + f34714i + "; the mContext is: " + f34710e;
                 return 0;
             }
         }
@@ -289,7 +289,7 @@ public class PermissionCheck {
     public static void setPermissionCheckResultListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, cVar) == null) {
-            f36312j = cVar;
+            f34715j = cVar;
         }
     }
 }

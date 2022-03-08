@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.report.ReportAction;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,7 +11,7 @@ public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
             return;
         }
         aVar.a = jSONObject.optInt("posIdWidth");
-        aVar.f56238b = jSONObject.optInt("posIdHeight");
+        aVar.f54588b = jSONObject.optInt("posIdHeight");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "posIdWidth", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "posIdHeight", aVar.f56238b);
+        com.kwad.sdk.utils.t.a(jSONObject, "posIdHeight", aVar.f54588b);
         return jSONObject;
     }
 }

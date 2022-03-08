@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class GuidPageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidPageView f40592e;
+        public final /* synthetic */ GuidPageView f38996e;
 
         public a(GuidPageView guidPageView) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class GuidPageView extends ImageView {
                     return;
                 }
             }
-            this.f40592e = guidPageView;
+            this.f38996e = guidPageView;
         }
 
         @Override // android.view.View.OnClickListener

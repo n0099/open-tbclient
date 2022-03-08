@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class b extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             g gVar = new g();
             try {
-                jSONObject = new JSONObject(new String(eVar.f32527b));
+                jSONObject = new JSONObject(new String(eVar.f30930b));
             } catch (JSONException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 jSONObject = null;
@@ -55,7 +55,7 @@ public class b extends c {
                 com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
                 m.c(this.a);
             }
-            new b.C1753b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C1729b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

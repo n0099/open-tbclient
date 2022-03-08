@@ -29,7 +29,7 @@ import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TbFlutterFragment extends FlutterBaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

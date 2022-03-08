@@ -1,34 +1,34 @@
 package com.kwad.sdk.c.kwai;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d extends com.kwad.sdk.core.response.kwai.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55679b;
+    public String f54029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55680c;
+    public String f54030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55681d;
+    public String f54031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55682e;
+    public String f54032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55683f;
+    public String f54033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55684g;
+    public int f54034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55685h;
+    public int f54035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f55686i;
+    public boolean f54036i;
 
     public String a() {
-        return this.f55683f;
+        return this.f54033f;
     }
 
     public void a(String str) {
@@ -40,30 +40,30 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
     }
 
     public void b(String str) {
-        this.f55682e = str;
+        this.f54032e = str;
     }
 
     public String c() {
-        return this.f55682e;
+        return this.f54032e;
     }
 
     public void c(String str) {
-        this.f55680c = str;
+        this.f54030c = str;
     }
 
     public String d() {
-        return this.f55681d;
+        return this.f54031d;
     }
 
     public void d(String str) {
-        this.f55679b = str;
+        this.f54029b = str;
     }
 
     public String e() {
-        return this.f55680c;
+        return this.f54030c;
     }
 
     public String f() {
-        return this.f55679b;
+        return this.f54029b;
     }
 }

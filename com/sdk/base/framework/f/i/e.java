@@ -11,13 +11,13 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.sdk.base.framework.c.f;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f59479b;
+    public static boolean f57829b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class e extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f59479b = f.f59448b;
+        f57829b = f.f57798b;
     }
 
     public e() {
@@ -71,7 +71,7 @@ public class e extends com.sdk.base.framework.f.a {
                 }
                 return sb.toString();
             } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f59479b);
+                com.sdk.base.framework.f.a.a(a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f57829b);
                 return null;
             }
         }

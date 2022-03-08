@@ -3,7 +3,6 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
@@ -17,13 +16,14 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -122,7 +122,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 this.u = getIntent().getStringExtra("EXTRA_BDUSS");
                 SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
                 if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {

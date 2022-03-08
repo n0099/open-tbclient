@@ -13,23 +13,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 @SuppressLint({"UseSparseArrays", "StaticFieldLeak"})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaiduTraffic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "BaiduTraffic";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Object> f51226b;
+    public final Map<Integer, Object> f49645b;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PayStateTrafficModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -58,7 +58,7 @@ public class BaiduTraffic {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static BaiduTraffic a;
@@ -119,7 +119,7 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f51226b = new HashMap();
+        this.f49645b = new HashMap();
     }
 
     public boolean a(String str) {

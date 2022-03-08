@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class StickinessScoreManager implements IStickinessScoreManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

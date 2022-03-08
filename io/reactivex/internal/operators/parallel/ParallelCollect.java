@@ -17,7 +17,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
     public final Callable<? extends C> initialCollection;
     public final ParallelFlowable<? extends T> source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ParallelCollectSubscriber<T, C> extends DeferredScalarSubscriber<T, C> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4767392946044436228L;

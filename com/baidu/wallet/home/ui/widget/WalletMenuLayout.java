@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WalletMenuLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(HomeCfgResponse.TitleItemData titleItemData);
     }
@@ -72,10 +72,10 @@ public class WalletMenuLayout extends LinearLayout {
                         public final /* synthetic */ a a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ HomeCfgResponse.TitleItemData f51372b;
+                        public final /* synthetic */ HomeCfgResponse.TitleItemData f49791b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ WalletMenuLayout f51373c;
+                        public final /* synthetic */ WalletMenuLayout f49792c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -92,16 +92,16 @@ public class WalletMenuLayout extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f51373c = this;
+                            this.f49792c = this;
                             this.a = aVar;
-                            this.f51372b = titleItemData;
+                            this.f49791b = titleItemData;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.a.a(this.f51372b);
+                                this.a.a(this.f49791b);
                             }
                         }
                     });

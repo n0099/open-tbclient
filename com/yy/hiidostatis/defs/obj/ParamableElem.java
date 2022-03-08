@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ParamableElem implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_PARAM = ";";

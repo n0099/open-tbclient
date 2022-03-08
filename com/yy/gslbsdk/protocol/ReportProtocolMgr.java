@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.db.HijackTB;
 import com.yy.gslbsdk.util.GlobalTools;
@@ -14,7 +13,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ReportProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ReportProtocolMgr";
@@ -51,7 +50,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());
-                    jSONObject.put(k.f34048h, reportInfo.getLc());
+                    jSONObject.put(k.f32451h, reportInfo.getLc());
                     JSONArray jSONArray = new JSONArray();
                     StatsInfo stats0 = reportInfo.getStats0();
                     JSONObject jSONObject2 = new JSONObject();
@@ -111,7 +110,7 @@ public class ReportProtocolMgr {
                     jSONObject.put("ct", reportInfo.getCt());
                 }
                 if (reportInfo.getTt() != -1) {
-                    jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, reportInfo.getTt());
+                    jSONObject.put("tt", reportInfo.getTt());
                 }
                 if (reportInfo.getHijack() != null) {
                     JSONArray jSONArray7 = new JSONArray();

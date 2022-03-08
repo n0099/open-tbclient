@@ -20,28 +20,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48797e;
+    public a f47216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48798f;
+    public int f47217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f48799g;
+    public Paint f47218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f48800h;
+    public Paint f47219h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f48801i;
+    public Paint f47220i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f48802j;
+    public Paint f47221j;
     public Paint k;
     public float l;
     public float m;
@@ -59,7 +59,7 @@ public class ProgressView extends View {
     public long y;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -146,7 +146,7 @@ public class ProgressView extends View {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i2);
     }
@@ -186,22 +186,22 @@ public class ProgressView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f48799g = new Paint();
-            this.f48800h = new Paint();
-            this.f48801i = new Paint();
+            this.f47218g = new Paint();
+            this.f47219h = new Paint();
+            this.f47220i = new Paint();
             this.k = new Paint();
-            this.f48802j = new Paint();
+            this.f47221j = new Paint();
             setBackgroundColor(Color.parseColor("#FFFFFF"));
-            this.f48799g.setStyle(Paint.Style.FILL);
-            this.f48799g.setColor(Color.parseColor("#33aaff"));
-            this.f48800h.setStyle(Paint.Style.FILL);
-            this.f48800h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
-            this.f48801i.setStyle(Paint.Style.FILL);
-            this.f48801i.setColor(Color.parseColor("#FFFFFF"));
+            this.f47218g.setStyle(Paint.Style.FILL);
+            this.f47218g.setColor(Color.parseColor("#33aaff"));
+            this.f47219h.setStyle(Paint.Style.FILL);
+            this.f47219h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+            this.f47220i.setStyle(Paint.Style.FILL);
+            this.f47220i.setColor(Color.parseColor("#FFFFFF"));
             this.k.setStyle(Paint.Style.FILL);
             this.k.setColor(Color.parseColor("#e53917"));
-            this.f48802j.setStyle(Paint.Style.FILL);
-            this.f48802j.setColor(Color.parseColor("#33aaff"));
+            this.f47221j.setStyle(Paint.Style.FILL);
+            this.f47221j.setColor(Color.parseColor("#33aaff"));
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
             float f2 = displayMetrics.widthPixels / 15000.0f;
@@ -273,17 +273,17 @@ public class ProgressView extends View {
                         f4 = 1.0f;
                     }
                     float f5 = f4;
-                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f48799g);
-                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f48801i);
+                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f47218g);
+                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f47220i);
                     j3 = intValue;
                 }
                 if (this.n.getLast().intValue() <= 3000.0f) {
                     float f6 = this.o;
-                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f48800h);
+                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f47219h);
                 }
             } else {
                 float f7 = this.o;
-                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f48800h);
+                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f47219h);
             }
             if (this.p == State.ROLLBACK) {
                 float f8 = this.r;
@@ -295,28 +295,28 @@ public class ProgressView extends View {
                 float f10 = this.r + f9;
                 if (f10 <= getMeasuredWidth()) {
                     float f11 = this.r;
-                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f48799g);
+                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f47218g);
                 } else {
-                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f48799g);
+                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f47218g);
                 }
                 float f12 = f10 - 5.0f;
                 long j4 = this.y;
-                canvas.drawRect(f12, 0.0f, f12 + ((float) j4), (float) (j4 - 1), this.f48802j);
-                if (this.f48797e != null) {
+                canvas.drawRect(f12, 0.0f, f12 + ((float) j4), (float) (j4 - 1), this.f47221j);
+                if (this.f47216e != null) {
                     int measuredWidth = (int) ((f10 / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth <= 100 ? measuredWidth : 100;
-                    if (i2 != this.f48798f) {
-                        this.f48798f = i2;
-                        this.f48797e.a(i2);
+                    if (i2 != this.f47217f) {
+                        this.f47217f = i2;
+                        this.f47216e.a(i2);
                     }
                 }
             } else {
-                if (this.f48797e != null) {
+                if (this.f47216e != null) {
                     int measuredWidth2 = (int) ((this.r / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth2 <= 100 ? measuredWidth2 : 100;
-                    if (i2 != this.f48798f) {
-                        this.f48798f = i2;
-                        this.f48797e.a(i2);
+                    if (i2 != this.f47217f) {
+                        this.f47217f = i2;
+                        this.f47216e.a(i2);
                     }
                 }
                 long j5 = this.v;
@@ -327,7 +327,7 @@ public class ProgressView extends View {
                 if (this.q) {
                     float f13 = this.r;
                     long j6 = this.y;
-                    canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j6), (float) (j6 - 1), this.f48802j);
+                    canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j6), (float) (j6 - 1), this.f47221j);
                 }
             }
             this.u = System.currentTimeMillis();
@@ -352,7 +352,7 @@ public class ProgressView extends View {
             this.u = 0L;
             this.w = 0L;
             this.x = 0L;
-            this.f48798f = 0;
+            this.f47217f = 0;
             this.v = 0L;
         }
     }
@@ -375,7 +375,7 @@ public class ProgressView extends View {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f48797e = aVar;
+            this.f47216e = aVar;
         }
     }
 

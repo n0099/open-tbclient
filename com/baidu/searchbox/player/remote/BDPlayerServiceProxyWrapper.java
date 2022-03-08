@@ -12,21 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BDPlayerServiceProxyWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static final IPlayerServiceProxy EMPTY;
     public static volatile IPlayerServiceProxy mHelper;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface IPlayerServiceProxy {
         long getNetHandle();
 
         void onServiceBind(Context context);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Impl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

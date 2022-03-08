@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class g extends e {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Application, c.b.b.q.a<g>> n;
@@ -46,7 +46,7 @@ public class g extends e {
         if (!(interceptable == null || interceptable.invokeL(65538, null, application) == null) || (aVar = n.get(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < aVar.f27595f; i2++) {
+        for (int i2 = 0; i2 < aVar.f27499f; i2++) {
             aVar.get(i2).w();
         }
     }
@@ -65,14 +65,14 @@ public class g extends e {
             }
             this.m = hVar;
             a();
-            c.b.b.f.f27175g.O(35866, 0, hVar.c(), hVar.getWidth(), hVar.getHeight(), hVar.getDepth(), 0, hVar.c(), hVar.e(), null);
+            c.b.b.f.f27079g.O(35866, 0, hVar.c(), hVar.getWidth(), hVar.getHeight(), hVar.getDepth(), 0, hVar.c(), hVar.e(), null);
             if (!hVar.a()) {
                 hVar.prepare();
             }
             hVar.d();
-            l(this.f27321g, this.f27322h);
-            m(this.f27323i, this.f27324j);
-            c.b.b.f.f27173e.N(this.f27319e, 0);
+            l(this.f27225g, this.f27226h);
+            m(this.f27227i, this.f27228j);
+            c.b.b.f.f27077e.N(this.f27223e, 0);
         }
     }
 
@@ -80,7 +80,7 @@ public class g extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (u()) {
-                this.f27320f = c.b.b.f.f27173e.a();
+                this.f27224f = c.b.b.f.f27077e.a();
                 v(this.m);
                 return;
             }

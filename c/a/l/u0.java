@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class u0 extends a<c.a.t0.s.r.a> {
+public class u0 extends a<c.a.q0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.u0.g0.n f4432j;
+    public c.a.r0.f0.n f4086j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u0(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -36,23 +36,23 @@ public class u0 extends a<c.a.t0.s.r.a> {
                 return;
             }
         }
-        this.f4432j = new c.a.u0.g0.n(tbPageContext, bdUniqueId);
+        this.f4086j = new c.a.r0.f0.n(tbPageContext, bdUniqueId);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4432j.e() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4086j.e() : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: n */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof c.a.u0.g0.d0.m)) {
-            this.f4432j.onBindDataToView((c.a.u0.g0.d0.m) aVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof c.a.r0.f0.d0.m)) {
+            this.f4086j.onBindDataToView((c.a.r0.f0.d0.m) aVar);
         }
     }
 
@@ -60,7 +60,7 @@ public class u0 extends a<c.a.t0.s.r.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f4432j.onChangeSkinType(tbPageContext, i2);
+            this.f4086j.onChangeSkinType(tbPageContext, i2);
         }
     }
 }

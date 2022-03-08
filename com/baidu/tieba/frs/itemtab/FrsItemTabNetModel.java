@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.t0.l0.b.g;
-import c.a.u0.e1.n2.d;
+import c.a.q0.k0.b.g;
+import c.a.r0.d1.d2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

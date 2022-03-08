@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.b;
-import c.a.f0.a.f;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -33,6 +30,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AccountCenterActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
@@ -271,7 +269,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -455,7 +453,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38233b;
+                public final /* synthetic */ AccountCenterActivity f36637b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -472,7 +470,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38233b = this;
+                    this.f36637b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -510,10 +508,10 @@ public class AccountCenterActivity extends SlideActiviy {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.a.f38233b.D = SapiContext.getInstance().getCurrentAccount().bduss;
-                                        AccountCenterActivity accountCenterActivity = this.a.f38233b;
+                                        this.a.f36637b.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                                        AccountCenterActivity accountCenterActivity = this.a.f36637b;
                                         accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
-                                        this.a.f38233b.loginStatusChange = true;
+                                        this.a.f36637b.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -529,7 +527,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             this.a.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent = new Intent(this.f38233b, LoginActivity.class);
+                        Intent intent = new Intent(this.f36637b, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i2 = result.switchAccountType;
                         if (i2 == 1) {
@@ -546,7 +544,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f38233b.startActivityForResult(intent, 1004);
+                        this.f36637b.startActivityForResult(intent, 1004);
                     }
                 }
             });
@@ -626,7 +624,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38234b;
+                public final /* synthetic */ AccountCenterActivity f36638b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -643,7 +641,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38234b = this;
+                    this.f36638b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -802,7 +800,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(g.sapi_sdk_title_account_center);
+                setTitleText(R.string.sapi_sdk_title_account_center);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -812,16 +810,16 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(b.sapi_sdk_account_center_titlebar_bg_darkmode));
-                        setTitleLayoutBg(getResources().getColor(b.sapi_sdk_account_center_titlebar_bg_darkmode));
-                        setTitleTextColor(getResources().getColor(b.sapi_sdk_account_center_titlebar_text_darkmode));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(b.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(b.sapi_sdk_account_center_titlebar_text_darkmode));
-                    setTitleLayoutBg(getResources().getColor(b.sapi_sdk_account_center_titlebar_bg));
-                    setTitleTextColor(getResources().getColor(b.sapi_sdk_account_center_titlebar_text));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(b.sapi_sdk_account_center_titlebar_bg));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
+                    setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
+                    setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
@@ -830,7 +828,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38232b;
+                public final /* synthetic */ AccountCenterActivity f36636b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -847,7 +845,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38232b = this;
+                    this.f36636b = this;
                     this.a = accountCenterCallback;
                 }
 

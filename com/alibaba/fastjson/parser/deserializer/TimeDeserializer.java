@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.sql.Time;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class TimeDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeDeserializer instance;

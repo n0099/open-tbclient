@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f27898e;
+    public final String f27802e;
 
     public c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f27898e = e.q(str, objArr);
+        this.f27802e = e.q(str, objArr);
     }
 
     public abstract void d();
@@ -38,7 +38,7 @@ public abstract class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String name = Thread.currentThread().getName();
-            Thread.currentThread().setName(this.f27898e);
+            Thread.currentThread().setName(this.f27802e);
             try {
                 d();
             } finally {

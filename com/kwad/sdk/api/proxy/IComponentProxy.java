@@ -4,6 +4,6 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface IComponentProxy {
 }

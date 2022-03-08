@@ -14,30 +14,30 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final s a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28265b;
+    public final String f28169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final r f28266c;
+    public final r f28170c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final a0 f28267d;
+    public final a0 f28171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<Class<?>, Object> f28268e;
+    public final Map<Class<?>, Object> f28172e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile d f28269f;
+    public volatile d f28173f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,17 +45,17 @@ public final class z {
         public s a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28270b;
+        public String f28174b;
 
         /* renamed from: c  reason: collision with root package name */
-        public r.a f28271c;
+        public r.a f28175c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public a0 f28272d;
+        public a0 f28176d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<Class<?>, Object> f28273e;
+        public Map<Class<?>, Object> f28177e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -70,16 +70,16 @@ public final class z {
                     return;
                 }
             }
-            this.f28273e = Collections.emptyMap();
-            this.f28270b = "GET";
-            this.f28271c = new r.a();
+            this.f28177e = Collections.emptyMap();
+            this.f28174b = "GET";
+            this.f28175c = new r.a();
         }
 
         public a a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.f28271c.a(str, str2);
+                this.f28175c.a(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -101,7 +101,7 @@ public final class z {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                this.f28271c.g(str, str2);
+                this.f28175c.g(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -111,7 +111,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rVar)) == null) {
-                this.f28271c = rVar.f();
+                this.f28175c = rVar.f();
                 return this;
             }
             return (a) invokeL.objValue;
@@ -138,8 +138,8 @@ public final class z {
                         } else if (a0Var == null && c.d.b.e0.i.f.e(str)) {
                             throw new IllegalArgumentException("method " + str + " must have a request body.");
                         } else {
-                            this.f28270b = str;
-                            this.f28272d = a0Var;
+                            this.f28174b = str;
+                            this.f28176d = a0Var;
                             return this;
                         }
                     }
@@ -154,7 +154,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f28271c.f(str);
+                this.f28175c.f(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -176,7 +176,7 @@ public final class z {
         public a delete() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? delete(c.d.b.e0.e.f27901d) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? delete(c.d.b.e0.e.f27805d) : (a) invokeV.objValue;
         }
 
         public a(z zVar) {
@@ -195,17 +195,17 @@ public final class z {
                     return;
                 }
             }
-            this.f28273e = Collections.emptyMap();
+            this.f28177e = Collections.emptyMap();
             this.a = zVar.a;
-            this.f28270b = zVar.f28265b;
-            this.f28272d = zVar.f28267d;
-            if (zVar.f28268e.isEmpty()) {
+            this.f28174b = zVar.f28169b;
+            this.f28176d = zVar.f28171d;
+            if (zVar.f28172e.isEmpty()) {
                 linkedHashMap = Collections.emptyMap();
             } else {
-                linkedHashMap = new LinkedHashMap<>(zVar.f28268e);
+                linkedHashMap = new LinkedHashMap<>(zVar.f28172e);
             }
-            this.f28273e = linkedHashMap;
-            this.f28271c = zVar.f28266c.f();
+            this.f28177e = linkedHashMap;
+            this.f28175c = zVar.f28170c.f();
         }
     }
 
@@ -225,29 +225,29 @@ public final class z {
             }
         }
         this.a = aVar.a;
-        this.f28265b = aVar.f28270b;
-        this.f28266c = aVar.f28271c.d();
-        this.f28267d = aVar.f28272d;
-        this.f28268e = c.d.b.e0.e.u(aVar.f28273e);
+        this.f28169b = aVar.f28174b;
+        this.f28170c = aVar.f28175c.d();
+        this.f28171d = aVar.f28176d;
+        this.f28172e = c.d.b.e0.e.u(aVar.f28177e);
     }
 
     @Nullable
     public a0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28267d : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28171d : (a0) invokeV.objValue;
     }
 
     public d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f28269f;
+            d dVar = this.f28173f;
             if (dVar != null) {
                 return dVar;
             }
-            d k = d.k(this.f28266c);
-            this.f28269f = k;
+            d k = d.k(this.f28170c);
+            this.f28173f = k;
             return k;
         }
         return (d) invokeV.objValue;
@@ -257,13 +257,13 @@ public final class z {
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f28266c.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f28170c.c(str) : (String) invokeL.objValue;
     }
 
     public r d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28266c : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28170c : (r) invokeV.objValue;
     }
 
     public boolean e() {
@@ -275,7 +275,7 @@ public final class z {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28265b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28169b : (String) invokeV.objValue;
     }
 
     public a g() {
@@ -294,7 +294,7 @@ public final class z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "Request{method=" + this.f28265b + ", url=" + this.a + ", tags=" + this.f28268e + ExtendedMessageFormat.END_FE;
+            return "Request{method=" + this.f28169b + ", url=" + this.a + ", tags=" + this.f28172e + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

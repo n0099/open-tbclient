@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class LocalizationChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalizationChannel";
@@ -33,7 +33,7 @@ public class LocalizationChannel {
     @Nullable
     public LocalizationMessageHandler localizationMessageHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface LocalizationMessageHandler {
         String getStringResource(@NonNull String str, String str2);
     }

@@ -1,39 +1,39 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e {
     public final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57330b;
+    public int f55680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57331c;
+    public int f55681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57332d;
+    public int f55682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57333e;
+    public int f55683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57334f;
+    public int f55684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57335g;
+    public int f55685g;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f57338j;
+    public int f55688j;
     public int k;
     public boolean o;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57337i = 0;
+    public int f55687i = 0;
     public int l = -1;
     public int m = -1;
     public int n = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57336h = 0;
+    public int f55686h = 0;
 
     public e(k kVar) {
         this.o = false;
@@ -66,58 +66,58 @@ public class e {
 
     private void c(int i2) {
         this.l = i2;
-        int i3 = (i2 * this.f57330b) + this.f57332d;
+        int i3 = (i2 * this.f55680b) + this.f55682d;
         this.m = i3;
-        if (i3 < 0 || i3 >= this.a.f57343b) {
+        if (i3 < 0 || i3 >= this.a.f55693b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
 
     public void a(int i2) {
         int i3;
-        if (this.f57337i == i2) {
+        if (this.f55687i == i2) {
             return;
         }
-        this.f57337i = i2;
+        this.f55687i = i2;
         byte[] b2 = b(i2);
-        this.f57331c = b2[0];
+        this.f55681c = b2[0];
         byte b3 = b2[1];
-        this.f57330b = b3;
-        this.f57333e = b2[2];
+        this.f55680b = b3;
+        this.f55683e = b2[2];
         byte b4 = b2[3];
-        this.f57332d = b4;
-        int i4 = this.a.f57343b;
-        this.f57338j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
+        this.f55682d = b4;
+        int i4 = this.a.f55693b;
+        this.f55688j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
         int i5 = this.a.a;
-        int i6 = this.f57333e;
+        int i6 = this.f55683e;
         if (i5 > i6) {
-            int i7 = this.f57331c;
+            int i7 = this.f55681c;
             i3 = (((i5 + i7) - 1) - i6) / i7;
         } else {
             i3 = 0;
         }
         this.k = i3;
         if (i3 == 0) {
-            this.f57338j = 0;
+            this.f55688j = 0;
         }
-        int i8 = this.f57331c;
-        int i9 = this.a.f57345d;
-        this.f57335g = i8 * i9;
-        this.f57334f = this.f57333e * i9;
+        int i8 = this.f55681c;
+        int i9 = this.a.f55695d;
+        this.f55685g = i8 * i9;
+        this.f55684f = this.f55683e * i9;
     }
 
     public boolean a() {
         int i2;
         this.n++;
-        int i3 = this.f57338j;
+        int i3 = this.f55688j;
         if (i3 == 0 || (i2 = this.l) >= i3 - 1) {
-            int i4 = this.f57337i;
+            int i4 = this.f55687i;
             if (i4 == 7) {
                 this.o = true;
                 return false;
             }
             a(i4 + 1);
-            if (this.f57338j == 0) {
+            if (this.f55688j == 0) {
                 this.n--;
                 return a();
             }
@@ -137,11 +137,11 @@ public class e {
     }
 
     public int d() {
-        return this.f57337i;
+        return this.f55687i;
     }
 
     public int e() {
-        return this.f57338j;
+        return this.f55688j;
     }
 
     public int f() {
@@ -153,6 +153,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.a.f57350i * g()) + 7) / 8;
+        return ((this.a.f55700i * g()) + 7) / 8;
     }
 }

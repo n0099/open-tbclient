@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<MessageDigest> MD5_DIGEST;

@@ -17,7 +17,7 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class PayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_BALANCE_PAY = 14;
@@ -61,7 +61,7 @@ public final class PayBeanFactory implements IBeanFactory {
     public static final int BEAN_ID_WIDTHDRAW = 527;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static PayBeanFactory a;
@@ -202,7 +202,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public final /* synthetic */ BaseBean[] a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f52117b;
+                                                    public final /* synthetic */ PayBeanFactory f50536b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -219,7 +219,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f52117b = this;
+                                                        this.f50536b = this;
                                                         this.a = baseBeanArr;
                                                     }
 
@@ -252,7 +252,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public final /* synthetic */ BaseBean[] a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f52118b;
+                                                    public final /* synthetic */ PayBeanFactory f50537b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -269,7 +269,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f52118b = this;
+                                                        this.f50537b = this;
                                                         this.a = baseBeanArr2;
                                                     }
 

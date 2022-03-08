@@ -3,7 +3,7 @@ package com.facebook.fresco.animation.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface BitmapFrameRenderer {
     int getIntrinsicHeight();
 

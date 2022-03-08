@@ -92,7 +92,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SapiUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
@@ -903,7 +903,7 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i2 = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission(s.f55458g, context) ? wifiManager.getScanResults() : null;
+                    List<ScanResult> scanResults = checkRequestPermission(s.f53808g, context) ? wifiManager.getScanResults() : null;
                     if (scanResults != null) {
                         for (ScanResult scanResult : scanResults) {
                             String str4 = scanResult.BSSID;
@@ -1009,7 +1009,7 @@ public class SapiUtils implements NoProguard {
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission(s.f55454c, context)) {
+                if (checkRequestPermission(s.f53804c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {

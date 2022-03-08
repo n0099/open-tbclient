@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class LatLngBounds implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LatLngBounds> CREATOR;
@@ -20,23 +20,23 @@ public final class LatLngBounds implements Parcelable {
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f35712b;
+        public double f34115b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f35713c;
+        public double f34116c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f35714d;
+        public double f34117d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f35715e;
+        public boolean f34118e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public final class LatLngBounds implements Parcelable {
                     return;
                 }
             }
-            this.f35715e = true;
+            this.f34118e = true;
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f35712b, this.f35714d), new LatLng(this.a, this.f35713c)) : (LatLngBounds) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f34115b, this.f34117d), new LatLng(this.a, this.f34116c)) : (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -67,28 +67,28 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.f35715e) {
-                    this.f35715e = false;
+                if (this.f34118e) {
+                    this.f34118e = false;
                     double d2 = latLng.latitude;
                     this.a = d2;
-                    this.f35712b = d2;
+                    this.f34115b = d2;
                     double d3 = latLng.longitude;
-                    this.f35713c = d3;
-                    this.f35714d = d3;
+                    this.f34116c = d3;
+                    this.f34117d = d3;
                 }
                 double d4 = latLng.latitude;
                 double d5 = latLng.longitude;
                 if (d4 < this.a) {
                     this.a = d4;
                 }
-                if (d4 > this.f35712b) {
-                    this.f35712b = d4;
+                if (d4 > this.f34115b) {
+                    this.f34115b = d4;
                 }
-                if (d5 < this.f35713c) {
-                    this.f35713c = d5;
+                if (d5 < this.f34116c) {
+                    this.f34116c = d5;
                 }
-                if (d5 > this.f35714d) {
-                    this.f35714d = d5;
+                if (d5 > this.f34117d) {
+                    this.f34117d = d5;
                 }
                 return this;
             }

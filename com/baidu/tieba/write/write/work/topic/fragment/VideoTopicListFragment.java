@@ -8,9 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.u0.s1.c;
-import c.a.u0.s1.f;
-import c.a.u0.s4.e;
+import c.a.r0.r1.c;
+import c.a.r0.r1.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,6 +19,7 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,27 +28,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoTopicListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f50223i;
+    public static final int f48642i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView f50224e;
+    public RecyclerView f48643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50225f;
+    public int f48644f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50226g;
+    public long f48645g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoHotTopicSearchAdapter f50227h;
+    public VideoHotTopicSearchAdapter f48646h;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements VideoHotTopicSearchAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class VideoTopicListFragment extends BaseFragment {
                 return;
             }
         }
-        f50223i = UtilHelper.getDimenPixelSize(e.M_W_X007);
+        f48642i = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
     }
 
     public VideoTopicListFragment() {
@@ -119,10 +119,10 @@ public class VideoTopicListFragment extends BaseFragment {
 
     public void onClose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50227h.getItemCount() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48646h.getItemCount() <= 0) {
             return;
         }
-        this.f50224e.scrollToPosition(0);
+        this.f48643e.scrollToPosition(0);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -130,7 +130,7 @@ public class VideoTopicListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f50225f = getArguments().getInt("type", 1);
+            this.f48644f = getArguments().getInt("type", 1);
         }
     }
 
@@ -141,20 +141,20 @@ public class VideoTopicListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             RecyclerView recyclerView = new RecyclerView(viewGroup.getContext());
-            this.f50224e = recyclerView;
+            this.f48643e = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            this.f50224e.setFadingEdgeLength(0);
-            this.f50224e.setOverScrollMode(2);
+            this.f48643e.setFadingEdgeLength(0);
+            this.f48643e.setOverScrollMode(2);
             VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = new VideoHotTopicSearchAdapter(TbadkApplication.getInst().getCurrentPageContext(getContext()));
-            this.f50227h = videoHotTopicSearchAdapter;
+            this.f48646h = videoHotTopicSearchAdapter;
             videoHotTopicSearchAdapter.setOnClickItemListener(new a(this));
-            this.f50227h.setmAdapterType(this.f50225f);
-            this.f50227h.setSelectTopicId(this.f50226g);
-            this.f50224e.setAdapter(this.f50227h);
-            RecyclerView recyclerView2 = this.f50224e;
-            int i2 = f50223i;
+            this.f48646h.setmAdapterType(this.f48644f);
+            this.f48646h.setSelectTopicId(this.f48645g);
+            this.f48643e.setAdapter(this.f48646h);
+            RecyclerView recyclerView2 = this.f48643e;
+            int i2 = f48642i;
             recyclerView2.setPadding(i2, 0, i2, 0);
-            return this.f50224e;
+            return this.f48643e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -162,11 +162,11 @@ public class VideoTopicListFragment extends BaseFragment {
     public void setSelectTopicId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f50226g = j2;
-            VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = this.f50227h;
+            this.f48645g = j2;
+            VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = this.f48646h;
             if (videoHotTopicSearchAdapter != null) {
                 videoHotTopicSearchAdapter.setSelectTopicId(j2);
-                this.f50227h.notifyDataSetChanged();
+                this.f48646h.notifyDataSetChanged();
             }
         }
     }
@@ -177,7 +177,7 @@ public class VideoTopicListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.setUserVisibleHint(z);
             if (z) {
-                int i2 = this.f50225f;
+                int i2 = this.f48644f;
                 if (i2 == 1) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_WORK_VIDEO_TOPIC_TAB_SHOW);
                     statisticItem.param("obj_locate", 1);
@@ -194,7 +194,7 @@ public class VideoTopicListFragment extends BaseFragment {
     public void setlist(c cVar) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoHotTopicSearchAdapter = this.f50227h) == null || cVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoHotTopicSearchAdapter = this.f48646h) == null || cVar == null) {
             return;
         }
         videoHotTopicSearchAdapter.setList("", cVar.c());

@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.model;
 import android.text.TextUtils;
 import c.a.d.a.f;
 import c.a.d.f.d.l;
-import c.a.u0.z1.p.e;
+import c.a.r0.z1.p.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -20,18 +20,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Lego.DataRes;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f45833e;
+    public c.a.d.c.g.a f44241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45834f;
+    public b f44242f;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class LegoPageModel extends BdBaseModel {
             boolean z;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f45834f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f44242f == null) {
                 return;
             }
             boolean z2 = false;
@@ -89,7 +89,7 @@ public class LegoPageModel extends BdBaseModel {
                     i2 = pn;
                     z = z3;
                     if (responsedMessage.getError() == 0) {
-                        this.a.f45834f.b(j2, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                        this.a.f44242f.b(j2, str, responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -99,18 +99,18 @@ public class LegoPageModel extends BdBaseModel {
                         dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
                     }
                     if (!z2) {
-                        this.a.f45834f.a(j2, str, dataRes, z);
+                        this.a.f44242f.a(j2, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            c.a.t0.s.s.a.f();
-                            l<byte[]> d2 = c.a.t0.s.s.a.d("tb.lego_update");
+                            c.a.q0.r.s.a.f();
+                            l<byte[]> d2 = c.a.q0.r.s.a.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j2);
                             sb.append("_");
                             sb.append(TextUtils.isEmpty(str) ? "" : str);
                             d2.a(sb.toString(), dataRes.toByteArray());
                         }
-                        this.a.f45834f.c(j2, str, dataRes, z, i2);
+                        this.a.f44242f.c(j2, str, dataRes, z, i2);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
                     return;
@@ -125,7 +125,7 @@ public class LegoPageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(long j2, String str, DataRes dataRes, boolean z);
 
@@ -152,12 +152,12 @@ public class LegoPageModel extends BdBaseModel {
                 return;
             }
         }
-        this.f45833e = new a(this, CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
+        this.f44241e = new a(this, CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
         setUniqueId(bdUniqueId);
         y();
-        this.f45833e.getSocketMessageListener().setSelfListener(true);
-        this.f45833e.getHttpMessageListener().setSelfListener(true);
-        registerListener(this.f45833e);
+        this.f44241e.getSocketMessageListener().setSelfListener(true);
+        this.f44241e.getHttpMessageListener().setSelfListener(true);
+        registerListener(this.f44241e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -194,8 +194,8 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setPageType(i2);
             e a2 = e.a(j2, str);
             if (a2 != null) {
-                legoPageRequest.setRn(a2.f25822d);
-                legoPageRequest.setParams(a2.f25823e);
+                legoPageRequest.setRn(a2.f25484d);
+                legoPageRequest.setParams(a2.f25485e);
             }
             legoPageRequest.getHttpMessage().addParam("page_id", j2);
             sendMessage(legoPageRequest);
@@ -205,7 +205,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, c.a.u0.z3.g0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, c.a.r0.y3.g0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -215,7 +215,7 @@ public class LegoPageModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f45834f = bVar;
+            this.f44242f = bVar;
         }
     }
 }

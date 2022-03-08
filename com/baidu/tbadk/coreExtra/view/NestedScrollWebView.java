@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class NestedScrollWebView extends ScrollBridgeWebview implements NestedScrollingChild2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f41093g;
+    public final int[] f39499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f41094h;
+    public final int[] f39500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41095i;
+    public int f39501i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VelocityTracker f41096j;
+    public VelocityTracker f39502j;
     public int k;
     public int l;
     public OverScroller m;
@@ -75,26 +75,26 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 return;
             }
         }
-        this.f41093g = new int[2];
-        this.f41094h = new int[2];
+        this.f39499g = new int[2];
+        this.f39500h = new int[2];
         init();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f41096j == null) {
-            this.f41096j = VelocityTracker.obtain();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f39502j == null) {
+            this.f39502j = VelocityTracker.obtain();
         }
     }
 
     public final void b() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f41096j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f39502j) == null) {
             return;
         }
         velocityTracker.recycle();
-        this.f41096j = null;
+        this.f39502j = null;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -223,11 +223,11 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 if (action != 1) {
                     if (action == 2) {
                         int rawY = (int) motionEvent.getRawY();
-                        int i3 = this.f41095i - rawY;
-                        if (dispatchNestedPreScroll(0, i3, this.f41093g, this.f41094h)) {
-                            obtain.offsetLocation(0.0f, this.f41093g[1]);
+                        int i3 = this.f39501i - rawY;
+                        if (dispatchNestedPreScroll(0, i3, this.f39499g, this.f39500h)) {
+                            obtain.offsetLocation(0.0f, this.f39499g[1]);
                         }
-                        this.f41095i = rawY;
+                        this.f39501i = rawY;
                         int scrollY = getScrollY();
                         if (scrollY == 0) {
                             i2 = i3;
@@ -240,13 +240,13 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                                 i2 = 0;
                             }
                         }
-                        this.f41096j.addMovement(obtain);
+                        this.f39502j.addMovement(obtain);
                         boolean onTouchEvent = super.onTouchEvent(obtain);
-                        dispatchNestedScroll(0, i3 - i2, 0, i2, this.f41094h);
+                        dispatchNestedScroll(0, i3 - i2, 0, i2, this.f39500h);
                         return onTouchEvent;
                     }
                 }
-                VelocityTracker velocityTracker = this.f41096j;
+                VelocityTracker velocityTracker = this.f39502j;
                 velocityTracker.computeCurrentVelocity(1000, this.l);
                 int yVelocity = (int) velocityTracker.getYVelocity();
                 if (Math.abs(yVelocity) > this.k) {
@@ -255,9 +255,9 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 stopNestedScroll();
                 b();
             } else {
-                this.f41095i = (int) motionEvent.getRawY();
+                this.f39501i = (int) motionEvent.getRawY();
                 startNestedScroll(2);
-                this.f41096j.addMovement(obtain);
+                this.f39502j.addMovement(obtain);
                 this.m.computeScrollOffset();
                 if (!this.m.isFinished()) {
                     this.m.abortAnimation();
@@ -347,8 +347,8 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 return;
             }
         }
-        this.f41093g = new int[2];
-        this.f41094h = new int[2];
+        this.f39499g = new int[2];
+        this.f39500h = new int[2];
         init();
     }
 }

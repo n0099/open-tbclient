@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.impl;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IMasterSwitchCallback {
     void switchCallback(String str);
 }

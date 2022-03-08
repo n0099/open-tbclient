@@ -23,9 +23,9 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SpeechRecognitionDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ELLIPSIS_NORMAL = "…";
@@ -60,12 +60,12 @@ public class SpeechRecognitionDialog extends Dialog {
     public RelativeLayout voiceParentLayout;
     public VoiceSinWaveView voiceSinWaveView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface ResetCallback {
         void onReset();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface StopSpeechLister {
         void onStopSpeech();
     }

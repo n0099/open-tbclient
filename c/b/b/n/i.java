@@ -7,32 +7,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27325b;
+    public final int f27229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f27326c;
+    public final boolean f27230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f27327d;
+    public final int f27231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27328e;
+    public int f27232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27329f;
+    public String f27233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27330g;
+    public int f27234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f27331h;
+    public final int f27235h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(int i2, int i3, String str) {
@@ -124,39 +124,39 @@ public final class i {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((j() * 541) + this.f27325b) * 541) + this.f27329f.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((j() * 541) + this.f27229b) * 541) + this.f27233f.hashCode() : invokeV.intValue;
     }
 
     public boolean i(i iVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar)) == null) ? iVar != null && this.a == iVar.a && this.f27325b == iVar.f27325b && this.f27327d == iVar.f27327d && this.f27326c == iVar.f27326c && this.f27329f.equals(iVar.f27329f) && this.f27330g == iVar.f27330g : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar)) == null) ? iVar != null && this.a == iVar.a && this.f27229b == iVar.f27229b && this.f27231d == iVar.f27231d && this.f27230c == iVar.f27230c && this.f27233f.equals(iVar.f27233f) && this.f27234g == iVar.f27234g : invokeL.booleanValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27331h << 8) + (this.f27330g & 255) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27235h << 8) + (this.f27234g & 255) : invokeV.intValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f27327d;
+            int i2 = this.f27231d;
             if (i2 != 5126 && i2 != 5132) {
                 switch (i2) {
                     case 5120:
                     case 5121:
-                        return this.f27325b;
+                        return this.f27229b;
                     case 5122:
                     case 5123:
-                        return this.f27325b * 2;
+                        return this.f27229b * 2;
                     default:
                         return 0;
                 }
             }
-            return this.f27325b * 4;
+            return this.f27229b * 4;
         }
         return invokeV.intValue;
     }
@@ -219,11 +219,11 @@ public final class i {
             }
         }
         this.a = i2;
-        this.f27325b = i3;
-        this.f27327d = i4;
-        this.f27326c = z;
-        this.f27329f = str;
-        this.f27330g = i5;
-        this.f27331h = Integer.numberOfTrailingZeros(i2);
+        this.f27229b = i3;
+        this.f27231d = i4;
+        this.f27230c = z;
+        this.f27233f = str;
+        this.f27234g = i5;
+        this.f27235h = Integer.numberOfTrailingZeros(i2);
     }
 }

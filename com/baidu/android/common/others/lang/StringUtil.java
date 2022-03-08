@@ -28,7 +28,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class StringUtil implements IStringUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
@@ -1146,7 +1146,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1172,7 +1172,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1198,7 +1198,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1224,7 +1224,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1252,7 +1252,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1278,7 +1278,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1304,7 +1304,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1330,7 +1330,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -1356,7 +1356,7 @@ public final class StringUtil implements IStringUtil {
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < length; i2++) {
                 if (i2 == 0) {
-                    sb.append(ARRAY_START);
+                    sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }

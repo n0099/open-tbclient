@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;

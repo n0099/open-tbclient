@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static c sCallBack;
@@ -26,13 +26,13 @@ public class BdSocketDaemonService extends BdBaseService {
     public ServiceConnection conn;
     public b myBinder;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f31383e;
+        public final /* synthetic */ BdSocketDaemonService f29786e;
 
         public a(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f31383e = bdSocketDaemonService;
+            this.f29786e = bdSocketDaemonService;
         }
 
         @Override // android.content.ServiceConnection
@@ -72,13 +72,13 @@ public class BdSocketDaemonService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f31384e;
+        public final /* synthetic */ BdSocketDaemonService f29787e;
 
         public b(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f31384e = bdSocketDaemonService;
+            this.f29787e = bdSocketDaemonService;
         }
     }
 

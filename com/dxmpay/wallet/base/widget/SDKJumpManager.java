@@ -22,30 +22,30 @@ import com.dxmpay.wallet.BaiduWalletServiceController;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.passport.LoginBackListenerProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SDKJumpManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoginBackListenerProxy a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnJumpListener {
         void beforeJump(Context context, String str, String str2, String str3, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements ILoginBackListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f54048e;
+        public final /* synthetic */ Context f52534e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f54049f;
+        public final /* synthetic */ String f52535f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SDKJumpManager f54050g;
+        public final /* synthetic */ SDKJumpManager f52536g;
 
         public a(SDKJumpManager sDKJumpManager, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class SDKJumpManager {
                     return;
                 }
             }
-            this.f54050g = sDKJumpManager;
-            this.f54048e = context;
-            this.f54049f = str;
+            this.f52536g = sDKJumpManager;
+            this.f52534e = context;
+            this.f52535f = str;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
@@ -72,9 +72,9 @@ public class SDKJumpManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(this.f54050g.a);
+                    WalletLoginHelper.getInstance().onlyLogin(this.f52536g.a);
                 } else {
-                    this.f54050g.a = null;
+                    this.f52536g.a = null;
                 }
             }
         }
@@ -83,19 +83,19 @@ public class SDKJumpManager {
         public void onSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                BaiduWalletDelegate.getInstance().openH5Module(this.f54048e, this.f54049f, true);
-                this.f54050g.a = null;
+                BaiduWalletDelegate.getInstance().openH5Module(this.f52534e, this.f52535f, true);
+                this.f52536g.a = null;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class b implements ILoginBackListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SDKJumpManager f54051e;
+        public final /* synthetic */ SDKJumpManager f52537e;
 
         public b(SDKJumpManager sDKJumpManager) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class SDKJumpManager {
                     return;
                 }
             }
-            this.f54051e = sDKJumpManager;
+            this.f52537e = sDKJumpManager;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
@@ -120,9 +120,9 @@ public class SDKJumpManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(this.f54051e.a);
+                    WalletLoginHelper.getInstance().onlyLogin(this.f52537e.a);
                 } else {
-                    this.f54051e.a = null;
+                    this.f52537e.a = null;
                 }
             }
         }
@@ -131,12 +131,12 @@ public class SDKJumpManager {
         public void onSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f54051e.a = null;
+                this.f52537e.a = null;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static SDKJumpManager a;

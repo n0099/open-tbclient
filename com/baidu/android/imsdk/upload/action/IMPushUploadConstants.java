@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMPushUploadConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIM_LOG_ID = "log-id";
@@ -20,7 +20,7 @@ public class IMPushUploadConstants {
     public static final int VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class Service {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU_APP = "baidu_app";

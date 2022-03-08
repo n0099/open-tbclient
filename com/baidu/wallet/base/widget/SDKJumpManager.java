@@ -23,18 +23,18 @@ import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.passport.LoginBackListenerProxy;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SDKJumpManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoginBackListenerProxy a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnJumpListener {
         void beforeJump(Context context, String str, String str2, String str3, boolean z);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static SDKJumpManager a;
@@ -95,10 +95,10 @@ public class SDKJumpManager {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f50925b;
+                        public final /* synthetic */ String f49344b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SDKJumpManager f50926c;
+                        public final /* synthetic */ SDKJumpManager f49345c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,9 +115,9 @@ public class SDKJumpManager {
                                     return;
                                 }
                             }
-                            this.f50926c = this;
+                            this.f49345c = this;
                             this.a = context;
-                            this.f50925b = str3;
+                            this.f49344b = str3;
                         }
 
                         @Override // com.baidu.wallet.api.ILoginBackListener
@@ -125,9 +125,9 @@ public class SDKJumpManager {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) {
                                 if (i2 == 603) {
-                                    WalletLoginHelper.getInstance().onlyLogin(this.f50926c.a);
+                                    WalletLoginHelper.getInstance().onlyLogin(this.f49345c.a);
                                 }
-                                this.f50926c.a = null;
+                                this.f49345c.a = null;
                             }
                         }
 
@@ -135,8 +135,8 @@ public class SDKJumpManager {
                         public void onSuccess(int i2, String str4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str4) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.a, this.f50925b, true);
-                                this.f50926c.a = null;
+                                BaiduWalletDelegate.getInstance().openH5Module(this.a, this.f49344b, true);
+                                this.f49345c.a = null;
                             }
                         }
                     });

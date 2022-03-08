@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.http.Header;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Header> f30878b;
+    public List<Header> f29282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30879c;
+    public boolean f29283c;
 
     public aa() {
         Interceptable interceptable = $ic;
@@ -50,12 +50,12 @@ public final class aa {
     public final List<Header> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30878b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29282b : (List) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30879c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29283c : invokeV.booleanValue;
     }
 }

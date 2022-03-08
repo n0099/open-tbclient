@@ -14,9 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
-import com.kuaishou.weapon.un.w0;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -36,7 +35,7 @@ import java.util.TimeZone;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -627,7 +626,7 @@ public final class Util {
                 z = true;
             }
             if (j2 >= 100000000) {
-                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
+                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < C.NANOS_PER_SECOND ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
             } else if (j2 >= 10000) {
                 i3 = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8;
             } else if (j2 >= 100) {
@@ -645,7 +644,7 @@ public final class Util {
                 j2 /= 10;
             }
             if (z) {
-                bArr[i3 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
+                bArr[i3 - 1] = 45;
             }
             outputStream.write(bArr);
         }
@@ -671,7 +670,7 @@ public final class Util {
                     outputStream.write(63);
                     return;
                 }
-                outputStream.write((i2 >> 12) | w0.Q);
+                outputStream.write((i2 >> 12) | 224);
                 outputStream.write(((i2 >> 6) & 63) | 128);
                 outputStream.write((i2 & 63) | 128);
             } else if (i2 <= 1114111) {
@@ -740,7 +739,7 @@ public final class Util {
                             i2 = i4;
                         }
                     } else {
-                        outputStream.write((charAt >> '\f') | w0.Q);
+                        outputStream.write((charAt >> '\f') | 224);
                         outputStream.write(((charAt >> 6) & 63) | 128);
                         outputStream.write((charAt & '?') | 128);
                     }

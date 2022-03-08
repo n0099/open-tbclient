@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class StampMissionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48265e;
+    public b f46681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48266f;
+    public boolean f46682f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f48267g;
+    public HttpMessageListener f46683g;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,26 +62,26 @@ public class StampMissionModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.f48266f = false;
+                this.a.f46682f = false;
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003525 && (httpResponsedMessage instanceof StampMissionHttpResponsedMessage)) {
-                    if (httpResponsedMessage.getError() == 0 || this.a.f48265e == null) {
-                        if (this.a.f48265e != null) {
-                            this.a.f48265e.b(((StampMissionHttpResponsedMessage) httpResponsedMessage).getData());
+                    if (httpResponsedMessage.getError() == 0 || this.a.f46681e == null) {
+                        if (this.a.f46681e != null) {
+                            this.a.f46681e.b(((StampMissionHttpResponsedMessage) httpResponsedMessage).getData());
                             return;
                         }
                         return;
                     }
-                    this.a.f48265e.a();
+                    this.a.f46681e.a();
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
 
-        void b(c.a.u0.w3.c.b bVar);
+        void b(c.a.r0.v3.c.b bVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -105,16 +105,16 @@ public class StampMissionModel extends BdBaseModel {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f48265e = bVar;
+            this.f46681e = bVar;
         }
     }
 
     public void B() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48266f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f46682f) {
             return;
         }
-        this.f48266f = true;
+        this.f46682f = true;
         sendMessage(StampMissionHttpRequestMessage.newStartHttpMessage());
     }
 
@@ -149,7 +149,7 @@ public class StampMissionModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().registerListener(this.f48267g);
+            MessageManager.getInstance().registerListener(this.f46683g);
         }
     }
 
@@ -164,10 +164,10 @@ public class StampMissionModel extends BdBaseModel {
 
     public void z(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f48266f) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f46682f) {
             return;
         }
-        this.f48266f = true;
+        this.f46682f = true;
         sendMessage(StampMissionHttpRequestMessage.newSyncHttpMessage(str));
     }
 
@@ -189,8 +189,8 @@ public class StampMissionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48266f = false;
-        this.f48267g = new a(this, CmdConfigHttp.CMD_GET_SYNC_ICON_TASK);
+        this.f46682f = false;
+        this.f46683g = new a(this, CmdConfigHttp.CMD_GET_SYNC_ICON_TASK);
         init();
     }
 }

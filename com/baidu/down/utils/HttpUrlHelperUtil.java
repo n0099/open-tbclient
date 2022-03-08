@@ -8,12 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class HttpUrlHelperUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -193,7 +192,7 @@ public class HttpUrlHelperUtil {
                     if (i2 >= 55296 && i2 <= 57343) {
                         throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
                     }
-                    bArr = new byte[]{(byte) ((i2 >> 12) | w0.Q), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
+                    bArr = new byte[]{(byte) ((i2 >> 12) | 224), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
                 } else if (i2 > 1114111) {
                     throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
                 } else {
@@ -220,7 +219,7 @@ public class HttpUrlHelperUtil {
                 if (i2 >= 55296 && i2 <= 57343) {
                     throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
                 }
-                bArr = new byte[]{(byte) ((i2 >> 12) | w0.Q), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
+                bArr = new byte[]{(byte) ((i2 >> 12) | 224), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
             } else if (i2 > 1114111) {
                 throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
             } else {

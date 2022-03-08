@@ -15,13 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import c.a.t0.s.t.j;
-import c.a.u0.e1.b3.s;
-import c.a.u0.e1.c1;
-import c.a.u0.e1.e1;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.g1;
-import c.a.u0.e1.i1;
+import c.a.q0.r.t.j;
+import c.a.r0.d1.r2.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -33,6 +28,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.accelerator.AcceleratorData;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
 import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
@@ -52,7 +48,7 @@ import com.baidu.yunjiasu.tornadosdk.TornadoENV;
 import com.baidu.yunjiasu.tornadosdk.TornadoEvent;
 import com.baidu.yunjiasu.tornadosdk.TornadoRuntime;
 import com.baidu.yunjiasu.tornadosdk.TornadoTokenCallback;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AcceleratorFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] PACKAGES;
@@ -69,22 +65,22 @@ public class AcceleratorFragment extends BaseFragment {
     public Runnable J;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f43418e;
+    public k f41821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f43419f;
+    public l f41822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AcceleratorData f43420g;
+    public AcceleratorData f41823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PkgNameAndNodeInfoData f43421h;
+    public PkgNameAndNodeInfoData f41824h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f43422i;
+    public ViewGroup f41825i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f43423j;
+    public View f41826j;
     public TextView k;
     public View l;
     public ProgressCircle m;
@@ -102,7 +98,7 @@ public class AcceleratorFragment extends BaseFragment {
     public TextView y;
     public ImageView z;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements TornadoTokenCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,13 +129,13 @@ public class AcceleratorFragment extends BaseFragment {
                 if (!z) {
                     this.a.A();
                 } else {
-                    Tornado.INSTANCE.start(this.a.f43418e.f43435d, this.a.f43418e.f43437f, this.a.f43418e.f43434c);
+                    Tornado.INSTANCE.start(this.a.f41821e.f41838d, this.a.f41821e.f41840f, this.a.f41821e.f41837c);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements TornadoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,8 +164,8 @@ public class AcceleratorFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, tornadoEvent, str) == null) {
                 if (tornadoEvent == TornadoEvent.EVENT_BOOSTER_START_OK) {
-                    if (this.a.f43420g != null && this.a.f43420g.getItemData() != null) {
-                        TbSingleton.getInstance().recordAcceleratorServer(String.valueOf(this.a.f43420g.getItemData().itemId), this.a.f43418e.f43436e);
+                    if (this.a.f41823g != null && this.a.f41823g.getItemData() != null) {
+                        TbSingleton.getInstance().recordAcceleratorServer(String.valueOf(this.a.f41823g.getItemData().itemId), this.a.f41821e.f41839e);
                     }
                     this.a.D(true);
                 } else if (tornadoEvent == TornadoEvent.EVENT_BOOSTER_START_FAIL) {
@@ -181,13 +177,13 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43424e;
+        public final /* synthetic */ AcceleratorFragment f41827e;
 
         public c(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -204,37 +200,37 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43424e = acceleratorFragment;
+            this.f41827e = acceleratorFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43424e.getActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41827e.getActivity() == null) {
                 return;
             }
-            this.f43424e.f43419f.a += 0.002f;
+            this.f41827e.f41822f.a += 0.002f;
             AccelerateInterpolator accelerateInterpolator = new AccelerateInterpolator();
-            this.f43424e.m.setProgress(accelerateInterpolator.getInterpolation(this.f43424e.f43419f.a));
-            if (this.f43424e.f43419f.a > 0.99f && !Tornado.INSTANCE.isRunning()) {
-                this.f43424e.f43419f.a = 0.99f;
-                this.f43424e.m.setIndeterminate(true);
+            this.f41827e.m.setProgress(accelerateInterpolator.getInterpolation(this.f41827e.f41822f.a));
+            if (this.f41827e.f41822f.a > 0.99f && !Tornado.INSTANCE.isRunning()) {
+                this.f41827e.f41822f.a = 0.99f;
+                this.f41827e.m.setIndeterminate(true);
                 return;
             }
             if (Tornado.INSTANCE.isRunning()) {
-                this.f43424e.f43419f.a = 1.0f;
+                this.f41827e.f41822f.a = 1.0f;
             }
-            if (this.f43424e.f43419f.a >= 1.0f) {
-                this.f43424e.f43419f.a = 1.0f;
-                this.f43424e.q.setText(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP);
-                this.f43424e.C.removeCallbacks(this.f43424e.H);
+            if (this.f41827e.f41822f.a >= 1.0f) {
+                this.f41827e.f41822f.a = 1.0f;
+                this.f41827e.q.setText(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP);
+                this.f41827e.C.removeCallbacks(this.f41827e.H);
             } else {
-                this.f43424e.q.setText(Integer.toString(Math.round(accelerateInterpolator.getInterpolation(this.f43424e.f43419f.a) * 100.0f)));
-                this.f43424e.C.postDelayed(this.f43424e.H, 10L);
+                this.f41827e.q.setText(Integer.toString(Math.round(accelerateInterpolator.getInterpolation(this.f41827e.f41822f.a) * 100.0f)));
+                this.f41827e.C.postDelayed(this.f41827e.H, 10L);
             }
             try {
-                if (this.f43424e.getActivity() == null) {
-                    this.f43424e.C.removeCallbacks(this.f43424e.H);
+                if (this.f41827e.getActivity() == null) {
+                    this.f41827e.C.removeCallbacks(this.f41827e.H);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -242,13 +238,13 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43425e;
+        public final /* synthetic */ AcceleratorFragment f41828e;
 
         public d(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -265,23 +261,23 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43425e = acceleratorFragment;
+            this.f41828e = acceleratorFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43425e.getActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41828e.getActivity() == null) {
                 return;
             }
             TornadoRuntime runtimeInfo = Tornado.INSTANCE.getRuntimeInfo();
             if (runtimeInfo != null) {
-                this.f43425e.v.setText(this.f43425e.z((System.currentTimeMillis() - runtimeInfo.getStartTime().longValue()) / 1000));
+                this.f41828e.v.setText(this.f41828e.z((System.currentTimeMillis() - runtimeInfo.getStartTime().longValue()) / 1000));
             }
-            this.f43425e.C.postDelayed(this.f43425e.I, 1000L);
+            this.f41828e.C.postDelayed(this.f41828e.I, 1000L);
             try {
-                if (this.f43425e.getActivity() == null) {
-                    this.f43425e.C.removeCallbacks(this.f43425e.I);
+                if (this.f41828e.getActivity() == null) {
+                    this.f41828e.C.removeCallbacks(this.f41828e.I);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -289,13 +285,13 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43426e;
+        public final /* synthetic */ AcceleratorFragment f41829e;
 
         public e(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -312,7 +308,7 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43426e = acceleratorFragment;
+            this.f41829e = acceleratorFragment;
         }
 
         @Override // java.lang.Runnable
@@ -320,13 +316,13 @@ public class AcceleratorFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (!this.f43426e.H()) {
-                        this.f43426e.C.removeCallbacks(this.f43426e.J);
+                    if (!this.f41829e.H()) {
+                        this.f41829e.C.removeCallbacks(this.f41829e.J);
                         Tornado.INSTANCE.stop();
-                        this.f43426e.getActivity().finish();
+                        this.f41829e.getActivity().finish();
                         return;
                     }
-                    this.f43426e.C.postDelayed(this.f43426e.J, 2000L);
+                    this.f41829e.C.postDelayed(this.f41829e.J, 2000L);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -334,13 +330,13 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43427e;
+        public final /* synthetic */ AcceleratorFragment f41830e;
 
         public f(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -357,34 +353,34 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43427e = acceleratorFragment;
+            this.f41830e = acceleratorFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43427e.getActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41830e.getActivity() == null) {
                 return;
             }
-            this.f43427e.getActivity().onBackPressed();
+            this.f41830e.getActivity().onBackPressed();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43428e;
+        public final /* synthetic */ AcceleratorFragment f41831e;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f43429e;
+            public final /* synthetic */ g f41832e;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -401,22 +397,22 @@ public class AcceleratorFragment extends BaseFragment {
                         return;
                     }
                 }
-                this.f43429e = gVar;
+                this.f41832e = gVar;
             }
 
             public /* synthetic */ void a() {
-                this.f43429e.f43428e.F();
-                this.f43429e.f43428e.M();
+                this.f41832e.f41831e.F();
+                this.f41832e.f41831e.M();
             }
 
-            public /* synthetic */ void b(c.a.u0.e1.q1.a.f fVar, c.a.t0.s.t.j jVar, int i2, View view) {
-                PkgNameAndNodeInfoData pkgNameAndNodeInfoData = c.a.u0.e1.q1.d.a.a(this.f43429e.f43428e.f43420g.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i2));
-                this.f43429e.f43428e.f43421h = pkgNameAndNodeInfoData;
-                this.f43429e.f43428e.f43418e.f43435d = pkgNameAndNodeInfoData.getNodeInfo().getNodeTag();
-                this.f43429e.f43428e.f43418e.f43436e = pkgNameAndNodeInfoData.getNodeInfo().getNodeName();
+            public /* synthetic */ void b(c.a.r0.d1.g1.a.f fVar, c.a.q0.r.t.j jVar, int i2, View view) {
+                PkgNameAndNodeInfoData pkgNameAndNodeInfoData = c.a.r0.d1.g1.d.a.a(this.f41832e.f41831e.f41823g.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i2));
+                this.f41832e.f41831e.f41824h = pkgNameAndNodeInfoData;
+                this.f41832e.f41831e.f41821e.f41838d = pkgNameAndNodeInfoData.getNodeInfo().getNodeTag();
+                this.f41832e.f41831e.f41821e.f41839e = pkgNameAndNodeInfoData.getNodeInfo().getNodeName();
                 fVar.b();
-                this.f43429e.f43428e.Q();
-                this.f43429e.f43428e.C.postDelayed(new Runnable() { // from class: c.a.u0.e1.q1.c.b
+                this.f41832e.f41831e.Q();
+                this.f41832e.f41831e.C.postDelayed(new Runnable() { // from class: c.a.r0.d1.g1.c.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -434,12 +430,12 @@ public class AcceleratorFragment extends BaseFragment {
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                    final c.a.u0.e1.q1.a.f c2 = c.a.u0.e1.q1.a.f.c(this.f43429e.f43428e.getPageContext());
-                    c2.e(new j.e() { // from class: c.a.u0.e1.q1.c.c
+                    final c.a.r0.d1.g1.a.f c2 = c.a.r0.d1.g1.a.f.c(this.f41832e.f41831e.getPageContext());
+                    c2.e(new j.e() { // from class: c.a.r0.d1.g1.c.c
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // c.a.t0.s.t.j.e
+                        @Override // c.a.q0.r.t.j.e
                         public final void onItemClick(j jVar, int i2, View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, jVar, i2, view2) == null) {
@@ -447,9 +443,9 @@ public class AcceleratorFragment extends BaseFragment {
                             }
                         }
                     });
-                    c2.d(this.f43429e.f43428e.f43418e.f43436e);
-                    c2.f(c.a.u0.e1.q1.d.a.b(this.f43429e.f43428e.f43420g.getAvailableTornadoNodeInfoList(), this.f43429e.f43428e.f43420g.getAvailableNodesNum()));
-                    c2.g(this.f43429e.f43428e.getResources().getString(i1.accelerator_net_node_title));
+                    c2.d(this.f41832e.f41831e.f41821e.f41839e);
+                    c2.f(c.a.r0.d1.g1.d.a.b(this.f41832e.f41831e.f41823g.getAvailableTornadoNodeInfoList(), this.f41832e.f41831e.f41823g.getAvailableNodesNum()));
+                    c2.g(this.f41832e.f41831e.getResources().getString(R.string.accelerator_net_node_title));
                     c2.h();
                 }
             }
@@ -470,25 +466,25 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43428e = acceleratorFragment;
+            this.f41831e = acceleratorFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && Tornado.INSTANCE.isRunning()) {
-                s.f(this.f43428e.getActivity(), new a(this));
+                s.f(this.f41831e.getActivity(), new a(this));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43430e;
+        public final /* synthetic */ AcceleratorFragment f41833e;
 
         public h(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -505,25 +501,25 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43430e = acceleratorFragment;
+            this.f41833e = acceleratorFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && Tornado.INSTANCE.isRunning()) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f43430e.getPageContext(), new String[]{"com.baidu.tieba://unidispatch/frs?kw=游帮帮"}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f41833e.getPageContext(), new String[]{"com.baidu.tieba://unidispatch/frs?kw=游帮帮"}, true);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43431e;
+        public final /* synthetic */ AcceleratorFragment f41834e;
 
         public i(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -540,25 +536,25 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43431e = acceleratorFragment;
+            this.f41834e = acceleratorFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.m.a.m(this.f43431e.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
+                c.a.q0.l.a.m(this.f41834e.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43432e;
+        public final /* synthetic */ AcceleratorFragment f41835e;
 
         public j(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -575,51 +571,51 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43432e = acceleratorFragment;
+            this.f41835e = acceleratorFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43432e.t.setClickable(true);
-                this.f43432e.B.setClickable(true);
+                this.f41835e.t.setClickable(true);
+                this.f41835e.B.setClickable(true);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43433b;
+        public String f41836b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43434c;
+        public String f41837c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f43435d;
+        public String f41838d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43436e;
+        public String f41839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f43437f;
+        public String f41840f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f43438g;
+        public String f41841g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f43439h;
+        public String f41842h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f43440i;
+        public String f41843i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43441j;
+        public final /* synthetic */ AcceleratorFragment f41844j;
 
         public k(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -636,27 +632,27 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43441j = acceleratorFragment;
+            this.f41844j = acceleratorFragment;
             this.a = "com.baidu.tieba";
-            this.f43433b = "";
-            this.f43434c = "";
-            this.f43435d = "";
-            this.f43436e = "";
-            this.f43437f = "";
-            this.f43438g = "";
-            this.f43439h = "";
-            this.f43440i = "";
+            this.f41836b = "";
+            this.f41837c = "";
+            this.f41838d = "";
+            this.f41839e = "";
+            this.f41840f = "";
+            this.f41841g = "";
+            this.f41842h = "";
+            this.f41843i = "";
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AcceleratorFragment f43442b;
+        public final /* synthetic */ AcceleratorFragment f41845b;
 
         public l(AcceleratorFragment acceleratorFragment) {
             Interceptable interceptable = $ic;
@@ -673,7 +669,7 @@ public class AcceleratorFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43442b = acceleratorFragment;
+            this.f41845b = acceleratorFragment;
             this.a = 0.0f;
         }
     }
@@ -707,8 +703,8 @@ public class AcceleratorFragment extends BaseFragment {
                 return;
             }
         }
-        this.f43418e = new k(this);
-        this.f43419f = new l(this);
+        this.f41821e = new k(this);
+        this.f41822f = new l(this);
         this.C = c.a.d.f.m.e.a();
         this.D = 0L;
         this.H = new c(this);
@@ -731,11 +727,11 @@ public class AcceleratorFragment extends BaseFragment {
             this.w.setVisibility(4);
             this.x.setVisibility(0);
             this.y.setVisibility(4);
-            this.n.startLoad(this.f43418e.f43440i, 10, false);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(c1.CAM_X0607).into(this.o);
-            this.x.setText(i1.accelerator_restart_text);
-            c.a.u0.e1.q1.d.b.d(this.D);
-            this.x.setOnClickListener(new View.OnClickListener() { // from class: c.a.u0.e1.q1.c.g
+            this.n.startLoad(this.f41821e.f41843i, 10, false);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.o);
+            this.x.setText(R.string.accelerator_restart_text);
+            c.a.r0.d1.g1.d.b.d(this.D);
+            this.x.setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.d1.g1.c.g
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -747,7 +743,7 @@ public class AcceleratorFragment extends BaseFragment {
                     }
                 }
             });
-            R(i1.accelerator_booster_fail);
+            R(R.string.accelerator_booster_fail);
             this.B.setClickable(true);
         }
     }
@@ -783,13 +779,13 @@ public class AcceleratorFragment extends BaseFragment {
             this.w.setVisibility(0);
             this.x.setVisibility(0);
             this.y.setVisibility(0);
-            this.n.startLoad(this.f43418e.f43440i, 10, false);
-            TBSelector.makeDrawableSelector().setShape(1).gradientLinear(DrawableSelector.TOP_BOTTOM, c1.CAM_X0503, c1.CAM_X0609).into(this.o);
-            this.x.setText(i1.accelerator_enter_game_text);
-            c.a.u0.e1.q1.d.b.b(this.D);
-            this.y.setText(i1.accelerator_stop_game_text);
-            c.a.u0.e1.q1.d.b.g(this.D);
-            this.x.setOnClickListener(new View.OnClickListener() { // from class: c.a.u0.e1.q1.c.e
+            this.n.startLoad(this.f41821e.f41843i, 10, false);
+            TBSelector.makeDrawableSelector().setShape(1).gradientLinear(DrawableSelector.TOP_BOTTOM, R.color.CAM_X0503, R.color.CAM_X0609).into(this.o);
+            this.x.setText(R.string.accelerator_enter_game_text);
+            c.a.r0.d1.g1.d.b.b(this.D);
+            this.y.setText(R.string.accelerator_stop_game_text);
+            c.a.r0.d1.g1.d.b.g(this.D);
+            this.x.setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.d1.g1.c.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -801,7 +797,7 @@ public class AcceleratorFragment extends BaseFragment {
                     }
                 }
             });
-            this.y.setOnClickListener(new View.OnClickListener() { // from class: c.a.u0.e1.q1.c.a
+            this.y.setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.d1.g1.c.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -820,7 +816,7 @@ public class AcceleratorFragment extends BaseFragment {
             }
             if (this.D > 0) {
                 TbSingleton.getInstance().acceleratorItemId = this.D;
-                TbSingleton.getInstance().acceleratorData = this.f43421h;
+                TbSingleton.getInstance().acceleratorData = this.f41824h;
             }
             this.C.postDelayed(new j(this), 100L);
         }
@@ -849,12 +845,12 @@ public class AcceleratorFragment extends BaseFragment {
             this.w.setVisibility(0);
             this.x.setVisibility(4);
             this.y.setVisibility(4);
-            this.f43419f = new l(this);
-            this.k.setText(this.f43418e.f43433b);
+            this.f41822f = new l(this);
+            this.k.setText(this.f41821e.f41836b);
             this.m.setIndeterminate(false);
             this.m.setProgress(0.0f);
             this.q.setText("0");
-            this.u.setText(this.f43418e.f43436e);
+            this.u.setText(this.f41821e.f41839e);
             this.l.clearAnimation();
             C();
             this.t.setClickable(false);
@@ -865,41 +861,41 @@ public class AcceleratorFragment extends BaseFragment {
     public final void G(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            this.f43422i = (ViewGroup) view;
-            this.f43423j = view.findViewById(f1.booster_back);
-            this.k = (TextView) view.findViewById(f1.booster_name);
-            this.l = view.findViewById(f1.booster_center_light);
-            this.m = (ProgressCircle) view.findViewById(f1.booster_center_progress);
-            this.n = (RoundTbImageView) view.findViewById(f1.booster_center_icon);
-            this.o = view.findViewById(f1.booster_center_icon_mask);
-            this.p = (ViewGroup) view.findViewById(f1.booster_progress_box);
-            this.q = (TextView) view.findViewById(f1.booster_progress_tv);
-            this.r = (ViewGroup) view.findViewById(f1.booster_fail_box);
-            this.s = (ViewGroup) view.findViewById(f1.booster_success_box);
-            this.t = (ViewGroup) view.findViewById(f1.booster_location_box);
-            this.u = (TextView) view.findViewById(f1.booster_location_name);
-            this.v = (TextView) view.findViewById(f1.booster_time);
-            this.w = (ViewGroup) view.findViewById(f1.booster_starting_tips_box);
-            this.x = (TextView) view.findViewById(f1.booster_btn_1);
-            this.y = (TextView) view.findViewById(f1.booster_btn_2);
-            this.z = (ImageView) view.findViewById(f1.booster_location_icon1);
-            this.A = (ImageView) view.findViewById(f1.booster_location_icon2);
-            this.B = view.findViewById(f1.booster_bottom_tips);
-            WebPManager.setPureDrawable(this.z, e1.icon_pure_location, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.A, e1.icon_pure_unfold10, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this.x);
-            d2.n(i1.J_X01);
-            d2.f(c1.CAM_X0302);
-            c.a.t0.s.v.c d3 = c.a.t0.s.v.c.d(this.y);
-            d3.e(i1.A_X11);
-            d3.n(i1.J_X01);
-            d3.f(c1.CAM_X0101);
-            c.a.t0.s.v.c d4 = c.a.t0.s.v.c.d(this.t);
-            d4.n(i1.J_X01);
-            d4.f(c1.CAM_X0613);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(c1.CAM_X0607).into(this.o);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(c1.CAM_X0613).into(this.l);
-            this.f43423j.setOnClickListener(new f(this));
+            this.f41825i = (ViewGroup) view;
+            this.f41826j = view.findViewById(R.id.booster_back);
+            this.k = (TextView) view.findViewById(R.id.booster_name);
+            this.l = view.findViewById(R.id.booster_center_light);
+            this.m = (ProgressCircle) view.findViewById(R.id.booster_center_progress);
+            this.n = (RoundTbImageView) view.findViewById(R.id.booster_center_icon);
+            this.o = view.findViewById(R.id.booster_center_icon_mask);
+            this.p = (ViewGroup) view.findViewById(R.id.booster_progress_box);
+            this.q = (TextView) view.findViewById(R.id.booster_progress_tv);
+            this.r = (ViewGroup) view.findViewById(R.id.booster_fail_box);
+            this.s = (ViewGroup) view.findViewById(R.id.booster_success_box);
+            this.t = (ViewGroup) view.findViewById(R.id.booster_location_box);
+            this.u = (TextView) view.findViewById(R.id.booster_location_name);
+            this.v = (TextView) view.findViewById(R.id.booster_time);
+            this.w = (ViewGroup) view.findViewById(R.id.booster_starting_tips_box);
+            this.x = (TextView) view.findViewById(R.id.booster_btn_1);
+            this.y = (TextView) view.findViewById(R.id.booster_btn_2);
+            this.z = (ImageView) view.findViewById(R.id.booster_location_icon1);
+            this.A = (ImageView) view.findViewById(R.id.booster_location_icon2);
+            this.B = view.findViewById(R.id.booster_bottom_tips);
+            WebPManager.setPureDrawable(this.z, R.drawable.icon_pure_location, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.A, R.drawable.icon_pure_unfold10, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.x);
+            d2.n(R.string.J_X01);
+            d2.f(R.color.CAM_X0302);
+            c.a.q0.r.v.c d3 = c.a.q0.r.v.c.d(this.y);
+            d3.e(R.string.A_X11);
+            d3.n(R.string.J_X01);
+            d3.f(R.color.CAM_X0101);
+            c.a.q0.r.v.c d4 = c.a.q0.r.v.c.d(this.t);
+            d4.n(R.string.J_X01);
+            d4.f(R.color.CAM_X0613);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.o);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0613).into(this.l);
+            this.f41826j.setOnClickListener(new f(this));
             this.t.setOnClickListener(new g(this));
             this.B.setOnClickListener(new h(this));
             F();
@@ -928,17 +924,17 @@ public class AcceleratorFragment extends BaseFragment {
     public /* synthetic */ void I(View view) {
         F();
         M();
-        c.a.u0.e1.q1.d.b.c(this.D);
+        c.a.r0.d1.g1.d.b.c(this.D);
     }
 
     public /* synthetic */ void J(View view) {
-        O(this.f43418e.f43434c);
-        c.a.u0.e1.q1.d.b.a(this.D);
+        O(this.f41821e.f41837c);
+        c.a.r0.d1.g1.d.b.a(this.D);
     }
 
     public /* synthetic */ void K(View view) {
-        c.a.u0.e1.q1.d.b.f(this.D);
-        s.i(getActivity(), new c.a.u0.e1.q1.c.h(this));
+        c.a.r0.d1.g1.d.b.f(this.D);
+        s.i(getActivity(), new c.a.r0.d1.g1.c.h(this));
     }
 
     public final void N() {
@@ -959,7 +955,7 @@ public class AcceleratorFragment extends BaseFragment {
             try {
                 getContext().startActivity(getContext().getPackageManager().getLaunchIntentForPackage(str));
             } catch (Exception unused) {
-                R(i1.accelerator_cannot_open_game);
+                R(R.string.accelerator_cannot_open_game);
             }
         }
     }
@@ -970,7 +966,7 @@ public class AcceleratorFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             Tornado.INSTANCE.setAllowedPackages(PACKAGES);
-            Tornado.INSTANCE.setToken(this.f43418e.f43439h, new a(this));
+            Tornado.INSTANCE.setToken(this.f41821e.f41842h, new a(this));
         }
     }
 
@@ -988,7 +984,7 @@ public class AcceleratorFragment extends BaseFragment {
     public final void R(@StringRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            new BdTopToast(getContext(), 3000).setIcon(false).setContent(getString(i2)).show(this.f43422i);
+            new BdTopToast(getContext(), 3000).setIcon(false).setContent(getString(i2)).show(this.f41825i);
         }
     }
 
@@ -997,7 +993,7 @@ public class AcceleratorFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, layoutInflater, viewGroup, bundle)) == null) ? layoutInflater.inflate(g1.fragment_accelerator, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, layoutInflater, viewGroup, bundle)) == null) ? layoutInflater.inflate(R.layout.fragment_accelerator, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1040,7 +1036,7 @@ public class AcceleratorFragment extends BaseFragment {
             if (getActivity() != null && getActivity().getWindow() != null) {
                 getActivity().getWindow().addFlags(512);
             }
-            c.a.u0.e1.q1.d.b.e(this.E, this.D, this.F);
+            c.a.r0.d1.g1.d.b.e(this.E, this.D, this.F);
         }
     }
 
@@ -1059,14 +1055,14 @@ public class AcceleratorFragment extends BaseFragment {
             }
             Tornado tornado = Tornado.INSTANCE;
             Context applicationContext = requireContext().getApplicationContext();
-            k kVar = this.f43418e;
-            tornado.init(applicationContext, kVar.a, kVar.f43438g, "tieba", c.a.t0.s.e.d());
+            k kVar = this.f41821e;
+            tornado.init(applicationContext, kVar.a, kVar.f41841g, "tieba", c.a.q0.r.e.d());
             Tornado.INSTANCE.setEnv(TornadoENV.PRINT_LOG, "true");
             Tornado.INSTANCE.setEnv(TornadoENV.ENABLE_DEBUG, "false");
             Tornado.INSTANCE.setCallback(new b(this));
             if (this.G) {
                 Tornado.INSTANCE.stop();
-                this.C.postDelayed(new Runnable() { // from class: c.a.u0.e1.q1.c.f
+                this.C.postDelayed(new Runnable() { // from class: c.a.r0.d1.g1.c.f
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1084,7 +1080,7 @@ public class AcceleratorFragment extends BaseFragment {
                         D(false);
                     } else {
                         Tornado.INSTANCE.stop();
-                        this.C.postDelayed(new Runnable() { // from class: c.a.u0.e1.q1.c.d
+                        this.C.postDelayed(new Runnable() { // from class: c.a.r0.d1.g1.c.d
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1110,19 +1106,19 @@ public class AcceleratorFragment extends BaseFragment {
     public void setIntentConfig(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, intent) == null) {
-            this.f43420g = (AcceleratorData) intent.getSerializableExtra(AcceleratorActivityConfig.ACCELERATOR_DATA);
-            this.f43421h = (PkgNameAndNodeInfoData) intent.getSerializableExtra(AcceleratorActivityConfig.NODE_INFO);
+            this.f41823g = (AcceleratorData) intent.getSerializableExtra(AcceleratorActivityConfig.ACCELERATOR_DATA);
+            this.f41824h = (PkgNameAndNodeInfoData) intent.getSerializableExtra(AcceleratorActivityConfig.NODE_INFO);
             k kVar = new k(this);
-            this.f43418e = kVar;
-            kVar.f43433b = this.f43420g.getItemData().mTitle;
-            this.f43418e.f43434c = this.f43421h.getPackageName();
-            this.f43418e.f43438g = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            this.f43418e.f43435d = this.f43421h.getNodeInfo().getNodeTag();
-            this.f43418e.f43436e = this.f43421h.getNodeInfo().getNodeName();
-            this.f43418e.f43437f = this.f43421h.getGameId();
-            this.f43418e.f43439h = this.f43420g.getTokenInfo().getToken();
-            this.f43418e.f43440i = this.f43420g.getItemData().mIconUrl;
-            this.D = this.f43420g.getItemData().itemId;
+            this.f41821e = kVar;
+            kVar.f41836b = this.f41823g.getItemData().mTitle;
+            this.f41821e.f41837c = this.f41824h.getPackageName();
+            this.f41821e.f41841g = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.f41821e.f41838d = this.f41824h.getNodeInfo().getNodeTag();
+            this.f41821e.f41839e = this.f41824h.getNodeInfo().getNodeName();
+            this.f41821e.f41840f = this.f41824h.getGameId();
+            this.f41821e.f41842h = this.f41823g.getTokenInfo().getToken();
+            this.f41821e.f41843i = this.f41823g.getItemData().mIconUrl;
+            this.D = this.f41823g.getItemData().itemId;
             this.E = intent.getStringExtra("fid");
             this.F = intent.getIntExtra("source", 0);
             this.G = intent.getBooleanExtra(AcceleratorActivityConfig.IS_NEW_ITEM, false);
@@ -1132,6 +1128,6 @@ public class AcceleratorFragment extends BaseFragment {
     public final String z(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) ? String.format(getString(i1.accelerator_time_format), Long.valueOf((j2 / 3600) % 24), Long.valueOf((j2 / 60) % 60), Long.valueOf(j2 % 60)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) ? String.format(getString(R.string.accelerator_time_format), Long.valueOf((j2 / 3600) % 24), Long.valueOf((j2 / 60) % 60), Long.valueOf(j2 % 60)) : (String) invokeJ.objValue;
     }
 }

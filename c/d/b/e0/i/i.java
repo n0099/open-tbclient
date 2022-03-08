@@ -5,8 +5,9 @@ import c.d.b.z;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.Proxy;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +18,7 @@ public final class i {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, zVar, type)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(zVar.f());
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             if (b(zVar, type)) {
                 sb.append(zVar.h());
             } else {

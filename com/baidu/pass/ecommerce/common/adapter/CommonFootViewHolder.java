@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.pass.ecommerce.view.RotateYAnimation;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

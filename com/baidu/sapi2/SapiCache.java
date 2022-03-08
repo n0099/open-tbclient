@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SapiCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, SoftReference<String>> cache;
@@ -53,7 +53,7 @@ public final class SapiCache {
     public final List<String> newModuleIds;
     public final List<String> oldModuleIds;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface LoadModuleEventListener {
         void onFailure(SapiOptions.Cache.Module module);
 
@@ -503,7 +503,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f34235g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f32638g + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }

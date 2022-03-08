@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60933b;
+    public String f59283b;
 
     public o(int i2) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public abstract class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
             aVar.a("command", this.a);
-            aVar.a("client_pkgname", this.f60933b);
+            aVar.a("client_pkgname", this.f59283b);
             c(aVar);
         }
     }
@@ -54,7 +54,7 @@ public abstract class o {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60933b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59283b : (String) invokeV.objValue;
     }
 
     public final int b() {
@@ -85,7 +85,7 @@ public abstract class o {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60933b = str;
+            this.f59283b = str;
         }
     }
 
@@ -139,9 +139,9 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String a = aVar.a();
             if (!TextUtils.isEmpty(a)) {
-                this.f60933b = a;
+                this.f59283b = a;
             } else {
-                this.f60933b = aVar.a("client_pkgname");
+                this.f59283b = aVar.a("client_pkgname");
             }
             d(aVar);
         }

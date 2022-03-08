@@ -6,19 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.d0.h0.f;
-import c.a.d0.l0.j;
-import c.a.d0.l0.m;
-import c.a.d0.l0.n;
+import c.a.b0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.dialog.AutoOrientationBtnDialog;
 import com.baidu.nadcore.widget.txt.SelectorTextView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class SafeUrlDialog extends AutoOrientationBtnDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +25,13 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
     public SelectorTextView n;
     public c o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f37564e;
+        public final /* synthetic */ SafeUrlDialog f35967e;
 
         public a(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -50,26 +48,26 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f37564e = safeUrlDialog;
+            this.f35967e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37564e.o.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f35967e.o.k == null) {
                 return;
             }
-            this.f37564e.o.k.a(view);
+            this.f35967e.o.k.a(view);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f37565e;
+        public final /* synthetic */ SafeUrlDialog f35968e;
 
         public b(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -86,35 +84,35 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f37565e = safeUrlDialog;
+            this.f35968e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37565e.o.f37569j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f35968e.o.f35972j == null) {
                 return;
             }
-            this.f37565e.o.f37569j.a(view);
+            this.f35968e.o.f35972j.a(view);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class c extends AutoOrientationBtnDialog.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f37566g;
+        public int f35969g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f37567h;
+        public int f35970h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f37568i;
+        public int f35971i;
 
         /* renamed from: j  reason: collision with root package name */
-        public AutoOrientationBtnDialog.c f37569j;
+        public AutoOrientationBtnDialog.c f35972j;
         public AutoOrientationBtnDialog.c k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -170,7 +168,7 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, cVar)) == null) {
-                this.f37566g = i2;
+                this.f35969g = i2;
                 this.k = cVar;
                 return this;
             }
@@ -203,14 +201,14 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(n.nad_view_safe_dialog, viewGroup, false);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.nad_view_safe_dialog, viewGroup, false);
             this.l = inflate;
-            TextView textView = (TextView) inflate.findViewById(m.safe_dialog_content);
+            TextView textView = (TextView) inflate.findViewById(R.id.safe_dialog_content);
             this.m = textView;
-            textView.setTextColor(getContext().getResources().getColor(j.nad_safe_dialog_message));
-            SelectorTextView selectorTextView = (SelectorTextView) this.l.findViewById(m.safe_dialog_sub_content);
+            textView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_message));
+            SelectorTextView selectorTextView = (SelectorTextView) this.l.findViewById(R.id.safe_dialog_sub_content);
             this.n = selectorTextView;
-            selectorTextView.setTextColor(getContext().getResources().getColor(j.nad_safe_dialog_btn_blue));
+            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_btn_blue));
             k();
             return this.l;
         }
@@ -223,18 +221,18 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.o) == null) {
             return;
         }
-        this.m.setText(this.mContext.getText(cVar.f37566g));
+        this.m.setText(this.mContext.getText(cVar.f35969g));
         this.m.setOnClickListener(new a(this));
-        if (this.o.f37567h > 0) {
+        if (this.o.f35970h > 0) {
             this.n.setVisibility(0);
-            this.n.setText(this.mContext.getText(this.o.f37567h));
+            this.n.setText(this.mContext.getText(this.o.f35970h));
             this.n.setOnClickListener(new b(this));
         } else {
             this.n.setVisibility(8);
         }
-        if (this.o.f37568i > 0) {
-            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f37568i);
-            c.a.d0.l0.b0.a.c(getContext(), drawable);
+        if (this.o.f35971i > 0) {
+            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f35971i);
+            c.a.b0.l0.t.b.c(getContext(), drawable);
             drawable.setBounds(0, 0, f.c.a(this.mContext, 12.0f), f.c.a(this.mContext, 12.0f));
             this.n.setCompoundDrawables(drawable, null, null, null);
         }

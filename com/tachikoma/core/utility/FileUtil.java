@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SYSTEM_SEPARATOR;

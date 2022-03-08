@@ -23,25 +23,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f47820e;
+    public static final char[] f46236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f47821f;
+    public static final String f46237f;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mDesc;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47822e;
+        public int f46238e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VerticalImageSpan(Drawable drawable) {
@@ -94,7 +94,7 @@ public class AdTagTextView extends LinearLayout {
                     fontMetricsInt.descent = i7;
                 }
                 int i9 = bounds.right;
-                this.f47822e = i9;
+                this.f46238e = i9;
                 return i9;
             }
             return invokeCommon.intValue;
@@ -114,8 +114,8 @@ public class AdTagTextView extends LinearLayout {
                 return;
             }
         }
-        f47820e = new char[]{21704};
-        f47821f = new String(f47820e);
+        f46236e = new char[]{21704};
+        f46237f = new String(f46236e);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -152,7 +152,7 @@ public class AdTagTextView extends LinearLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.ad_tag_icon);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f47821f);
+            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f46237f);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));
             spannableStringBuilder.setSpan(new VerticalImageSpan(drawable), str.length() + 1, spannableStringBuilder.length(), 17);
             return spannableStringBuilder;

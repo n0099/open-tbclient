@@ -58,36 +58,36 @@ import javax.net.ssl.SSLHandshakeException;
 import okhttp3.internal.http2.StreamResetException;
 import org.apache.commons.lang3.text.FormattableUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static final String a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f60316b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
+    public static final Pattern f58666b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60317c = null;
+    public static String f58667c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SparseArray<Boolean> f60318d = new SparseArray<>();
+    public static volatile SparseArray<Boolean> f58668d = new SparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SparseArray<List<ai>> f60319e = new SparseArray<>();
+    public static volatile SparseArray<List<ai>> f58669e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final char[] f60320f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f58670f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: g  reason: collision with root package name */
-    public static Pattern f60321g = null;
+    public static Pattern f58671g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Pattern f60322h = null;
+    public static Pattern f58672h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static ConnectivityManager f60323i;
+    public static ConnectivityManager f58673i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Boolean f60324j;
+    public static Boolean f58674j;
     public static Boolean k;
 
     public static double a(long j2) {
@@ -253,19 +253,19 @@ public class f {
             return null;
         }
         try {
-            if (f60321g == null) {
-                f60321g = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+            if (f58671g == null) {
+                f58671g = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
             }
-            matcher = f60321g.matcher(str);
+            matcher = f58671g.matcher(str);
         } catch (Exception unused) {
         }
         if (matcher.find()) {
             return matcher.group(1);
         }
-        if (f60322h == null) {
-            f60322h = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+        if (f58672h == null) {
+            f58672h = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
         }
-        Matcher matcher2 = f60322h.matcher(str);
+        Matcher matcher2 = f58672h.matcher(str);
         if (matcher2.find()) {
             return matcher2.group(1);
         }
@@ -290,7 +290,7 @@ public class f {
                 for (int i6 = 0; i6 < i3; i6++) {
                     int i7 = bArr[i6 + i2] & 255;
                     int i8 = i5 + 1;
-                    char[] cArr2 = f60320f;
+                    char[] cArr2 = f58670f;
                     cArr[i5] = cArr2[i7 >> 4];
                     i5 = i8 + 1;
                     cArr[i8] = cArr2[i7 & 15];
@@ -549,7 +549,7 @@ public class f {
     }
 
     public static String d(Context context) {
-        String str = f60317c;
+        String str = f58667c;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -561,7 +561,7 @@ public class f {
                                 com.ss.android.socialbase.downloader.c.a.b("Process", "processName = " + runningAppProcessInfo.processName);
                             }
                             String str2 = runningAppProcessInfo.processName;
-                            f60317c = str2;
+                            f58667c = str2;
                             return str2;
                         }
                     }
@@ -570,7 +570,7 @@ public class f {
                 e2.printStackTrace();
             }
             String i2 = i();
-            f60317c = i2;
+            f58667c = i2;
             return i2;
         }
         return str;
@@ -1091,21 +1091,21 @@ public class f {
             if (aiVar == null) {
             }
         }
-        synchronized (f60318d) {
-            if (f60318d.get(downloadInfo.getId()) == Boolean.TRUE) {
+        synchronized (f58668d) {
+            if (f58668d.get(downloadInfo.getId()) == Boolean.TRUE) {
                 com.ss.android.socialbase.downloader.c.a.b(a, "has another same task is saving temp file");
                 if (aiVar != null) {
-                    List<ai> list = f60319e.get(downloadInfo.getId());
+                    List<ai> list = f58669e.get(downloadInfo.getId());
                     if (list == null) {
                         list = new ArrayList<>();
-                        f60319e.put(downloadInfo.getId(), list);
+                        f58669e.put(downloadInfo.getId(), list);
                     }
                     list.add(aiVar);
                 }
                 return;
             }
             com.ss.android.socialbase.downloader.c.a.b(a, "saveTempFileStatusMap put id:" + downloadInfo.getId());
-            f60318d.put(downloadInfo.getId(), Boolean.TRUE);
+            f58668d.put(downloadInfo.getId(), Boolean.TRUE);
             File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
             File file2 = new File(downloadInfo.getSavePath(), downloadInfo.getName());
             boolean h2 = h(downloadInfo.getSavePath());
@@ -1211,8 +1211,8 @@ public class f {
     }
 
     public static void a(int i2, boolean z, BaseException baseException) {
-        synchronized (f60318d) {
-            List<ai> list = f60319e.get(i2);
+        synchronized (f58668d) {
+            List<ai> list = f58669e.get(i2);
             if (list != null) {
                 for (ai aiVar : list) {
                     if (aiVar != null) {
@@ -1226,7 +1226,7 @@ public class f {
             }
             String str = a;
             com.ss.android.socialbase.downloader.c.a.b(str, "handleTempSaveCallback id:" + i2);
-            f60318d.remove(i2);
+            f58668d.remove(i2);
         }
     }
 
@@ -1313,27 +1313,27 @@ public class f {
     }
 
     public static ConnectivityManager a(Context context) {
-        ConnectivityManager connectivityManager = f60323i;
+        ConnectivityManager connectivityManager = f58673i;
         if (connectivityManager == null) {
             ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
-            f60323i = connectivityManager2;
+            f58673i = connectivityManager2;
             return connectivityManager2;
         }
         return connectivityManager;
     }
 
     public static boolean a() {
-        Boolean bool = f60324j;
+        Boolean bool = f58674j;
         if (bool != null) {
             return bool.booleanValue();
         }
         String d2 = d(com.ss.android.socialbase.downloader.downloader.c.N());
         if (d2 == null || !d2.contains(":")) {
-            f60324j = Boolean.valueOf(d2 != null && d2.equals(com.ss.android.socialbase.downloader.downloader.c.N().getPackageName()));
+            f58674j = Boolean.valueOf(d2 != null && d2.equals(com.ss.android.socialbase.downloader.downloader.c.N().getPackageName()));
         } else {
-            f60324j = Boolean.FALSE;
+            f58674j = Boolean.FALSE;
         }
-        return f60324j.booleanValue();
+        return f58674j.booleanValue();
     }
 
     public static boolean a(Throwable th) {

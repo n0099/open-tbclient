@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.i0;
+import c.i.c.c.i0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ForwardingBlockingQueue<E> extends i0<E> implements BlockingQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public abstract class ForwardingBlockingQueue<E> extends i0<E> implements Blocki
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.i0, c.i.d.c.y, c.i.d.c.h0
+    @Override // c.i.c.c.i0, c.i.c.c.y, c.i.c.c.h0
     public abstract BlockingQueue<E> delegate();
 
     @Override // java.util.concurrent.BlockingQueue

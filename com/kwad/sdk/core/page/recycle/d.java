@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
     public List<Presenter> a = new ArrayList();
 
@@ -29,7 +29,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i2) {
-        cVar.a.a(cVar.f56196b);
+        cVar.a.a(cVar.f54546b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

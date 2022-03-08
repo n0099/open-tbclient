@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -38,11 +38,11 @@ public class e {
     public Map<String, Integer> dF;
     public com.baidu.ar.arplay.c.a dG;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface a {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -16,20 +16,20 @@ import com.kuaishou.weapon.un.l1;
 import com.kuaishou.weapon.un.o;
 import com.kuaishou.weapon.un.p;
 import com.kuaishou.weapon.un.t1;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class WeaponS extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeaponS f55237b;
+        public final /* synthetic */ WeaponS f53587b;
 
         public a(WeaponS weaponS, Intent intent) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class WeaponS extends Service {
                     return;
                 }
             }
-            this.f55237b = weaponS;
+            this.f53587b = weaponS;
             this.a = intent;
         }
 
@@ -56,22 +56,22 @@ public class WeaponS extends Service {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 String stringExtra = this.a.getStringExtra("from_plugin_apk");
                 if (TextUtils.isEmpty(stringExtra)) {
-                    this.f55237b.a();
-                } else if (this.f55237b.getPackageName().equals(stringExtra)) {
-                    WeaponS weaponS = this.f55237b;
+                    this.f53587b.a();
+                } else if (this.f53587b.getPackageName().equals(stringExtra)) {
+                    WeaponS weaponS = this.f53587b;
                     weaponS.a(weaponS.getClassLoader(), this.a);
-                    this.f55237b.a();
+                    this.f53587b.a();
                 } else {
                     o c2 = o.c();
                     if (c2 == null) {
-                        this.f55237b.a();
+                        this.f53587b.a();
                         return;
                     }
                     p a = c2.a(stringExtra);
                     if (a == null) {
-                        this.f55237b.a();
+                        this.f53587b.a();
                     } else {
-                        this.f55237b.a(a.f55410g, this.a);
+                        this.f53587b.a(a.f53760g, this.a);
                     }
                 }
             }

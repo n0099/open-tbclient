@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.UrlOcrConfig;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.text.SimpleDateFormat;
@@ -20,38 +20,38 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30818b;
+    public String f29222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30819c;
+    public String f29223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30820d;
+    public String f29224d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30821e;
+    public String f29225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30822f;
+    public String f29226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30823g;
+    public String f29227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30824h;
+    public String f29228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30825i;
+    public String f29229i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f30826j;
+    public String f29230j;
     public String k;
     public String l;
     public String m;
@@ -81,21 +81,21 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f30819c = "";
-        this.f30821e = "";
+        this.f29223c = "";
+        this.f29225e = "";
         this.n = "";
         this.m = "";
         this.p = "";
         this.a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f30818b = a(currentTimeMillis);
-        this.f30820d = "";
-        this.f30822f = "";
-        this.f30823g = Build.BRAND;
-        this.f30824h = Build.MODEL;
-        this.f30825i = "Android";
-        this.f30826j = Build.VERSION.RELEASE;
+        this.f29222b = a(currentTimeMillis);
+        this.f29224d = "";
+        this.f29226f = "";
+        this.f29227g = Build.BRAND;
+        this.f29228h = Build.MODEL;
+        this.f29229i = "Android";
+        this.f29230j = Build.VERSION.RELEASE;
         this.k = "SDK-JJ-v3.6.2";
         this.l = str;
         this.s = "0";
@@ -129,7 +129,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f30820d = str;
+            this.f29224d = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -149,7 +149,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f30821e = str;
+            this.f29225e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -159,7 +159,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f30822f = str;
+            this.f29226f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -229,15 +229,15 @@ public class b {
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("v", this.a);
-                jSONObject.put("t", this.f30818b);
-                jSONObject.put("tag", this.f30819c);
-                jSONObject.put("ai", this.f30820d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f30821e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f30822f);
-                jSONObject.put("br", this.f30823g);
-                jSONObject.put("ml", this.f30824h);
-                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.f30825i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f30826j);
+                jSONObject.put("t", this.f29222b);
+                jSONObject.put("tag", this.f29223c);
+                jSONObject.put("ai", this.f29224d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f29225e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f29226f);
+                jSONObject.put(TtmlNode.TAG_BR, this.f29227g);
+                jSONObject.put("ml", this.f29228h);
+                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.f29229i);
+                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f29230j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);
                 jSONObject.put(RetrieveTaskManager.KEY, this.m);
@@ -245,7 +245,7 @@ public class b {
                 jSONObject.put("rt", this.o);
                 jSONObject.put("msg", this.p);
                 jSONObject.put("st", this.q);
-                jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.r);
+                jSONObject.put("tt", this.r);
                 jSONObject.put("ot", this.s);
                 jSONObject.put("ep", this.t.toString());
                 return jSONObject.toString();

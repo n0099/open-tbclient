@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PreserveAspectRatio {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PreserveAspectRatio f53487c;
+    public static final PreserveAspectRatio f51906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PreserveAspectRatio f53488d;
+    public static final PreserveAspectRatio f51907d;
     public transient /* synthetic */ FieldHolder $fh;
     public Alignment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scale f53489b;
+    public Scale f51908b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Alignment {
         public static final /* synthetic */ Alignment[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class PreserveAspectRatio {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Scale {
         public static final /* synthetic */ Scale[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -172,8 +172,8 @@ public class PreserveAspectRatio {
                 return;
             }
         }
-        f53487c = new PreserveAspectRatio(Alignment.None, null);
-        f53488d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+        f51906c = new PreserveAspectRatio(Alignment.None, null);
+        f51907d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
         Alignment alignment = Alignment.XMinYMin;
         Scale scale = Scale.Meet;
         Alignment alignment2 = Alignment.XMaxYMax;
@@ -204,7 +204,7 @@ public class PreserveAspectRatio {
             }
         }
         this.a = alignment;
-        this.f53489b = scale;
+        this.f51908b = scale;
     }
 
     public Alignment a() {
@@ -216,7 +216,7 @@ public class PreserveAspectRatio {
     public Scale b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53489b : (Scale) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51908b : (Scale) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -228,7 +228,7 @@ public class PreserveAspectRatio {
             }
             if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
                 PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-                return this.a == preserveAspectRatio.a && this.f53489b == preserveAspectRatio.f53489b;
+                return this.a == preserveAspectRatio.a && this.f51908b == preserveAspectRatio.f51908b;
             }
             return false;
         }

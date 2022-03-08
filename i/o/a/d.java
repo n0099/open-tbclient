@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.operators.NotificationLite;
 import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class d<T, R> extends i.j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f62034i;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f60384i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62035j;
+    public final int f60385j;
     public boolean k;
 
     public d(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i2) {
@@ -34,8 +34,8 @@ public final class d<T, R> extends i.j<T> {
                 return;
             }
         }
-        this.f62034i = onSubscribeCombineLatest$LatestCoordinator;
-        this.f62035j = i2;
+        this.f60384i = onSubscribeCombineLatest$LatestCoordinator;
+        this.f60385j = i2;
         e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
@@ -53,7 +53,7 @@ public final class d<T, R> extends i.j<T> {
             return;
         }
         this.k = true;
-        this.f62034i.combine(null, this.f62035j);
+        this.f60384i.combine(null, this.f60385j);
     }
 
     @Override // i.e
@@ -64,9 +64,9 @@ public final class d<T, R> extends i.j<T> {
                 i.r.c.j(th);
                 return;
             }
-            this.f62034i.onError(th);
+            this.f60384i.onError(th);
             this.k = true;
-            this.f62034i.combine(null, this.f62035j);
+            this.f60384i.combine(null, this.f60385j);
         }
     }
 
@@ -76,6 +76,6 @@ public final class d<T, R> extends i.j<T> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.k) {
             return;
         }
-        this.f62034i.combine(NotificationLite.h(t), this.f62035j);
+        this.f60384i.combine(NotificationLite.h(t), this.f60385j);
     }
 }

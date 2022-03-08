@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface ISpeedContext {
     public static final ISpeedContext EMPTY = new ISpeedContext() { // from class: com.baidu.searchbox.performance.speed.ISpeedContext.1
         public static /* synthetic */ Interceptable $ic;

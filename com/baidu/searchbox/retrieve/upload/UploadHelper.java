@@ -2,10 +2,10 @@ package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d1.a.d.a;
-import c.a.d1.b.c;
-import c.a.d1.b.d;
-import c.a.d1.c.b;
+import c.a.a1.a.d.a;
+import c.a.a1.b.c;
+import c.a.a1.b.d;
+import c.a.a1.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -37,7 +37,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UploadHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHAR_UNDERLINE = "_";
@@ -203,7 +203,7 @@ public class UploadHelper {
                         this.val$activeUploadListener = iActiveUploadListener;
                     }
 
-                    @Override // c.a.d1.b.c
+                    @Override // c.a.a1.b.c
                     public void onFailure(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str3, jSONObject) == null) {
@@ -221,7 +221,7 @@ public class UploadHelper {
                         }
                     }
 
-                    @Override // c.a.d1.b.c
+                    @Override // c.a.a1.b.c
                     public void onSuccess(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, jSONObject) == null) {
@@ -339,7 +339,7 @@ public class UploadHelper {
                     String str9 = "zipPath: " + str8;
                 }
                 File file3 = new File(str8);
-                if (c.a.d1.c.c.i(new ArrayList(hashSet), str8, str)) {
+                if (c.a.a1.c.c.i(new ArrayList(hashSet), str8, str)) {
                     if (file3.length() > 0) {
                         if (DEBUG) {
                             String str10 = "zip directory is succeed, zip length is: " + file3.length();
@@ -589,7 +589,7 @@ public class UploadHelper {
             }
             return;
         }
-        dVar.a(file.getAbsolutePath(), "acupload", c.a.d1.a.c.a.l, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+        dVar.a(file.getAbsolutePath(), "acupload", c.a.a1.a.c.a.l, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UploadHelper this$0;
@@ -616,7 +616,7 @@ public class UploadHelper {
                 this.val$activeUploadListener = iActiveUploadListener;
             }
 
-            @Override // c.a.d1.b.c
+            @Override // c.a.a1.b.c
             public void onFailure(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject) == null) {
@@ -632,7 +632,7 @@ public class UploadHelper {
                 }
             }
 
-            @Override // c.a.d1.b.c
+            @Override // c.a.a1.b.c
             public void onSuccess(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject) == null) {
@@ -884,7 +884,7 @@ public class UploadHelper {
                 this.val$zipFile = file;
             }
 
-            @Override // c.a.d1.b.c
+            @Override // c.a.a1.b.c
             public void onFailure(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject2) == null) {
@@ -898,7 +898,7 @@ public class UploadHelper {
                 }
             }
 
-            @Override // c.a.d1.b.c
+            @Override // c.a.a1.b.c
             public void onSuccess(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject2) == null) {

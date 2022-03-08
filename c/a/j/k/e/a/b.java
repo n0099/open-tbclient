@@ -15,7 +15,7 @@ public final class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4166b;
+    public final String f3783b;
 
     public b(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public final class b {
             }
         }
         this.a = str;
-        this.f4166b = str2;
+        this.f3783b = str2;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4166b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3783b : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -48,7 +48,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return ((Intrinsics.areEqual(bVar.a, this.a) ^ true) || (Intrinsics.areEqual(bVar.f4166b, this.f4166b) ^ true)) ? false : true;
+                return ((Intrinsics.areEqual(bVar.a, this.a) ^ true) || (Intrinsics.areEqual(bVar.f3783b, this.f3783b) ^ true)) ? false : true;
             }
             return false;
         }
@@ -61,7 +61,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f4166b;
+            String str2 = this.f3783b;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -71,7 +71,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "TaskUBCStatus(taskSingleKey=" + this.a + ", taskUBCStatus=" + this.f4166b + SmallTailInfo.EMOTION_SUFFIX;
+            return "TaskUBCStatus(taskSingleKey=" + this.a + ", taskUBCStatus=" + this.f3783b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

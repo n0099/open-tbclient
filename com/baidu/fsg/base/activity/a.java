@@ -4,23 +4,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f33903b;
+    public final /* synthetic */ Object f32306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f33904c;
+    public final /* synthetic */ String f32307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f33905d;
+    public final /* synthetic */ String f32308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f33906e;
+    public final /* synthetic */ BeanActivity f32309e;
 
     public a(BeanActivity beanActivity, int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f33906e = beanActivity;
+        this.f32309e = beanActivity;
         this.a = i2;
-        this.f33903b = obj;
-        this.f33904c = str;
-        this.f33905d = str2;
+        this.f32306b = obj;
+        this.f32307c = str;
+        this.f32308d = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f33906e;
+            BeanActivity beanActivity = this.f32309e;
             if (beanActivity.mAct != null) {
-                beanActivity.handleResponse(this.a, this.f33903b, this.f33904c);
-                this.f33906e.handleResponse(this.a, this.f33903b, this.f33904c, this.f33905d);
+                beanActivity.handleResponse(this.a, this.f32306b, this.f32307c);
+                this.f32309e.handleResponse(this.a, this.f32306b, this.f32307c, this.f32308d);
             }
         }
     }

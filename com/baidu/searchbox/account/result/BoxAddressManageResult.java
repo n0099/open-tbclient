@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BoxAddressManageResult extends BoxSapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ADDR_ID = "addrId";

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class j implements Runnable {
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (safeKeyBoardPopupWindow = this.a.a.mPopupWindow) != null && safeKeyBoardPopupWindow.isShowing()) {
-            safeScrollView = this.a.a.f34191e;
+            safeScrollView = this.a.a.f32594e;
             if (safeScrollView.hasWindowFocus()) {
                 this.a.a.b();
             }

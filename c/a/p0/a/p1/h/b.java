@@ -1,0 +1,214 @@
+package c.a.p0.a.p1.h;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.widget.EditText;
+import android.widget.TextView;
+import c.a.p0.a.p1.j.f;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final boolean f6860d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static b f6861e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HashMap<String, c> f6862b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<String> f6863c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-374377513, "Lc/a/p0/a/p1/h/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-374377513, "Lc/a/p0/a/p1/h/b;");
+                return;
+            }
+        }
+        f6860d = c.a.p0.a.a.a;
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6862b = new HashMap<>();
+        this.f6863c = new ArrayList();
+    }
+
+    public static b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f6861e == null) {
+                synchronized (b.class) {
+                    if (f6861e == null) {
+                        f6861e = new b();
+                    }
+                }
+            }
+            return f6861e;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HashMap<String, c> hashMap = this.f6862b;
+            if (hashMap == null || (cVar = hashMap.get(str)) == null) {
+                return null;
+            }
+            return cVar.a();
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6863c : (List) invokeV.objValue;
+    }
+
+    public Bitmap d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> list = this.f6863c;
+            return list != null && list.size() > 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (f6860d) {
+                String str2 = "get emoji info from " + str;
+            }
+            File file = new File(str);
+            if (file.exists() && file.isDirectory()) {
+                String E = c.a.p0.w.d.E(new File(str + File.separator + "emoji.json"));
+                if (TextUtils.isEmpty(E)) {
+                    boolean z = f6860d;
+                    return;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
+                    if (optJSONArray == null) {
+                        return;
+                    }
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
+                    if (optJSONObject == null) {
+                        return;
+                    }
+                    String optString = optJSONObject.optString("package_icon");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
+                    this.f6863c.clear();
+                    this.f6862b.clear();
+                    if (optJSONArray2 != null) {
+                        int length = optJSONArray2.length();
+                        for (int i2 = 0; i2 < length; i2++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i2);
+                            String optString2 = jSONObject.optString("id");
+                            String optString3 = jSONObject.optString("text");
+                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + jSONObject.optString("icon"));
+                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
+                                this.f6863c.add(optString3);
+                                this.f6862b.put(optString3, new c(optString2, optString3, decodeFile));
+                            }
+                        }
+                        return;
+                    }
+                    return;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return;
+                }
+            }
+            boolean z2 = f6860d;
+        }
+    }
+
+    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
+        InterceptResult invokeLLL;
+        Object aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
+            boolean z = f6860d;
+            SpannableString spannableString = new SpannableString(charSequence);
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            while (matcher.find()) {
+                String group = matcher.group();
+                int start = matcher.start();
+                Bitmap a = c().a(group);
+                if (a == null) {
+                    break;
+                }
+                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
+                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
+                if (createScaledBitmap != null) {
+                    if (textView instanceof EditText) {
+                        aVar = new f.b(context.getApplicationContext(), createScaledBitmap);
+                    } else {
+                        aVar = new f.a(context.getApplicationContext(), createScaledBitmap);
+                    }
+                    spannableString.setSpan(aVar, start, group.length() + start, 33);
+                }
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeLLL.objValue;
+    }
+}

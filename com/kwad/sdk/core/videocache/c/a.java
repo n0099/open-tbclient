@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends SQLiteOpenHelper implements b {
     public static final String[] a = {"_id", "url", "length", "mime"};
 
@@ -19,8 +19,8 @@ public class a extends SQLiteOpenHelper implements b {
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("url", nVar.a);
-        contentValues.put("length", Long.valueOf(nVar.f56519b));
-        contentValues.put("mime", nVar.f56520c);
+        contentValues.put("length", Long.valueOf(nVar.f54869b));
+        contentValues.put("mime", nVar.f54870c);
         return contentValues;
     }
 

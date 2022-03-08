@@ -27,7 +27,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class LoaderManager {
     public static final boolean DEBUG = false;
     public static final int LOAD_STATE_ERROR_ASYNC_LOAD = -7;

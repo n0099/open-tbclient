@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.RichContentHelper;
@@ -38,7 +38,7 @@ import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_FROM_ONE = "1";
@@ -168,7 +168,7 @@ public class WriteData extends OrmObject implements Serializable {
     public VideoInfo mVideoInfo;
     public int mVideoReviewType;
     public String mVoiceMd5;
-    public VoiceData$VoiceModel mVoiceModel;
+    public VoiceData.VoiceModel mVoiceModel;
     public WriteVoteData mWriteVoteData;
     public String mZhongcePrefix;
     public String originalThreadId;
@@ -302,7 +302,7 @@ public class WriteData extends OrmObject implements Serializable {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("mVoiceModel");
                 if (optJSONObject != null) {
-                    writeData.mVoiceModel = (VoiceData$VoiceModel) OrmObject.objectWithJson(optJSONObject, VoiceData$VoiceModel.class);
+                    writeData.mVoiceModel = (VoiceData.VoiceModel) OrmObject.objectWithJson(optJSONObject, VoiceData.VoiceModel.class);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("writeImagesInfo");
                 if (optJSONObject2 != null) {
@@ -999,10 +999,10 @@ public class WriteData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.mDuringTime : invokeV.intValue;
     }
 
-    public VoiceData$VoiceModel getVoiceModel() {
+    public VoiceData.VoiceModel getVoiceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? this.mVoiceModel : (VoiceData$VoiceModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? this.mVoiceModel : (VoiceData.VoiceModel) invokeV.objValue;
     }
 
     public String getVoteContentForPost() {
@@ -1097,8 +1097,8 @@ public class WriteData extends OrmObject implements Serializable {
                     }
                     VideoInfo videoInfo = this.mVideoInfo;
                     if (videoInfo == null || !videoInfo.isAvaliable()) {
-                        VoiceData$VoiceModel voiceData$VoiceModel = this.mVoiceModel;
-                        return ((voiceData$VoiceModel == null || voiceData$VoiceModel.voiceId == null || voiceData$VoiceModel.duration == -1) && this.mCategoryTo < 0 && this.mWriteVoteData == null && ListUtils.isEmpty(this.itemDatas)) ? false : true;
+                        VoiceData.VoiceModel voiceModel = this.mVoiceModel;
+                        return ((voiceModel == null || voiceModel.voiceId == null || voiceModel.duration == -1) && this.mCategoryTo < 0 && this.mWriteVoteData == null && ListUtils.isEmpty(this.itemDatas)) ? false : true;
                     }
                     return true;
                 }
@@ -1991,10 +1991,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {
+    public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048808, this, voiceData$VoiceModel) == null) {
-            this.mVoiceModel = voiceData$VoiceModel;
+        if (interceptable == null || interceptable.invokeL(1048808, this, voiceModel) == null) {
+            this.mVoiceModel = voiceModel;
         }
     }
 

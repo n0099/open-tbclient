@@ -34,13 +34,13 @@ public class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4239b;
+    public static String f3856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4240c;
+    public static String f3857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4241d;
+    public static boolean f3858d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -49,7 +49,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f4242e;
+        public final /* synthetic */ Object f3859e;
 
         public a(Object obj) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class c {
                     return;
                 }
             }
-            this.f4242e = obj;
+            this.f3859e = obj;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -77,7 +77,7 @@ public class c {
                 if (TextUtils.equals("enqueueToast", method.getName())) {
                     c.l(objArr[1]);
                 }
-                return method.invoke(this.f4242e, objArr);
+                return method.invoke(this.f3859e, objArr);
             }
             return invokeLLL.objValue;
         }
@@ -90,7 +90,7 @@ public class c {
         public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f4243b;
+        public Handler f3860b;
 
         public b(Runnable runnable, Handler handler) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class c {
                 }
             }
             this.a = runnable;
-            this.f4243b = handler;
+            this.f3860b = handler;
         }
 
         @Override // android.os.Handler
@@ -136,7 +136,7 @@ public class c {
                     }
                 }
                 try {
-                    this.f4243b.handleMessage(message);
+                    this.f3860b.handleMessage(message);
                 } catch (WindowManager.BadTokenException e6) {
                     e6.printStackTrace();
                 }
@@ -181,10 +181,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f4240c == null) {
-                f4240c = j("ro.build.version.opporom");
+            if (f3857c == null) {
+                f3857c = j("ro.build.version.opporom");
             }
-            return !TextUtils.isEmpty(f4240c);
+            return !TextUtils.isEmpty(f3857c);
         }
         return invokeV.booleanValue;
     }
@@ -194,10 +194,10 @@ public class c {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f4239b == null) {
-                f4239b = j(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            if (f3856b == null) {
+                f3856b = j(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
             }
-            if (!TextUtils.isEmpty(f4239b) && (split = f4239b.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length >= 1 && split[0].length() >= 2) {
+            if (!TextUtils.isEmpty(f3856b) && (split = f3856b.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length >= 1 && split[0].length() >= 2) {
                 String substring = split[0].substring(1);
                 if (!TextUtils.isEmpty(substring)) {
                     try {
@@ -227,9 +227,9 @@ public class c {
 
     public static void h(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65544, null, z) == null) && z && f() && !f4241d) {
+        if ((interceptable == null || interceptable.invokeZ(65544, null, z) == null) && z && f() && !f3858d) {
             try {
-                f4241d = true;
+                f3858d = true;
                 Method declaredMethod = Toast.class.getDeclaredMethod("getService", null);
                 declaredMethod.setAccessible(true);
                 Object invoke = declaredMethod.invoke(null, null);

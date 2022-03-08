@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import c.a.d.o.e.n;
-import c.a.u0.p1.l.b.c.c;
+import c.a.r0.o1.l.b.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

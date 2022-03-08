@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42123h;
+    public boolean f40526h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoActiveStopAlaPlayAnimationView(Context context) {
@@ -34,7 +34,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
                 return;
             }
         }
-        this.f42123h = false;
+        this.f40526h = false;
     }
 
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
@@ -42,7 +42,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            if (this.f42123h) {
+            if (this.f40526h) {
                 return;
             }
             startPlayAnimation();
@@ -60,7 +60,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public void setFromSpecialForum(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f42123h = z;
+            this.f40526h = z;
         }
     }
 
@@ -83,6 +83,6 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
                 return;
             }
         }
-        this.f42123h = false;
+        this.f40526h = false;
     }
 }

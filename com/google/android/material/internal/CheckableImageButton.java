@@ -10,7 +10,7 @@ import android.widget.Checkable;
 import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] DRAWABLE_STATE_CHECKED;
@@ -35,7 +35,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     public boolean checked;
     public boolean pressable;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -302,7 +302,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CheckableImageButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.imageButtonStyle);
+        this(context, attributeSet, R$attr.imageButtonStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

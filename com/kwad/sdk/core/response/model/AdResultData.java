@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;

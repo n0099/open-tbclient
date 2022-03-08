@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public @interface DebugTrace {
     String tag() default "";
 }

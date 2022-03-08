@@ -1,12 +1,15 @@
 package c.a.k0.a;
 
-import com.baidu.protect.crypto.b;
+import android.content.Context;
+import c.a.k0.a.e.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class a {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +27,26 @@ public abstract class a {
         }
     }
 
-    public abstract boolean a(byte[] bArr);
-
-    public abstract boolean b(byte[] bArr, byte[] bArr2, int i2) throws b;
+    public c.a.k0.a.h.b a(Context context, b bVar) {
+        InterceptResult invokeLL;
+        JSONObject a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
+            if (bVar == null || context == null || (a = bVar.a()) == null) {
+                return null;
+            }
+            String optString = a.optString("material_type");
+            if ("image".equals(optString)) {
+                return new c.a.k0.a.e.c(context, a);
+            }
+            if ("gif".equals(optString)) {
+                return new c.a.k0.a.e.b(context, a);
+            }
+            if ("video".equals(optString)) {
+                return new d(context, a);
+            }
+            return null;
+        }
+        return (c.a.k0.a.h.b) invokeLL.objValue;
+    }
 }

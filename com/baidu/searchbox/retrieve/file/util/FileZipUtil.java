@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FileZipUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

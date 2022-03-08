@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.a.e0.c;
+import c.a.q0.a.e0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCLoadManager;
 import com.baidu.searchbox.StartupCountStatsController;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

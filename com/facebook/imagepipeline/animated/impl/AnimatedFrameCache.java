@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AnimatedFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class AnimatedFrameCache {
     public final CacheKey mImageCacheKey;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class FrameKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

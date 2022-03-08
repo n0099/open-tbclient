@@ -9,29 +9,26 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.i0.c;
-import c.a.i0.e;
-import c.a.i0.g;
-import c.a.i0.h;
-import c.a.i0.m.b;
+import c.a.f0.d.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f38082e;
+    public ImageView f36485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38083f;
+    public TextView f36486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f38084g;
+    public Animation f36487g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -59,9 +56,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(h.view_tip, (ViewGroup) this, true);
-            this.f38082e = (ImageView) findViewById(g.tip_loading_view);
-            this.f38083f = (TextView) findViewById(g.tip_text_view);
+            LayoutInflater.from(context).inflate(R.layout.view_tip, (ViewGroup) this, true);
+            this.f36485e = (ImageView) findViewById(R.id.tip_loading_view);
+            this.f36486f = (TextView) findViewById(R.id.tip_text_view);
         }
     }
 
@@ -69,7 +66,7 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setVisibility(8);
-            this.f38082e.clearAnimation();
+            this.f36485e.clearAnimation();
         }
     }
 
@@ -77,17 +74,17 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
-            if (this.f38084g == null) {
-                this.f38084g = AnimationUtils.loadAnimation(getContext(), c.loading_rotate);
+            if (this.f36487g == null) {
+                this.f36487g = AnimationUtils.loadAnimation(getContext(), R.anim.loading_rotate);
             }
-            this.f38083f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f38082e.getLayoutParams();
+            this.f36486f.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.f36485e.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.channel_loading_icon_size);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.channel_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.f38082e.startAnimation(this.f38084g);
+            this.f36485e.startAnimation(this.f36487g);
         }
     }
 
@@ -95,15 +92,15 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             setVisibility(0);
-            this.f38082e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f38082e.getLayoutParams();
+            this.f36485e.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.f36485e.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.pay_loading_icon_size);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.pay_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            b.b().a(this.f38082e, str);
-            this.f38083f.setText(str2);
+            b.b().a(this.f36485e, str);
+            this.f36486f.setText(str2);
         }
     }
 

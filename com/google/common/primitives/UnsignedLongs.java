@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
+import c.i.c.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class UnsignedLongs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class LexicographicalComparator implements Comparator<long[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,16 +99,16 @@ public final class UnsignedLongs {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final long[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f55136b;
+        public static final int[] f53486b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f55137c;
+        public static final int[] f53487c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -125,14 +125,14 @@ public final class UnsignedLongs {
                 }
             }
             a = new long[37];
-            f55136b = new int[37];
-            f55137c = new int[37];
+            f53486b = new int[37];
+            f53487c = new int[37];
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i2 = 2; i2 <= 36; i2++) {
                 long j2 = i2;
                 a[i2] = UnsignedLongs.b(-1L, j2);
-                f55136b[i2] = (int) UnsignedLongs.e(-1L, j2);
-                f55137c[i2] = bigInteger.toString(i2).length() - 1;
+                f53486b[i2] = (int) UnsignedLongs.e(-1L, j2);
+                f53487c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
@@ -145,7 +145,7 @@ public final class UnsignedLongs {
                     if (j2 < jArr[i3]) {
                         return false;
                     }
-                    return j2 > jArr[i3] || i2 > f55136b[i3];
+                    return j2 > jArr[i3] || i2 > f53486b[i3];
                 }
                 return true;
             }
@@ -188,7 +188,7 @@ public final class UnsignedLongs {
             n.p(str);
             if (str.length() != 0) {
                 if (i2 >= 2 && i2 <= 36) {
-                    int i3 = a.f55137c[i2] - 1;
+                    int i3 = a.f53487c[i2] - 1;
                     long j2 = 0;
                     for (int i4 = 0; i4 < str.length(); i4++) {
                         int digit = Character.digit(str.charAt(i4), i2);

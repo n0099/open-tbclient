@@ -7,28 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.s0.h.j.h;
-import c.a.s0.h.j.i;
-import c.a.s0.h.j.l;
-import c.a.s0.j.p0.g.f.d;
+import c.a.p0.j.p0.g.f.d;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class GuideViewNotShowEnsureDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DialogInterface.OnClickListener clickListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f39965e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f38369e;
 
         public a(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -45,15 +43,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f39965e = guideViewNotShowEnsureDialog;
+            this.f38369e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39965e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f39965e;
+                this.f38369e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f38369e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -2);
@@ -62,13 +60,13 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f39966e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f38370e;
 
         public b(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -85,15 +83,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f39966e = guideViewNotShowEnsureDialog;
+            this.f38370e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39966e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f39966e;
+                this.f38370e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f38370e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -1);
@@ -104,7 +102,7 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuideViewNotShowEnsureDialog(@NonNull Context context) {
-        super(context, l.AiappsGameGuideDialogStyle);
+        super(context, R.style.AiappsGameGuideDialogStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,8 +125,8 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) findViewById(h.tv_cancel);
-            TextView textView2 = (TextView) findViewById(h.tv_ensure);
+            TextView textView = (TextView) findViewById(R.id.tv_cancel);
+            TextView textView2 = (TextView) findViewById(R.id.tv_ensure);
             d.a(textView);
             d.a(textView2);
             textView.setOnClickListener(new a(this));
@@ -141,7 +139,7 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(i.aiapps_game_guide_not_show_ensure_dialog);
+            setContentView(R.layout.aiapps_game_guide_not_show_ensure_dialog);
             setCancelable(false);
             a();
         }

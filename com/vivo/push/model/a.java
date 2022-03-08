@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60927b;
+    public String f59277b;
 
     public a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class a {
             }
         }
         this.a = str;
-        this.f60927b = str2;
+        this.f59277b = str2;
     }
 
     public final String a() {
@@ -44,7 +44,7 @@ public final class a {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60927b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59277b : (String) invokeV.objValue;
     }
 
     public final boolean equals(Object obj) {
@@ -85,7 +85,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ConfigItem{mKey='" + this.a + ExtendedMessageFormat.QUOTE + ", mValue='" + this.f60927b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "ConfigItem{mKey='" + this.a + ExtendedMessageFormat.QUOTE + ", mValue='" + this.f59277b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -15,7 +15,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITS;

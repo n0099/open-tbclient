@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.vms.IPCCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface IPCInvoke extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Default implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,14 +56,14 @@ public interface IPCInvoke extends IInterface {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
         public static final int TRANSACTION_asyncCall = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements IPCInvoke {
             public static /* synthetic */ Interceptable $ic;
             public static IPCInvoke sDefaultImpl;

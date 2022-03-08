@@ -1,9 +1,9 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
-import c.a.t0.d1.l0;
-import c.a.t0.d1.o0;
-import c.a.t0.s.k;
+import c.a.q0.c1.k0;
+import c.a.q0.c1.n0;
+import c.a.q0.r.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitLaunchSyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            o0.b(new l0<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            n0.b(new k0<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -66,7 +66,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.t0.d1.l0
+                @Override // c.a.q0.c1.k0
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

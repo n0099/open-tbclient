@@ -1,6 +1,7 @@
 package c.a.d.o.e;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,14 +15,14 @@ public class u extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f2538g;
+    public static final BdUniqueId f3167g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2539e;
+    public String f3168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2540f;
+    public int f3169f;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +37,7 @@ public class u extends BaseCardInfo {
                 return;
             }
         }
-        f2538g = BdUniqueId.gen();
+        f3167g = BdUniqueId.gen();
     }
 
     public u() {
@@ -52,13 +53,13 @@ public class u extends BaseCardInfo {
                 return;
             }
         }
-        this.f2540f = c.a.u0.a4.f.new_pic_emotion_06;
+        this.f3169f = R.drawable.new_pic_emotion_06;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f2538g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f3167g : (BdUniqueId) invokeV.objValue;
     }
 }

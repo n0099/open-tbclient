@@ -13,7 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$id;
+import androidx.appcompat.R$layout;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.InputDeviceCompat;
@@ -67,11 +70,11 @@ public class ActionBarContextView extends AbsActionBarView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (this.mTitleLayout == null) {
-                LayoutInflater.from(getContext()).inflate(R.layout.abc_action_bar_title_item, this);
+                LayoutInflater.from(getContext()).inflate(R$layout.abc_action_bar_title_item, this);
                 LinearLayout linearLayout = (LinearLayout) getChildAt(getChildCount() - 1);
                 this.mTitleLayout = linearLayout;
-                this.mTitleView = (TextView) linearLayout.findViewById(R.id.action_bar_title);
-                this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(R.id.action_bar_subtitle);
+                this.mTitleView = (TextView) linearLayout.findViewById(R$id.action_bar_title);
+                this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(R$id.action_bar_subtitle);
                 if (this.mTitleStyleRes != 0) {
                     this.mTitleView.setTextAppearance(getContext(), this.mTitleStyleRes);
                 }
@@ -179,7 +182,7 @@ public class ActionBarContextView extends AbsActionBarView {
             } else if (view.getParent() == null) {
                 addView(this.mClose);
             }
-            this.mClose.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener(this, actionMode) { // from class: androidx.appcompat.widget.ActionBarContextView.1
+            this.mClose.findViewById(R$id.action_mode_close_button).setOnClickListener(new View.OnClickListener(this, actionMode) { // from class: androidx.appcompat.widget.ActionBarContextView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ActionBarContextView this$0;
@@ -510,7 +513,7 @@ public class ActionBarContextView extends AbsActionBarView {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionBarContextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.actionModeStyle);
+        this(context, attributeSet, R$attr.actionModeStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -548,12 +551,12 @@ public class ActionBarContextView extends AbsActionBarView {
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.ActionMode, i2, 0);
-        ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.ActionMode_background));
-        this.mTitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
-        this.mSubtitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);
-        this.mContentHeight = obtainStyledAttributes.getLayoutDimension(R.styleable.ActionMode_height, 0);
-        this.mCloseItemLayout = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_closeItemLayout, R.layout.abc_action_mode_close_item_material);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.ActionMode, i2, 0);
+        ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R$styleable.ActionMode_background));
+        this.mTitleStyleRes = obtainStyledAttributes.getResourceId(R$styleable.ActionMode_titleTextStyle, 0);
+        this.mSubtitleStyleRes = obtainStyledAttributes.getResourceId(R$styleable.ActionMode_subtitleTextStyle, 0);
+        this.mContentHeight = obtainStyledAttributes.getLayoutDimension(R$styleable.ActionMode_height, 0);
+        this.mCloseItemLayout = obtainStyledAttributes.getResourceId(R$styleable.ActionMode_closeItemLayout, R$layout.abc_action_mode_close_item_material);
         obtainStyledAttributes.recycle();
     }
 }

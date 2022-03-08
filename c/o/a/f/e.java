@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class e extends c.o.a.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MethodCall a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f30493b;
+    public final a f28897b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class e extends c.o.a.f.a {
             }
         }
         this.a = methodCall;
-        this.f30493b = new a(this, result);
+        this.f28897b = new a(this, result);
     }
 
     @Override // c.o.a.f.f
@@ -88,6 +88,6 @@ public class e extends c.o.a.f.a {
     public g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30493b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28897b : (g) invokeV.objValue;
     }
 }

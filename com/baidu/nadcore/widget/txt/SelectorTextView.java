@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37588e;
+    public boolean f35991e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectorTextView(Context context) {
@@ -36,7 +36,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f37588e = false;
+        this.f35991e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -50,7 +50,7 @@ public class SelectorTextView extends TextView {
                     if (action == 1 || action == 3) {
                         setAlpha(1.0f);
                     }
-                } else if (this.f37588e) {
+                } else if (this.f35991e) {
                     setAlpha(0.5f);
                 } else {
                     setAlpha(0.4f);
@@ -64,7 +64,7 @@ public class SelectorTextView extends TextView {
     public void setMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f37588e = z;
+            this.f35991e = z;
         }
     }
 
@@ -87,7 +87,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f37588e = false;
+        this.f35991e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -109,6 +109,6 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f37588e = false;
+        this.f35991e = false;
     }
 }

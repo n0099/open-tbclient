@@ -20,7 +20,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -30,7 +30,7 @@ public abstract class Message {
     public transient boolean haveCachedSerializedSize;
     public transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Builder<T extends Message> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Datatype {
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         public static /* synthetic */ Interceptable $ic;
@@ -409,7 +409,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Label {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ Label[] ENUM$VALUES;

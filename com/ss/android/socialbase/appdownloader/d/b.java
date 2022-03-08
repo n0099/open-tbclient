@@ -14,12 +14,12 @@ import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b implements l {
     public List<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f59957b;
+    public BroadcastReceiver f58307b;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(List<DownloadInfo> list, int i2) {
@@ -39,10 +39,10 @@ public class b implements l {
             a(N, downloadInfo, b2, i2);
         }
         List<Integer> list2 = this.a;
-        if (list2 == null || list2.isEmpty() || this.f59957b != null) {
+        if (list2 == null || list2.isEmpty() || this.f58307b != null) {
             return;
         }
-        this.f59957b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f58307b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 final Context applicationContext = context.getApplicationContext();
@@ -70,21 +70,21 @@ public class b implements l {
                         }
                     });
                     try {
-                        applicationContext.unregisterReceiver(b.this.f59957b);
+                        applicationContext.unregisterReceiver(b.this.f58307b);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
-                    b.this.f59957b = null;
+                    b.this.f58307b = null;
                 }
             }
         };
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f59957b, intentFilter);
+            N.registerReceiver(this.f58307b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f59957b = null;
+            this.f58307b = null;
         }
     }
 

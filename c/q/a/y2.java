@@ -1,306 +1,153 @@
 package c.q.a;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONStringer;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class y2 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public JSONStringer f30763b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f30764c;
-
-    public y2(c3 c3Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c3Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f30763b = new JSONStringer();
-        this.f30764c = "";
-        this.a = context;
-    }
-
-    public y2 a(int i2, long j2) {
-        JSONStringer object;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            try {
-                object = new JSONStringer().object();
-                this.f30763b = object;
-                l("e", "bce");
-                l("timeis", c3.e());
-                k("co", i2);
-                k("dr", j2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeCommon.objValue;
-    }
-
-    public y2 b(g3 g3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g3Var)) == null) {
-            try {
-                this.f30763b = c3.d("ao", g3Var);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeL.objValue;
-    }
-
-    public y2 c(g3 g3Var, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, g3Var, i2)) == null) {
-            try {
-                this.f30763b = c3.d("rle", g3Var);
-                k("co", i2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLI.objValue;
-    }
-
-    public y2 d(g3 g3Var, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, g3Var, i2, i3)) == null) {
-            try {
-                this.f30763b = c3.d("asr", g3Var);
-                k("width", i2);
-                k("height", i3);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLII.objValue;
-    }
-
-    public y2 e(g3 g3Var, int i2, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{g3Var, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            try {
-                this.f30763b = c3.d("bpe", g3Var);
-                k("co", i2);
-                k("dr", j2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeCommon.objValue;
-    }
-
-    public y2 f(g3 g3Var, int i2, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, g3Var, i2, str)) == null) {
-            try {
-                this.f30763b = c3.d("wbe", g3Var);
-                k("co", i2);
-                l("msg", c3.b(str));
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLIL.objValue;
-    }
-
-    public y2 g(g3 g3Var, long j2, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{g3Var, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            try {
-                this.f30763b = c3.d("be", g3Var);
-                k("dr", j2);
-                k("co", i2);
-                k("num", i3);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeCommon.objValue;
-    }
-
-    public y2 h(g3 g3Var, String str) {
+    public static boolean a(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, g3Var, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, uri)) == null) {
             try {
-                this.f30763b = c3.d("ac", g3Var);
-                l("msg", c3.b(str));
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLL.objValue;
-    }
-
-    public y2 i(g3 g3Var, String str, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, g3Var, str, i2)) == null) {
-            try {
-                this.f30763b = c3.d("dplop", g3Var);
-                l("msg", c3.b(str));
-                k("co", i2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLLI.objValue;
-    }
-
-    public y2 j(g3 g3Var, String str, int i2, int i3) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, g3Var, str, i2, i3)) == null) {
-            try {
-                this.f30763b = c3.d("wdre", g3Var);
-                try {
-                    str = r0.g(str);
-                } catch (Exception unused) {
-                }
-                l("pkg", str);
-                k("vsc", i2);
-                k("co", i3);
-            } catch (JSONException unused2) {
-            }
-            return this;
-        }
-        return (y2) invokeLLII.objValue;
-    }
-
-    public y2 k(String str, long j2) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
-            try {
-                this.f30763b.key(str).value(j2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLJ.objValue;
-    }
-
-    public y2 l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str2)) {
-                    this.f30763b.key(str).value(str2);
-                }
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (y2) invokeLL.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            JSONArray jSONArray = new JSONArray();
-            try {
-                if (!TextUtils.isEmpty(this.f30763b.toString())) {
-                    this.f30763b.endObject();
-                    this.f30764c = this.f30763b.toString();
-                }
-                JSONObject jSONObject = new JSONObject(this.f30764c);
-                String optString = jSONObject.optString("e");
-                if (n(optString)) {
-                    return;
-                }
-                boolean z = !r0.u(c3.a, optString);
-                jSONArray.put(jSONObject);
-                t2.b(new v2(this, z, jSONArray.toString()));
-            } catch (JSONException unused) {
-            }
-        }
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (m2.G(this.a) < 0) {
+                return c(context, uri);
+            } catch (Exception unused) {
                 return false;
             }
-            return r0.u(c3.a, str) ? m2.G(this.a) < 1 : r0.u(c3.f30532b, str) ? m2.G(this.a) < 2 : r0.u(c3.f30533c, str) ? m2.G(this.a) < 3 : r0.u(c3.f30534d, str) && m2.G(this.a) < 4;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public y2 o(g3 g3Var) {
-        InterceptResult invokeL;
+    public static void b(Context context, Uri uri) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, g3Var)) == null) {
-            try {
-                this.f30763b = c3.d("as", g3Var);
-            } catch (JSONException unused) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, uri) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", uri);
+            intent.addFlags(268435456);
+            uri.getScheme();
+            if (j3.b(uri)) {
+                str = "com.huawei.appmarket";
+            } else if (!j3.c(uri)) {
+                intent = null;
+                try {
+                    intent = Intent.parseUri(uri.toString(), 1);
+                } catch (URISyntaxException e2) {
+                    e2.printStackTrace();
+                }
+                intent.addFlags(268435456);
+                context.startActivity(intent);
+            } else {
+                str = "com.android.vending";
             }
-            return this;
+            intent.setPackage(str);
+            context.startActivity(intent);
         }
-        return (y2) invokeL.objValue;
     }
 
-    public y2 p(g3 g3Var, int i2) {
-        InterceptResult invokeLI;
+    /* JADX WARN: Can't wrap try/catch for region: R(15:3|(3:4|5|(1:7)(1:70))|(7:9|(1:11)|12|13|(2:15|16)|(1:19)|20)|23|24|25|(3:30|(2:33|31)|34)|36|(2:38|(1:40)(6:41|(3:58|59|(3:61|(3:64|65|62)|66))|43|(2:45|(2:46|(2:48|(2:50|51))(1:52)))(0)|53|(1:57)))|(0)|12|13|(0)|(0)|20) */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d3 A[Catch: Exception -> 0x00de, TRY_LEAVE, TryCatch #0 {Exception -> 0x00de, blocks: (B:54:0x00cd, B:56:0x00d3), top: B:67:0x00cd }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00e1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        PackageManager packageManager;
+        String w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, g3Var, i2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(uri);
+            intent.setFlags(268435456);
+            String str = null;
+            boolean z = false;
             try {
-                this.f30763b = c3.d("wde", g3Var);
-                k("co", i2);
-            } catch (JSONException unused) {
+                w = r0.w(context);
+            } catch (Exception unused) {
             }
-            return this;
-        }
-        return (y2) invokeLI.objValue;
-    }
-
-    public y2 q(g3 g3Var, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, g3Var, i2)) == null) {
-            try {
-                this.f30763b = c3.d("wdin", g3Var);
-                k("co", i2);
-            } catch (JSONException unused) {
+            if (h2.y(context) == 1) {
+                str = w;
+                if (str != null) {
+                    intent.setPackage(str);
+                }
+                packageManager = context.getPackageManager();
+                if (packageManager != null) {
+                    z = !packageManager.queryIntentActivities(intent, 0).isEmpty();
+                }
+                if (z) {
+                    context.startActivity(intent);
+                }
+                return z;
             }
-            return this;
+            LinkedList linkedList = new LinkedList();
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    linkedList.add(resolveInfo.activityInfo.packageName);
+                }
+            }
+            if (linkedList.size() != 0) {
+                if (linkedList.size() == 1) {
+                    str = (String) linkedList.get(0);
+                } else {
+                    ArrayList arrayList = new ArrayList();
+                    String j2 = h2.j(context);
+                    if (!TextUtils.isEmpty(j2)) {
+                        try {
+                            JSONArray jSONArray = new JSONArray(j2);
+                            if (jSONArray.length() > 0) {
+                                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                                    arrayList.add(jSONArray.optString(i2));
+                                }
+                            }
+                        } catch (JSONException unused2) {
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            String str2 = (String) it.next();
+                            if (linkedList.contains(str2)) {
+                                str = str2;
+                                break;
+                            }
+                        }
+                    }
+                    if (TextUtils.isEmpty(str) && linkedList.size() > 0) {
+                        str = (String) linkedList.get(0);
+                    }
+                }
+            }
+            if (str != null) {
+            }
+            packageManager = context.getPackageManager();
+            if (packageManager != null) {
+            }
+            if (z) {
+            }
+            return z;
         }
-        return (y2) invokeLI.objValue;
+        return invokeLL.booleanValue;
     }
 }

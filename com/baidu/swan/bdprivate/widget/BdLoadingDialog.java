@@ -5,29 +5,27 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.s0.b.f;
-import c.a.s0.b.g;
-import c.a.s0.b.i;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdLoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39796e;
+    public String f38200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f39797f;
+    public Context f38201f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdLoadingDialog(Context context) {
-        super(context, i.BdWaitingDialog);
+        super(context, R.style.BdWaitingDialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +42,7 @@ public class BdLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f39797f = context;
+        this.f38201f = context;
     }
 
     public static BdLoadingDialog show(Context context, CharSequence charSequence) {
@@ -58,15 +56,15 @@ public class BdLoadingDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(g.loading_layout);
-            ((TextView) findViewById(f.message)).setText(this.f39796e);
+            setContentView(R.layout.loading_layout);
+            ((TextView) findViewById(R.id.message)).setText(this.f38200e);
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f39796e = str;
+            this.f38200e = str;
         }
     }
 
@@ -79,7 +77,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            this.f39796e = charSequence.toString();
+            this.f38200e = charSequence.toString();
         }
     }
 
@@ -100,7 +98,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f39796e = this.f39797f.getResources().getString(i2);
+            this.f38200e = this.f38201f.getResources().getString(i2);
         }
     }
 }

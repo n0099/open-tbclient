@@ -15,12 +15,12 @@ import com.baidu.wallet.router.RouterProvider;
 import com.baidu.wallet.router.RouterRequest;
 import com.dxmpay.wallet.core.utils.ReflectUtils;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class DxmPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final DxmPay a;

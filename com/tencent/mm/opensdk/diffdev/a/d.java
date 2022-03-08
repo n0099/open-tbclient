@@ -14,26 +14,26 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f60674h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
+    public static String f59024h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60675i;
+    public String f59025i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f60676j;
+    public String f59026j;
     public OAuthListener k;
     public f l;
     public String scope;
     public String signature;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,8 +150,8 @@ public final class d extends AsyncTask<Void, Void, a> {
         }
         this.appId = str;
         this.scope = str2;
-        this.f60675i = str3;
-        this.f60676j = str4;
+        this.f59025i = str3;
+        this.f59026j = str4;
         this.signature = str5;
         this.k = oAuthListener;
     }
@@ -173,7 +173,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public final /* synthetic */ a doInBackground(Void[] voidArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
-        String format = String.format(f60674h, this.appId, this.f60675i, this.f60676j, this.scope, this.signature);
+        String format = String.format(f59024h, this.appId, this.f59025i, this.f59026j, this.scope, this.signature);
         long currentTimeMillis = System.currentTimeMillis();
         byte[] a2 = e.a(format);
         Log.d("MicroMsg.SDK.GetQRCodeTask", String.format("doInBackground, url = %s, time consumed = %d(ms)", format, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));

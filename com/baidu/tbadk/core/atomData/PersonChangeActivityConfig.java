@@ -2,18 +2,18 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.os.Build;
-import c.a.u0.a4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PersonChangeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_COMPLETE_LOCAL_INFO = "is_complete_local_info";
@@ -53,7 +53,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(j.live_error_system_not_support));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.live_error_system_not_support));
             return false;
         }
         return invokeV.booleanValue;

@@ -36,24 +36,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f2382g;
+    public static volatile c f3011g;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginSettings a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f2383b;
+    public Messenger f3012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Messenger f2384c;
+    public Messenger f3013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f2385d;
+    public ServiceConnection f3014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f2386e;
+    public e f3015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Message> f2387f;
+    public ArrayList<Message> f3016f;
 
     @SuppressLint({"HandlerLeak"})
     /* loaded from: classes.dex */
@@ -95,9 +95,9 @@ public class c {
                             if (data != null && (serializable = data.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
                                 this.a.a = (PluginSettings) data.getSerializable("plugin_settings");
                             }
-                            if (this.a.f2386e != null) {
-                                this.a.f2386e.a(this.a.a);
-                                this.a.f2386e = null;
+                            if (this.a.f3015e != null) {
+                                this.a.f3015e.a(this.a.a);
+                                this.a.f3015e = null;
                                 return;
                             }
                             return;
@@ -140,7 +140,7 @@ public class c {
                                     findPluginSetting2.enable = z2;
                                 }
                                 boolean z3 = false;
-                                if (findPluginSetting2.isPatch && TextUtils.isEmpty(findPluginSetting2.replaceMethodClasses)) {
+                                if (findPluginSetting2 != null && findPluginSetting2.isPatch && TextUtils.isEmpty(findPluginSetting2.replaceMethodClasses)) {
                                     z3 = true;
                                 }
                                 if (findPluginSetting2 == null || !findPluginSetting2.enable || TextUtils.isEmpty(findPluginSetting2.requireLoad) || !findPluginSetting2.requireLoad.equals("0") || z3) {
@@ -195,7 +195,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f2388e;
+        public final /* synthetic */ c f3017e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -212,25 +212,25 @@ public class c {
                     return;
                 }
             }
-            this.f2388e = cVar;
+            this.f3017e = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f2388e.f2383b = new Messenger(iBinder);
-                this.f2388e.r();
-                if (this.f2388e.f2387f.size() > 0) {
-                    Iterator it = this.f2388e.f2387f.iterator();
+                this.f3017e.f3012b = new Messenger(iBinder);
+                this.f3017e.r();
+                if (this.f3017e.f3016f.size() > 0) {
+                    Iterator it = this.f3017e.f3016f.iterator();
                     while (it.hasNext()) {
                         try {
-                            this.f2388e.f2383b.send((Message) it.next());
+                            this.f3017e.f3012b.send((Message) it.next());
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
-                    this.f2388e.f2387f.clear();
+                    this.f3017e.f3016f.clear();
                 }
             }
         }
@@ -239,8 +239,8 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f2388e.f2383b = null;
-                this.f2388e.f2387f.clear();
+                this.f3017e.f3012b = null;
+                this.f3017e.f3016f.clear();
             }
         }
     }
@@ -259,23 +259,23 @@ public class c {
             }
         }
         this.a = new PluginSettings();
-        this.f2384c = new Messenger(new a(this));
-        this.f2385d = new b(this);
-        this.f2387f = new ArrayList<>();
+        this.f3013c = new Messenger(new a(this));
+        this.f3014d = new b(this);
+        this.f3016f = new ArrayList<>();
     }
 
     public static c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f2382g == null) {
+            if (f3011g == null) {
                 synchronized (c.class) {
-                    if (f2382g == null) {
-                        f2382g = new c();
+                    if (f3011g == null) {
+                        f3011g = new c();
                     }
                 }
             }
-            return f2382g;
+            return f3011g;
         }
         return (c) invokeV.objValue;
     }
@@ -382,11 +382,11 @@ public class c {
             if (obtain != null) {
                 obtain.setData(bundle);
                 try {
-                    if (this.f2383b != null && n()) {
-                        this.f2383b.send(obtain);
+                    if (this.f3012b != null && n()) {
+                        this.f3012b.send(obtain);
                     }
-                    this.f2387f.add(obtain);
-                    f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f2385d, 1);
+                    this.f3016f.add(obtain);
+                    f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f3014d, 1);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -402,11 +402,11 @@ public class c {
         }
         obtain.setData(bundle);
         try {
-            if (this.f2383b != null && n()) {
-                this.f2383b.send(obtain);
+            if (this.f3012b != null && n()) {
+                this.f3012b.send(obtain);
             }
-            this.f2387f.add(obtain);
-            f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f2385d, 1);
+            this.f3016f.add(obtain);
+            f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f3014d, 1);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -419,8 +419,8 @@ public class c {
             return;
         }
         try {
-            obtain.replyTo = this.f2384c;
-            this.f2383b.send(obtain);
+            obtain.replyTo = this.f3013c;
+            this.f3012b.send(obtain);
         } catch (RemoteException unused) {
         } catch (Throwable unused2) {
             c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");

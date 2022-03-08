@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.opensource.svgaplayer.proto.AudioEntity;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30397b;
+    public final int f28801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f30398c;
+    public Integer f28802c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f30399d;
+    public Integer f28803d;
 
     public a(AudioEntity audioEntity) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class a {
         Integer num = audioEntity.startFrame;
         this.a = num != null ? num.intValue() : 0;
         Integer num2 = audioEntity.endFrame;
-        this.f30397b = num2 != null ? num2.intValue() : 0;
+        this.f28801b = num2 != null ? num2.intValue() : 0;
         Integer num3 = audioEntity.startTime;
         if (num3 != null) {
             num3.intValue();
@@ -55,19 +55,19 @@ public final class a {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30397b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28801b : invokeV.intValue;
     }
 
     public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30399d : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28803d : (Integer) invokeV.objValue;
     }
 
     public final Integer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30398c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28802c : (Integer) invokeV.objValue;
     }
 
     public final int d() {
@@ -79,14 +79,14 @@ public final class a {
     public final void e(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.f30399d = num;
+            this.f28803d = num;
         }
     }
 
     public final void f(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.f30398c = num;
+            this.f28802c = num;
         }
     }
 }

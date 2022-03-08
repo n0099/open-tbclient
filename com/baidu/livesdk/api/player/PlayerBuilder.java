@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.player;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface PlayerBuilder {
     Player build();
 }

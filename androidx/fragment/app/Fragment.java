@@ -52,7 +52,6 @@ import androidx.loader.app.LoaderManager;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryController;
 import androidx.savedstate.SavedStateRegistryOwner;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -2273,7 +2272,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
             StringBuilder sb = new StringBuilder(128);
             sb.append(getClass().getSimpleName());
-            sb.append(StringUtil.ARRAY_START);
+            sb.append("{");
             sb.append(Integer.toHexString(System.identityHashCode(this)));
             sb.append("}");
             sb.append(" (");

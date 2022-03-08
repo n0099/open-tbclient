@@ -9,19 +9,19 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f53349b;
+        public long f51768b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public final class k {
                         randomAccessFile.skipBytes(2);
                         randomAccessFile.skipBytes(2);
                         a aVar = new a();
-                        aVar.f53349b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.f51768b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         aVar.a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         return aVar;
                     }
@@ -87,7 +87,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, aVar)) == null) {
             CRC32 crc32 = new CRC32();
-            long j2 = aVar.f53349b;
+            long j2 = aVar.f51768b;
             randomAccessFile.seek(aVar.a);
             int min = (int) Math.min(16384L, j2);
             byte[] bArr = new byte[16384];

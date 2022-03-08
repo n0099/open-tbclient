@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

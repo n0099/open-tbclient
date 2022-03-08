@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ModelCache<A, B> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 250;
@@ -22,7 +22,7 @@ public class ModelCache<A, B> {
     public final LruCache<ModelKey<A>, B> cache;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class ModelKey<A> {
         public static /* synthetic */ Interceptable $ic;
         public static final Queue<ModelKey<?>> KEY_QUEUE;

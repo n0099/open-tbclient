@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static volatile h a;
 

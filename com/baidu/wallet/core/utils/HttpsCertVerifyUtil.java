@@ -18,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class HttpsCertVerifyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = ",";

@@ -30,7 +30,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DownloadDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadDispatcher";

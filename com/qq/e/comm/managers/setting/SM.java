@@ -22,38 +22,38 @@ import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SM {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59309b;
+    public String f57659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f59310c;
+    public a f57660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f59311d;
+    public a f57661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59312e;
+    public String f57662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f59313f;
+    public e f57663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f59314g;
+    public e f57664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f59315h;
+    public String f57665h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f59316i;
+    public d f57666i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d f59317j;
+    public final d f57667j;
     public String k;
     public String l;
     public Context m;
@@ -77,10 +77,10 @@ public class SM {
         this.l = "";
         this.m = context;
         this.a = new a();
-        this.f59311d = new a();
-        this.f59314g = new c();
-        this.f59316i = new d();
-        this.f59317j = new d();
+        this.f57661d = new a();
+        this.f57664g = new c();
+        this.f57666i = new d();
+        this.f57667j = new d();
         this.n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
         d();
         c();
@@ -96,8 +96,8 @@ public class SM {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f59310c = a.a();
-            this.f59309b = a.b();
+            this.f57660c = a.a();
+            this.f57659b = a.b();
         }
     }
 
@@ -109,8 +109,8 @@ public class SM {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f59316i = b2.a();
-            this.f59315h = b2.b();
+            this.f57666i = b2.a();
+            this.f57665h = b2.b();
         }
     }
 
@@ -122,8 +122,8 @@ public class SM {
                 GDTLogger.d("Load Local SDK Cloud setting fail");
                 return;
             }
-            this.f59312e = c2.b();
-            this.f59313f = c2.a();
+            this.f57662e = c2.b();
+            this.f57663f = c2.a();
         }
     }
 
@@ -152,11 +152,11 @@ public class SM {
             }
             try {
                 if (this.a == null || (opt4 = this.a.a.opt(str)) == null) {
-                    if (this.f59310c == null || (opt3 = this.f59310c.a.opt(str)) == null) {
-                        if (this.f59311d == null || (opt2 = this.f59311d.a.opt(str)) == null) {
-                            if (this.f59313f == null || (opt = this.f59313f.a.opt(str)) == null) {
-                                if (this.f59314g != null) {
-                                    return this.f59314g.a.opt(str);
+                    if (this.f57660c == null || (opt3 = this.f57660c.a.opt(str)) == null) {
+                        if (this.f57661d == null || (opt2 = this.f57661d.a.opt(str)) == null) {
+                            if (this.f57663f == null || (opt = this.f57663f.a.opt(str)) == null) {
+                                if (this.f57664g != null) {
+                                    return this.f57664g.a.opt(str);
                                 }
                                 return null;
                             }
@@ -178,13 +178,13 @@ public class SM {
     public String getDevCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59309b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57659b : (String) invokeV.objValue;
     }
 
     public Object getDisplaySetting(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f59317j.a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f57667j.a.opt(str) : invokeL.objValue;
     }
 
     public Object getForPlacement(String str, String str2) {
@@ -201,19 +201,19 @@ public class SM {
                 return get(str);
             }
             try {
-                JSONObject optJSONObject = this.f59317j.a.optJSONObject(str2);
+                JSONObject optJSONObject = this.f57667j.a.optJSONObject(str2);
                 Object opt = optJSONObject != null ? optJSONObject.opt(str) : null;
                 if (opt != null) {
                     return opt;
                 }
-                if (this.f59316i != null) {
-                    JSONObject optJSONObject2 = this.f59316i.a.optJSONObject(str2);
+                if (this.f57666i != null) {
+                    JSONObject optJSONObject2 = this.f57666i.a.optJSONObject(str2);
                     Object opt2 = optJSONObject2 != null ? optJSONObject2.opt(str) : null;
                     if (opt2 != null) {
                         return opt2;
                     }
                 }
-                return (this.a == null || (a3 = this.a.a(str, str2)) == null) ? (this.f59310c == null || (a2 = this.f59310c.a(str, str2)) == null) ? (this.f59311d == null || (a = this.f59311d.a(str, str2)) == null) ? get(str) : a : a2 : a3;
+                return (this.a == null || (a3 = this.a.a(str, str2)) == null) ? (this.f57660c == null || (a2 = this.f57660c.a(str, str2)) == null) ? (this.f57661d == null || (a = this.f57661d.a(str, str2)) == null) ? get(str) : a : a2 : a3;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception in settingManager.getForPlacement");
                 return null;
@@ -246,13 +246,13 @@ public class SM {
     public String getPlacementCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59315h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57665h : (String) invokeV.objValue;
     }
 
     public String getSdkCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59312e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57662e : (String) invokeV.objValue;
     }
 
     public String getSettingDir() {
@@ -269,13 +269,13 @@ public class SM {
             HashSet hashSet = new HashSet();
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(this.f59317j);
-            arrayList2.add(this.f59316i);
+            arrayList2.add(this.f57667j);
+            arrayList2.add(this.f57666i);
             arrayList2.add(this.a);
-            arrayList2.add(this.f59310c);
-            arrayList2.add(this.f59311d);
-            arrayList2.add(this.f59313f);
-            arrayList2.add(this.f59314g);
+            arrayList2.add(this.f57660c);
+            arrayList2.add(this.f57661d);
+            arrayList2.add(this.f57663f);
+            arrayList2.add(this.f57664g);
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 b bVar = (b) it.next();
@@ -355,7 +355,7 @@ public class SM {
     public void setDEVCodeSetting(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, obj) == null) {
-            a aVar = this.f59311d;
+            a aVar = this.f57661d;
             if (aVar == null) {
                 throw null;
             }
@@ -392,7 +392,7 @@ public class SM {
     public void updateDisplaySetting(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, obj) == null) {
-            d dVar = this.f59317j;
+            d dVar = this.f57667j;
             if (dVar == null) {
                 throw null;
             }
@@ -425,8 +425,8 @@ public class SM {
                     file2.delete();
                 }
             }
-            this.f59316i = new d();
-            this.f59315h = null;
+            this.f57666i = new d();
+            this.f57665h = null;
         }
     }
 
@@ -460,7 +460,7 @@ public class SM {
     public void setDEVCodeSetting(String str, Object obj, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048593, this, str, obj, str2) == null) {
-            a aVar = this.f59311d;
+            a aVar = this.f57661d;
             if (aVar == null) {
                 throw null;
             }

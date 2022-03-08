@@ -8,13 +8,10 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.e;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
@@ -44,9 +41,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
                 return;
             }
         }
-        v = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds230);
-        w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds20);
-        x = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds144);
+        v = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
+        w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        x = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds144);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,12 +92,12 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public void initLoadingView(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, frameLayout) == null) {
-            LayoutInflater.from(getContext()).inflate(h.uni_slide_loading_view, (ViewGroup) frameLayout, true);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(g.loading_lottie_view);
+            LayoutInflater.from(getContext()).inflate(R.layout.uni_slide_loading_view, (ViewGroup) frameLayout, true);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.loading_lottie_view);
             this.mLoadingLottieView = continuousAnimationView;
             continuousAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
             this.mLoadingLottieView.setSpeed(1.3f);
-            this.mLoadingLottieView.setAnimation(i.lottie_frs_refresh);
+            this.mLoadingLottieView.setAnimation(R.raw.lottie_frs_refresh);
         }
     }
 

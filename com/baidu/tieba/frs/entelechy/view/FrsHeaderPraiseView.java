@@ -10,17 +10,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.u0.e1.c1;
-import c.a.u0.e1.d1;
-import c.a.u0.e1.e1;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.g1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,36 +25,36 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f43550e;
+    public View f41953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f43551f;
+    public View f41954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43552g;
+    public TextView f41955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f43553h;
+    public FrameLayout f41956h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f43554i;
+    public ImageView f41957i;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f43555e;
+        public final /* synthetic */ AgreeBanner f41958e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsHeaderPraiseView f43556f;
+        public final /* synthetic */ FrsHeaderPraiseView f41959f;
 
         public a(FrsHeaderPraiseView frsHeaderPraiseView, AgreeBanner agreeBanner) {
             Interceptable interceptable = $ic;
@@ -75,17 +71,17 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     return;
                 }
             }
-            this.f43556f = frsHeaderPraiseView;
-            this.f43555e = agreeBanner;
+            this.f41959f = frsHeaderPraiseView;
+            this.f41958e = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f43555e.url)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f41958e.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f43556f.getContext(), null, this.f43555e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f41959f.getContext(), null, this.f41958e.url, true)));
         }
     }
 
@@ -113,24 +109,24 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43550e = findViewById(f1.divider_top);
-            this.f43551f = findViewById(f1.divider_bottom);
-            this.f43552g = (TextView) findViewById(f1.frs_praise_title);
-            this.f43553h = (FrameLayout) findViewById(f1.frs_praise_portrait);
-            ImageView imageView = (ImageView) findViewById(f1.frs_praise_more);
-            this.f43554i = imageView;
-            SkinManager.setImageResource(imageView, e1.icon_arrow_more_gray_n);
+            this.f41953e = findViewById(R.id.divider_top);
+            this.f41954f = findViewById(R.id.divider_bottom);
+            this.f41955g = (TextView) findViewById(R.id.frs_praise_title);
+            this.f41956h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+            ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
+            this.f41957i = imageView;
+            SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
     }
 
     public void changeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundResource(this, e1.home_thread_card_item_bg);
-            SkinManager.setBackgroundColor(this.f43550e, c1.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f43551f, c1.CAM_X0205);
-            SkinManager.setViewTextColor(this.f43552g, c1.CAM_X0105);
-            SkinManager.setImageResource(this.f43554i, e1.icon_arrow_more_gray_n);
+            SkinManager.setBackgroundResource(this, R.drawable.home_thread_card_item_bg);
+            SkinManager.setBackgroundColor(this.f41953e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f41954f, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f41955g, (int) R.color.CAM_X0105);
+            SkinManager.setImageResource(this.f41957i, R.drawable.icon_arrow_more_gray_n);
         }
     }
 
@@ -142,9 +138,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
             setVisibility(0);
-            this.f43552g.setText(agreeBanner.text);
+            this.f41955g.setText(agreeBanner.text);
             List<SimpleUser> list = agreeBanner.top_agree_user;
-            this.f43553h.removeAllViews();
+            this.f41956h.removeAllViews();
             if (list != null) {
                 ArrayList arrayList = new ArrayList();
                 if (list.size() > 5) {
@@ -154,20 +150,20 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 } else {
                     arrayList.addAll(list);
                 }
-                for (int size = arrayList.size() - 1; size >= 0 && this.f43553h.getChildCount() != 5; size--) {
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(d1.ds40), getResources().getDimensionPixelSize(d1.ds40));
+                for (int size = arrayList.size() - 1; size >= 0 && this.f41956h.getChildCount() != 5; size--) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                     HeadImageView headImageView = new HeadImageView(getContext());
                     headImageView.setDefaultResource(17170445);
-                    headImageView.setDefaultBgResource(c1.CAM_X0205);
+                    headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
-                    headImageView.setBorderColor(SkinManager.getColor(c1.CAM_X0201));
-                    headImageView.setBorderWidth(n.f(getContext(), d1.ds2));
+                    headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+                    headImageView.setBorderWidth(n.f(getContext(), R.dimen.ds2));
                     headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d1.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d1.ds8));
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                     }
                     layoutParams.gravity = 5;
-                    this.f43553h.addView(headImageView, layoutParams);
+                    this.f41956h.addView(headImageView, layoutParams);
                 }
             }
             setOnClickListener(new a(this, agreeBanner));
@@ -214,7 +210,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(g1.frs_header_extra_praise_layout, this);
+        LayoutInflater.from(context).inflate(R.layout.frs_header_extra_praise_layout, this);
         a();
     }
 }

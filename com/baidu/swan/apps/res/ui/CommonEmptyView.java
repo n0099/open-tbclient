@@ -15,17 +15,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.c;
-import c.a.s0.a.d;
-import c.a.s0.a.e;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,8 +33,8 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView mSubTitle;
     public TextView mTitle;
 
-    /* loaded from: classes11.dex */
-    public class a implements c.a.s0.a.j2.a {
+    /* loaded from: classes5.dex */
+    public class a implements c.a.p0.a.z1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonEmptyView a;
@@ -86,15 +82,15 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(g.aiapps_common_empty_view, (ViewGroup) this, true);
-            setBackground(context.getResources().getDrawable(c.aiapps_empty_layout_backgroud));
-            this.mIcon = (ImageView) findViewById(f.emptyview_image);
-            this.mTitle = (TextView) findViewById(f.emptyview_title);
-            this.mSubTitle = (TextView) findViewById(f.emptyview_subtitle);
-            this.mLinkText = (TextView) findViewById(f.emptyview_link);
-            this.mRefreshTextBtn = (TextView) findViewById(f.emptyview_btn);
-            this.mBottomLayout = (FrameLayout) findViewById(f.emptyview_bottom_layout);
-            this.mFeedbackBtn = (TextView) findViewById(f.emptyview_problem_feedback);
+            LayoutInflater.from(context).inflate(R.layout.aiapps_common_empty_view, (ViewGroup) this, true);
+            setBackground(context.getResources().getDrawable(R.color.aiapps_empty_layout_backgroud));
+            this.mIcon = (ImageView) findViewById(R.id.emptyview_image);
+            this.mTitle = (TextView) findViewById(R.id.emptyview_title);
+            this.mSubTitle = (TextView) findViewById(R.id.emptyview_subtitle);
+            this.mLinkText = (TextView) findViewById(R.id.emptyview_link);
+            this.mRefreshTextBtn = (TextView) findViewById(R.id.emptyview_btn);
+            this.mBottomLayout = (FrameLayout) findViewById(R.id.emptyview_bottom_layout);
+            this.mFeedbackBtn = (TextView) findViewById(R.id.emptyview_problem_feedback);
             setPageResources();
         }
     }
@@ -104,7 +100,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            c.a.s0.a.c1.a.M().f(this, new a(this));
+            c.a.p0.a.s0.a.M().f(this, new a(this));
         }
     }
 
@@ -120,9 +116,9 @@ public class CommonEmptyView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mBottomLayout.getLayoutParams();
             int i2 = configuration.orientation;
             if (i2 == 1) {
-                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(d.aiapps_empty_view_bottom_margin_portrait);
+                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(R.dimen.aiapps_empty_view_bottom_margin_portrait);
             } else if (i2 == 2) {
-                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(d.aiapps_empty_view_bottom_margin_landscape);
+                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(R.dimen.aiapps_empty_view_bottom_margin_landscape);
             }
             this.mBottomLayout.setLayoutParams(layoutParams);
         }
@@ -133,7 +129,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            c.a.s0.a.c1.a.M().g(this);
+            c.a.p0.a.s0.a.M().g(this);
         }
     }
 
@@ -141,7 +137,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mIcon.getLayoutParams();
-            int dimensionPixelSize = getResources().getDimensionPixelSize(d.aiapps_empty_view_icon_size) / 2;
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.aiapps_empty_view_icon_size) / 2;
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = dimensionPixelSize;
             this.mIcon.setLayoutParams(layoutParams);
@@ -183,20 +179,20 @@ public class CommonEmptyView extends RelativeLayout {
             setBackgroundColor(-1);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
+                textView.setTextColor(getResources().getColor(R.color.aiapps_emptyview_title_text_color));
             }
             TextView textView2 = this.mLinkText;
             if (textView2 != null) {
-                textView2.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+                textView2.setTextColor(getResources().getColor(R.color.aiapps_emptyview_subtitle_text_color));
             }
             TextView textView3 = this.mRefreshTextBtn;
             if (textView3 != null) {
-                textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
-                this.mRefreshTextBtn.setTextColor(AppCompatResources.getColorStateList(getContext(), c.swan_app_emptyview_btn_text_color));
+                textView3.setBackground(getResources().getDrawable(R.drawable.aiapps_emptyview_btn_bg));
+                this.mRefreshTextBtn.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.swan_app_emptyview_btn_text_color));
             }
             TextView textView4 = this.mSubTitle;
             if (textView4 != null) {
-                textView4.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+                textView4.setTextColor(getContext().getResources().getColor(R.color.aiapps_emptyview_subtitle_text_color));
             }
         }
     }
@@ -206,7 +202,7 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.mSubTitle.setVisibility(0);
             this.mSubTitle.setText(str);
-            this.mSubTitle.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+            this.mSubTitle.setTextColor(getContext().getResources().getColor(R.color.aiapps_emptyview_subtitle_text_color));
         }
     }
 
@@ -301,7 +297,7 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             this.mSubTitle.setVisibility(0);
             this.mSubTitle.setText(i2);
-            this.mSubTitle.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+            this.mSubTitle.setTextColor(getContext().getResources().getColor(R.color.aiapps_emptyview_subtitle_text_color));
         }
     }
 }

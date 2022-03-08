@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31435b;
+    public boolean f29838b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31436c;
+    public boolean f29839c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31437d;
+    public int f29840d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31438e;
+    public int f29841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f31439f;
+    public SkinType f29842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31440g;
+    public boolean f29843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31441h;
+    public boolean f29844h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31442i;
+    public boolean f29845i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31443j;
+    public int f29846j;
     public float k;
     public Matrix l;
     public int m;
@@ -48,7 +48,7 @@ public class DrawerArgs {
     public boolean o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SkinType {
         public static final /* synthetic */ SkinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,10 +123,10 @@ public class DrawerArgs {
             }
         }
         this.a = new float[8];
-        this.f31439f = SkinType.DAY;
-        this.f31441h = false;
-        this.f31442i = true;
-        this.f31443j = b.a;
+        this.f29842f = SkinType.DAY;
+        this.f29844h = false;
+        this.f29845i = true;
+        this.f29846j = b.a;
         this.k = 1.0f;
         this.o = false;
     }

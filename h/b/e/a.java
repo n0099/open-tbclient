@@ -31,7 +31,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends h.b.a implements Runnable, WebSocket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,19 +49,19 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
     public Thread writeThread;
 
     /* renamed from: h.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class C2289a {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class C2268a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f61912e;
+        public final /* synthetic */ a f60262e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
                     return;
                 }
             }
-            this.f61912e = aVar;
+            this.f60262e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -94,27 +94,27 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
                                 if (Thread.interrupted()) {
                                     break;
                                 }
-                                ByteBuffer take = this.f61912e.engine.f61906e.take();
-                                this.f61912e.ostream.write(take.array(), 0, take.limit());
-                                this.f61912e.ostream.flush();
+                                ByteBuffer take = this.f60262e.engine.f60256e.take();
+                                this.f60262e.ostream.write(take.array(), 0, take.limit());
+                                this.f60262e.ostream.flush();
                             } catch (IOException e2) {
-                                this.f61912e.handleIOException(e2);
+                                this.f60262e.handleIOException(e2);
                             }
                         } finally {
-                            this.f61912e.closeSocket();
-                            this.f61912e.writeThread = null;
+                            this.f60262e.closeSocket();
+                            this.f60262e.writeThread = null;
                         }
                     } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.f61912e.engine.f61906e) {
-                            this.f61912e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.f61912e.ostream.flush();
+                        for (ByteBuffer byteBuffer : this.f60262e.engine.f60256e) {
+                            this.f60262e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
+                            this.f60262e.ostream.flush();
                         }
                     }
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C2289a c2289a) {
+        public /* synthetic */ b(a aVar, C2268a c2268a) {
             this(aVar);
         }
     }
@@ -162,7 +162,7 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
             if (port == -1) {
                 String scheme = this.uri.getScheme();
                 if ("wss".equals(scheme)) {
-                    return Constants.SOCKET_PORT_SSL;
+                    return 443;
                 }
                 if ("ws".equals(scheme)) {
                     return 80;

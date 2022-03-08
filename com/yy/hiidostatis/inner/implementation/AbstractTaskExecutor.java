@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.implementation.ITaskExecutor;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractTaskExecutor implements ITaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

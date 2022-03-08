@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class fe {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
@@ -29,9 +29,9 @@ public class fe {
     public short f384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f61288b;
+    public byte[] f59638b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -69,7 +69,7 @@ public class fe {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
                 if (fe.m376a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f61288b : bVar.a(a2.f61288b, a2.f383a);
+                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f59638b : bVar.a(a2.f59638b, a2.f383a);
                 }
                 return bArr;
             }
@@ -77,14 +77,14 @@ public class fe {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         byte a();
 
         byte[] a(byte[] bArr, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class fe {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class d implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +235,7 @@ public class fe {
         this.f384a = s;
         this.f382a = b2;
         this.f383a = i2;
-        this.f61288b = bArr;
+        this.f59638b = bArr;
     }
 
     public static fe a(byte b2, int i2, byte[] bArr) {

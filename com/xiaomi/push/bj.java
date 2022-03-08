@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes8.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -54,7 +55,7 @@ public class bj {
         }
         char[] cArr = f162a;
         cArr[i2] = '+';
-        cArr[i2 + 1] = '/';
+        cArr[i2 + 1] = WebvttCueParser.CHAR_SLASH;
         f161a = new byte[128];
         int i3 = 0;
         while (true) {
@@ -201,8 +202,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f31099h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31099h;
+                char c2 = com.alipay.sdk.encrypt.a.f29503h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f29503h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f162a[i15];

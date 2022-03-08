@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f30407b;
+    public final double f28811b;
 
     public c(double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public final class c {
             }
         }
         this.a = d4;
-        this.f30407b = d5;
+        this.f28811b = d5;
     }
 
     public final double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30407b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28811b : invokeV.doubleValue;
     }
 
     public final double b() {

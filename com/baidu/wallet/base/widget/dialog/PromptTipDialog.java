@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.TipDialogModel;
 import com.baidu.wallet.base.widget.dialog.view.TipDialogAdapter;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PromptTipDialog extends WalletDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TipDialogModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f51007b;
+    public View.OnClickListener f49426b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptTipDialog(Context context) {
@@ -39,7 +39,7 @@ public class PromptTipDialog extends WalletDialog {
             }
         }
         this.a = new TipDialogModel();
-        this.f51007b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f49426b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptTipDialog a;
@@ -77,7 +77,7 @@ public class PromptTipDialog extends WalletDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TipDialogModel tipDialogModel = this.a;
-            tipDialogModel.defaultClickListener = this.f51007b;
+            tipDialogModel.defaultClickListener = this.f49426b;
             setAdapter(new TipDialogAdapter(tipDialogModel));
         }
     }
@@ -98,7 +98,7 @@ public class PromptTipDialog extends WalletDialog {
                 public final /* synthetic */ View.OnClickListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptTipDialog f51008b;
+                public final /* synthetic */ PromptTipDialog f49427b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -115,7 +115,7 @@ public class PromptTipDialog extends WalletDialog {
                             return;
                         }
                     }
-                    this.f51008b = this;
+                    this.f49427b = this;
                     this.a = onClickListener;
                 }
 
@@ -123,7 +123,7 @@ public class PromptTipDialog extends WalletDialog {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f51008b.dismiss();
+                        this.f49427b.dismiss();
                         View.OnClickListener onClickListener2 = this.a;
                         if (onClickListener2 != null) {
                             onClickListener2.onClick(view);
@@ -189,7 +189,7 @@ public class PromptTipDialog extends WalletDialog {
             }
         }
         this.a = new TipDialogModel();
-        this.f51007b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f49426b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptTipDialog a;

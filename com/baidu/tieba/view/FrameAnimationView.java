@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FrameAnimationView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class FrameAnimationView extends TbImageView {
     public BdUniqueId W;
     public Runnable a0;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f49260e;
+        public final /* synthetic */ FrameAnimationView f47679e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f49260e = frameAnimationView;
+            this.f47679e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f49260e.a0);
-                if (this.f49260e.T != null) {
-                    this.f49260e.v();
+                e.a().removeCallbacks(this.f47679e.a0);
+                if (this.f47679e.T != null) {
+                    this.f47679e.v();
                 }
             }
         }

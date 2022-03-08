@@ -1,0 +1,453 @@
+package c.a.r0.o1.i.o;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.m.e;
+import c.a.e.m.d;
+import c.a.q0.r.r.e2;
+import c.a.r0.a3.v.d;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import tbclient.VideoInfo;
+/* loaded from: classes2.dex */
+public class c extends c.a.r0.a3.v.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public c.a.e.m.d Q0;
+    public e2 R0;
+    public boolean S0;
+    public boolean T0;
+    public CustomMessageListener U0;
+    public Runnable V0;
+
+    /* loaded from: classes2.dex */
+    public class a implements d.InterfaceC0125d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public a(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // c.a.e.m.d.InterfaceC0125d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.startPlay();
+            }
+        }
+
+        @Override // c.a.e.m.d.InterfaceC0125d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // c.a.e.m.d.InterfaceC0125d
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // c.a.e.m.d.InterfaceC0125d
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements d.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // c.a.r0.a3.v.d.k
+        public void a(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.a.e0()) {
+                return;
+            }
+            if (i3 >= i2) {
+                if (this.a.Q0 != null) {
+                    this.a.Q0.I(false, false, "NEWINDEX");
+                }
+            } else if (i2 == 0 || this.a.W || (i3 * 100) / i2 < 80 || i2 <= 15000) {
+            } else {
+                c cVar = this.a;
+                cVar.G0(cVar.R0);
+            }
+        }
+    }
+
+    /* renamed from: c.a.r0.o1.i.o.c$c  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C1258c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C1258c(c cVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            c.a.e.m.e.b bVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.e.m.e.b) || (bVar = (c.a.e.m.e.b) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            String d2 = bVar.d();
+            if (StringUtils.isNull(d2) || this.a.R0 == null || !d2.equals(this.a.R0.h0())) {
+                return;
+            }
+            this.a.D0();
+            c.a.e.m.d dVar = this.a.Q0;
+            c cVar = this.a;
+            dVar.K(cVar.C0(cVar.R0, bVar));
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f20133e;
+
+        public d(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20133e = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20133e.Q0 == null) {
+                return;
+            }
+            c cVar = this.f20133e;
+            cVar.T0 = false;
+            cVar.Q0.L();
+            this.f20133e.Q0.w();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(Context context, View view) {
+        super(context, view);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.S0 = false;
+        this.U0 = new C1258c(this, 2921395);
+        this.V0 = new d(this);
+        j0(true);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0033  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0042  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final c.a.e.m.a C0(e2 e2Var, c.a.e.m.e.b bVar) {
+        InterceptResult invokeLL;
+        int i2;
+        VideoInfo u1;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, e2Var, bVar)) == null) {
+            if (e2Var == null || bVar == null) {
+                return null;
+            }
+            int c2 = bVar.c();
+            int b2 = bVar.b();
+            int a2 = bVar.a();
+            int i5 = -1;
+            if (a2 != -1) {
+                int i6 = c2 != -1 ? (a2 - c2) - 1 : -1;
+                if (b2 != -1) {
+                    i5 = i6;
+                    i2 = (b2 - a2) - 1;
+                    u1 = e2Var.u1();
+                    if (u1 == null) {
+                        int intValue = u1.video_width.intValue();
+                        i4 = u1.video_height.intValue();
+                        i3 = intValue;
+                    } else {
+                        i3 = 0;
+                        i4 = 0;
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("video_vid", e2Var.h0());
+                    hashMap.put("video_title", e2Var.getTitle());
+                    hashMap.put("forum_id", String.valueOf(e2Var.U()));
+                    hashMap.put("forum_name", e2Var.b0());
+                    hashMap.put("up_distance", String.valueOf(i5));
+                    hashMap.put("down_distance", String.valueOf(i2));
+                    c.a.e.m.a h2 = c.a.e.m.c.h(3, 0, "1546854828072", a2 + 1, i3, i4);
+                    h2.a(hashMap);
+                    return h2;
+                }
+                i5 = i6;
+            }
+            i2 = -1;
+            u1 = e2Var.u1();
+            if (u1 == null) {
+            }
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("video_vid", e2Var.h0());
+            hashMap2.put("video_title", e2Var.getTitle());
+            hashMap2.put("forum_id", String.valueOf(e2Var.U()));
+            hashMap2.put("forum_name", e2Var.b0());
+            hashMap2.put("up_distance", String.valueOf(i5));
+            hashMap2.put("down_distance", String.valueOf(i2));
+            c.a.e.m.a h22 = c.a.e.m.c.h(3, 0, "1546854828072", a2 + 1, i3, i4);
+            h22.a(hashMap2);
+            return h22;
+        }
+        return (c.a.e.m.a) invokeLL.objValue;
+    }
+
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.Q0 == null) {
+            c.a.e.m.d dVar = new c.a.e.m.d(this.R, (ViewGroup) getMainView());
+            this.Q0 = dVar;
+            dVar.G(new a(this));
+            k0(new b(this));
+        }
+    }
+
+    public void E0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void F0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public final void G0(e2 e2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) || e2Var == null || e2Var.h0() == null) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921394, e2Var.h0()));
+    }
+
+    @Override // c.a.r0.a3.v.d
+    public int Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            c.a.e.m.d dVar = this.Q0;
+            if (dVar == null || !dVar.r()) {
+                return super.isPlaying();
+            }
+            return this.T0 || this.Q0.t();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            c.a.e.m.d dVar = this.Q0;
+            if (dVar != null) {
+                if (z) {
+                    if (dVar.r()) {
+                        this.T0 = false;
+                        this.Q0.L();
+                    }
+                } else if (dVar.r()) {
+                    this.S0 = true;
+                    this.Q0.F(true);
+                }
+            }
+            return super.onBackground(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // c.a.r0.a3.v.b, c.a.r0.a3.v.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c.a.e.m.d dVar = this.Q0;
+            if (dVar != null ? dVar.I(false, false, "NEWINDEX") : false) {
+                return;
+            }
+            startPlay();
+        }
+    }
+
+    @Override // c.a.r0.a3.v.b, c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public void setData(e2 e2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, e2Var) == null) || e2Var == null) {
+            return;
+        }
+        super.setData(e2Var);
+        boolean z = this.R0 == e2Var;
+        this.R0 = e2Var;
+        if (this.Q0 != null) {
+            if (this.S0 && z) {
+                this.S0 = false;
+            } else {
+                this.Q0.B();
+            }
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
+            this.U0.setTag(this.U);
+            MessageManager.getInstance().registerListener(this.U0);
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            c.a.e.m.d dVar = this.Q0;
+            if (dVar != null && dVar.r()) {
+                this.T0 = true;
+                this.Q0.E();
+                return;
+            }
+            super.startPlay();
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.stopPlay();
+            c.a.e.m.d dVar = this.Q0;
+            if (dVar == null || !dVar.r()) {
+                return;
+            }
+            e.a().removeCallbacks(this.V0);
+            e.a().post(this.V0);
+        }
+    }
+}

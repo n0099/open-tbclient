@@ -1,0 +1,106 @@
+package c.a.p0.a.s.a.c;
+
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import c.a.p0.a.p2.n0;
+import c.a.p0.a.u.d;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class c extends c.a.p0.a.s.a.d.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public double A;
+    public int B;
+    public int C;
+    public String D;
+    public String E;
+    public String F;
+    public String G;
+    public String x;
+    public int y;
+    public boolean z;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(String str, @NonNull String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.x = "";
+        this.z = false;
+        this.D = "";
+        this.E = "";
+        this.F = "";
+        this.G = "";
+    }
+
+    private void j() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.n) == null) {
+            return;
+        }
+        try {
+            this.y = Color.parseColor(jSONObject.optString("color"));
+            this.z = true;
+        } catch (Exception unused) {
+            d.o("Component-Model-TextView", "text color occurs exception");
+            this.z = false;
+        }
+        this.A = this.n.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
+        this.B = n0.g((float) this.n.optDouble("lineHeight", 0.0d));
+        this.C = n0.g((float) this.n.optDouble("lineSpace", 0.0d));
+        this.D = this.n.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+        this.E = this.n.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+        this.F = this.n.optString("whiteSpace");
+        this.G = this.n.optString("lineBreak");
+    }
+
+    @Override // c.a.p0.a.s.a.d.b, c.a.p0.a.s.b.b, c.a.p0.a.c1.a
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.x = jSONObject.optString("text");
+        j();
+    }
+
+    @Override // c.a.p0.a.s.a.d.b, c.a.p0.a.s.b.b
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.h(jSONObject);
+            this.x = jSONObject.optString("text", this.x);
+            j();
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.x = str;
+        }
+    }
+}

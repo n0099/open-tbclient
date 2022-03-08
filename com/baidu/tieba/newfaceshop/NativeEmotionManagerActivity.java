@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.u0.p2.h.c.a<Boolean> {
+/* loaded from: classes6.dex */
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.r0.p2.h.c.a<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment createEmotionFragment;
@@ -51,7 +51,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public MyEmotionManagerFragment myEmotionManagerFragment;
     public SingleThreadEmotionFragment singleThreadEmotionFragment;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,13 +112,13 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends ViewPager.SimpleOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f46307e;
+        public final /* synthetic */ NativeEmotionManagerActivity f44715e;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f46307e = nativeEmotionManagerActivity;
+            this.f44715e = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -143,11 +143,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.onPageSelected(i2);
-                if (this.f46307e.mManager == null) {
+                if (this.f44715e.mManager == null) {
                     return;
                 }
-                this.f46307e.fragmentPostion = i2;
-                this.f46307e.ctrlIfShowEditButton();
+                this.f44715e.fragmentPostion = i2;
+                this.f44715e.ctrlIfShowEditButton();
             }
         }
     }
@@ -207,7 +207,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             this.mManager.setLayoutParams(layoutParams);
             this.mManager.setText(R.string.emotion_manage_edit);
             this.mManager.setOnClickListener(this);
-            SkinManager.setViewTextColor(this.mManager, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.mManager, (int) R.color.CAM_X0302);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_manager_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mManager, (View.OnClickListener) null);
@@ -260,8 +260,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mManager) {
-                boolean z = !c.a.u0.p2.h.a.b().a();
-                c.a.u0.p2.h.a.b().d(z);
+                boolean z = !c.a.r0.p2.h.a.b().a();
+                c.a.r0.p2.h.a.b().d(z);
                 if (z) {
                     this.mManager.setText(R.string.emotion_manage_finish);
                 } else {
@@ -284,7 +284,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.p2.h.c.a
+    @Override // c.a.r0.p2.h.c.a
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bool) == null) || bool == null) {

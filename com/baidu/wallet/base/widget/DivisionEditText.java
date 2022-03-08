@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes6.dex */
 public class DivisionEditText extends SafeKeyBoardEditText {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int VIEW_TYPE_BANKCARD = 25;
@@ -22,10 +23,10 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50821b;
+    public int f49240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50822c;
+    public int f49241c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DivisionEditText(Context context, AttributeSet attributeSet, int i2) {
@@ -47,8 +48,8 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             }
         }
         this.a = true;
-        this.f50821b = 0;
-        this.f50822c = 3;
+        this.f49240b = 0;
+        this.f49241c = 3;
         setUseSafeKeyBoard(false);
     }
 
@@ -74,13 +75,13 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     public void setViewType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f50821b = i2;
+            this.f49240b = i2;
             if (i2 == 13) {
-                this.f50822c = 3;
+                this.f49241c = 3;
             } else if (i2 == 25) {
-                this.f50822c = 4;
+                this.f49241c = 4;
             } else if (i2 == 20) {
-                this.f50822c = 6;
+                this.f49241c = 6;
                 if (isFormatEnabled()) {
                     setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
                     return;
@@ -113,8 +114,8 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             }
         }
         this.a = true;
-        this.f50821b = 0;
-        this.f50822c = 3;
+        this.f49240b = 0;
+        this.f49241c = 3;
         setUseSafeKeyBoard(false);
         addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.base.widget.DivisionEditText.1
             public static /* synthetic */ Interceptable $ic;
@@ -122,25 +123,25 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             public int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f50823b;
+            public int f49242b;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f50824c;
+            public boolean f49243c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f50825d;
+            public int f49244d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f50826e;
+            public int f49245e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DivisionEditText f50827f;
+            public final /* synthetic */ DivisionEditText f49246f;
 
             /* renamed from: g  reason: collision with root package name */
-            public char[] f50828g;
+            public char[] f49247g;
 
             /* renamed from: h  reason: collision with root package name */
-            public StringBuffer f50829h;
+            public StringBuffer f49248h;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -157,36 +158,36 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                         return;
                     }
                 }
-                this.f50827f = this;
+                this.f49246f = this;
                 this.a = 0;
-                this.f50823b = 0;
-                this.f50824c = false;
-                this.f50825d = 0;
-                this.f50829h = new StringBuffer();
-                this.f50826e = 0;
+                this.f49242b = 0;
+                this.f49243c = false;
+                this.f49244d = 0;
+                this.f49248h = new StringBuffer();
+                this.f49245e = 0;
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 int i4;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f50824c && this.f50827f.isFormatEnabled()) {
-                    this.f50825d = this.f50827f.getSelectionEnd();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f49243c && this.f49246f.isFormatEnabled()) {
+                    this.f49244d = this.f49246f.getSelectionEnd();
                     int i5 = 0;
-                    while (i5 < this.f50829h.length()) {
-                        if (this.f50829h.charAt(i5) == ' ') {
-                            this.f50829h.deleteCharAt(i5);
+                    while (i5 < this.f49248h.length()) {
+                        if (this.f49248h.charAt(i5) == ' ') {
+                            this.f49248h.deleteCharAt(i5);
                         } else {
                             i5++;
                         }
                     }
-                    if (this.f50827f.f50821b != 13) {
-                        if (this.f50827f.f50821b != 25) {
-                            if (this.f50827f.f50821b == 20) {
+                    if (this.f49246f.f49240b != 13) {
+                        if (this.f49246f.f49240b != 25) {
+                            if (this.f49246f.f49240b == 20) {
                                 i4 = 0;
-                                for (int i6 = 0; i6 < this.f50829h.length(); i6++) {
+                                for (int i6 = 0; i6 < this.f49248h.length(); i6++) {
                                     if (i6 == 6 || i6 == 15) {
-                                        this.f50829h.insert(i6, ' ');
+                                        this.f49248h.insert(i6, WebvttCueParser.CHAR_SPACE);
                                         i4++;
                                     }
                                 }
@@ -195,56 +196,56 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                             }
                         } else {
                             i4 = 0;
-                            for (int i7 = 0; i7 < this.f50829h.length(); i7++) {
+                            for (int i7 = 0; i7 < this.f49248h.length(); i7++) {
                                 if (i7 == 4 || i7 == 9 || i7 == 14 || i7 == 19) {
-                                    this.f50829h.insert(i7, ' ');
+                                    this.f49248h.insert(i7, WebvttCueParser.CHAR_SPACE);
                                     i4++;
                                 }
                             }
                         }
                     } else {
                         i4 = 0;
-                        for (int i8 = 0; i8 < this.f50829h.length(); i8++) {
+                        for (int i8 = 0; i8 < this.f49248h.length(); i8++) {
                             if (i8 == 3 || i8 == 8) {
-                                this.f50829h.insert(i8, ' ');
+                                this.f49248h.insert(i8, WebvttCueParser.CHAR_SPACE);
                                 i4++;
                             }
                         }
                     }
-                    int i9 = this.f50826e;
+                    int i9 = this.f49245e;
                     if (i4 > i9) {
                         if (i4 - i9 > 1) {
-                            this.f50825d += i4 - i9;
+                            this.f49244d += i4 - i9;
                         } else {
-                            int i10 = this.f50825d;
-                            if (i10 - 1 >= 0 && this.f50829h.charAt(i10 - 1) == ' ') {
-                                this.f50825d += i4 - this.f50826e;
+                            int i10 = this.f49244d;
+                            if (i10 - 1 >= 0 && this.f49248h.charAt(i10 - 1) == ' ') {
+                                this.f49244d += i4 - this.f49245e;
                             }
                         }
                     }
-                    this.f50828g = new char[this.f50829h.length()];
-                    StringBuffer stringBuffer = this.f50829h;
-                    stringBuffer.getChars(0, stringBuffer.length(), this.f50828g, 0);
-                    String stringBuffer2 = this.f50829h.toString();
-                    if (stringBuffer2.length() > this.f50827f.f50821b) {
-                        stringBuffer2 = stringBuffer2.substring(0, this.f50827f.f50821b);
+                    this.f49247g = new char[this.f49248h.length()];
+                    StringBuffer stringBuffer = this.f49248h;
+                    stringBuffer.getChars(0, stringBuffer.length(), this.f49247g, 0);
+                    String stringBuffer2 = this.f49248h.toString();
+                    if (stringBuffer2.length() > this.f49246f.f49240b) {
+                        stringBuffer2 = stringBuffer2.substring(0, this.f49246f.f49240b);
                     }
-                    this.f50827f.setText(stringBuffer2);
-                    Editable text = this.f50827f.getText();
-                    if (this.f50825d > text.length()) {
-                        this.f50825d = text.length();
-                    } else if (this.f50825d < 0) {
-                        this.f50825d = 0;
+                    this.f49246f.setText(stringBuffer2);
+                    Editable text = this.f49246f.getText();
+                    if (this.f49244d > text.length()) {
+                        this.f49244d = text.length();
+                    } else if (this.f49244d < 0) {
+                        this.f49244d = 0;
                     }
-                    Selection.setSelection(text, this.f50825d);
-                    if (this.f50827f.f50821b == 13 && this.a < editable.length()) {
-                        if (!this.f50827f.isFormatEnabled() && text.length() == 11) {
+                    Selection.setSelection(text, this.f49244d);
+                    if (this.f49246f.f49240b == 13 && this.a < editable.length()) {
+                        if (!this.f49246f.isFormatEnabled() && text.length() == 11) {
                             Selection.setSelection(text, 11);
                         } else if (text.length() == 13) {
                             Selection.setSelection(text, 13);
                         }
                     }
-                    this.f50824c = false;
+                    this.f49243c = false;
                 }
             }
 
@@ -253,14 +254,14 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
                     this.a = charSequence.length();
-                    if (this.f50829h.length() > 0) {
-                        StringBuffer stringBuffer = this.f50829h;
+                    if (this.f49248h.length() > 0) {
+                        StringBuffer stringBuffer = this.f49248h;
                         stringBuffer.delete(0, stringBuffer.length());
                     }
-                    this.f50826e = 0;
+                    this.f49245e = 0;
                     for (int i7 = 0; i7 < charSequence.length(); i7++) {
                         if (charSequence.charAt(i7) == ' ') {
-                            this.f50826e++;
+                            this.f49245e++;
                         }
                     }
                 }
@@ -270,16 +271,16 @@ public class DivisionEditText extends SafeKeyBoardEditText {
             public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
-                    this.f50823b = charSequence.length();
-                    if (this.f50827f.f50821b == 13 && this.f50823b >= 11 && !this.f50827f.isFormatEnabled()) {
-                        this.f50827f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+                    this.f49242b = charSequence.length();
+                    if (this.f49246f.f49240b == 13 && this.f49242b >= 11 && !this.f49246f.isFormatEnabled()) {
+                        this.f49246f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
                     }
-                    this.f50829h.append(charSequence.toString());
-                    int i7 = this.f50823b;
-                    if (i7 != this.a && i7 >= this.f50827f.f50822c && !this.f50824c) {
-                        this.f50824c = true;
+                    this.f49248h.append(charSequence.toString());
+                    int i7 = this.f49242b;
+                    if (i7 != this.a && i7 >= this.f49246f.f49241c && !this.f49243c) {
+                        this.f49243c = true;
                     } else {
-                        this.f50824c = false;
+                        this.f49243c = false;
                     }
                 }
             }

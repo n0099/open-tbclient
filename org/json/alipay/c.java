@@ -7,25 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f62656b;
+    public Reader f61006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f62657c;
+    public char f61007c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f62658d;
+    public boolean f61008d;
 
     public c(Reader reader) {
         Interceptable interceptable = $ic;
@@ -42,8 +43,8 @@ public final class c {
                 return;
             }
         }
-        this.f62656b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f62658d = false;
+        this.f61006b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f61008d = false;
         this.a = 0;
     }
 
@@ -76,14 +77,14 @@ public final class c {
             }
             char[] cArr = new char[i2];
             int i3 = 0;
-            if (this.f62658d) {
-                this.f62658d = false;
-                cArr[0] = this.f62657c;
+            if (this.f61008d) {
+                this.f61008d = false;
+                cArr[0] = this.f61007c;
                 i3 = 1;
             }
             while (i3 < i2) {
                 try {
-                    int read = this.f62656b.read(cArr, i3, i2 - i3);
+                    int read = this.f61006b.read(cArr, i3, i2 - i3);
                     if (read == -1) {
                         break;
                     }
@@ -94,7 +95,7 @@ public final class c {
             }
             this.a += i3;
             if (i3 >= i2) {
-                this.f62657c = cArr[i2 - 1];
+                this.f61007c = cArr[i2 - 1];
                 return new String(cArr);
             }
             throw a("Substring bounds error");
@@ -115,11 +116,11 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f62658d || (i2 = this.a) <= 0) {
+            if (this.f61008d || (i2 = this.a) <= 0) {
                 throw new JSONException("Stepping back two steps is not supported");
             }
             this.a = i2 - 1;
-            this.f62658d = true;
+            this.f61008d = true;
         }
     }
 
@@ -127,22 +128,22 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f62658d) {
-                this.f62658d = false;
-                if (this.f62657c != 0) {
+            if (this.f61008d) {
+                this.f61008d = false;
+                if (this.f61007c != 0) {
                     this.a++;
                 }
-                return this.f62657c;
+                return this.f61007c;
             }
             try {
-                int read = this.f62656b.read();
+                int read = this.f61006b.read();
                 if (read <= 0) {
-                    this.f62657c = (char) 0;
+                    this.f61007c = (char) 0;
                     return (char) 0;
                 }
                 this.a++;
                 char c2 = (char) read;
-                this.f62657c = c2;
+                this.f61007c = c2;
                 return c2;
             } catch (IOException e2) {
                 throw new JSONException(e2);
@@ -183,7 +184,7 @@ public final class c {
                     }
                 } else if (b5 != '/') {
                     a();
-                    return '/';
+                    return WebvttCueParser.CHAR_SLASH;
                 } else {
                     do {
                         b2 = b();

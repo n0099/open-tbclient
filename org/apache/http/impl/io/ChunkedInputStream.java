@@ -11,7 +11,7 @@ import java.io.InputStream;
 import org.apache.http.Header;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChunkedInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

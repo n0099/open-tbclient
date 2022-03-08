@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.frsgamelive.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.u0.a0.e;
-import c.a.u0.a0.j.b.a;
-import c.a.u0.g0.b;
+import c.a.r0.a0.e;
+import c.a.r0.a0.j.b.a;
+import c.a.r0.f0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaGameFrsGameLiveDoubleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.u0.a0.g.d.a m;
-    public c.a.u0.a0.g.d.a n;
+    public c.a.r0.a0.g.d.a m;
+    public c.a.r0.a0.g.d.a n;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,14 +71,14 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
         p();
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -97,8 +97,8 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.m = new c.a.u0.a0.g.d.a(i());
-            this.n = new c.a.u0.a0.g.d.a(i());
+            this.m = new c.a.r0.a0.g.d.a(i());
+            this.n = new c.a.r0.a0.g.d.a(i());
             ViewGroup viewGroup = (ViewGroup) j();
             View view = new View(getContext());
             viewGroup.addView(this.m.c());
@@ -108,15 +108,15 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     /* renamed from: q */
     public void k(a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.d(aVar.f15262e);
-        this.n.d(aVar.f15263f);
+        this.m.d(aVar.f14677e);
+        this.n.d(aVar.f14678f);
     }
 
     public void s(String str) {

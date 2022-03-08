@@ -1,7 +1,6 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CyberRTCSetting {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +35,7 @@ public class CyberRTCSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class CyberRTCSettingType {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCSettingType CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
@@ -125,7 +124,7 @@ public class CyberRTCSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class CyberRTCVideoRenderMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL;
@@ -202,7 +201,7 @@ public class CyberRTCSetting {
         this.HasData = false;
         this.VideoCodec = "h264";
         this.AudioCodec = "opus";
-        this.AudioFrequency = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+        this.AudioFrequency = 48000;
         this.AudioChannel = 1;
         this.VideoResolution = "640x480";
         this.VideoWidth = 640;

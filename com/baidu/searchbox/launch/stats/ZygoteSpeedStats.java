@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";
@@ -35,6 +35,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final int DEFAULT_TICKS = 100;
     public static final String ELAPSED_CPU_COST = "elapsedCpuCost";
     public static final String ELAPSED_NO_SPLASH_COST = "elapsedNoSplashCost";
+    public static final String ELAPSED_NO_TOTAL_SPLASH_COST = "elapsedNoTotalSplashCost";
     public static final String ELAPSED_REALTIME_COST = "elapsedRealtimeCost";
     public static final String FIX_USER_PERCEPTION_COST = "fixUserPerceptionCost";
     public static final String LAUNCH_2_APP_ON_START = "launch2AppOnStart";
@@ -269,6 +270,20 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
+            long adTotalDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdTotalDuration();
+            if (adTotalDuration > 50 && adTotalDuration < 60000) {
+                hashMap.put(ELAPSED_NO_TOTAL_SPLASH_COST, String.valueOf(adTotalDuration));
+                JSONObject jsonData3 = SpeedStatsUtils.getJsonData(adTotalDuration, null);
+                if (jsonData3 != null) {
+                    try {
+                        jSONObject.put(ELAPSED_NO_TOTAL_SPLASH_COST, jsonData3);
+                    } catch (JSONException e4) {
+                        if (DEBUG) {
+                            e4.printStackTrace();
+                        }
+                    }
+                }
+            }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
             hashMap.put(UNFIX_USER_PERCEPTION_COST, String.valueOf(this.mUnFixUserPerceptionCost));
             long j3 = this.mFixUserPerceptionCost;
@@ -278,24 +293,10 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
             if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {
                 hashMap.put(AFTER_MAINTAB_CREATE_COST, String.valueOf(appLaunchEndTimeStamp));
-                JSONObject jsonData3 = SpeedStatsUtils.getJsonData(appLaunchEndTimeStamp, null);
-                if (jsonData3 != null) {
-                    try {
-                        jSONObject.put(AFTER_MAINTAB_CREATE_COST, jsonData3);
-                    } catch (JSONException e4) {
-                        if (DEBUG) {
-                            e4.printStackTrace();
-                        }
-                    }
-                }
-            }
-            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp());
-            if (durationWithoutAD > 50 && durationWithoutAD < 60000) {
-                hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(durationWithoutAD));
-                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(durationWithoutAD, null);
+                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(appLaunchEndTimeStamp, null);
                 if (jsonData4 != null) {
                     try {
-                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData4);
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST, jsonData4);
                     } catch (JSONException e5) {
                         if (DEBUG) {
                             e5.printStackTrace();
@@ -303,14 +304,28 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
-            JSONObject jsonData5 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
-            if (jsonData5 != null) {
+            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp());
+            if (durationWithoutAD > 50 && durationWithoutAD < 60000) {
+                hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(durationWithoutAD));
+                JSONObject jsonData5 = SpeedStatsUtils.getJsonData(durationWithoutAD, null);
+                if (jsonData5 != null) {
+                    try {
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData5);
+                    } catch (JSONException e6) {
+                        if (DEBUG) {
+                            e6.printStackTrace();
+                        }
+                    }
+                }
+            }
+            JSONObject jsonData6 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
+            if (jsonData6 != null) {
                 try {
-                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData5);
+                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData6);
                     return true;
-                } catch (JSONException e6) {
+                } catch (JSONException e7) {
                     if (DEBUG) {
-                        e6.printStackTrace();
+                        e7.printStackTrace();
                         return true;
                     }
                     return true;

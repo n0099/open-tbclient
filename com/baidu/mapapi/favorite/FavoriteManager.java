@@ -14,13 +14,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class FavoriteManager {
     public static /* synthetic */ Interceptable $ic;
     public static FavoriteManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comapi.favrite.a f35416b;
+    public static com.baidu.mapsdkplatform.comapi.favrite.a f33819b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FavoriteManager() {
@@ -53,18 +53,18 @@ public class FavoriteManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, favoritePoiInfo)) == null) {
-            if (f35416b == null || favoritePoiInfo == null || favoritePoiInfo.f35418c == null) {
+            if (f33819b == null || favoritePoiInfo == null || favoritePoiInfo.f33821c == null) {
                 return 0;
             }
-            String str = favoritePoiInfo.f35417b;
+            String str = favoritePoiInfo.f33820b;
             if (str == null || str.equals("")) {
                 return -1;
             }
             FavSyncPoi a2 = a.a(favoritePoiInfo);
-            int a3 = f35416b.a(a2.f36020b, a2);
+            int a3 = f33819b.a(a2.f34423b, a2);
             if (a3 == 1) {
                 favoritePoiInfo.a = a2.a;
-                favoritePoiInfo.f35422g = Long.parseLong(a2.f36026h);
+                favoritePoiInfo.f33825g = Long.parseLong(a2.f34429h);
             }
             return a3;
         }
@@ -75,7 +75,7 @@ public class FavoriteManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.favrite.a aVar = f35416b;
+            com.baidu.mapsdkplatform.comapi.favrite.a aVar = f33819b;
             if (aVar == null) {
                 return false;
             }
@@ -88,10 +88,10 @@ public class FavoriteManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (f35416b == null || str == null || str.equals("")) {
+            if (f33819b == null || str == null || str.equals("")) {
                 return false;
             }
-            return f35416b.a(str);
+            return f33819b.a(str);
         }
         return invokeL.booleanValue;
     }
@@ -99,11 +99,11 @@ public class FavoriteManager {
     public void destroy() {
         com.baidu.mapsdkplatform.comapi.favrite.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f35416b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f33819b) == null) {
             return;
         }
         aVar.b();
-        f35416b = null;
+        f33819b = null;
         BMapManager.destroy();
         i.b();
     }
@@ -114,7 +114,7 @@ public class FavoriteManager {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.favrite.a aVar = f35416b;
+            com.baidu.mapsdkplatform.comapi.favrite.a aVar = f33819b;
             if (aVar != null && (f2 = aVar.f()) != null && !f2.equals("")) {
                 try {
                     JSONObject jSONObject = new JSONObject(f2);
@@ -142,7 +142,7 @@ public class FavoriteManager {
         FavSyncPoi b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (f35416b == null || str == null || str.equals("") || (b2 = f35416b.b(str)) == null) {
+            if (f33819b == null || str == null || str.equals("") || (b2 = f33819b.b(str)) == null) {
                 return null;
             }
             return a.a(b2);
@@ -152,10 +152,10 @@ public class FavoriteManager {
 
     public void init() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f35416b == null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f33819b == null) {
             i.a();
             BMapManager.init();
-            f35416b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
+            f33819b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
         }
     }
 
@@ -164,11 +164,11 @@ public class FavoriteManager {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, favoritePoiInfo)) == null) {
-            if (f35416b == null || str == null || str.equals("") || favoritePoiInfo == null || favoritePoiInfo == null || favoritePoiInfo.f35418c == null || (str2 = favoritePoiInfo.f35417b) == null || str2.equals("")) {
+            if (f33819b == null || str == null || str.equals("") || favoritePoiInfo == null || favoritePoiInfo == null || favoritePoiInfo.f33821c == null || (str2 = favoritePoiInfo.f33820b) == null || str2.equals("")) {
                 return false;
             }
             favoritePoiInfo.a = str;
-            return f35416b.b(str, a.a(favoritePoiInfo));
+            return f33819b.b(str, a.a(favoritePoiInfo));
         }
         return invokeLL.booleanValue;
     }

@@ -7,33 +7,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.h;
 import rx.exceptions.CompositeException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class u<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.h<T> f62128e;
+    public final i.h<T> f60478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.b<? super T> f62129f;
+    public final i.n.b<? super T> f60479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i.n.b<Throwable> f62130g;
+    public final i.n.b<Throwable> f60480g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends i.i<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.i<? super T> f62131f;
+        public final i.i<? super T> f60481f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final i.n.b<? super T> f62132g;
+        public final i.n.b<? super T> f60482g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final i.n.b<Throwable> f62133h;
+        public final i.n.b<Throwable> f60483h;
 
         public a(i.i<? super T> iVar, i.n.b<? super T> bVar, i.n.b<Throwable> bVar2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public final class u<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f62131f = iVar;
-            this.f62132g = bVar;
-            this.f62133h = bVar2;
+            this.f60481f = iVar;
+            this.f60482g = bVar;
+            this.f60483h = bVar2;
         }
 
         @Override // i.i
@@ -60,11 +60,11 @@ public final class u<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f62133h.call(th);
-                    this.f62131f.b(th);
+                    this.f60483h.call(th);
+                    this.f60481f.b(th);
                 } catch (Throwable th2) {
                     i.m.a.e(th2);
-                    this.f62131f.b(new CompositeException(th, th2));
+                    this.f60481f.b(new CompositeException(th, th2));
                 }
             }
         }
@@ -74,8 +74,8 @@ public final class u<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f62132g.call(t);
-                    this.f62131f.c(t);
+                    this.f60482g.call(t);
+                    this.f60481f.c(t);
                 } catch (Throwable th) {
                     i.m.a.h(th, this, t);
                 }
@@ -98,9 +98,9 @@ public final class u<T> implements h.c<T> {
                 return;
             }
         }
-        this.f62128e = hVar;
-        this.f62129f = bVar;
-        this.f62130g = bVar2;
+        this.f60478e = hVar;
+        this.f60479f = bVar;
+        this.f60480g = bVar2;
     }
 
     @Override // i.h.c, i.n.b
@@ -111,9 +111,9 @@ public final class u<T> implements h.c<T> {
     public void call(i.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            a aVar = new a(iVar, this.f62129f, this.f62130g);
+            a aVar = new a(iVar, this.f60479f, this.f60480g);
             iVar.a(aVar);
-            this.f62128e.j(aVar);
+            this.f60478e.j(aVar);
         }
     }
 }

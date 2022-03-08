@@ -16,11 +16,11 @@ import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class EANManufacturerOrgSupport {
                 if (this.ranges.isEmpty()) {
                     add(new int[]{0, 19}, "US/CA");
                     add(new int[]{30, 39}, "US");
-                    add(new int[]{60, w0.o}, "US/CA");
+                    add(new int[]{60, 139}, "US/CA");
                     add(new int[]{300, 379}, "FR");
                     add(new int[]{380}, "BG");
                     add(new int[]{383}, "SI");
@@ -117,7 +117,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{629}, "AE");
                     add(new int[]{640, 649}, "FI");
                     add(new int[]{690, 695}, "CN");
-                    add(new int[]{700, 709}, "NO");
+                    add(new int[]{700, 709}, HlsPlaylistParser.BOOLEAN_FALSE);
                     add(new int[]{729}, "IL");
                     add(new int[]{730, 739}, "SE");
                     add(new int[]{740}, "GT");

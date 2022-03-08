@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class gn {
     public static /* synthetic */ Interceptable $ic;
     public static Random a;
@@ -16,19 +16,19 @@ public class gn {
     public static final char[] f444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f61359b;
+    public static final char[] f59709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f61360c;
+    public static final char[] f59710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f61361d;
+    public static final char[] f59711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f61362e;
+    public static final char[] f59712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f61363f;
+    public static char[] f59713f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public class gn {
             }
         }
         f444a = "&quot;".toCharArray();
-        f61359b = "&apos;".toCharArray();
-        f61360c = "&amp;".toCharArray();
-        f61361d = "&lt;".toCharArray();
-        f61362e = "&gt;".toCharArray();
+        f59709b = "&apos;".toCharArray();
+        f59710c = "&amp;".toCharArray();
+        f59711d = "&lt;".toCharArray();
+        f59712e = "&gt;".toCharArray();
         a = new Random();
-        f61363f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f59713f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public static String a(int i2) {
@@ -62,7 +62,7 @@ public class gn {
             }
             char[] cArr = new char[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f61363f[a.nextInt(71)];
+                cArr[i3] = f59713f[a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -89,13 +89,13 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f61361d);
+                        sb.append(f59711d);
                     } else if (c2 == '>') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f61362e);
+                        sb.append(f59712e);
                     } else if (c2 == '&') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
@@ -103,7 +103,7 @@ public class gn {
                         int i4 = i2 + 5;
                         if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                             i3 = i2 + 1;
-                            sb.append(f61360c);
+                            sb.append(f59710c);
                         }
                     } else if (c2 == '\"') {
                         if (i2 > i3) {
@@ -116,7 +116,7 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f61359b);
+                        sb.append(f59709b);
                     }
                 }
                 i2++;

@@ -12,7 +12,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TimedSemaphore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_LIMIT = 0;

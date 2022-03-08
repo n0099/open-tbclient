@@ -2,8 +2,8 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.w0.s;
-import c.a.w0.w;
+import c.a.t0.s;
+import c.a.t0.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -141,7 +141,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // c.a.w0.s
+                        @Override // c.a.t0.s
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

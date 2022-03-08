@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class OptionalCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static OptionalCodec instance;

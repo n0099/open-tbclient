@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, "com.meizu.flyme.push", str + "_pushId");

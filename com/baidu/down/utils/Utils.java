@@ -27,6 +27,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.webkit.internal.ConectivityUtils;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -37,7 +39,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -87,13 +89,13 @@ public class Utils {
         extMimeMap.put(".midi", "audio/midi");
         extMimeMap.put(".mov", "video/quicktime");
         extMimeMap.put(".movie", "video/x-sgi-movie");
-        extMimeMap.put(".mp2", "audio/mpeg");
-        extMimeMap.put(EmotionResourceProvider.EMOTION_SOUND_SUFFIX, "audio/mpeg");
-        extMimeMap.put(".mp4", "video/mp4");
+        extMimeMap.put(".mp2", MimeTypes.AUDIO_MPEG);
+        extMimeMap.put(".mp3", MimeTypes.AUDIO_MPEG);
+        extMimeMap.put(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, MimeTypes.VIDEO_MP4);
         extMimeMap.put(".mpe", "video/mpeg");
         extMimeMap.put(".mpeg", "video/mpeg");
         extMimeMap.put(".mpg", "video/mpeg");
-        extMimeMap.put(".mpga", "audio/mpeg");
+        extMimeMap.put(".mpga", MimeTypes.AUDIO_MPEG);
         extMimeMap.put(".mxu", "video/vnd.mpegurl");
         extMimeMap.put(".pct", "image/pict");
         extMimeMap.put(".pic", "image/pict");

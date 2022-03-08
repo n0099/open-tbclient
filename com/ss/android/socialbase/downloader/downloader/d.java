@@ -15,18 +15,18 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static volatile d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f60176b = new SparseArray<>();
+    public volatile SparseArray<Boolean> f58526b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f60177c = new Handler(Looper.getMainLooper());
+    public Handler f58527c = new Handler(Looper.getMainLooper());
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile List<ac> f60178d = new ArrayList();
+    public volatile List<ac> f58528d = new ArrayList();
 
     public static d a() {
         if (a == null) {
@@ -41,9 +41,9 @@ public class d {
         if (acVar == null) {
             return;
         }
-        synchronized (this.f60178d) {
-            if (this.f60178d.contains(acVar)) {
-                this.f60178d.remove(acVar);
+        synchronized (this.f58528d) {
+            if (this.f58528d.contains(acVar)) {
+                this.f58528d.remove(acVar);
             }
         }
     }
@@ -237,8 +237,8 @@ public class d {
     }
 
     public void b() {
-        synchronized (this.f60178d) {
-            for (ac acVar : this.f60178d) {
+        synchronized (this.f58528d) {
+            for (ac acVar : this.f58528d) {
                 if (acVar != null) {
                     acVar.a();
                 }
@@ -261,9 +261,9 @@ public class d {
         if (com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
             acVar.a();
         }
-        synchronized (this.f60178d) {
-            if (!this.f60178d.contains(acVar)) {
-                this.f60178d.add(acVar);
+        synchronized (this.f58528d) {
+            if (!this.f58528d.contains(acVar)) {
+                this.f58528d.add(acVar);
             }
         }
     }
@@ -285,14 +285,14 @@ public class d {
     }
 
     public synchronized void b(int i2, boolean z) {
-        this.f60176b.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+        this.f58526b.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public synchronized int b(int i2) {
-        if (this.f60176b.get(i2) == null) {
+        if (this.f58526b.get(i2) == null) {
             return -1;
         }
-        return this.f60176b.get(i2).booleanValue() ? 1 : 0;
+        return this.f58526b.get(i2).booleanValue() ? 1 : 0;
     }
 
     public void a(int i2, boolean z) {
@@ -511,7 +511,7 @@ public class d {
                 com.ss.android.socialbase.downloader.d.a.a(downloadTask.getMonitorDepend(), downloadTask.getDownloadInfo(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), downloadTask.getDownloadInfo() != null ? downloadTask.getDownloadInfo().getStatus() : 0);
             }
         } else if (downloadTask.isNeedDelayForCacheSync()) {
-            this.f60177c.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.d.1
+            this.f58527c.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b2.a(downloadTask);

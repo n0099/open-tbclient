@@ -19,22 +19,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class MessageCardBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45494e;
+    public TextView f43900e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f45495f;
+    public ViewGroup f43901f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f45496g;
+    public ImageView f43902g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45497h;
+    public TextView f43903h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
@@ -61,25 +61,25 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-            this.f45494e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-            this.f45495f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-            this.f45496g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-            this.f45497h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+            this.f43900e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+            this.f43901f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+            this.f43902g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+            this.f43903h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
         }
     }
 
     public View getReplyContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45495f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43901f : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f45494e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f45497h, R.drawable.selector_comment_and_prise_item_text_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45496g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+            SkinManager.setViewTextColor(this.f43900e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43903h, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43902g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
         }
     }
 
@@ -91,13 +91,13 @@ public class MessageCardBottomView extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f45495f.setVisibility(z ? 0 : 8);
+            this.f43901f.setVisibility(z ? 0 : 8);
             if (m.isEmpty(str)) {
-                this.f45494e.setVisibility(8);
+                this.f43900e.setVisibility(8);
                 return;
             }
-            this.f45494e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-            this.f45494e.setVisibility(0);
+            this.f43900e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.f43900e.setVisibility(0);
         }
     }
 

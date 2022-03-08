@@ -4,14 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
-import c.a.d0.v.v0.h;
+import c.a.b0.v.v0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class StretchTextureView extends TextureView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STYLE_DEFAULT = 0;
@@ -21,13 +21,13 @@ public class StretchTextureView extends TextureView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37290e;
+    public int f35693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37291f;
+    public int f35694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37292g;
+    public int f35695g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StretchTextureView(Context context) {
@@ -47,7 +47,7 @@ public class StretchTextureView extends TextureView {
                 return;
             }
         }
-        this.f37290e = 0;
+        this.f35693e = 0;
     }
 
     public final int a(int i2, int i3, int i4, int i5) {
@@ -75,22 +75,22 @@ public class StretchTextureView extends TextureView {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int defaultSize = TextureView.getDefaultSize(this.f37291f, i2);
-            int defaultSize2 = TextureView.getDefaultSize(this.f37292g, i3);
-            h.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.f37291f + ", mVideoHeight : " + this.f37292g + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
-            int i6 = this.f37290e;
+            int defaultSize = TextureView.getDefaultSize(this.f35694f, i2);
+            int defaultSize2 = TextureView.getDefaultSize(this.f35695g, i3);
+            h.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.f35694f + ", mVideoHeight : " + this.f35695g + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+            int i6 = this.f35693e;
             if (i6 == 0) {
-                int defaultSize3 = TextureView.getDefaultSize(this.f37291f, i2);
-                int defaultSize4 = TextureView.getDefaultSize(this.f37292g, i3);
-                if (this.f37291f > 0 && this.f37292g > 0) {
+                int defaultSize3 = TextureView.getDefaultSize(this.f35694f, i2);
+                int defaultSize4 = TextureView.getDefaultSize(this.f35695g, i3);
+                if (this.f35694f > 0 && this.f35695g > 0) {
                     int mode = View.MeasureSpec.getMode(i2);
                     int size = View.MeasureSpec.getSize(i2);
                     int mode2 = View.MeasureSpec.getMode(i3);
                     int size2 = View.MeasureSpec.getSize(i3);
                     if (mode == 1073741824 && mode2 == 1073741824) {
-                        int i7 = this.f37291f;
+                        int i7 = this.f35694f;
                         int i8 = i7 * size2;
-                        int i9 = this.f37292g;
+                        int i9 = this.f35695g;
                         if (i8 < size * i9) {
                             defaultSize = (i7 * size2) / i9;
                             defaultSize2 = size2;
@@ -103,7 +103,7 @@ public class StretchTextureView extends TextureView {
                             defaultSize2 = size2;
                         }
                     } else if (mode == 1073741824) {
-                        int i10 = (this.f37292g * size) / this.f37291f;
+                        int i10 = (this.f35695g * size) / this.f35694f;
                         if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
                             defaultSize2 = i10;
                             defaultSize = size;
@@ -111,7 +111,7 @@ public class StretchTextureView extends TextureView {
                         defaultSize = size;
                         defaultSize2 = size2;
                     } else if (mode2 == 1073741824) {
-                        int i11 = (this.f37291f * size2) / this.f37292g;
+                        int i11 = (this.f35694f * size2) / this.f35695g;
                         if (mode != Integer.MIN_VALUE || i11 <= size) {
                             defaultSize = i11;
                             defaultSize2 = size2;
@@ -119,8 +119,8 @@ public class StretchTextureView extends TextureView {
                         defaultSize = size;
                         defaultSize2 = size2;
                     } else {
-                        int i12 = this.f37291f;
-                        int i13 = this.f37292g;
+                        int i12 = this.f35694f;
+                        int i13 = this.f35695g;
                         if (mode2 != Integer.MIN_VALUE || i13 <= size2) {
                             defaultSize2 = i13;
                         } else {
@@ -130,7 +130,7 @@ public class StretchTextureView extends TextureView {
                         if (mode != Integer.MIN_VALUE || i12 <= size) {
                             defaultSize = i12;
                         } else {
-                            defaultSize2 = (this.f37292g * size) / this.f37291f;
+                            defaultSize2 = (this.f35695g * size) / this.f35694f;
                             defaultSize = size;
                         }
                     }
@@ -145,10 +145,10 @@ public class StretchTextureView extends TextureView {
                     }
                 }
             } else if (i6 == 1) {
-                defaultSize = a(defaultSize, defaultSize2, this.f37291f, this.f37292g);
+                defaultSize = a(defaultSize, defaultSize2, this.f35694f, this.f35695g);
             } else if (i6 == 2) {
-                defaultSize2 = b(defaultSize, defaultSize2, this.f37291f, this.f37292g);
-            } else if (i6 == 3 && (i4 = this.f37291f) > 0 && (i5 = this.f37292g) > 0) {
+                defaultSize2 = b(defaultSize, defaultSize2, this.f35694f, this.f35695g);
+            } else if (i6 == 3 && (i4 = this.f35694f) > 0 && (i5 = this.f35695g) > 0) {
                 if (i4 / i5 > 1.0f) {
                     defaultSize2 = b(defaultSize, defaultSize2, i4, i5);
                 } else if (i4 / i5 <= defaultSize / defaultSize2) {
@@ -166,9 +166,9 @@ public class StretchTextureView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 != 0 && i2 != 1 && i2 != 2 && i2 != 3) {
-                this.f37290e = 0;
+                this.f35693e = 0;
             } else {
-                this.f37290e = i2;
+                this.f35693e = i2;
             }
             requestLayout();
         }
@@ -177,8 +177,8 @@ public class StretchTextureView extends TextureView {
     public void setVideoWidthAndHeight(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f37291f = i2;
-            this.f37292g = i3;
+            this.f35694f = i2;
+            this.f35695g = i3;
         }
     }
 
@@ -201,6 +201,6 @@ public class StretchTextureView extends TextureView {
                 return;
             }
         }
-        this.f37290e = 0;
+        this.f35693e = 0;
     }
 }

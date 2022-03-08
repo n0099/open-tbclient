@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.t0.x0.a;
-import c.a.u0.h2.c.k.h;
+import c.a.q0.w0.a;
+import c.a.r0.h2.c.k.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,28 +18,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class DailyPrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46032e;
+    public Context f44440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46033f;
+    public View f44441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f46034g;
+    public TbImageView f44442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f46035h;
+    public TbImageView f44443h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PrivilegeTextView f46036i;
+    public PrivilegeTextView f44444i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f46037j;
+    public TextView f44445j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeItemView(Context context) {
@@ -59,29 +59,29 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f46032e = context;
+        this.f44440e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f46032e).inflate(R.layout.index_daily_item, this);
-            this.f46033f = inflate;
-            this.f46034g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            TbImageView tbImageView = (TbImageView) this.f46033f.findViewById(R.id.privilege_tag_icon);
-            this.f46035h = tbImageView;
+            View inflate = LayoutInflater.from(this.f44440e).inflate(R.layout.index_daily_item, this);
+            this.f44441f = inflate;
+            this.f44442g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            TbImageView tbImageView = (TbImageView) this.f44441f.findViewById(R.id.privilege_tag_icon);
+            this.f44443h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f46035h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f46036i = (PrivilegeTextView) this.f46033f.findViewById(R.id.privilege_title);
-            this.f46037j = (TextView) this.f46033f.findViewById(R.id.privilege_desc);
+            this.f44443h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f44444i = (PrivilegeTextView) this.f44441f.findViewById(R.id.privilege_title);
+            this.f44445j = (TextView) this.f44441f.findViewById(R.id.privilege_desc);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f46032e), this.f46033f);
+            a.a((TbPageContext) j.a(this.f44440e), this.f44441f);
         }
     }
 
@@ -90,12 +90,12 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) || hVar == null) {
             return;
         }
-        this.f46034g.setIsRound(false);
-        this.f46034g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
-        this.f46034g.startLoad(hVar.a(), 10, false);
-        this.f46037j.setText(hVar.d());
-        this.f46036i.setText(hVar.b());
-        this.f46035h.startLoad(hVar.c(), 10, false);
+        this.f44442g.setIsRound(false);
+        this.f44442g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+        this.f44442g.startLoad(hVar.a(), 10, false);
+        this.f44445j.setText(hVar.d());
+        this.f44444i.setText(hVar.b());
+        this.f44443h.startLoad(hVar.c(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,7 +117,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f46032e = context;
+        this.f44440e = context;
         a();
     }
 
@@ -140,7 +140,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f46032e = context;
+        this.f44440e = context;
         a();
     }
 }

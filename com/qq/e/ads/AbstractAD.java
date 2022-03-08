@@ -18,23 +18,23 @@ import com.qq.e.comm.constants.ErrorCode;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f59142b;
+    public final Handler f57492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f59143c;
+    public volatile boolean f57493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f59144d;
+    public volatile boolean f57494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f59145e;
+    public volatile boolean f57495e;
 
     public AbstractAD() {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public abstract class AbstractAD<T> {
                 return;
             }
         }
-        this.f59143c = false;
-        this.f59144d = false;
-        this.f59142b = new Handler(Looper.getMainLooper());
+        this.f57493c = false;
+        this.f57494d = false;
+        this.f57492b = new Handler(Looper.getMainLooper());
     }
 
     public static final void a(Class cls, ADEvent aDEvent) {
@@ -64,27 +64,27 @@ public abstract class AbstractAD<T> {
     private void b(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, str2) == null) {
-            this.f59145e = true;
+            this.f57495e = true;
             if (GDTADManager.getInstance().isInitialized()) {
                 String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
                 if (a.a(context)) {
-                    this.f59144d = true;
+                    this.f57494d = true;
                     GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, appid, str, str2) { // from class: com.qq.e.ads.AbstractAD.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f59146b;
+                        public final /* synthetic */ String f57496b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ String f59147c;
+                        public final /* synthetic */ String f57497c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ String f59148d;
+                        public final /* synthetic */ String f57498d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ AbstractAD f59149e;
+                        public final /* synthetic */ AbstractAD f57499e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -101,11 +101,11 @@ public abstract class AbstractAD<T> {
                                     return;
                                 }
                             }
-                            this.f59149e = this;
+                            this.f57499e = this;
                             this.a = context;
-                            this.f59146b = appid;
-                            this.f59147c = str;
-                            this.f59148d = str2;
+                            this.f57496b = appid;
+                            this.f57497c = str;
+                            this.f57498d = str2;
                         }
 
                         @Override // java.lang.Runnable
@@ -113,13 +113,13 @@ public abstract class AbstractAD<T> {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.f59149e.f59142b.post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.AbstractAD.1.1
+                                    this.f57499e.f57492b.post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.AbstractAD.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ POFactory a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass1 f59150b;
+                                        public final /* synthetic */ AnonymousClass1 f57500b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -136,7 +136,7 @@ public abstract class AbstractAD<T> {
                                                     return;
                                                 }
                                             }
-                                            this.f59150b = this;
+                                            this.f57500b = this;
                                             this.a = r7;
                                         }
 
@@ -146,29 +146,29 @@ public abstract class AbstractAD<T> {
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                                 try {
                                                     if (this.a != null) {
-                                                        this.f59150b.f59149e.a = (T) this.f59150b.f59149e.a(this.f59150b.a, this.a, this.f59150b.f59146b, this.f59150b.f59147c, this.f59150b.f59148d);
-                                                        this.f59150b.f59149e.f59143c = true;
-                                                        if (this.f59150b.f59149e.a == null) {
-                                                            this.f59150b.f59149e.a(ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
+                                                        this.f57500b.f57499e.a = (T) this.f57500b.f57499e.a(this.f57500b.a, this.a, this.f57500b.f57496b, this.f57500b.f57497c, this.f57500b.f57498d);
+                                                        this.f57500b.f57499e.f57493c = true;
+                                                        if (this.f57500b.f57499e.a == null) {
+                                                            this.f57500b.f57499e.a(ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                                         } else {
-                                                            this.f59150b.f59149e.a((AbstractAD) this.f59150b.f59149e.a);
+                                                            this.f57500b.f57499e.a((AbstractAD) this.f57500b.f57499e.a);
                                                         }
                                                     } else {
-                                                        this.f59150b.f59149e.f59143c = true;
-                                                        this.f59150b.f59149e.a(200102);
+                                                        this.f57500b.f57499e.f57493c = true;
+                                                        this.f57500b.f57499e.a(200102);
                                                     }
                                                 } catch (Throwable th) {
                                                     GDTLogger.e("初始化错误：初始化广告实例时发生异常", th);
-                                                    this.f59150b.f59149e.f59143c = true;
-                                                    this.f59150b.f59149e.a(2001);
+                                                    this.f57500b.f57499e.f57493c = true;
+                                                    this.f57500b.f57499e.a(2001);
                                                 }
                                             }
                                         }
                                     });
                                 } catch (Throwable th) {
                                     GDTLogger.e("初始化错误：初始化插件时发生异常", th);
-                                    this.f59149e.f59143c = true;
-                                    this.f59149e.a(200102);
+                                    this.f57499e.f57493c = true;
+                                    this.f57499e.a(200102);
                                 }
                             }
                         }
@@ -191,13 +191,13 @@ public abstract class AbstractAD<T> {
             if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
                 b(i2);
             } else {
-                this.f59142b.post(new Runnable(this, i2) { // from class: com.qq.e.ads.AbstractAD.2
+                this.f57492b.post(new Runnable(this, i2) { // from class: com.qq.e.ads.AbstractAD.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ int a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AbstractAD f59151b;
+                    public final /* synthetic */ AbstractAD f57501b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -214,7 +214,7 @@ public abstract class AbstractAD<T> {
                                 return;
                             }
                         }
-                        this.f59151b = this;
+                        this.f57501b = this;
                         this.a = i2;
                     }
 
@@ -222,7 +222,7 @@ public abstract class AbstractAD<T> {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f59151b.b(this.a);
+                            this.f57501b.b(this.a);
                         }
                     }
                 });
@@ -266,7 +266,7 @@ public abstract class AbstractAD<T> {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59145e && this.f59144d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57495e && this.f57494d : invokeV.booleanValue;
     }
 
     public abstract void b(int i2);
@@ -274,7 +274,7 @@ public abstract class AbstractAD<T> {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59143c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f57493c : invokeV.booleanValue;
     }
 
     public final void c() {

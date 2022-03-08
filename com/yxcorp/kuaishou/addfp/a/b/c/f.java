@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class f implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,19 +43,19 @@ public final class f implements ServiceConnection {
             try {
                 a a = b.a(iBinder);
                 if (a != null) {
-                    this.a.f61714b = a;
+                    this.a.f60064b = a;
                 }
-                countDownLatch3 = this.a.f61716d;
+                countDownLatch3 = this.a.f60066d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.a.f61716d;
+                countDownLatch = this.a.f60066d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.a.f61716d;
+            countDownLatch2 = this.a.f60066d;
             countDownLatch2.countDown();
         }
     }
@@ -64,7 +64,7 @@ public final class f implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f61714b = null;
+            this.a.f60064b = null;
         }
     }
 }

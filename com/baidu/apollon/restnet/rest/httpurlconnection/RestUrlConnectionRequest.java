@@ -16,36 +16,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final RestHttpNetwork a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.apollon.restnet.http.a f32857b;
+    public final com.baidu.apollon.restnet.http.a f31260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32858c;
+    public String f31261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines.HttpMethod f32859d;
+    public HttpDefines.HttpMethod f31262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32860e;
+    public String f31263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32861f;
+    public String f31264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f32862g;
+    public List<RestNameValuePair> f31265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f32863h;
+    public RestMultipartEntity f31266h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f32864i;
+    public int f31267i;
 
     public RestUrlConnectionRequest(RestHttpNetwork restHttpNetwork, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
         Interceptable interceptable = $ic;
@@ -62,35 +61,35 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
                 return;
             }
         }
-        this.f32857b = new com.baidu.apollon.restnet.http.a();
-        this.f32864i = -1;
+        this.f31260b = new com.baidu.apollon.restnet.http.a();
+        this.f31267i = -1;
         this.a = restHttpNetwork;
-        this.f32858c = str2;
-        this.f32859d = httpMethod;
-        this.f32860e = str;
-        this.f32862g = list;
-        this.f32863h = restMultipartEntity;
+        this.f31261c = str2;
+        this.f31262d = httpMethod;
+        this.f31263e = str;
+        this.f31265g = list;
+        this.f31266h = restMultipartEntity;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public com.baidu.apollon.restnet.http.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32857b : (com.baidu.apollon.restnet.http.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31260b : (com.baidu.apollon.restnet.http.a) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public HttpDefines.HttpMethod b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32859d : (HttpDefines.HttpMethod) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31262d : (HttpDefines.HttpMethod) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32860e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31263e : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
@@ -110,7 +109,7 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32858c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31261c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
@@ -125,19 +124,19 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32864i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31267i : invokeV.intValue;
     }
 
     public String getProcessedParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<RestNameValuePair> list = this.f32862g;
+            List<RestNameValuePair> list = this.f31265g;
             if (list == null || list.size() == 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (RestNameValuePair restNameValuePair : this.f32862g) {
+            for (RestNameValuePair restNameValuePair : this.f31265g) {
                 String name = restNameValuePair.getName();
                 String value = restNameValuePair.getValue();
                 if (!TextUtils.isEmpty(name)) {
@@ -145,10 +144,10 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
                         value = "";
                     }
                     try {
-                        sb.append(URLEncoder.encode(name, this.f32858c));
-                        sb.append(com.alipay.sdk.encrypt.a.f31099h);
-                        sb.append(URLEncoder.encode(value, this.f32858c));
-                        sb.append(Typography.amp);
+                        sb.append(URLEncoder.encode(name, this.f31261c));
+                        sb.append(com.alipay.sdk.encrypt.a.f29503h);
+                        sb.append(URLEncoder.encode(value, this.f31261c));
+                        sb.append('&');
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
@@ -166,13 +165,13 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f32861f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31264f : (String) invokeV.objValue;
     }
 
     public RestMultipartEntity i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f32863h : (RestMultipartEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f31266h : (RestMultipartEntity) invokeV.objValue;
     }
 
     public boolean j() {
@@ -191,14 +190,14 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f32864i = i2;
+            this.f31267i = i2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f32860e = str;
+            this.f31263e = str;
         }
     }
 
@@ -206,7 +205,7 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f32861f = str;
+            this.f31264f = str;
         }
     }
 }

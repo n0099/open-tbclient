@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.j0.b;
+import c.a.q0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TbadkSettings {
     public static /* synthetic */ Interceptable $ic;
     public static TbadkSettings mSettings;

@@ -8,8 +8,8 @@ import c.a.n.c.c;
 import c.a.n.c.d;
 import c.a.n.c.e;
 import c.a.n.c.g;
+import c.a.n.c.h;
 import c.a.n.c.i;
-import c.a.n.c.j;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -44,7 +44,7 @@ public final class CommonUrlParamManager {
     public c mDeviceInfoParam;
     public String mEnuid;
     public g mNetworkParam;
-    public i mUaParam;
+    public h mUaParam;
 
     public CommonUrlParamManager() {
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public final class CommonUrlParamManager {
     private String addParam(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, j.a(str3)) : str : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, i.a(str3)) : str : (String) invokeLLL.objValue;
     }
 
     private String getC3Aid() {
@@ -117,7 +117,7 @@ public final class CommonUrlParamManager {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mNetworkParam = new g();
             this.mDeviceInfoParam = new c();
-            this.mUaParam = new i();
+            this.mUaParam = new h();
             this.customOSParam = new b();
         }
     }

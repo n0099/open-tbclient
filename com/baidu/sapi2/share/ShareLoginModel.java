@@ -42,7 +42,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ShareLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static String AUTH_APP_PKG_NAME = "auth_app_pkg_name";

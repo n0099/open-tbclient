@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class l0 {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.f55375c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.f53725c) : invokeV.booleanValue;
     }
 
     public boolean e() {
@@ -107,7 +107,7 @@ public class l0 {
                 throw new Exception("");
             } catch (Exception e2) {
                 for (StackTraceElement stackTraceElement : e2.getStackTrace()) {
-                    if (stackTraceElement.getClassName().contains(m0.f55374b)) {
+                    if (stackTraceElement.getClassName().contains(m0.f53724b)) {
                         return true;
                     }
                 }
@@ -136,7 +136,7 @@ public class l0 {
             }
             if (systemClassLoader != null) {
                 try {
-                    systemClassLoader.loadClass(m0.f55374b).newInstance();
+                    systemClassLoader.loadClass(m0.f53724b).newInstance();
                 } catch (ClassNotFoundException e3) {
                     x0.a(e3);
                     return false;
@@ -157,7 +157,7 @@ public class l0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.f55374b).getDeclaredField("disableHooks");
+                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.f53724b).getDeclaredField("disableHooks");
                 declaredField.setAccessible(true);
                 declaredField.set(null, Boolean.TRUE);
                 return true;

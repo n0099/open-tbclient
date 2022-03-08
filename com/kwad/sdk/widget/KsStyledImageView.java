@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.utils.w;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KsStyledImageView extends ImageView implements b {
     public KsStyledImageView(Context context) {
         super(context);

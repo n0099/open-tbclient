@@ -47,32 +47,32 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.apollon.restnet.rest.c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32866e = "appcache";
+    public static final String f31269e = "appcache";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f32867h = 2;
+    public static final int f31270h = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32868b;
+    public String f31271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RestUrlConnectionRequest f32869c;
+    public RestUrlConnectionRequest f31272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URLConnection f32870d;
+    public URLConnection f31273d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32871f;
+    public boolean f31274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32872g;
+    public boolean f31275g;
 
     public b(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -89,18 +89,18 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 return;
             }
         }
-        this.f32872g = false;
+        this.f31275g = false;
         this.a = DxmApplicationContextImpl.getApplicationContext(context);
-        this.f32868b = str;
-        this.f32872g = z;
+        this.f31271b = str;
+        this.f31275g = z;
     }
 
     private e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, url)) == null) {
-            a(this.f32870d);
-            return a(url, this.f32870d, "GET");
+            a(this.f31273d);
+            return a(url, this.f31273d, "GET");
         }
         return (e) invokeL.objValue;
     }
@@ -109,9 +109,9 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.f32869c != null) {
+            if (this.f31272c != null) {
                 c.a a = com.baidu.apollon.restnet.c.a();
-                String h2 = this.f32869c.h();
+                String h2 = this.f31272c.h();
                 return (TextUtils.isEmpty(h2) || a == null || !a.a(h2)) ? false : true;
             }
             return false;
@@ -146,9 +146,9 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         String message;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            this.f32869c = (RestUrlConnectionRequest) dVar;
+            this.f31272c = (RestUrlConnectionRequest) dVar;
             String c2 = dVar.c();
-            if (this.f32869c.k()) {
+            if (this.f31272c.k()) {
                 c2 = a(c2);
             }
             URI create = URI.create(c2);
@@ -160,13 +160,13 @@ public class b implements com.baidu.apollon.restnet.rest.c {
             }
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                this.f32870d = url.openConnection();
+                this.f31273d = url.openConnection();
                 if ("https".equalsIgnoreCase(url.getProtocol())) {
                     if (RestDebugConfig.getInstance().isQAEnv()) {
                         SSLContext sSLContext = SSLContext.getInstance("TLS");
                         sSLContext.init(null, new TrustManager[]{new a()}, null);
-                        ((HttpsURLConnection) this.f32870d).setSSLSocketFactory(sSLContext.getSocketFactory());
-                        ((HttpsURLConnection) this.f32870d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
+                        ((HttpsURLConnection) this.f31273d).setSSLSocketFactory(sSLContext.getSocketFactory());
+                        ((HttpsURLConnection) this.f31273d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ b a;
@@ -200,25 +200,25 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                             }
                         });
                     } else {
-                        b((HttpsURLConnection) this.f32870d);
+                        b((HttpsURLConnection) this.f31273d);
                     }
                 }
-                LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f32870d.getURL().getHost());
-                if (this.f32869c.j()) {
+                LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f31273d.getURL().getHost());
+                if (this.f31272c.j()) {
                     e a = a(url);
                     if (RestDebugConfig.isEnableNetworkStats()) {
-                        int responseCode = ((HttpURLConnection) this.f32870d).getResponseCode();
-                        String requestProperty = this.f32870d.getRequestProperty("X-Fallback-Connection");
+                        int responseCode = ((HttpURLConnection) this.f31273d).getResponseCode();
+                        String requestProperty = this.f31273d.getRequestProperty("X-Fallback-Connection");
                         if (!TextUtils.isEmpty("")) {
                             com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty)).d(requestProperty != null).a(responseCode).a());
                         }
                     }
                     return a;
-                } else if (this.f32869c.k()) {
+                } else if (this.f31272c.k()) {
                     e b2 = b(url);
                     if (RestDebugConfig.isEnableNetworkStats()) {
-                        int responseCode2 = ((HttpURLConnection) this.f32870d).getResponseCode();
-                        String requestProperty2 = this.f32870d.getRequestProperty("X-Fallback-Connection");
+                        int responseCode2 = ((HttpURLConnection) this.f31273d).getResponseCode();
+                        String requestProperty2 = this.f31273d.getRequestProperty("X-Fallback-Connection");
                         if (!TextUtils.isEmpty("")) {
                             com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty2)).d(requestProperty2 != null).a(responseCode2).a());
                         }
@@ -226,8 +226,8 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                     return b2;
                 } else {
                     if (RestDebugConfig.isEnableNetworkStats()) {
-                        int responseCode3 = ((HttpURLConnection) this.f32870d).getResponseCode();
-                        String requestProperty3 = this.f32870d.getRequestProperty("X-Fallback-Connection");
+                        int responseCode3 = ((HttpURLConnection) this.f31273d).getResponseCode();
+                        String requestProperty3 = this.f31273d.getRequestProperty("X-Fallback-Connection");
                         if (!TextUtils.isEmpty("")) {
                             com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty3)).d(requestProperty3 != null).a(responseCode3).a());
                         }
@@ -238,7 +238,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 if (RestDebugConfig.isEnableNetworkStats()) {
                     int i2 = -1;
                     if (0 != 0) {
-                        i2 = ((HttpURLConnection) this.f32870d).getResponseCode();
+                        i2 = ((HttpURLConnection) this.f31273d).getResponseCode();
                         message = "";
                     } else {
                         message = e2.getMessage();
@@ -246,7 +246,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                             message = CheckUtils.stripUrlParams(message);
                         }
                     }
-                    String requestProperty4 = this.f32870d.getRequestProperty("X-Fallback-Connection");
+                    String requestProperty4 = this.f31273d.getRequestProperty("X-Fallback-Connection");
                     if (!TextUtils.isEmpty(message)) {
                         com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(false).a(0 == 0 ? e2.getClass().getName() : "").b(message).c("1".equals(requestProperty4)).d(requestProperty4 != null).a(i2).a());
                     }
@@ -254,8 +254,8 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 throw e2;
             } catch (Throwable th) {
                 if (RestDebugConfig.isEnableNetworkStats()) {
-                    int responseCode4 = ((HttpURLConnection) this.f32870d).getResponseCode();
-                    String requestProperty5 = this.f32870d.getRequestProperty("X-Fallback-Connection");
+                    int responseCode4 = ((HttpURLConnection) this.f31273d).getResponseCode();
+                    String requestProperty5 = this.f31273d.getRequestProperty("X-Fallback-Connection");
                     if (!TextUtils.isEmpty("")) {
                         com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty5)).d(requestProperty5 != null).a(responseCode4).a());
                     }
@@ -269,7 +269,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ((HttpsURLConnection) this.f32870d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
+            ((HttpsURLConnection) this.f31273d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
@@ -299,7 +299,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
                         try {
                             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                            String v = this.a.f32869c.a().v();
+                            String v = this.a.f31272c.a().v();
                             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
                                 Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -352,11 +352,11 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         RestUrlConnectionRequest restUrlConnectionRequest;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f32869c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f31272c) == null) {
             return;
         }
         String processedParams = restUrlConnectionRequest.getProcessedParams();
-        RestMultipartEntity i2 = this.f32869c.i();
+        RestMultipartEntity i2 = this.f31272c.i();
         uRLConnection.setDoOutput(true);
         uRLConnection.setDoInput(true);
         if (i2 != null) {
@@ -408,16 +408,16 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            URLConnection uRLConnection = this.f32870d;
+            URLConnection uRLConnection = this.f31273d;
             if (uRLConnection != null) {
                 if (uRLConnection instanceof HttpsURLConnection) {
                     ((HttpsURLConnection) uRLConnection).disconnect();
                 } else if (uRLConnection instanceof HttpURLConnection) {
                     ((HttpURLConnection) uRLConnection).disconnect();
                 }
-                this.f32870d = null;
+                this.f31273d = null;
             }
-            if (this.f32872g) {
+            if (this.f31275g) {
                 e();
             }
         }
@@ -427,9 +427,9 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, url)) == null) {
-            a(this.f32870d);
-            b(this.f32870d);
-            return a(url, this.f32870d, "POST");
+            a(this.f31273d);
+            b(this.f31273d);
+            return a(url, this.f31273d, "POST");
         }
         return (e) invokeL.objValue;
     }
@@ -463,12 +463,12 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     private void a(URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, uRLConnection) == null) {
-            if (this.f32871f) {
-                uRLConnection.setConnectTimeout(this.f32869c.g() > 0 ? this.f32869c.g() : 30000);
-                uRLConnection.setReadTimeout(this.f32869c.g() > 0 ? this.f32869c.g() : 30000);
+            if (this.f31274f) {
+                uRLConnection.setConnectTimeout(this.f31272c.g() > 0 ? this.f31272c.g() : 30000);
+                uRLConnection.setReadTimeout(this.f31272c.g() > 0 ? this.f31272c.g() : 30000);
             } else {
-                uRLConnection.setConnectTimeout(this.f32869c.g() > 0 ? this.f32869c.g() : 30000);
-                uRLConnection.setReadTimeout(this.f32869c.g() > 0 ? this.f32869c.g() : 30000);
+                uRLConnection.setConnectTimeout(this.f31272c.g() > 0 ? this.f31272c.g() : 30000);
+                uRLConnection.setReadTimeout(this.f31272c.g() > 0 ? this.f31272c.g() : 30000);
             }
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
@@ -482,11 +482,11 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 uRLConnection.setRequestProperty("Accept-Encoding", "");
                 return;
             }
-            uRLConnection.setRequestProperty("User-Agent", this.f32868b);
-            for (Map.Entry<String, List<String>> entry : this.f32869c.a().entrySet()) {
+            uRLConnection.setRequestProperty("User-Agent", this.f31271b);
+            for (Map.Entry<String, List<String>> entry : this.f31272c.a().entrySet()) {
                 uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
             }
-            if (this.f32872g) {
+            if (this.f31275g) {
                 d();
             }
         }
@@ -496,7 +496,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            RestUrlConnectionRequest restUrlConnectionRequest = this.f32869c;
+            RestUrlConnectionRequest restUrlConnectionRequest = this.f31272c;
             if (restUrlConnectionRequest != null) {
                 String processedParams = restUrlConnectionRequest.getProcessedParams();
                 if (TextUtils.isEmpty(processedParams)) {

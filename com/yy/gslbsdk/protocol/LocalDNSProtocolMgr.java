@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.net.InetAddress;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class LocalDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalDNSProtocolMgr";

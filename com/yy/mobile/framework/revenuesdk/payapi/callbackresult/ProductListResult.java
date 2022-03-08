@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

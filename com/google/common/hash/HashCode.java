@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
+import c.i.c.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.UnsignedInts;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class HashCode {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] hexDigits;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class BytesHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -134,7 +134,7 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class IntHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -222,7 +222,7 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class LongHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;

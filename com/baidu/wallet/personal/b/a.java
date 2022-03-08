@@ -14,26 +14,26 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52764b;
+    public int f51183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f52765c;
+    public Bitmap f51184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f52766d;
+    public Resources f51185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Integer> f52767e;
+    public ArrayList<Integer> f51186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Integer> f52768f;
+    public ArrayList<Integer> f51187f;
 
     public a(Resources resources, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public class a {
                 return;
             }
         }
-        this.f52767e = new ArrayList<>();
-        this.f52768f = new ArrayList<>();
+        this.f51186e = new ArrayList<>();
+        this.f51187f = new ArrayList<>();
         this.a = bitmap.getWidth();
-        this.f52764b = bitmap.getHeight();
-        this.f52765c = bitmap;
-        this.f52766d = resources;
+        this.f51183b = bitmap.getHeight();
+        this.f51184c = bitmap;
+        this.f51185d = resources;
     }
 
     public a a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = (this.f52764b - i2) / 2;
-            this.f52768f.add(Integer.valueOf(i3));
-            this.f52768f.add(Integer.valueOf(i3 + i2));
+            int i3 = (this.f51183b - i2) / 2;
+            this.f51187f.add(Integer.valueOf(i3));
+            this.f51187f.add(Integer.valueOf(i3 + i2));
             return this;
         }
         return (a) invokeI.objValue;
@@ -74,8 +74,8 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            this.f52767e.add(Integer.valueOf(i2));
-            this.f52767e.add(Integer.valueOf(i2 + i3));
+            this.f51186e.add(Integer.valueOf(i2));
+            this.f51186e.add(Integer.valueOf(i2 + i3));
             return this;
         }
         return (a) invokeII.objValue;
@@ -85,18 +85,18 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f52767e.size() == 0) {
-                this.f52767e.add(0);
-                this.f52767e.add(Integer.valueOf(this.a));
+            if (this.f51186e.size() == 0) {
+                this.f51186e.add(0);
+                this.f51186e.add(Integer.valueOf(this.a));
             }
-            if (this.f52768f.size() == 0) {
-                this.f52768f.add(0);
-                this.f52768f.add(Integer.valueOf(this.f52764b));
+            if (this.f51187f.size() == 0) {
+                this.f51187f.add(0);
+                this.f51187f.add(Integer.valueOf(this.f51183b));
             }
-            ByteBuffer order = ByteBuffer.allocate((this.f52767e.size() + 8 + this.f52768f.size() + 9) * 4).order(ByteOrder.nativeOrder());
+            ByteBuffer order = ByteBuffer.allocate((this.f51186e.size() + 8 + this.f51187f.size() + 9) * 4).order(ByteOrder.nativeOrder());
             order.put((byte) 1);
-            order.put((byte) this.f52767e.size());
-            order.put((byte) this.f52768f.size());
+            order.put((byte) this.f51186e.size());
+            order.put((byte) this.f51187f.size());
             order.put((byte) 9);
             order.putInt(0);
             order.putInt(0);
@@ -105,11 +105,11 @@ public class a {
             order.putInt(0);
             order.putInt(0);
             order.putInt(0);
-            Iterator<Integer> it = this.f52767e.iterator();
+            Iterator<Integer> it = this.f51186e.iterator();
             while (it.hasNext()) {
                 order.putInt(it.next().intValue());
             }
-            Iterator<Integer> it2 = this.f52768f.iterator();
+            Iterator<Integer> it2 = this.f51187f.iterator();
             while (it2.hasNext()) {
                 order.putInt(it2.next().intValue());
             }
@@ -126,8 +126,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             byte[] a = a();
-            if (this.f52765c != null) {
-                return new NinePatch(this.f52765c, a, null);
+            if (this.f51184c != null) {
+                return new NinePatch(this.f51184c, a, null);
             }
             return null;
         }
@@ -138,8 +138,8 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
-            this.f52768f.add(Integer.valueOf(i2));
-            this.f52768f.add(Integer.valueOf(i2 + i3));
+            this.f51187f.add(Integer.valueOf(i2));
+            this.f51187f.add(Integer.valueOf(i2 + i3));
             return this;
         }
         return (a) invokeII.objValue;
@@ -151,7 +151,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             NinePatch b2 = b();
             if (b2 != null) {
-                return new NinePatchDrawable(this.f52766d, b2);
+                return new NinePatchDrawable(this.f51185d, b2);
             }
             return null;
         }

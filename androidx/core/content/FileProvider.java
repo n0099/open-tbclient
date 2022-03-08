@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -148,7 +149,7 @@ public class FileProvider extends ContentProvider {
                         } else {
                             substring = canonicalPath.substring(path2.length() + 1);
                         }
-                        return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                        return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                     }
                     throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                 } catch (IOException unused) {

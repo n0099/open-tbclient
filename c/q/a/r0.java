@@ -40,7 +40,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,8 +81,8 @@ public class r0 {
             if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(packageInfo.packageName)) {
                 return true;
             }
-            y2 a = c3.a(context);
-            a.j(new g3(info), packageInfo.packageName, packageInfo.versionCode, 1);
+            t2 a = x2.a(context);
+            a.j(new b3(info), packageInfo.packageName, packageInfo.versionCode, 1);
             a.m();
             file.delete();
             return false;
@@ -150,12 +150,12 @@ public class r0 {
     public static void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - m2.b(context);
+            long currentTimeMillis = System.currentTimeMillis() - h2.b(context);
             if (currentTimeMillis < 0) {
-                m2.M(context);
+                h2.M(context);
             }
             if (currentTimeMillis > context.getSharedPreferences("_prefs", 0).getLong("bdtsi", 24L) * 3600000) {
-                t2.b(new s2(context));
+                o2.b(new n2(context));
             }
         }
     }
@@ -284,7 +284,7 @@ public class r0 {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     String optString = jSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        t2.b(new k3(optString));
+                        o2.b(new f3(optString));
                     }
                 }
             }
@@ -320,15 +320,15 @@ public class r0 {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i2)) == null) ? (int) ((i2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLI.intValue;
     }
 
-    public static int c(w1 w1Var, b6 b6Var) {
+    public static int c(r1 r1Var, w5 w5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, w1Var, b6Var)) == null) {
-            byte[] bArr = w1Var.f30738b;
-            int i2 = w1Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, r1Var, w5Var)) == null) {
+            byte[] bArr = r1Var.f29096b;
+            int i2 = r1Var.a;
             if (i2 == 200) {
-                b6Var.a(new String(bArr, "UTF-8"));
-                return b6Var.a;
+                w5Var.a(new String(bArr, "UTF-8"));
+                return w5Var.a;
             }
             return i2;
         }
@@ -365,10 +365,10 @@ public class r0 {
                 String str2 = "错误:" + e3.getMessage();
                 e3.printStackTrace();
                 if (info != null) {
-                    y2 a = c3.a(context);
+                    t2 a = x2.a(context);
                     try {
-                        a.f30763b = c3.d("wiin", new g3(info));
-                        a.l("msg", c3.b(str));
+                        a.f29126b = x2.d("wiin", new b3(info));
+                        a.l("msg", x2.b(str));
                     } catch (JSONException unused) {
                     }
                     a.m();
@@ -501,7 +501,7 @@ public class r0 {
             }
             hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
             hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-            hashMap.put("User-Agent", Collections.singletonList(d3.a));
+            hashMap.put("User-Agent", Collections.singletonList(y2.a));
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
@@ -510,7 +510,7 @@ public class r0 {
     public static void l(Context context, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, null, context, info) == null) {
-            info.setLoad(p2.a(context, info.getLoad(), I(context), info.getMaterial(), new i2(context, info)));
+            info.setLoad(k2.a(context, info.getLoad(), I(context), info.getMaterial(), new d2(context, info)));
         }
     }
 
@@ -643,37 +643,37 @@ public class r0 {
         }
     }
 
-    public static void s(String str, Map map, q1 q1Var) {
+    public static void s(String str, Map map, l1 l1Var) {
         String message;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65566, null, str, map, q1Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65566, null, str, map, l1Var) == null) {
             try {
-                q1Var.a();
-                w1 a = new t1(str, "GET", k(map)).a();
-                b6 b6Var = new b6();
-                int c2 = c(a, b6Var);
+                l1Var.a();
+                r1 a = new o1(str, "GET", k(map)).a();
+                w5 w5Var = new w5();
+                int c2 = c(a, w5Var);
                 if (c2 == 200) {
-                    q1Var.a(b6Var);
+                    l1Var.a(w5Var);
                 } else {
-                    q1Var.a(c2, b6Var.f30527b);
+                    l1Var.a(c2, w5Var.f29166b);
                 }
             } catch (JSONException e2) {
                 message = e2.getMessage();
                 i2 = 101;
-                q1Var.a(i2, message);
+                l1Var.a(i2, message);
             } catch (Exception e3) {
                 message = e3.getMessage();
                 i2 = 100;
-                q1Var.a(i2, message);
+                l1Var.a(i2, message);
             }
         }
     }
 
-    public static void t(byte[] bArr, String str, a4 a4Var) {
+    public static void t(byte[] bArr, String str, v3 v3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65567, null, bArr, str, a4Var) == null) {
-            new Thread(new x2(bArr, str, a4Var)).start();
+        if (interceptable == null || interceptable.invokeLLL(65567, null, bArr, str, v3Var) == null) {
+            new Thread(new s2(bArr, str, v3Var)).start();
         }
     }
 
@@ -743,7 +743,7 @@ public class r0 {
             sb4.append("o7my");
             l0 l0Var = new l0(sb3, sb4.toString());
             Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-            cipher.init(2, l0Var.f30602b, l0Var.a);
+            cipher.init(2, l0Var.f29017b, l0Var.a);
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
             for (int i2 = 0; i2 < length; i2++) {
@@ -785,10 +785,10 @@ public class r0 {
         try {
             Intent d2 = d(info, context, str);
             if (d2.getFlags() > 0) {
-                y2 a = c3.a(context);
+                t2 a = x2.a(context);
                 try {
-                    a.f30763b = c3.d("wist", new g3(info));
-                    a.l("msg", c3.b(str));
+                    a.f29126b = x2.d("wist", new b3(info));
+                    a.l("msg", x2.b(str));
                 } catch (JSONException unused) {
                 }
                 a.m();

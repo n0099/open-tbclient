@@ -7,8 +7,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.f;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -22,18 +20,18 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.x;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -51,7 +49,7 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +82,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +115,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +166,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,13 +221,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                c.a.u0.s2.d.b.f().b(z, str);
+                c.a.r0.s2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                c.a.u0.s2.d.b.f().e(z);
+                c.a.r0.s2.d.b.f().e(z);
             } else if (i2 == 2) {
-                c.a.u0.s2.d.b.f().c(z);
+                c.a.r0.s2.d.b.f().c(z);
             } else {
-                c.a.u0.s2.d.b.f().a(null);
+                c.a.r0.s2.d.b.f().a(null);
             }
             finish();
         }
@@ -246,7 +244,7 @@ public class AuthActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("isnew", "true"));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-                arrayList.add(new PassNameValuePair(x.o, URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
@@ -275,7 +273,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair(x.o, URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
                 arrayList.add(new PassNameValuePair("adapter", "3"));
                 arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
                 arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -361,7 +359,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 PassManagerStatic.z();
                 init();
                 setupViews();
@@ -399,7 +397,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
             } else if (i2 == 1) {
-                setTitleText(g.sapi_sdk_title_modify_pwd);
+                setTitleText(R.string.sapi_sdk_title_modify_pwd);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));

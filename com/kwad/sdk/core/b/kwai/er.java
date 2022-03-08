@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,8 +10,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         fVar.a = jSONObject.optInt("currentTime");
-        fVar.f56551b = jSONObject.optBoolean(com.alipay.sdk.util.f.f31162j);
-        fVar.f56552c = jSONObject.optBoolean("finished");
+        fVar.f54901b = jSONObject.optBoolean(com.alipay.sdk.util.f.f29566j);
+        fVar.f54902c = jSONObject.optBoolean("finished");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "currentTime", fVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, com.alipay.sdk.util.f.f31162j, fVar.f56551b);
-        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f56552c);
+        com.kwad.sdk.utils.t.a(jSONObject, com.alipay.sdk.util.f.f29566j, fVar.f54901b);
+        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f54902c);
         return jSONObject;
     }
 }

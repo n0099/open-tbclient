@@ -29,7 +29,7 @@ import com.airbnb.lottie.value.LottieValueCallback;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class GradientFillContent implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static final int CACHE_STEPS_MS = 32;
     public final int cacheSteps;

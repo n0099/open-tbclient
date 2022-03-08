@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.k;
-import c.a.s0.a.v1.d;
-import c.a.s0.a.z2.n0;
-import c.a.s0.a.z2.q0;
-import c.a.s0.a.z2.v;
+import c.a.p0.a.l1.d;
+import c.a.p0.a.p2.n0;
+import c.a.p0.a.p2.q0;
+import c.a.p0.a.p2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pyramid.annotation.Autowired;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SwanAppLauncherActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -32,7 +31,7 @@ public class SwanAppLauncherActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public Object mPermissionDialog;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements d.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +56,13 @@ public class SwanAppLauncherActivity extends Activity {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f38846e;
+        public final /* synthetic */ SwanAppLauncherActivity f37250e;
 
         public b(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -80,14 +79,14 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f38846e = swanAppLauncherActivity;
+            this.f37250e = swanAppLauncherActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38846e.finish();
+                this.f37250e.finish();
             }
         }
     }
@@ -105,7 +104,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        DEBUG = k.a;
+        DEBUG = c.a.p0.a.a.a;
     }
 
     public SwanAppLauncherActivity() {
@@ -127,12 +126,12 @@ public class SwanAppLauncherActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            c.a.s0.a.d2.d.L().post(new b(this));
+            c.a.p0.a.t1.d.L().post(new b(this));
         }
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, c.a.s0.a.f1.e.b bVar, String str) {
+    public static void startSwanApp(Context context, c.a.p0.a.v0.e.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, str) == null) {
             SwanLauncher.j().n(bVar, null);

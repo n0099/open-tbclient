@@ -5,19 +5,18 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.x;
 import java.net.URLDecoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
@@ -87,10 +86,10 @@ public class AuthWidgetActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
                 this.t = stringExtra;
-                this.u = SapiUtils.urlParamsToMap(stringExtra).get(x.o);
+                this.u = SapiUtils.urlParamsToMap(stringExtra).get("u");
                 if (!TextUtils.isEmpty(this.t) && !TextUtils.isEmpty(this.u)) {
                     init();
                     setupViews();

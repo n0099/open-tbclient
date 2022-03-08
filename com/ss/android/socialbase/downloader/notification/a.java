@@ -3,37 +3,37 @@ package com.ss.android.socialbase.downloader.notification;
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     public Notification a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60513b;
+    public int f58863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60514c;
+    public long f58864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60515d;
+    public long f58865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60516e;
+    public String f58866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60517f = 0;
+    public int f58867f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f60518g;
+    public long f58868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60519h;
+    public int f58869h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60520i;
+    public boolean f58870i;
 
     public a(int i2, String str) {
-        this.f60513b = i2;
-        this.f60516e = str;
+        this.f58863b = i2;
+        this.f58866e = str;
     }
 
     public abstract void a(BaseException baseException, boolean z);
@@ -42,55 +42,55 @@ public abstract class a {
         if (downloadInfo == null) {
             return;
         }
-        this.f60513b = downloadInfo.getId();
-        this.f60516e = downloadInfo.getTitle();
+        this.f58863b = downloadInfo.getId();
+        this.f58866e = downloadInfo.getTitle();
     }
 
     public long b() {
-        return this.f60514c;
+        return this.f58864c;
     }
 
     public long c() {
-        return this.f60515d;
+        return this.f58865d;
     }
 
     public String d() {
-        return this.f60516e;
+        return this.f58866e;
     }
 
     public int e() {
-        return this.f60517f;
+        return this.f58867f;
     }
 
     public long f() {
-        if (this.f60518g == 0) {
-            this.f60518g = System.currentTimeMillis();
+        if (this.f58868g == 0) {
+            this.f58868g = System.currentTimeMillis();
         }
-        return this.f60518g;
+        return this.f58868g;
     }
 
     public synchronized void g() {
-        this.f60519h++;
+        this.f58869h++;
     }
 
     public int h() {
-        return this.f60519h;
+        return this.f58869h;
     }
 
     public boolean i() {
-        return this.f60520i;
+        return this.f58870i;
     }
 
     public void b(long j2) {
-        this.f60515d = j2;
+        this.f58865d = j2;
     }
 
     public int a() {
-        return this.f60513b;
+        return this.f58863b;
     }
 
     public void a(long j2) {
-        this.f60514c = j2;
+        this.f58864c = j2;
     }
 
     public void a(int i2, BaseException baseException, boolean z) {
@@ -98,27 +98,27 @@ public abstract class a {
     }
 
     public void a(int i2, BaseException baseException, boolean z, boolean z2) {
-        if (z2 || this.f60517f != i2) {
-            this.f60517f = i2;
+        if (z2 || this.f58867f != i2) {
+            this.f58867f = i2;
             a(baseException, z);
         }
     }
 
     public void a(long j2, long j3) {
-        this.f60514c = j2;
-        this.f60515d = j3;
-        this.f60517f = 4;
+        this.f58864c = j2;
+        this.f58865d = j3;
+        this.f58867f = 4;
         a((BaseException) null, false);
     }
 
     public void a(Notification notification) {
-        if (this.f60513b == 0 || notification == null) {
+        if (this.f58863b == 0 || notification == null) {
             return;
         }
-        b.a().a(this.f60513b, this.f60517f, notification);
+        b.a().a(this.f58863b, this.f58867f, notification);
     }
 
     public void a(boolean z) {
-        this.f60520i = z;
+        this.f58870i = z;
     }
 }

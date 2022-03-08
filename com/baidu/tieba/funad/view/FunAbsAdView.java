@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import c.a.u0.f1.a;
-import c.a.u0.z3.k0.o;
+import c.a.r0.e1.a;
+import c.a.r0.y3.k0.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void hideShowByType(BdUniqueId bdUniqueId);
 
-    public abstract void inflateFunAd(@NonNull o oVar, @NonNull Activity activity);
+    public abstract void inflateFunAd(@NonNull n nVar, @NonNull Activity activity);
 
     public abstract void initView(Context context);
 

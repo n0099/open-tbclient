@@ -4,7 +4,7 @@ import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public interface IValidateModel {
     ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo);
 

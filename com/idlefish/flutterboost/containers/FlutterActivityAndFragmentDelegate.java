@@ -40,7 +40,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
@@ -59,7 +59,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     public PlatformPlugin platformPlugin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 

@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface WebAppShortcutDataListener {
     void onWebAppIconAvailable(Bitmap bitmap);
 

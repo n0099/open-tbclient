@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.ads.identifier.aidl.OpenDeviceIdentifierService;
 import java.io.IOException;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SETTINGS_AD_ID = "pps_oaid";
@@ -26,7 +26,7 @@ public class AdvertisingIdClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

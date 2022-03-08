@@ -32,7 +32,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCreateGroupRequest";
@@ -42,7 +42,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mName;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

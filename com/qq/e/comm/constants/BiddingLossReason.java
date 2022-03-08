@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface BiddingLossReason {
     public static final int AD_DATA_ERROR = 4;
     public static final int LOW_PRICE = 1;

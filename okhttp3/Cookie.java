@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -24,7 +25,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -42,7 +43,7 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,10 +536,10 @@ public final class Cookie {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), httpUrl, str})) == null) {
             int length = str.length();
-            char c2 = ';';
-            int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-            char c3 = a.f31099h;
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f31099h);
+            char c2 = WebvttCueParser.CHAR_SEMI_COLON;
+            int delimiterOffset = Util.delimiterOffset(str, 0, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
+            char c3 = a.f29503h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f29503h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -583,13 +584,13 @@ public final class Cookie {
                         z2 = true;
                     }
                     i2 = delimiterOffset3 + 1;
-                    c2 = ';';
-                    c3 = a.f31099h;
+                    c2 = WebvttCueParser.CHAR_SEMI_COLON;
+                    c3 = a.f29503h;
                 }
                 z4 = true;
                 i2 = delimiterOffset3 + 1;
-                c2 = ';';
-                c3 = a.f31099h;
+                c2 = WebvttCueParser.CHAR_SEMI_COLON;
+                c3 = a.f29503h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {
@@ -645,7 +646,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append(a.f31099h);
+            sb.append(a.f29503h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {

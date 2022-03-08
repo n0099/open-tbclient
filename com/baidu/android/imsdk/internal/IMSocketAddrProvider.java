@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMSocketAddrProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SMART_DNS_TIME_OUT = 5000;
@@ -32,7 +32,7 @@ public class IMSocketAddrProvider {
     public String mNowConnectAddr;
     public IGetSocketAddrListener mSocketAddrListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface IGetSocketAddrListener extends IMListener {
         void onGetSocketAddrResult(String str);
     }
@@ -75,10 +75,10 @@ public class IMSocketAddrProvider {
             String str = !arrayList.isEmpty() ? (String) arrayList.get(0) : null;
             String str2 = arrayList2.isEmpty() ? null : (String) arrayList2.get(0);
             if (str != null) {
-                offerSocketAddressToQueue(str + ":" + Constants.SOCKET_PORT_SSL);
+                offerSocketAddressToQueue(str + ":443");
             }
             if (str2 != null) {
-                offerSocketAddressToQueue(str2 + ":" + Constants.SOCKET_PORT_SSL);
+                offerSocketAddressToQueue(str2 + ":443");
             }
             if (str != null) {
                 offerSocketAddressToQueue(str + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
@@ -86,7 +86,7 @@ public class IMSocketAddrProvider {
             if (str2 != null) {
                 offerSocketAddressToQueue(str2 + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
             }
-            offerSocketAddressToQueue(Constants.URL_SOCKET_SERVER + ":" + Constants.SOCKET_PORT_SSL);
+            offerSocketAddressToQueue(Constants.URL_SOCKET_SERVER + ":443");
             offerSocketAddressToQueue(Constants.URL_SOCKET_SERVER + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
             StringBuilder sb = new StringBuilder();
             sb.append("new socket queue is ");

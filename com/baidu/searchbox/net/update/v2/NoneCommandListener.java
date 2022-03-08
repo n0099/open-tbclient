@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonElement;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NoneCommandListener extends AbstractCommandListener<JsonElement> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

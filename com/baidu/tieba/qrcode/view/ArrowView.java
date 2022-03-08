@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f47665i = 20;
+    public static int f46073i = 20;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f47666j = 13;
+    public static int f46074j = 13;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47667e;
+    public int f46075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47668f;
+    public int f46076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f47669g;
+    public Paint f46077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f47670h;
+    public Path f46078h;
 
     static {
         InterceptResult invokeClinit;
@@ -79,13 +79,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f47665i = n.f(context, R.dimen.tbds20);
-            f47666j = n.f(context, R.dimen.tbds13);
+            f46073i = n.f(context, R.dimen.tbds20);
+            f46074j = n.f(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f47669g = paint;
+            this.f46077g = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f47669g.setAntiAlias(true);
-            this.f47670h = new Path();
+            this.f46077g.setAntiAlias(true);
+            this.f46078h = new Path();
         }
     }
 
@@ -94,12 +94,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f47670h.reset();
-            this.f47670h.moveTo(this.f47667e / 2, 0.0f);
-            this.f47670h.lineTo(0.0f, this.f47668f);
-            this.f47670h.lineTo(this.f47667e, this.f47668f);
-            this.f47670h.close();
-            canvas.drawPath(this.f47670h, this.f47669g);
+            this.f46078h.reset();
+            this.f46078h.moveTo(this.f46075e / 2, 0.0f);
+            this.f46078h.lineTo(0.0f, this.f46076f);
+            this.f46078h.lineTo(this.f46075e, this.f46076f);
+            this.f46078h.close();
+            canvas.drawPath(this.f46078h, this.f46077g);
         }
     }
 
@@ -113,11 +113,11 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f47665i, f47666j);
+                setMeasuredDimension(f46073i, f46074j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f47665i, size2);
+                setMeasuredDimension(f46073i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f47666j);
+                setMeasuredDimension(size, f46074j);
             }
         }
     }
@@ -127,8 +127,8 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f47667e = i2;
-            this.f47668f = i3;
+            this.f46075e = i2;
+            this.f46076f = i3;
         }
     }
 

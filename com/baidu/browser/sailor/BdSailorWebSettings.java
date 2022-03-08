@@ -17,7 +17,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdSailorWebSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean lastNightModeEnabled;
@@ -25,7 +25,7 @@ public class BdSailorWebSettings implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public WebSettings mWebSettings;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENABLE_LOG_RECORD = "enable_log_record";

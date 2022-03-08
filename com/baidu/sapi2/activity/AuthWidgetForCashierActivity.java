@@ -5,18 +5,17 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.x;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AuthWidgetForCashierActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String u = "passport://passport.baidu.com/cashiersdk_auth_pass";
@@ -76,7 +75,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             init();
             setupViews();
@@ -246,7 +245,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 }
             });
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair(x.o, u));
+            arrayList.add(new PassNameValuePair("u", u));
             arrayList.add(new PassNameValuePair("scene", "auth_cashier"));
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, this.t));

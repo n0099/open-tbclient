@@ -1,0 +1,639 @@
+package com.google.android.exoplayer2.source.hls.playlist;
+
+import android.net.Uri;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.ParserException;
+import com.google.android.exoplayer2.drm.DrmInitData;
+import com.google.android.exoplayer2.source.UnrecognizedInputFormatException;
+import com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist;
+import com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
+import com.google.android.exoplayer2.upstream.ParsingLoadable;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.google.android.exoplayer2.util.Util;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes7.dex */
+public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
+    public static final String BOOLEAN_FALSE = "NO";
+    public static final String BOOLEAN_TRUE = "YES";
+    public static final String KEYFORMAT_IDENTITY = "identity";
+    public static final String KEYFORMAT_WIDEVINE_PSSH_BINARY = "urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed";
+    public static final String KEYFORMAT_WIDEVINE_PSSH_JSON = "com.widevine";
+    public static final String METHOD_AES_128 = "AES-128";
+    public static final String METHOD_NONE = "NONE";
+    public static final String METHOD_SAMPLE_AES = "SAMPLE-AES";
+    public static final String METHOD_SAMPLE_AES_CENC = "SAMPLE-AES-CENC";
+    public static final String PLAYLIST_HEADER = "#EXTM3U";
+    public static final Pattern REGEX_ATTR_BYTERANGE;
+    public static final Pattern REGEX_AUTOSELECT;
+    public static final Pattern REGEX_AVERAGE_BANDWIDTH;
+    public static final Pattern REGEX_BANDWIDTH;
+    public static final Pattern REGEX_BYTERANGE;
+    public static final Pattern REGEX_CODECS;
+    public static final Pattern REGEX_DEFAULT;
+    public static final Pattern REGEX_FORCED;
+    public static final Pattern REGEX_FRAME_RATE;
+    public static final Pattern REGEX_INSTREAM_ID;
+    public static final Pattern REGEX_IV;
+    public static final Pattern REGEX_KEYFORMAT;
+    public static final Pattern REGEX_LANGUAGE;
+    public static final Pattern REGEX_MEDIA_DURATION;
+    public static final Pattern REGEX_MEDIA_SEQUENCE;
+    public static final Pattern REGEX_METHOD;
+    public static final Pattern REGEX_NAME;
+    public static final Pattern REGEX_PLAYLIST_TYPE;
+    public static final Pattern REGEX_RESOLUTION;
+    public static final Pattern REGEX_TARGET_DURATION;
+    public static final Pattern REGEX_TIME_OFFSET;
+    public static final Pattern REGEX_TYPE;
+    public static final Pattern REGEX_URI;
+    public static final Pattern REGEX_VERSION;
+    public static final String TAG_BYTERANGE = "#EXT-X-BYTERANGE";
+    public static final String TAG_DISCONTINUITY = "#EXT-X-DISCONTINUITY";
+    public static final String TAG_DISCONTINUITY_SEQUENCE = "#EXT-X-DISCONTINUITY-SEQUENCE";
+    public static final String TAG_ENDLIST = "#EXT-X-ENDLIST";
+    public static final String TAG_INDEPENDENT_SEGMENTS = "#EXT-X-INDEPENDENT-SEGMENTS";
+    public static final String TAG_INIT_SEGMENT = "#EXT-X-MAP";
+    public static final String TAG_KEY = "#EXT-X-KEY";
+    public static final String TAG_MEDIA = "#EXT-X-MEDIA";
+    public static final String TAG_MEDIA_DURATION = "#EXTINF";
+    public static final String TAG_MEDIA_SEQUENCE = "#EXT-X-MEDIA-SEQUENCE";
+    public static final String TAG_PLAYLIST_TYPE = "#EXT-X-PLAYLIST-TYPE";
+    public static final String TAG_PREFIX = "#EXT";
+    public static final String TAG_PROGRAM_DATE_TIME = "#EXT-X-PROGRAM-DATE-TIME";
+    public static final String TAG_START = "#EXT-X-START";
+    public static final String TAG_STREAM_INF = "#EXT-X-STREAM-INF";
+    public static final String TAG_TARGET_DURATION = "#EXT-X-TARGETDURATION";
+    public static final String TAG_VERSION = "#EXT-X-VERSION";
+    public static final String TYPE_AUDIO = "AUDIO";
+    public static final String TYPE_CLOSED_CAPTIONS = "CLOSED-CAPTIONS";
+    public static final String TYPE_SUBTITLES = "SUBTITLES";
+    public static final String TYPE_VIDEO = "VIDEO";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class LineIterator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Queue<String> extraLines;
+        public String next;
+        public final BufferedReader reader;
+
+        public LineIterator(Queue<String> queue, BufferedReader bufferedReader) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {queue, bufferedReader};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.extraLines = queue;
+            this.reader = bufferedReader;
+        }
+
+        public boolean hasNext() throws IOException {
+            InterceptResult invokeV;
+            String trim;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.next != null) {
+                    return true;
+                }
+                if (!this.extraLines.isEmpty()) {
+                    this.next = this.extraLines.poll();
+                    return true;
+                }
+                do {
+                    String readLine = this.reader.readLine();
+                    this.next = readLine;
+                    if (readLine == null) {
+                        return false;
+                    }
+                    trim = readLine.trim();
+                    this.next = trim;
+                } while (trim.isEmpty());
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String next() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (hasNext()) {
+                    String str = this.next;
+                    this.next = null;
+                    return str;
+                }
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1259876894, "Lcom/google/android/exoplayer2/source/hls/playlist/HlsPlaylistParser;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1259876894, "Lcom/google/android/exoplayer2/source/hls/playlist/HlsPlaylistParser;");
+                return;
+            }
+        }
+        REGEX_AVERAGE_BANDWIDTH = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
+        REGEX_BANDWIDTH = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
+        REGEX_CODECS = Pattern.compile("CODECS=\"(.+?)\"");
+        REGEX_RESOLUTION = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
+        REGEX_FRAME_RATE = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
+        REGEX_TARGET_DURATION = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
+        REGEX_VERSION = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
+        REGEX_PLAYLIST_TYPE = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
+        REGEX_MEDIA_SEQUENCE = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
+        REGEX_MEDIA_DURATION = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
+        REGEX_TIME_OFFSET = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
+        REGEX_BYTERANGE = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
+        REGEX_ATTR_BYTERANGE = Pattern.compile("BYTERANGE=\"(\\d+(?:@\\d+)?)\\b\"");
+        REGEX_METHOD = Pattern.compile("METHOD=(NONE|AES-128|SAMPLE-AES)");
+        REGEX_KEYFORMAT = Pattern.compile("KEYFORMAT=\"(.+?)\"");
+        REGEX_URI = Pattern.compile("URI=\"(.+?)\"");
+        REGEX_IV = Pattern.compile("IV=([^,.*]+)");
+        REGEX_TYPE = Pattern.compile("TYPE=(AUDIO|VIDEO|SUBTITLES|CLOSED-CAPTIONS)");
+        REGEX_LANGUAGE = Pattern.compile("LANGUAGE=\"(.+?)\"");
+        REGEX_NAME = Pattern.compile("NAME=\"(.+?)\"");
+        REGEX_INSTREAM_ID = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
+        REGEX_AUTOSELECT = compileBooleanAttrPattern("AUTOSELECT");
+        REGEX_DEFAULT = compileBooleanAttrPattern(EngineName.DEFAULT_ENGINE);
+        REGEX_FORCED = compileBooleanAttrPattern("FORCED");
+    }
+
+    public HlsPlaylistParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean checkPlaylistHeader(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bufferedReader)) == null) {
+            int read = bufferedReader.read();
+            if (read == 239) {
+                if (bufferedReader.read() != 187 || bufferedReader.read() != 191) {
+                    return false;
+                }
+                read = bufferedReader.read();
+            }
+            int skipIgnorableWhitespace = skipIgnorableWhitespace(bufferedReader, true, read);
+            for (int i2 = 0; i2 < 7; i2++) {
+                if (skipIgnorableWhitespace != PLAYLIST_HEADER.charAt(i2)) {
+                    return false;
+                }
+                skipIgnorableWhitespace = bufferedReader.read();
+            }
+            return Util.isLinebreak(skipIgnorableWhitespace(bufferedReader, false, skipIgnorableWhitespace));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static Pattern compileBooleanAttrPattern(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return Pattern.compile(str + "=(" + BOOLEAN_FALSE + "|" + BOOLEAN_TRUE + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (Pattern) invokeL.objValue;
+    }
+
+    public static boolean parseBooleanAttribute(String str, Pattern pattern, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, pattern, z)) == null) {
+            Matcher matcher = pattern.matcher(str);
+            return matcher.find() ? matcher.group(1).equals(BOOLEAN_TRUE) : z;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static double parseDoubleAttr(String str, Pattern pattern) throws ParserException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, pattern)) == null) ? Double.parseDouble(parseStringAttr(str, pattern)) : invokeLL.doubleValue;
+    }
+
+    public static int parseIntAttr(String str, Pattern pattern) throws ParserException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, pattern)) == null) ? Integer.parseInt(parseStringAttr(str, pattern)) : invokeLL.intValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x00ef A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0090 A[SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static HlsMasterPlaylist parseMasterPlaylist(LineIterator lineIterator, String str) throws IOException {
+        InterceptResult invokeLL;
+        char c2;
+        int parseInt;
+        String str2;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, lineIterator, str)) == null) {
+            HashSet hashSet = new HashSet();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            ArrayList arrayList3 = new ArrayList();
+            ArrayList arrayList4 = new ArrayList();
+            ArrayList arrayList5 = null;
+            Format format = null;
+            boolean z = false;
+            while (lineIterator.hasNext()) {
+                String next = lineIterator.next();
+                if (next.startsWith(TAG_PREFIX)) {
+                    arrayList4.add(next);
+                }
+                if (next.startsWith(TAG_MEDIA)) {
+                    int parseSelectionFlags = parseSelectionFlags(next);
+                    String parseOptionalStringAttr = parseOptionalStringAttr(next, REGEX_URI);
+                    String parseStringAttr = parseStringAttr(next, REGEX_NAME);
+                    String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_LANGUAGE);
+                    String parseStringAttr2 = parseStringAttr(next, REGEX_TYPE);
+                    int hashCode = parseStringAttr2.hashCode();
+                    if (hashCode == -959297733) {
+                        if (parseStringAttr2.equals(TYPE_SUBTITLES)) {
+                            c2 = 1;
+                            if (c2 != 0) {
+                            }
+                        }
+                        c2 = 65535;
+                        if (c2 != 0) {
+                        }
+                    } else if (hashCode != -333210994) {
+                        if (hashCode == 62628790 && parseStringAttr2.equals(TYPE_AUDIO)) {
+                            c2 = 0;
+                            if (c2 != 0) {
+                                Format createAudioContainerFormat = Format.createAudioContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, null, null, -1, -1, -1, null, parseSelectionFlags, parseOptionalStringAttr2);
+                                if (parseOptionalStringAttr == null) {
+                                    format = createAudioContainerFormat;
+                                } else {
+                                    arrayList2.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, createAudioContainerFormat));
+                                }
+                            } else if (c2 == 1) {
+                                arrayList3.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, Format.createTextContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, MimeTypes.TEXT_VTT, null, -1, parseSelectionFlags, parseOptionalStringAttr2)));
+                            } else if (c2 == 2) {
+                                String parseStringAttr3 = parseStringAttr(next, REGEX_INSTREAM_ID);
+                                if (parseStringAttr3.startsWith("CC")) {
+                                    parseInt = Integer.parseInt(parseStringAttr3.substring(2));
+                                    str2 = MimeTypes.APPLICATION_CEA608;
+                                } else {
+                                    parseInt = Integer.parseInt(parseStringAttr3.substring(7));
+                                    str2 = MimeTypes.APPLICATION_CEA708;
+                                }
+                                int i5 = parseInt;
+                                String str3 = str2;
+                                if (arrayList5 == null) {
+                                    arrayList5 = new ArrayList();
+                                }
+                                arrayList5.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i5));
+                            }
+                        }
+                        c2 = 65535;
+                        if (c2 != 0) {
+                        }
+                    } else {
+                        if (parseStringAttr2.equals(TYPE_CLOSED_CAPTIONS)) {
+                            c2 = 2;
+                            if (c2 != 0) {
+                            }
+                        }
+                        c2 = 65535;
+                        if (c2 != 0) {
+                        }
+                    }
+                } else if (next.startsWith(TAG_STREAM_INF)) {
+                    z |= next.contains(ATTR_CLOSED_CAPTIONS_NONE);
+                    int parseIntAttr = parseIntAttr(next, REGEX_BANDWIDTH);
+                    String parseOptionalStringAttr3 = parseOptionalStringAttr(next, REGEX_AVERAGE_BANDWIDTH);
+                    if (parseOptionalStringAttr3 != null) {
+                        parseIntAttr = Integer.parseInt(parseOptionalStringAttr3);
+                    }
+                    int i6 = parseIntAttr;
+                    String parseOptionalStringAttr4 = parseOptionalStringAttr(next, REGEX_CODECS);
+                    String parseOptionalStringAttr5 = parseOptionalStringAttr(next, REGEX_RESOLUTION);
+                    if (parseOptionalStringAttr5 != null) {
+                        String[] split = parseOptionalStringAttr5.split("x");
+                        int parseInt2 = Integer.parseInt(split[0]);
+                        int parseInt3 = Integer.parseInt(split[1]);
+                        if (parseInt2 <= 0 || parseInt3 <= 0) {
+                            parseInt2 = -1;
+                            i4 = -1;
+                        } else {
+                            i4 = parseInt3;
+                        }
+                        i2 = parseInt2;
+                        i3 = i4;
+                    } else {
+                        i2 = -1;
+                        i3 = -1;
+                    }
+                    String parseOptionalStringAttr6 = parseOptionalStringAttr(next, REGEX_FRAME_RATE);
+                    float parseFloat = parseOptionalStringAttr6 != null ? Float.parseFloat(parseOptionalStringAttr6) : -1.0f;
+                    String next2 = lineIterator.next();
+                    if (hashSet.add(next2)) {
+                        arrayList.add(new HlsMasterPlaylist.HlsUrl(next2, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), MimeTypes.APPLICATION_M3U8, null, parseOptionalStringAttr4, i6, i2, i3, parseFloat, null, 0)));
+                    }
+                }
+            }
+            return new HlsMasterPlaylist(str, arrayList4, arrayList, arrayList2, arrayList3, format, z ? Collections.emptyList() : arrayList5);
+        }
+        return (HlsMasterPlaylist) invokeLL.objValue;
+    }
+
+    public static HlsMediaPlaylist parseMediaPlaylist(LineIterator lineIterator, String str) throws IOException {
+        InterceptResult invokeLL;
+        String hexString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, lineIterator, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            long j2 = -9223372036854775807L;
+            long j3 = -9223372036854775807L;
+            int i2 = 0;
+            int i3 = 0;
+            long j4 = 0;
+            boolean z = false;
+            int i4 = 0;
+            int i5 = 0;
+            int i6 = 1;
+            boolean z2 = false;
+            boolean z3 = false;
+            DrmInitData drmInitData = null;
+            HlsMediaPlaylist.Segment segment = null;
+            long j5 = 0;
+            int i7 = 0;
+            long j6 = -1;
+            String str2 = null;
+            long j7 = 0;
+            String str3 = null;
+            loop0: while (true) {
+                long j8 = 0;
+                while (lineIterator.hasNext()) {
+                    String next = lineIterator.next();
+                    if (next.startsWith(TAG_PREFIX)) {
+                        arrayList2.add(next);
+                    }
+                    if (next.startsWith(TAG_PLAYLIST_TYPE)) {
+                        String parseStringAttr = parseStringAttr(next, REGEX_PLAYLIST_TYPE);
+                        if ("VOD".equals(parseStringAttr)) {
+                            i3 = 1;
+                        } else if ("EVENT".equals(parseStringAttr)) {
+                            i3 = 2;
+                        }
+                    } else if (next.startsWith(TAG_START)) {
+                        j2 = (long) (parseDoubleAttr(next, REGEX_TIME_OFFSET) * 1000000.0d);
+                    } else if (next.startsWith(TAG_INIT_SEGMENT)) {
+                        String parseStringAttr2 = parseStringAttr(next, REGEX_URI);
+                        String parseOptionalStringAttr = parseOptionalStringAttr(next, REGEX_ATTR_BYTERANGE);
+                        if (parseOptionalStringAttr != null) {
+                            String[] split = parseOptionalStringAttr.split("@");
+                            j6 = Long.parseLong(split[0]);
+                            if (split.length > 1) {
+                                j5 = Long.parseLong(split[1]);
+                            }
+                        }
+                        segment = new HlsMediaPlaylist.Segment(parseStringAttr2, j5, j6);
+                        j5 = 0;
+                        j6 = -1;
+                    } else if (next.startsWith(TAG_TARGET_DURATION)) {
+                        j3 = 1000000 * parseIntAttr(next, REGEX_TARGET_DURATION);
+                    } else if (next.startsWith(TAG_MEDIA_SEQUENCE)) {
+                        i7 = parseIntAttr(next, REGEX_MEDIA_SEQUENCE);
+                        i5 = i7;
+                    } else if (next.startsWith(TAG_VERSION)) {
+                        i6 = parseIntAttr(next, REGEX_VERSION);
+                    } else if (next.startsWith(TAG_MEDIA_DURATION)) {
+                        j8 = (long) (parseDoubleAttr(next, REGEX_MEDIA_DURATION) * 1000000.0d);
+                    } else if (next.startsWith(TAG_KEY)) {
+                        String parseStringAttr3 = parseStringAttr(next, REGEX_METHOD);
+                        String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_KEYFORMAT);
+                        if ("NONE".equals(parseStringAttr3)) {
+                            str2 = null;
+                            str3 = null;
+                        } else {
+                            String parseOptionalStringAttr3 = parseOptionalStringAttr(next, REGEX_IV);
+                            if (!"identity".equals(parseOptionalStringAttr2) && parseOptionalStringAttr2 != null) {
+                                DrmInitData.SchemeData parseWidevineSchemeData = parseWidevineSchemeData(next, parseOptionalStringAttr2);
+                                if (parseWidevineSchemeData != null) {
+                                    drmInitData = new DrmInitData(METHOD_SAMPLE_AES_CENC.equals(parseStringAttr3) ? "cenc" : C.CENC_TYPE_cbcs, parseWidevineSchemeData);
+                                }
+                            } else if (METHOD_AES_128.equals(parseStringAttr3)) {
+                                str2 = parseStringAttr(next, REGEX_URI);
+                                str3 = parseOptionalStringAttr3;
+                            }
+                            str3 = parseOptionalStringAttr3;
+                            str2 = null;
+                        }
+                    } else if (next.startsWith(TAG_BYTERANGE)) {
+                        String[] split2 = parseStringAttr(next, REGEX_BYTERANGE).split("@");
+                        j6 = Long.parseLong(split2[0]);
+                        if (split2.length > 1) {
+                            j5 = Long.parseLong(split2[1]);
+                        }
+                    } else if (next.startsWith(TAG_DISCONTINUITY_SEQUENCE)) {
+                        i4 = Integer.parseInt(next.substring(next.indexOf(58) + 1));
+                        z = true;
+                    } else if (next.equals(TAG_DISCONTINUITY)) {
+                        i2++;
+                    } else if (next.startsWith(TAG_PROGRAM_DATE_TIME)) {
+                        if (j4 == 0) {
+                            j4 = C.msToUs(Util.parseXsDateTime(next.substring(next.indexOf(58) + 1))) - j7;
+                        }
+                    } else if (!next.startsWith("#")) {
+                        if (str2 == null) {
+                            hexString = null;
+                        } else {
+                            hexString = str3 != null ? str3 : Integer.toHexString(i7);
+                        }
+                        int i8 = i7 + 1;
+                        int i9 = (j6 > (-1L) ? 1 : (j6 == (-1L) ? 0 : -1));
+                        if (i9 == 0) {
+                            j5 = 0;
+                        }
+                        arrayList.add(new HlsMediaPlaylist.Segment(next, j8, i2, j7, str2, hexString, j5, j6));
+                        j7 += j8;
+                        if (i9 != 0) {
+                            j5 += j6;
+                        }
+                        i7 = i8;
+                        j6 = -1;
+                    } else if (next.equals(TAG_INDEPENDENT_SEGMENTS)) {
+                        z2 = true;
+                    } else if (next.equals(TAG_ENDLIST)) {
+                        z3 = true;
+                    }
+                }
+                break loop0;
+            }
+            return new HlsMediaPlaylist(i3, str, arrayList2, j2, j4, z, i4, i5, i6, j3, z2, z3, j4 != 0, drmInitData, segment, arrayList);
+        }
+        return (HlsMediaPlaylist) invokeLL.objValue;
+    }
+
+    public static String parseOptionalStringAttr(String str, Pattern pattern) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, pattern)) == null) {
+            Matcher matcher = pattern.matcher(str);
+            if (matcher.find()) {
+                return matcher.group(1);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static int parseSelectionFlags(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return (parseBooleanAttribute(str, REGEX_DEFAULT, false) ? 1 : 0) | (parseBooleanAttribute(str, REGEX_FORCED, false) ? 2 : 0) | (parseBooleanAttribute(str, REGEX_AUTOSELECT, false) ? 4 : 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static String parseStringAttr(String str, Pattern pattern) throws ParserException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, pattern)) == null) {
+            Matcher matcher = pattern.matcher(str);
+            if (matcher.find() && matcher.groupCount() == 1) {
+                return matcher.group(1);
+            }
+            throw new ParserException("Couldn't match " + pattern.pattern() + " in " + str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static DrmInitData.SchemeData parseWidevineSchemeData(String str, String str2) throws ParserException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            if (KEYFORMAT_WIDEVINE_PSSH_BINARY.equals(str2)) {
+                String parseStringAttr = parseStringAttr(str, REGEX_URI);
+                return new DrmInitData.SchemeData(C.WIDEVINE_UUID, MimeTypes.VIDEO_MP4, Base64.decode(parseStringAttr.substring(parseStringAttr.indexOf(44)), 0));
+            } else if (KEYFORMAT_WIDEVINE_PSSH_JSON.equals(str2)) {
+                try {
+                    return new DrmInitData.SchemeData(C.WIDEVINE_UUID, "hls", str.getBytes("UTF-8"));
+                } catch (UnsupportedEncodingException e2) {
+                    throw new ParserException(e2);
+                }
+            } else {
+                return null;
+            }
+        }
+        return (DrmInitData.SchemeData) invokeLL.objValue;
+    }
+
+    public static int skipIgnorableWhitespace(BufferedReader bufferedReader, boolean z, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{bufferedReader, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+            while (i2 != -1 && Character.isWhitespace(i2) && (z || !Util.isLinebreak(i2))) {
+                i2 = bufferedReader.read();
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
+    public HlsPlaylist parse(Uri uri, InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
+        String trim;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, inputStream)) == null) {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            ArrayDeque arrayDeque = new ArrayDeque();
+            try {
+                if (checkPlaylistHeader(bufferedReader)) {
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            trim = readLine.trim();
+                            if (!trim.isEmpty()) {
+                                if (trim.startsWith(TAG_STREAM_INF)) {
+                                    arrayDeque.add(trim);
+                                    return parseMasterPlaylist(new LineIterator(arrayDeque, bufferedReader), uri.toString());
+                                } else if (trim.startsWith(TAG_TARGET_DURATION) || trim.startsWith(TAG_MEDIA_SEQUENCE) || trim.startsWith(TAG_MEDIA_DURATION) || trim.startsWith(TAG_KEY) || trim.startsWith(TAG_BYTERANGE) || trim.equals(TAG_DISCONTINUITY) || trim.equals(TAG_DISCONTINUITY_SEQUENCE) || trim.equals(TAG_ENDLIST)) {
+                                    break;
+                                } else {
+                                    arrayDeque.add(trim);
+                                }
+                            }
+                        } else {
+                            Util.closeQuietly(bufferedReader);
+                            throw new ParserException("Failed to parse the playlist, could not identify any tags.");
+                        }
+                    }
+                    arrayDeque.add(trim);
+                    return parseMediaPlaylist(new LineIterator(arrayDeque, bufferedReader), uri.toString());
+                }
+                throw new UnrecognizedInputFormatException("Input does not start with the #EXTM3U header.", uri);
+            } finally {
+                Util.closeQuietly(bufferedReader);
+            }
+        }
+        return (HlsPlaylist) invokeLL.objValue;
+    }
+}

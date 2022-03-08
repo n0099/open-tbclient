@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.o.e.n;
-import c.a.u0.z2.e.i;
-import c.a.u0.z2.e.j;
+import c.a.r0.z2.e.i;
+import c.a.r0.z2.e.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
@@ -54,7 +54,7 @@ import tbclient.User;
 import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 import tbclient.Voice;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PERSON_POLYMERIC = 1;
@@ -81,7 +81,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public final ArrayList<n> threadList;
     public int view_card_num;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +228,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +265,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,7 +356,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, n {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
@@ -389,7 +389,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public long user_id;
         public String user_name;
         public String user_portrait;
-        public VoiceData$VoiceModel[] voice_info;
+        public VoiceData.VoiceModel[] voice_info;
 
         static {
             InterceptResult invokeClinit;
@@ -441,7 +441,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             this.lbs_info = new LbsInfo();
             this.is_post_deleted = 0;
             this.thread_type = 0L;
-            this.voice_info = new VoiceData$VoiceModel[0];
+            this.voice_info = new VoiceData.VoiceModel[0];
             this.twzhibo_info = new ZhiBoInfoTW();
         }
 
@@ -536,18 +536,18 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
             List<Voice> list3 = postInfoList.voice_info;
             if (list3 != null) {
-                this.voice_info = new VoiceData$VoiceModel[list3.size()];
+                this.voice_info = new VoiceData.VoiceModel[list3.size()];
                 for (int i6 = 0; i6 < this.voice_info.length; i6++) {
-                    VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
-                    voiceData$VoiceModel.parserProtobuf(postInfoList.voice_info.get(i6));
-                    this.voice_info[i6] = voiceData$VoiceModel;
+                    VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+                    voiceModel.parserProtobuf(postInfoList.voice_info.get(i6));
+                    this.voice_info[i6] = voiceModel;
                 }
             }
             this.isAuthorView = postInfoList.is_author_view.intValue();
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -590,7 +590,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -627,7 +627,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -658,7 +658,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -747,7 +747,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -796,7 +796,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -845,12 +845,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void onResult(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void on(PersonPostModel personPostModel, boolean z);
     }

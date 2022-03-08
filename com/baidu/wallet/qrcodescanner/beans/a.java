@@ -14,14 +14,14 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.qrcodescanner.datamodel.QRCodeShortUrlResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseBean<QRCodeShortUrlResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52898b;
+    public String f51317b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -53,7 +53,7 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f52898b = str;
+            this.f51317b = str;
         }
     }
 
@@ -102,8 +102,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.f52898b)) {
-                return this.f52898b;
+            if (!TextUtils.isEmpty(this.f51317b)) {
+                return this.f51317b;
             }
             return DomainConfig.getInstance().getAppPayHost(this.tag) + "/facilepaycenter/tinyurl/scancode";
         }

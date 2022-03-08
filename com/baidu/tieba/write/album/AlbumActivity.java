@@ -6,22 +6,20 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.s4.d;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
-import c.a.u0.s4.u.e;
+import c.a.r0.q4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +104,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.mStatebarView, d.CAM_X0201, i2);
+            SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i2);
             e eVar = this.albumView;
             if (eVar != null) {
                 eVar.onViewChangeSkinType(i2);
@@ -130,12 +128,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(h.album_activity);
-            this.mStatebarView = findViewById(g.statebar_view);
+            setContentView(R.layout.album_activity);
+            this.mStatebarView = findViewById(R.id.statebar_view);
             this.canUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
             checkStyleImmersiveStickyStatusBarForBg();
-            int i2 = g.fragment;
-            this.albumView = new e(this, bundle, i2, i2);
+            this.albumView = new e(this, bundle, R.id.fragment, R.id.fragment);
         }
     }
 

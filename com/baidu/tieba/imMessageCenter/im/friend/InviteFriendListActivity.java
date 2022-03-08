@@ -8,8 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.u1.a.c.c;
-import c.a.u0.u1.a.c.e;
+import c.a.r0.t1.a.c.c;
+import c.a.r0.t1.a.c.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -34,12 +34,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_INVITED_COUNT = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.t0.t.f.a> friendList;
+    public List<c.a.q0.s.f.a> friendList;
     public CustomMessageListener friendListResponsedMessageListener;
     public boolean isFromInviteChat;
     public boolean isFromSearch;
@@ -47,10 +47,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public final AtomicBoolean isLoading;
     public final c.a.d.c.g.c mListener;
     public e mModel;
-    public c.a.u0.u1.a.c.d mView;
-    public LinkedList<c.a.t0.t.f.a> searchedList;
+    public c.a.r0.t1.a.c.d mView;
+    public LinkedList<c.a.q0.s.f.a> searchedList;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 this.a.isLoading.set(false);
                 InviteFriendListActivity inviteFriendListActivity = this.a;
                 inviteFriendListActivity.hideLoadingView(inviteFriendListActivity.mView.u());
-                List<c.a.t0.t.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
+                List<c.a.q0.s.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
@@ -137,13 +137,13 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f45396e;
+        public final /* synthetic */ InviteFriendListActivity f43802e;
 
         public c(InviteFriendListActivity inviteFriendListActivity) {
             Interceptable interceptable = $ic;
@@ -160,32 +160,32 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f45396e = inviteFriendListActivity;
+            this.f43802e = inviteFriendListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f45396e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f43802e.mModel == null) {
                 return;
             }
-            this.f45396e.mModel.cancelLoadData();
+            this.f43802e.mModel.cancelLoadData();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InviteFriendListActivity a;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f45397e;
+            public final /* synthetic */ d f43803e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -202,16 +202,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                         return;
                     }
                 }
-                this.f45397e = dVar;
+                this.f43803e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45397e.a.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43803e.a.isFinishing()) {
                     return;
                 }
-                this.f45397e.a.finish();
+                this.f43803e.a.finish();
             }
         }
 
@@ -287,7 +287,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            c.a.u0.u1.a.c.d dVar = new c.a.u0.u1.a.c.d(this, this.isFromInviteChat);
+            c.a.r0.t1.a.c.d dVar = new c.a.r0.t1.a.c.d(this, this.isFromInviteChat);
             this.mView = dVar;
             dVar.G(100);
         }
@@ -317,7 +317,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.u0.u1.a.c.d dVar;
+        c.a.r0.t1.a.c.d dVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (dVar = this.mView) == null) {
             return;
@@ -361,7 +361,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             this.mModel.cancelLoadData();
-            c.a.u0.u1.a.c.d dVar = this.mView;
+            c.a.r0.t1.a.c.d dVar = this.mView;
             if (dVar != null) {
                 dVar.C();
             }
@@ -375,14 +375,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             super.onItemClick(adapterView, view, i2, j2);
             if (this.isFromInviteChat) {
-                c.a.t0.t.f.a aVar = null;
+                c.a.q0.s.f.a aVar = null;
                 if (this.isFromSearch) {
-                    LinkedList<c.a.t0.t.f.a> linkedList = this.searchedList;
+                    LinkedList<c.a.q0.s.f.a> linkedList = this.searchedList;
                     if (linkedList != null && i2 < linkedList.size()) {
                         aVar = this.searchedList.get(i2);
                     }
                 } else {
-                    List<c.a.t0.t.f.a> list = this.friendList;
+                    List<c.a.q0.s.f.a> list = this.friendList;
                     if (list != null && i2 < list.size()) {
                         aVar = this.friendList.get(i2);
                     }
@@ -393,7 +393,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
             } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
             } else {
-                TbCheckBox tbCheckBox = ((c.a) tag).f22905d;
+                TbCheckBox tbCheckBox = ((c.a) tag).f22191d;
                 tbCheckBox.setChecked(!tbCheckBox.isChecked());
             }
         }
@@ -476,7 +476,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             return;
         }
         this.searchedList.clear();
-        for (c.a.t0.t.f.a aVar : this.friendList) {
+        for (c.a.q0.s.f.a aVar : this.friendList) {
             String c2 = aVar.c();
             if (c2 != null && c2.contains(trim)) {
                 this.searchedList.add(aVar);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitDiskTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class InitDiskTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new a.InterfaceC0040a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new a.InterfaceC0099a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitDiskTask this$0;
@@ -60,7 +60,7 @@ public class InitDiskTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.d.a.k.a.InterfaceC0040a
+                @Override // c.a.d.a.k.a.InterfaceC0099a
                 public void onDatabaseCreated(SQLiteDatabase sQLiteDatabase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {

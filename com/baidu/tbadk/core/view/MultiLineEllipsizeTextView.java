@@ -20,21 +20,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MultiLineEllipsizeTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40634f;
+    public String f39040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40635g;
+    public int f39041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f40636h;
+    public a f39042h;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(boolean z);
     }
@@ -57,7 +57,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f40634f = "...";
+        this.f39040f = "...";
     }
 
     public final List<Point> a(TextPaint textPaint, CharSequence charSequence, int i2) {
@@ -87,8 +87,8 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                 return;
             }
             TextPaint paint = getPaint();
-            if (!m.isEmpty(this.f40634f)) {
-                String str = this.f40634f;
+            if (!m.isEmpty(this.f39040f)) {
+                String str = this.f39040f;
                 paint.getTextBounds(str, 0, str.length() - 1, rect);
             }
             float width = rect.width();
@@ -108,28 +108,28 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                 Point point = a2.get(getMaxLines() - 1);
                 text.toString();
                 paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
-                float f2 = (measuredWidth - width) - this.f40635g;
+                float f2 = (measuredWidth - width) - this.f39041g;
                 for (float width2 = rect.width(); width2 > f2 && (i4 = point.y) > point.x; width2 = rect.width()) {
                     point.y = i4 - 1;
                     paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
                 }
-                if (paint.measureText(((Object) text.subSequence(point.x, point.y)) + this.f40634f) > f2 + width) {
+                if (paint.measureText(((Object) text.subSequence(point.x, point.y)) + this.f39040f) > f2 + width) {
                     point.y--;
                 }
-                setText(point.y <= 0 ? this.f40634f : ((Object) text.subSequence(0, point.y)) + this.f40634f);
-                a aVar = this.f40636h;
+                setText(point.y <= 0 ? this.f39040f : ((Object) text.subSequence(0, point.y)) + this.f39040f);
+                a aVar = this.f39042h;
                 if (aVar != null) {
                     aVar.a(true);
                 }
-            } else if (getMaxLines() == Integer.MAX_VALUE && this.f40635g != 0) {
+            } else if (getMaxLines() == Integer.MAX_VALUE && this.f39041g != 0) {
                 if (!ListUtils.isEmpty(a2)) {
                     Point point2 = a2.get(a2.size() - 1);
                     paint.getTextBounds(String.valueOf(text), point2.x, point2.y, rect);
-                    if (rect.width() > measuredWidth - this.f40635g) {
+                    if (rect.width() > measuredWidth - this.f39041g) {
                         setMeasuredDimension(getMeasuredWidth(), (int) (getMeasuredHeight() + rect.height() + getLineSpacingExtra()));
                     }
                 }
-                a aVar2 = this.f40636h;
+                a aVar2 = this.f39042h;
                 if (aVar2 != null) {
                     aVar2.a(false);
                 }
@@ -140,21 +140,21 @@ public class MultiLineEllipsizeTextView extends EMTextView {
     public void setEllipsisSuffix(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f40634f = str;
+            this.f39040f = str;
         }
     }
 
     public void setIconWidthForLastLine(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f40635g = i2;
+            this.f39041g = i2;
         }
     }
 
     public void setOnTextMeasuredCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f40636h = aVar;
+            this.f39042h = aVar;
         }
     }
 
@@ -177,7 +177,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f40634f = "...";
+        this.f39040f = "...";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,6 +199,6 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f40634f = "...";
+        this.f39040f = "...";
     }
 }

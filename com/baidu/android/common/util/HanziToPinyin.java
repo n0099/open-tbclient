@@ -14,7 +14,7 @@ import com.baidu.yunjiasu.ping.Ping;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,7 +39,7 @@ public class HanziToPinyin {
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DIGIT = 3;

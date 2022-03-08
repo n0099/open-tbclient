@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,27 +43,27 @@ public class b implements ServiceConnection {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.f35163g = new Messenger(iBinder);
-            if (this.a.f35163g == null) {
+            this.a.f33566g = new Messenger(iBinder);
+            if (this.a.f33566g == null) {
                 return;
             }
-            this.a.f35161e = true;
+            this.a.f33564e = true;
             z = this.a.x;
             if (z) {
-                this.a.f35164h.obtainMessage(2).sendToTarget();
+                this.a.f33567h.obtainMessage(2).sendToTarget();
                 return;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
-                obtain.replyTo = this.a.f35165i;
+                obtain.replyTo = this.a.f33568i;
                 c2 = this.a.c();
                 obtain.setData(c2);
-                this.a.f35163g.send(obtain);
-                this.a.f35161e = true;
-                if (this.a.f35159c != null) {
+                this.a.f33566g.send(obtain);
+                this.a.f33564e = true;
+                if (this.a.f33562c != null) {
                     bool = this.a.A;
                     bool.booleanValue();
-                    this.a.f35164h.obtainMessage(4).sendToTarget();
+                    this.a.f33567h.obtainMessage(4).sendToTarget();
                 }
             } catch (Exception unused) {
             }
@@ -74,8 +74,8 @@ public class b implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f35163g = null;
-            this.a.f35161e = false;
+            this.a.f33566g = null;
+            this.a.f33564e = false;
         }
     }
 }

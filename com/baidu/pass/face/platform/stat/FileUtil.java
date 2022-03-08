@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtil";

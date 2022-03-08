@@ -12,13 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+/* loaded from: classes4.dex */
 public class NetUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class NetworkStateEnum {
         public static final /* synthetic */ NetworkStateEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -45,7 +46,7 @@ public class NetUtil {
                     return;
                 }
             }
-            NO = new NetworkStateEnum("NO", 0, "no");
+            NO = new NetworkStateEnum(HlsPlaylistParser.BOOLEAN_FALSE, 0, "no");
             WIFI = new NetworkStateEnum(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
             _2G = new NetworkStateEnum("_2G", 2, "2g");
             _3G = new NetworkStateEnum("_3G", 3, "3g");

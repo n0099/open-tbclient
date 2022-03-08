@@ -13,7 +13,7 @@ import com.xiaomi.push.er;
 import com.xiaomi.push.service.ServiceClient;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.az;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PingReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

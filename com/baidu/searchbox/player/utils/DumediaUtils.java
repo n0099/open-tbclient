@@ -12,10 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DumediaUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INSTALL_TYPE = 31;
@@ -79,7 +80,7 @@ public class DumediaUtils {
             if (i3 < 0) {
                 i3 = 0;
             }
-            return CyberPlayerManager.getDevicePlayQualityScore("video/hevc", 0, i2, i3, null);
+            return CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, i2, i3, null);
         }
         return invokeII.intValue;
     }

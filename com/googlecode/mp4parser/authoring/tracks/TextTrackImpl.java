@@ -14,6 +14,7 @@ import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.TextSampleEntry;
+import com.google.android.exoplayer2.text.tx3g.Tx3gDecoder;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
 import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.SampleImpl;
@@ -28,7 +29,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TextTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class TextTrackImpl extends AbstractTrack {
     public List<Line> subs;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Line {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +106,7 @@ public class TextTrackImpl extends AbstractTrack {
         textSampleEntry.setBoxRecord(new TextSampleEntry.BoxRecord());
         this.sampleDescriptionBox.addBox(textSampleEntry);
         FontTableBox fontTableBox = new FontTableBox();
-        fontTableBox.setEntries(Collections.singletonList(new FontTableBox.FontRecord(1, "Serif")));
+        fontTableBox.setEntries(Collections.singletonList(new FontTableBox.FontRecord(1, Tx3gDecoder.TX3G_SERIF)));
         textSampleEntry.addBox(fontTableBox);
         this.trackMetaData.setCreationTime(new Date());
         this.trackMetaData.setModificationTime(new Date());

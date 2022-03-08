@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RealtimeSinceBootClock implements MonotonicClock {
     public static /* synthetic */ Interceptable $ic;
     public static final RealtimeSinceBootClock INSTANCE;

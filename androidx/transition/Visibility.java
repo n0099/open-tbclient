@@ -451,7 +451,7 @@ public abstract class Visibility extends Transition {
             if ((this.mMode & 2) == 2 && transitionValues != null) {
                 View view3 = transitionValues.view;
                 View view4 = transitionValues2 != null ? transitionValues2.view : null;
-                View view5 = (View) view3.getTag(R.id.save_overlay_view);
+                View view5 = (View) view3.getTag(R$id.save_overlay_view);
                 if (view5 != null) {
                     view2 = null;
                     z2 = true;
@@ -548,7 +548,7 @@ public abstract class Visibility extends Transition {
                     if (onDisappear2 == null) {
                         ViewGroupUtils.getOverlay(viewGroup).remove(view5);
                     } else {
-                        view3.setTag(R.id.save_overlay_view, view5);
+                        view3.setTag(R$id.save_overlay_view, view5);
                         addListener(new TransitionListenerAdapter(this, viewGroup, view5, view3) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -582,7 +582,7 @@ public abstract class Visibility extends Transition {
                             public void onTransitionEnd(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                                    this.val$startView.setTag(R.id.save_overlay_view, null);
+                                    this.val$startView.setTag(R$id.save_overlay_view, null);
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
                                     transition.removeListener(this);
                                 }

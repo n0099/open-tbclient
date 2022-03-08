@@ -11,13 +11,13 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class RepeatObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;

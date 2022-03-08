@@ -3,20 +3,20 @@ package com.baidu.tbadk.core.util;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class YYLiveUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE_BAIDU_LIVE_CARD_ = "baidu_live_zhibo_block_";
@@ -133,7 +133,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TbadkCoreApplication.getInst().getResources().getString(j.ala_follow_live_enter_live_square_txt).equals(str) || TbadkCoreApplication.getInst().getResources().getString(j.ala_follow_live_enter_live_square_txt_yy).equals(str);
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt_yy).equals(str);
         }
         return invokeL.booleanValue;
     }

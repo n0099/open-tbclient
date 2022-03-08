@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InferenceWrapper implements AutoCloseable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InferenceWrapper";
@@ -22,7 +22,7 @@ public class InferenceWrapper implements AutoCloseable {
     public Inference mInference;
     public DevicePerformanceModelInfo mModel;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface InitCallback {
         void onInitResult(boolean z, String str);
     }

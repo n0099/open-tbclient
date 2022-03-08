@@ -16,38 +16,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RefreshLoadingDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "RefreshLoadingView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f51085b;
+    public Paint f49504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f51086c;
+    public Paint f49505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51087d;
+    public int f49506d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51088e;
+    public int f49507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51089f;
+    public int f49508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f51090g;
+    public RectF f49509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f51091h;
+    public Path f49510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51092i;
+    public int f49511i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f51093j;
+    public Context f49512j;
 
     public RefreshLoadingDrawable(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -64,40 +64,40 @@ public class RefreshLoadingDrawable extends Drawable {
                 return;
             }
         }
-        this.f51085b = new Paint();
-        this.f51086c = new Paint();
-        this.f51090g = new RectF();
-        this.f51091h = new Path();
+        this.f49504b = new Paint();
+        this.f49505c = new Paint();
+        this.f49509g = new RectF();
+        this.f49510h = new Path();
         i2 = i2 < 0 ? 0 : i2;
-        this.f51087d = i3;
+        this.f49506d = i3;
         Context applicationContext = DxmApplicationContextImpl.getApplicationContext(context);
-        this.f51093j = applicationContext;
+        this.f49512j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f51088e = dip2px;
+        this.f49507e = dip2px;
         int i6 = i2 + (dip2px * 2);
-        this.f51092i = i6;
-        this.f51085b.setAntiAlias(true);
-        this.f51085b.setDither(true);
-        this.f51085b.setColor(this.f51087d);
-        this.f51085b.setStyle(Paint.Style.STROKE);
-        this.f51085b.setStrokeJoin(Paint.Join.ROUND);
-        this.f51085b.setStrokeCap(Paint.Cap.ROUND);
-        this.f51085b.setStrokeWidth(this.f51088e);
-        this.f51086c.set(this.f51085b);
-        RectF rectF = this.f51090g;
-        int i7 = this.f51088e;
-        int i8 = this.f51092i;
+        this.f49511i = i6;
+        this.f49504b.setAntiAlias(true);
+        this.f49504b.setDither(true);
+        this.f49504b.setColor(this.f49506d);
+        this.f49504b.setStyle(Paint.Style.STROKE);
+        this.f49504b.setStrokeJoin(Paint.Join.ROUND);
+        this.f49504b.setStrokeCap(Paint.Cap.ROUND);
+        this.f49504b.setStrokeWidth(this.f49507e);
+        this.f49505c.set(this.f49504b);
+        RectF rectF = this.f49509g;
+        int i7 = this.f49507e;
+        int i8 = this.f49511i;
         rectF.set(i7, i7, i8 - i7, i8 - i7);
-        this.f51091h.reset();
+        this.f49510h.reset();
         float f2 = i6;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f51091h.moveTo(f3, f4);
+        this.f49510h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f51091h.lineTo(f5, f3);
-        this.f51091h.lineTo(f3, f5);
-        this.f51091h.lineTo(f4, f3);
-        this.f51091h.close();
+        this.f49510h.lineTo(f5, f3);
+        this.f49510h.lineTo(f3, f5);
+        this.f49510h.lineTo(f4, f3);
+        this.f49510h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -122,10 +122,10 @@ public class RefreshLoadingDrawable extends Drawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawArc(this.f51090g, -90.0f, (this.f51089f * 360.0f) / 100.0f, false, this.f51085b);
-            if (this.f51089f >= 100) {
-                this.f51086c.setColor(this.f51087d);
-                canvas.drawPath(this.f51091h, this.f51086c);
+            canvas.drawArc(this.f49509g, -90.0f, (this.f49508f * 360.0f) / 100.0f, false, this.f49504b);
+            if (this.f49508f >= 100) {
+                this.f49505c.setColor(this.f49506d);
+                canvas.drawPath(this.f49510h, this.f49505c);
             }
         }
     }
@@ -134,14 +134,14 @@ public class RefreshLoadingDrawable extends Drawable {
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51092i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49511i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51092i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49511i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -177,10 +177,10 @@ public class RefreshLoadingDrawable extends Drawable {
             if (i2 > 100) {
                 i2 = 100;
             }
-            if (this.f51089f == i2) {
+            if (this.f49508f == i2) {
                 return;
             }
-            this.f51089f = i2;
+            this.f49508f = i2;
         }
     }
 }

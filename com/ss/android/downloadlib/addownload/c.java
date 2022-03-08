@@ -5,30 +5,30 @@ import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f59687b;
+    public static volatile c f58037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f59688c;
+    public ConcurrentHashMap<Long, Runnable> f58038c;
 
     public c() {
-        this.f59688c = null;
-        this.f59688c = new ConcurrentHashMap<>();
+        this.f58038c = null;
+        this.f58038c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
-        if (f59687b == null) {
+        if (f58037b == null) {
             synchronized (c.class) {
-                if (f59687b == null) {
-                    f59687b = new c();
+                if (f58037b == null) {
+                    f58037b = new c();
                 }
             }
         }
-        return f59687b;
+        return f58037b;
     }
 
     public long b() {
@@ -56,7 +56,7 @@ public class c {
             a(id, true, 1);
         } else if (i2 != 7) {
         } else {
-            Runnable remove = this.f59688c.remove(Long.valueOf(id));
+            Runnable remove = this.f58038c.remove(Long.valueOf(id));
             if (z) {
                 com.ss.android.downloadlib.d.a.a().a(id, 1);
                 a(id, true, 1);

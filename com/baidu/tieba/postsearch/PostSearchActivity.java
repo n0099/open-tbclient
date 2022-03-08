@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.u0.g3.b;
-import c.a.u0.g3.d;
-import c.a.u0.g3.g;
+import c.a.r0.e3.b;
+import c.a.r0.e3.d;
+import c.a.r0.e3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_SEARCH_CLICK = "c12842";
@@ -32,13 +32,13 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public String mSearchKey;
     public g mView;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostSearchActivity f47606e;
+        public final /* synthetic */ PostSearchActivity f46014e;
 
         public a(PostSearchActivity postSearchActivity) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f47606e = postSearchActivity;
+            this.f46014e = postSearchActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -76,7 +76,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f47606e.stateTabClick(i2);
+                this.f46014e.stateTabClick(i2);
             }
         }
     }
@@ -190,7 +190,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void refreshHistoryList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mView.i(this.mModel.f18110j);
+            this.mView.i(this.mModel.f17224j);
         }
     }
 

@@ -1,113 +1,51 @@
 package c.q.a;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class c2 {
+/* loaded from: classes3.dex */
+public class c2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final c2 a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static ConcurrentHashMap f30530b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Context f30531c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1646433368, "Lc/q/a/c2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1646433368, "Lc/q/a/c2;");
-                return;
-            }
-        }
-        a = new c2();
-        f30530b = new ConcurrentHashMap();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ f2 f28929e;
 
-    public c2() {
+    public c2(f2 f2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f28929e = f2Var;
     }
 
-    public static c2 b(Context context) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            f30531c = context.getApplicationContext();
-            return a;
-        }
-        return (c2) invokeL.objValue;
-    }
-
-    public long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) f30530b.get(str);
-            if (l == null || l.longValue() <= 0) {
-                try {
-                    String C = m2.C(f30531c);
-                    if (!TextUtils.isEmpty(C)) {
-                        JSONObject jSONObject = new JSONObject(C);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (TextUtils.equals(str, next)) {
-                                return jSONObject.optLong(next, 0L);
-                            }
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0L;
-            }
-            return l.longValue();
-        }
-        return invokeL.longValue;
-    }
-
-    public void c(String str, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            f30530b.put(str, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String C = m2.C(f30531c);
-                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
-                jSONObject.put(str, j2);
-                Context context = f30531c;
-                String jSONObject2 = jSONObject.toString();
-                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
-                edit.putString("key_local_res", jSONObject2);
-                edit.apply();
+                View rootView = this.f28929e.a.getRootView();
+                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
+                    t2 a = x2.a(this.f28929e.f28959b.a);
+                    a.d(new b3(this.f28929e.f28959b.f29070c), this.f28929e.a.getWidth(), this.f28929e.a.getHeight());
+                    a.m();
+                    r0.n(this.f28929e.f28959b.f29070c);
+                    if (this.f28929e.f28959b.f29073f != null) {
+                        this.f28929e.f28959b.f29073f.onDisplayed();
+                    }
+                }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

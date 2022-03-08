@@ -1,27 +1,22 @@
 package c.q.a;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-/* loaded from: classes9.dex */
-public class o4 implements Runnable {
+/* loaded from: classes3.dex */
+public class o4 implements z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ s4 a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ PBError f30639e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a5 f30640f;
-
-    public o4(a5 a5Var, PBError pBError) {
+    public o4(s4 s4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a5Var, pBError};
+            Object[] objArr = {s4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,17 +26,30 @@ public class o4 implements Runnable {
                 return;
             }
         }
-        this.f30640f = a5Var;
-        this.f30639e = pBError;
+        this.a = s4Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        e5 e5Var;
+    @Override // c.q.a.z
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (e5Var = this.f30640f.f30509g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        e5Var.onFail(this.f30639e);
+    }
+
+    @Override // c.q.a.z
+    public void onLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.o.removeMessages(11);
+            this.a.f29108g = true;
+            t2 a = x2.a(this.a.f29107f);
+            a.e(new b3(this.a.f29111j), 200, System.currentTimeMillis() - this.a.n);
+            a.m();
+            s4 s4Var = this.a;
+            if (s4Var.f29110i) {
+                return;
+            }
+            s4Var.l.onLoaded();
+        }
     }
 }

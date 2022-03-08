@@ -11,29 +11,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
 import com.tencent.mm.sdk.a.a.b;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2266a {
+    /* loaded from: classes8.dex */
+    public static class C2245a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f60683h;
+        public String f59033h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f60684i;
+        public String f59034i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f60685j;
+        public String f59035j;
         public Bundle k;
 
-        public C2266a() {
+        public C2245a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,33 +50,33 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C2266a c2266a) {
+    public static boolean a(Context context, C2245a c2245a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2266a)) == null) {
-            if (context == null || c2266a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2245a)) == null) {
+            if (context == null || c2245a == null) {
                 com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
                 return false;
-            } else if (c.a(c2266a.f60683h)) {
-                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2266a.f60683h);
+            } else if (c.a(c2245a.f59033h)) {
+                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2245a.f59033h);
                 return false;
             } else {
-                if (c.a(c2266a.f60684i)) {
-                    c2266a.f60684i = c2266a.f60683h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+                if (c.a(c2245a.f59034i)) {
+                    c2245a.f59034i = c2245a.f59033h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
                 }
-                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2266a.f60683h + ", targetClassName = " + c2266a.f60684i);
+                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2245a.f59033h + ", targetClassName = " + c2245a.f59034i);
                 Intent intent = new Intent();
-                intent.setClassName(c2266a.f60683h, c2266a.f60684i);
-                Bundle bundle = c2266a.k;
+                intent.setClassName(c2245a.f59033h, c2245a.f59034i);
+                Bundle bundle = c2245a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c2266a.f60685j);
-                intent.putExtra("_mmessage_checksum", b.a(c2266a.f60685j, 570490883, packageName));
-                int i2 = c2266a.flags;
+                intent.putExtra("_mmessage_content", c2245a.f59035j);
+                intent.putExtra("_mmessage_checksum", b.a(c2245a.f59035j, 570490883, packageName));
+                int i2 = c2245a.flags;
                 if (i2 == -1) {
                     intent.addFlags(268435456).addFlags(134217728);
                 } else {

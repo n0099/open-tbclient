@@ -12,13 +12,13 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.view.LengthLimitEditText;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InputFormView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LENGTH = 1000;
@@ -187,14 +187,14 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSDKInputFormView, i2, 0);
-        this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(R.styleable.SapiSDKInputFormView_SapiSdkShowInputBottomLine, true);
-        this.mIconResId = obtainStyledAttributes.getResourceId(R.styleable.SapiSDKInputFormView_SapiSdkInputIcon, 0);
-        this.mMinLines = obtainStyledAttributes.getInt(R.styleable.SapiSDKInputFormView_SapiSdkMinLines, 1);
-        this.mSingleLine = obtainStyledAttributes.getBoolean(R.styleable.SapiSDKInputFormView_SapiSdkSingleLine, false);
-        this.mHintStr = obtainStyledAttributes.getString(R.styleable.SapiSDKInputFormView_SapiSdkHint);
-        this.mMaxLength = obtainStyledAttributes.getInt(R.styleable.SapiSDKInputFormView_SapiSdkMaxLength, 1000);
-        this.mInputPhone = obtainStyledAttributes.getBoolean(R.styleable.SapiSDKInputFormView_SapiSdkInputPhone, false);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkHint, R.attr.SapiSdkInputIcon, R.attr.SapiSdkInputPhone, R.attr.SapiSdkMaxLength, R.attr.SapiSdkMinLines, R.attr.SapiSdkShowInputBottomLine, R.attr.SapiSdkSingleLine}, i2, 0);
+        this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(5, true);
+        this.mIconResId = obtainStyledAttributes.getResourceId(1, 0);
+        this.mMinLines = obtainStyledAttributes.getInt(4, 1);
+        this.mSingleLine = obtainStyledAttributes.getBoolean(6, false);
+        this.mHintStr = obtainStyledAttributes.getString(0);
+        this.mMaxLength = obtainStyledAttributes.getInt(3, 1000);
+        this.mInputPhone = obtainStyledAttributes.getBoolean(2, false);
         obtainStyledAttributes.recycle();
         init();
     }

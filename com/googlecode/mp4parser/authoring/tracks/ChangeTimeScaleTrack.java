@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ChangeTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;

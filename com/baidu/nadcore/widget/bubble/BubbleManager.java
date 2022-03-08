@@ -1,7 +1,7 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import c.a.d0.l0.w.c.c;
+import c.a.b0.l0.o.c.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
-public class BubbleManager extends c.a.d0.l0.w.d.b implements View.OnClickListener {
+/* loaded from: classes4.dex */
+public class BubbleManager extends c.a.b0.l0.o.d.b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class BubbleStyle {
         public static final /* synthetic */ BubbleStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,12 +74,12 @@ public class BubbleManager extends c.a.d0.l0.w.d.b implements View.OnClickListen
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
@@ -92,11 +92,11 @@ public class BubbleManager extends c.a.d0.l0.w.d.b implements View.OnClickListen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == c.class || cls == c.a.d0.l0.w.c.b.class) {
+            if (cls == c.class || cls == c.a.b0.l0.o.c.b.class) {
                 try {
                     return cls.newInstance();
                 } catch (Exception e2) {
-                    c.a.d0.i.a.b("BubbleManager", "", e2);
+                    c.a.b0.i.a.b("BubbleManager", "", e2);
                     return null;
                 }
             }

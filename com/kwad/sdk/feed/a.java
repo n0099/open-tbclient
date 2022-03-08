@@ -8,11 +8,11 @@ import com.kwad.sdk.feed.widget.f;
 import com.kwad.sdk.feed.widget.g;
 import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.feed.a$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 

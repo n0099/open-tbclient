@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class a implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,20 +43,20 @@ public final class a implements Serializable {
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 b bVar = new b();
-                bVar.f38635h = activityInfoArr[i4].configChanges;
-                bVar.f38633f = activityInfoArr[i4].flags;
+                bVar.f37039h = activityInfoArr[i4].configChanges;
+                bVar.f37037f = activityInfoArr[i4].flags;
                 bVar.l = activityInfoArr[i4].labelRes;
-                bVar.f38629b = activityInfoArr[i4].launchMode;
+                bVar.f37033b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     bVar.m = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
-                bVar.f38637j = activityInfoArr[i4].name;
+                bVar.f37041j = activityInfoArr[i4].name;
                 bVar.k = activityInfoArr[i4].packageName;
-                bVar.f38630c = activityInfoArr[i4].permission;
-                bVar.f38634g = activityInfoArr[i4].screenOrientation;
-                bVar.f38636i = activityInfoArr[i4].softInputMode;
-                bVar.f38632e = activityInfoArr[i4].targetActivity;
-                bVar.f38631d = activityInfoArr[i4].taskAffinity;
+                bVar.f37034c = activityInfoArr[i4].permission;
+                bVar.f37038g = activityInfoArr[i4].screenOrientation;
+                bVar.f37040i = activityInfoArr[i4].softInputMode;
+                bVar.f37036e = activityInfoArr[i4].targetActivity;
+                bVar.f37035d = activityInfoArr[i4].taskAffinity;
                 bVar.a = activityInfoArr[i4].theme;
                 this.a.add(bVar);
             }

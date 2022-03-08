@@ -13,7 +13,10 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$dimen;
+import androidx.appcompat.R$id;
+import androidx.appcompat.R$layout;
+import androidx.appcompat.R$style;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,9 +57,9 @@ public class TooltipPopup {
         this.mTmpAnchorPos = new int[2];
         this.mTmpAppPos = new int[2];
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.abc_tooltip, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R$layout.abc_tooltip, (ViewGroup) null);
         this.mContentView = inflate;
-        this.mMessageView = (TextView) inflate.findViewById(R.id.message);
+        this.mMessageView = (TextView) inflate.findViewById(R$id.message);
         this.mLayoutParams.setTitle(TooltipPopup.class.getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
         WindowManager.LayoutParams layoutParams = this.mLayoutParams;
@@ -64,7 +67,7 @@ public class TooltipPopup {
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.Animation_AppCompat_Tooltip;
+        layoutParams.windowAnimations = R$style.Animation_AppCompat_Tooltip;
         layoutParams.flags = 24;
     }
 
@@ -74,12 +77,12 @@ public class TooltipPopup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), layoutParams}) == null) {
             layoutParams.token = view.getApplicationWindowToken();
-            int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tooltip_precise_anchor_threshold);
+            int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_threshold);
             if (view.getWidth() < dimensionPixelOffset) {
                 i2 = view.getWidth() / 2;
             }
             if (view.getHeight() >= dimensionPixelOffset) {
-                int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tooltip_precise_anchor_extra_offset);
+                int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_extra_offset);
                 height = i3 + dimensionPixelOffset2;
                 i4 = i3 - dimensionPixelOffset2;
             } else {
@@ -87,7 +90,7 @@ public class TooltipPopup {
                 i4 = 0;
             }
             layoutParams.gravity = 49;
-            int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R.dimen.tooltip_y_offset_touch : R.dimen.tooltip_y_offset_non_touch);
+            int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R$dimen.tooltip_y_offset_touch : R$dimen.tooltip_y_offset_non_touch);
             View appRootView = getAppRootView(view);
             if (appRootView == null) {
                 return;

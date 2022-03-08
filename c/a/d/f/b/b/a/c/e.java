@@ -37,10 +37,44 @@ public class e implements c {
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Set<String> a() {
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            try {
+                this.a.putOpt(str, obj);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    @Override // c.a.d.f.b.b.a.c.c
+    public Object b(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c2 = c(str);
+            if (c2 != null) {
+                c.a.d.f.b.b.a.e.c cVar = new c.a.d.f.b.b.a.e.c(type);
+                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(c2);
+                return a != null ? a.a(cVar) : c2;
+            }
+            return c2;
+        }
+        return invokeLL.objValue;
+    }
+
+    public Object c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.a.opt(str) : invokeL.objValue;
+    }
+
+    @Override // c.a.d.f.b.b.a.c.c
+    public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Iterator<String> keys = this.a.keys();
             if (keys != null) {
                 HashSet hashSet = new HashSet();
@@ -55,39 +89,5 @@ public class e implements c {
             return null;
         }
         return (Set) invokeV.objValue;
-    }
-
-    @Override // c.a.d.f.b.b.a.c.c
-    public void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            try {
-                this.a.putOpt(str, obj);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    @Override // c.a.d.f.b.b.a.c.c
-    public Object c(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            Object d2 = d(str);
-            if (d2 != null) {
-                c.a.d.f.b.b.a.e.c cVar = new c.a.d.f.b.b.a.e.c(type);
-                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(d2);
-                return a != null ? a.a(cVar) : d2;
-            }
-            return d2;
-        }
-        return invokeLL.objValue;
-    }
-
-    public Object d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.a.opt(str) : invokeL.objValue;
     }
 }

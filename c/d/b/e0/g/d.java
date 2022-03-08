@@ -16,28 +16,28 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import okio.BufferedSink;
 import okio.Sink;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class d implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.m.a f27923e;
+    public final c.d.b.e0.m.a f27827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final File f27924f;
+    public final File f27828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f27925g;
+    public long f27829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f27926h;
+    public final int f27830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f27927i;
+    public long f27831i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BufferedSink f27928j;
+    public BufferedSink f27832j;
     public final LinkedHashMap<String, b> k;
     public int l;
     public boolean m;
@@ -45,7 +45,7 @@ public final class d implements Closeable, Flushable {
     public final Executor o;
     public final Runnable p;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,23 +59,23 @@ public final class d implements Closeable, Flushable {
         public abstract Sink d(int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long[] f27929b;
+        public final long[] f27833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final File[] f27930c;
+        public final File[] f27834c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f27931d;
+        public a f27835d;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class c implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,13 +129,13 @@ public final class d implements Closeable, Flushable {
             synchronized (this) {
                 if (this.m && !this.n) {
                     for (b bVar : (b[]) this.k.values().toArray(new b[this.k.size()])) {
-                        if (bVar.f27931d != null) {
-                            bVar.f27931d.a();
+                        if (bVar.f27835d != null) {
+                            bVar.f27835d.a();
                         }
                     }
                     e();
-                    this.f27928j.close();
-                    this.f27928j = null;
+                    this.f27832j.close();
+                    this.f27832j = null;
                     this.n = true;
                     return;
                 }
@@ -148,19 +148,19 @@ public final class d implements Closeable, Flushable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            a aVar = bVar.f27931d;
+            a aVar = bVar.f27835d;
             if (aVar != null) {
                 aVar.c();
             }
-            for (int i2 = 0; i2 < this.f27926h; i2++) {
-                this.f27923e.delete(bVar.f27930c[i2]);
-                long j2 = this.f27927i;
-                long[] jArr = bVar.f27929b;
-                this.f27927i = j2 - jArr[i2];
+            for (int i2 = 0; i2 < this.f27830h; i2++) {
+                this.f27827e.delete(bVar.f27834c[i2]);
+                long j2 = this.f27831i;
+                long[] jArr = bVar.f27833b;
+                this.f27831i = j2 - jArr[i2];
                 jArr[i2] = 0;
             }
             this.l++;
-            this.f27928j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
+            this.f27832j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
             this.k.remove(bVar.a);
             if (c()) {
                 this.o.execute(this.p);
@@ -174,14 +174,14 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             close();
-            this.f27923e.deleteContents(this.f27924f);
+            this.f27827e.deleteContents(this.f27828f);
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            while (this.f27927i > this.f27925g) {
+            while (this.f27831i > this.f27829g) {
                 d(this.k.values().iterator().next());
             }
         }
@@ -195,7 +195,7 @@ public final class d implements Closeable, Flushable {
                 if (this.m) {
                     a();
                     e();
-                    this.f27928j.flush();
+                    this.f27832j.flush();
                 }
             }
         }

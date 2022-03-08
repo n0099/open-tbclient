@@ -1,5 +1,5 @@
 package com.baidu.ar.cloud;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface ICloudIRResult {
     String getARKey();
 

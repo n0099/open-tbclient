@@ -4,7 +4,7 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.design.provider.ServiceProvider;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static void a() {
         ServiceProvider.a(com.kwad.sdk.design.kwai.b.class, new com.kwad.sdk.design.kwai.b() { // from class: com.kwad.sdk.f.1

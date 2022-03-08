@@ -2,15 +2,15 @@ package com.baidu.livesdk.api.widget;
 
 import android.app.Activity;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface LikeView {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface LikeViewListener {
         void onView(int i2, View view);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface ViewLocationListener {
         void onLocation(int i2, int i3);
     }

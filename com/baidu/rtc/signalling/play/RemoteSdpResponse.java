@@ -11,7 +11,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class RemoteSdpResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemoteSdpRequest";

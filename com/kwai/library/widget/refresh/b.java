@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.LayoutRes;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
 import com.kwai.library.widget.refresh.RefreshLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends RefreshLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.CustomRefreshLayout);
-            int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.CustomRefreshLayout_refreshViewWidth, this.mRefreshViewSize);
-            int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.CustomRefreshLayout_refreshViewWidth, this.mRefreshViewSize);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.refreshLayout, R.attr.refreshViewWidth});
+            int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
+            int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
             obtainStyledAttributes.recycle();
             return new RefreshLayout.a(dimensionPixelOffset, dimensionPixelOffset2);
         }
@@ -93,8 +93,8 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.CustomRefreshLayout);
-            this.mRefreshLayout = obtainStyledAttributes.getResourceId(R.styleable.CustomRefreshLayout_refreshLayout, 0);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.refreshLayout, R.attr.refreshViewWidth});
+            this.mRefreshLayout = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             int a = g.a(getContext(), 22.5f);
             View kwaiRefreshView = this.mRefreshLayout == 0 ? new KwaiRefreshView(getContext()) : g.a(getContext(), this.mRefreshLayout);

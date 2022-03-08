@@ -15,15 +15,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, List<e>> kM;
     public static final a[] kN;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public class f {
                 this.kR.setLength(0);
                 this.kR.append(method.getName());
                 StringBuilder sb = this.kR;
-                sb.append(Typography.greater);
+                sb.append('>');
                 sb.append(cls.getName());
                 String sb2 = this.kR.toString();
                 Class<?> declaringClass = method.getDeclaringClass();

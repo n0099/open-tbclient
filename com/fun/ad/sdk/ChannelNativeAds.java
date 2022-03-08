@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ChannelNativeAds {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class ChannelNativeAds {
     public final Object kdsNative;
     public final Object ksNative;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface GdtADStatusChangeListener {
         void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData);
     }

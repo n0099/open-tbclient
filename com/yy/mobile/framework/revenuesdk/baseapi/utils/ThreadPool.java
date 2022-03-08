@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ThreadPool instance;
@@ -28,13 +28,13 @@ public class ThreadPool {
     public ScheduledExecutorService scheduledIO;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class ThreadPool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface ScheduleExecutor extends Executor {
         void postDelay(Runnable runnable, long j2);
 
@@ -139,7 +139,7 @@ public class ThreadPool {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheduledIO : (ScheduledExecutorService) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class MainThreadExecutor implements ScheduleExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

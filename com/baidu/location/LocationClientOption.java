@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class LocationClientOption {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GpsFirst = 1;
@@ -52,7 +52,7 @@ public final class LocationClientOption {
     public int wifiCacheTimeOut;
 
     /* renamed from: com.baidu.location.LocationClientOption$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -89,7 +89,7 @@ public final class LocationClientOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class LocationMode {
         public static final /* synthetic */ LocationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.j$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -37,35 +37,35 @@ public class j {
             int[] iArr = new int[k.a().length];
             a = iArr;
             try {
-                iArr[k.f32517b.ordinal()] = 1;
+                iArr[k.f30920b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[k.f32518c.ordinal()] = 2;
+                a[k.f30921c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[k.f32522g.ordinal()] = 3;
+                a[k.f30925g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[k.f32519d.ordinal()] = 4;
+                a[k.f30922d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[k.f32520e.ordinal()] = 5;
+                a[k.f30923e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[k.f32521f.ordinal()] = 6;
+                a[k.f30924f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[k.f32523h.ordinal()] = 7;
+                a[k.f30926h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                a[k.f32524i.ordinal()] = 8;
+                a[k.f30927i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }

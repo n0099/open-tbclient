@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddrOptionDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_IS_DEFAULT_ADDR = "key_is_default_addr";
@@ -26,7 +26,7 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     public TextView setDefaultView;
     public View setDefaultViewBottomLine;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OptionOnClickListener {
         public static final int OPTION_COPY_TYPE = 1003;
         public static final int OPTION_DEL_TYPE = 1002;

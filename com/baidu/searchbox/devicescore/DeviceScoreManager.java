@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, IDeviceScoreConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

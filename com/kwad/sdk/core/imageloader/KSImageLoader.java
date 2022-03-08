@@ -15,8 +15,8 @@ import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.assist.FailReason;
@@ -25,7 +25,7 @@ import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.report.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class KSImageLoader {
     public static DisplayImageOptionsCompat IMGOPTION_ENTRY;
     public static DisplayImageOptionsCompat IMGOPTION_NORMAL = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
@@ -33,7 +33,7 @@ public class KSImageLoader {
     public static DisplayImageOptionsCompat IMGOPTION_TUBE;
 
     /* renamed from: com.kwad.sdk.core.imageloader.KSImageLoader$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType;
 
@@ -63,7 +63,7 @@ public class KSImageLoader {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InnerImageLoadingListener implements ImageLoadingListener {
         @Nullable
         public AdTemplate adTemplate;

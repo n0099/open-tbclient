@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LoadingProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37485e;
+    public int f35888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f37486f;
+    public Drawable f35889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f37487g;
+    public long f35890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37488h;
+    public int f35891h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingProgressBar(Context context) {
@@ -47,24 +47,24 @@ public class LoadingProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f37485e = 0;
+        this.f35888e = 0;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37488h = 200;
+            this.f35891h = 200;
             try {
                 Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f37488h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                    this.f35891h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.f37488h = (int) ((((this.f37488h * 12.0f) / 36.0f) / 2.0f) + 0.5f);
+            this.f35891h = (int) ((((this.f35891h * 12.0f) / 36.0f) / 2.0f) + 0.5f);
         }
     }
 
@@ -80,20 +80,20 @@ public class LoadingProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f37486f;
+                Drawable drawable = this.f35889f;
                 if (drawable == null) {
                     return;
                 }
                 drawable.draw(canvas);
-                if (SystemClock.uptimeMillis() - this.f37487g >= this.f37488h) {
-                    this.f37487g = SystemClock.uptimeMillis();
-                    int i2 = this.f37485e + 277;
-                    this.f37485e = i2;
+                if (SystemClock.uptimeMillis() - this.f35890g >= this.f35891h) {
+                    this.f35890g = SystemClock.uptimeMillis();
+                    int i2 = this.f35888e + 277;
+                    this.f35888e = i2;
                     if (i2 >= 10000) {
-                        this.f37485e = i2 - 10000;
+                        this.f35888e = i2 - 10000;
                     }
-                    drawable.setLevel(this.f37485e);
-                    postInvalidateDelayed(this.f37488h);
+                    drawable.setLevel(this.f35888e);
+                    postInvalidateDelayed(this.f35891h);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class LoadingProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminate(z);
                 if (z) {
-                    this.f37486f = getIndeterminateDrawable();
+                    this.f35889f = getIndeterminateDrawable();
                 }
             }
         }
@@ -119,7 +119,7 @@ public class LoadingProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminateDrawable(drawable);
                 if (isIndeterminate()) {
-                    this.f37486f = drawable;
+                    this.f35889f = drawable;
                 }
             }
         }
@@ -144,7 +144,7 @@ public class LoadingProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f37485e = 0;
+        this.f35888e = 0;
         a();
     }
 
@@ -167,7 +167,7 @@ public class LoadingProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f37485e = 0;
+        this.f35888e = 0;
         a();
     }
 }

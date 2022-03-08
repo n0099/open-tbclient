@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -32,7 +33,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DiskLruCache implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANY_SEQUENCE_NUMBER = -1;
@@ -61,7 +62,7 @@ public final class DiskLruCache implements Closeable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class DiskLruCacheThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +97,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,7 +232,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +291,7 @@ public final class DiskLruCache implements Closeable {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 for (long j2 : this.lengths) {
-                    sb.append(' ');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
                     sb.append(j2);
                 }
                 return sb.toString();
@@ -331,7 +332,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class Value {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -507,7 +508,7 @@ public final class DiskLruCache implements Closeable {
                     if (entry.readable | z) {
                         entry.readable = true;
                         this.journalWriter.append((CharSequence) "CLEAN");
-                        this.journalWriter.append(' ');
+                        this.journalWriter.append(WebvttCueParser.CHAR_SPACE);
                         this.journalWriter.append((CharSequence) entry.key);
                         this.journalWriter.append((CharSequence) entry.getLengths());
                         this.journalWriter.append('\n');
@@ -519,7 +520,7 @@ public final class DiskLruCache implements Closeable {
                     } else {
                         this.lruEntries.remove(entry.key);
                         this.journalWriter.append((CharSequence) "REMOVE");
-                        this.journalWriter.append(' ');
+                        this.journalWriter.append(WebvttCueParser.CHAR_SPACE);
                         this.journalWriter.append((CharSequence) entry.key);
                         this.journalWriter.append('\n');
                     }
@@ -824,7 +825,7 @@ public final class DiskLruCache implements Closeable {
                     }
                     this.redundantOpCount++;
                     this.journalWriter.append((CharSequence) "READ");
-                    this.journalWriter.append(' ');
+                    this.journalWriter.append(WebvttCueParser.CHAR_SPACE);
                     this.journalWriter.append((CharSequence) str);
                     this.journalWriter.append('\n');
                     if (journalRebuildRequired()) {
@@ -888,7 +889,7 @@ public final class DiskLruCache implements Closeable {
                     }
                     this.redundantOpCount++;
                     this.journalWriter.append((CharSequence) "REMOVE");
-                    this.journalWriter.append(' ');
+                    this.journalWriter.append(WebvttCueParser.CHAR_SPACE);
                     this.journalWriter.append((CharSequence) str);
                     this.journalWriter.append('\n');
                     this.lruEntries.remove(str);
@@ -946,7 +947,7 @@ public final class DiskLruCache implements Closeable {
                     Editor editor = new Editor(entry);
                     entry.currentEditor = editor;
                     this.journalWriter.append((CharSequence) "DIRTY");
-                    this.journalWriter.append(' ');
+                    this.journalWriter.append(WebvttCueParser.CHAR_SPACE);
                     this.journalWriter.append((CharSequence) str);
                     this.journalWriter.append('\n');
                     this.journalWriter.flush();

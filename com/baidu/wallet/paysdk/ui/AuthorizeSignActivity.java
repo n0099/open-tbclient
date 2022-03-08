@@ -53,7 +53,7 @@ import com.dxmpay.wallet.paysdk.ui.WebViewActivity;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_SIGN_TYPE = "AuthorizeSignType";
@@ -65,31 +65,31 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AuthorizeInfoView f52368b;
+    public AuthorizeInfoView f50787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OrderConfirmation f52369c;
+    public OrderConfirmation f50788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f52370d;
+    public LinearLayout f50789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f52371e;
+    public NetImageView f50790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52372f;
+    public TextView f50791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52373g;
+    public TextView f50792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52374h;
+    public TextView f50793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WalletBaseButtonWithImage f52375i;
+    public WalletBaseButtonWithImage f50794i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f52376j;
+    public LinearLayout f50795j;
     public TextView k;
     public LinearLayout l;
     public CheckBox m;
@@ -117,8 +117,8 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f52368b != null) {
-                return AuthorizeInfoView.a.a().a(i2, this.f52368b);
+            if (this.f50787b != null) {
+                return AuthorizeInfoView.a.a().a(i2, this.f50787b);
             }
             return null;
         }
@@ -215,7 +215,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
 
     public void initCardList() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f52370d == null || this.f52372f == null || this.f52373g == null || this.f52371e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f50789d == null || this.f50791f == null || this.f50792g == null || this.f50790e == null) {
             return;
         }
         PayRequest payRequest = getPayRequest();
@@ -233,7 +233,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void initNextButton(View.OnClickListener onClickListener) {
         WalletBaseButtonWithImage walletBaseButtonWithImage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (walletBaseButtonWithImage = this.f52375i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (walletBaseButtonWithImage = this.f50794i) == null) {
             return;
         }
         if (onClickListener != null) {
@@ -246,26 +246,26 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             setContentView(ResUtils.layout(getApplicationContext(), "wallet_cashdesk_authorize_sign_activity"));
-            this.f52368b = (AuthorizeInfoView) findViewById(ResUtils.id(getApplicationContext(), "sign_info_view"));
-            this.f52369c = (OrderConfirmation) findViewById(ResUtils.id(getApplicationContext(), "sign_order_view"));
-            this.f52370d = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "select_card_panel"));
-            this.f52371e = (NetImageView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_logo"));
-            this.f52372f = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_info"));
-            this.f52373g = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_txt"));
-            this.f52374h = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_need_detail"));
-            this.f52375i = (WalletBaseButtonWithImage) findViewById(ResUtils.id(getApplicationContext(), "sign_next_btn"));
-            this.f52376j = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_panel"));
+            this.f50787b = (AuthorizeInfoView) findViewById(ResUtils.id(getApplicationContext(), "sign_info_view"));
+            this.f50788c = (OrderConfirmation) findViewById(ResUtils.id(getApplicationContext(), "sign_order_view"));
+            this.f50789d = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "select_card_panel"));
+            this.f50790e = (NetImageView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_logo"));
+            this.f50791f = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_info"));
+            this.f50792g = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_txt"));
+            this.f50793h = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_need_detail"));
+            this.f50794i = (WalletBaseButtonWithImage) findViewById(ResUtils.id(getApplicationContext(), "sign_next_btn"));
+            this.f50795j = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_panel"));
             this.k = (TextView) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_txt"));
             this.l = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_panel"));
             this.m = (CheckBox) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_cb"));
             this.n = (TextView) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_txt"));
-            this.f52369c.getBackButton().setOnClickListener(this);
+            this.f50788c.getBackButton().setOnClickListener(this);
             this.r = findViewById(ResUtils.id(getApplicationContext(), "statusbar_top"));
             e eVar = this.a;
             if (eVar != null) {
-                this.f52368b.setVisibility(eVar.d() ? 0 : 8);
-                this.f52369c.setVisibility(this.a.e() ? 0 : 8);
-                this.f52376j.setVisibility(this.a.f() ? 0 : 8);
+                this.f50787b.setVisibility(eVar.d() ? 0 : 8);
+                this.f50788c.setVisibility(this.a.e() ? 0 : 8);
+                this.f50795j.setVisibility(this.a.f() ? 0 : 8);
                 if (this.a.c()) {
                     getBdActionBar().setVisibility(0);
                 } else {
@@ -415,7 +415,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void setSelectCardListener(View.OnClickListener onClickListener) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) || (linearLayout = this.f52370d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) || (linearLayout = this.f50789d) == null) {
             return;
         }
         linearLayout.setOnClickListener(onClickListener);
@@ -435,18 +435,18 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void updateDiscountTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f52369c.setTitle(str);
+            this.f50788c.setTitle(str);
         }
     }
 
     public void updateDiscountTxt(boolean z, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, CharSequence charSequence4, CharSequence charSequence5, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), charSequence, charSequence2, charSequence3, charSequence4, charSequence5, onClickListener}) == null) {
-            this.f52369c.setDiscountInfoVisiable(z);
-            this.f52369c.setOrderPrice(charSequence5, charSequence2);
-            this.f52369c.setCouponInfo(charSequence3, charSequence4, onClickListener);
-            this.f52369c.setOrderInfo(charSequence);
-            this.f52369c.setSpNameValue(PayDataCache.getInstance().getSpName());
+            this.f50788c.setDiscountInfoVisiable(z);
+            this.f50788c.setOrderPrice(charSequence5, charSequence2);
+            this.f50788c.setCouponInfo(charSequence3, charSequence4, onClickListener);
+            this.f50788c.setOrderInfo(charSequence);
+            this.f50788c.setSpNameValue(PayDataCache.getInstance().getSpName());
         }
     }
 
@@ -465,20 +465,20 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
             e eVar = this.a;
             int g2 = eVar != null ? eVar.g() : 0;
             if (g2 == 1) {
-                this.f52375i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
-                this.f52375i.setDrawableLeftVisible(false);
+                this.f50794i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
+                this.f50794i.setDrawableLeftVisible(false);
             } else if (g2 == 2) {
-                this.f52375i.setText(ResUtils.getString(getApplicationContext(), "ebpay_use_newcard_topay"));
-                this.f52375i.setDrawableLeftVisible(false);
+                this.f50794i.setText(ResUtils.getString(getApplicationContext(), "ebpay_use_newcard_topay"));
+                this.f50794i.setDrawableLeftVisible(false);
             } else if (g2 == 3) {
-                this.f52375i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_submit_sign"));
-                this.f52375i.setDrawableLeftVisible(true);
+                this.f50794i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_submit_sign"));
+                this.f50794i.setDrawableLeftVisible(true);
             } else if (g2 != 4) {
-                this.f52375i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
-                this.f52375i.setDrawableLeftVisible(false);
+                this.f50794i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
+                this.f50794i.setDrawableLeftVisible(false);
             } else {
-                this.f52375i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_newcard_submit_sign"));
-                this.f52375i.setDrawableLeftVisible(true);
+                this.f50794i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_newcard_submit_sign"));
+                this.f50794i.setDrawableLeftVisible(true);
             }
             a(this.m.isChecked());
         }
@@ -565,10 +565,10 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                     public final /* synthetic */ String a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ String f52377b;
+                                    public final /* synthetic */ String f50796b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AuthorizeSignActivity f52378c;
+                                    public final /* synthetic */ AuthorizeSignActivity f50797c;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -585,9 +585,9 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                                 return;
                                             }
                                         }
-                                        this.f52378c = this;
+                                        this.f50797c = this;
                                         this.a = r7;
-                                        this.f52377b = r8;
+                                        this.f50796b = r8;
                                     }
 
                                     @Override // android.text.style.ClickableSpan
@@ -595,10 +595,10 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                                             StatisticManager.onEvent("clickUserTerms");
-                                            Intent intent = new Intent(this.f52378c.getActivity(), WebViewActivity.class);
+                                            Intent intent = new Intent(this.f50797c.getActivity(), WebViewActivity.class);
                                             intent.putExtra("jump_url", this.a);
-                                            intent.putExtra("webview_title_string", this.f52377b);
-                                            this.f52378c.startActivity(intent);
+                                            intent.putExtra("webview_title_string", this.f50796b);
+                                            this.f50797c.startActivity(intent);
                                         }
                                     }
 
@@ -606,7 +606,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                     public void updateDrawState(TextPaint textPaint) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                                            textPaint.setColor(ResUtils.getColor(this.f52378c.getActivity(), "dxm_wallet_base_mainColor"));
+                                            textPaint.setColor(ResUtils.getColor(this.f50797c.getActivity(), "dxm_wallet_base_mainColor"));
                                         }
                                     }
                                 }, spannableStringBuilder.length() - protocolItem2.title.length(), spannableStringBuilder.length(), 33);
@@ -639,17 +639,17 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                 if (payRequest != null) {
                     payRequest.mBondCard = bondCard;
                 }
-                this.f52373g.setText(bondCard.getCardDesc(this.mAct, true));
+                this.f50792g.setText(bondCard.getCardDesc(this.mAct, true));
                 if (!TextUtils.isEmpty(bondCard.bank_card_msg)) {
-                    this.f52374h.setVisibility(0);
-                    this.f52374h.setText(bondCard.bank_card_msg);
+                    this.f50793h.setVisibility(0);
+                    this.f50793h.setText(bondCard.bank_card_msg);
                 } else {
-                    this.f52374h.setVisibility(4);
+                    this.f50793h.setVisibility(4);
                 }
             } else {
-                this.f52373g.setText(ResUtils.string(getActivity(), "ebpay_has_no_avaible_pay_type"));
+                this.f50792g.setText(ResUtils.string(getActivity(), "ebpay_has_no_avaible_pay_type"));
             }
-            this.f52372f.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_primary_pay_method"));
+            this.f50791f.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_primary_pay_method"));
         }
     }
 
@@ -658,21 +658,21 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
-                this.f52375i.setEnabled(true);
+                this.f50794i.setEnabled(true);
             } else {
-                this.f52375i.setEnabled(false);
+                this.f50794i.setEnabled(false);
             }
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f52373g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f50792g == null) {
             return;
         }
         Drawable drawable = ResUtils.getDrawable(getActivity(), "dxm_wallet_base_indicator_arrow");
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.f52373g.setCompoundDrawables(null, null, drawable, null);
-        this.f52373g.setCompoundDrawablePadding(DisplayUtils.dip2px(getApplicationContext(), 5.0f));
+        this.f50792g.setCompoundDrawables(null, null, drawable, null);
+        this.f50792g.setCompoundDrawablePadding(DisplayUtils.dip2px(getApplicationContext(), 5.0f));
     }
 }

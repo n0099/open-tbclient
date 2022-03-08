@@ -13,7 +13,7 @@ import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class PolystarContent implements PathContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static final float POLYGON_MAGIC_NUMBER = 0.25f;
     public static final float POLYSTAR_MAGIC_NUMBER = 0.47829f;
@@ -35,7 +35,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     public CompoundTrimPathContent trimPaths = new CompoundTrimPathContent();
 
     /* renamed from: com.airbnb.lottie.animation.content.PolystarContent$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type;
 

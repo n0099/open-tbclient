@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
@@ -61,7 +62,7 @@ public final class g {
             time.set(j2);
             StringBuilder sb = new StringBuilder();
             sb.append(a(i2));
-            sb.append('/');
+            sb.append(WebvttCueParser.CHAR_SLASH);
             sb.append(time.format("%Y-%m-%d %H:%M:%S"));
             sb.append('.');
             if (j3 < 10) {
@@ -70,7 +71,7 @@ public final class g {
                 sb.append('0');
             }
             sb.append(j3);
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append('[');
             if (thread == null) {
                 sb.append("N/A");
@@ -81,7 +82,7 @@ public final class g {
             sb.append('[');
             sb.append(str);
             sb.append(']');
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(str2);
             sb.append('\n');
             if (th != null) {

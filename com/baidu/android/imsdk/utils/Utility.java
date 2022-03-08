@@ -13,7 +13,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u.a;
+import c.a.t.a;
 import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -54,7 +54,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_NAME = "AES";
@@ -67,7 +67,7 @@ public final class Utility {
     public static int mDisableRestapi;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }

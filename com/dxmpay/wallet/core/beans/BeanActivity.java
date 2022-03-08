@@ -25,7 +25,7 @@ import com.dxmpay.wallet.base.widget.BdMenuItem;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseActivity";
@@ -33,7 +33,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public BeanActivity mAct;
     public Handler mHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ActionBarMenu extends BdMenu {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MENU_ITEM_INDEX_LOGOUT = 35;
@@ -87,13 +87,13 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f54155e;
+        public final /* synthetic */ BeanActivity f52641e;
 
         public a(BeanActivity beanActivity) {
             Interceptable interceptable = $ic;
@@ -110,26 +110,26 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f54155e = beanActivity;
+            this.f52641e = beanActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f54155e.getActivity());
-                this.f54155e.onBackPressed();
+                GlobalUtils.hideKeyboard(this.f52641e.getActivity());
+                this.f52641e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f54156e;
+        public final /* synthetic */ BeanActivity f52642e;
 
         public b(BeanActivity beanActivity) {
             Interceptable interceptable = $ic;
@@ -146,35 +146,35 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f54156e = beanActivity;
+            this.f52642e = beanActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f54156e.getActivity());
-                this.f54156e.onBackPressed();
+                GlobalUtils.hideKeyboard(this.f52642e.getActivity());
+                this.f52642e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f54157e;
+        public final /* synthetic */ int f52643e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f54158f;
+        public final /* synthetic */ Object f52644f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f54159g;
+        public final /* synthetic */ String f52645g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f54160h;
+        public final /* synthetic */ BeanActivity f52646h;
 
         public c(BeanActivity beanActivity, int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
@@ -191,40 +191,40 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f54160h = beanActivity;
-            this.f54157e = i2;
-            this.f54158f = obj;
-            this.f54159g = str;
+            this.f52646h = beanActivity;
+            this.f52643e = i2;
+            this.f52644f = obj;
+            this.f52645g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BeanActivity beanActivity = this.f54160h;
+                BeanActivity beanActivity = this.f52646h;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleResponse(this.f54157e, this.f54158f, this.f54159g);
+                    beanActivity.handleResponse(this.f52643e, this.f52644f, this.f52645g);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f54161e;
+        public final /* synthetic */ int f52647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f54162f;
+        public final /* synthetic */ int f52648f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f54163g;
+        public final /* synthetic */ String f52649g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f54164h;
+        public final /* synthetic */ BeanActivity f52650h;
 
         public d(BeanActivity beanActivity, int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -241,19 +241,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f54164h = beanActivity;
-            this.f54161e = i2;
-            this.f54162f = i3;
-            this.f54163g = str;
+            this.f52650h = beanActivity;
+            this.f52647e = i2;
+            this.f52648f = i3;
+            this.f52649g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BeanActivity beanActivity = this.f54164h;
+                BeanActivity beanActivity = this.f52650h;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleFailure(this.f54161e, this.f54162f, this.f54163g);
+                    beanActivity.handleFailure(this.f52647e, this.f52648f, this.f52649g);
                 }
             }
         }

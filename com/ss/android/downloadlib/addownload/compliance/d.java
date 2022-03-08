@@ -15,16 +15,16 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d extends h<Long, Bitmap> {
     public final Map<Long, SoftReference<a>> a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static d a = new d();
     }

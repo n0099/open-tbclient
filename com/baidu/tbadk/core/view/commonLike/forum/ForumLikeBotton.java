@@ -3,15 +3,14 @@ package com.baidu.tbadk.core.view.commonLike.forum;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import c.a.u0.a4.d;
-import c.a.u0.a4.f;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonLike.CommonLikeButton;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ForumLikeBotton extends CommonLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,13 +41,13 @@ public class ForumLikeBotton extends CommonLikeButton {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this, d.btn_forum_focus_gray_color);
-                SkinManager.setBackgroundResource(this, f.btn_transparent_gray_border);
+                SkinManager.setViewTextColor(this, (int) R.color.btn_forum_focus_gray_color);
+                SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);
                 return;
             }
-            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this, d.btn_forum_focus_color);
-            SkinManager.setBackgroundResource(this, f.btn_transparent_focus_border_bg);
+            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, (int) R.color.btn_forum_focus_color);
+            SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
         }
     }
 

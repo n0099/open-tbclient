@@ -36,49 +36,49 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Context, a> f61825d;
+    public static final Map<Context, a> f60175d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final C2286a a;
+    public final C2265a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f61826b;
+    public final Context f60176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DbAdapter f61827c;
+    public final DbAdapter f60177c;
 
     /* renamed from: f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C2286a {
+    /* loaded from: classes8.dex */
+    public class C2265a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f61828b;
+        public Handler f60178b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f61829c;
+        public final /* synthetic */ a f60179c;
 
         /* renamed from: f.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class HandlerC2287a extends Handler {
+        /* loaded from: classes8.dex */
+        public class HandlerC2266a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C2286a a;
+            public final /* synthetic */ C2265a a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2287a(C2286a c2286a, Looper looper) {
+            public HandlerC2266a(C2265a c2265a, Looper looper) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2286a, looper};
+                    Object[] objArr = {c2265a, looper};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -89,7 +89,7 @@ public class a {
                         return;
                     }
                 }
-                this.a = c2286a;
+                this.a = c2265a;
             }
 
             @Override // android.os.Handler
@@ -98,7 +98,7 @@ public class a {
                 if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                     try {
                         if (message.what == 3) {
-                            this.a.f61829c.e();
+                            this.a.f60179c.e();
                         } else {
                             k.b("SA.AnalyticsMessages", "Unexpected message received by SensorsData worker: " + message);
                         }
@@ -109,7 +109,7 @@ public class a {
             }
         }
 
-        public C2286a(a aVar) {
+        public C2265a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,21 +124,21 @@ public class a {
                     return;
                 }
             }
-            this.f61829c = aVar;
+            this.f60179c = aVar;
             this.a = new Object();
             HandlerThread handlerThread = new HandlerThread("com.sensorsdata.analytics.android.sdk.AnalyticsMessages.Worker", 1);
             handlerThread.start();
-            this.f61828b = new HandlerC2287a(this, handlerThread.getLooper());
+            this.f60178b = new HandlerC2266a(this, handlerThread.getLooper());
         }
 
         public void a(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 synchronized (this.a) {
-                    if (this.f61828b == null) {
+                    if (this.f60178b == null) {
                         k.b("SA.AnalyticsMessages", "Dead worker dropping a message: " + message.what);
                     } else {
-                        this.f61828b.sendMessage(message);
+                        this.f60178b.sendMessage(message);
                     }
                 }
             }
@@ -148,10 +148,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j2) == null) {
                 synchronized (this.a) {
-                    if (this.f61828b == null) {
+                    if (this.f60178b == null) {
                         k.b("SA.AnalyticsMessages", "Dead worker dropping a message: " + message.what);
-                    } else if (!this.f61828b.hasMessages(message.what)) {
-                        this.f61828b.sendMessageDelayed(message, j2);
+                    } else if (!this.f60178b.hasMessages(message.what)) {
+                        this.f60178b.sendMessageDelayed(message, j2);
                     }
                 }
             }
@@ -171,7 +171,7 @@ public class a {
                 return;
             }
         }
-        f61825d = new HashMap();
+        f60175d = new HashMap();
     }
 
     public a(Context context, String str) {
@@ -189,9 +189,9 @@ public class a {
                 return;
             }
         }
-        this.f61826b = context;
-        this.f61827c = new DbAdapter(this.f61826b, str);
-        this.a = new C2286a(this);
+        this.f60176b = context;
+        this.f60177c = new DbAdapter(this.f60176b, str);
+        this.a = new C2265a(this);
     }
 
     public static a d(Context context, String str) {
@@ -199,13 +199,13 @@ public class a {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            synchronized (f61825d) {
+            synchronized (f60175d) {
                 Context applicationContext = context.getApplicationContext();
-                if (!f61825d.containsKey(applicationContext)) {
+                if (!f60175d.containsKey(applicationContext)) {
                     aVar = new a(applicationContext, str);
-                    f61825d.put(applicationContext, aVar);
+                    f60175d.put(applicationContext, aVar);
                 } else {
-                    aVar = f61825d.get(applicationContext);
+                    aVar = f60175d.get(applicationContext);
                 }
             }
             return aVar;
@@ -251,11 +251,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
             try {
-                synchronized (this.f61827c) {
-                    int c2 = this.f61827c.c(jSONObject, DbAdapter.Table.EVENTS);
+                synchronized (this.f60177c) {
+                    int c2 = this.f60177c.c(jSONObject, DbAdapter.Table.EVENTS);
                     if (c2 < 0) {
                         String str2 = "Failed to enqueue the event: " + jSONObject;
-                        if (!DxmSdkSensorsDataAPI.I(this.f61826b).y()) {
+                        if (!DxmSdkSensorsDataAPI.I(this.f60176b).y()) {
                             k.b("SA.AnalyticsMessages", str2);
                         } else {
                             throw new DebugModeException(str2);
@@ -263,9 +263,9 @@ public class a {
                     }
                     Message obtain = Message.obtain();
                     obtain.what = 3;
-                    if (!DxmSdkSensorsDataAPI.I(this.f61826b).y() && c2 != -2) {
-                        if (!str.equals("track_signup") && c2 <= DxmSdkSensorsDataAPI.I(this.f61826b).s()) {
-                            this.a.b(obtain, DxmSdkSensorsDataAPI.I(this.f61826b).t());
+                    if (!DxmSdkSensorsDataAPI.I(this.f60176b).y() && c2 != -2) {
+                        if (!str.equals("track_signup") && c2 <= DxmSdkSensorsDataAPI.I(this.f60176b).s()) {
+                            this.a.b(obtain, DxmSdkSensorsDataAPI.I(this.f60176b).t());
                         }
                         this.a.a(obtain);
                     }
@@ -287,38 +287,6 @@ public class a {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:219:0x03c2 */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v1, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v10, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v17, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v18, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v2, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v20, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v21, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v22, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v23, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v24, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v25, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v27, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v28, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v29, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v3, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v35, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v36, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v37, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v38, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v39, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v40, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v41, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v42, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v43, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v45, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v46, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v5, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v6, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v7, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v8, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v9, resolved type: java.io.BufferedOutputStream */
     /* JADX WARN: Code restructure failed: missing block: B:194:0x0351, code lost:
         if (r6 == null) goto L70;
      */
@@ -361,7 +329,39 @@ public class a {
     /* JADX WARN: Removed duplicated region for block: B:338:0x02e6 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:341:0x0037 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:343:0x0037 A[SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r8v0 */
+    /* JADX WARN: Type inference failed for: r8v1 */
+    /* JADX WARN: Type inference failed for: r8v10 */
+    /* JADX WARN: Type inference failed for: r8v17 */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v2, types: [java.io.BufferedOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v20 */
+    /* JADX WARN: Type inference failed for: r8v21 */
+    /* JADX WARN: Type inference failed for: r8v22 */
+    /* JADX WARN: Type inference failed for: r8v23, types: [java.io.BufferedOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v25 */
+    /* JADX WARN: Type inference failed for: r8v27 */
+    /* JADX WARN: Type inference failed for: r8v28 */
+    /* JADX WARN: Type inference failed for: r8v29 */
+    /* JADX WARN: Type inference failed for: r8v3, types: [java.io.BufferedOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v35 */
+    /* JADX WARN: Type inference failed for: r8v36 */
+    /* JADX WARN: Type inference failed for: r8v37 */
+    /* JADX WARN: Type inference failed for: r8v38 */
+    /* JADX WARN: Type inference failed for: r8v39 */
     /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v40 */
+    /* JADX WARN: Type inference failed for: r8v41 */
+    /* JADX WARN: Type inference failed for: r8v42 */
+    /* JADX WARN: Type inference failed for: r8v43 */
+    /* JADX WARN: Type inference failed for: r8v45 */
+    /* JADX WARN: Type inference failed for: r8v46 */
+    /* JADX WARN: Type inference failed for: r8v5, types: [java.io.BufferedOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v6 */
+    /* JADX WARN: Type inference failed for: r8v7, types: [java.io.BufferedOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v8 */
+    /* JADX WARN: Type inference failed for: r8v9, types: [java.io.BufferedOutputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -372,16 +372,16 @@ public class a {
         OutputStream outputStream;
         InputStream inputStream2;
         InputStream inputStream3;
-        BufferedOutputStream bufferedOutputStream;
-        BufferedOutputStream bufferedOutputStream2;
+        ?? r8;
+        ?? r82;
         boolean z;
         String str;
-        BufferedOutputStream bufferedOutputStream3;
+        ?? r83;
         String str2;
         int d2;
-        BufferedOutputStream bufferedOutputStream4;
+        ?? r84;
         String str3;
-        BufferedOutputStream bufferedOutputStream5;
+        ?? r85;
         String str4;
         OutputStream outputStream2;
         InputStream inputStream4;
@@ -392,17 +392,17 @@ public class a {
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            if (!TextUtils.isEmpty(DxmSdkSensorsDataAPI.I(this.f61826b).w()) && SensorsDataUtils.f(this.f61826b)) {
-                if (!DxmSdkSensorsDataAPI.I(this.f61826b).B(SensorsDataUtils.i(this.f61826b))) {
+            if (!TextUtils.isEmpty(DxmSdkSensorsDataAPI.I(this.f60176b).w()) && SensorsDataUtils.f(this.f60176b)) {
+                if (!DxmSdkSensorsDataAPI.I(this.f60176b).B(SensorsDataUtils.i(this.f60176b))) {
                     return;
                 }
                 int i2 = 100;
                 while (i2 > 0) {
-                    synchronized (this.f61827c) {
-                        if (DxmSdkSensorsDataAPI.I(this.f61826b).y()) {
-                            e2 = this.f61827c.e(DbAdapter.Table.EVENTS, 1);
+                    synchronized (this.f60177c) {
+                        if (DxmSdkSensorsDataAPI.I(this.f60176b).y()) {
+                            e2 = this.f60177c.e(DbAdapter.Table.EVENTS, 1);
                         } else {
-                            e2 = this.f61827c.e(DbAdapter.Table.EVENTS, 50);
+                            e2 = this.f60177c.e(DbAdapter.Table.EVENTS, 50);
                         }
                     }
                     if (e2 == null) {
@@ -415,10 +415,10 @@ public class a {
                         try {
                             String a = a(str6);
                             try {
-                                httpURLConnection = (HttpURLConnection) new URL(DxmSdkSensorsDataAPI.I(this.f61826b).w()).openConnection();
+                                httpURLConnection = (HttpURLConnection) new URL(DxmSdkSensorsDataAPI.I(this.f60176b).w()).openConnection();
                                 try {
                                     try {
-                                        String e4 = SensorsDataUtils.e(this.f61826b);
+                                        String e4 = SensorsDataUtils.e(this.f60176b);
                                         if (TextUtils.isEmpty(e4)) {
                                             e4 = "SensorsAnalytics Android SDK";
                                         }
@@ -426,21 +426,21 @@ public class a {
                                     } catch (Exception e5) {
                                         e5.printStackTrace();
                                     }
-                                    if (DxmSdkSensorsDataAPI.I(this.f61826b).y()) {
+                                    if (DxmSdkSensorsDataAPI.I(this.f60176b).y()) {
                                         try {
-                                            if (!DxmSdkSensorsDataAPI.I(this.f61826b).z()) {
+                                            if (!DxmSdkSensorsDataAPI.I(this.f60176b).z()) {
                                                 httpURLConnection.addRequestProperty("Dry-Run", "true");
                                             }
                                         } catch (ConnectErrorException e6) {
                                             e = e6;
                                             inputStream3 = null;
                                             outputStream = null;
-                                            bufferedOutputStream5 = outputStream;
+                                            r85 = outputStream;
                                             str4 = "Connection error: " + e.getMessage();
-                                            boolean y = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                            boolean y = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                             if (!TextUtils.isEmpty(str4)) {
                                             }
-                                            if (bufferedOutputStream5 != 0) {
+                                            if (r85 != 0) {
                                             }
                                             if (outputStream != null) {
                                             }
@@ -452,14 +452,14 @@ public class a {
                                             e = e7;
                                             inputStream2 = null;
                                             outputStream = null;
-                                            bufferedOutputStream4 = outputStream;
+                                            r84 = outputStream;
                                             str3 = "Invalid data: " + e.getMessage();
-                                            boolean y2 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                            boolean y2 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                             if (!TextUtils.isEmpty(str3)) {
                                             }
-                                            d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                            d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                             k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                            if (bufferedOutputStream4 != 0) {
+                                            if (r84 != 0) {
                                             }
                                             if (outputStream != null) {
                                             }
@@ -469,15 +469,15 @@ public class a {
                                             e = e8;
                                             inputStream = null;
                                             outputStream = null;
-                                            bufferedOutputStream = outputStream;
+                                            r8 = outputStream;
                                             try {
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y3 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y3 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str2)) {
                                                 }
-                                                d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                                if (bufferedOutputStream != 0) {
+                                                if (r8 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -486,17 +486,17 @@ public class a {
                                             } catch (Throwable th) {
                                                 th = th;
                                                 z = true;
-                                                bufferedOutputStream3 = bufferedOutputStream;
-                                                boolean y4 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                r83 = r8;
+                                                boolean y4 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(null) && (y4 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", null);
                                                 }
                                                 if (z) {
-                                                    k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(this.f61827c.d(str5, DbAdapter.Table.EVENTS))));
+                                                    k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(this.f60177c.d(str5, DbAdapter.Table.EVENTS))));
                                                 }
-                                                if (bufferedOutputStream3 != 0) {
+                                                if (r83 != 0) {
                                                     try {
-                                                        bufferedOutputStream3.close();
+                                                        r83.close();
                                                     } catch (IOException unused) {
                                                     }
                                                 }
@@ -530,15 +530,15 @@ public class a {
                                                 InputStream inputStream6 = inputStream4;
                                                 outputStream = outputStream2;
                                                 inputStream3 = inputStream6;
-                                                bufferedOutputStream5 = inputStream5;
+                                                r85 = inputStream5;
                                                 str4 = "Connection error: " + e.getMessage();
-                                                boolean y5 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y5 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str4) && (y5 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str4);
                                                 }
-                                                if (bufferedOutputStream5 != 0) {
+                                                if (r85 != 0) {
                                                     try {
-                                                        bufferedOutputStream5.close();
+                                                        r85.close();
                                                     } catch (IOException unused4) {
                                                     }
                                                 }
@@ -562,17 +562,17 @@ public class a {
                                                 InputStream inputStream7 = inputStream4;
                                                 outputStream = outputStream2;
                                                 inputStream2 = inputStream7;
-                                                bufferedOutputStream4 = inputStream5;
+                                                r84 = inputStream5;
                                                 str3 = "Invalid data: " + e.getMessage();
-                                                boolean y22 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y22 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str3) && (y22 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str3);
                                                 }
-                                                d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                                if (bufferedOutputStream4 != 0) {
+                                                if (r84 != 0) {
                                                     try {
-                                                        bufferedOutputStream4.close();
+                                                        r84.close();
                                                     } catch (IOException unused7) {
                                                     }
                                                 }
@@ -593,17 +593,17 @@ public class a {
                                                 InputStream inputStream8 = inputStream4;
                                                 outputStream = outputStream2;
                                                 inputStream = inputStream8;
-                                                bufferedOutputStream = inputStream5;
+                                                r8 = inputStream5;
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y32 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y32 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str2) && (y32 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str2);
                                                 }
-                                                d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                                if (bufferedOutputStream != 0) {
+                                                if (r8 != 0) {
                                                     try {
-                                                        bufferedOutputStream.close();
+                                                        r8.close();
                                                     } catch (IOException unused10) {
                                                     }
                                                 }
@@ -624,16 +624,16 @@ public class a {
                                                 InputStream inputStream9 = inputStream4;
                                                 outputStream = outputStream2;
                                                 inputStream = inputStream9;
-                                                bufferedOutputStream2 = inputStream5;
+                                                r82 = inputStream5;
                                                 try {
                                                     str = "Exception: " + e.getMessage();
-                                                    boolean y6 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                    boolean y6 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                     if (!TextUtils.isEmpty(str) && (y6 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                         k.b("SA.AnalyticsMessages", str);
                                                     }
-                                                    if (bufferedOutputStream2 != 0) {
+                                                    if (r82 != 0) {
                                                         try {
-                                                            bufferedOutputStream2.close();
+                                                            r82.close();
                                                         } catch (IOException unused13) {
                                                         }
                                                     }
@@ -655,14 +655,14 @@ public class a {
                                                 } catch (Throwable th2) {
                                                     th = th2;
                                                     z = false;
-                                                    bufferedOutputStream3 = bufferedOutputStream2;
-                                                    boolean y42 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                    r83 = r82;
+                                                    boolean y42 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                     if (!TextUtils.isEmpty(null)) {
                                                         k.b("SA.AnalyticsMessages", null);
                                                     }
                                                     if (z) {
                                                     }
-                                                    if (bufferedOutputStream3 != 0) {
+                                                    if (r83 != 0) {
                                                     }
                                                     if (outputStream != null) {
                                                     }
@@ -678,13 +678,13 @@ public class a {
                                                 InputStream inputStream10 = inputStream4;
                                                 outputStream = outputStream2;
                                                 inputStream = inputStream10;
-                                                bufferedOutputStream3 = inputStream5;
-                                                boolean y422 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                r83 = inputStream5;
+                                                boolean y422 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(null)) {
                                                 }
                                                 if (z) {
                                                 }
-                                                if (bufferedOutputStream3 != 0) {
+                                                if (r83 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -698,12 +698,12 @@ public class a {
                                             e = e14;
                                             inputStream = null;
                                             outputStream = null;
-                                            bufferedOutputStream2 = outputStream;
+                                            r82 = outputStream;
                                             str = "Exception: " + e.getMessage();
-                                            boolean y62 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                            boolean y62 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                             if (!TextUtils.isEmpty(str)) {
                                             }
-                                            if (bufferedOutputStream2 != 0) {
+                                            if (r82 != 0) {
                                             }
                                             if (outputStream != null) {
                                             }
@@ -725,11 +725,11 @@ public class a {
                                     httpURLConnection.setRequestMethod("POST");
                                     outputStream = httpURLConnection.getOutputStream();
                                     try {
-                                        bufferedOutputStream = new BufferedOutputStream(outputStream);
+                                        r8 = new BufferedOutputStream(outputStream);
                                         try {
-                                            bufferedOutputStream.write(encodedQuery.getBytes("UTF-8"));
-                                            bufferedOutputStream.flush();
-                                            bufferedOutputStream.close();
+                                            r8.write(encodedQuery.getBytes("UTF-8"));
+                                            r8.flush();
+                                            r8.close();
                                             outputStream.close();
                                             int responseCode = httpURLConnection.getResponseCode();
                                             try {
@@ -749,11 +749,11 @@ public class a {
                                                     k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "ret_content: %s", str7));
                                                 }
                                                 if (responseCode >= 200 && responseCode < 300) {
-                                                    boolean y7 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                    boolean y7 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                     if (!TextUtils.isEmpty(null) && (y7 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                         k.b("SA.AnalyticsMessages", null);
                                                     }
-                                                    d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                    d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                     k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 } else {
                                                     throw new ResponseErrorException(String.format("flush failure with response '%s'", str7));
@@ -761,15 +761,15 @@ public class a {
                                                 }
                                             } catch (ConnectErrorException e15) {
                                                 e = e15;
-                                                bufferedOutputStream5 = 0;
+                                                r85 = 0;
                                                 inputStream3 = inputStream4;
                                                 outputStream = null;
                                                 str4 = "Connection error: " + e.getMessage();
-                                                boolean y52 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y52 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str4)) {
                                                     k.b("SA.AnalyticsMessages", str4);
                                                 }
-                                                if (bufferedOutputStream5 != 0) {
+                                                if (r85 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -779,17 +779,17 @@ public class a {
                                                 }
                                             } catch (InvalidDataException e16) {
                                                 e = e16;
-                                                bufferedOutputStream4 = 0;
+                                                r84 = 0;
                                                 inputStream2 = inputStream4;
                                                 outputStream = null;
                                                 str3 = "Invalid data: " + e.getMessage();
-                                                boolean y222 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y222 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str3)) {
                                                     k.b("SA.AnalyticsMessages", str3);
                                                 }
-                                                d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                                if (bufferedOutputStream4 != 0) {
+                                                if (r84 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -797,17 +797,17 @@ public class a {
                                                 }
                                             } catch (ResponseErrorException e17) {
                                                 e = e17;
-                                                bufferedOutputStream = 0;
+                                                r8 = 0;
                                                 inputStream = inputStream4;
                                                 outputStream = null;
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y322 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y322 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str2)) {
                                                     k.b("SA.AnalyticsMessages", str2);
                                                 }
-                                                d2 = this.f61827c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f60177c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
-                                                if (bufferedOutputStream != 0) {
+                                                if (r8 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -822,15 +822,15 @@ public class a {
                                                 break;
                                             } catch (Exception e19) {
                                                 e = e19;
-                                                bufferedOutputStream2 = 0;
+                                                r82 = 0;
                                                 inputStream = inputStream4;
                                                 outputStream = null;
                                                 str = "Exception: " + e.getMessage();
-                                                boolean y622 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y622 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(str)) {
                                                     k.b("SA.AnalyticsMessages", str);
                                                 }
-                                                if (bufferedOutputStream2 != 0) {
+                                                if (r82 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -840,16 +840,16 @@ public class a {
                                                 }
                                             } catch (Throwable th4) {
                                                 th = th4;
-                                                bufferedOutputStream3 = 0;
+                                                r83 = 0;
                                                 inputStream = inputStream4;
                                                 z = true;
                                                 outputStream = null;
-                                                boolean y4222 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                                boolean y4222 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                                 if (!TextUtils.isEmpty(null)) {
                                                 }
                                                 if (z) {
                                                 }
-                                                if (bufferedOutputStream3 != 0) {
+                                                if (r83 != 0) {
                                                 }
                                                 if (outputStream != null) {
                                                 }
@@ -862,35 +862,35 @@ public class a {
                                         } catch (ConnectErrorException e20) {
                                             e = e20;
                                             inputStream3 = null;
-                                            bufferedOutputStream5 = bufferedOutputStream;
+                                            r85 = r8;
                                         } catch (InvalidDataException e21) {
                                             e = e21;
                                             inputStream2 = null;
-                                            bufferedOutputStream4 = bufferedOutputStream;
+                                            r84 = r8;
                                         } catch (ResponseErrorException e22) {
                                             e = e22;
                                             inputStream = null;
-                                            bufferedOutputStream = bufferedOutputStream;
+                                            r8 = r8;
                                         } catch (IOException e23) {
                                             e = e23;
                                             outputStream2 = outputStream;
                                             inputStream4 = null;
-                                            inputStream5 = bufferedOutputStream;
+                                            inputStream5 = r8;
                                         } catch (Exception e24) {
                                             e = e24;
                                             inputStream = null;
-                                            bufferedOutputStream2 = bufferedOutputStream;
+                                            r82 = r8;
                                         } catch (Throwable th5) {
                                             th = th5;
                                             inputStream = null;
                                             z = true;
-                                            bufferedOutputStream3 = bufferedOutputStream;
-                                            boolean y42222 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                            r83 = r8;
+                                            boolean y42222 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                             if (!TextUtils.isEmpty(null)) {
                                             }
                                             if (z) {
                                             }
-                                            if (bufferedOutputStream3 != 0) {
+                                            if (r83 != 0) {
                                             }
                                             if (outputStream != null) {
                                             }
@@ -903,15 +903,15 @@ public class a {
                                     } catch (ConnectErrorException e25) {
                                         e = e25;
                                         inputStream3 = null;
-                                        bufferedOutputStream5 = 0;
+                                        r85 = 0;
                                     } catch (InvalidDataException e26) {
                                         e = e26;
                                         inputStream2 = null;
-                                        bufferedOutputStream4 = 0;
+                                        r84 = 0;
                                     } catch (ResponseErrorException e27) {
                                         e = e27;
                                         inputStream = null;
-                                        bufferedOutputStream = 0;
+                                        r8 = 0;
                                     } catch (IOException e28) {
                                         e = e28;
                                         inputStream5 = null;
@@ -920,25 +920,25 @@ public class a {
                                     } catch (Exception e29) {
                                         e = e29;
                                         inputStream = null;
-                                        bufferedOutputStream2 = 0;
+                                        r82 = 0;
                                     } catch (Throwable th6) {
                                         th = th6;
                                         inputStream = null;
-                                        bufferedOutputStream = 0;
+                                        r8 = 0;
                                     }
                                 } catch (Throwable th7) {
                                     th = th7;
                                     inputStream = null;
                                     outputStream = null;
-                                    bufferedOutputStream = outputStream;
+                                    r8 = outputStream;
                                     z = true;
-                                    bufferedOutputStream3 = bufferedOutputStream;
-                                    boolean y422222 = DxmSdkSensorsDataAPI.I(this.f61826b).y();
+                                    r83 = r8;
+                                    boolean y422222 = DxmSdkSensorsDataAPI.I(this.f60176b).y();
                                     if (!TextUtils.isEmpty(null)) {
                                     }
                                     if (z) {
                                     }
-                                    if (bufferedOutputStream3 != 0) {
+                                    if (r83 != 0) {
                                     }
                                     if (outputStream != null) {
                                     }

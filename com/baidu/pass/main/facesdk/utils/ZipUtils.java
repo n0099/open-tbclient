@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isSuccess;

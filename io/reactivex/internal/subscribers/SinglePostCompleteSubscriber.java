@@ -5,13 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.C;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COMPLETE_MASK = Long.MIN_VALUE;
@@ -63,7 +64,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                 onDrop(r);
                 return;
             } else if ((j3 & Long.MAX_VALUE) != 0) {
-                lazySet(-9223372036854775807L);
+                lazySet(C.TIME_UNSET);
                 this.actual.onNext(r);
                 this.actual.onComplete();
                 return;
@@ -101,7 +102,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
             do {
                 j3 = get();
                 if ((j3 & Long.MIN_VALUE) != 0) {
-                    if (compareAndSet(Long.MIN_VALUE, -9223372036854775807L)) {
+                    if (compareAndSet(Long.MIN_VALUE, C.TIME_UNSET)) {
                         this.actual.onNext((R) this.value);
                         this.actual.onComplete();
                         return;

@@ -1,9 +1,9 @@
 package com.baidu.tbadk;
 
-import c.a.u0.t1.c;
-import c.a.u0.t1.v.a.d;
-import c.a.u0.t1.v.a.e;
-import c.a.u0.t1.v.a.f;
+import c.a.r0.s1.c;
+import c.a.r0.s1.v.a.d;
+import c.a.r0.s1.v.a.e;
+import c.a.r0.s1.v.a.f;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";

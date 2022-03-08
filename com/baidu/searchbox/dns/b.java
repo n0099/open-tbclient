@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f38543i;
+    public static List<String> f36947i;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static DnsParseResult a(String str, boolean z) {
@@ -27,7 +27,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C1867a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C1843a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h2 = k.h();
             int j2 = k.j();
@@ -120,8 +120,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (b.class) {
-                if (f38543i != null && f38543i.size() > 0) {
-                    for (String str : f38543i) {
+                if (f36947i != null && f36947i.size() > 0) {
+                    for (String str : f36947i) {
                         b(str);
                     }
                 }
@@ -147,11 +147,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             synchronized (b.class) {
-                if (f38543i == null) {
-                    f38543i = new ArrayList(4);
+                if (f36947i == null) {
+                    f36947i = new ArrayList(4);
                 }
-                if (!f38543i.contains(str)) {
-                    f38543i.add(str);
+                if (!f36947i.contains(str)) {
+                    f36947i.add(str);
                 }
             }
         }

@@ -1,212 +1,256 @@
 package c.i.b.a;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.Nullable;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.audio.AudioProcessor;
-import java.util.ArrayList;
-/* loaded from: classes9.dex */
-public class f implements u {
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.FatalException;
+/* loaded from: classes3.dex */
+public final class f extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: h */
+    public static final f f28617h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    @Nullable
+    public Exception a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.z.a<c.i.b.a.z.c> f29791b;
+    /* renamed from: b */
+    public ArCoreApk.Availability f28618b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final int f29792c;
+    /* renamed from: c */
+    public boolean f28619c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public final long f29793d;
+    /* renamed from: d */
+    public l f28620d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar) {
-        this(context, aVar, 0);
+    /* renamed from: e */
+    public boolean f28621e;
+
+    /* renamed from: f */
+    public boolean f28622f;
+
+    /* renamed from: g */
+    public int f28623g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-528839570, "Lc/i/b/a/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-528839570, "Lc/i/b/a/f;");
+                return;
+            }
+        }
+        f28617h = new f();
+    }
+
+    public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (c.i.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // c.i.b.a.u
-    public r[] a(Handler handler, c.i.b.a.j0.e eVar, c.i.b.a.x.d dVar, c.i.b.a.e0.j jVar, c.i.b.a.c0.d dVar2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
-            ArrayList<r> arrayList = new ArrayList<>();
-            g(this.a, this.f29791b, this.f29793d, handler, eVar, this.f29792c, arrayList);
-            c(this.a, this.f29791b, b(), handler, dVar, this.f29792c, arrayList);
-            f(this.a, jVar, handler.getLooper(), this.f29792c, arrayList);
-            d(this.a, dVar2, handler.getLooper(), this.f29792c, arrayList);
-            e(this.a, handler, this.f29792c, arrayList);
-            return (r[]) arrayList.toArray(new r[arrayList.size()]);
-        }
-        return (r[]) invokeLLLLL.objValue;
-    }
-
-    public AudioProcessor[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AudioProcessor[0] : (AudioProcessor[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(12:7|(1:9)|10|11|12|13|(2:14|15)|16|17|18|(2:19|20)|(2:22|23)) */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar, AudioProcessor[] audioProcessorArr, Handler handler, c.i.b.a.x.d dVar, int i2, ArrayList<r> arrayList) {
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, audioProcessorArr, handler, dVar, Integer.valueOf(i2), arrayList}) != null) {
-            return;
-        }
-        arrayList.add(new c.i.b.a.x.g(c.i.b.a.b0.b.a, aVar, true, handler, dVar, c.i.b.a.x.c.a(context), audioProcessorArr));
-        if (i2 == 0) {
-            return;
-        }
-        int size = arrayList.size();
-        if (i2 == 2) {
-            size--;
-        }
-        try {
-            try {
-                i3 = size + 1;
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
-            }
-        } catch (ClassNotFoundException unused) {
-        }
-        try {
-            try {
-                arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.opus.LibopusAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-            } catch (ClassNotFoundException unused2) {
-                size = i3;
-                i3 = size;
-                i4 = i3 + 1;
-                arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-            }
-            i4 = i3 + 1;
-            try {
-                arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-            } catch (ClassNotFoundException unused3) {
-                i3 = i4;
-                i4 = i3;
-                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-            }
-            try {
-                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, c.i.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
-            } catch (ClassNotFoundException unused4) {
-            } catch (Exception e3) {
-                throw new RuntimeException(e3);
-            }
-        } catch (Exception e4) {
-            throw new RuntimeException(e4);
-        }
-    }
-
-    public void d(Context context, c.i.b.a.c0.d dVar, Looper looper, int i2, ArrayList<r> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, dVar, looper, Integer.valueOf(i2), arrayList}) == null) {
-            arrayList.add(new c.i.b.a.c0.e(dVar, looper));
-        }
-    }
-
-    public void e(Context context, Handler handler, int i2, ArrayList<r> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, handler, i2, arrayList) == null) {
-        }
-    }
-
-    public void f(Context context, c.i.b.a.e0.j jVar, Looper looper, int i2, ArrayList<r> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, jVar, looper, Integer.valueOf(i2), arrayList}) == null) {
-            arrayList.add(new c.i.b.a.e0.k(jVar, looper));
-        }
-    }
-
-    public void g(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar, long j2, Handler handler, c.i.b.a.j0.e eVar, int i2, ArrayList<r> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, aVar, Long.valueOf(j2), handler, eVar, Integer.valueOf(i2), arrayList}) != null) {
-            return;
-        }
-        arrayList.add(new c.i.b.a.j0.c(context, c.i.b.a.b0.b.a, j2, aVar, false, handler, eVar, 50));
-        if (i2 == 0) {
-            return;
-        }
-        int size = arrayList.size();
-        if (i2 == 2) {
-            size--;
-        }
-        try {
-            arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, c.i.b.a.j0.e.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j2), handler, eVar, 50));
-        } catch (ClassNotFoundException unused) {
-        } catch (Exception e2) {
-            throw new RuntimeException(e2);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar, int i2) {
-        this(context, aVar, i2, 5000L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {context, aVar, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (c.i.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar, int i2, long j2) {
+    public static f d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, Integer.valueOf(i2), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f28617h : (f) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+    }
+
+    public static int k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
+                int i2 = packageInfo.versionCode;
+                if (i2 == 0) {
+                    if (packageInfo.services != null) {
+                        if (packageInfo.services.length == 0) {
+                        }
+                    }
+                    return -1;
+                }
+                return i2;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return -1;
             }
         }
-        this.a = context;
-        this.f29791b = aVar;
-        this.f29792c = i2;
-        this.f29793d = j2;
+        return invokeL.intValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk
+    public final ArCoreApk.Availability a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!i()) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            }
+            try {
+                if (h(context)) {
+                    g();
+                    return e.c(context);
+                }
+                synchronized (this) {
+                    if ((this.f28618b == null || this.f28618b.isUnknown()) && !this.f28619c) {
+                        this.f28619c = true;
+                        e eVar = new e(this);
+                        if (h(context)) {
+                            eVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
+                        } else if (k(context) != -1) {
+                            eVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
+                        } else if (j(context)) {
+                            eVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                        } else {
+                            e(context).e(context, eVar);
+                        }
+                    }
+                    if (this.f28618b != null) {
+                        return this.f28618b;
+                    }
+                    if (this.f28619c) {
+                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
+                    }
+                    return ArCoreApk.Availability.UNKNOWN_ERROR;
+                }
+            } catch (FatalException unused) {
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
+            }
+        }
+        return (ArCoreApk.Availability) invokeL.objValue;
+    }
+
+    public final synchronized l e(Context context) {
+        InterceptResult invokeL;
+        l lVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            synchronized (this) {
+                if (this.f28620d == null) {
+                    l lVar2 = new l((byte) 0);
+                    lVar2.d(context.getApplicationContext());
+                    this.f28620d = lVar2;
+                }
+                lVar = this.f28620d;
+            }
+            return lVar;
+        }
+        return (l) invokeL.objValue;
+    }
+
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Exception exc = this.a;
+                if (this.f28620d != null) {
+                    this.f28620d.a();
+                    this.f28620d = null;
+                }
+            }
+        }
+    }
+
+    public final boolean h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            l(context);
+            return k(context) == 0 || k(context) >= this.f28623g;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            l(context);
+            return this.f28622f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this) {
+                if (this.f28621e) {
+                    return;
+                }
+                PackageManager packageManager = context.getPackageManager();
+                String packageName = context.getPackageName();
+                try {
+                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
+                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
+                        this.f28622f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
+                            this.f28623g = bundle.getInt("com.google.ar.core.min_apk_version");
+                            try {
+                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
+                                String canonicalName = InstallActivity.class.getCanonicalName();
+                                int length = activityInfoArr.length;
+                                boolean z = false;
+                                int i2 = 0;
+                                while (true) {
+                                    if (i2 >= length) {
+                                        break;
+                                    } else if (canonicalName.equals(activityInfoArr[i2].name)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i2++;
+                                    }
+                                }
+                                if (!z) {
+                                    String valueOf = String.valueOf(canonicalName);
+                                    throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
+                                } else {
+                                    this.f28621e = true;
+                                    return;
+                                }
+                            } catch (PackageManager.NameNotFoundException e2) {
+                                throw new FatalException("Could not load application package info", e2);
+                            }
+                        }
+                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
+                    }
+                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
+                } catch (PackageManager.NameNotFoundException e3) {
+                    throw new FatalException("Could not load application package metadata", e3);
+                }
+            }
+        }
     }
 }

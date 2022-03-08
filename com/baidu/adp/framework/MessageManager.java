@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MessageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "msgmgr";
@@ -63,7 +63,7 @@ public class MessageManager {
     public Handler mUIHandler;
 
     /* renamed from: com.baidu.adp.framework.MessageManager$18  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass18 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE;
         public static /* synthetic */ Interceptable $ic;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class QuickReply implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<QuickReply> CREATOR;
@@ -36,7 +36,7 @@ public class QuickReply implements Parcelable {
     public long mType;
     public long mVersionId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class Act implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Act> CREATOR;
@@ -206,7 +206,7 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ReplyContent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<ReplyContent> CREATOR;

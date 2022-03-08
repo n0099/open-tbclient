@@ -22,7 +22,7 @@ import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AwtCodec instance;

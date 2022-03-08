@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VideoAsyncHostHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEO_MPD_HOST = "key_video_mpd_hosts";

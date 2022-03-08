@@ -32,7 +32,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
     public static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     public Fragment mBase;
@@ -232,7 +232,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        if (a.f55573c.booleanValue()) {
+        if (a.f53923c.booleanValue()) {
             throw new RuntimeException("please use getContext().getResources()");
         }
         return this.mBase.getContext().getResources();

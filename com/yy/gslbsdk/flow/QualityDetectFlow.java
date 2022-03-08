@@ -41,7 +41,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class QualityDetectFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "QualityDetectFlow";

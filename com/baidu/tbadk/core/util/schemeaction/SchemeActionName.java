@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util.schemeaction;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface SchemeActionName {
     public static final String SCHEME_ACTION_DEEPLINK = "tiebaapp://router/deeplink";
     public static final String SCHEME_ACTION_DOLINK = "tiebaapp://router/doLink";

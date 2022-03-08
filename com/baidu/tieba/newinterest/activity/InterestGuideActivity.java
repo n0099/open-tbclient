@@ -1,12 +1,12 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.t0.b.d;
-import c.a.t0.s.j0.b;
-import c.a.u0.q2.h.a;
+import c.a.q0.r.j0.b;
+import c.a.r0.q2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,11 +16,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Integer> mClassIds;
+    public String[] mCustomTitle;
     public a mGuideView;
+    public boolean mOnlyShowInterestedForum;
     public int mScene;
 
     public InterestGuideActivity() {
@@ -43,6 +47,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             return;
         }
         this.mScene = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
+        this.mOnlyShowInterestedForum = getIntent().getBooleanExtra("key_only_show_interested_forum", false);
+        this.mClassIds = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
+        this.mCustomTitle = getIntent().getStringArrayExtra("key_custom_title");
     }
 
     private void setInterestGuideConf() {
@@ -56,6 +63,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             String sb2 = sb.toString();
             b k = b.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
+            b.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -72,7 +80,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (d.J()) {
+            if (UbsABTestHelper.isInterestGuideStyleB()) {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
             } else {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));
@@ -88,7 +96,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             initData();
-            a aVar = new a(this, this.mScene);
+            a aVar = new a(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
             this.mGuideView = aVar;
             setContentView(aVar.d());
             setInterestGuideConf();

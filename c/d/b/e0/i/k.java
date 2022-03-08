@@ -7,19 +7,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.okhttp3.Protocol;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Protocol a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27984b;
+    public final int f27888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f27985c;
+    public final String f27889c;
 
     public k(Protocol protocol, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -37,8 +38,8 @@ public final class k {
             }
         }
         this.a = protocol;
-        this.f27984b = i2;
-        this.f27985c = str;
+        this.f27888b = i2;
+        this.f27889c = str;
     }
 
     public static k a(b0 b0Var) {
@@ -100,11 +101,11 @@ public final class k {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
-            sb.append(' ');
-            sb.append(this.f27984b);
-            if (this.f27985c != null) {
-                sb.append(' ');
-                sb.append(this.f27985c);
+            sb.append(WebvttCueParser.CHAR_SPACE);
+            sb.append(this.f27888b);
+            if (this.f27889c != null) {
+                sb.append(WebvttCueParser.CHAR_SPACE);
+                sb.append(this.f27889c);
             }
             return sb.toString();
         }

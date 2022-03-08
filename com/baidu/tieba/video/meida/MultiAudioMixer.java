@@ -12,13 +12,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -45,13 +45,13 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class b extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void onMixComplete();
 

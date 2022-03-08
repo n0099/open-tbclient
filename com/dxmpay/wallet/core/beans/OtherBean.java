@@ -2,7 +2,6 @@ package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.f.a.g.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,6 +12,7 @@ import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.beans.BeanResponseBase;
 import com.dxmpay.apollon.restnet.RestResponseEntity;
 import com.dxmpay.apollon.restnet.RestTemplate;
+import com.dxmpay.apollon.restnet.converter.b;
 import com.dxmpay.apollon.utils.BussinessUtils;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.ResUtils;
@@ -26,7 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,17 +93,17 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
-        RestResponseEntity<T> n;
+        RestResponseEntity<T> d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2) == null) {
             if (getHttpMethod() == 0) {
-                n = this.mRestTemplate.i(getUrl(), getRequestParams(), getEncode(), cls);
+                d2 = this.mRestTemplate.b(getUrl(), getRequestParams(), getEncode(), cls);
             } else {
-                n = getHttpMethod() == 1 ? this.mRestTemplate.n(getUrl(), getRequestParams(), getEncode(), cls) : null;
+                d2 = getHttpMethod() == 1 ? this.mRestTemplate.d(getUrl(), getRequestParams(), getEncode(), cls) : null;
             }
-            if (n != null && this.mRspCallback != null) {
-                handleResponseHeaders(n);
-                Object body = n.getBody();
+            if (d2 != null && this.mRspCallback != null) {
+                handleResponseHeaders(d2);
+                Object body = d2.getBody();
                 if (body == null) {
                     addOnEventWithValues(-100, "Callback not null,Response is null");
                     this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "dxm_ebpay_resolve_error"));
@@ -121,7 +121,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                         }
                         addOnEventWithValues(this.mRetCode, this.mRetMsg);
                         if (beanResponseBase != null && beanResponseBase.ret == 0 && (beanResponseBase.needVerifySignature() || needVerifySignature())) {
-                            String string = new JSONObject(n.a()).getString(beanResponseBase.getNameOfRealResponseContent());
+                            String string = new JSONObject(d2.a()).getString(beanResponseBase.getNameOfRealResponseContent());
                             if (!VerSig.verify(beanResponseBase.signature, string, beanResponseBase.mdAlgorithm)) {
                                 if (!TextUtils.isEmpty(getUrl())) {
                                     StatisticManager.onEvent("#verify_sign_failed");
@@ -144,11 +144,11 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                 }
                 this.mRspCallback.onBeanExecSuccess(getBeanId(), body, null);
             } else if (this.mRspCallback != null) {
-                if (n == null) {
+                if (d2 == null) {
                     addOnEventWithValues(-100, "Callback not null,Response is null");
                 }
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "dxm_ebpay_resolve_error"));
-            } else if (n == null) {
+            } else if (d2 == null) {
                 addOnEventWithValues(-101, "Callback is null,Response is null");
             } else {
                 addOnEventWithValues(-102, "Callback is null,Response not null");

@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.send;
 
-import c.a.u0.i1.d.a;
+import c.a.r0.h1.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

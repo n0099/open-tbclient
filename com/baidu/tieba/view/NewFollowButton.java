@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.e;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.u0.z3.i0;
+import c.a.r0.y3.i0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean D;
     public int E;
     public boolean F;
-    public c.a.t0.s.l0.n.b G;
-    public c.a.t0.s.l0.n.b H;
+    public c.a.q0.r.l0.n.b G;
+    public c.a.q0.r.l0.n.b H;
     public LikeModel I;
     public i0 J;
     public b K;
@@ -53,14 +53,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean y;
     public int z;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f49322b;
+        public final /* synthetic */ NewFollowButton f47741b;
 
         public a(NewFollowButton newFollowButton, boolean z) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f49322b = newFollowButton;
+            this.f47741b = newFollowButton;
             this.a = z;
         }
 
@@ -85,7 +85,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f49322b.updateLikeStatus(this.a);
+                this.f47741b.updateLikeStatus(this.a);
             }
         }
 
@@ -104,7 +104,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends e implements i0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // c.a.u0.z3.i0.a
+        @Override // c.a.r0.y3.i0.a
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
@@ -139,7 +139,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // c.a.u0.z3.i0.a
+        @Override // c.a.r0.y3.i0.a
         public void b(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
@@ -255,7 +255,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             this.B = z;
-            c.a.t0.s.l0.n.b bVar = this.G;
+            c.a.q0.r.l0.n.b bVar = this.G;
             if (bVar != null) {
                 bVar.i(z ? this.C : 0, 0, TBSpecificationButtonConfig.IconType.SVG);
             }
@@ -279,7 +279,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             this.A = i2;
-            c.a.t0.s.l0.n.b bVar = this.G;
+            c.a.q0.r.l0.n.b bVar = this.G;
             if (bVar != null) {
                 bVar.g(i2);
             }
@@ -293,7 +293,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             this.z = i2;
-            c.a.t0.s.l0.n.b bVar = this.G;
+            c.a.q0.r.l0.n.b bVar = this.G;
             if (bVar != null) {
                 bVar.f(i2);
             }
@@ -398,7 +398,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.v;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.H == null) {
-                        c.a.t0.s.l0.n.b bVar = new c.a.t0.s.l0.n.b();
+                        c.a.q0.r.l0.n.b bVar = new c.a.q0.r.l0.n.b();
                         this.H = bVar;
                         bVar.t(R.color.CAM_X0109);
                         this.H.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -413,7 +413,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.u;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.G == null) {
-                        c.a.t0.s.l0.n.b bVar2 = new c.a.t0.s.l0.n.b();
+                        c.a.q0.r.l0.n.b bVar2 = new c.a.q0.r.l0.n.b();
                         this.G = bVar2;
                         bVar2.r(R.color.CAM_X0302);
                         if (this.B) {

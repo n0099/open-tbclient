@@ -37,6 +37,7 @@ import androidx.core.view.TintableBackgroundView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TintableImageSourceView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +45,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.animation.TransformationCallback;
 import com.google.android.material.appbar.AppBarLayout;
@@ -65,11 +65,13 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_Design_FloatingActionButton = 2131755853;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;
@@ -101,7 +103,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public int size;
     public final Rect touchArea;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = true;
@@ -321,13 +323,13 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton_Behavior_Layout);
-            this.autoHideEnabled = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide, true);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.behavior_autoHide});
+            this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -404,7 +406,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class OnVisibilityChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -436,7 +438,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -496,11 +498,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -563,17 +565,16 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1069555624, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1069555624, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1069555624, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton;")) == null) {
+            return;
         }
-        DEF_STYLE_RES = R.style.Widget_Design_FloatingActionButton;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1069555624, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1470,7 +1471,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_FloatingActionButton), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1490,24 +1491,24 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.FloatingActionButton, i2, DEF_STYLE_RES, new int[0]);
-        this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.FloatingActionButton_backgroundTint);
-        this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_backgroundTintMode, -1), null);
-        this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.FloatingActionButton_rippleColor);
-        this.size = obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_fabSize, -1);
-        this.customSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_fabCustomSize, 0);
-        this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_borderWidth, 0);
-        float dimension = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_elevation, 0.0f);
-        float dimension2 = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_hoveredFocusedTranslationZ, 0.0f);
-        float dimension3 = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_pressedTranslationZ, 0.0f);
-        this.compatPadding = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_useCompatPadding, false);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.borderWidth, R.attr.elevation, R.attr.ensureMinTouchTargetSize, R.attr.fabCustomSize, R.attr.fabSize, R.attr.hideMotionSpec, R.attr.hoveredFocusedTranslationZ, R.attr.maxImageSize, R.attr.pressedTranslationZ, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.useCompatPadding}, i2, Widget_Design_FloatingActionButton, new int[0]);
+        this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
+        this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
+        this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);
+        this.size = obtainStyledAttributes.getInt(7, -1);
+        this.customSize = obtainStyledAttributes.getDimensionPixelSize(6, 0);
+        this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
+        float dimension = obtainStyledAttributes.getDimension(4, 0.0f);
+        float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
+        float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
+        this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.mtrl_fab_min_touch_target);
-        this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_maxImageSize, 0);
-        MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, R.styleable.FloatingActionButton_showMotionSpec);
-        MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, R.styleable.FloatingActionButton_hideMotionSpec);
-        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i2, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build();
-        boolean z = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_ensureMinTouchTargetSize, false);
-        setEnabled(obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_android_enabled, true));
+        this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
+        MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
+        MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);
+        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_Design_FloatingActionButton, ShapeAppearanceModel.PILL).build();
+        boolean z = obtainStyledAttributes.getBoolean(5, false);
+        setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
         AppCompatImageHelper appCompatImageHelper = new AppCompatImageHelper(this);
         this.imageHelper = appCompatImageHelper;

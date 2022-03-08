@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ShaderParams implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ShaderParams> CREATOR;
@@ -31,7 +31,7 @@ public class ShaderParams implements Parcelable, Cloneable {
     public float[] values;
     public int valuesPointer;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<ShaderParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

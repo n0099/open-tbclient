@@ -13,6 +13,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import j.a.a.e.f.c;
 import org.json.JSONObject;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.YYPayUIKit;
@@ -22,12 +23,12 @@ import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a implements IPayCallback<CurrencyChargeMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,11 +142,11 @@ public class b {
                     PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
                     MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
                     if (middleRevenueConfig != null) {
-                        bVar.f63150b = new j.a.a.e.n.c(productInfo, middleRevenueConfig.getCurrencyType());
+                        bVar.f61500b = new c(productInfo, middleRevenueConfig.getCurrencyType());
                     } else {
-                        bVar.f63150b = new j.a.a.e.n.c(productInfo);
+                        bVar.f61500b = new c(productInfo);
                     }
-                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.f63150b);
+                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.f61500b);
                     uIKit.startPayChannelDialog(activity, bVar, new a(iPayCallback));
                 } catch (Exception e2) {
                     RLog.error("PayWebViewCallHelper", "get productInfo error:", e2.getLocalizedMessage());

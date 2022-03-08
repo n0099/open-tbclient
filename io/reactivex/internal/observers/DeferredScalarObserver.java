@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -266195175408988651L;

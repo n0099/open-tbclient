@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.home;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class forumRecommendRequestMessage extends NetMessage {
                 }
                 builder.visit_history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    c0.a(builder, true);
+                    b0.a(builder, true);
                 }
                 ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
                 builder2.data = builder.build(false);

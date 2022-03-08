@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,14 +23,14 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     public PostCallback callback;
     public String url;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface PostCallback {
         void onFailure(ResultData resultData);
 
         void onSuccess(ResultData resultData);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class ResultData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

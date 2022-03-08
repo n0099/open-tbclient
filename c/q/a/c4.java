@@ -1,25 +1,32 @@
 package c.q.a;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public Context a;
 
-    public c4() {
+    /* renamed from: b  reason: collision with root package name */
+    public WebView f28930b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Info f28931c;
+
+    public c4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,54 +36,44 @@ public class c4 {
                 return;
             }
         }
-        this.a = Collections.synchronizedList(new ArrayList());
+        this.a = context;
+        if (r2.a()) {
+            a();
+        } else {
+            r2.a.post(new n3(this));
+        }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.clear();
-            } catch (Exception unused) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f28930b == null) {
+            WebView webView = new WebView(this.a);
+            this.f28930b = webView;
+            WebSettings settings = webView.getSettings();
+            settings.setAllowContentAccess(true);
+            settings.setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                this.f28930b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f28930b.removeJavascriptInterface("accessibility");
+                this.f28930b.removeJavascriptInterface("accessibilityTraversal");
             }
-        }
-    }
-
-    public void b(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-                this.a.addAll(list);
+            this.f28930b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f28930b.getSettings().setBlockNetworkImage(true);
+            this.f28930b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f28930b.getSettings().setCacheMode(2);
+            this.f28930b.getSettings().setAppCacheEnabled(true);
+            this.f28930b.setScrollBarStyle(0);
+            settings.setDomStorageEnabled(true);
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+            settings.setEnableSmoothTransition(true);
+            if (Build.VERSION.SDK_INT >= 21) {
+                settings.setMixedContentMode(0);
             }
+            settings.setNeedInitialFocus(false);
+            this.f28930b.clearCache(true);
+            this.f28930b.clearHistory();
+            this.f28930b.setWebChromeClient(new r3(this));
+            this.f28930b.setWebViewClient(new u3(this));
         }
-    }
-
-    public Info c() {
-        InterceptResult invokeV;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                info = null;
-                while (this.a.size() > 0 && ((info = (Info) this.a.remove(0)) == null || !info.isEffective())) {
-                }
-            }
-            return info;
-        }
-        return (Info) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        boolean isEmpty;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                isEmpty = this.a.isEmpty();
-            }
-            return isEmpty;
-        }
-        return invokeV.booleanValue;
     }
 }

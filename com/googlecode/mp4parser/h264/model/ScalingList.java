@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.h264.read.CAVLCReader;
 import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ScalingList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

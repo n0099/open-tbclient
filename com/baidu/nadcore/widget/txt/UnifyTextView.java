@@ -9,10 +9,9 @@ import android.text.style.LineHeightSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.d0.h0.f;
-import c.a.d0.l0.k;
-import c.a.d0.l0.q;
+import c.a.b0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,54 +22,54 @@ import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\r\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0016\u0018\u00002\u00020\u0001:\u0001,B\u0011\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b%\u0010&B\u001b\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\u0010(\u001a\u0004\u0018\u00010'¢\u0006\u0004\b%\u0010)B#\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\u0010(\u001a\u0004\u0018\u00010'\u0012\u0006\u0010*\u001a\u00020\u0004¢\u0006\u0004\b%\u0010+J\u001d\u0010\u0006\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\u000b\u001a\u00020\n2\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\u000b\u0010\fJ\u0015\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\r\u001a\u00020\u0004¢\u0006\u0004\b\u000f\u0010\u0010J!\u0010\u0014\u001a\u00020\u000e2\b\u0010\u0011\u001a\u0004\u0018\u00010\b2\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012¢\u0006\u0004\b\u0014\u0010\u0015J\u0015\u0010\u0017\u001a\u00020\u000e2\u0006\u0010\u0016\u001a\u00020\u0004¢\u0006\u0004\b\u0017\u0010\u0010J\u0017\u0010\u0018\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001a\u001a\u00020\n8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u001e8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\u001dR\u0016\u0010\"\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010\u001dR\u0016\u0010#\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010\u001dR\u0016\u0010$\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b$\u0010\u001d¨\u0006-"}, d2 = {"Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "Landroid/widget/TextView;", "Landroid/content/Context;", "context", "", "id", "getDimensionPixelSize", "(Landroid/content/Context;I)I", "", "content", "", "hasEmoji", "(Ljava/lang/CharSequence;)Z", "bottomPadding", "", "setBottomPadding", "(I)V", "text", "Landroid/widget/TextView$BufferType;", "type", "setTextWithUnifiedPadding", "(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V", "topPadding", "setTopPadding", "topAndBottomCompatable", "(Ljava/lang/CharSequence;)V", "DEBUG", "Z", "DEFAULT_TOP_BOTTOM_PADDING", "I", "", "TAG", "Ljava/lang/String;", "mBottomBuffer", "mBottomPadding", "mTopBuffer", "mTopPadding", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "ExcludeInnerPaddingSpan", "lib-widget_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\r\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0016\u0018\u00002\u00020\u0001:\u0001,B\u0011\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b%\u0010&B\u001b\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\u0010(\u001a\u0004\u0018\u00010'¢\u0006\u0004\b%\u0010)B#\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\b\u0010(\u001a\u0004\u0018\u00010'\u0012\u0006\u0010*\u001a\u00020\u0004¢\u0006\u0004\b%\u0010+J\u001d\u0010\u0006\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\u000b\u001a\u00020\n2\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\u000b\u0010\fJ\u0015\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\r\u001a\u00020\u0004¢\u0006\u0004\b\u000f\u0010\u0010J!\u0010\u0014\u001a\u00020\u000e2\b\u0010\u0011\u001a\u0004\u0018\u00010\b2\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012¢\u0006\u0004\b\u0014\u0010\u0015J\u0015\u0010\u0017\u001a\u00020\u000e2\u0006\u0010\u0016\u001a\u00020\u0004¢\u0006\u0004\b\u0017\u0010\u0010J\u0017\u0010\u0018\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001a\u001a\u00020\n8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u001e8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\u001dR\u0016\u0010\"\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010\u001dR\u0016\u0010#\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010\u001dR\u0016\u0010$\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b$\u0010\u001d¨\u0006-"}, d2 = {"Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "Landroid/widget/TextView;", "Landroid/content/Context;", "context", "", "id", "getDimensionPixelSize", "(Landroid/content/Context;I)I", "", "content", "", "hasEmoji", "(Ljava/lang/CharSequence;)Z", "bottomPadding", "", "setBottomPadding", "(I)V", "text", "Landroid/widget/TextView$BufferType;", "type", "setTextWithUnifiedPadding", "(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V", "topPadding", "setTopPadding", "topAndBottomCompatable", "(Ljava/lang/CharSequence;)V", "DEBUG", "Z", "DEFAULT_TOP_BOTTOM_PADDING", "I", "", "TAG", "Ljava/lang/String;", "mBottomBuffer", "mBottomPadding", "mTopBuffer", "mTopPadding", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "ExcludeInnerPaddingSpan", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
 public class UnifyTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f37589e;
+    public final String f35992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f37590f;
+    public final boolean f35993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37591g;
+    public int f35994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37592h;
+    public int f35995h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37593i;
+    public int f35996i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37594j;
+    public int f35997j;
     public int k;
     public HashMap l;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f37595e;
+        public final String f35998e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TextView f37596f;
+        public final TextView f35999f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f37597g;
+        public final int f36000g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f37598h;
+        public final int f36001h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f37599i;
+        public final int f36002i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f37600j;
+        public final int f36003j;
         public final int k;
 
         public a(TextView textView, int i2, int i3, int i4, int i5, int i6) {
@@ -89,13 +88,13 @@ public class UnifyTextView extends TextView {
                 }
             }
             Intrinsics.checkNotNullParameter(textView, "textView");
-            this.f37596f = textView;
-            this.f37597g = i2;
-            this.f37598h = i3;
-            this.f37599i = i4;
-            this.f37600j = i5;
+            this.f35999f = textView;
+            this.f36000g = i2;
+            this.f36001h = i3;
+            this.f36002i = i4;
+            this.f36003j = i5;
             this.k = i6;
-            this.f37595e = "meizu_15_CN";
+            this.f35998e = "meizu_15_CN";
         }
 
         @Override // android.text.style.LineHeightSpan
@@ -109,23 +108,23 @@ public class UnifyTextView extends TextView {
                 if (i6 <= 0) {
                     return;
                 }
-                int textSize = (int) this.f37596f.getTextSize();
+                int textSize = (int) this.f35999f.getTextSize();
                 int round = Math.round(fm.descent * ((textSize * 1.0f) / i6));
                 fm.descent = round;
                 int i7 = round - textSize;
                 fm.ascent = i7;
-                fm.top = (i7 - this.f37597g) - this.f37600j;
+                fm.top = (i7 - this.f36000g) - this.f36003j;
                 String a = f.a.a();
                 int a2 = f.b.a();
                 int i8 = 0;
                 try {
                     if (text.length() == i3 && (subSequence = text.subSequence(i2, i3)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
-                        i8 = this.f37598h;
+                        i8 = this.f36001h;
                     }
                 } catch (Exception unused) {
                 }
-                if (TextUtils.equals(a, this.f37595e) && a2 == 25 && i2 > 0) {
-                    fm.bottom = ((fm.descent + i8) + this.k) - this.f37599i;
+                if (TextUtils.equals(a, this.f35998e) && a2 == 25 && i2 > 0) {
+                    fm.bottom = ((fm.descent + i8) + this.k) - this.f36002i;
                 } else {
                     fm.bottom = fm.descent + i8 + this.k;
                 }
@@ -188,21 +187,21 @@ public class UnifyTextView extends TextView {
             if (hasEmoji(charSequence)) {
                 Context context = getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.f37592h = Math.round(getDimensionPixelSize(context, k.nad_spannable_exclude_padding_text_top_buffer) * 1.5f);
-                if (this.f37590f) {
-                    String str = "has emoji, mTopBuffer: " + this.f37592h;
+                this.f35995h = Math.round(getDimensionPixelSize(context, R.dimen.nad_spannable_exclude_padding_text_top_buffer) * 1.5f);
+                if (this.f35993f) {
+                    String str = "has emoji, mTopBuffer: " + this.f35995h;
                 }
             } else {
                 Context context2 = getContext();
                 Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.f37592h = getDimensionPixelSize(context2, k.nad_spannable_exclude_padding_text_top_buffer);
-                if (this.f37590f) {
-                    String str2 = "has no emoji, mTopBuffer: " + this.f37592h;
+                this.f35995h = getDimensionPixelSize(context2, R.dimen.nad_spannable_exclude_padding_text_top_buffer);
+                if (this.f35993f) {
+                    String str2 = "has no emoji, mTopBuffer: " + this.f35995h;
                 }
             }
             Context context3 = getContext();
             Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.f37593i = getDimensionPixelSize(context3, k.nad_spannable_exclude_padding_text_bottom_buffer);
+            this.f35996i = getDimensionPixelSize(context3, R.dimen.nad_spannable_exclude_padding_text_bottom_buffer);
         }
     }
 
@@ -239,10 +238,10 @@ public class UnifyTextView extends TextView {
         float lineSpacingExtra = getLineSpacingExtra();
         if (charSequence instanceof SpannableStringBuilder) {
             spannableStringBuilder = (SpannableStringBuilder) charSequence;
-            spannableStringBuilder.setSpan(new a(this, this.f37592h, this.f37593i, (int) lineSpacingExtra, this.f37594j, this.k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f35995h, this.f35996i, (int) lineSpacingExtra, this.f35997j, this.k), 0, charSequence.length(), 33);
         } else {
             spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(new a(this, this.f37592h, this.f37593i, (int) lineSpacingExtra, this.f37594j, this.k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f35995h, this.f35996i, (int) lineSpacingExtra, this.f35997j, this.k), 0, charSequence.length(), 33);
         }
         setText(spannableStringBuilder, bufferType);
     }
@@ -250,7 +249,7 @@ public class UnifyTextView extends TextView {
     public final void setTopPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f37594j = i2;
+            this.f35997j = i2;
         }
     }
 
@@ -296,11 +295,11 @@ public class UnifyTextView extends TextView {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f37589e = "UnifyTextView";
-        this.f37591g = getDimensionPixelSize(context, k.nad_spannable_exclude_padding_text_top_bottom_extra);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q.NADUnifyTextView);
-        this.f37594j = obtainStyledAttributes.getDimensionPixelSize(q.NADUnifyTextView_spannable_top_padding, this.f37591g);
-        this.k = obtainStyledAttributes.getDimensionPixelSize(q.NADUnifyTextView_spannable_bottom_padding, this.f37591g);
+        this.f35992e = "UnifyTextView";
+        this.f35994g = getDimensionPixelSize(context, R.dimen.nad_spannable_exclude_padding_text_top_bottom_extra);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.spannable_bottom_padding, R.attr.spannable_top_padding});
+        this.f35997j = obtainStyledAttributes.getDimensionPixelSize(1, this.f35994g);
+        this.k = obtainStyledAttributes.getDimensionPixelSize(0, this.f35994g);
         obtainStyledAttributes.recycle();
     }
 }

@@ -14,7 +14,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic;
     public static File sBaseDir;

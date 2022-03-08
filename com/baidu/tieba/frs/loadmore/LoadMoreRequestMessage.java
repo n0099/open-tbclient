@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.loadmore;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
-import c.a.t0.d1.i;
-import c.a.u0.l3.j0.a;
+import c.a.q0.c1.b0;
+import c.a.q0.c1.i;
+import c.a.r0.j3.k0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,11 +79,11 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = c.a.u0.l3.l0.b.f().d("FRS");
+            builder.ad_context_list = c.a.r0.j3.m0.b.f().d("FRS");
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();
-            c0.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             builder.app_pos = a.e().a();
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.load_count = Integer.valueOf(this.loadCount);

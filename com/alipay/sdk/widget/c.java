@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31199c = "v1";
+    public static final String f29603c = "v1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31200d = "v2";
+    public static final String f29604d = "v2";
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31201b;
+    public final String f29605b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Activity activity, String str) {
@@ -47,7 +47,7 @@ public abstract class c extends FrameLayout {
             }
         }
         this.a = activity;
-        this.f31201b = str;
+        this.f29605b = str;
     }
 
     public abstract void a(String str);
@@ -69,7 +69,7 @@ public abstract class c extends FrameLayout {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f31201b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f29605b) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

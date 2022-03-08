@@ -2,7 +2,6 @@ package c.d.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,43 +10,43 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.beans.WalletHomeBeanFactory;
-import com.kuaishou.weapon.un.w0;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f28171b;
+    public static final Comparator<String> f28075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, h> f28172c;
+    public static final Map<String, h> f28076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f28173d;
+    public static final h f28077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f28174e;
+    public static final h f28078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f28175f;
+    public static final h f28079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f28176g;
+    public static final h f28080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f28177h;
+    public static final h f28081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f28178i;
+    public static final h f28082i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f28179j;
+    public static final h f28083j;
     public static final h k;
     public static final h l;
     public static final h m;
@@ -62,7 +61,7 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +119,8 @@ public final class h {
                 return;
             }
         }
-        f28171b = new a();
-        f28172c = new LinkedHashMap();
+        f28075b = new a();
+        f28076c = new LinkedHashMap();
         c("SSL_RSA_WITH_NULL_MD5", 1);
         c("SSL_RSA_WITH_NULL_SHA", 2);
         c("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
@@ -129,7 +128,7 @@ public final class h {
         c("SSL_RSA_WITH_RC4_128_SHA", 5);
         c("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         c("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f28173d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f28077d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         c("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         c("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         c("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -151,11 +150,11 @@ public final class h {
         c("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         c("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         c("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f28174e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f28078e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         c("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         c("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         c("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f28175f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f28079f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         c("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         c("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         c("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -175,12 +174,12 @@ public final class h {
         c("TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA", 135);
         c("TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA", 136);
         c("TLS_PSK_WITH_RC4_128_SHA", 138);
-        c("TLS_PSK_WITH_3DES_EDE_CBC_SHA", w0.o);
-        c("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
-        c("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
+        c("TLS_PSK_WITH_3DES_EDE_CBC_SHA", 139);
+        c("TLS_PSK_WITH_AES_128_CBC_SHA", 140);
+        c("TLS_PSK_WITH_AES_256_CBC_SHA", Cea708Decoder.COMMAND_DLY);
         c("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f28176g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f28177h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", w0.p0);
+        f28080g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", Cea708Decoder.COMMAND_DS4);
+        f28081h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
         c("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         c("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", 159);
         c("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -207,8 +206,8 @@ public final class h {
         c("TLS_ECDHE_RSA_WITH_NULL_SHA", 49168);
         c("TLS_ECDHE_RSA_WITH_RC4_128_SHA", 49169);
         c("TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA", 49170);
-        f28178i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
-        f28179j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
+        f28082i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
+        f28083j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
         c("TLS_ECDH_anon_WITH_NULL_SHA", 49173);
         c("TLS_ECDH_anon_WITH_RC4_128_SHA", 49174);
         c("TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA", 49175);
@@ -271,13 +270,13 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (h.class) {
-                hVar = f28172c.get(str);
+                hVar = f28076c.get(str);
                 if (hVar == null) {
-                    hVar = f28172c.get(e(str));
+                    hVar = f28076c.get(e(str));
                     if (hVar == null) {
                         hVar = new h(str);
                     }
-                    f28172c.put(str, hVar);
+                    f28076c.put(str, hVar);
                 }
             }
             return hVar;
@@ -303,7 +302,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             h hVar = new h(str);
-            f28172c.put(str, hVar);
+            f28076c.put(str, hVar);
             return hVar;
         }
         return (h) invokeLI.objValue;

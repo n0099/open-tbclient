@@ -19,7 +19,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BDStatCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVOKE_ACT = 1;
@@ -30,31 +30,31 @@ public class BDStatCore {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f36872b;
+    public Handler f35275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f36873c;
+    public volatile boolean f35276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36874d;
+    public boolean f35277d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SessionAnalysis f36875e;
+    public SessionAnalysis f35278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EventAnalysis f36876f;
+    public EventAnalysis f35279f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f36877g;
+    public Runnable f35280g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f36878h;
+    public long f35281h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f36879i;
+    public volatile boolean f35282i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f36880j;
+    public Handler f35283j;
 
     public BDStatCore() {
         Interceptable interceptable = $ic;
@@ -69,19 +69,19 @@ public class BDStatCore {
                 return;
             }
         }
-        this.f36873c = false;
-        this.f36874d = false;
-        this.f36878h = 0L;
-        this.f36879i = false;
+        this.f35276c = false;
+        this.f35277d = false;
+        this.f35281h = 0L;
+        this.f35282i = false;
         HandlerThread handlerThread = new HandlerThread("BDStatCore", 10);
         handlerThread.start();
-        this.f36872b = new Handler(handlerThread.getLooper());
-        this.f36875e = new SessionAnalysis();
-        this.f36876f = new EventAnalysis();
+        this.f35275b = new Handler(handlerThread.getLooper());
+        this.f35278e = new SessionAnalysis();
+        this.f35279f = new EventAnalysis();
         HandlerThread handlerThread2 = new HandlerThread("dataAnalyzeThread");
         handlerThread2.start();
         handlerThread2.setPriority(10);
-        this.f36880j = new Handler(handlerThread2.getLooper());
+        this.f35283j = new Handler(handlerThread2.getLooper());
     }
 
     private void a(Context context) {
@@ -118,20 +118,20 @@ public class BDStatCore {
             return;
         }
         if (z) {
-            this.f36875e.autoTrackLaunchInfo(launchInfo, z);
+            this.f35278e.autoTrackLaunchInfo(launchInfo, z);
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, launchInfo, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.16
+        this.f35275b.post(new Runnable(this, launchInfo, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.16
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LaunchInfo a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f36912b;
+            public final /* synthetic */ boolean f35315b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36913c;
+            public final /* synthetic */ BDStatCore f35316c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,16 +148,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36913c = this;
+                this.f35316c = this;
                 this.a = launchInfo;
-                this.f36912b = z;
+                this.f35315b = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36913c.f36875e.autoTrackLaunchInfo(this.a, this.f36912b);
+                    this.f35316c.f35278e.autoTrackLaunchInfo(this.a, this.f35315b);
                 }
             }
         });
@@ -169,16 +169,16 @@ public class BDStatCore {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.18
+        this.f35275b.post(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.18
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f36916b;
+            public final /* synthetic */ long f35319b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36917c;
+            public final /* synthetic */ BDStatCore f35320c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -195,16 +195,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36917c = this;
+                this.f35320c = this;
                 this.a = context;
-                this.f36916b = r8;
+                this.f35319b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36917c.f36875e.autoTrackSessionEndTime(this.a, this.f36916b);
+                    this.f35320c.f35278e.autoTrackSessionEndTime(this.a, this.f35319b);
                 }
             }
         });
@@ -216,16 +216,16 @@ public class BDStatCore {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.17
+        this.f35275b.post(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.17
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f36914b;
+            public final /* synthetic */ long f35317b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36915c;
+            public final /* synthetic */ BDStatCore f35318c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -242,16 +242,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36915c = this;
+                this.f35318c = this;
                 this.a = context;
-                this.f36914b = r8;
+                this.f35317b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36915c.f36875e.autoTrackSessionStartTime(this.a, this.f36914b);
+                    this.f35318c.f35278e.autoTrackSessionStartTime(this.a, this.f35317b);
                 }
             }
         });
@@ -260,11 +260,11 @@ public class BDStatCore {
     public void cancelSendLogCheck() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Runnable runnable = this.f36877g;
+            Runnable runnable = this.f35280g;
             if (runnable != null) {
-                this.f36872b.removeCallbacks(runnable);
+                this.f35275b.removeCallbacks(runnable);
             }
-            this.f36877g = null;
+            this.f35280g = null;
         }
     }
 
@@ -273,14 +273,14 @@ public class BDStatCore {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, context) == null) || context == null) {
             return;
         }
-        int sessionTimeOut = this.f36875e.getSessionTimeOut();
+        int sessionTimeOut = this.f35278e.getSessionTimeOut();
         Runnable runnable = new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.19
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36918b;
+            public final /* synthetic */ BDStatCore f35321b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -297,7 +297,7 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36918b = this;
+                this.f35321b = this;
                 this.a = context;
             }
 
@@ -305,47 +305,47 @@ public class BDStatCore {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36918b.f36875e.doSendLogCheck(this.a, System.currentTimeMillis());
+                    this.f35321b.f35278e.doSendLogCheck(this.a, System.currentTimeMillis());
                 }
             }
         };
-        this.f36877g = runnable;
-        this.f36872b.postDelayed(runnable, sessionTimeOut);
+        this.f35280g = runnable;
+        this.f35275b.postDelayed(runnable, sessionTimeOut);
     }
 
     public JSONObject getPageSessionHead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36875e.getPageSessionHead() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35278e.getPageSessionHead() : (JSONObject) invokeV.objValue;
     }
 
     public int getSessionSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36875e.getSessionSize() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35278e.getSessionSize() : invokeV.intValue;
     }
 
     public long getSessionStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36875e.getSessionStartTime() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35278e.getSessionStartTime() : invokeV.longValue;
     }
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             a(context);
-            if (this.f36873c) {
+            if (this.f35276c) {
                 return;
             }
             ActivityLifeTask.registerActivityLifeCallback(context);
-            this.f36872b.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.1
+            this.f35275b.post(new Runnable(this, context) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BDStatCore f36881b;
+                public final /* synthetic */ BDStatCore f35284b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -362,18 +362,18 @@ public class BDStatCore {
                             return;
                         }
                     }
-                    this.f36881b = this;
+                    this.f35284b = this;
                     this.a = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f36881b.f36873c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f35284b.f35276c) {
                         return;
                     }
                     PrefOperate.loadMetaDataConfig(this.a);
-                    this.f36881b.f36873c = true;
+                    this.f35284b.f35276c = true;
                 }
             });
         }
@@ -381,26 +381,26 @@ public class BDStatCore {
 
     public void onErised(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, str2, str3) == null) || this.f36875e.isSessionStart()) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, str2, str3) == null) || this.f35278e.isSessionStart()) {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, context, System.currentTimeMillis(), str2, str3) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.15
+        this.f35275b.post(new Runnable(this, context, System.currentTimeMillis(), str2, str3) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.15
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f36908b;
+            public final /* synthetic */ long f35311b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36909c;
+            public final /* synthetic */ String f35312c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f36910d;
+            public final /* synthetic */ String f35313d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36911e;
+            public final /* synthetic */ BDStatCore f35314e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -417,11 +417,11 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36911e = this;
+                this.f35314e = this;
                 this.a = context;
-                this.f36908b = r8;
-                this.f36909c = str2;
-                this.f36910d = str3;
+                this.f35311b = r8;
+                this.f35312c = str2;
+                this.f35313d = str3;
             }
 
             @Override // java.lang.Runnable
@@ -429,16 +429,16 @@ public class BDStatCore {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     DataCore.instance().init(this.a);
-                    EventAnalysis eventAnalysis = this.f36911e.f36876f;
+                    EventAnalysis eventAnalysis = this.f35314e.f35279f;
                     Context context2 = this.a;
-                    long j2 = this.f36908b;
-                    eventAnalysis.onEvent(context2, j2, this.f36909c, this.f36910d, 1, j2, null, null, false);
-                    DataCore.instance().saveLogData(this.a, true, false, this.f36908b, false);
-                    if (this.f36908b - this.f36911e.f36878h <= 30000 || !w.h(this.a)) {
+                    long j2 = this.f35311b;
+                    eventAnalysis.onEvent(context2, j2, this.f35312c, this.f35313d, 1, j2, null, null, false);
+                    DataCore.instance().saveLogData(this.a, true, false, this.f35311b, false);
+                    if (this.f35311b - this.f35314e.f35281h <= 30000 || !w.h(this.a)) {
                         return;
                     }
                     LogSender.instance().onSend(this.a);
-                    this.f36911e.f36878h = this.f36908b;
+                    this.f35314e.f35281h = this.f35311b;
                 }
             }
         });
@@ -472,25 +472,25 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.10
+        this.f35275b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.10
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36882b;
+            public final /* synthetic */ Context f35285b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ long f36883c;
+            public final /* synthetic */ long f35286c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ boolean f36884d;
+            public final /* synthetic */ boolean f35287d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f36885e;
+            public final /* synthetic */ String f35288e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36886f;
+            public final /* synthetic */ BDStatCore f35289f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -507,12 +507,12 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36886f = this;
+                this.f35289f = this;
                 this.a = str2;
-                this.f36882b = context;
-                this.f36883c = r9;
-                this.f36884d = z;
-                this.f36885e = str;
+                this.f35285b = context;
+                this.f35286c = r9;
+                this.f35287d = z;
+                this.f35288e = str;
             }
 
             @Override // java.lang.Runnable
@@ -523,9 +523,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "";
                     }
-                    this.f36886f.f36875e.onSessionStart(this.f36882b, this.f36883c, this.f36884d);
-                    h.c().a("Start event" + this.f36886f.a(this.f36885e, str3, 1, -1L, null, null));
-                    this.f36886f.f36876f.onEventStart(this.f36882b, this.f36885e, str3, this.f36883c);
+                    this.f35289f.f35278e.onSessionStart(this.f35285b, this.f35286c, this.f35287d);
+                    h.c().a("Start event" + this.f35289f.a(this.f35288e, str3, 1, -1L, null, null));
+                    this.f35289f.f35279f.onEventStart(this.f35285b, this.f35288e, str3, this.f35286c);
                 }
             }
         });
@@ -545,22 +545,22 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, str, context, a(), System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.20
+        this.f35275b.post(new Runnable(this, str, context, a(), System.currentTimeMillis()) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.20
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36921b;
+            public final /* synthetic */ Context f35324b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ int f36922c;
+            public final /* synthetic */ int f35325c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ long f36923d;
+            public final /* synthetic */ long f35326d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36924e;
+            public final /* synthetic */ BDStatCore f35327e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -577,11 +577,11 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36924e = this;
+                this.f35327e = this;
                 this.a = str;
-                this.f36921b = context;
-                this.f36922c = r9;
-                this.f36923d = r10;
+                this.f35324b = context;
+                this.f35325c = r9;
+                this.f35326d = r10;
             }
 
             @Override // java.lang.Runnable
@@ -590,7 +590,7 @@ public class BDStatCore {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     h c2 = h.c();
                     c2.a("Start page view " + this.a);
-                    this.f36924e.f36875e.onPageStart(this.f36921b, this.a, this.f36922c, this.f36923d);
+                    this.f35327e.f35278e.onPageStart(this.f35324b, this.a, this.f35325c, this.f35326d);
                 }
             }
         });
@@ -603,22 +603,22 @@ public class BDStatCore {
             return;
         }
         init(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(activity), z, applicationContext, extraInfo) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.4
+        this.f35275b.post(new Runnable(this, new WeakReference(activity), z, applicationContext, extraInfo) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f36936b;
+            public final /* synthetic */ boolean f35339b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f36937c;
+            public final /* synthetic */ Context f35340c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ExtraInfo f36938d;
+            public final /* synthetic */ ExtraInfo f35341d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36939e;
+            public final /* synthetic */ BDStatCore f35342e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -635,11 +635,11 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36939e = this;
+                this.f35342e = this;
                 this.a = r7;
-                this.f36936b = z;
-                this.f36937c = applicationContext;
-                this.f36938d = extraInfo;
+                this.f35339b = z;
+                this.f35340c = applicationContext;
+                this.f35341d = extraInfo;
             }
 
             @Override // java.lang.Runnable
@@ -654,11 +654,11 @@ public class BDStatCore {
                 String simpleName = activity2.getClass().getSimpleName();
                 CharSequence title = activity2.getTitle();
                 String charSequence = title == null ? "" : title.toString();
-                if (!this.f36936b) {
+                if (!this.f35339b) {
                     h c2 = h.c();
                     c2.a("End page view " + cls.getSimpleName());
                 }
-                this.f36939e.f36875e.onPageEndAct(this.f36937c, name, simpleName, charSequence, System.currentTimeMillis(), this.f36936b, this.f36938d);
+                this.f35342e.f35278e.onPageEndAct(this.f35340c, name, simpleName, charSequence, System.currentTimeMillis(), this.f35339b, this.f35341d);
             }
         });
     }
@@ -671,19 +671,19 @@ public class BDStatCore {
         }
         init(applicationContext);
         b(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(activity), z, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.22
+        this.f35275b.post(new Runnable(this, new WeakReference(activity), z, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.22
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f36931b;
+            public final /* synthetic */ boolean f35334b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f36932c;
+            public final /* synthetic */ Context f35335c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36933d;
+            public final /* synthetic */ BDStatCore f35336d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -700,10 +700,10 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36933d = this;
+                this.f35336d = this;
                 this.a = r7;
-                this.f36931b = z;
-                this.f36932c = applicationContext;
+                this.f35334b = z;
+                this.f35335c = applicationContext;
             }
 
             @Override // java.lang.Runnable
@@ -716,11 +716,11 @@ public class BDStatCore {
                 }
                 String name = activity2.getClass().getName();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (!this.f36931b) {
+                if (!this.f35334b) {
                     h c2 = h.c();
                     c2.a("Start page view " + cls.getSimpleName());
                 }
-                this.f36933d.f36875e.onPageStartAct(this.f36932c, name, currentTimeMillis, this.f36931b);
+                this.f35336d.f35278e.onPageStartAct(this.f35335c, name, currentTimeMillis, this.f35334b);
             }
         });
     }
@@ -732,19 +732,19 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, context, System.currentTimeMillis(), z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.12
+        this.f35275b.post(new Runnable(this, context, System.currentTimeMillis(), z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.12
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f36894b;
+            public final /* synthetic */ long f35297b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ boolean f36895c;
+            public final /* synthetic */ boolean f35298c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36896d;
+            public final /* synthetic */ BDStatCore f35299d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -761,17 +761,17 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36896d = this;
+                this.f35299d = this;
                 this.a = context;
-                this.f36894b = r8;
-                this.f36895c = z;
+                this.f35297b = r8;
+                this.f35298c = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36896d.f36875e.onSessionStart(this.a, this.f36894b, this.f36895c);
+                    this.f35299d.f35278e.onSessionStart(this.a, this.f35297b, this.f35298c);
                 }
             }
         });
@@ -779,19 +779,19 @@ public class BDStatCore {
 
     public void onStat(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048606, this, context, str) == null) || this.f36875e.isSessionStart()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048606, this, context, str) == null) || this.f35278e.isSessionStart()) {
             return;
         }
-        this.f36872b.post(new Runnable(this, context, str) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.14
+        this.f35275b.post(new Runnable(this, context, str) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.14
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f36906b;
+            public final /* synthetic */ String f35309b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36907c;
+            public final /* synthetic */ BDStatCore f35310c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -808,16 +808,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36907c = this;
+                this.f35310c = this;
                 this.a = context;
-                this.f36906b = str;
+                this.f35309b = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    LogSender.instance().sendEmptyLogData(this.a, this.f36906b);
+                    LogSender.instance().sendEmptyLogData(this.a, this.f35309b);
                 }
             }
         });
@@ -828,7 +828,7 @@ public class BDStatCore {
         if (!(interceptable == null || interceptable.invokeLZ(1048607, this, context, z) == null) || context == null) {
             return;
         }
-        this.f36874d = z;
+        this.f35277d = z;
         init(context);
         b(context);
     }
@@ -840,13 +840,13 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36875e.setAutoSend(z);
+        this.f35278e.setAutoSend(z);
     }
 
     public void setSessionTimeOut(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.f36875e.setSessionTimeOut(i2);
+            this.f35278e.setSessionTimeOut(i2);
         }
     }
 
@@ -878,37 +878,37 @@ public class BDStatCore {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str, i2, map, extraInfo, z2) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.7
+        this.f35275b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str, i2, map, extraInfo, z2) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36948b;
+            public final /* synthetic */ Context f35351b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ long f36949c;
+            public final /* synthetic */ long f35352c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ boolean f36950d;
+            public final /* synthetic */ boolean f35353d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f36951e;
+            public final /* synthetic */ String f35354e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f36952f;
+            public final /* synthetic */ int f35355f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Map f36953g;
+            public final /* synthetic */ Map f35356g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ ExtraInfo f36954h;
+            public final /* synthetic */ ExtraInfo f35357h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ boolean f36955i;
+            public final /* synthetic */ boolean f35358i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36956j;
+            public final /* synthetic */ BDStatCore f35359j;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -925,16 +925,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36956j = this;
+                this.f35359j = this;
                 this.a = str2;
-                this.f36948b = context;
-                this.f36949c = r10;
-                this.f36950d = z;
-                this.f36951e = str;
-                this.f36952f = i2;
-                this.f36953g = map;
-                this.f36954h = extraInfo;
-                this.f36955i = z2;
+                this.f35351b = context;
+                this.f35352c = r10;
+                this.f35353d = z;
+                this.f35354e = str;
+                this.f35355f = i2;
+                this.f35356g = map;
+                this.f35357h = extraInfo;
+                this.f35358i = z2;
             }
 
             @Override // java.lang.Runnable
@@ -945,9 +945,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "";
                     }
-                    this.f36956j.f36875e.onSessionStart(this.f36948b, this.f36949c, this.f36950d);
-                    h.c().a("Put event" + this.f36956j.a(this.f36951e, str3, this.f36952f, 0L, this.f36953g, this.f36954h));
-                    this.f36956j.f36876f.onEvent(this.f36948b, this.f36956j.f36875e.getSessionStartTime(), this.f36951e, str3, this.f36952f, this.f36949c, this.f36954h, this.f36953g, this.f36955i);
+                    this.f35359j.f35278e.onSessionStart(this.f35351b, this.f35352c, this.f35353d);
+                    h.c().a("Put event" + this.f35359j.a(this.f35354e, str3, this.f35355f, 0L, this.f35356g, this.f35357h));
+                    this.f35359j.f35279f.onEvent(this.f35351b, this.f35359j.f35278e.getSessionStartTime(), this.f35354e, str3, this.f35355f, this.f35352c, this.f35357h, this.f35356g, this.f35358i);
                 }
             }
         });
@@ -960,37 +960,37 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str, j2, map, extraInfo, z2) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.13
+        this.f35275b.post(new Runnable(this, str2, context, System.currentTimeMillis(), z, str, j2, map, extraInfo, z2) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.13
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36897b;
+            public final /* synthetic */ Context f35300b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ long f36898c;
+            public final /* synthetic */ long f35301c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ boolean f36899d;
+            public final /* synthetic */ boolean f35302d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f36900e;
+            public final /* synthetic */ String f35303e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f36901f;
+            public final /* synthetic */ long f35304f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Map f36902g;
+            public final /* synthetic */ Map f35305g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ ExtraInfo f36903h;
+            public final /* synthetic */ ExtraInfo f35306h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ boolean f36904i;
+            public final /* synthetic */ boolean f35307i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36905j;
+            public final /* synthetic */ BDStatCore f35308j;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1007,16 +1007,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36905j = this;
+                this.f35308j = this;
                 this.a = str2;
-                this.f36897b = context;
-                this.f36898c = r10;
-                this.f36899d = z;
-                this.f36900e = str;
-                this.f36901f = j2;
-                this.f36902g = map;
-                this.f36903h = extraInfo;
-                this.f36904i = z2;
+                this.f35300b = context;
+                this.f35301c = r10;
+                this.f35302d = z;
+                this.f35303e = str;
+                this.f35304f = j2;
+                this.f35305g = map;
+                this.f35306h = extraInfo;
+                this.f35307i = z2;
             }
 
             @Override // java.lang.Runnable
@@ -1027,9 +1027,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "";
                     }
-                    this.f36905j.f36875e.onSessionStart(this.f36897b, this.f36898c, this.f36899d);
-                    h.c().a("Put event" + this.f36905j.a(this.f36900e, str3, 1, this.f36901f, this.f36902g, this.f36903h));
-                    this.f36905j.f36876f.onEventDuration(this.f36897b, this.f36905j.f36875e.getSessionStartTime(), this.f36900e, str3, this.f36898c, this.f36901f, this.f36903h, this.f36902g, this.f36904i);
+                    this.f35308j.f35278e.onSessionStart(this.f35300b, this.f35301c, this.f35302d);
+                    h.c().a("Put event" + this.f35308j.a(this.f35303e, str3, 1, this.f35304f, this.f35305g, this.f35306h));
+                    this.f35308j.f35279f.onEventDuration(this.f35300b, this.f35308j.f35278e.getSessionStartTime(), this.f35303e, str3, this.f35301c, this.f35304f, this.f35306h, this.f35305g, this.f35307i);
                 }
             }
         });
@@ -1041,31 +1041,31 @@ public class BDStatCore {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, str2, str, map, extraInfo, context, System.currentTimeMillis(), z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.11
+        this.f35275b.post(new Runnable(this, str2, str, map, extraInfo, context, System.currentTimeMillis(), z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.11
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f36887b;
+            public final /* synthetic */ String f35290b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Map f36888c;
+            public final /* synthetic */ Map f35291c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ExtraInfo f36889d;
+            public final /* synthetic */ ExtraInfo f35292d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f36890e;
+            public final /* synthetic */ Context f35293e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f36891f;
+            public final /* synthetic */ long f35294f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ boolean f36892g;
+            public final /* synthetic */ boolean f35295g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36893h;
+            public final /* synthetic */ BDStatCore f35296h;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1082,14 +1082,14 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36893h = this;
+                this.f35296h = this;
                 this.a = str2;
-                this.f36887b = str;
-                this.f36888c = map;
-                this.f36889d = extraInfo;
-                this.f36890e = context;
-                this.f36891f = r12;
-                this.f36892g = z;
+                this.f35290b = str;
+                this.f35291c = map;
+                this.f35292d = extraInfo;
+                this.f35293e = context;
+                this.f35294f = r12;
+                this.f35295g = z;
             }
 
             @Override // java.lang.Runnable
@@ -1100,9 +1100,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "";
                     }
-                    long sessionStartTime = this.f36893h.f36875e.getSessionStartTime();
-                    h.c().a("End event" + this.f36893h.a(this.f36887b, str3, 1, -1L, this.f36888c, this.f36889d));
-                    this.f36893h.f36876f.onEventEnd(this.f36890e, sessionStartTime, this.f36887b, str3, this.f36891f, this.f36889d, this.f36888c, this.f36892g);
+                    long sessionStartTime = this.f35296h.f35278e.getSessionStartTime();
+                    h.c().a("End event" + this.f35296h.a(this.f35290b, str3, 1, -1L, this.f35291c, this.f35292d));
+                    this.f35296h.f35279f.onEventEnd(this.f35293e, sessionStartTime, this.f35290b, str3, this.f35294f, this.f35292d, this.f35291c, this.f35295g);
                 }
             }
         });
@@ -1114,28 +1114,28 @@ public class BDStatCore {
             return;
         }
         init(context);
-        this.f36872b.post(new Runnable(this, str, context, b(), System.currentTimeMillis(), extraInfo, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.21
+        this.f35275b.post(new Runnable(this, str, context, b(), System.currentTimeMillis(), extraInfo, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.21
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36925b;
+            public final /* synthetic */ Context f35328b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36926c;
+            public final /* synthetic */ String f35329c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ long f36927d;
+            public final /* synthetic */ long f35330d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ExtraInfo f36928e;
+            public final /* synthetic */ ExtraInfo f35331e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ boolean f36929f;
+            public final /* synthetic */ boolean f35332f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36930g;
+            public final /* synthetic */ BDStatCore f35333g;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1152,13 +1152,13 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36930g = this;
+                this.f35333g = this;
                 this.a = str;
-                this.f36925b = context;
-                this.f36926c = r9;
-                this.f36927d = r10;
-                this.f36928e = extraInfo;
-                this.f36929f = z;
+                this.f35328b = context;
+                this.f35329c = r9;
+                this.f35330d = r10;
+                this.f35331e = extraInfo;
+                this.f35332f = z;
             }
 
             @Override // java.lang.Runnable
@@ -1167,10 +1167,10 @@ public class BDStatCore {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     h c2 = h.c();
                     c2.a("End page view " + this.a);
-                    SessionAnalysis sessionAnalysis = this.f36930g.f36875e;
-                    Context context2 = this.f36925b;
+                    SessionAnalysis sessionAnalysis = this.f35333g.f35278e;
+                    Context context2 = this.f35328b;
                     String str2 = this.a;
-                    sessionAnalysis.onPageEnd(context2, str2, str2, this.f36926c, this.f36927d, this.f36928e, this.f36929f);
+                    sessionAnalysis.onPageEnd(context2, str2, str2, this.f35329c, this.f35330d, this.f35331e, this.f35332f);
                 }
             }
         });
@@ -1228,37 +1228,37 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, str2, context, System.currentTimeMillis(), str, i2, str3, str4, i3, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.8
+        this.f35275b.post(new Runnable(this, str2, context, System.currentTimeMillis(), str, i2, str3, str4, i3, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36957b;
+            public final /* synthetic */ Context f35360b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ long f36958c;
+            public final /* synthetic */ long f35361c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f36959d;
+            public final /* synthetic */ String f35362d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f36960e;
+            public final /* synthetic */ int f35363e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f36961f;
+            public final /* synthetic */ String f35364f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f36962g;
+            public final /* synthetic */ String f35365g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ int f36963h;
+            public final /* synthetic */ int f35366h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ boolean f36964i;
+            public final /* synthetic */ boolean f35367i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36965j;
+            public final /* synthetic */ BDStatCore f35368j;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1275,16 +1275,16 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36965j = this;
+                this.f35368j = this;
                 this.a = str2;
-                this.f36957b = context;
-                this.f36958c = r10;
-                this.f36959d = str;
-                this.f36960e = i2;
-                this.f36961f = str3;
-                this.f36962g = str4;
-                this.f36963h = i3;
-                this.f36964i = z;
+                this.f35360b = context;
+                this.f35361c = r10;
+                this.f35362d = str;
+                this.f35363e = i2;
+                this.f35364f = str3;
+                this.f35365g = str4;
+                this.f35366h = i3;
+                this.f35367i = z;
             }
 
             @Override // java.lang.Runnable
@@ -1295,9 +1295,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str5)) {
                         str5 = "";
                     }
-                    this.f36965j.f36875e.onSessionStart(this.f36957b, this.f36958c, false);
-                    h.c().a("Put event" + this.f36965j.a(this.f36959d, str5, this.f36960e, 0L, null, null));
-                    this.f36965j.f36876f.onEvent(this.f36957b, this.f36965j.f36875e.getSessionStartTime(), this.f36959d, str5, this.f36960e, this.f36958c, this.f36961f, this.f36962g, this.f36963h, this.f36964i);
+                    this.f35368j.f35278e.onSessionStart(this.f35360b, this.f35361c, false);
+                    h.c().a("Put event" + this.f35368j.a(this.f35362d, str5, this.f35363e, 0L, null, null));
+                    this.f35368j.f35279f.onEvent(this.f35360b, this.f35368j.f35278e.getSessionStartTime(), this.f35362d, str5, this.f35363e, this.f35361c, this.f35364f, this.f35365g, this.f35366h, this.f35367i);
                 }
             }
         });
@@ -1311,22 +1311,22 @@ public class BDStatCore {
             return;
         }
         init(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(fragment), fragment, activity, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.5
+        this.f35275b.post(new Runnable(this, new WeakReference(fragment), fragment, activity, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Fragment f36940b;
+            public final /* synthetic */ Fragment f35343b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Activity f36941c;
+            public final /* synthetic */ Activity f35344c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Context f36942d;
+            public final /* synthetic */ Context f35345d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36943e;
+            public final /* synthetic */ BDStatCore f35346e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1343,11 +1343,11 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36943e = this;
+                this.f35346e = this;
                 this.a = r7;
-                this.f36940b = fragment;
-                this.f36941c = activity;
-                this.f36942d = applicationContext;
+                this.f35343b = fragment;
+                this.f35344c = activity;
+                this.f35345d = applicationContext;
             }
 
             @Override // java.lang.Runnable
@@ -1357,13 +1357,13 @@ public class BDStatCore {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fragment2 = (Fragment) this.a.get()) == null || fragment2.getClass() == null) {
                     return;
                 }
-                String name = this.f36940b.getClass().getName();
-                String simpleName = this.f36940b.getClass().getSimpleName();
-                CharSequence title = this.f36941c.getTitle();
+                String name = this.f35343b.getClass().getName();
+                String simpleName = this.f35343b.getClass().getSimpleName();
+                CharSequence title = this.f35344c.getTitle();
                 String charSequence = title == null ? "" : title.toString();
                 h c2 = h.c();
                 c2.a("End page view " + simpleName);
-                this.f36943e.f36875e.onPageEndFrag(this.f36942d, name, simpleName, charSequence, System.currentTimeMillis());
+                this.f35346e.f35278e.onPageEndFrag(this.f35345d, name, simpleName, charSequence, System.currentTimeMillis());
             }
         });
     }
@@ -1377,16 +1377,16 @@ public class BDStatCore {
         }
         init(applicationContext);
         b(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(fragment), applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.2
+        this.f35275b.post(new Runnable(this, new WeakReference(fragment), applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36919b;
+            public final /* synthetic */ Context f35322b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36920c;
+            public final /* synthetic */ BDStatCore f35323c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1403,9 +1403,9 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36920c = this;
+                this.f35323c = this;
                 this.a = r7;
-                this.f36919b = applicationContext;
+                this.f35322b = applicationContext;
             }
 
             @Override // java.lang.Runnable
@@ -1420,7 +1420,7 @@ public class BDStatCore {
                 long currentTimeMillis = System.currentTimeMillis();
                 h c2 = h.c();
                 c2.a("Start page view " + cls.getSimpleName());
-                this.f36920c.f36875e.onPageStartFrag(this.f36919b, name, currentTimeMillis);
+                this.f35323c.f35278e.onPageStartFrag(this.f35322b, name, currentTimeMillis);
             }
         });
     }
@@ -1439,37 +1439,37 @@ public class BDStatCore {
         }
         init(context);
         b(context);
-        this.f36872b.post(new Runnable(this, str2, context, j2, str, i2, map, jSONArray, jSONArray2, str3, str4, str5, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.9
+        this.f35275b.post(new Runnable(this, str2, context, j2, str, i2, map, jSONArray, jSONArray2, str3, str4, str5, z) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36966b;
+            public final /* synthetic */ Context f35369b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ long f36967c;
+            public final /* synthetic */ long f35370c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f36968d;
+            public final /* synthetic */ String f35371d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f36969e;
+            public final /* synthetic */ int f35372e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Map f36970f;
+            public final /* synthetic */ Map f35373f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ JSONArray f36971g;
+            public final /* synthetic */ JSONArray f35374g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ JSONArray f36972h;
+            public final /* synthetic */ JSONArray f35375h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ String f36973i;
+            public final /* synthetic */ String f35376i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ String f36974j;
+            public final /* synthetic */ String f35377j;
             public final /* synthetic */ String k;
             public final /* synthetic */ boolean l;
             public final /* synthetic */ BDStatCore m;
@@ -1491,15 +1491,15 @@ public class BDStatCore {
                 }
                 this.m = this;
                 this.a = str2;
-                this.f36966b = context;
-                this.f36967c = j2;
-                this.f36968d = str;
-                this.f36969e = i2;
-                this.f36970f = map;
-                this.f36971g = jSONArray;
-                this.f36972h = jSONArray2;
-                this.f36973i = str3;
-                this.f36974j = str4;
+                this.f35369b = context;
+                this.f35370c = j2;
+                this.f35371d = str;
+                this.f35372e = i2;
+                this.f35373f = map;
+                this.f35374g = jSONArray;
+                this.f35375h = jSONArray2;
+                this.f35376i = str3;
+                this.f35377j = str4;
                 this.k = str5;
                 this.l = z;
             }
@@ -1512,9 +1512,9 @@ public class BDStatCore {
                     if (TextUtils.isEmpty(str6)) {
                         str6 = "";
                     }
-                    this.m.f36875e.onSessionStart(this.f36966b, this.f36967c, false);
-                    h.c().a("Put event" + this.m.a(this.f36968d, str6, this.f36969e, 0L, this.f36970f, null));
-                    this.m.f36876f.onEvent(this.f36966b, this.m.f36875e.getSessionStartTime(), this.f36968d, str6, this.f36969e, this.f36967c, this.f36971g, this.f36972h, this.f36973i, this.f36974j, this.k, this.f36970f, this.l);
+                    this.m.f35278e.onSessionStart(this.f35369b, this.f35370c, false);
+                    h.c().a("Put event" + this.m.a(this.f35371d, str6, this.f35372e, 0L, this.f35373f, null));
+                    this.m.f35279f.onEvent(this.f35369b, this.m.f35278e.getSessionStartTime(), this.f35371d, str6, this.f35372e, this.f35370c, this.f35374g, this.f35375h, this.f35376i, this.f35377j, this.k, this.f35373f, this.l);
                 }
             }
         });
@@ -1529,22 +1529,22 @@ public class BDStatCore {
             return;
         }
         init(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(fragment), fragment, activity, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.6
+        this.f35275b.post(new Runnable(this, new WeakReference(fragment), fragment, activity, applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ android.app.Fragment f36944b;
+            public final /* synthetic */ android.app.Fragment f35347b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Activity f36945c;
+            public final /* synthetic */ Activity f35348c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Context f36946d;
+            public final /* synthetic */ Context f35349d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36947e;
+            public final /* synthetic */ BDStatCore f35350e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1561,11 +1561,11 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36947e = this;
+                this.f35350e = this;
                 this.a = r7;
-                this.f36944b = fragment;
-                this.f36945c = activity;
-                this.f36946d = applicationContext;
+                this.f35347b = fragment;
+                this.f35348c = activity;
+                this.f35349d = applicationContext;
             }
 
             @Override // java.lang.Runnable
@@ -1575,13 +1575,13 @@ public class BDStatCore {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fragment2 = (android.app.Fragment) this.a.get()) == null || fragment2.getClass() == null) {
                     return;
                 }
-                String name = this.f36944b.getClass().getName();
-                String simpleName = this.f36944b.getClass().getSimpleName();
-                CharSequence title = this.f36945c.getTitle();
+                String name = this.f35347b.getClass().getName();
+                String simpleName = this.f35347b.getClass().getSimpleName();
+                CharSequence title = this.f35348c.getTitle();
                 String charSequence = title == null ? "" : title.toString();
                 h c2 = h.c();
                 c2.a("End page view " + simpleName);
-                this.f36947e.f36875e.onPageEndFrag(this.f36946d, name, simpleName, charSequence, System.currentTimeMillis());
+                this.f35350e.f35278e.onPageEndFrag(this.f35349d, name, simpleName, charSequence, System.currentTimeMillis());
             }
         });
     }
@@ -1596,16 +1596,16 @@ public class BDStatCore {
         }
         init(applicationContext);
         b(applicationContext);
-        this.f36872b.post(new Runnable(this, new WeakReference(fragment), applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.3
+        this.f35275b.post(new Runnable(this, new WeakReference(fragment), applicationContext) { // from class: com.baidu.mobstat.dxmpay.BDStatCore.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WeakReference a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f36934b;
+            public final /* synthetic */ Context f35337b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BDStatCore f36935c;
+            public final /* synthetic */ BDStatCore f35338c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1622,9 +1622,9 @@ public class BDStatCore {
                         return;
                     }
                 }
-                this.f36935c = this;
+                this.f35338c = this;
                 this.a = r7;
-                this.f36934b = applicationContext;
+                this.f35337b = applicationContext;
             }
 
             @Override // java.lang.Runnable
@@ -1639,7 +1639,7 @@ public class BDStatCore {
                 long currentTimeMillis = System.currentTimeMillis();
                 h c2 = h.c();
                 c2.a("Start page view " + cls.getSimpleName());
-                this.f36935c.f36875e.onPageStartFrag(this.f36934b, name, currentTimeMillis);
+                this.f35338c.f35278e.onPageStartFrag(this.f35337b, name, currentTimeMillis);
             }
         });
     }

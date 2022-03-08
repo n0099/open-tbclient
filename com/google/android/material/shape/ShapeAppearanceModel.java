@@ -13,6 +13,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ShapeAppearanceModel {
     public static /* synthetic */ Interceptable $ic;
     public static final CornerSize PILL;
@@ -40,13 +40,13 @@ public class ShapeAppearanceModel {
     public CornerSize topRightCornerSize;
 
     /* renamed from: com.google.android.material.shape.ShapeAppearanceModel$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public class ShapeAppearanceModel {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
@@ -674,9 +674,9 @@ public class ShapeAppearanceModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3), cornerSize})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialShape, i2, i3);
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearance, 0);
-            int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.MaterialShape_shapeAppearanceOverlay, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay}, i2, i3);
+            int resourceId = obtainStyledAttributes.getResourceId(0, 0);
+            int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();
             return builder(context, resourceId, resourceId2, cornerSize);
         }
@@ -707,16 +707,16 @@ public class ShapeAppearanceModel {
                 i2 = i3;
                 context = contextThemeWrapper;
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, R.styleable.ShapeAppearance);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, new int[]{R.attr.cornerFamily, R.attr.cornerFamilyBottomLeft, R.attr.cornerFamilyBottomRight, R.attr.cornerFamilyTopLeft, R.attr.cornerFamilyTopRight, R.attr.cornerSize, R.attr.cornerSizeBottomLeft, R.attr.cornerSizeBottomRight, R.attr.cornerSizeTopLeft, R.attr.cornerSizeTopRight});
             try {
-                int i4 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamily, 0);
-                int i5 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopLeft, i4);
-                int i6 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyTopRight, i4);
-                int i7 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomRight, i4);
-                int i8 = obtainStyledAttributes.getInt(R.styleable.ShapeAppearance_cornerFamilyBottomLeft, i4);
-                CornerSize cornerSize2 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSize, cornerSize);
-                CornerSize cornerSize3 = getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopLeft, cornerSize2);
-                return new Builder().setTopLeftCorner(i5, cornerSize3).setTopRightCorner(i6, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeTopRight, cornerSize2)).setBottomRightCorner(i7, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomRight, cornerSize2)).setBottomLeftCorner(i8, getCornerSize(obtainStyledAttributes, R.styleable.ShapeAppearance_cornerSizeBottomLeft, cornerSize2));
+                int i4 = obtainStyledAttributes.getInt(0, 0);
+                int i5 = obtainStyledAttributes.getInt(3, i4);
+                int i6 = obtainStyledAttributes.getInt(4, i4);
+                int i7 = obtainStyledAttributes.getInt(2, i4);
+                int i8 = obtainStyledAttributes.getInt(1, i4);
+                CornerSize cornerSize2 = getCornerSize(obtainStyledAttributes, 5, cornerSize);
+                CornerSize cornerSize3 = getCornerSize(obtainStyledAttributes, 8, cornerSize2);
+                return new Builder().setTopLeftCorner(i5, cornerSize3).setTopRightCorner(i6, getCornerSize(obtainStyledAttributes, 9, cornerSize2)).setBottomRightCorner(i7, getCornerSize(obtainStyledAttributes, 7, cornerSize2)).setBottomLeftCorner(i8, getCornerSize(obtainStyledAttributes, 6, cornerSize2));
             } finally {
                 obtainStyledAttributes.recycle();
             }

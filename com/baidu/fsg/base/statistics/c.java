@@ -4,25 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "dim_excep_time";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34010b = "dim_excep_cont";
+    public static final String f32413b = "dim_excep_cont";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34011c = "dim_excep_type";
+    public static final String f32414c = "dim_excep_type";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34012d = "dim_excep_line_way";
+    public static final String f32415d = "dim_excep_line_way";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34013e = "dim_excep_free_mem";
+    public static final String f32416e = "dim_excep_free_mem";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34014f = "dim_excep_total_mem";
+    public static final String f32417f = "dim_excep_total_mem";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

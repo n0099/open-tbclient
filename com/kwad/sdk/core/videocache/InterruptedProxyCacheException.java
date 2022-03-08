@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.videocache;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class InterruptedProxyCacheException extends ProxyCacheException {
     public InterruptedProxyCacheException(String str) {
         super(str);

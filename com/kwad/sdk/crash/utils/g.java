@@ -1,5 +1,6 @@
 package com.kwad.sdk.crash.utils;
 
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.FileFilter;
@@ -15,36 +16,36 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static final Charset a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f56776b = Charset.forName("UTF-8");
+    public static final Charset f55126b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f56777c;
+    public static final BigInteger f55127c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f56778d;
+    public static final BigInteger f55128d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f56779e;
+    public static final BigInteger f55129e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f56780f;
+    public static final BigInteger f55130f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f56781g;
+    public static final BigInteger f55131g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f56782h;
+    public static final BigInteger f55132h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f56783i;
+    public static final char f55133i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BigInteger f56784j;
+    public static final BigInteger f55134j;
     public static final BigInteger k;
     public static final File[] l;
     public static final String m;
@@ -53,24 +54,24 @@ public class g {
 
     static {
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f56777c = valueOf;
+        f55127c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f56778d = multiply;
-        BigInteger multiply2 = f56777c.multiply(multiply);
-        f56779e = multiply2;
-        BigInteger multiply3 = f56777c.multiply(multiply2);
-        f56780f = multiply3;
-        BigInteger multiply4 = f56777c.multiply(multiply3);
-        f56781g = multiply4;
-        f56782h = f56777c.multiply(multiply4);
+        f55128d = multiply;
+        BigInteger multiply2 = f55127c.multiply(multiply);
+        f55129e = multiply2;
+        BigInteger multiply3 = f55127c.multiply(multiply2);
+        f55130f = multiply3;
+        BigInteger multiply4 = f55127c.multiply(multiply3);
+        f55131g = multiply4;
+        f55132h = f55127c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
-        f56784j = multiply5;
-        k = f56777c.multiply(multiply5);
+        f55134j = multiply5;
+        k = f55127c.multiply(multiply5);
         l = new File[0];
         m = Character.toString('.');
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f56783i = a() ? '/' : FileUtil.WINDOWS_SEPARATOR;
+        f55133i = a() ? WebvttCueParser.CHAR_SLASH : FileUtil.WINDOWS_SEPARATOR;
     }
 
     public static FileInputStream a(File file) {

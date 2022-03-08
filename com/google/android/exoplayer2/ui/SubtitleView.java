@@ -9,45 +9,35 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.accessibility.CaptioningManager;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.e0.a;
-import c.i.b.a.e0.b;
-import c.i.b.a.e0.j;
-import c.i.b.a.g0.g;
-import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.CaptionStyleCompat;
+import com.google.android.exoplayer2.text.Cue;
+import com.google.android.exoplayer2.text.TextOutput;
+import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public final class SubtitleView extends View implements j {
+/* loaded from: classes7.dex */
+public final class SubtitleView extends View implements TextOutput {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ABSOLUTE = 2;
     public static final float DEFAULT_BOTTOM_PADDING_FRACTION = 0.08f;
     public static final float DEFAULT_TEXT_SIZE_FRACTION = 0.0533f;
+    public static final int FRACTIONAL = 0;
+    public static final int FRACTIONAL_IGNORE_PADDING = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final List<g> f54546e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<b> f54547f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f54548g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f54549h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f54550i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f54551j;
-    public a k;
-    public float l;
+    public boolean applyEmbeddedFontSizes;
+    public boolean applyEmbeddedStyles;
+    public float bottomPaddingFraction;
+    public List<Cue> cues;
+    public final List<SubtitlePainter> painters;
+    public CaptionStyleCompat style;
+    public float textSize;
+    public int textSizeType;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SubtitleView(Context context) {
@@ -78,20 +68,20 @@ public final class SubtitleView extends View implements j {
     }
 
     @TargetApi(19)
-    private a getUserCaptionStyleV19() {
+    private CaptionStyleCompat getUserCaptionStyleV19() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? a.a(((CaptioningManager) getContext().getSystemService("captioning")).getUserStyle()) : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? CaptionStyleCompat.createFromCaptionStyle(((CaptioningManager) getContext().getSystemService("captioning")).getUserStyle()) : (CaptionStyleCompat) invokeV.objValue;
     }
 
-    public final void a(int i2, float f2) {
+    private void setTextSize(int i2, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (this.f54548g == i2 && this.f54549h == f2) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+            if (this.textSizeType == i2 && this.textSize == f2) {
                 return;
             }
-            this.f54548g = i2;
-            this.f54549h = f2;
+            this.textSizeType = i2;
+            this.textSize = f2;
             invalidate();
         }
     }
@@ -100,8 +90,8 @@ public final class SubtitleView extends View implements j {
     public void dispatchDraw(Canvas canvas) {
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            List<b> list = this.f54547f;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            List<Cue> list = this.cues;
             int i2 = 0;
             int size = list == null ? 0 : list.size();
             int top = getTop();
@@ -113,11 +103,11 @@ public final class SubtitleView extends View implements j {
             if (paddingBottom <= paddingTop || right <= left) {
                 return;
             }
-            int i3 = this.f54548g;
+            int i3 = this.textSizeType;
             if (i3 == 2) {
-                f2 = this.f54549h;
+                f2 = this.textSize;
             } else {
-                f2 = (i3 == 0 ? paddingBottom - paddingTop : bottom - top) * this.f54549h;
+                f2 = (i3 == 0 ? paddingBottom - paddingTop : bottom - top) * this.textSize;
             }
             if (f2 <= 0.0f) {
                 return;
@@ -125,7 +115,7 @@ public final class SubtitleView extends View implements j {
             while (i2 < size) {
                 int i4 = paddingBottom;
                 int i5 = right;
-                this.f54546e.get(i2).b(this.f54547f.get(i2), this.f54550i, this.f54551j, this.k, f2, this.l, canvas, left, paddingTop, i5, i4);
+                this.painters.get(i2).draw(this.cues.get(i2), this.applyEmbeddedStyles, this.applyEmbeddedFontSizes, this.style, f2, this.bottomPaddingFraction, canvas, left, paddingTop, i5, i4);
                 i2++;
                 paddingBottom = i4;
                 right = i5;
@@ -133,53 +123,53 @@ public final class SubtitleView extends View implements j {
         }
     }
 
-    @Override // c.i.b.a.e0.j
-    public void onCues(List<b> list) {
+    @Override // com.google.android.exoplayer2.text.TextOutput
+    public void onCues(List<Cue> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             setCues(list);
         }
     }
 
     public void setApplyEmbeddedFontSizes(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.f54551j == z) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.applyEmbeddedFontSizes == z) {
             return;
         }
-        this.f54551j = z;
+        this.applyEmbeddedFontSizes = z;
         invalidate();
     }
 
     public void setApplyEmbeddedStyles(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (this.f54550i == z && this.f54551j == z) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.applyEmbeddedStyles == z && this.applyEmbeddedFontSizes == z) {
                 return;
             }
-            this.f54550i = z;
-            this.f54551j = z;
+            this.applyEmbeddedStyles = z;
+            this.applyEmbeddedFontSizes = z;
             invalidate();
         }
     }
 
     public void setBottomPaddingFraction(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048581, this, f2) == null) || this.l == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || this.bottomPaddingFraction == f2) {
             return;
         }
-        this.l = f2;
+        this.bottomPaddingFraction = f2;
         invalidate();
     }
 
-    public void setCues(List<b> list) {
+    public void setCues(List<Cue> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || this.f54547f == list) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || this.cues == list) {
             return;
         }
-        this.f54547f = list;
+        this.cues = list;
         int size = list == null ? 0 : list.size();
-        while (this.f54546e.size() < size) {
-            this.f54546e.add(new g(getContext()));
+        while (this.painters.size() < size) {
+            this.painters.add(new SubtitlePainter(getContext()));
         }
         invalidate();
     }
@@ -187,44 +177,44 @@ public final class SubtitleView extends View implements j {
     public void setFixedTextSize(int i2, float f2) {
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             Context context = getContext();
             if (context == null) {
                 resources = Resources.getSystem();
             } else {
                 resources = context.getResources();
             }
-            a(2, TypedValue.applyDimension(i2, f2, resources.getDisplayMetrics()));
+            setTextSize(2, TypedValue.applyDimension(i2, f2, resources.getDisplayMetrics()));
         }
     }
 
     public void setFractionalTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
             setFractionalTextSize(f2, false);
         }
     }
 
-    public void setStyle(a aVar) {
+    public void setStyle(CaptionStyleCompat captionStyleCompat) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || this.k == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, captionStyleCompat) == null) || this.style == captionStyleCompat) {
             return;
         }
-        this.k = aVar;
+        this.style = captionStyleCompat;
         invalidate();
     }
 
     public void setUserDefaultStyle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            setStyle((v.a < 19 || isInEditMode()) ? a.f29625g : getUserCaptionStyleV19());
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            setStyle((Util.SDK_INT < 19 || isInEditMode()) ? CaptionStyleCompat.DEFAULT : getUserCaptionStyleV19());
         }
     }
 
     public void setUserDefaultTextSize() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            setFractionalTextSize(((v.a < 19 || isInEditMode()) ? 1.0f : getUserCaptionFontScaleV19()) * 0.0533f);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            setFractionalTextSize(((Util.SDK_INT < 19 || isInEditMode()) ? 1.0f : getUserCaptionFontScaleV19()) * 0.0533f);
         }
     }
 
@@ -247,19 +237,19 @@ public final class SubtitleView extends View implements j {
                 return;
             }
         }
-        this.f54546e = new ArrayList();
-        this.f54548g = 0;
-        this.f54549h = 0.0533f;
-        this.f54550i = true;
-        this.f54551j = true;
-        this.k = a.f29625g;
-        this.l = 0.08f;
+        this.painters = new ArrayList();
+        this.textSizeType = 0;
+        this.textSize = 0.0533f;
+        this.applyEmbeddedStyles = true;
+        this.applyEmbeddedFontSizes = true;
+        this.style = CaptionStyleCompat.DEFAULT;
+        this.bottomPaddingFraction = 0.08f;
     }
 
     public void setFractionalTextSize(float f2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
-            a(z ? 1 : 0, f2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+            setTextSize(z ? 1 : 0, f2);
         }
     }
 }

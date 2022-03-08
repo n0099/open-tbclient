@@ -21,18 +21,18 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f53590c;
+    public static a f52009c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.b.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f53591b;
+    public final Context f52010b;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public class a {
                 return;
             }
         }
-        this.f53591b = context.getApplicationContext();
+        this.f52010b = context.getApplicationContext();
         this.a = com.cmic.sso.sdk.b.c.a.a();
     }
 
@@ -87,10 +87,10 @@ public class a {
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f53592b;
+                public final /* synthetic */ b f52011b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f53593c;
+                public final /* synthetic */ a f52012c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -107,16 +107,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f53593c = this;
+                    this.f52012c = this;
                     this.a = aVar;
-                    this.f53592b = bVar;
+                    this.f52011b = bVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.c.d
                 public void a(String str, String str2, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.f53593c.a(this.a, this.f53592b, str, str2, jSONObject);
+                        this.f52012c.a(this.a, this.f52011b, str, str2, jSONObject);
                     }
                 }
             });
@@ -127,14 +127,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f53590c == null) {
+            if (f52009c == null) {
                 synchronized (a.class) {
-                    if (f53590c == null) {
-                        f53590c = new a(context);
+                    if (f52009c == null) {
+                        f52009c = new a(context);
                     }
                 }
             }
-            return f53590c;
+            return f52009c;
         }
         return (a) invokeL.objValue;
     }
@@ -181,8 +181,8 @@ public class a {
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            String packageName = this.f53591b.getPackageName();
-            String a = com.cmic.sso.sdk.d.d.a(l.a(this.f53591b, packageName));
+            String packageName = this.f52010b.getPackageName();
+            String a = com.cmic.sso.sdk.d.d.a(l.a(this.f52010b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a);
         }
@@ -279,7 +279,7 @@ public class a {
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
                 if (jSONObject3 != null) {
-                    h.a(this.f53591b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    h.a(this.f52010b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;

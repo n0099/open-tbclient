@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,6 @@ import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeAdInflater;
 import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.channel.ks.R;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
@@ -34,15 +34,15 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.KsScene;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class m extends ReporterPidLoader<KsNativeAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f28586h;
+    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f28424h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements KsLoadManager.NativeAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,14 +90,14 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b extends t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final KsNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f28587b;
+        public final /* synthetic */ m f28425b;
 
         public b(m mVar, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                     return;
                 }
             }
-            this.f28587b = mVar;
+            this.f28425b = mVar;
             this.a = ksNativeAd;
         }
 
@@ -132,7 +132,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdClicked(View view, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
-                this.f28587b.f28586h.onAdClick(this.a);
+                this.f28425b.f28424h.onAdClick(this.a);
             }
         }
 
@@ -140,7 +140,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdShow(KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-                this.f28587b.f28586h.onAdShow(this.a);
+                this.f28425b.f28424h.onAdShow(this.a);
             }
         }
     }
@@ -164,15 +164,15 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                 return;
             }
         }
-        this.f28586h = new FunNativeAdListenerHelper<>(this);
+        this.f28424h = new FunNativeAdListenerHelper<>(this);
     }
 
     public final com.fun.module.ks.x a(Context context, KsNativeAd ksNativeAd) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, ksNativeAd)) == null) {
-            int i2 = R.layout.fun_ks_ad_native_single_img_h5_open_view;
             int materialType = ksNativeAd.getMaterialType();
+            int i2 = R.layout.fun_ks_ad_native_single_img_h5_open_view;
             if (materialType == 1) {
                 int interactionType = ksNativeAd.getInteractionType();
                 if (interactionType == 1) {
@@ -180,20 +180,17 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                 } else if (interactionType == 2) {
                     i2 = R.layout.fun_ks_ad_native_video_h5_open_view;
                 }
-            } else if (materialType == 2) {
-                int interactionType2 = ksNativeAd.getInteractionType();
-                if (interactionType2 == 1) {
-                    i2 = R.layout.fun_ks_ad_native_single_img_app_download_view;
-                } else if (interactionType2 == 2) {
-                    i2 = R.layout.fun_ks_ad_native_single_img_h5_open_view;
+            } else if (materialType != 2) {
+                if (materialType == 3) {
+                    int interactionType2 = ksNativeAd.getInteractionType();
+                    if (interactionType2 == 1) {
+                        i2 = R.layout.fun_ks_ad_native_group_img_app_download_view;
+                    } else if (interactionType2 == 2) {
+                        i2 = R.layout.fun_ks_ad_native_group_img_h5_open_view;
+                    }
                 }
-            } else if (materialType == 3) {
-                int interactionType3 = ksNativeAd.getInteractionType();
-                if (interactionType3 == 1) {
-                    i2 = R.layout.fun_ks_ad_native_group_img_app_download_view;
-                } else if (interactionType3 == 2) {
-                    i2 = R.layout.fun_ks_ad_native_group_img_h5_open_view;
-                }
+            } else if (ksNativeAd.getInteractionType() == 1) {
+                i2 = R.layout.fun_ks_ad_native_single_img_app_download_view;
             }
             com.fun.module.ks.x xVar = (com.fun.module.ks.x) LayoutInflater.from(context).inflate(i2, (ViewGroup) null, false);
             xVar.a(ksNativeAd);
@@ -216,14 +213,14 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || (ksNativeAd = (KsNativeAd) obj) == null) {
             return;
         }
-        this.f28586h.destroy(ksNativeAd);
+        this.f28424h.destroy(ksNativeAd);
     }
 
     /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/kwad/sdk/api/KsNativeAd;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lc/g/b0/d/m$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
     public void f(KsNativeAd ksNativeAd, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{ksNativeAd, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
-            this.f28586h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
+            this.f28424h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
             if (viewGroup instanceof FunNativeView) {
                 viewGroup = ((FunNativeView) viewGroup).getRoot();
             }

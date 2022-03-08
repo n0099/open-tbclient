@@ -1,5 +1,5 @@
 package com.qq.e.ads.nativ.express2;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface NativeExpressAD2CallbackExt {
     public static final int EVENT_CLOSE_OVERLAY = 305;
     public static final int EVENT_LEFT_APPLICATION = 303;

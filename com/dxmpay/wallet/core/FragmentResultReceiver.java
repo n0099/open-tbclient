@@ -5,13 +5,13 @@ import android.os.ResultReceiver;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FragmentResultReceiver extends ResultReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void onReceiveResult(int i2, Bundle bundle);
     }

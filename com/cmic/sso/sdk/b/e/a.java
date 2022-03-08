@@ -15,14 +15,14 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public X509Certificate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f53651b;
+    public SSLContext f52070b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class a {
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f53651b = sSLContext;
+            this.f52070b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -101,6 +101,6 @@ public class a {
     public SSLContext a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53651b : (SSLContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52070b : (SSLContext) invokeV.objValue;
     }
 }

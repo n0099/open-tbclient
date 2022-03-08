@@ -15,6 +15,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
@@ -32,7 +32,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
@@ -270,28 +270,28 @@ public class MaterialButtonHelper {
     public void loadFromAttributes(@NonNull TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, typedArray) == null) {
-            this.insetLeft = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetLeft, 0);
-            this.insetRight = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetRight, 0);
-            this.insetTop = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetTop, 0);
-            this.insetBottom = typedArray.getDimensionPixelOffset(R.styleable.MaterialButton_android_insetBottom, 0);
-            if (typedArray.hasValue(R.styleable.MaterialButton_cornerRadius)) {
-                int dimensionPixelSize = typedArray.getDimensionPixelSize(R.styleable.MaterialButton_cornerRadius, -1);
+            this.insetLeft = typedArray.getDimensionPixelOffset(1, 0);
+            this.insetRight = typedArray.getDimensionPixelOffset(2, 0);
+            this.insetTop = typedArray.getDimensionPixelOffset(3, 0);
+            this.insetBottom = typedArray.getDimensionPixelOffset(4, 0);
+            if (typedArray.hasValue(8)) {
+                int dimensionPixelSize = typedArray.getDimensionPixelSize(8, -1);
                 this.cornerRadius = dimensionPixelSize;
                 setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(dimensionPixelSize));
                 this.cornerRadiusSet = true;
             }
-            this.strokeWidth = typedArray.getDimensionPixelSize(R.styleable.MaterialButton_strokeWidth, 0);
-            this.backgroundTintMode = ViewUtils.parseTintMode(typedArray.getInt(R.styleable.MaterialButton_backgroundTintMode, -1), PorterDuff.Mode.SRC_IN);
-            this.backgroundTint = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, R.styleable.MaterialButton_backgroundTint);
-            this.strokeColor = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, R.styleable.MaterialButton_strokeColor);
-            this.rippleColor = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, R.styleable.MaterialButton_rippleColor);
-            this.checkable = typedArray.getBoolean(R.styleable.MaterialButton_android_checkable, false);
-            int dimensionPixelSize2 = typedArray.getDimensionPixelSize(R.styleable.MaterialButton_elevation, 0);
+            this.strokeWidth = typedArray.getDimensionPixelSize(20, 0);
+            this.backgroundTintMode = ViewUtils.parseTintMode(typedArray.getInt(7, -1), PorterDuff.Mode.SRC_IN);
+            this.backgroundTint = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, 6);
+            this.strokeColor = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, 19);
+            this.rippleColor = MaterialResources.getColorStateList(this.materialButton.getContext(), typedArray, 16);
+            this.checkable = typedArray.getBoolean(5, false);
+            int dimensionPixelSize2 = typedArray.getDimensionPixelSize(9, 0);
             int paddingStart = ViewCompat.getPaddingStart(this.materialButton);
             int paddingTop = this.materialButton.getPaddingTop();
             int paddingEnd = ViewCompat.getPaddingEnd(this.materialButton);
             int paddingBottom = this.materialButton.getPaddingBottom();
-            if (typedArray.hasValue(R.styleable.MaterialButton_android_background)) {
+            if (typedArray.hasValue(0)) {
                 setBackgroundOverwritten();
             } else {
                 this.materialButton.setInternalBackground(createBackground());

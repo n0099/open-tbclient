@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaiduLog";

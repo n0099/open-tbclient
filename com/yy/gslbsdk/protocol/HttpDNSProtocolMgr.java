@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -75,16 +75,16 @@ public class HttpDNSProtocolMgr {
                 if (str != null && resInfo != null) {
                     JSONObject jSONObject = new JSONObject(str);
                     resInfo.setStatus(translateErrCode(jSONObject.getInt("s")));
-                    resInfo.setUserIp(jSONObject.getString(x.o));
+                    resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f32814b);
+                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f31217b);
                     int i3 = 0;
                     while (i3 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         DnsInfo dnsInfo = new DnsInfo();
                         dnsInfo.setView(jSONObject.getString("v"));
-                        dnsInfo.setUip(jSONObject.getString(x.o));
+                        dnsInfo.setUip(jSONObject.getString("u"));
                         dnsInfo.setHost(jSONObject2.getString("name"));
                         dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
                         LinkedList<String> linkedList = new LinkedList<>();

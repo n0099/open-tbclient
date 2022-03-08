@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DeleteApkTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR;

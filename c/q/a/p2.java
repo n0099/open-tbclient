@@ -1,78 +1,212 @@
 package c.q.a;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.L;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.views.CircleProgressbar;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class p2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1646420875, "Lc/q/a/p2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1646420875, "Lc/q/a/p2;");
+    /* renamed from: b  reason: collision with root package name */
+    public v4 f29069b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Info f29070c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f29071d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List f29072e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d3 f29073f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c4 f29074g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f29075h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public z4 f29076i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f29077j;
+    public long k;
+    public float l;
+    public float m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public long v;
+    public int w;
+    public int x;
+    public long y;
+
+    public p2(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ThreadPoolExecutor(1, 5, 1L, TimeUnit.MINUTES, new LinkedBlockingQueue(30));
+        this.f29072e = Collections.synchronizedList(new ArrayList());
+        this.f29075h = 0L;
+        this.f29076i = new z1(this);
+        this.f29077j = false;
+        this.k = 0L;
+        this.a = context;
+        v4 v4Var = new v4(context, str, L.f59361f);
+        this.f29069b = v4Var;
+        v4Var.f29158g = this.f29076i;
+        this.f29074g = new c4(context);
     }
 
-    public static String a(Context context, String str, String str2, List list, i2 i2Var) {
-        InterceptResult invokeLLLLL;
+    public static /* synthetic */ void c(p2 p2Var, View view) {
+        if (p2Var.t <= 0 || p2Var.u <= 0) {
+            p2Var.u = view.getHeight();
+            p2Var.t = view.getWidth();
+        }
+    }
+
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, list, i2Var)) == null) {
-            AtomicInteger atomicInteger = new AtomicInteger(0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                f();
+                if (this.f29069b != null) {
+                    this.f29069b.b();
+                    this.f29069b = null;
+                }
+                if (this.f29073f != null) {
+                    this.f29073f = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void b(View view, PBMediaView pBMediaView, List list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pBMediaView, list) == null) || view == null || list == null || list.size() == 0 || !e()) {
+            return;
+        }
+        this.f29075h = 0L;
+        if (this.f29071d != null) {
+            f();
+        }
+        this.f29071d = view;
+        try {
+            m2 m2Var = new m2(this);
             Iterator it = list.iterator();
             while (it.hasNext()) {
-                String str3 = (String) it.next();
-                File file = new File(str2, String.valueOf(str3.hashCode()));
-                if (file.exists()) {
-                    if (file.length() == c2.b(context).a(str3)) {
-                        str = str.replace(str3, "file://" + file.getAbsolutePath());
-                        atomicInteger.addAndGet(1);
+                View view2 = (View) it.next();
+                if (view2 != null && !(view2 instanceof PBMediaView)) {
+                    if (!this.f29072e.contains(view2)) {
+                        this.f29072e.add(view2);
+                    }
+                    if (!(view2 instanceof CircleProgressbar)) {
+                        view2.setOnClickListener(m2Var);
+                        view2.setOnTouchListener(m2Var);
                     }
                 }
             }
-            if (i2Var != null) {
-                if (atomicInteger.get() <= 0) {
-                    i2Var.a(0);
-                } else if (atomicInteger.get() == list.size()) {
-                    i2Var.a(2);
-                } else {
-                    i2Var.a(1);
-                }
-            }
-            return str;
+        } catch (Exception unused) {
         }
-        return (String) invokeLLLLL.objValue;
+        if (pBMediaView != null) {
+            try {
+                if (pBMediaView.getHtmlWebView() != null) {
+                    e3 htmlWebView = pBMediaView.getHtmlWebView();
+                    htmlWebView.a(e() ? this.f29070c.getLoad() : "", this.f29070c);
+                    if (this.f29070c.isNat()) {
+                        htmlWebView.f28945c.setOnTouchListener(new i2(this));
+                    }
+                    htmlWebView.f28944b = new j2(this);
+                }
+            } catch (Exception unused2) {
+            }
+        }
+        t2 a = x2.a(this.a);
+        a.o(new b3(this.f29070c));
+        a.m();
+        if (this.f29070c != null) {
+            h2.m(this.a, this.f29070c.getId() + ":" + System.currentTimeMillis(), false);
+        }
+        new s0().a(view, this.f29070c, new f2(this, view));
     }
 
-    public static void b(Context context, String str, List list, f2 f2Var) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, list, f2Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Info info = this.f29070c;
+            return info != null && info.isEffective();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                a.execute(new z1(context, str, list, f2Var));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                for (View view : this.f29072e) {
+                    if (view != null) {
+                        view.setOnClickListener(null);
+                    }
+                }
+                this.f29072e.clear();
+                if (this.f29071d != null) {
+                    this.f29071d = null;
+                }
+            } catch (Exception unused) {
             }
         }
+    }
+
+    public HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("dx", Integer.valueOf(this.n));
+            hashMap.put("dy", Integer.valueOf(this.o));
+            hashMap.put("dts", Long.valueOf(this.v));
+            hashMap.put("ux", Integer.valueOf(this.w));
+            hashMap.put("uy", Integer.valueOf(this.x));
+            hashMap.put("uts", Long.valueOf(this.y));
+            r0.j(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

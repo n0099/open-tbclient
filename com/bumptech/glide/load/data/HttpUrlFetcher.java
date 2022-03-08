@@ -26,7 +26,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -42,7 +42,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }

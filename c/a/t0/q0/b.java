@@ -1,86 +1,70 @@
 package c.a.t0.q0;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import c.a.t0.b0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int FIX_MAX_COST = 5;
+import java.io.File;
+/* loaded from: classes3.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isSwitchOpen;
 
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(984618524, "Lc/a/t0/q0/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(984618524, "Lc/a/t0/q0/b;");
                 return;
             }
         }
-        this.isSwitchOpen = c.a.t0.s.j0.b.k().h("page_stay_duration_switch", false);
+        a = b0.m();
     }
 
-    private void updataSwitchStaus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || this.isSwitchOpen == z) {
-            return;
-        }
-        c.a.t0.s.j0.b.k().u("page_stay_duration_switch", true);
-        this.isSwitchOpen = z;
-    }
-
-    public boolean canStat(d dVar) {
+    public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            if (dVar == null || dVar.p()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                String str = "delete file:" + file;
+            }
+            if (file == null) {
                 return false;
             }
-            if (dVar.a) {
-                dVar.x(c.b(dVar.h(), 6));
-            } else {
-                int c2 = getMaxCost() > e.b().c() ? e.b().c() : getMaxCost();
-                if (c2 > 5) {
-                    c2 = 5;
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
                 }
-                dVar.x(c.b(dVar.h(), c2));
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public abstract int getMaxCost();
-
-    public abstract boolean isCurrentPageCanBeAddToSourceTrace();
-
-    public boolean isSwitchOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.isSwitchOpen;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                updataSwitchStaus(false);
-                return false;
-            } else if (!e.b().f()) {
-                updataSwitchStaus(false);
-                return false;
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (a) {
+                    String str2 = "a special file:" + file;
+                    return true;
+                } else {
+                    return true;
+                }
+            } else if (a) {
+                String str3 = "not found the file to delete:" + file;
+                return true;
             } else {
-                updataSwitchStaus(true);
                 return true;
             }
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

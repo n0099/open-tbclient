@@ -55,8 +55,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
@@ -105,7 +104,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55454c)) {
+        if (a(context, s.f53804c)) {
             return "";
         }
         if (context != null) {
@@ -151,7 +150,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55454c)) {
+        if (a(context, s.f53804c)) {
             return "";
         }
         if (context != null) {
@@ -221,7 +220,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
                 int streamVolume = audioManager.getStreamVolume(0);
                 int streamVolume2 = audioManager.getStreamVolume(1);
@@ -615,7 +614,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, s.f55455d)) {
+            if (a(context, s.f53805d)) {
                 return "";
             }
             try {
@@ -649,7 +648,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, s.f55454c)) {
+            if (a(context, s.f53804c)) {
                 return "";
             }
             try {
@@ -763,7 +762,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55455d)) {
+        if (a(context, s.f53805d)) {
             return "";
         }
         try {
@@ -1095,7 +1094,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader(z.f55530b);
+                fileReader = new FileReader(z.f53880b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

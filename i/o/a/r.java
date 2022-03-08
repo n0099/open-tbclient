@@ -8,33 +8,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.g;
 import i.o.a.s;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class r<T> extends s<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a implements s.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f62106b;
+        public final /* synthetic */ TimeUnit f60456b;
 
         /* renamed from: i.o.a.r$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C2301a implements i.n.a {
+        /* loaded from: classes8.dex */
+        public class C2280a implements i.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ s.c f62107e;
+            public final /* synthetic */ s.c f60457e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f62108f;
+            public final /* synthetic */ Long f60458f;
 
-            public C2301a(a aVar, s.c cVar, Long l) {
+            public C2280a(a aVar, s.c cVar, Long l) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,15 +49,15 @@ public final class r<T> extends s<T> {
                         return;
                     }
                 }
-                this.f62107e = cVar;
-                this.f62108f = l;
+                this.f60457e = cVar;
+                this.f60458f = l;
             }
 
             @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f62107e.g(this.f62108f.longValue());
+                    this.f60457e.g(this.f60458f.longValue());
                 }
             }
         }
@@ -78,7 +78,7 @@ public final class r<T> extends s<T> {
                 }
             }
             this.a = j2;
-            this.f62106b = timeUnit;
+            this.f60456b = timeUnit;
         }
 
         @Override // i.o.a.s.a
@@ -89,29 +89,29 @@ public final class r<T> extends s<T> {
         public i.k call(s.c<T> cVar, Long l, g.a aVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, l, aVar)) == null) ? aVar.c(new C2301a(this, cVar, l), this.a, this.f62106b) : (i.k) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, l, aVar)) == null) ? aVar.c(new C2280a(this, cVar, l), this.a, this.f60456b) : (i.k) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class b implements s.b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f62109b;
+        public final /* synthetic */ TimeUnit f60459b;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public class a implements i.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ s.c f62110e;
+            public final /* synthetic */ s.c f60460e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f62111f;
+            public final /* synthetic */ Long f60461f;
 
             public a(b bVar, s.c cVar, Long l) {
                 Interceptable interceptable = $ic;
@@ -128,15 +128,15 @@ public final class r<T> extends s<T> {
                         return;
                     }
                 }
-                this.f62110e = cVar;
-                this.f62111f = l;
+                this.f60460e = cVar;
+                this.f60461f = l;
             }
 
             @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f62110e.g(this.f62111f.longValue());
+                    this.f60460e.g(this.f60461f.longValue());
                 }
             }
         }
@@ -157,7 +157,7 @@ public final class r<T> extends s<T> {
                 }
             }
             this.a = j2;
-            this.f62109b = timeUnit;
+            this.f60459b = timeUnit;
         }
 
         @Override // i.o.a.s.b
@@ -168,7 +168,7 @@ public final class r<T> extends s<T> {
         public i.k call(s.c<T> cVar, Long l, T t, g.a aVar) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, cVar, l, t, aVar)) == null) ? aVar.c(new a(this, cVar, l), this.a, this.f62109b) : (i.k) invokeLLLL.objValue;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, cVar, l, t, aVar)) == null) ? aVar.c(new a(this, cVar, l), this.a, this.f60459b) : (i.k) invokeLLLL.objValue;
         }
     }
 

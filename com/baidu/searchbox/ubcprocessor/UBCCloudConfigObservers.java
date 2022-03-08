@@ -1,13 +1,13 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import c.a.l0.a.b.b;
-import c.a.l0.a.b.d;
+import c.a.i0.a.b.b;
+import c.a.i0.a.b.d;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UBCCloudConfigObservers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

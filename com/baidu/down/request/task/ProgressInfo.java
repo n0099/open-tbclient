@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ProgressInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -26,7 +26,7 @@ public class ProgressInfo {
     public int mCurrentLength;
     public List<Segment> mSegments;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class HandleProgressException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1207561809132867949L;
@@ -53,7 +53,7 @@ public class ProgressInfo {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public class ProgressInfo {
             for (Segment segment : this.mSegments) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(JSON_KEY_BEGIN, segment.begin);
+                    jSONObject.put("begin", segment.begin);
                     jSONObject.put(JSON_KEY_CURRENT, segment.current);
                     jSONObject.put("end", segment.end);
                     jSONArray.put(jSONObject);
@@ -318,7 +318,7 @@ public class ProgressInfo {
             JSONArray jSONArray = new JSONArray(str);
             for (int i4 = 0; i4 < jSONArray.length(); i4++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i4);
-                Segment segment = new Segment(jSONObject.getLong(JSON_KEY_BEGIN), jSONObject.getLong("end"));
+                Segment segment = new Segment(jSONObject.getLong("begin"), jSONObject.getLong("end"));
                 long j2 = jSONObject.getLong(JSON_KEY_CURRENT);
                 segment.current = j2;
                 this.mCurrentLength = (int) (this.mCurrentLength + (j2 - segment.begin));

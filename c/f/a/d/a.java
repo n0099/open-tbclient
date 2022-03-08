@@ -1,9 +1,9 @@
 package c.f.a.d;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.f.a.g.d.d;
+import android.os.Build;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,136 +12,163 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.apollon.heartbeat.HeartBeatCfgEntity;
-import com.dxmpay.apollon.heartbeat.HeartBeatManager;
-import com.dxmpay.apollon.restnet.RestNameValuePair;
-import com.dxmpay.apollon.restnet.RestRuntimeException;
-import com.dxmpay.apollon.restnet.RestTemplate;
-import com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor;
-import com.dxmpay.apollon.utils.BussinessUtils;
-import com.dxmpay.apollon.utils.FileCopyUtils;
-import com.dxmpay.apollon.utils.LogUtil;
-import com.dxmpay.apollon.utils.NetworkUtils;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import com.dxmpay.apollon.utils.JsonUtils;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.core.Domains;
+import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
 import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f28325e = "a";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static a f28326f;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HeartBeatCfgEntity f28327b;
+/* loaded from: classes3.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28328c;
+    public static final String[] f28230c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f28329d;
+    /* renamed from: b  reason: collision with root package name */
+    public String f28231b;
 
     /* renamed from: c.f.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class RunnableC1647a implements Runnable {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C1657a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28330e;
-
-        public RunnableC1647a(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f28330e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f28330e;
-                HeartBeatCfgEntity m = aVar.m(aVar.f28328c);
-                if (m != null) {
-                    long c2 = c.c(this.f28330e.f28328c, com.baidu.apollon.heartbeat.c.f32701b, 300L);
-                    if (!m.isValidRequestTime(c2)) {
-                        this.f28330e.e(m);
-                        return;
-                    }
-                    String str = a.f28325e;
-                    LogUtil.i(str, a.f28325e + " onChange lastRequestTime:" + c2 + " execute tryLoadCfg.");
-                    this.f28330e.n();
-                    return;
-                }
-                this.f28330e.n();
-            }
-        }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements RestHttpRequestInterceptor {
+    /* loaded from: classes3.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1818731126, "Lc/f/a/d/a$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1818731126, "Lc/f/a/d/a$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor
-        public void a(Context context, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
-                dVar.a().e("Accept-Encoding", "gzip");
-            }
+            a = new a(null);
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1490843212, "Lc/f/a/d/a;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1490843212, "Lc/f/a/d/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1490843212, "Lc/f/a/d/a;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        f28230c = new String[]{Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com", ".wallet.baidu.com", ".umoney.baidu.com", ".icash.baidu.com", ".yqh.baidu.com", ".ibeauty.baidu.com", ".front.baidu.com", ".activity8.baidu.com", ".qianbao.baidu.com", ".dxmbaoxian.com", ".oneicash.baidu.com", ".twoicash.baidu.com", ".threeicash.baidu.com", ".onejin.baidu.com", ".twojin.baidu.com", ".threejin.baidu.com", ".dxmcash.baidu.com", ".dxmoney.baidu.com", ".fincash.baidu.com", ".www.baiyingfund.com", ".www.duxiaomanfund.com"};
+    }
+
+    public /* synthetic */ a(C1657a c1657a) {
+        this();
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (a) invokeV.objValue;
+    }
+
+    public final void b(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.add(1, i2);
+            Date time = calendar.getTime();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+            this.f28231b = simpleDateFormat.format(time);
+            String str = "--DxmCookieManager---cookie----expires--->" + this.f28231b;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1490843212, "Lc/f/a/d/a;");
+    }
+
+    public final void c(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            try {
+                b(i2);
+                String[] f2 = f(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.a));
+                if (f2 == null) {
+                    f2 = f28230c;
+                }
+                CookieSyncManager.createInstance(this.a);
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.setAcceptCookie(true);
+                String str2 = "OPENBDUSS=" + str;
+                String str3 = ";expires=" + this.f28231b;
+                for (String str4 : f2) {
+                    if (!str4.startsWith(".")) {
+                        str4 = "." + str4;
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(str2);
+                    sb.append(";path=/");
+                    sb.append(str3);
+                    sb.append(";domain=");
+                    sb.append(str4);
+                    sb.append(";httponly");
+                    sb.append(";secure");
+                    String str5 = "---DxmCookieManager---setCookie value--->" + sb.toString();
+                    cookieManager.setCookie("https://www" + str4, sb.toString());
+                }
+                if (Build.VERSION.SDK_INT < 21) {
+                    CookieSyncManager.getInstance().sync();
+                } else {
+                    cookieManager.flush();
+                }
+            } catch (Exception e2) {
+                e2.getMessage();
+            }
         }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            c(8, str);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(-8, "");
+        }
+    }
+
+    public final String[] f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return (String[]) JsonUtils.fromJson(str, String[].class);
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (String[]) invokeL.objValue;
     }
 
     public a() {
@@ -157,250 +184,6 @@ public final class a {
                 return;
             }
         }
-        this.a = "https://www.baifubao.com";
-        this.f28327b = null;
-        this.f28328c = null;
-    }
-
-    public static synchronized a i() {
-        InterceptResult invokeV;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            synchronized (a.class) {
-                if (f28326f == null) {
-                    f28326f = new a();
-                }
-                aVar = f28326f;
-            }
-            return aVar;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public HeartBeatCfgEntity b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (this.f28327b == null) {
-                this.f28327b = m(context);
-            }
-            return this.f28327b;
-        }
-        return (HeartBeatCfgEntity) invokeL.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void e(HeartBeatCfgEntity heartBeatCfgEntity) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, heartBeatCfgEntity) != null) {
-            return;
-        }
-        if (heartBeatCfgEntity != null) {
-            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f28327b;
-            if ((heartBeatCfgEntity2 == null || (heartBeatCfgEntity2 != null && !TextUtils.equals(heartBeatCfgEntity2.toString(), heartBeatCfgEntity.toString()))) && heartBeatCfgEntity.checkResponseValidity()) {
-                this.f28327b = heartBeatCfgEntity;
-                heartBeatCfgEntity.storeResponse(this.f28328c);
-                z = true;
-                String str = f28325e;
-                LogUtil.i(str, f28325e + " refreshHeartBeatCfg mResponse.");
-                if (z) {
-                    return;
-                }
-                HeartBeatManager.getInstance().applyBeating();
-                return;
-            }
-        } else {
-            String str2 = f28325e;
-            LogUtil.w(str2, f28325e + " refreshHeartBeatCfg resp is null || mResponse = resp.");
-        }
-        z = false;
-        if (z) {
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a = str;
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    public void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
-            return;
-        }
-        this.f28328c = context;
-        new Thread(new RunnableC1647a(this)).start();
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f28329d = str;
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00bd */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Reader] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    public final HeartBeatCfgEntity m(Context context) {
-        InterceptResult invokeL;
-        FileReader fileReader;
-        HeartBeatCfgEntity heartBeatCfgEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, context)) != null) {
-            return (HeartBeatCfgEntity) invokeL.objValue;
-        }
-        ?? sb = new StringBuilder();
-        sb.append(context.getCacheDir());
-        sb.append(File.separator);
-        sb.append("dxmheartbeatcfg.cfg");
-        File file = new File(sb.toString());
-        FileReader fileReader2 = null;
-        HeartBeatCfgEntity heartBeatCfgEntity2 = null;
-        try {
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            try {
-                if (file.exists() && file.isFile()) {
-                    fileReader = new FileReader(file);
-                    try {
-                        String copyToString = FileCopyUtils.copyToString(fileReader);
-                        if (!TextUtils.isEmpty(copyToString)) {
-                            heartBeatCfgEntity2 = HeartBeatCfgEntity.build(copyToString);
-                        } else {
-                            LogUtil.w(f28325e, f28325e + " cache:" + file.getPath() + " content json is empty.");
-                        }
-                        heartBeatCfgEntity = heartBeatCfgEntity2;
-                        fileReader2 = fileReader;
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (fileReader != null) {
-                            fileReader.close();
-                            return null;
-                        }
-                        return null;
-                    } catch (IOException e3) {
-                        e = e3;
-                        e.printStackTrace();
-                        if (fileReader != null) {
-                            fileReader.close();
-                            return null;
-                        }
-                        return null;
-                    }
-                } else {
-                    LogUtil.w(f28325e, f28325e + " cache:" + file.getPath() + " isn't exist.");
-                    heartBeatCfgEntity = null;
-                }
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                return heartBeatCfgEntity;
-            } catch (IOException e5) {
-                e5.printStackTrace();
-                return null;
-            }
-        } catch (FileNotFoundException e6) {
-            e = e6;
-            fileReader = null;
-        } catch (IOException e7) {
-            e = e7;
-            fileReader = null;
-        } catch (Throwable th2) {
-            sb = 0;
-            th = th2;
-            if (sb != 0) {
-                try {
-                    sb.close();
-                } catch (IOException e8) {
-                    e8.printStackTrace();
-                }
-            }
-            throw th;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (NetworkUtils.isNetworkAvailable(this.f28328c)) {
-                try {
-                    String o = o();
-                    if (!TextUtils.isEmpty(o)) {
-                        String str = f28325e;
-                        LogUtil.i(str, f28325e + " execute success,response:" + o);
-                        try {
-                            String optString = new JSONObject(o).optString("content");
-                            if (!TextUtils.isEmpty(optString)) {
-                                e(HeartBeatCfgEntity.build(optString));
-                            }
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                        }
-                    } else {
-                        String str2 = f28325e;
-                        LogUtil.w(str2, f28325e + " the response is null.");
-                    }
-                    return;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                    return;
-                }
-            }
-            String str3 = f28325e;
-            LogUtil.d(str3, f28325e + " loadCfg current network is't available.");
-        }
-    }
-
-    public final String o() throws RestRuntimeException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Context context = this.f28328c;
-            RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "dxm stastics bean http request");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("ua", this.f28329d));
-            arrayList.add(new RestNameValuePair("nettype", new c.f.a.g.d.b(this.f28328c).a()));
-            arrayList.add(new RestNameValuePair("cate[heartbeat]", ""));
-            ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new b(this));
-            restTemplate.setMessageConverter(new c.f.a.g.b.b());
-            restTemplate.setRequestInterceptor(arrayList2);
-            return (String) restTemplate.d(this.a + com.baidu.apollon.heartbeat.a.f32688f, arrayList, "utf-8", String.class);
-        }
-        return (String) invokeV.objValue;
+        this.a = BaiduWalletDelegate.getInstance().getAppContext();
     }
 }

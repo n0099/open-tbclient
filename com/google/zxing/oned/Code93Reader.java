@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -25,7 +26,7 @@ import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Code93Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -155,7 +156,7 @@ public final class Code93Reader extends OneDReader {
                             }
                         case 'd':
                             if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                                i2 = charAt2 + ' ';
+                                i2 = charAt2 + WebvttCueParser.CHAR_SPACE;
                                 c2 = (char) i2;
                                 break;
                             } else {

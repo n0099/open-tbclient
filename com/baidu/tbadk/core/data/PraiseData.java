@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.Zan;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PraiseData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2658065756886586666L;

@@ -1,14 +1,16 @@
 package com.google.android.exoplayer2;
 
-import c.i.b.a.i0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+/* loaded from: classes7.dex */
 public final class ExoPlaybackException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_RENDERER = 1;
@@ -17,6 +19,11 @@ public final class ExoPlaybackException extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
     public final int rendererIndex;
     public final int type;
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface Type {
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExoPlaybackException(int i2, String str, Throwable th, int i3) {
@@ -63,7 +70,7 @@ public final class ExoPlaybackException extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a.f(this.type == 1);
+            Assertions.checkState(this.type == 1);
             return (Exception) getCause();
         }
         return (Exception) invokeV.objValue;
@@ -73,7 +80,7 @@ public final class ExoPlaybackException extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a.f(this.type == 0);
+            Assertions.checkState(this.type == 0);
             return (IOException) getCause();
         }
         return (IOException) invokeV.objValue;
@@ -83,7 +90,7 @@ public final class ExoPlaybackException extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a.f(this.type == 2);
+            Assertions.checkState(this.type == 2);
             return (RuntimeException) getCause();
         }
         return (RuntimeException) invokeV.objValue;

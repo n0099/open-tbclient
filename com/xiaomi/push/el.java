@@ -13,7 +13,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class el {
     public static /* synthetic */ Interceptable $ic;
     public static volatile el a;

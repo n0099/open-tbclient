@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
 import c.a.d.o.e.n;
-import c.a.u0.p1.h.e.a;
-import c.a.u0.p1.h.h.c;
+import c.a.r0.o1.h.e.a;
+import c.a.r0.o1.h.h.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // c.a.u0.p1.h.e.a
+    @Override // c.a.r0.o1.h.e.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

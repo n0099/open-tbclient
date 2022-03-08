@@ -1,86 +1,30 @@
 package c.a.q0.l;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes.dex */
-public abstract class f {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes2.dex */
+public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    /* renamed from: b  reason: collision with root package name */
+    public String f12712b;
+
+    public f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) {
-            return;
-        }
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[2048];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 2048);
-            if (read != -1) {
-                gZIPOutputStream.write(bArr, 0, read);
-            } else {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static void c(InputStream inputStream, OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65538, null, inputStream, outputStream) != null) {
-            return;
-        }
-        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[2048];
-        while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 2048);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
-                gZIPInputStream.close();
-                return;
-            }
-        }
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            c(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

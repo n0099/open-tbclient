@@ -1,59 +1,80 @@
 package c.a.t0.p0;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
+import android.util.Base64InputStream;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class b {
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes3.dex */
+public class b extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageTag a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageTag f13363b;
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f26094e;
 
-    public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f26095f;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(InputStream inputStream, int i2) {
+        super(inputStream, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, tbPageTag, intent};
+            Object[] objArr = {inputStream, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f13363b = tbPageTag;
-        c(intent);
+        this.f26094e = false;
+        this.f26095f = false;
     }
 
-    public TbPageTag a() {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13363b : (TbPageTag) invokeV.objValue;
-    }
-
-    public TbPageTag b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageTag) invokeV.objValue;
-    }
-
-    public final void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int read = super.read();
+            if (!this.f26094e && read == 117) {
+                this.f26094e = true;
+                return 31;
+            } else if (this.f26095f || read != 123) {
+                return read;
+            } else {
+                this.f26095f = true;
+                return 139;
+            }
         }
-        this.a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+        return invokeV.intValue;
+    }
+
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
+            int read = super.read(bArr, i2, i3);
+            if (!this.f26094e && read >= 2) {
+                bArr[i2] = 31;
+                bArr[i2 + 1] = -117;
+                this.f26094e = true;
+            }
+            return read;
+        }
+        return invokeLII.intValue;
     }
 }

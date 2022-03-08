@@ -16,17 +16,17 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class o implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final m.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f28591b;
+    public final /* synthetic */ Context f28429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ m f28592c;
+    public final /* synthetic */ m f28430c;
 
     public o(m mVar, KsNativeAd ksNativeAd, Context context) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class o implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
                 return;
             }
         }
-        this.f28592c = mVar;
-        this.f28591b = context;
+        this.f28430c = mVar;
+        this.f28429b = context;
         this.a = new m.b(mVar, ksNativeAd);
     }
 
@@ -55,7 +55,7 @@ public class o implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
     public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) ? this.f28592c.a(this.f28591b, ksNativeAd) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) ? this.f28430c.a(this.f28429b, ksNativeAd) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -63,7 +63,7 @@ public class o implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
     public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28592c.f(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.a, funAdInteractionListener);
+            this.f28430c.f(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.a, funAdInteractionListener);
         }
     }
 
@@ -72,7 +72,7 @@ public class o implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28592c.f(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.a, funAdInteractionListener);
+            this.f28430c.f(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.a, funAdInteractionListener);
         }
     }
 }

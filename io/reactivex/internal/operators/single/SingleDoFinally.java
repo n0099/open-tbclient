@@ -17,14 +17,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 @Experimental
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class SingleDoFinally<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onFinally;
     public final SingleSource<T> source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class DoFinallyObserver<T> extends AtomicInteger implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
@@ -32,7 +32,7 @@ public final class SingleDoFinally<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62393d;
+        public Disposable f60743d;
         public final Action onFinally;
 
         public DoFinallyObserver(SingleObserver<? super T> singleObserver, Action action) {
@@ -58,7 +58,7 @@ public final class SingleDoFinally<T> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62393d.dispose();
+                this.f60743d.dispose();
                 runFinally();
             }
         }
@@ -67,7 +67,7 @@ public final class SingleDoFinally<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62393d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60743d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -82,8 +82,8 @@ public final class SingleDoFinally<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f62393d, disposable)) {
-                this.f62393d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f60743d, disposable)) {
+                this.f60743d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

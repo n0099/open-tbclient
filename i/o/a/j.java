@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import rx.internal.producers.SingleDelayedProducer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class j<T> implements d.b<Boolean, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.f<? super T, Boolean> f62079e;
+    public final i.n.f<? super T, Boolean> f60429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f62080f;
+    public final boolean f60430f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f62081i;
+        public boolean f60431i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f62082j;
+        public boolean f60432j;
         public final /* synthetic */ SingleDelayedProducer k;
         public final /* synthetic */ i.j l;
         public final /* synthetic */ j m;
@@ -56,14 +56,14 @@ public final class j<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62082j) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f60432j) {
                 return;
             }
-            this.f62082j = true;
-            if (this.f62081i) {
+            this.f60432j = true;
+            if (this.f60431i) {
                 this.k.setValue(Boolean.FALSE);
             } else {
-                this.k.setValue(Boolean.valueOf(this.m.f62080f));
+                this.k.setValue(Boolean.valueOf(this.m.f60430f));
             }
         }
 
@@ -71,8 +71,8 @@ public final class j<T> implements d.b<Boolean, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f62082j) {
-                    this.f62082j = true;
+                if (!this.f60432j) {
+                    this.f60432j = true;
                     this.l.onError(th);
                     return;
                 }
@@ -83,14 +83,14 @@ public final class j<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f62082j) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f60432j) {
                 return;
             }
-            this.f62081i = true;
+            this.f60431i = true;
             try {
-                if (this.m.f62079e.call(t).booleanValue()) {
-                    this.f62082j = true;
-                    this.k.setValue(Boolean.valueOf(true ^ this.m.f62080f));
+                if (this.m.f60429e.call(t).booleanValue()) {
+                    this.f60432j = true;
+                    this.k.setValue(Boolean.valueOf(true ^ this.m.f60430f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -114,8 +114,8 @@ public final class j<T> implements d.b<Boolean, T> {
                 return;
             }
         }
-        this.f62079e = fVar;
-        this.f62080f = z;
+        this.f60429e = fVar;
+        this.f60430f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class dn {
     public static /* synthetic */ Interceptable $ic;
     public static volatile dn a;
@@ -66,7 +66,7 @@ public class dn {
         if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.a.a(), true)) {
             ds dsVar = new ds(this.f245a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f61399b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f59749b.a(), 86400)));
             } else {
                 aiVar.m205a((ai.a) dsVar);
             }

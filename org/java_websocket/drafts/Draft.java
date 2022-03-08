@@ -2,7 +2,6 @@ package org.java_websocket.drafts;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,17 +29,17 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebSocket.Role a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f62654b;
+    public Framedata.Opcode f61004b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class CloseHandshakeType {
         public static final /* synthetic */ CloseHandshakeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +61,7 @@ public abstract class Draft {
                     return;
                 }
             }
-            NONE = new CloseHandshakeType(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new CloseHandshakeType("NONE", 0);
             ONEWAY = new CloseHandshakeType("ONEWAY", 1);
             CloseHandshakeType closeHandshakeType = new CloseHandshakeType("TWOWAY", 2);
             TWOWAY = closeHandshakeType;
@@ -102,7 +101,7 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class HandshakeState {
         public static final /* synthetic */ HandshakeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,7 +189,7 @@ public abstract class Draft {
             }
         }
         this.a = null;
-        this.f62654b = null;
+        this.f61004b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -320,10 +319,10 @@ public abstract class Draft {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f62654b != null) {
+            if (this.f61004b != null) {
                 iVar = new h.b.h.c();
             } else {
-                this.f62654b = opcode;
+                this.f61004b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
                     iVar = new h.b.h.a();
                 } else {
@@ -335,9 +334,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f62654b = null;
+                    this.f61004b = null;
                 } else {
-                    this.f62654b = opcode;
+                    this.f61004b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {

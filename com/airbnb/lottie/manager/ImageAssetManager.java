@@ -14,10 +14,11 @@ import com.airbnb.lottie.LottieImageAsset;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ImageAssetManager {
     public static final Object bitmapHashLock = new Object();
     public final Context context;
@@ -31,7 +32,7 @@ public class ImageAssetManager {
         this.imagesFolder = str;
         if (!TextUtils.isEmpty(str)) {
             if (this.imagesFolder.charAt(str2.length() - 1) != '/') {
-                this.imagesFolder += '/';
+                this.imagesFolder += WebvttCueParser.CHAR_SLASH;
             }
         }
         if (!(callback instanceof View)) {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class UriBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_DEFAULT = 0;

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.g.b0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,27 +19,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.channel.csj.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e0 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f54399b;
+    public ImageView f52885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f54400c;
+    public TextView f52886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54401d;
+    public ImageView f52887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f54402e;
+    public Button f52888e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e0(Context context) {
@@ -110,25 +110,25 @@ public class e0 extends LinearLayout {
             this.a.setText(tTNativeAd.getDescription());
             TTImage icon = tTNativeAd.getIcon();
             if (icon != null && icon.isValid()) {
-                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f54399b);
+                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f52885b);
             }
-            this.f54400c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
-            this.f54401d.setImageBitmap(tTNativeAd.getAdLogo());
+            this.f52886c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
+            this.f52887d.setImageBitmap(tTNativeAd.getAdLogo());
             int interactionType = tTNativeAd.getInteractionType();
             if (interactionType == 2 || interactionType == 3) {
-                this.f54402e.setVisibility(0);
-                button = this.f54402e;
+                this.f52888e.setVisibility(0);
+                button = this.f52888e;
                 i2 = R.string.fun_ad_interaction_type_browser;
             } else if (interactionType == 4) {
-                this.f54402e.setVisibility(0);
-                button = this.f54402e;
+                this.f52888e.setVisibility(0);
+                button = this.f52888e;
                 i2 = R.string.fun_ad_interaction_type_download;
             } else if (interactionType != 5) {
-                this.f54402e.setVisibility(8);
+                this.f52888e.setVisibility(8);
                 return;
             } else {
-                this.f54402e.setVisibility(0);
-                button = this.f54402e;
+                this.f52888e.setVisibility(0);
+                button = this.f52888e;
                 i2 = R.string.fun_ad_interaction_type_dial;
             }
             button.setText(i2);
@@ -151,7 +151,7 @@ public class e0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f54402e);
+            arrayList.add(this.f52888e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -160,7 +160,7 @@ public class e0 extends LinearLayout {
     public h getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f54402e) : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f52888e) : (h) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -169,10 +169,10 @@ public class e0 extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.ad_description);
-            this.f54401d = (ImageView) findViewById(R.id.ad_logo);
-            this.f54399b = (ImageView) findViewById(R.id.ad_icon);
-            this.f54400c = (TextView) findViewById(R.id.ad_source);
-            this.f54402e = (Button) findViewById(R.id.ad_creative);
+            this.f52887d = (ImageView) findViewById(R.id.ad_logo);
+            this.f52885b = (ImageView) findViewById(R.id.ad_icon);
+            this.f52886c = (TextView) findViewById(R.id.ad_source);
+            this.f52888e = (Button) findViewById(R.id.ad_creative);
         }
     }
 }

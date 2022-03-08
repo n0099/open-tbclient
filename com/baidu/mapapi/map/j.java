@@ -4,20 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f35697b;
+    public final /* synthetic */ int f34100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f35698c;
+    public final /* synthetic */ int f34101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ HeatMap f35699d;
+    public final /* synthetic */ HeatMap f34102d;
 
     public j(HeatMap heatMap, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -34,17 +34,17 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f35699d = heatMap;
+        this.f34102d = heatMap;
         this.a = i2;
-        this.f35697b = i3;
-        this.f35698c = i4;
+        this.f34100b = i3;
+        this.f34101c = i4;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35699d.b(this.a, this.f35697b, this.f35698c);
+            this.f34102d.b(this.a, this.f34100b, this.f34101c);
         }
     }
 }

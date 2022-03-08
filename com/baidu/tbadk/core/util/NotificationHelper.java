@@ -16,13 +16,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.q.h;
-import c.a.t0.t.d.b;
-import c.a.t0.t.d.d;
-import c.a.u0.a4.f;
-import c.a.u0.a4.j;
+import c.a.q0.s.d.b;
+import c.a.q0.s.d.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class NotificationHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -43,7 +41,7 @@ public class NotificationHelper {
     public static int lastProgressNotifiyId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class SwitchData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +192,7 @@ public class NotificationHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
-            return BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), f.tb_launcher_icon, options);
+            return BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.tb_launcher_icon, options);
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -207,7 +205,7 @@ public class NotificationHelper {
             if (!b.M() && b.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
-                    AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                    AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                     boolean z = audioManager.getRingerMode() == 0;
                     boolean z2 = audioManager.getRingerMode() == 1;
                     if (d.d().w()) {
@@ -241,11 +239,11 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
-            builder.setContentTitle(context.getString(j.notify_text));
+            builder.setContentTitle(context.getString(R.string.notify_text));
             if (RomTypeUtil.isOnePlus()) {
-                builder.setSmallIcon(f.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), c.a.u0.a4.d.CAM_X0302));
+                builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
             } else {
-                builder.setSmallIcon(f.tb_launcher_icon_notify);
+                builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
             }
             return builder.build();
         }
@@ -259,7 +257,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, h.a(j.notify_channel_primary), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
@@ -285,9 +283,9 @@ public class NotificationHelper {
             return;
         }
         if (RomTypeUtil.isOnePlus()) {
-            builder.setSmallIcon(f.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), c.a.u0.a4.d.CAM_X0302));
+            builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
-            builder.setSmallIcon(f.tb_launcher_icon_notify);
+            builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
         }
     }
 
@@ -298,7 +296,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, h.a(j.notify_channel_primary), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);
@@ -335,7 +333,7 @@ public class NotificationHelper {
                 return false;
             }
             if (m.isEmpty(str)) {
-                str = context.getString(j.app_name);
+                str = context.getString(R.string.app_name);
             }
             try {
                 if (Build.VERSION.SDK_INT < 26) {

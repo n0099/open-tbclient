@@ -33,7 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
 import org.webrtc.StatsReport;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class RtcReportHandle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
@@ -65,7 +65,7 @@ public class RtcReportHandle {
     public long mUserId;
     public Runnable reportDeviceInfoRun;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class RtcReportHandle {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

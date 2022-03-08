@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class PoiSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.core.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35805b;
+    public boolean f34208b;
 
     public PoiSearch() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class PoiSearch extends l {
                 return;
             }
         }
-        this.f35805b = false;
+        this.f34208b = false;
         this.a = new com.baidu.platform.core.c.f();
     }
 
@@ -46,10 +46,10 @@ public class PoiSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35805b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34208b) {
             return;
         }
-        this.f35805b = true;
+        this.f34208b = true;
         this.a.a();
         BMapManager.destroy();
     }

@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface a {
-    public static final C0191a a = C0191a.f4158b;
+    public static final C0173a a = C0173a.f3775b;
 
     /* renamed from: c.a.j.j.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0191a {
+    public static final class C0173a {
         public static /* synthetic */ Interceptable $ic;
         public static ServiceReference a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ C0191a f4158b;
+        public static final /* synthetic */ C0173a f3775b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -35,11 +35,11 @@ public interface a {
                     return;
                 }
             }
-            f4158b = new C0191a();
+            f3775b = new C0173a();
             a = new ServiceReference("bdptask", "yalog");
         }
 
-        public C0191a() {
+        public C0173a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

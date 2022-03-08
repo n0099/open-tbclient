@@ -21,7 +21,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpExecutor";
@@ -29,7 +29,7 @@ public class HttpExecutor {
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient okHttpClient;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class HttpExecutorLogger implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -95,7 +95,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface ResponseHandler {
         void onFailure(int i2, String str);
 

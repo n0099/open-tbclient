@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.d0;
+import c.i.c.a.n;
+import c.i.c.c.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableClassToInstanceMap<Object> EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class b<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
         public static <B, T extends B> T b(Class<T> cls, B b2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, b2)) == null) ? (T) c.i.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, b2)) == null) ? (T) c.i.c.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
         }
 
         public ImmutableClassToInstanceMap<B> a() {
@@ -183,7 +183,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.d0, c.i.d.c.h0
+    @Override // c.i.c.c.d0, c.i.c.c.h0
     public Map<Class<? extends B>, B> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

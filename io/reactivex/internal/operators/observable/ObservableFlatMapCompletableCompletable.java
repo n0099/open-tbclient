@@ -23,7 +23,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableFlatMapCompletableCompletable<T> extends Completable implements FuseToObservable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
     public final Function<? super T, ? extends CompletableSource> mapper;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class FlatMapCompletableMainObserver<T> extends AtomicInteger implements Disposable, Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
@@ -39,14 +39,14 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62373d;
+        public Disposable f60723d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends CompletableSource> mapper;
         public final CompositeDisposable set;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;
@@ -139,7 +139,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.disposed = true;
-                this.f62373d.dispose();
+                this.f60723d.dispose();
                 this.set.dispose();
             }
         }
@@ -164,7 +164,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62373d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60723d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -217,7 +217,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
                     completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f62373d.dispose();
+                    this.f60723d.dispose();
                     onError(th);
                 }
             }
@@ -226,8 +226,8 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f62373d, disposable)) {
-                this.f62373d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f60723d, disposable)) {
+                this.f60723d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

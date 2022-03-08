@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.a {
     public T mCallerContext;
     public Presenter mPresenter;

@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
 import c.a.d.f.p.m;
-import c.a.u0.z3.o0.d.a;
-import c.a.u0.z3.o0.d.b;
-import c.a.u0.z3.o0.d.c;
-import c.a.u0.z3.o0.d.e;
+import c.a.r0.y3.o0.d.a;
+import c.a.r0.y3.o0.d.b;
+import c.a.r0.y3.o0.d.c;
+import c.a.r0.y3.o0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class SingleQuickWebViewBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // c.a.u0.z3.o0.d.a
+    @Override // c.a.r0.y3.o0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         int i2;
@@ -331,6 +331,16 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                     cVar2.t(goToEditPost.b());
                     cVar2.o(goToEditPost.a());
                     cVar2.w(goToEditPost.e());
+                }
+                cVar2.y(0);
+            } else if (b2.equals("activity/updateSearchForumInfo")) {
+                cVar2.r(true);
+                c updateSearchForumInfo = this.mJsBridge.updateSearchForumInfo(e2.optString("forumParams"));
+                if (updateSearchForumInfo != null) {
+                    cVar2.x(updateSearchForumInfo.f());
+                    cVar2.t(updateSearchForumInfo.b());
+                    cVar2.o(updateSearchForumInfo.a());
+                    cVar2.w(updateSearchForumInfo.e());
                 }
                 cVar2.y(0);
             } else if (b2.equals("activity/personlizedSwitchChange")) {
@@ -599,7 +609,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.u0.z3.o0.d.a
+    @Override // c.a.r0.y3.o0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

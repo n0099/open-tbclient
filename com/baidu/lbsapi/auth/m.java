@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class m extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f34853b;
+    public Object f33256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34854c;
+    public boolean f33257c;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class m extends Thread {
             }
         }
         this.a = null;
-        this.f34853b = new Object();
-        this.f34854c = false;
+        this.f33256b = new Object();
+        this.f33257c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,8 +56,8 @@ public class m extends Thread {
             }
         }
         this.a = null;
-        this.f34853b = new Object();
-        this.f34854c = false;
+        this.f33256b = new Object();
+        this.f33257c = false;
     }
 
     public void a() {
@@ -73,10 +73,10 @@ public class m extends Thread {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f34853b) {
+            synchronized (this.f33256b) {
                 try {
-                    if (!this.f34854c) {
-                        this.f34853b.wait();
+                    if (!this.f33257c) {
+                        this.f33256b.wait();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -88,9 +88,9 @@ public class m extends Thread {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f34853b) {
-                this.f34854c = true;
-                this.f34853b.notifyAll();
+            synchronized (this.f33256b) {
+                this.f33257c = true;
+                this.f33256b.notifyAll();
             }
         }
     }

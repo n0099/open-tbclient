@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class AnimeAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AnimeAR";
@@ -110,7 +110,7 @@ public class AnimeAR extends c {
             if (TextUtils.isEmpty(str2) && p.A(getContext())) {
                 aVar.an();
             }
-            aVar.a(new a.InterfaceC1767a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
+            aVar.a(new a.InterfaceC1743a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimeAR ce;
@@ -139,7 +139,7 @@ public class AnimeAR extends c {
                     this.ch = aVar;
                 }
 
-                @Override // com.baidu.ar.anime.a.InterfaceC1767a
+                @Override // com.baidu.ar.anime.a.InterfaceC1743a
                 public void b(FramePixels framePixels) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, framePixels) == null) {
@@ -367,7 +367,7 @@ public class AnimeAR extends c {
                 com.baidu.ar.h.b.b(str2, "mAbilityName error: " + this.bD);
             }
             if (this.cd == null) {
-                b bVar = new b(new b.InterfaceC1769b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
+                b bVar = new b(new b.InterfaceC1745b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnimeAR ce;
@@ -390,7 +390,7 @@ public class AnimeAR extends c {
                         this.ce = this;
                     }
 
-                    @Override // com.baidu.ar.anime.b.InterfaceC1769b
+                    @Override // com.baidu.ar.anime.b.InterfaceC1745b
                     public void a(int i2, String str3, long j2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {

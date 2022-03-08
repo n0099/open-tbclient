@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.t0.s.j0.b;
-import c.a.t0.s.n.c;
-import c.a.t0.s.n.d;
-import c.a.u0.s4.s;
+import c.a.q0.r.j0.b;
+import c.a.q0.r.n.c;
+import c.a.q0.r.n.d;
+import c.a.r0.q4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCenterAuto.HostUtilityVideoCreationCenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void showGuide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int a = s.a();
-            if (s.c(a)) {
-                s.e(TbadkApplication.getInst().getCurrentActivity(), a, d.f13714g);
+            int a = i.a();
+            if (i.c(a)) {
+                i.e(TbadkApplication.getInst().getCurrentActivity(), a, d.f13130g);
             }
         }
     }

@@ -33,12 +33,12 @@ import java.util.List;
 import org.apache.commons.lang3.text.FormattableUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f59936b;
+    public static NotificationChannel f58286b;
 
     public static int d(Context context, int i2, boolean z) {
         if (com.ss.android.socialbase.downloader.g.a.a(i2).b("notification_opt_2") == 1) {
@@ -319,12 +319,12 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (f59936b == null) {
+            if (f58286b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f59936b = notificationChannel;
+                f58286b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f59936b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f59936b);
+                f58286b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f58286b);
             }
         } catch (Throwable th) {
             th.printStackTrace();

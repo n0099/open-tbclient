@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableSwitchMapSingle<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class FlowableSwitchMapSingle<T, R> extends Flowable<R> {
     public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
     public final Flowable<T> source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class SwitchMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapSingleObserver<Object> INNER_DISPOSED;
@@ -54,7 +54,7 @@ public final class FlowableSwitchMapSingle<T, R> extends Flowable<R> {
         public final AtomicLong requested;
         public Subscription upstream;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static final class SwitchMapSingleObserver<R> extends AtomicReference<Disposable> implements SingleObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.commontab;
 
-import c.a.u0.e1.x1.d;
+import c.a.r0.d1.n1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<d, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

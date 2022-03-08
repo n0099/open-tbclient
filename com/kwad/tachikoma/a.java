@@ -19,26 +19,26 @@ import com.kwad.v8.V8Object;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, com.kwad.sdk.core.webview.kwai.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.a f58311b;
+    public com.kwad.sdk.core.webview.kwai.a f56661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58312c;
+    public boolean f56662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TKContext f58313d;
+    public TKContext f56663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58314e;
+    public String f56664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58315f;
+    public String f56665f;
 
     public a(TKContext tKContext, String str) {
         Interceptable interceptable = $ic;
@@ -56,19 +56,19 @@ public class a {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f58311b = new com.kwad.sdk.core.webview.kwai.d();
-        this.f58313d = tKContext;
-        this.f58315f = str;
+        this.f56661b = new com.kwad.sdk.core.webview.kwai.d();
+        this.f56663d = tKContext;
+        this.f56665f = str;
         g gVar = (g) f.a(g.class);
         if (gVar != null) {
-            this.f58314e = gVar.d();
+            this.f56664e = gVar.d();
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            i.a("ad_client_error_log", new CommercialAction.TKPerformMsg().setRenderState(3).setErrorReason(str).setTemplateId(this.f58315f).setVersionCode(this.f58314e));
+            i.a("ad_client_error_log", new CommercialAction.TKPerformMsg().setRenderState(3).setErrorReason(str).setTemplateId(this.f56665f).setVersionCode(this.f56664e));
         }
     }
 
@@ -77,12 +77,12 @@ public class a {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
-            if (this.f58312c) {
+            if (this.f56662c) {
                 str3 = "callJS after destroy jsInterface, " + str2;
             } else if (str != null) {
                 com.kwad.sdk.core.d.a.c("TKJSBridge", "callJS callback:+ " + str + "--params: " + str2);
                 try {
-                    this.f58313d.evaluateScript(str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, null, null);
+                    this.f56663d.evaluateScript(str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, null, null);
                     return;
                 } catch (Throwable th) {
                     g gVar = (g) f.a(g.class);
@@ -126,7 +126,7 @@ public class a {
             com.kwad.sdk.core.webview.kwai.a aVar = this.a.get(string);
             if (aVar == null) {
                 a("Js Action not found");
-                aVar = this.f58311b;
+                aVar = this.f56661b;
             }
             if (aVar == null) {
                 com.kwad.sdk.core.d.a.e("TKJSBridge", "bridgeHandler is null");
@@ -139,7 +139,7 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f58316b;
+                    public final /* synthetic */ a f56666b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -156,7 +156,7 @@ public class a {
                                 return;
                             }
                         }
-                        this.f58316b = this;
+                        this.f56666b = this;
                         this.a = string3;
                     }
 
@@ -164,7 +164,7 @@ public class a {
                     public void a(int i2, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                            this.f58316b.a(this.a, new e(i2, str).toJson().toString());
+                            this.f56666b.a(this.a, new e(i2, str).toJson().toString());
                         }
                     }
 
@@ -172,7 +172,7 @@ public class a {
                     public void a(com.kwad.sdk.core.b bVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                            this.f58316b.a(this.a, new com.kwad.sdk.core.webview.kwai.f(bVar).toJson().toString());
+                            this.f56666b.a(this.a, new com.kwad.sdk.core.webview.kwai.f(bVar).toJson().toString());
                         }
                     }
                 } : new com.kwad.sdk.core.webview.kwai.c(this) { // from class: com.kwad.tachikoma.a.2

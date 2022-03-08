@@ -13,13 +13,13 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableOnErrorReturn<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Throwable, ? extends T> valueSupplier;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class OnErrorReturnSubscriber<T> extends SinglePostCompleteSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3740826063558713822L;

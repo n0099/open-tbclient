@@ -24,25 +24,25 @@ import com.dxmpay.wallet.base.widget.LoadingDialog;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoadingDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f52287b;
+    public WeakReference<Activity> f50706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PrecashierModifyPayTypeBean f52288c;
+    public PrecashierModifyPayTypeBean f50707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> f52289d;
+    public TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> f50708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52290e;
+    public String f50709e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static PrecashierModifyPayTypeManager a;
@@ -124,29 +124,29 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, map) == null) {
             setTwoTupleForPrecashier(new TwoTupleForPrecashier<>(Boolean.TRUE, a(map)));
-            this.f52287b = new WeakReference<>(activity);
+            this.f50706b = new WeakReference<>(activity);
             showLoadingDialog();
-            if (this.f52288c == null) {
-                this.f52288c = new PrecashierModifyPayTypeBean(activity);
+            if (this.f50707c == null) {
+                this.f50707c = new PrecashierModifyPayTypeBean(activity);
             }
-            PrecashierModifyPayTypeBean precashierModifyPayTypeBean = this.f52288c;
+            PrecashierModifyPayTypeBean precashierModifyPayTypeBean = this.f50707c;
             precashierModifyPayTypeBean.rec_params = map;
             precashierModifyPayTypeBean.setResponseCallback(this);
-            this.f52288c.execBean();
+            this.f50707c.execBean();
         }
     }
 
     public String getSpNo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52290e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50709e : (String) invokeV.objValue;
     }
 
     @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) {
-            this.f52288c = null;
+            this.f50707c = null;
             dismissLoadingDialog();
             new Handler(Looper.getMainLooper()).post(new Runnable(this, str) { // from class: com.baidu.wallet.paysdk.precashier.PrecashierModifyPayTypeManager.2
                 public static /* synthetic */ Interceptable $ic;
@@ -154,7 +154,7 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PrecashierModifyPayTypeManager f52293b;
+                public final /* synthetic */ PrecashierModifyPayTypeManager f50712b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -171,7 +171,7 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f52293b = this;
+                    this.f50712b = this;
                     this.a = str;
                 }
 
@@ -179,8 +179,8 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f52293b.f52287b != null && this.f52293b.f52287b.get() != null) {
-                            GlobalUtils.toast((Context) this.f52293b.f52287b.get(), this.a);
+                        if (this.f50712b.f50706b != null && this.f50712b.f50706b.get() != null) {
+                            GlobalUtils.toast((Context) this.f50712b.f50706b.get(), this.a);
                         }
                         PayController.getInstance().clearPreModifiedCallBack();
                     }
@@ -200,10 +200,10 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                 public final /* synthetic */ Object a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f52291b;
+                public final /* synthetic */ int f50710b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ PrecashierModifyPayTypeManager f52292c;
+                public final /* synthetic */ PrecashierModifyPayTypeManager f50711c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -220,9 +220,9 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f52292c = this;
+                    this.f50711c = this;
                     this.a = obj;
-                    this.f52291b = i2;
+                    this.f50710b = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -231,27 +231,27 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Object obj2 = this.a;
                         if (obj2 != null) {
-                            if (this.f52291b != 2) {
-                                this.f52292c.f52288c = null;
+                            if (this.f50710b != 2) {
+                                this.f50711c.f50707c = null;
                                 return;
                             }
                             PrecashierModifyPayTypeResponse precashierModifyPayTypeResponse = (PrecashierModifyPayTypeResponse) obj2;
-                            if (this.f52292c.f52288c != null) {
-                                precashierModifyPayTypeResponse.setOriginHttpResponse(this.f52292c.f52288c.getHttpRealContent());
+                            if (this.f50711c.f50707c != null) {
+                                precashierModifyPayTypeResponse.setOriginHttpResponse(this.f50711c.f50707c.getHttpRealContent());
                             }
                             if (precashierModifyPayTypeResponse.checkResponseValidity()) {
-                                if (this.f52292c.f52287b != null && this.f52292c.f52287b.get() != null) {
-                                    PayController.getInstance().modifyPayType((Context) this.f52292c.f52287b.get(), this.f52292c.f52289d);
+                                if (this.f50711c.f50706b != null && this.f50711c.f50706b.get() != null) {
+                                    PayController.getInstance().modifyPayType((Context) this.f50711c.f50706b.get(), this.f50711c.f50708d);
                                     return;
                                 } else {
-                                    this.f52292c.f52288c = null;
+                                    this.f50711c.f50707c = null;
                                     return;
                                 }
                             }
-                            this.f52292c.f52288c = null;
+                            this.f50711c.f50707c = null;
                             return;
                         }
-                        this.f52292c.f52288c = null;
+                        this.f50711c.f50707c = null;
                     }
                 }
             });
@@ -261,14 +261,14 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
     public void setSpNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f52290e = str;
+            this.f50709e = str;
         }
     }
 
     public void setTwoTupleForPrecashier(TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, twoTupleForPrecashier) == null) {
-            this.f52289d = twoTupleForPrecashier;
+            this.f50708d = twoTupleForPrecashier;
         }
     }
 
@@ -276,8 +276,8 @@ public class PrecashierModifyPayTypeManager implements IBeanResponseCallback {
         WeakReference<Activity> weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.a == null && (weakReference = this.f52287b) != null && weakReference.get() != null && (this.f52287b.get() instanceof Activity) && !this.f52287b.get().isFinishing()) {
-                this.a = new LoadingDialog(this.f52287b.get());
+            if (this.a == null && (weakReference = this.f50706b) != null && weakReference.get() != null && (this.f50706b.get() instanceof Activity) && !this.f50706b.get().isFinishing()) {
+                this.a = new LoadingDialog(this.f50706b.get());
             }
             LoadingDialog loadingDialog = this.a;
             if (loadingDialog != null) {

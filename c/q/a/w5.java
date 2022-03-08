@@ -1,25 +1,28 @@
 package c.q.a;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBNativeListener;
-import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class w5 implements e5 {
+import com.qq.e.comm.constants.Constants;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class w5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ l a;
+    public int a;
 
-    public w5(l lVar) {
+    /* renamed from: b  reason: collision with root package name */
+    public String f29166b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public JSONObject f29167c;
+
+    public w5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,42 +32,25 @@ public class w5 implements e5 {
                 return;
             }
         }
-        this.a = lVar;
+        this.a = 101;
     }
 
-    @Override // c.q.a.e5
-    public void a() {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // c.q.a.e5
-    public void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            Info info = (Info) obj;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optInt(Constants.KEYS.RET);
+            this.f29166b = jSONObject.optString("msg");
+            String optString = jSONObject.optString("data");
             try {
-                this.a.f30594c = info;
-                if (this.a.f30597f != null) {
-                    if (info == null || info.getType() != 11) {
-                        this.a.f30597f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.a.g()) {
-                        this.a.f30597f.onLoaded();
-                    }
-                }
+                optString = r0.x(optString);
             } catch (Exception unused) {
             }
+            if (TextUtils.isEmpty(optString)) {
+                this.f29167c = new JSONObject();
+            } else {
+                this.f29167c = new JSONObject(optString);
+            }
         }
-    }
-
-    @Override // c.q.a.e5
-    public void onFail(PBError pBError) {
-        PBNativeListener pBNativeListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f30597f) == null) {
-            return;
-        }
-        pBNativeListener.onFail(pBError);
     }
 }

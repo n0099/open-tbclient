@@ -25,31 +25,31 @@ public class m0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4402b;
+    public int f4056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4403c;
+    public int f4057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4404d;
+    public int f4058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4405e;
+    public int f4059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4406f;
+    public int f4060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4407g;
+    public int f4061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4408h;
+    public int f4062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4409i;
+    public int f4063i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f4410j;
+    public boolean f4064j;
 
     static {
         InterceptResult invokeClinit;
@@ -87,54 +87,54 @@ public class m0 {
             }
         }
         this.a = false;
-        this.f4402b = n;
-        this.f4403c = p;
-        this.f4404d = k;
-        this.f4405e = 0;
-        this.f4406f = l;
-        this.f4407g = m;
-        this.f4408h = R.color.CAM_X0205;
-        this.f4409i = q;
+        this.f4056b = n;
+        this.f4057c = p;
+        this.f4058d = k;
+        this.f4059e = 0;
+        this.f4060f = l;
+        this.f4061g = m;
+        this.f4062h = R.color.CAM_X0205;
+        this.f4063i = q;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4410j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4064j : invokeV.booleanValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4408h = i2;
+            this.f4062h = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f4405e = i2;
+            this.f4059e = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f4409i = i2;
+            this.f4063i = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f4406f = i2;
+            this.f4060f = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f4407g = i2;
+            this.f4061g = i2;
         }
     }
 
@@ -147,21 +147,21 @@ public class m0 {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f4402b = i2;
+            this.f4056b = i2;
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f4404d = i2;
+            this.f4058d = i2;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f4410j = z;
+            this.f4064j = z;
         }
     }
 }

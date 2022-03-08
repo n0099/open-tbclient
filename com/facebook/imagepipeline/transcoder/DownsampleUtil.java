@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DownsampleUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;

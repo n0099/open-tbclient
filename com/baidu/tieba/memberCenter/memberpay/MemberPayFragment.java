@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.u0.h2.f.b;
-import c.a.u0.h2.f.f;
+import c.a.r0.h2.f.b;
+import c.a.r0.h2.f.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MemberPayFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MEMBER_CLICK_ZONE = "member_click_zone";
@@ -25,22 +25,22 @@ public class MemberPayFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46099e;
+    public int f44507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46100f;
+    public String f44508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46101g;
+    public String f44509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f46102h;
+    public boolean f44510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46103i;
+    public int f44511i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f46104j;
+    public b f44512j;
     public f k;
     public View l;
 
@@ -63,7 +63,7 @@ public class MemberPayFragment extends BaseFragment {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46099e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44507e : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -79,7 +79,7 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b bVar = this.f46104j;
+            b bVar = this.f44512j;
             if (bVar != null) {
                 bVar.p(i2);
             }
@@ -92,11 +92,11 @@ public class MemberPayFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
-            this.f46099e = arguments.getInt("member_type");
-            this.f46100f = arguments.getString(MEMBER_REFER_PAGE);
-            this.f46101g = arguments.getString(MEMBER_CLICK_ZONE);
-            this.f46102h = arguments.getBoolean(MEMBER_IS_PAY_DIALOG);
-            this.f46103i = arguments.getInt(MEMBER_FROM_TYPE);
+            this.f44507e = arguments.getInt("member_type");
+            this.f44508f = arguments.getString(MEMBER_REFER_PAGE);
+            this.f44509g = arguments.getString(MEMBER_CLICK_ZONE);
+            this.f44510h = arguments.getBoolean(MEMBER_IS_PAY_DIALOG);
+            this.f44511i = arguments.getInt(MEMBER_FROM_TYPE);
         }
     }
 
@@ -106,8 +106,8 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-            b bVar = new b(getPageContext(), this.l, this.f46099e, this.f46100f, this.f46101g, this.f46102h, this.f46103i);
-            this.f46104j = bVar;
+            b bVar = new b(getPageContext(), this.l, this.f44507e, this.f44508f, this.f44509g, this.f44510h, this.f44511i);
+            this.f44512j = bVar;
             bVar.s(this.k);
             return this.l;
         }
@@ -117,7 +117,7 @@ public class MemberPayFragment extends BaseFragment {
     public void refreshAutoPayItemUI(Boolean bool) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (bVar = this.f46104j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (bVar = this.f44512j) == null) {
             return;
         }
         bVar.q(bool.booleanValue());
@@ -127,7 +127,7 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
             this.k = fVar;
-            b bVar = this.f46104j;
+            b bVar = this.f44512j;
             if (bVar != null) {
                 bVar.s(fVar);
             }

@@ -10,11 +10,11 @@ import com.duxiaoman.okhttp3.internal.http2.ErrorCode;
 import java.io.IOException;
 import java.util.List;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface j {
     public static final j a = new a();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

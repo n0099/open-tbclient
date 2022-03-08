@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sofire.l.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C1882a implements c {
+        /* loaded from: classes4.dex */
+        public static class C1858a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1882a(IBinder iBinder) {
+            public C1858a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public interface c extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C1882a(iBinder) : (c) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C1858a(iBinder) : (c) queryLocalInterface;
             }
             return (c) invokeL.objValue;
         }

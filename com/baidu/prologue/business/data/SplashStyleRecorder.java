@@ -3,7 +3,7 @@ package com.baidu.prologue.business.data;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.y.e;
+import c.a.b0.y.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SplashStyleRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

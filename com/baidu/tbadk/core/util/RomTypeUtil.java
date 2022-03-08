@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RomTypeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";

@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.AccountManager;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class LoginOutHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface IAfterDismissCallback {
         void onCancel();
 
@@ -51,10 +51,10 @@ public class LoginOutHelper {
                 public final /* synthetic */ Dialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f50877b;
+                public final /* synthetic */ Context f49296b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f50878c;
+                public final /* synthetic */ IAfterDismissCallback f49297c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -72,8 +72,8 @@ public class LoginOutHelper {
                         }
                     }
                     this.a = dialog;
-                    this.f50877b = context;
-                    this.f50878c = iAfterDismissCallback;
+                    this.f49296b = context;
+                    this.f49297c = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -81,9 +81,9 @@ public class LoginOutHelper {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f50877b)).logout();
+                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f49296b)).logout();
                         WalletLoginHelper.getInstance().logout();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f50878c;
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f49297c;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onLogout();
                         }
@@ -96,7 +96,7 @@ public class LoginOutHelper {
                 public final /* synthetic */ Dialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f50879b;
+                public final /* synthetic */ IAfterDismissCallback f49298b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -114,7 +114,7 @@ public class LoginOutHelper {
                         }
                     }
                     this.a = dialog;
-                    this.f50879b = iAfterDismissCallback;
+                    this.f49298b = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -122,7 +122,7 @@ public class LoginOutHelper {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f50879b;
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f49298b;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onCancel();
                         }

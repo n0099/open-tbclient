@@ -11,17 +11,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c> f33834b;
+    public List<c> f32237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f33835c;
+    public c f32238c;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class f {
             }
         }
         this.a = i2;
-        this.f33835c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f33834b = new ArrayList();
+        this.f32238c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+        this.f32237b = new ArrayList();
     }
 
     public int a() {
@@ -53,11 +53,11 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f33835c.a(jSONObject);
+            this.f32238c.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < this.f33834b.size(); i2++) {
+            for (int i2 = 0; i2 < this.f32237b.size(); i2++) {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f33834b.get(i2).a(jSONObject2) != null) {
+                if (this.f32237b.get(i2).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }
@@ -72,7 +72,7 @@ public class f {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f33835c.a(eVar);
+            this.f32238c.a(eVar);
         }
     }
 }

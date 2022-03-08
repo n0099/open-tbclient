@@ -2,7 +2,7 @@ package com.airbnb.lottie.value;
 
 import android.view.animation.Interpolator;
 import com.airbnb.lottie.utils.MiscUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieInterpolatedIntegerValue extends LottieInterpolatedValue<Integer> {
     public LottieInterpolatedIntegerValue(Integer num, Integer num2) {
         super(num, num2);

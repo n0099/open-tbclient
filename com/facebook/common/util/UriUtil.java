@@ -17,7 +17,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class UriUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA_SCHEME = "data";
@@ -145,7 +145,7 @@ public class UriUtil {
     public static boolean isLocalAssetUri(@Nullable Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? LOCAL_ASSET_SCHEME.equals(getSchemeOrNull(uri)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? "asset".equals(getSchemeOrNull(uri)) : invokeL.booleanValue;
     }
 
     public static boolean isLocalCameraUri(Uri uri) {

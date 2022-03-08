@@ -31,13 +31,13 @@ public class d implements IHttpNet {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Request.Builder<?> f1975b;
+    public Request.Builder<?> f2601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RequestCall f1976c;
+    public RequestCall f2602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Response f1977d;
+    public Response f2603d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -93,12 +93,12 @@ public class d implements IHttpNet {
         this.a = fVar;
         int i4 = a.a[httpNetType.ordinal()];
         if (i4 == 1) {
-            this.f1975b = HttpManager.getDefault(BdBaseApplication.getInst()).getRequest();
+            this.f2601b = HttpManager.getDefault(BdBaseApplication.getInst()).getRequest();
         } else if (i4 == 2) {
-            this.f1975b = HttpManager.getDefault(BdBaseApplication.getInst()).postFormRequest();
+            this.f2601b = HttpManager.getDefault(BdBaseApplication.getInst()).postFormRequest();
         } else if (i4 != 3) {
         } else {
-            this.f1975b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postMultiPartRequest();
+            this.f2601b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postMultiPartRequest();
         }
     }
 
@@ -107,7 +107,7 @@ public class d implements IHttpNet {
     public void a(URL url, int i2, int i3) {
         Request.Builder<?> builder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, url, i2, i3) == null) || (builder = this.f1975b) == null || url == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048576, this, url, i2, i3) == null) || (builder = this.f2601b) == null || url == null) {
             return;
         }
         builder.url(url.toString()).connectionTimeout(i2).readTimeout(i3);
@@ -118,11 +118,11 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Response response = this.f1977d;
+            Response response = this.f2603d;
             if (response == null || response.headers() == null) {
                 return null;
             }
-            return this.f1977d.headers().toMultimap();
+            return this.f2603d.headers().toMultimap();
         }
         return (Map) invokeV.objValue;
     }
@@ -132,7 +132,7 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Request.Builder<?> builder = this.f1975b;
+            Request.Builder<?> builder = this.f2601b;
             if (builder == null) {
                 return 0;
             }
@@ -140,12 +140,12 @@ public class d implements IHttpNet {
                 ((PostFormRequest.PostFormRequestBuilder) builder).params(this.a.b().j());
             } else if (builder instanceof PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) {
                 ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) builder).addParams(this.a.b().j());
-                if (this.a.b().f1994f != null) {
-                    for (Map.Entry<String, byte[]> entry : this.a.b().f1994f.entrySet()) {
+                if (this.a.b().f2620f != null) {
+                    for (Map.Entry<String, byte[]> entry : this.a.b().f2620f.entrySet()) {
                         String key = entry.getKey();
                         byte[] value = entry.getValue();
                         if (value != null) {
-                            ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) this.f1975b).addBytes(key, "file", "application/octet-stream", value);
+                            ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) this.f2601b).addBytes(key, "file", "application/octet-stream", value);
                         }
                     }
                 }
@@ -176,7 +176,7 @@ public class d implements IHttpNet {
     public void disconnect() {
         RequestCall requestCall;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (requestCall = this.f1976c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (requestCall = this.f2602c) == null) {
             return;
         }
         requestCall.cancel();
@@ -194,14 +194,14 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequestCall makeRequestCall = this.f1975b.build().makeRequestCall();
-            this.f1976c = makeRequestCall;
+            RequestCall makeRequestCall = this.f2601b.build().makeRequestCall();
+            this.f2602c = makeRequestCall;
             Response executeSync = makeRequestCall.executeSync();
-            this.f1977d = executeSync;
+            this.f2603d = executeSync;
             if (executeSync == null || executeSync.body() == null) {
                 return null;
             }
-            return this.f1977d.body().bytes();
+            return this.f2603d.body().bytes();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -210,7 +210,7 @@ public class d implements IHttpNet {
     public void f() {
         Request.Builder<?> builder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (builder = this.f1975b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (builder = this.f2601b) == null) {
             return;
         }
         builder.addHeaders(this.a.b().h());
@@ -228,8 +228,8 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Response response = this.f1977d;
-            return (response == null || response.headers() == null) ? "" : this.f1977d.headers().get(Headers.CONTENT_ENCODING);
+            Response response = this.f2603d;
+            return (response == null || response.headers() == null) ? "" : this.f2603d.headers().get(Headers.CONTENT_ENCODING);
         }
         return (String) invokeV.objValue;
     }
@@ -239,11 +239,11 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            Response response = this.f1977d;
+            Response response = this.f2603d;
             if (response == null || response.body() == null) {
                 return 0L;
             }
-            return this.f1977d.body().contentLength();
+            return this.f2603d.body().contentLength();
         }
         return invokeV.longValue;
     }
@@ -253,8 +253,8 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Response response = this.f1977d;
-            return (response == null || response.body() == null || this.f1977d.body().contentType() == null) ? "" : this.f1977d.body().contentType().toString();
+            Response response = this.f2603d;
+            return (response == null || response.body() == null || this.f2603d.body().contentType() == null) ? "" : this.f2603d.body().contentType().toString();
         }
         return (String) invokeV.objValue;
     }
@@ -264,7 +264,7 @@ public class d implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Response response = this.f1977d;
+            Response response = this.f2603d;
             if (response == null) {
                 return 0;
             }

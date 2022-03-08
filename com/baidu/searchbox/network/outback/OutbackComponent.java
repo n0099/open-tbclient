@@ -2,8 +2,8 @@ package com.baidu.searchbox.network.outback;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.l0.a.b.a;
-import c.a.l0.a.b.c;
+import c.a.i0.a.b.a;
+import c.a.i0.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class OutbackComponent {
     public static /* synthetic */ Interceptable $ic;
     public static volatile OutbackComponent sInstance;
@@ -157,7 +157,7 @@ public class OutbackComponent {
             if (outbackComponentHolder.outbackContextHolder == null) {
                 outbackComponentHolder.outbackContextHolder = new a();
             }
-            this.componentHolder.outbackContextHolder.a(new c.a.l0.a.a<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+            this.componentHolder.outbackContextHolder.a(new c.a.i0.a.a<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OutbackComponent this$0;
@@ -184,7 +184,7 @@ public class OutbackComponent {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.l0.a.a
+                @Override // c.a.i0.a.a
                 public IOutbackContext get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

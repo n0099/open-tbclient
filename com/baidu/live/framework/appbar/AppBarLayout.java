@@ -27,6 +27,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,33 +35,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 @CoordinatorLayout.c(Behavior.class)
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AppBarLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35078e;
+    public int f33481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35079f;
+    public int f33482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35080g;
+    public int f33483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35081h;
+    public boolean f33484h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35082i;
+    public int f33485i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WindowInsetsCompat f35083j;
+    public WindowInsetsCompat f33486j;
     public List<b> k;
     public boolean l;
     public boolean m;
@@ -68,7 +68,7 @@ public class AppBarLayout extends LinearLayout {
     public boolean o;
     public int[] p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -240,7 +240,7 @@ public class AppBarLayout extends LinearLayout {
                 AppBarLayout H = H(coordinatorLayout.getDependencies(view));
                 if (H != null) {
                     rect.offset(view.getLeft(), view.getTop());
-                    Rect rect2 = this.f35098d;
+                    Rect rect2 = this.f33501d;
                     rect2.set(0, 0, coordinatorLayout.getWidth(), coordinatorLayout.getHeight());
                     if (!rect2.contains(rect)) {
                         H.setExpanded(false, !z);
@@ -271,15 +271,15 @@ public class AppBarLayout extends LinearLayout {
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ScrollingViewBehavior_Layout);
-            if (obtainStyledAttributes.hasValue(R.styleable.ScrollingViewBehavior_Layout_behavior_overlapTop)) {
-                O(obtainStyledAttributes.getDimensionPixelSize(R.styleable.ScrollingViewBehavior_Layout_behavior_overlapTop, 0));
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.behavior_overlapTop});
+            if (obtainStyledAttributes.hasValue(0)) {
+                O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
             obtainStyledAttributes.recycle();
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements OnApplyWindowInsetsListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,12 +315,12 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface b<T extends AppBarLayout> {
         void a(T t, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface c extends b<AppBarLayout> {
     }
 
@@ -376,7 +376,7 @@ public class AppBarLayout extends LinearLayout {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35081h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33484h : invokeV.booleanValue;
     }
 
     public final boolean c() {
@@ -410,9 +410,9 @@ public class AppBarLayout extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f35078e = -1;
-            this.f35079f = -1;
-            this.f35080g = -1;
+            this.f33481e = -1;
+            this.f33482f = -1;
+            this.f33483g = -1;
         }
     }
 
@@ -421,8 +421,8 @@ public class AppBarLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, windowInsetsCompat)) == null) {
             WindowInsetsCompat windowInsetsCompat2 = ViewCompat.getFitsSystemWindows(this) ? windowInsetsCompat : null;
-            if (!ObjectsCompat.equals(this.f35083j, windowInsetsCompat2)) {
-                this.f35083j = windowInsetsCompat2;
+            if (!ObjectsCompat.equals(this.f33486j, windowInsetsCompat2)) {
+                this.f33486j = windowInsetsCompat2;
                 e();
             }
             return windowInsetsCompat;
@@ -433,7 +433,7 @@ public class AppBarLayout extends LinearLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f35082i = 0;
+            this.f33485i = 0;
         }
     }
 
@@ -442,7 +442,7 @@ public class AppBarLayout extends LinearLayout {
         int topInset;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            int i2 = this.f35079f;
+            int i2 = this.f33482f;
             if (i2 != -1) {
                 return i2;
             }
@@ -469,7 +469,7 @@ public class AppBarLayout extends LinearLayout {
                 }
             }
             int max = Math.max(0, i3);
-            this.f35079f = max;
+            this.f33482f = max;
             return max;
         }
         return invokeV.intValue;
@@ -479,7 +479,7 @@ public class AppBarLayout extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            int i2 = this.f35080g;
+            int i2 = this.f33483g;
             if (i2 != -1) {
                 return i2;
             }
@@ -505,7 +505,7 @@ public class AppBarLayout extends LinearLayout {
                 i3++;
             }
             int max = Math.max(0, i4);
-            this.f35080g = max;
+            this.f33483g = max;
             return max;
         }
         return invokeV.intValue;
@@ -532,7 +532,7 @@ public class AppBarLayout extends LinearLayout {
     public int getPendingAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f35082i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f33485i : invokeV.intValue;
     }
 
     @Deprecated
@@ -550,7 +550,7 @@ public class AppBarLayout extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            WindowInsetsCompat windowInsetsCompat = this.f35083j;
+            WindowInsetsCompat windowInsetsCompat = this.f33486j;
             if (windowInsetsCompat != null) {
                 return windowInsetsCompat.getSystemWindowInsetTop();
             }
@@ -563,7 +563,7 @@ public class AppBarLayout extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            int i2 = this.f35078e;
+            int i2 = this.f33481e;
             if (i2 != -1) {
                 return i2;
             }
@@ -589,7 +589,7 @@ public class AppBarLayout extends LinearLayout {
                 i3++;
             }
             int max = Math.max(0, i4 - getTopInset());
-            this.f35078e = max;
+            this.f33481e = max;
             return max;
         }
         return invokeV.intValue;
@@ -604,7 +604,7 @@ public class AppBarLayout extends LinearLayout {
     public final void h(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            this.f35082i = (z ? 1 : 2) | (z2 ? 4 : 0) | (z3 ? 8 : 0);
+            this.f33485i = (z ? 1 : 2) | (z2 ? 4 : 0) | (z3 ? 8 : 0);
             requestLayout();
         }
     }
@@ -653,10 +653,10 @@ public class AppBarLayout extends LinearLayout {
             }
             int[] iArr = this.p;
             int[] onCreateDrawableState = super.onCreateDrawableState(i2 + iArr.length);
-            iArr[0] = this.m ? R.attr.state_liftable : -R.attr.state_liftable;
-            iArr[1] = (this.m && this.n) ? R.attr.state_lifted : -R.attr.state_lifted;
-            iArr[2] = this.m ? R.attr.state_collapsible : -R.attr.state_collapsible;
-            iArr[3] = (this.m && this.n) ? R.attr.state_collapsed : -R.attr.state_collapsed;
+            iArr[0] = this.m ? R.attr.state_liftable : -2130970034;
+            iArr[1] = (this.m && this.n) ? R.attr.state_lifted : -2130970035;
+            iArr[2] = this.m ? R.attr.state_collapsible : -2130970032;
+            iArr[3] = (this.m && this.n) ? R.attr.state_collapsed : -2130970031;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -669,14 +669,14 @@ public class AppBarLayout extends LinearLayout {
             super.onLayout(z, i2, i3, i4, i5);
             e();
             boolean z2 = false;
-            this.f35081h = false;
+            this.f33484h = false;
             int childCount = getChildCount();
             int i6 = 0;
             while (true) {
                 if (i6 >= childCount) {
                     break;
                 } else if (((LayoutParams) getChildAt(i6).getLayoutParams()).b() != null) {
-                    this.f35081h = true;
+                    this.f33484h = true;
                     break;
                 } else {
                     i6++;
@@ -751,10 +751,10 @@ public class AppBarLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeF(1048618, this, f2) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        c.a.y.g.a.c.b(this, f2);
+        c.a.w.f.a.c.b(this, f2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -767,19 +767,19 @@ public class AppBarLayout extends LinearLayout {
         public WeakReference<View> q;
         public b r;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CoordinatorLayout f35084e;
+            public final /* synthetic */ CoordinatorLayout f33487e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ AppBarLayout f35085f;
+            public final /* synthetic */ AppBarLayout f33488f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ BaseBehavior f35086g;
+            public final /* synthetic */ BaseBehavior f33489g;
 
             public a(BaseBehavior baseBehavior, CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
                 Interceptable interceptable = $ic;
@@ -796,21 +796,21 @@ public class AppBarLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f35086g = baseBehavior;
-                this.f35084e = coordinatorLayout;
-                this.f35085f = appBarLayout;
+                this.f33489g = baseBehavior;
+                this.f33487e = coordinatorLayout;
+                this.f33488f = appBarLayout;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.f35086g.P(this.f35084e, this.f35085f, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f33489g.P(this.f33487e, this.f33488f, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes4.dex */
         public static abstract class b<T extends AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -895,7 +895,7 @@ public class AppBarLayout extends LinearLayout {
                 if (valueAnimator2 == null) {
                     ValueAnimator valueAnimator3 = new ValueAnimator();
                     this.m = valueAnimator3;
-                    valueAnimator3.setInterpolator(c.a.y.g.a.a.a);
+                    valueAnimator3.setInterpolator(c.a.w.f.a.a.a);
                     this.m.addUpdateListener(new a(this, coordinatorLayout, t));
                 } else {
                     valueAnimator2.cancel();
@@ -1375,7 +1375,7 @@ public class AppBarLayout extends LinearLayout {
             this.n = -1;
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes4.dex */
         public static class SavedState extends AbsSavedState {
             public static /* synthetic */ Interceptable $ic;
             public static final Parcelable.Creator<SavedState> CREATOR;
@@ -1384,7 +1384,7 @@ public class AppBarLayout extends LinearLayout {
             public int firstVisibleChildIndex;
             public float firstVisibleChildPercentageShown;
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes4.dex */
             public class a implements Parcelable.ClassLoaderCreator<SavedState> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1523,32 +1523,32 @@ public class AppBarLayout extends LinearLayout {
                 return;
             }
         }
-        this.f35078e = -1;
-        this.f35079f = -1;
-        this.f35080g = -1;
-        this.f35082i = 0;
+        this.f33481e = -1;
+        this.f33482f = -1;
+        this.f33483g = -1;
+        this.f33485i = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            c.a.y.g.a.c.a(this);
-            c.a.y.g.a.c.c(this, attributeSet, 0, R.style.Widget_Design_AppBarLayout);
+            c.a.w.f.a.c.a(this);
+            c.a.w.f.a.c.c(this, attributeSet, 0, com.google.android.material.appbar.AppBarLayout.Widget_Design_AppBarLayout);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.AppBarLayout, 0, R.style.Widget_Design_AppBarLayout);
-        if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_expanded)) {
-            h(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_expanded, false), false, false);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.elevation, R.attr.expanded, R.attr.liftOnScroll, R.attr.liftOnScrollTargetViewId, R.attr.statusBarForeground}, 0, com.google.android.material.appbar.AppBarLayout.Widget_Design_AppBarLayout);
+        if (obtainStyledAttributes.hasValue(4)) {
+            h(obtainStyledAttributes.getBoolean(4, false), false, false);
         }
-        if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_elevation)) {
-            c.a.y.g.a.c.b(this, obtainStyledAttributes.getDimensionPixelSize(R.styleable.AppBarLayout_elevation, 0));
+        if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(3)) {
+            c.a.w.f.a.c.b(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_android_keyboardNavigationCluster)) {
-                setKeyboardNavigationCluster(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_android_keyboardNavigationCluster, false));
+            if (obtainStyledAttributes.hasValue(2)) {
+                setKeyboardNavigationCluster(obtainStyledAttributes.getBoolean(2, false));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_android_touchscreenBlocksFocus)) {
-                setTouchscreenBlocksFocus(obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_android_touchscreenBlocksFocus, false));
+            if (obtainStyledAttributes.hasValue(1)) {
+                setTouchscreenBlocksFocus(obtainStyledAttributes.getBoolean(1, false));
             }
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_liftOnScroll)) {
-            this.o = obtainStyledAttributes.getBoolean(R.styleable.AppBarLayout_liftOnScroll, false);
+        if (obtainStyledAttributes.hasValue(5)) {
+            this.o = obtainStyledAttributes.getBoolean(5, false);
         }
         obtainStyledAttributes.recycle();
         ViewCompat.setOnApplyWindowInsetsListener(this, new a(this));
@@ -1608,14 +1608,14 @@ public class AppBarLayout extends LinearLayout {
         return (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Interpolator f35087b;
+        public Interpolator f33490b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -1637,10 +1637,10 @@ public class AppBarLayout extends LinearLayout {
                 }
             }
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.AppBarLayout_Layout);
-            this.a = obtainStyledAttributes.getInt(R.styleable.AppBarLayout_Layout_layout_scrollFlags, 0);
-            if (obtainStyledAttributes.hasValue(R.styleable.AppBarLayout_Layout_layout_scrollInterpolator)) {
-                this.f35087b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(R.styleable.AppBarLayout_Layout_layout_scrollInterpolator, 0));
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.layout_scrollFlags, R.attr.layout_scrollInterpolator});
+            this.a = obtainStyledAttributes.getInt(0, 0);
+            if (obtainStyledAttributes.hasValue(1)) {
+                this.f33490b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));
             }
             obtainStyledAttributes.recycle();
         }
@@ -1654,7 +1654,7 @@ public class AppBarLayout extends LinearLayout {
         public Interpolator b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35087b : (Interpolator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33490b : (Interpolator) invokeV.objValue;
         }
 
         public boolean c() {

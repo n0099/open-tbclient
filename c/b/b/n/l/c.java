@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f27420i;
+    public static int f27324i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27421h;
+    public String f27325h;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public class c extends b {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("mtl");
-        int i4 = f27420i + 1;
-        f27420i = i4;
+        int i4 = f27324i + 1;
+        f27324i = i4;
         sb.append(i4);
     }
 
@@ -64,14 +64,14 @@ public class c extends b {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f27421h.equals(this.f27421h) && super.equals(obj))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f27325h.equals(this.f27325h) && super.equals(obj))) : invokeL.booleanValue;
     }
 
     @Override // c.b.b.n.l.b
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f27421h.hashCode() * 3) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f27325h.hashCode() * 3) : invokeV.intValue;
     }
 
     public c(String str) {
@@ -89,6 +89,6 @@ public class c extends b {
                 return;
             }
         }
-        this.f27421h = str;
+        this.f27325h = str;
     }
 }

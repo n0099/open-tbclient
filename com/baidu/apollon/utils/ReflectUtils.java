@@ -19,16 +19,16 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ReflectUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f32958b;
+    public final boolean f31361b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class NULL {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public final class ReflectUtils {
             }
         }
         this.a = cls;
-        this.f32958b = true;
+        this.f31361b = true;
     }
 
     public static <T extends AccessibleObject> T accessible(T t) {
@@ -201,7 +201,7 @@ public final class ReflectUtils {
             public final /* synthetic */ boolean a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ReflectUtils f32959b;
+            public final /* synthetic */ ReflectUtils f31362b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -218,7 +218,7 @@ public final class ReflectUtils {
                         return;
                     }
                 }
-                this.f32959b = this;
+                this.f31362b = this;
                 this.a = r7;
             }
 
@@ -229,10 +229,10 @@ public final class ReflectUtils {
                 if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                     String name = method.getName();
                     try {
-                        return ReflectUtils.on(this.f32959b.a).call(name, objArr).get();
+                        return ReflectUtils.on(this.f31362b.a).call(name, objArr).get();
                     } catch (RuntimeException e2) {
                         if (this.a) {
-                            Map map = (Map) this.f32959b.a;
+                            Map map = (Map) this.f31362b.a;
                             int length = objArr == null ? 0 : objArr.length;
                             if (length == 0 && name.startsWith("get")) {
                                 return map.get(ReflectUtils.b(name.substring(3)));
@@ -299,7 +299,7 @@ public final class ReflectUtils {
             Class<?> type = type();
             do {
                 for (Field field : type.getDeclaredFields()) {
-                    if ((!this.f32958b) ^ Modifier.isStatic(field.getModifiers())) {
+                    if ((!this.f31361b) ^ Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
                         if (!linkedHashMap.containsKey(name)) {
                             linkedHashMap.put(name, field(name));
@@ -351,7 +351,7 @@ public final class ReflectUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f32958b) {
+            if (this.f31361b) {
                 return (Class) this.a;
             }
             return this.a.getClass();
@@ -444,7 +444,7 @@ public final class ReflectUtils {
             }
         }
         this.a = obj;
-        this.f32958b = false;
+        this.f31361b = false;
     }
 
     private Method b(String str, Class<?>[] clsArr) throws NoSuchMethodException {

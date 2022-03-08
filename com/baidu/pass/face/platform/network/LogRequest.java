@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LogRequest extends BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_GET_LOG = "http://face.baidu.com/openapi/v2/stat/sdkdata";
@@ -34,43 +34,43 @@ public class LogRequest extends BaseRequest {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:173:0x01c3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0097 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0099 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x009b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x009e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00a1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x00a4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:173:0x01c0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0094 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0096 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0098 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x009b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x009e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x00a1 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x012f A[Catch: IOException -> 0x0121, TRY_LEAVE, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0148 A[Catch: IOException -> 0x0144, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x014d A[Catch: IOException -> 0x0144, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0152 A[Catch: IOException -> 0x0144, TRY_LEAVE, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x016b A[Catch: IOException -> 0x0167, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x0170 A[Catch: IOException -> 0x0167, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x0175 A[Catch: IOException -> 0x0167, TRY_LEAVE, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x018e A[Catch: IOException -> 0x018a, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x0193 A[Catch: IOException -> 0x018a, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x0198 A[Catch: IOException -> 0x018a, TRY_LEAVE, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
-    /* JADX WARN: Removed duplicated region for block: B:165:0x01b1 A[Catch: IOException -> 0x01ad, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:167:0x01b6 A[Catch: IOException -> 0x01ad, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:169:0x01bb A[Catch: IOException -> 0x01ad, TRY_LEAVE, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:179:0x01ce A[Catch: IOException -> 0x01ca, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x01d3 A[Catch: IOException -> 0x01ca, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:183:0x01d8 A[Catch: IOException -> 0x01ca, TRY_LEAVE, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:190:0x01a9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:192:0x0186 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:194:0x01c6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x0140 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:201:0x0163 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:203:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x012c A[Catch: IOException -> 0x011e, TRY_LEAVE, TryCatch #34 {IOException -> 0x011e, blocks: (B:93:0x011a, B:97:0x0122, B:99:0x0127, B:101:0x012c), top: B:203:0x011a }] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0145 A[Catch: IOException -> 0x0141, TryCatch #11 {IOException -> 0x0141, blocks: (B:110:0x013d, B:114:0x0145, B:116:0x014a, B:118:0x014f), top: B:194:0x013d }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x014a A[Catch: IOException -> 0x0141, TryCatch #11 {IOException -> 0x0141, blocks: (B:110:0x013d, B:114:0x0145, B:116:0x014a, B:118:0x014f), top: B:194:0x013d }] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x014f A[Catch: IOException -> 0x0141, TRY_LEAVE, TryCatch #11 {IOException -> 0x0141, blocks: (B:110:0x013d, B:114:0x0145, B:116:0x014a, B:118:0x014f), top: B:194:0x013d }] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x0168 A[Catch: IOException -> 0x0164, TryCatch #30 {IOException -> 0x0164, blocks: (B:127:0x0160, B:131:0x0168, B:133:0x016d, B:135:0x0172), top: B:201:0x0160 }] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x016d A[Catch: IOException -> 0x0164, TryCatch #30 {IOException -> 0x0164, blocks: (B:127:0x0160, B:131:0x0168, B:133:0x016d, B:135:0x0172), top: B:201:0x0160 }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x0172 A[Catch: IOException -> 0x0164, TRY_LEAVE, TryCatch #30 {IOException -> 0x0164, blocks: (B:127:0x0160, B:131:0x0168, B:133:0x016d, B:135:0x0172), top: B:201:0x0160 }] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x018b A[Catch: IOException -> 0x0187, TryCatch #6 {IOException -> 0x0187, blocks: (B:144:0x0183, B:148:0x018b, B:150:0x0190, B:152:0x0195), top: B:190:0x0183 }] */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x0190 A[Catch: IOException -> 0x0187, TryCatch #6 {IOException -> 0x0187, blocks: (B:144:0x0183, B:148:0x018b, B:150:0x0190, B:152:0x0195), top: B:190:0x0183 }] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0195 A[Catch: IOException -> 0x0187, TRY_LEAVE, TryCatch #6 {IOException -> 0x0187, blocks: (B:144:0x0183, B:148:0x018b, B:150:0x0190, B:152:0x0195), top: B:190:0x0183 }] */
+    /* JADX WARN: Removed duplicated region for block: B:165:0x01ae A[Catch: IOException -> 0x01aa, TryCatch #26 {IOException -> 0x01aa, blocks: (B:161:0x01a6, B:165:0x01ae, B:167:0x01b3, B:169:0x01b8), top: B:199:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:167:0x01b3 A[Catch: IOException -> 0x01aa, TryCatch #26 {IOException -> 0x01aa, blocks: (B:161:0x01a6, B:165:0x01ae, B:167:0x01b3, B:169:0x01b8), top: B:199:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:169:0x01b8 A[Catch: IOException -> 0x01aa, TRY_LEAVE, TryCatch #26 {IOException -> 0x01aa, blocks: (B:161:0x01a6, B:165:0x01ae, B:167:0x01b3, B:169:0x01b8), top: B:199:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:179:0x01cb A[Catch: IOException -> 0x01c7, TryCatch #7 {IOException -> 0x01c7, blocks: (B:175:0x01c3, B:179:0x01cb, B:181:0x01d0, B:183:0x01d5), top: B:192:0x01c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:181:0x01d0 A[Catch: IOException -> 0x01c7, TryCatch #7 {IOException -> 0x01c7, blocks: (B:175:0x01c3, B:179:0x01cb, B:181:0x01d0, B:183:0x01d5), top: B:192:0x01c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:183:0x01d5 A[Catch: IOException -> 0x01c7, TRY_LEAVE, TryCatch #7 {IOException -> 0x01c7, blocks: (B:175:0x01c3, B:179:0x01cb, B:181:0x01d0, B:183:0x01d5), top: B:192:0x01c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x0183 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x01c3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:194:0x013d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x01a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:201:0x0160 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:203:0x011a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:217:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:219:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:221:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:223:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:225:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0125 A[Catch: IOException -> 0x0121, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x012a A[Catch: IOException -> 0x0121, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0122 A[Catch: IOException -> 0x011e, TryCatch #34 {IOException -> 0x011e, blocks: (B:93:0x011a, B:97:0x0122, B:99:0x0127, B:101:0x012c), top: B:203:0x011a }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0127 A[Catch: IOException -> 0x011e, TryCatch #34 {IOException -> 0x011e, blocks: (B:93:0x011a, B:97:0x0122, B:99:0x0127, B:101:0x012c), top: B:203:0x011a }] */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r7v0 */
     /* JADX WARN: Type inference failed for: r7v10, types: [java.io.ByteArrayOutputStream] */

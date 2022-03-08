@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class DownloadParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39911b;
+    public String f38315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39912c;
+    public String f38316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39913d;
+    public String f38317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39914e;
+    public String f38318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39915f;
+    public long f38319f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class DownloadParams {
             }
         }
         this.a = str;
-        this.f39911b = str2;
+        this.f38315b = str2;
     }
 
     public JSONObject a() {
@@ -155,11 +155,11 @@ public class DownloadParams {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("url", this.a);
-                jSONObject.put("name", this.f39911b);
-                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f39912c);
-                jSONObject.put("contentDisposition", this.f39913d);
-                jSONObject.put("mimeType", this.f39914e);
-                jSONObject.put("contentLength", this.f39915f);
+                jSONObject.put("name", this.f38315b);
+                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f38316c);
+                jSONObject.put("contentDisposition", this.f38317d);
+                jSONObject.put("mimeType", this.f38318e);
+                jSONObject.put("contentLength", this.f38319f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -183,6 +183,6 @@ public class DownloadParams {
             }
         }
         this.a = str;
-        this.f39911b = str2;
+        this.f38315b = str2;
     }
 }

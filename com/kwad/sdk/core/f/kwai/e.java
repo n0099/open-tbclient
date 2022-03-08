@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
     public Context a;
 

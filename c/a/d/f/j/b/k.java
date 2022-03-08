@@ -36,10 +36,10 @@ public class k implements IHttpNet {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f2007b;
+    public HttpURLConnection f2633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final IHttpNet.HttpNetType f2008c;
+    public final IHttpNet.HttpNetType f2634c;
 
     /* loaded from: classes.dex */
     public class a implements HostnameVerifier {
@@ -96,30 +96,30 @@ public class k implements IHttpNet {
             }
         }
         this.a = fVar;
-        this.f2008c = httpNetType;
+        this.f2634c = httpNetType;
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void a(URL url, int i2, int i3) throws SocketException, ProtocolException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, url, i2, i3) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             if (httpURLConnection != null) {
-                if (this.f2008c == IHttpNet.HttpNetType.GET) {
+                if (this.f2634c == IHttpNet.HttpNetType.GET) {
                     httpURLConnection.setRequestMethod("GET");
                 } else {
                     httpURLConnection.setRequestMethod("POST");
-                    this.f2007b.setDoOutput(true);
-                    this.f2007b.setDoInput(true);
-                    IHttpNet.HttpNetType httpNetType = this.f2008c;
+                    this.f2633b.setDoOutput(true);
+                    this.f2633b.setDoInput(true);
+                    IHttpNet.HttpNetType httpNetType = this.f2634c;
                     if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
-                        this.f2007b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                        this.f2633b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
-                        this.f2007b.setRequestProperty("Content-Type", "multipart/form-data; boundary=--------7da3d81520810*");
+                        this.f2633b.setRequestProperty("Content-Type", "multipart/form-data; boundary=--------7da3d81520810*");
                     }
                 }
-                this.f2007b.setConnectTimeout(i2);
-                this.f2007b.setReadTimeout(i3);
+                this.f2633b.setConnectTimeout(i2);
+                this.f2633b.setReadTimeout(i3);
                 return;
             }
             throw new SocketException("network not available.");
@@ -130,7 +130,7 @@ public class k implements IHttpNet {
     public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2007b.getHeaderFields() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2633b.getHeaderFields() : (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
@@ -139,13 +139,13 @@ public class k implements IHttpNet {
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f2007b == null) {
+            if (this.f2633b == null) {
                 return 0;
             }
-            IHttpNet.HttpNetType httpNetType = this.f2008c;
+            IHttpNet.HttpNetType httpNetType = this.f2634c;
             if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
                 String sb = i().toString();
-                dataOutputStream = new DataOutputStream(this.f2007b.getOutputStream());
+                dataOutputStream = new DataOutputStream(this.f2633b.getOutputStream());
                 try {
                     dataOutputStream.writeBytes(sb);
                     dataOutputStream.flush();
@@ -154,7 +154,7 @@ public class k implements IHttpNet {
                 } finally {
                 }
             } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
-                dataOutputStream = new DataOutputStream(this.f2007b.getOutputStream());
+                dataOutputStream = new DataOutputStream(this.f2633b.getOutputStream());
                 try {
                     if (this.a.b().k() != null) {
                         Iterator<BasicNameValuePair> it = this.a.b().k().iterator();
@@ -174,8 +174,8 @@ public class k implements IHttpNet {
                             }
                         }
                     }
-                    if (this.a.b().f1994f != null) {
-                        for (Map.Entry<String, byte[]> entry : this.a.b().f1994f.entrySet()) {
+                    if (this.a.b().f2620f != null) {
+                        for (Map.Entry<String, byte[]> entry : this.a.b().f2620f.entrySet()) {
                             String key = entry.getKey();
                             byte[] value2 = entry.getValue();
                             if (value2 != null) {
@@ -203,7 +203,7 @@ public class k implements IHttpNet {
     public void connect() throws IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.f2007b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.f2633b) == null) {
             return;
         }
         httpURLConnection.connect();
@@ -214,7 +214,7 @@ public class k implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             if (httpURLConnection == null) {
                 return null;
             }
@@ -227,7 +227,7 @@ public class k implements IHttpNet {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.d.f.m.a.e(this.f2007b);
+            c.a.d.f.m.a.e(this.f2633b);
         }
     }
 
@@ -249,11 +249,11 @@ public class k implements IHttpNet {
                         sb.append("/");
                     }
                     sb.append(file);
-                    this.f2007b = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                    this.f2633b = (HttpURLConnection) new URL(sb.toString()).openConnection();
                     this.a.b().a("X-Online-Host", url.getHost());
                     return;
                 }
-                this.f2007b = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, l.d())));
+                this.f2633b = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, l.d())));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -266,13 +266,13 @@ public class k implements IHttpNet {
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f2007b == null) {
+            if (this.f2633b == null) {
                 return null;
             }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
             try {
                 byte[] bArr = new byte[1024];
-                InputStream inputStream = this.f2007b.getInputStream();
+                InputStream inputStream = this.f2633b.getInputStream();
                 while (!this.a.c().a && (read = inputStream.read(bArr)) != -1) {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
@@ -295,11 +295,11 @@ public class k implements IHttpNet {
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f2007b == null || this.a.b().h() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f2633b == null || this.a.b().h() == null) {
             return;
         }
         for (Map.Entry<String, String> entry : this.a.b().h().entrySet()) {
-            this.f2007b.addRequestProperty(entry.getKey(), entry.getValue());
+            this.f2633b.addRequestProperty(entry.getKey(), entry.getValue());
         }
     }
 
@@ -308,14 +308,14 @@ public class k implements IHttpNet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, url, z) == null) {
             try {
-                if (this.f2007b == null) {
-                    this.f2007b = (HttpURLConnection) url.openConnection();
+                if (this.f2633b == null) {
+                    this.f2633b = (HttpURLConnection) url.openConnection();
                 }
                 if (z && url.getProtocol().equals("https")) {
-                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) this.f2007b;
+                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) this.f2633b;
                     httpsURLConnection.setSSLSocketFactory(new j(httpsURLConnection));
                     httpsURLConnection.setHostnameVerifier(new a(this, httpsURLConnection));
-                    this.f2007b = httpsURLConnection;
+                    this.f2633b = httpsURLConnection;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -328,7 +328,7 @@ public class k implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             return httpURLConnection == null ? "" : httpURLConnection.getContentEncoding();
         }
         return (String) invokeV.objValue;
@@ -339,7 +339,7 @@ public class k implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             if (httpURLConnection == null) {
                 return 0L;
             }
@@ -353,7 +353,7 @@ public class k implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             return httpURLConnection == null ? "" : httpURLConnection.getContentType();
         }
         return (String) invokeV.objValue;
@@ -364,7 +364,7 @@ public class k implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f2007b;
+            HttpURLConnection httpURLConnection = this.f2633b;
             if (httpURLConnection == null) {
                 return 0;
             }
@@ -377,9 +377,9 @@ public class k implements IHttpNet {
     public void h() throws IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (httpURLConnection = this.f2007b) != null && c.a.d.f.j.c.b.c(httpURLConnection.getContentType())) {
-            this.f2007b.disconnect();
-            this.f2007b.connect();
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (httpURLConnection = this.f2633b) != null && c.a.d.f.j.c.b.c(httpURLConnection.getContentType())) {
+            this.f2633b.disconnect();
+            this.f2633b.connect();
             if (this.a.c().a) {
                 throw new BdHttpCancelException();
             }

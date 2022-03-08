@@ -10,11 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.t0.f1.n.e;
-import c.a.t0.s.r.c1;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.x0;
-import c.a.u0.a4.d;
+import c.a.q0.e1.n.e;
+import c.a.q0.r.r.c1;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.x0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,6 +28,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -51,7 +51,7 @@ import tbclient.PbContent;
 import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.WorkCreatorInfo;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<VideoItemData> CREATOR;
@@ -117,7 +117,7 @@ public class VideoItemData implements Serializable, Parcelable {
     public String video_url;
     public String video_width;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<VideoItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,7 +311,7 @@ public class VideoItemData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, originalThreadInfo)) == null) {
             if (originalThreadInfo != null) {
-                this.thread_id = originalThreadInfo.f40389f;
+                this.thread_id = originalThreadInfo.f38793f;
                 this.post_id = originalThreadInfo.n;
                 VideoInfo videoInfo = originalThreadInfo.r;
                 if (videoInfo != null) {
@@ -328,14 +328,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.comment_num = String.valueOf(originalThreadInfo.A);
                 this.agree_num = String.valueOf(originalThreadInfo.z.agree_num);
                 this.share_num = String.valueOf(originalThreadInfo.B);
-                String str = originalThreadInfo.f40390g;
+                String str = originalThreadInfo.f38794g;
                 this.title = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.title = originalThreadInfo.f40385b;
+                    this.title = originalThreadInfo.f38789b;
                 }
-                this.forum_id = String.valueOf(originalThreadInfo.f40388e);
+                this.forum_id = String.valueOf(originalThreadInfo.f38792e);
                 this.baijiahaoData = originalThreadInfo.p;
-                this.forum_name = originalThreadInfo.f40387d;
+                this.forum_name = originalThreadInfo.f38791d;
                 this.is_agreed = String.valueOf(originalThreadInfo.z.has_agree);
                 if (originalThreadInfo.y != null) {
                     UserItemData userItemData = new UserItemData();
@@ -483,7 +483,7 @@ public class VideoItemData implements Serializable, Parcelable {
             x0Var.o(this.thread_id);
             x0Var.l(this.forum_id);
             x0Var.j(this.feedBackReasonMap);
-            x0Var.f13996g = this.feedBackExtraMap;
+            x0Var.f13412g = this.feedBackExtraMap;
             x0Var.p = this.mRecomAbTag;
             x0Var.k = this.mRecomWeight;
             x0Var.m = this.mRecomExtra;
@@ -883,9 +883,9 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        c.a.t0.j0.d.b f2 = c.a.t0.j0.d.b.f(this.threadData, pbContent);
-                        f2.d(d.CAM_X0101);
-                        f2.e(d.CAM_X0113);
+                        c.a.q0.i0.d.b f2 = c.a.q0.i0.d.b.f(this.threadData, pbContent);
+                        f2.d(R.color.CAM_X0101);
+                        f2.e(R.color.CAM_X0113);
                         f2.b(HotTopicStat.Locate.VIDEO_MIDDLE);
                         n = e.o(f2);
                     } else {

@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class s0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30668b;
+    public boolean f29098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p0 f30669c;
+    public p0 f29099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f30670d;
+    public Info f29100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f30671e;
+    public Handler f29101e;
 
     public s0() {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public class s0 {
                 return;
             }
         }
-        this.f30671e = new p(this, Looper.getMainLooper());
+        this.f29101e = new p(this, Looper.getMainLooper());
     }
 
     public void a(View view, Info info, p0 p0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, info, p0Var) == null) {
             this.a = view;
-            this.f30669c = p0Var;
-            this.f30670d = info;
+            this.f29099c = p0Var;
+            this.f29100d = info;
             try {
-                String str = "b111:" + this.f30668b;
-                if (!this.f30668b) {
-                    this.f30671e.sendEmptyMessage(1101);
+                String str = "b111:" + this.f29098b;
+                if (!this.f29098b) {
+                    this.f29101e.sendEmptyMessage(1101);
                 }
                 ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
                 viewTreeObserver.addOnScrollChangedListener(new t(this, p0Var));
@@ -94,9 +94,9 @@ public class s0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f30670d != null) {
-            if (rect.width() >= this.f30670d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f30670d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f29100d != null) {
+            if (rect.width() >= this.f29100d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f29100d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

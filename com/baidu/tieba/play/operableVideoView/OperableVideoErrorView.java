@@ -5,24 +5,21 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.t0.s.l0.n.a;
-import c.a.u0.a4.e;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.j;
+import c.a.q0.r.l0.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class OperableVideoErrorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f47520e;
+    public TBSpecificationBtn f45928e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OperableVideoErrorView(Context context) {
@@ -48,19 +45,19 @@ public class OperableVideoErrorView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LinearLayout.inflate(context, h.operable_video_error, this);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(g.retry);
-            this.f47520e = tBSpecificationBtn;
-            tBSpecificationBtn.setTextSize(e.tbds36);
-            this.f47520e.setText(getResources().getString(j.click_retry));
-            this.f47520e.setConfig(new a());
+            LinearLayout.inflate(context, R.layout.operable_video_error, this);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
+            this.f45928e = tBSpecificationBtn;
+            tBSpecificationBtn.setTextSize(R.dimen.tbds36);
+            this.f45928e.setText(getResources().getString(R.string.click_retry));
+            this.f45928e.setConfig(new a());
         }
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f47520e.setOnClickListener(onClickListener);
+            this.f45928e.setOnClickListener(onClickListener);
         }
     }
 

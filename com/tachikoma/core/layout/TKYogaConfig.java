@@ -28,7 +28,6 @@ import com.kwad.yoga.YogaWrap;
 import com.tachikoma.core.Tachikoma;
 import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.component.anim.AnimationProperty;
-import com.tachikoma.core.component.input.TextAlign;
 import com.tachikoma.core.utility.TKConverter;
 import com.tachikoma.core.utility.TKFlexible;
 import java.lang.reflect.Array;
@@ -39,7 +38,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKYogaConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> NON_DP_CONVERT_KEYS;
@@ -56,7 +55,7 @@ public class TKYogaConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap yogaConfig;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class TKYogaConfigHolder {
         public static /* synthetic */ Interceptable $ic;
         public static TKYogaConfig instance;
@@ -214,7 +213,7 @@ public class TKYogaConfig {
                     }
                 }
                 put("flex-start", Integer.valueOf(YogaJustify.FLEX_START.ordinal()));
-                put(TextAlign.CENTER, Integer.valueOf(YogaJustify.CENTER.ordinal()));
+                put("center", Integer.valueOf(YogaJustify.CENTER.ordinal()));
                 put("flex-end", Integer.valueOf(YogaJustify.FLEX_END.ordinal()));
                 put("space-between", Integer.valueOf(YogaJustify.SPACE_BETWEEN.ordinal()));
                 put("space-around", Integer.valueOf(YogaJustify.SPACE_AROUND.ordinal()));
@@ -261,7 +260,7 @@ public class TKYogaConfig {
                 }
                 put("auto", Integer.valueOf(YogaAlign.AUTO.ordinal()));
                 put("flex-start", Integer.valueOf(YogaAlign.FLEX_START.ordinal()));
-                put(TextAlign.CENTER, Integer.valueOf(YogaAlign.CENTER.ordinal()));
+                put("center", Integer.valueOf(YogaAlign.CENTER.ordinal()));
                 put("flex-end", Integer.valueOf(YogaAlign.FLEX_END.ordinal()));
                 put("stretch", Integer.valueOf(YogaAlign.STRETCH.ordinal()));
                 put("baseline", Integer.valueOf(YogaAlign.BASELINE.ordinal()));

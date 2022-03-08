@@ -2,12 +2,12 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
-import c.a.t0.s.r.e2;
-import c.a.u0.h.e.c;
-import c.a.u0.h.e.d;
-import c.a.u0.h.e.e;
-import c.a.u0.h.f.b;
-import c.a.u0.l3.u;
+import c.a.q0.r.r.e2;
+import c.a.r0.h.e.c;
+import c.a.r0.h.e.d;
+import c.a.r0.h.e.e;
+import c.a.r0.h.f.b;
+import c.a.r0.j3.v;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsFeedAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b bVar;
-            c.a.u0.h.e.b c2;
+            c.a.r0.h.e.b c2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b) && (c2 = (bVar = (b) customResponsedMessage.getData()).c()) != null && (c2 instanceof u)) {
-                u uVar = (u) c2;
-                c.a.u0.h.e.a injectPlugin = c2.getInjectPlugin(1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b) && (c2 = (bVar = (b) customResponsedMessage.getData()).c()) != null && (c2 instanceof v)) {
+                v vVar = (v) c2;
+                c.a.r0.h.e.a injectPlugin = c2.getInjectPlugin(1);
                 if (injectPlugin == null) {
                     d a = e.b().a(1);
                     if (a == null) {
@@ -65,23 +65,23 @@ public class FrsFeedAdStatic {
                     }
                     injectPlugin = a.a();
                     c2.setInjectPlugin(1, injectPlugin);
-                    injectPlugin.n(new c(uVar));
+                    injectPlugin.n(new c(vVar));
                 }
-                if (injectPlugin instanceof c.a.u0.h.b.d) {
-                    c.a.u0.h.b.d dVar = (c.a.u0.h.b.d) injectPlugin;
+                if (injectPlugin instanceof c.a.r0.h.b.d) {
+                    c.a.r0.h.b.d dVar = (c.a.r0.h.b.d) injectPlugin;
                     if (bVar.a() == 1) {
                         List list = (List) bVar.f();
-                        c.a.u0.h.b.b.d(dVar.c());
-                        for (BdUniqueId bdUniqueId : c.a.u0.h.b.b.e()) {
-                            c.a.u0.h.b.a aVar = new c.a.u0.h.b.a(uVar, bdUniqueId);
-                            aVar.Z(uVar.getTbPageContext());
+                        c.a.r0.h.b.b.d(dVar.c());
+                        for (BdUniqueId bdUniqueId : c.a.r0.h.b.b.e()) {
+                            c.a.r0.h.b.a aVar = new c.a.r0.h.b.a(vVar, bdUniqueId);
+                            aVar.Z(vVar.getTbPageContext());
                             list.add(aVar);
                         }
                     } else if (bVar.a() == 2) {
                         dVar.i(bVar.d());
                     } else if (bVar.a() == 3) {
                         List<n> n = bVar.n();
-                        List<c.a.u0.h.b.c> d2 = FrsFeedAdStatic.d(n);
+                        List<c.a.r0.h.b.c> d2 = FrsFeedAdStatic.d(n);
                         if (bVar.p()) {
                             dVar.m(d2, FrsFeedAdStatic.d(bVar.k()), bVar.o(), bVar.e());
                         } else {
@@ -129,7 +129,7 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<n> c(List<c.a.u0.h.b.c> list) {
+    public static List<n> c(List<c.a.r0.h.b.c> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
@@ -137,9 +137,9 @@ public class FrsFeedAdStatic {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (c.a.u0.h.b.c cVar : list) {
+            for (c.a.r0.h.b.c cVar : list) {
                 if (cVar.c() == 3) {
-                    c.a.u0.h.b.b bVar = new c.a.u0.h.b.b();
+                    c.a.r0.h.b.b bVar = new c.a.r0.h.b.b();
                     bVar.i(cVar.a());
                     bVar.k(cVar.b());
                     arrayList.add(bVar);
@@ -152,13 +152,13 @@ public class FrsFeedAdStatic {
         return (List) invokeL.objValue;
     }
 
-    public static List<c.a.u0.h.b.c> d(List<n> list) {
+    public static List<c.a.r0.h.b.c> d(List<n> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
             for (n nVar : list) {
-                c.a.u0.h.b.c cVar = new c.a.u0.h.b.c();
+                c.a.r0.h.b.c cVar = new c.a.r0.h.b.c();
                 if (nVar instanceof e2) {
                     e2 e2Var = (e2) nVar;
                     if (e2Var.t0() == 1) {
@@ -169,9 +169,9 @@ public class FrsFeedAdStatic {
                         cVar.f(4);
                     }
                     cVar.d(nVar);
-                } else if (nVar instanceof c.a.u0.h.b.b) {
+                } else if (nVar instanceof c.a.r0.h.b.b) {
                     cVar.f(3);
-                    c.a.u0.h.b.b bVar = (c.a.u0.h.b.b) nVar;
+                    c.a.r0.h.b.b bVar = (c.a.r0.h.b.b) nVar;
                     cVar.e(bVar.g());
                     cVar.d(bVar.a());
                 } else {

@@ -15,7 +15,8 @@ import androidx.annotation.AnimRes;
 import androidx.annotation.NonNull;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.OneShotPreDrawListener;
-import androidx.fragment.R;
+import androidx.fragment.R$anim;
+import androidx.fragment.R$id;
 import androidx.fragment.app.FragmentTransition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -238,8 +239,8 @@ public class FragmentAnim {
             boolean z2 = false;
             fragment.setNextAnim(0);
             View onFindViewById = fragmentContainer.onFindViewById(fragment.mContainerId);
-            if (onFindViewById != null && onFindViewById.getTag(R.id.visible_removing_fragment_view_tag) != null) {
-                onFindViewById.setTag(R.id.visible_removing_fragment_view_tag, null);
+            if (onFindViewById != null && onFindViewById.getTag(R$id.visible_removing_fragment_view_tag) != null) {
+                onFindViewById.setTag(R$id.visible_removing_fragment_view_tag, null);
             }
             ViewGroup viewGroup = fragment.mContainer;
             if (viewGroup == null || viewGroup.getLayoutTransition() == null) {
@@ -299,13 +300,13 @@ public class FragmentAnim {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 == 4097) {
-                return z ? R.anim.fragment_open_enter : R.anim.fragment_open_exit;
+                return z ? R$anim.fragment_open_enter : R$anim.fragment_open_exit;
             } else if (i2 == 4099) {
-                return z ? R.anim.fragment_fade_enter : R.anim.fragment_fade_exit;
+                return z ? R$anim.fragment_fade_enter : R$anim.fragment_fade_exit;
             } else if (i2 != 8194) {
                 return -1;
             } else {
-                return z ? R.anim.fragment_close_enter : R.anim.fragment_close_exit;
+                return z ? R$anim.fragment_close_enter : R$anim.fragment_close_exit;
             }
         }
         return invokeCommon.intValue;

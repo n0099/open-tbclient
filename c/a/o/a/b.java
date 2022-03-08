@@ -72,7 +72,7 @@ public class b {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = c.a.l0.b.a.a.b();
+        this.mProcessName = c.a.i0.b.a.a.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         this.mForwardingHandlerSupplier = supplier;
     }
@@ -255,7 +255,7 @@ public class b {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = c.a.l0.b.a.a.b();
+        this.mProcessName = c.a.i0.b.a.a.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             initKITKAT();

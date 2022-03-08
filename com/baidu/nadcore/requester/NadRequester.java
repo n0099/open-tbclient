@@ -1,7 +1,7 @@
 package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
-import c.a.d0.w.c;
+import c.a.b0.w.c;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Error extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class NadRequester {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class NadRequester {
             }
         }
 
-        @Override // c.a.d0.w.c
+        @Override // c.a.b0.w.c
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
@@ -126,7 +126,7 @@ public class NadRequester {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(@NonNull Error error);
 
@@ -156,7 +156,7 @@ public class NadRequester {
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (c.a.d0.h.a.a().v()) {
+            if (c.a.b0.h.a.a().v()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

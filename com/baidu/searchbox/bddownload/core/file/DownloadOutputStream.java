@@ -5,10 +5,10 @@ import android.net.Uri;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface DownloadOutputStream {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface Factory {
         DownloadOutputStream create(Context context, Uri uri, int i2) throws FileNotFoundException;
 

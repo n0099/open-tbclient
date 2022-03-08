@@ -26,33 +26,33 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59199g;
+    public boolean f57549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59200h;
+    public boolean f57550h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VideoOption2 f59201i;
+    public VideoOption2 f57551i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AdListenerAdapter f59202j;
+    public AdListenerAdapter f57552j;
     public ExpressInterstitialAdListener k;
     public ServerSideVerificationOptions l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExpressInterstitialAdListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ADRewardListener f59203b;
+        public ADRewardListener f57553b;
 
         public AdListenerAdapter(ExpressInterstitialAdListener expressInterstitialAdListener) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                     this.a.onExpose();
                     return;
                 case 104:
-                    if (this.f59203b != null) {
+                    if (this.f57553b != null) {
                         Object obj = aDEvent.getParas()[0];
                         HashMap hashMap = null;
                         if (obj instanceof String) {
@@ -102,7 +102,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                         } else if (obj instanceof Map) {
                             hashMap = (Map) obj;
                         }
-                        ADRewardListener aDRewardListener = this.f59203b;
+                        ADRewardListener aDRewardListener = this.f57553b;
                         if (aDRewardListener == null || hashMap == null) {
                             return;
                         }
@@ -147,7 +147,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         public void setRewardListener(ADRewardListener aDRewardListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDRewardListener) == null) {
-                this.f59203b = aDRewardListener;
+                this.f57553b = aDRewardListener;
             }
         }
     }
@@ -199,7 +199,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) {
             AdListenerAdapter adListenerAdapter = new AdListenerAdapter(this.k);
-            this.f59202j = adListenerAdapter;
+            this.f57552j = adListenerAdapter;
             return pOFactory.getExpressInterstitialADDelegate(context, str, str2, adListenerAdapter);
         }
         return (UIADI2) invokeLLLL.objValue;
@@ -269,15 +269,15 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ((UIADI2) this.a).setVideoOption(this.f59201i);
+            ((UIADI2) this.a).setVideoOption(this.f57551i);
             ((UIADI2) this.a).setServerSideVerificationOptions(this.l);
-            if (this.f59199g) {
+            if (this.f57549g) {
                 ((UIADI2) this.a).loadHalfScreenAD();
-                this.f59199g = false;
+                this.f57549g = false;
             }
-            if (this.f59200h) {
+            if (this.f57550h) {
                 ((UIADI2) this.a).loadFullScreenAD();
-                this.f59200h = false;
+                this.f57550h = false;
             }
         }
     }
@@ -354,7 +354,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
             if (!b()) {
-                this.f59200h = true;
+                this.f57550h = true;
                 return;
             }
             T t = this.a;
@@ -370,7 +370,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && a()) {
             if (!b()) {
-                this.f59199g = true;
+                this.f57549g = true;
                 return;
             }
             T t = this.a;
@@ -385,7 +385,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void setRewardListener(ADRewardListener aDRewardListener) {
         AdListenerAdapter adListenerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, aDRewardListener) == null) || (adListenerAdapter = this.f59202j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, aDRewardListener) == null) || (adListenerAdapter = this.f57552j) == null) {
             return;
         }
         adListenerAdapter.setRewardListener(aDRewardListener);
@@ -410,7 +410,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
             if (t != 0) {
                 ((UIADI2) t).setVideoOption(videoOption2);
             } else {
-                this.f59201i = videoOption2;
+                this.f57551i = videoOption2;
             }
         }
     }

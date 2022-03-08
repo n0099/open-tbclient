@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+import com.google.android.exoplayer2.source.dash.manifest.UrlTemplate;
+/* loaded from: classes4.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +56,7 @@ public class e extends com.baidu.platform.base.e {
             Point ll2point2 = CoordUtil.ll2point(routeShareURLOption.mTo.getLocation());
             String str3 = "2$$$$$$";
             if (ll2point != null) {
-                str = "1$$$$" + ll2point.x + "," + ll2point.y + "$$";
+                str = "1$$$$" + ll2point.x + "," + ll2point.y + UrlTemplate.ESCAPED_DOLLAR;
             } else {
                 str = "2$$$$$$";
             }
@@ -64,7 +65,7 @@ public class e extends com.baidu.platform.base.e {
             name = (name == null || name.equals("")) ? "起点" : "起点";
             String str5 = str + name + "$$0$$$$";
             if (ll2point2 != null) {
-                str3 = "1$$$$" + ll2point2.x + "," + ll2point2.y + "$$";
+                str3 = "1$$$$" + ll2point2.x + "," + ll2point2.y + UrlTemplate.ESCAPED_DOLLAR;
             }
             String name2 = routeShareURLOption.mTo.getName();
             name2 = (name2 == null || name2.equals("")) ? "终点" : "终点";

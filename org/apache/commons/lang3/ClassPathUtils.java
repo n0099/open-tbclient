@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes9.dex */
 public class ClassPathUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public class ClassPathUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, r4, str)) == null) {
             Validate.notNull(r4, "Parameter '%s' must not be null!", "context");
             Validate.notNull(str, "Parameter '%s' must not be null!", "resourceName");
-            return r4.getName().replace('.', '/') + "/" + str;
+            return r4.getName().replace('.', WebvttCueParser.CHAR_SLASH) + "/" + str;
         }
         return (String) invokeLL.objValue;
     }

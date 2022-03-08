@@ -2,12 +2,12 @@ package com.tencent.mm.opensdk.modelbase;
 
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wallet.pay.PayActivityStatic;
+import com.baidu.tieba.wallet.YYPayManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseResp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public abstract class BaseResp {
     public String openId;
     public String transaction;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface ErrCode {
         public static final int ERR_AUTH_DENIED = -4;
         public static final int ERR_BAN = -6;
@@ -46,8 +46,8 @@ public abstract class BaseResp {
     public void fromBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.errCode = bundle.getInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE);
-            this.errStr = bundle.getString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR);
+            this.errCode = bundle.getInt(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE);
+            this.errStr = bundle.getString(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR);
             this.transaction = bundle.getString("_wxapi_baseresp_transaction");
             this.openId = bundle.getString("_wxapi_baseresp_openId");
         }
@@ -59,8 +59,8 @@ public abstract class BaseResp {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             bundle.putInt("_wxapi_command_type", getType());
-            bundle.putInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE, this.errCode);
-            bundle.putString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, this.errStr);
+            bundle.putInt(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, this.errCode);
+            bundle.putString(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, this.errStr);
             bundle.putString("_wxapi_baseresp_transaction", this.transaction);
             bundle.putString("_wxapi_baseresp_openId", this.openId);
         }

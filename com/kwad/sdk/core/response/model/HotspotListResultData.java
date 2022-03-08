@@ -7,7 +7,7 @@ import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class HotspotListResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "HotspotListResultData";
     public static final long serialVersionUID = 5203393014166710381L;

@@ -4,7 +4,7 @@ import android.media.ThumbnailUtils;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
 import c.a.d.o.d.a;
-import c.a.t0.c0.c;
+import c.a.q0.b0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LocalVideoThumbLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

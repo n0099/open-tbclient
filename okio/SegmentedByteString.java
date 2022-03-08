@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SegmentedByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

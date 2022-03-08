@@ -47,6 +47,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.customview.widget.ExploreByTouchHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +55,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.internal.ThemeEnforcement;
@@ -71,7 +71,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
@@ -79,7 +79,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int CHIP_BODY_VIRTUAL_ID = 0;
     public static final int CLOSE_ICON_VIRTUAL_ID = 1;
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_Chip_Action = 2131755894;
     public static final Rect EMPTY_BOUNDS;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
@@ -111,7 +113,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @NonNull
     public final ChipTouchHelper touchHelper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,10 +208,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                     } else {
                         CharSequence text = this.this$0.getText();
                         Context context = this.this$0.getContext();
-                        int i3 = R.string.mtrl_chip_close_icon_content_description;
                         Object[] objArr = new Object[1];
                         objArr[0] = TextUtils.isEmpty(text) ? "" : text;
-                        accessibilityNodeInfoCompat.setContentDescription(context.getString(i3, objArr).trim());
+                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.mtrl_chip_close_icon_content_description, objArr).trim());
                     }
                     accessibilityNodeInfoCompat.setBoundsInParent(this.this$0.getCloseIconTouchBoundsInt());
                     accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
@@ -244,7 +245,6 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                 return;
             }
         }
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_Chip_Action;
         EMPTY_BOUNDS = new Rect();
         SELECTED_STATE = new int[]{16842913};
         CHECKABLE_STATE_SET = new int[]{16842911};
@@ -408,9 +408,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     private void initMinTouchTarget(Context context, @Nullable AttributeSet attributeSet, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65555, this, context, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.Chip, i2, DEF_STYLE_RES, new int[0]);
-            this.ensureMinTouchTargetSize = obtainStyledAttributes.getBoolean(R.styleable.Chip_ensureMinTouchTargetSize, false);
-            this.minTouchTargetSize = (int) Math.ceil(obtainStyledAttributes.getDimension(R.styleable.Chip_chipMinTouchTargetSize, (float) Math.ceil(ViewUtils.dpToPx(getContext(), 48))));
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.checkedIcon, R.attr.checkedIconEnabled, R.attr.checkedIconTint, R.attr.checkedIconVisible, R.attr.chipBackgroundColor, R.attr.chipCornerRadius, R.attr.chipEndPadding, R.attr.chipIcon, R.attr.chipIconEnabled, R.attr.chipIconSize, R.attr.chipIconTint, R.attr.chipIconVisible, R.attr.chipMinHeight, R.attr.chipMinTouchTargetSize, R.attr.chipStartPadding, R.attr.chipStrokeColor, R.attr.chipStrokeWidth, R.attr.chipSurfaceColor, R.attr.closeIcon, R.attr.closeIconEnabled, R.attr.closeIconEndPadding, R.attr.closeIconSize, R.attr.closeIconStartPadding, R.attr.closeIconTint, R.attr.closeIconVisible, R.attr.ensureMinTouchTargetSize, R.attr.hideMotionSpec, R.attr.iconEndPadding, R.attr.iconStartPadding, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.textEndPadding, R.attr.textStartPadding}, i2, Widget_MaterialComponents_Chip_Action, new int[0]);
+            this.ensureMinTouchTargetSize = obtainStyledAttributes.getBoolean(31, false);
+            this.minTouchTargetSize = (int) Math.ceil(obtainStyledAttributes.getDimension(19, (float) Math.ceil(ViewUtils.dpToPx(getContext(), 48))));
             obtainStyledAttributes.recycle();
         }
     }
@@ -2223,7 +2223,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Chip(Context context, AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_Chip_Action), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2285,15 +2285,15 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         };
         Context context2 = getContext();
         validateAttributes(attributeSet);
-        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i2, DEF_STYLE_RES);
+        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i2, Widget_MaterialComponents_Chip_Action);
         initMinTouchTarget(context2, attributeSet, i2);
         setChipDrawable(createFromAttributes);
         createFromAttributes.setElevation(ViewCompat.getElevation(this));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.Chip, i2, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.checkedIcon, R.attr.checkedIconEnabled, R.attr.checkedIconTint, R.attr.checkedIconVisible, R.attr.chipBackgroundColor, R.attr.chipCornerRadius, R.attr.chipEndPadding, R.attr.chipIcon, R.attr.chipIconEnabled, R.attr.chipIconSize, R.attr.chipIconTint, R.attr.chipIconVisible, R.attr.chipMinHeight, R.attr.chipMinTouchTargetSize, R.attr.chipStartPadding, R.attr.chipStrokeColor, R.attr.chipStrokeWidth, R.attr.chipSurfaceColor, R.attr.closeIcon, R.attr.closeIconEnabled, R.attr.closeIconEndPadding, R.attr.closeIconSize, R.attr.closeIconStartPadding, R.attr.closeIconTint, R.attr.closeIconVisible, R.attr.ensureMinTouchTargetSize, R.attr.hideMotionSpec, R.attr.iconEndPadding, R.attr.iconStartPadding, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.textEndPadding, R.attr.textStartPadding}, i2, Widget_MaterialComponents_Chip_Action, new int[0]);
         if (Build.VERSION.SDK_INT < 23) {
-            setTextColor(MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.Chip_android_textColor));
+            setTextColor(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1));
         }
-        boolean hasValue = obtainStyledAttributes.hasValue(R.styleable.Chip_shapeAppearance);
+        boolean hasValue = obtainStyledAttributes.hasValue(36);
         obtainStyledAttributes.recycle();
         this.touchHelper = new ChipTouchHelper(this, this);
         updateAccessibilityDelegate();

@@ -13,14 +13,14 @@ import com.squareup.wire2.ProtoAdapter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class e<E extends g> extends ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Class<E> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f30428b;
+    public Method f28832b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Class<E> cls) {
@@ -88,13 +88,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.f30428b;
+            Method method = this.f28832b;
             if (method != null) {
                 return method;
             }
             try {
                 Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.f30428b = method2;
+                this.f28832b = method2;
                 return method2;
             } catch (NoSuchMethodException e2) {
                 throw new AssertionError(e2);

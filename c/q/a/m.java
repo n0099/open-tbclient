@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class m implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,19 +43,19 @@ public class m implements r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             u uVar = this.a;
-            if (a2.d(uVar.f30703c, uVar.f30708h)) {
-                this.a.f30708h = System.currentTimeMillis();
+            if (v1.d(uVar.f29133c, uVar.f29138h)) {
+                this.a.f29138h = System.currentTimeMillis();
                 u uVar2 = this.a;
-                a2.a(uVar2.a, str, uVar2.f30703c, uVar2.f30707g, str2);
-                y2 a = c3.a(this.a.a);
-                a.h(new g3(this.a.f30703c), str);
+                v1.a(uVar2.a, str, uVar2.f29133c, uVar2.f29137g, str2);
+                t2 a = x2.a(this.a.a);
+                a.h(new b3(this.a.f29133c), str);
                 a.l("desc", str2);
                 a.m();
-                s sVar = this.a.f30706f;
+                s sVar = this.a.f29136f;
                 if (sVar != null) {
                     sVar.onClicked();
                 }
-                r0.p(this.a.f30703c, str2);
+                r0.p(this.a.f29133c, str2);
                 return true;
             }
             return true;

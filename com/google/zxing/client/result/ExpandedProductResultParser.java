@@ -7,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.HashMap;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +334,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                                         break;
                                                     case 1575748:
                                                         if (findAIvalue.equals("3931")) {
-                                                            c2 = ' ';
+                                                            c2 = WebvttCueParser.CHAR_SPACE;
                                                             break;
                                                         }
                                                         c2 = 65535;

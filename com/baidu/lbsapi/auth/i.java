@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class i extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class i extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             a.a("handleMessage !!");
             String string = message.getData().getString("listenerKey");
-            hashtable = LBSAuthManager.f34832f;
+            hashtable = LBSAuthManager.f33235f;
             LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
             a.a("handleMessage listener = " + lBSAuthManagerListener);
             if (lBSAuthManagerListener != null) {

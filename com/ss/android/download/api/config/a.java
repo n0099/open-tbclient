@@ -6,7 +6,7 @@ import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
 import com.ss.android.download.api.model.DownloadShortInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements DownloadStatusChangeListener {
     @Override // com.ss.android.download.api.download.DownloadStatusChangeListener
     public void onDownloadActive(DownloadShortInfo downloadShortInfo, int i2) {

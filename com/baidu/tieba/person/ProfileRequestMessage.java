@@ -2,9 +2,9 @@ package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
-import c.a.t0.s.l;
-import c.a.u0.w2.b;
+import c.a.q0.c1.b0;
+import c.a.q0.r.l;
+import c.a.r0.w2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    c0.a(builder, true);
+                    b0.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);

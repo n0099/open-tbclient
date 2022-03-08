@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class BackpressureKind {
     public static final /* synthetic */ BackpressureKind[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public final class BackpressureKind {
         SPECIAL = new BackpressureKind("SPECIAL", 2);
         UNBOUNDED_IN = new BackpressureKind("UNBOUNDED_IN", 3);
         ERROR = new BackpressureKind("ERROR", 4);
-        BackpressureKind backpressureKind = new BackpressureKind(PolyActivity.NONE_PANEL_TYPE, 5);
+        BackpressureKind backpressureKind = new BackpressureKind("NONE", 5);
         NONE = backpressureKind;
         $VALUES = new BackpressureKind[]{PASS_THROUGH, FULL, SPECIAL, UNBOUNDED_IN, ERROR, backpressureKind};
     }

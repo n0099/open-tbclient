@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.e;
+import c.a.q0.r.e;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -31,7 +31,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -56,7 +56,7 @@ public final class SoUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }

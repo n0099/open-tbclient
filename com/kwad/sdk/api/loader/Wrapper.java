@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Wrapper {
     public static final String CLAZZ_NAME = "com.kwad.sdk.api.loader.Wrapper";
     public static final int COUNT_LIMIT_AUTO_UN_WRAP = 5;
@@ -31,43 +31,43 @@ public class Wrapper {
     public static final List<String> sAutoUnWrapStackList = new ArrayList();
     public static Map<Context, Context> sResContextCache = new WeakHashMap();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public WeakReference<Context> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55593b;
+        public int f53943b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StackTraceElement[] f55594c;
+        public StackTraceElement[] f53944c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f55595d;
+        public int f53945d;
 
         public a() {
             this.a = new WeakReference<>(null);
-            this.f55593b = 0;
-            this.f55594c = null;
-            this.f55595d = 0;
+            this.f53943b = 0;
+            this.f53944c = null;
+            this.f53945d = 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             this.a = new WeakReference<>(null);
-            this.f55593b = 0;
-            this.f55594c = null;
-            this.f55595d = 0;
+            this.f53943b = 0;
+            this.f53944c = null;
+            this.f53945d = 0;
         }
 
         public static /* synthetic */ int b(a aVar) {
-            int i2 = aVar.f55593b;
-            aVar.f55593b = i2 + 1;
+            int i2 = aVar.f53943b;
+            aVar.f53943b = i2 + 1;
             return i2;
         }
 
         public static /* synthetic */ int f(a aVar) {
-            int i2 = aVar.f55595d;
-            aVar.f55595d = i2 + 1;
+            int i2 = aVar.f53945d;
+            aVar.f53945d = i2 + 1;
             return i2;
         }
     }
@@ -83,15 +83,15 @@ public class Wrapper {
         Context context2 = sResContextCache.get(context);
         String name = context2 != null ? context2.getClass().getName() : "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        if (Arrays.equals(stackTrace, aVar.f55594c)) {
+        if (Arrays.equals(stackTrace, aVar.f53944c)) {
             a.f(aVar);
-            aVar.f55594c = stackTrace;
-            return aVar.f55595d >= 5;
-        } else if (aVar.f55594c != null) {
+            aVar.f53944c = stackTrace;
+            return aVar.f53945d >= 5;
+        } else if (aVar.f53944c != null) {
             aVar.a();
             return false;
         } else {
-            aVar.f55594c = stackTrace;
+            aVar.f53944c = stackTrace;
             int i2 = 0;
             int i3 = 0;
             while (i2 < stackTrace.length) {
@@ -149,7 +149,7 @@ public class Wrapper {
             return false;
         } else {
             a.b(aVar);
-            if (aVar.f55593b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
+            if (aVar.f53943b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
                 return false;
             }
             aVar.a();

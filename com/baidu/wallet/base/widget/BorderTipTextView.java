@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BorderTipTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50785b;
+    public int f49204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50786c;
+    public int f49205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50787d;
+    public int f49206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ColorStateList f50788e;
+    public ColorStateList f49207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f50789f;
+    public Drawable f49208f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BorderTipTextView(Context context, AttributeSet attributeSet) {
@@ -51,11 +51,11 @@ public class BorderTipTextView extends TextView {
             }
         }
         this.a = getPaddingLeft();
-        this.f50785b = getPaddingRight();
-        this.f50786c = getPaddingTop();
-        this.f50787d = getPaddingBottom();
-        this.f50788e = getTextColors();
-        this.f50789f = getBackground();
+        this.f49204b = getPaddingRight();
+        this.f49205c = getPaddingTop();
+        this.f49206d = getPaddingBottom();
+        this.f49207e = getTextColors();
+        this.f49208f = getBackground();
     }
 
     public void setText(CharSequence charSequence, boolean z) {
@@ -68,10 +68,10 @@ public class BorderTipTextView extends TextView {
                 setPadding(6, 0, 6, 2);
                 return;
             }
-            setBackgroundDrawable(this.f50789f);
-            setTextColor(this.f50788e);
+            setBackgroundDrawable(this.f49208f);
+            setTextColor(this.f49207e);
             setText(charSequence);
-            setPadding(this.a, this.f50786c, this.f50785b, this.f50787d);
+            setPadding(this.a, this.f49205c, this.f49204b, this.f49206d);
         }
     }
 }

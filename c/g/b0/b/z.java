@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class z implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ a0.a f28530e;
+    public final /* synthetic */ a0.a f28368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ View f28531f;
+    public final /* synthetic */ View f28369f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup f28532g;
+    public final /* synthetic */ ViewGroup f28370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ float f28533h;
+    public final /* synthetic */ float f28371h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ float f28534i;
+    public final /* synthetic */ float f28372i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final /* synthetic */ int[] f28535j;
+    public final /* synthetic */ int[] f28373j;
     public final /* synthetic */ ViewGroup k;
     public final /* synthetic */ a0 l;
 
@@ -51,12 +51,12 @@ public class z implements Animator.AnimatorListener {
             }
         }
         this.l = a0Var;
-        this.f28530e = aVar;
-        this.f28531f = view;
-        this.f28532g = viewGroup;
-        this.f28533h = f2;
-        this.f28534i = f3;
-        this.f28535j = iArr;
+        this.f28368e = aVar;
+        this.f28369f = view;
+        this.f28370g = viewGroup;
+        this.f28371h = f2;
+        this.f28372i = f3;
+        this.f28373j = iArr;
         this.k = viewGroup2;
     }
 
@@ -71,7 +71,7 @@ public class z implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.l.a(this.f28531f, this.f28532g, this.f28533h, this.f28534i, this.f28535j, this.k, this.f28530e);
+            this.l.a(this.f28369f, this.f28370g, this.f28371h, this.f28372i, this.f28373j, this.k, this.f28368e);
         }
     }
 

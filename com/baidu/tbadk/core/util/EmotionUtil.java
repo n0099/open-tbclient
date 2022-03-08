@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class EmotionUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NEW_EMOTION_SHARPTEXT_PREFIX = "#(meme,";

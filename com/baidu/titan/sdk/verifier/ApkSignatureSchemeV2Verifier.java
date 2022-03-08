@@ -41,7 +41,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ApkSignatureSchemeV2Verifier {
     public static final int APK_SIGNATURE_SCHEME_V2_BLOCK_ID = 1896449818;
     public static final long APK_SIG_BLOCK_MAGIC_HI = 3617552046287187010L;
@@ -60,7 +60,7 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SIGNATURE_RSA_PSS_WITH_SHA256 = 257;
     public static final int SIGNATURE_RSA_PSS_WITH_SHA512 = 258;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
@@ -89,14 +89,14 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface DataSource {
         void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j2, int i2) throws IOException;
 
         long size();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
@@ -123,7 +123,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
@@ -140,7 +140,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
@@ -153,7 +153,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
@@ -168,7 +168,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 

@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoEncoderWrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

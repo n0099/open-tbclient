@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.v8.debug.V8DebugServer;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ASMUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_ANDROID;
@@ -186,7 +187,7 @@ public class ASMUtils {
                 classLoader = ClassLoader.getSystemClassLoader();
             }
             String name2 = declaringClass.getName();
-            InputStream resourceAsStream = classLoader.getResourceAsStream(name2.replace('.', '/') + ".class");
+            InputStream resourceAsStream = classLoader.getResourceAsStream(name2.replace('.', WebvttCueParser.CHAR_SLASH) + ".class");
             if (resourceAsStream == null) {
                 return new String[0];
             }
@@ -222,7 +223,7 @@ public class ASMUtils {
             if (cls.isArray()) {
                 return PreferencesUtil.LEFT_MOUNT + desc(cls.getComponentType());
             } else if (!cls.isPrimitive()) {
-                return cls.getName().replace('.', '/');
+                return cls.getName().replace('.', WebvttCueParser.CHAR_SLASH);
             } else {
                 return getPrimitiveLetter(cls);
             }

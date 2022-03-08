@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class CirclePortraitView extends NetImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f32590b;
+    public final Paint f30993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f32591c;
+    public final RectF f30994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f32592d;
+    public float f30995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f32593e;
+    public float f30996e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CirclePortraitView(Context context, AttributeSet attributeSet, int i2) {
@@ -50,8 +50,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32590b = new Paint();
-        this.f32591c = new RectF();
+        this.f30993b = new Paint();
+        this.f30994c = new RectF();
         c();
     }
 
@@ -60,8 +60,8 @@ public class CirclePortraitView extends NetImageView {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a.setAntiAlias(true);
             this.a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            this.f32590b.setAntiAlias(true);
-            this.f32590b.setColor(-1);
+            this.f30993b.setAntiAlias(true);
+            this.f30993b.setColor(-1);
         }
     }
 
@@ -69,10 +69,10 @@ public class CirclePortraitView extends NetImageView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.saveLayer(this.f32591c, this.f32590b, 31);
-            float f2 = this.f32592d;
-            canvas.drawCircle(f2 / 2.0f, this.f32593e / 2.0f, f2 / 2.0f, this.f32590b);
-            canvas.saveLayer(this.f32591c, this.a, 31);
+            canvas.saveLayer(this.f30994c, this.f30993b, 31);
+            float f2 = this.f30995d;
+            canvas.drawCircle(f2 / 2.0f, this.f30996e / 2.0f, f2 / 2.0f, this.f30993b);
+            canvas.saveLayer(this.f30994c, this.a, 31);
             super.draw(canvas);
             canvas.restore();
         }
@@ -83,10 +83,10 @@ public class CirclePortraitView extends NetImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f32592d = getWidth();
+            this.f30995d = getWidth();
             float height = getHeight();
-            this.f32593e = height;
-            this.f32591c.set(0.0f, 0.0f, this.f32592d, height);
+            this.f30996e = height;
+            this.f30994c.set(0.0f, 0.0f, this.f30995d, height);
         }
     }
 
@@ -110,8 +110,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32590b = new Paint();
-        this.f32591c = new RectF();
+        this.f30993b = new Paint();
+        this.f30994c = new RectF();
         c();
     }
 
@@ -134,8 +134,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32590b = new Paint();
-        this.f32591c = new RectF();
+        this.f30993b = new Paint();
+        this.f30994c = new RectF();
         c();
     }
 }

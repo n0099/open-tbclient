@@ -42,7 +42,7 @@ public class c extends UpdateCloudControlProcessor {
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4743b;
+        public final /* synthetic */ JSONObject f4519b;
 
         public a(c cVar, List list, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class c extends UpdateCloudControlProcessor {
                 }
             }
             this.a = list;
-            this.f4743b = jSONObject;
+            this.f4519b = jSONObject;
         }
 
         @Override // com.baidu.searchbox.net.update.v2.IUpdatePostDataFilter
@@ -70,7 +70,7 @@ public class c extends UpdateCloudControlProcessor {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
                 List list = this.a;
                 if (list == null || !list.contains(String.format("%s/%s", str, str2))) {
-                    return CloudControlManager.getInstance().isInDegradeList(this.f4743b, str, str2);
+                    return CloudControlManager.getInstance().isInDegradeList(this.f4519b, str, str2);
                 }
                 return true;
             }

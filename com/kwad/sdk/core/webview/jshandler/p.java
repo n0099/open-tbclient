@@ -6,25 +6,25 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class p implements com.kwad.sdk.core.webview.kwai.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f56635b = new Handler(Looper.getMainLooper());
+    public Handler f54985b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f56636c;
+    public com.kwad.sdk.core.webview.kwai.c f54986c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56638b;
+        public String f54988b;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         @MainThread
         void a(a aVar);
@@ -50,16 +50,16 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f56636c = cVar;
+        this.f54986c = cVar;
         try {
             final a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            this.f56635b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
+            this.f54985b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
                 @Override // java.lang.Runnable
                 public void run() {
                     p.this.a(aVar);
-                    if (p.this.f56636c != null) {
-                        p.this.f56636c.a(null);
+                    if (p.this.f54986c != null) {
+                        p.this.f54986c.a(null);
                     }
                 }
             });
@@ -72,7 +72,7 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         this.a = null;
-        this.f56636c = null;
-        this.f56635b.removeCallbacksAndMessages(null);
+        this.f54986c = null;
+        this.f54985b.removeCallbacksAndMessages(null);
     }
 }

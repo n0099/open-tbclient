@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.badge.BadgeDrawable;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -24,11 +25,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.annotation.Nullable;
-import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -129,10 +129,7 @@ public final class HttpUrl {
             if (str.equals("http")) {
                 return 80;
             }
-            if (str.equals("https")) {
-                return Constants.SOCKET_PORT_SSL;
-            }
-            return -1;
+            return str.equals("https") ? 443 : -1;
         }
         return invokeL.intValue;
     }
@@ -151,11 +148,11 @@ public final class HttpUrl {
                 String str = list.get(i2);
                 String str2 = list.get(i2 + 1);
                 if (i2 > 0) {
-                    sb.append(Typography.amp);
+                    sb.append('&');
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f31099h);
+                    sb.append(a.f29503h);
                     sb.append(str2);
                 }
             }
@@ -181,7 +178,7 @@ public final class HttpUrl {
         if (interceptable == null || interceptable.invokeLL(65548, null, sb, list) == null) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                sb.append('/');
+                sb.append(WebvttCueParser.CHAR_SLASH);
                 sb.append(list.get(i2));
             }
         }
@@ -275,7 +272,7 @@ public final class HttpUrl {
             ArrayList arrayList = new ArrayList();
             while (indexOf < delimiterOffset) {
                 int i2 = indexOf + 1;
-                int delimiterOffset2 = Util.delimiterOffset(this.url, i2, delimiterOffset, '/');
+                int delimiterOffset2 = Util.delimiterOffset(this.url, i2, delimiterOffset, (char) WebvttCueParser.CHAR_SLASH);
                 arrayList.add(this.url.substring(i2, delimiterOffset2));
                 indexOf = delimiterOffset2;
             }
@@ -579,7 +576,7 @@ public final class HttpUrl {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";

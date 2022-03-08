@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import j.a.a.e.n.c;
-import j.a.a.e.q.a;
+import j.a.a.e.f.c;
+import j.a.a.e.i.a;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface IYYPayAmountView extends a {
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i2, String str);
 
@@ -30,7 +30,7 @@ public interface IYYPayAmountView extends a {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public interface IYYPayAmountView extends a {
         }
     }
 
-    @Override // j.a.a.e.q.a
+    @Override // j.a.a.e.i.a
     /* synthetic */ View getContentView();
 
-    @Override // j.a.a.e.q.a
+    @Override // j.a.a.e.i.a
     /* synthetic */ void refreshView();
 
     void setCallback(Callback callback);

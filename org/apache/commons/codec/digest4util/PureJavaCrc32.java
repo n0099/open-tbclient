@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PureJavaCrc32 implements Checksum {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] T;
@@ -82,7 +82,7 @@ public class PureJavaCrc32 implements Checksum {
             while (i2 < i6) {
                 int i7 = i4 ^ ((((bArr[i2] << 24) >>> 24) + ((bArr[i2 + 1] << 24) >>> 16)) + (((bArr[i2 + 2] << 24) >>> 8) + (bArr[i2 + 3] << 24)));
                 int[] iArr = T;
-                i4 = ((iArr[(i7 >>> 24) + 1024] ^ iArr[((i7 << 8) >>> 24) + 1280]) ^ (iArr[((i7 << 24) >>> 24) + 1792] ^ iArr[((i7 << 16) >>> 24) + PureJavaCrc32C.T8_6_start])) ^ ((iArr[(bArr[i2 + 7] << 24) >>> 24] ^ iArr[((bArr[i2 + 6] << 24) >>> 24) + 256]) ^ (iArr[((bArr[i2 + 4] << 24) >>> 24) + 768] ^ iArr[((bArr[i2 + 5] << 24) >>> 24) + 512]));
+                i4 = ((iArr[(i7 >>> 24) + 1024] ^ iArr[((i7 << 8) >>> 24) + 1280]) ^ (iArr[((i7 << 24) >>> 24) + 1792] ^ iArr[((i7 << 16) >>> 24) + 1536])) ^ ((iArr[(bArr[i2 + 7] << 24) >>> 24] ^ iArr[((bArr[i2 + 6] << 24) >>> 24) + 256]) ^ (iArr[((bArr[i2 + 4] << 24) >>> 24) + 768] ^ iArr[((bArr[i2 + 5] << 24) >>> 24) + 512]));
                 i2 += 8;
             }
             switch (i5) {

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.ChannelNativeAds;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class s implements o.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f28507b;
+    public final /* synthetic */ NativeUnifiedADData f28345b;
 
     public s(u uVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class s implements o.e {
             }
         }
         this.a = gdtADStatusChangeListener;
-        this.f28507b = nativeUnifiedADData;
+        this.f28345b = nativeUnifiedADData;
     }
 
     @Override // c.g.b0.b.o.e
     public void onADStatusChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.onADStatusChanged(this.f28507b);
+            this.a.onADStatusChanged(this.f28345b);
         }
     }
 }

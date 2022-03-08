@@ -3,7 +3,7 @@ package com.dxmpay.wallet.base.nopassauth;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.b.a.b.c;
+import c.f.a.a.b.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,16 +25,16 @@ import java.net.URL;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class OtpTokenUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53941b = 10;
+    public static int f52427b = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,13 +218,13 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f50730b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f49149b, 0L)).longValue() : invokeL.longValue;
     }
 
     public static void setmSyncWithServerTime(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, null, context, j2) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f50730b, Long.valueOf(j2));
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f49149b, Long.valueOf(j2));
         }
     }
 
@@ -248,7 +248,7 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f53941b * 1000);
+                httpsURLConnection.setConnectTimeout(f52427b * 1000);
                 httpsURLConnection.setHostnameVerifier(new a());
                 httpsURLConnection.connect();
                 a = httpsURLConnection.getDate() / 1000;

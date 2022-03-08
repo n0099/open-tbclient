@@ -2,8 +2,8 @@ package com.kwad.sdk.feed.widget;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.R;
+/* loaded from: classes8.dex */
 public class d extends a {
     public d(@NonNull Context context) {
         super(context);

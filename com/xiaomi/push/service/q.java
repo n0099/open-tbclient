@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class q {
                 }
             }
             hvVar.a(ip.a(context, ibVar));
-            ib a = y.a(ibVar.b(), ibVar.m514a(), hvVar, hf.f61375f);
+            ib a = y.a(ibVar.b(), ibVar.m514a(), hvVar, hf.f59725f);
             hs m469a = ibVar.m513a().m469a();
             m469a.a("mat", Long.toString(System.currentTimeMillis()));
             a.a(m469a);
@@ -310,7 +310,7 @@ public class q {
                         }
                         a.a(b2, str4, m470a, i3, str3);
                     }
-                    if (hf.f61378i == a3.f636a) {
+                    if (hf.f59728i == a3.f636a) {
                         try {
                             iqVar = bp.a(xMPushService, a3);
                         } catch (iv e2) {
@@ -369,7 +369,7 @@ public class q {
                 } else {
                     el.a(xMPushService.getApplicationContext()).a(a3.b(), ac.b(a3), m513a.m470a(), "9");
                 }
-                if (a3.a() != hf.f61371b || "com.xiaomi.xmsf".equals(xMPushService.getPackageName())) {
+                if (a3.a() != hf.f59721b || "com.xiaomi.xmsf".equals(xMPushService.getPackageName())) {
                     return;
                 }
                 xMPushService.stopSelf();
@@ -400,7 +400,7 @@ public class q {
             m513a.a("mrt", Long.toString(valueOf.longValue()));
         }
         String str = "";
-        if (hf.f61374e == a.a() && n.a(xMPushService).m696a(a.f643b) && !ac.m638a(a)) {
+        if (hf.f59724e == a.a() && n.a(xMPushService).m696a(a.f643b) && !ac.m638a(a)) {
             if (m513a != null) {
                 str = m513a.m470a();
                 if (ac.e(a)) {
@@ -409,7 +409,7 @@ public class q {
             }
             com.xiaomi.channel.commonutils.logger.b.m133a("Drop a message for unregistered, msgid=" + str);
             a(xMPushService, a, a.f643b);
-        } else if (hf.f61374e == a.a() && n.a(xMPushService).m698c(a.f643b) && !ac.m638a(a)) {
+        } else if (hf.f59724e == a.a() && n.a(xMPushService).m698c(a.f643b) && !ac.m638a(a)) {
             if (m513a != null) {
                 str = m513a.m470a();
                 if (ac.e(a)) {
@@ -418,7 +418,7 @@ public class q {
             }
             com.xiaomi.channel.commonutils.logger.b.m133a("Drop a message for push closed, msgid=" + str);
             a(xMPushService, a, a.f643b);
-        } else if (hf.f61374e == a.a() && !TextUtils.equals(xMPushService.getPackageName(), "com.xiaomi.xmsf") && !TextUtils.equals(xMPushService.getPackageName(), a.f643b)) {
+        } else if (hf.f59724e == a.a() && !TextUtils.equals(xMPushService.getPackageName(), "com.xiaomi.xmsf") && !TextUtils.equals(xMPushService.getPackageName(), a.f643b)) {
             com.xiaomi.channel.commonutils.logger.b.m133a("Receive a message with wrong package name, expect " + xMPushService.getPackageName() + ", received " + a.f643b);
             a(xMPushService, a, "unmatched_package", "package should be " + xMPushService.getPackageName() + ", but got " + a.f643b);
             if (m513a == null || !ac.e(a)) {
@@ -517,7 +517,7 @@ public class q {
                     }
                 }
                 try {
-                    y.a(xMPushService, y.a(ibVar.b(), ibVar.m514a(), ieVar, hf.f61378i));
+                    y.a(xMPushService, y.a(ibVar.b(), ibVar.m514a(), ieVar, hf.f59728i));
                 } catch (fw e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
@@ -577,7 +577,7 @@ public class q {
             return;
         }
         try {
-            m.a(context, a.f61672f, a.f61670d, a.f61671e);
+            m.a(context, a.f60022f, a.f60020d, a.f60021e);
         } catch (IOException | JSONException e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
@@ -587,7 +587,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xMPushService, faVar, bVar) == null) {
             try {
-                a(xMPushService, faVar.m370a(bVar.f61636h), faVar.c());
+                a(xMPushService, faVar.m370a(bVar.f59986h), faVar.c());
             } catch (IllegalArgumentException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
@@ -605,7 +605,7 @@ public class q {
             fz a = gbVar.a("s");
             if (a != null) {
                 try {
-                    a(xMPushService, be.a(be.a(bVar.f61636h, gbVar.j()), a.c()), gq.a(gcVar.m408a()));
+                    a(xMPushService, be.a(be.a(bVar.f59986h, gbVar.j()), a.c()), gq.a(gcVar.m408a()));
                 } catch (IllegalArgumentException e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class EmotionResourceInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";

@@ -1,7 +1,7 @@
 package com.kwad.sdk.collector.kwai;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface b {
     boolean a(Context context);
 }

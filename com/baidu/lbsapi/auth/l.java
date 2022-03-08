@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class l implements e.a<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f34852b;
+    public final /* synthetic */ LBSAuthManager f33255b;
 
     public l(LBSAuthManager lBSAuthManager, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class l implements e.a<String> {
                 return;
             }
         }
-        this.f34852b = lBSAuthManager;
+        this.f33255b = lBSAuthManager;
         this.a = str;
     }
 
@@ -39,7 +39,7 @@ public class l implements e.a<String> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f34852b.a(str, this.a);
+            this.f33255b.a(str, this.a);
         }
     }
 }

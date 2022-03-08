@@ -11,6 +11,7 @@ import android.view.ViewOutlineProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ViewUtilsLollipop {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] STATE_LIST_ANIM_ATTRS;
@@ -70,7 +70,7 @@ public class ViewUtilsLollipop {
             int integer = view.getResources().getInteger(R.integer.app_bar_elevation_anim_duration);
             StateListAnimator stateListAnimator = new StateListAnimator();
             long j2 = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -R.attr.state_lifted}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j2));
+            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -2130970035}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j2));
             stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j2));
             stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
             view.setStateListAnimator(stateListAnimator);

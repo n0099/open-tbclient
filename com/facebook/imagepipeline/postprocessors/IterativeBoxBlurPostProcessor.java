@@ -13,7 +13,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.nativecode.NativeBlurFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ITERATIONS = 3;

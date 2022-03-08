@@ -10,7 +10,7 @@ import io.reactivex.flowables.ConnectableFlowable;
 import io.reactivex.functions.Consumer;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableAutoConnect<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

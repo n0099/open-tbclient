@@ -1,16 +1,32 @@
 package c.q.a;
 
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-/* loaded from: classes9.dex */
-public class a3 implements i3 {
+/* loaded from: classes3.dex */
+public class a3 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ e3 a;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f28909b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f28910c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ e3 f28911d;
 
     public a3(e3 e3Var) {
         Interceptable interceptable = $ic;
@@ -27,56 +43,87 @@ public class a3 implements i3 {
                 return;
             }
         }
-        this.a = e3Var;
+        this.f28911d = e3Var;
     }
 
-    @Override // c.q.a.i3
-    public void a(boolean z) {
-        i3 i3Var;
+    public final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (i3Var = this.a.f30546b) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            e3 e3Var = this.f28911d;
+            if (e3Var.f28946d) {
+                e3Var.f28946d = false;
+                e3 e3Var2 = this.f28911d;
+                r rVar = e3Var2.f28944b;
+                if (rVar != null) {
+                    return rVar.a(str, e3Var2.f28947e);
+                }
+            }
+            return false;
         }
-        i3Var.a(z);
+        return invokeL.booleanValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        i3 i3Var;
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i3Var = this.a.f30546b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            if (TextUtils.isEmpty(this.f28909b)) {
+                this.f28909b = str;
+            }
         }
-        i3Var.onClicked();
     }
 
-    @Override // c.q.a.i3
-    public void onDisplayed() {
-        i3 i3Var;
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i3Var = this.a.f30546b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            z zVar = this.f28911d.a;
+            if (zVar != null && !this.f28910c) {
+                this.f28910c = true;
+                zVar.onLoaded();
+            }
+            this.a = webView.getUrl();
         }
-        i3Var.onDisplayed();
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        i3 i3Var;
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (i3Var = this.a.f30546b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
+            super.onReceivedError(webView, webResourceRequest, webResourceError);
+            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.a)) && Build.VERSION.SDK_INT >= 23) {
+                webResourceError.getDescription().toString();
+                webResourceError.getErrorCode();
+            }
         }
-        i3Var.onFail(pBError);
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        i3 i3Var;
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i3Var = this.a.f30546b) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, webResourceRequest)) == null) {
+            if (Build.VERSION.SDK_INT < 24 || !a(webResourceRequest.getUrl().toString())) {
+                return super.shouldOverrideUrlLoading(webView, webResourceRequest);
+            }
+            return true;
         }
-        i3Var.onLoaded();
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 24 || !a(str)) {
+                return super.shouldOverrideUrlLoading(webView, str);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

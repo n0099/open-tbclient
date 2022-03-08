@@ -14,7 +14,7 @@ import com.baidu.wallet.fastpay.datamodel.GetBindMobileResponse;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseBean<GetBindMobileResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

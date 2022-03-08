@@ -14,45 +14,45 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends Tracer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileWriter f60759b;
+    public FileWriter f59109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FileWriter f60760c;
+    public FileWriter f59110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f60761d;
+    public File f59111d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f60762e;
+    public File f59112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public char[] f60763f;
+    public char[] f59113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile f f60764g;
+    public volatile f f59114g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile f f60765h;
+    public volatile f f59115h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile f f60766i;
+    public volatile f f59116i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile f f60767j;
+    public volatile f f59117j;
     public volatile boolean k;
     public HandlerThread l;
     public Handler m;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(b bVar) {
-        this(c.f60777b, true, g.a, bVar);
+        this(c.f59127b, true, g.a, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,13 +78,13 @@ public class a extends Tracer implements Handler.Callback {
             j();
             try {
                 try {
-                    this.f60767j.a(g(), this.f60763f);
+                    this.f59117j.a(g(), this.f59113f);
                 } catch (IOException e2) {
                     SLog.e("FileTracer", "flushBuffer exception", e2);
                 }
                 this.k = false;
             } finally {
-                this.f60767j.b();
+                this.f59117j.b();
             }
         }
     }
@@ -96,29 +96,29 @@ public class a extends Tracer implements Handler.Callback {
             File[] a = c().a();
             if (a != null && a.length >= 2) {
                 File file = a[0];
-                if ((file != null && !file.equals(this.f60761d)) || (this.f60759b == null && file != null)) {
-                    this.f60761d = file;
+                if ((file != null && !file.equals(this.f59111d)) || (this.f59109b == null && file != null)) {
+                    this.f59111d = file;
                     h();
                     try {
-                        this.f60759b = new FileWriter(this.f60761d, true);
+                        this.f59109b = new FileWriter(this.f59111d, true);
                     } catch (IOException unused) {
-                        this.f60759b = null;
+                        this.f59109b = null;
                         SLog.e(SLog.TAG, "-->obtainFileWriter() old log file permission denied");
                     }
                 }
                 File file2 = a[1];
-                if ((file2 != null && !file2.equals(this.f60762e)) || (this.f60760c == null && file2 != null)) {
-                    this.f60762e = file2;
+                if ((file2 != null && !file2.equals(this.f59112e)) || (this.f59110c == null && file2 != null)) {
+                    this.f59112e = file2;
                     i();
                     try {
-                        this.f60760c = new FileWriter(this.f60762e, true);
+                        this.f59110c = new FileWriter(this.f59112e, true);
                     } catch (IOException unused2) {
-                        this.f60760c = null;
+                        this.f59110c = null;
                         SLog.e(SLog.TAG, "-->obtainFileWriter() app specific file permission denied");
                     }
                 }
             }
-            return new Writer[]{this.f60759b, this.f60760c};
+            return new Writer[]{this.f59109b, this.f59110c};
         }
         return (Writer[]) invokeV.objValue;
     }
@@ -127,9 +127,9 @@ public class a extends Tracer implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
-                if (this.f60759b != null) {
-                    this.f60759b.flush();
-                    this.f60759b.close();
+                if (this.f59109b != null) {
+                    this.f59109b.flush();
+                    this.f59109b.close();
                 }
             } catch (IOException e2) {
                 SLog.e(SLog.TAG, "-->closeFileWriter() exception:", e2);
@@ -141,9 +141,9 @@ public class a extends Tracer implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             try {
-                if (this.f60760c != null) {
-                    this.f60760c.flush();
-                    this.f60760c.close();
+                if (this.f59110c != null) {
+                    this.f59110c.flush();
+                    this.f59110c.close();
                 }
             } catch (IOException e2) {
                 SLog.e(SLog.TAG, "-->closeAppSpecificFileWriter() exception:", e2);
@@ -155,12 +155,12 @@ public class a extends Tracer implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             synchronized (this) {
-                if (this.f60766i == this.f60764g) {
-                    this.f60766i = this.f60765h;
-                    this.f60767j = this.f60764g;
+                if (this.f59116i == this.f59114g) {
+                    this.f59116i = this.f59115h;
+                    this.f59117j = this.f59114g;
                 } else {
-                    this.f60766i = this.f60764g;
-                    this.f60767j = this.f60765h;
+                    this.f59116i = this.f59114g;
+                    this.f59117j = this.f59115h;
                 }
             }
         }
@@ -234,11 +234,11 @@ public class a extends Tracer implements Handler.Callback {
         }
         this.k = false;
         a(bVar);
-        this.f60764g = new f();
-        this.f60765h = new f();
-        this.f60766i = this.f60764g;
-        this.f60767j = this.f60765h;
-        this.f60763f = new char[bVar.d()];
+        this.f59114g = new f();
+        this.f59115h = new f();
+        this.f59116i = this.f59114g;
+        this.f59117j = this.f59115h;
+        this.f59113f = new char[bVar.d()];
         HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
         this.l = handlerThread;
         if (handlerThread != null) {
@@ -253,8 +253,8 @@ public class a extends Tracer implements Handler.Callback {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            this.f60766i.a(str);
-            if (this.f60766i.a() >= c().d()) {
+            this.f59116i.a(str);
+            if (this.f59116i.a() >= c().d()) {
                 a();
             }
         }

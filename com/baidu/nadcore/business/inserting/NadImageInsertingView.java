@@ -8,40 +8,39 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.d.e;
-import c.a.d0.d.g;
-import c.a.d0.d.n.b;
-import c.a.d0.f.d;
-import c.a.d0.h0.s;
+import c.a.b0.d.e.b;
+import c.a.b0.h0.s;
+import c.a.b0.s.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class NadImageInsertingView extends NadInsertingBaseView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HALF_HEIGHT = 1794;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdImageView f37159e;
+    public AdImageView f35562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f37160f;
+    public TextView f35563f;
     public View.OnClickListener mClickListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadImageInsertingView f37161e;
+        public final /* synthetic */ NadImageInsertingView f35564e;
 
         public a(NadImageInsertingView nadImageInsertingView) {
             Interceptable interceptable = $ic;
@@ -58,38 +57,38 @@ public class NadImageInsertingView extends NadInsertingBaseView {
                     return;
                 }
             }
-            this.f37161e = nadImageInsertingView;
+            this.f35564e = nadImageInsertingView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f37161e.getTag() instanceof AdBaseModel)) {
-                AdBaseModel adBaseModel = (AdBaseModel) this.f37161e.getTag();
-                this.f37161e.insertingClickClog(adBaseModel, ClogBuilder.Area.IMAGE);
-                d.b(adBaseModel.f37258f.f3092c);
-                this.f37161e.mNadCallback.c();
-                this.f37161e.c(2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f35564e.getTag() instanceof AdBaseModel)) {
+                AdBaseModel adBaseModel = (AdBaseModel) this.f35564e.getTag();
+                this.f35564e.insertingClickClog(adBaseModel, ClogBuilder.Area.IMAGE);
+                c.a.b0.f.c.b(adBaseModel.f35661f.f1922c);
+                this.f35564e.mNadCallback.c();
+                this.f35564e.c(2);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
-    public class b implements c.a.d0.r.b {
+    /* loaded from: classes4.dex */
+    public class b implements c.a.b0.r.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.d0.s.d a;
+        public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b.c f37162b;
+        public final /* synthetic */ b.c f35565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f37163c;
+        public final /* synthetic */ AdBaseModel f35566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ NadImageInsertingView f37164d;
+        public final /* synthetic */ NadImageInsertingView f35567d;
 
-        public b(NadImageInsertingView nadImageInsertingView, c.a.d0.s.d dVar, b.c cVar, AdBaseModel adBaseModel) {
+        public b(NadImageInsertingView nadImageInsertingView, d dVar, b.c cVar, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,41 +103,41 @@ public class NadImageInsertingView extends NadInsertingBaseView {
                     return;
                 }
             }
-            this.f37164d = nadImageInsertingView;
+            this.f35567d = nadImageInsertingView;
             this.a = dVar;
-            this.f37162b = cVar;
-            this.f37163c = adBaseModel;
+            this.f35565b = cVar;
+            this.f35566c = adBaseModel;
         }
 
-        @Override // c.a.d0.r.b
+        @Override // c.a.b0.r.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37164d.insertingCheckClog(this.f37163c, "16", "16003");
-                this.f37162b.onFail();
+                this.f35567d.insertingCheckClog(this.f35566c, "16", "16003");
+                this.f35565b.onFail();
             }
         }
 
-        @Override // c.a.d0.r.b
+        @Override // c.a.b0.r.b
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                int i2 = this.a.f3079b;
+                int i2 = this.a.f1909b;
                 if (i2 > 1794) {
                     bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), (int) ((1.0f - (((i2 - 1794) * 1.0f) / i2)) * bitmap.getHeight()));
                 }
                 if (bitmap != null) {
-                    this.f37164d.f37159e.setImageBitmap(bitmap);
-                    this.f37162b.onSuccess();
+                    this.f35567d.f35562e.setImageBitmap(bitmap);
+                    this.f35565b.onSuccess();
                     return;
                 }
-                this.f37164d.insertingCheckClog(this.f37163c, "16", "16002");
-                this.f37162b.onFail();
+                this.f35567d.insertingCheckClog(this.f35566c, "16", "16002");
+                this.f35565b.onFail();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class c extends s.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +161,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             this.a = nadImageInsertingView;
         }
 
-        @Override // c.a.d0.h0.s.b
+        @Override // c.a.b0.h0.s.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -171,7 +170,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             }
         }
 
-        @Override // c.a.d0.h0.s.b
+        @Override // c.a.b0.h0.s.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -180,7 +179,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             }
         }
 
-        @Override // c.a.d0.h0.s.b
+        @Override // c.a.b0.h0.s.b
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -189,7 +188,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             }
         }
 
-        @Override // c.a.d0.h0.s.b
+        @Override // c.a.b0.h0.s.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -199,7 +198,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull c.a.d0.d.n.a aVar) {
+    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull c.a.b0.d.e.a aVar) {
         super(context, viewGroup, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -211,7 +210,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ViewGroup) objArr2[1], (c.a.d0.d.n.a) objArr2[2]);
+                super((Context) objArr2[0], (ViewGroup) objArr2[1], (c.a.b0.d.e.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -237,7 +236,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
                 insertingCloseClog(adBaseModel, ClogBuilder.Area.CLOSE_BTN, currentTimeMillis);
             }
             this.mNadCallback.d();
-            c.a.d0.q.a.g(this.mLifecycleCallback);
+            c.a.b0.q.a.g(this.mLifecycleCallback);
             this.mCountDownTimer.a();
         }
     }
@@ -262,14 +261,14 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     public final void e(@NonNull AdBaseModel adBaseModel, @NonNull b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, adBaseModel, cVar) == null) {
-            c.a.d0.s.d dVar = (c.a.d0.s.d) c.a.d0.x.a.d(adBaseModel.f37258f.k, 0);
+            d dVar = (d) c.a.b0.x.a.d(adBaseModel.f35661f.k, 0);
             if (dVar == null) {
                 setVisibility(8);
                 insertingCheckClog(adBaseModel, "16", "16001");
                 cVar.onFail();
                 return;
             }
-            c.a.d0.l0.a.a().d(dVar.a, new b(this, dVar, cVar, adBaseModel));
+            c.a.b0.l0.a.a().d(dVar.a, new b(this, dVar, cVar, adBaseModel));
         }
     }
 
@@ -284,9 +283,9 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(g.nad_inserting_image_layout, this);
-            this.f37159e = (AdImageView) findViewById(e.nad_inserting_image);
-            this.f37160f = (TextView) findViewById(e.nad_inserting_tag);
+            LayoutInflater.from(context).inflate(R.layout.nad_inserting_image_layout, this);
+            this.f35562e = (AdImageView) findViewById(R.id.nad_inserting_image);
+            this.f35563f = (TextView) findViewById(R.id.nad_inserting_tag);
         }
     }
 
@@ -297,9 +296,9 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             this.mStartShowTime = System.currentTimeMillis();
             this.mNadCallback.onShow();
             this.mCountDownTimer.e();
-            c.a.d0.q.a.f(this.mLifecycleCallback);
-            this.f37159e.setVisibility(0);
-            this.f37160f.setVisibility(0);
+            c.a.b0.q.a.f(this.mLifecycleCallback);
+            this.f35562e.setVisibility(0);
+            this.f35563f.setVisibility(0);
         }
     }
 

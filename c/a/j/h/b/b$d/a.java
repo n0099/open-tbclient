@@ -135,7 +135,7 @@ public class a {
             d6.a(3);
             d6.b(c.a.j.h.d.f.a(bytes));
             linkedList.offer(d6.c());
-            if (c.a.j.h.b.b.f4057c.h().d()) {
+            if (c.a.j.h.b.b.f3674c.h().d()) {
                 DebugTrace debugTrace = DebugTrace.a;
                 debugTrace.a("groupId encode=" + dHGroupId);
                 DebugTrace debugTrace2 = DebugTrace.a;

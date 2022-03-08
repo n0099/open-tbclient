@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.message;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface MessageMonitor {
     void commit();
 

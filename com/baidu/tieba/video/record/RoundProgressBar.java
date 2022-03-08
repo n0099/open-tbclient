@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48827e;
+    public int f47246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48828f;
+    public int f47247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48829g;
+    public int f47248g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48830h;
+    public int f47249h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f48831i;
+    public float f47250i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f48832j;
+    public Paint f47251j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundProgressBar(Context context) {
@@ -60,8 +60,8 @@ public class RoundProgressBar extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48830h = 4;
-            this.f48827e = Color.rgb(255, 255, 255);
+            this.f47249h = 4;
+            this.f47246e = Color.rgb(255, 255, 255);
         }
     }
 
@@ -71,24 +71,24 @@ public class RoundProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f48828f = getWidth();
+            this.f47247f = getWidth();
             int height = getHeight();
-            this.f48829g = height;
-            if (this.f48828f > height) {
-                this.f48828f = height;
+            this.f47248g = height;
+            if (this.f47247f > height) {
+                this.f47247f = height;
             }
-            this.f48832j.setAntiAlias(true);
-            this.f48832j.setStyle(Paint.Style.STROKE);
-            this.f48832j.setStrokeWidth(this.f48830h);
-            this.f48832j.setColor(this.f48827e);
-            canvas.drawArc(new RectF(5.0f, 5.0f, this.f48828f - 5, this.f48829g - 5), 270.0f, (this.f48831i * 360.0f) / 100.0f, false, this.f48832j);
+            this.f47251j.setAntiAlias(true);
+            this.f47251j.setStyle(Paint.Style.STROKE);
+            this.f47251j.setStrokeWidth(this.f47249h);
+            this.f47251j.setColor(this.f47246e);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.f47247f - 5, this.f47248g - 5), 270.0f, (this.f47250i * 360.0f) / 100.0f, false, this.f47251j);
         }
     }
 
     public void updateProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f48831i = f2;
+            this.f47250i = f2;
             invalidate();
         }
     }
@@ -133,7 +133,7 @@ public class RoundProgressBar extends View {
                 return;
             }
         }
-        this.f48832j = new Paint();
+        this.f47251j = new Paint();
         init();
     }
 }

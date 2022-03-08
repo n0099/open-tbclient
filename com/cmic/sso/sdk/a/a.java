@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kuaishou.weapon.un.g;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.cmic.sso.sdk.a.a$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -38,14 +38,14 @@ public class a {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC2063a.values().length];
+            int[] iArr = new int[EnumC2039a.values().length];
             a = iArr;
             try {
-                iArr[EnumC2063a.f53551c.ordinal()] = 1;
+                iArr[EnumC2039a.f51970c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[EnumC2063a.f53550b.ordinal()] = 2;
+                a[EnumC2039a.f51969b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -53,19 +53,19 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class EnumC2063a {
+    /* loaded from: classes7.dex */
+    public static final class EnumC2039a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC2063a a;
+        public static final EnumC2039a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC2063a f53550b;
+        public static final EnumC2039a f51969b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC2063a f53551c;
+        public static final EnumC2039a f51970c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ EnumC2063a[] f53552d;
+        public static final /* synthetic */ EnumC2039a[] f51971d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -81,14 +81,14 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC2063a(RomUtils.UNKNOWN, 0);
-            f53550b = new EnumC2063a(g.f55274j, 1);
-            EnumC2063a enumC2063a = new EnumC2063a("HUAWEI", 2);
-            f53551c = enumC2063a;
-            f53552d = new EnumC2063a[]{a, f53550b, enumC2063a};
+            a = new EnumC2039a(RomUtils.UNKNOWN, 0);
+            f51969b = new EnumC2039a(g.f53624j, 1);
+            EnumC2039a enumC2039a = new EnumC2039a("HUAWEI", 2);
+            f51970c = enumC2039a;
+            f51971d = new EnumC2039a[]{a, f51969b, enumC2039a};
         }
 
-        public EnumC2063a(String str, int i2) {
+        public EnumC2039a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,16 +107,16 @@ public class a {
             }
         }
 
-        public static EnumC2063a valueOf(String str) {
+        public static EnumC2039a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC2063a) Enum.valueOf(EnumC2063a.class, str) : (EnumC2063a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC2039a) Enum.valueOf(EnumC2039a.class, str) : (EnumC2039a) invokeL.objValue;
         }
 
-        public static EnumC2063a[] values() {
+        public static EnumC2039a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC2063a[]) f53552d.clone() : (EnumC2063a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC2039a[]) f51971d.clone() : (EnumC2039a[]) invokeV.objValue;
         }
     }
 
@@ -126,27 +126,27 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a(b()) : invokeV.intValue;
     }
 
-    public static EnumC2063a b() {
+    public static EnumC2039a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = Build.BRAND;
             if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                return EnumC2063a.f53550b;
+                return EnumC2039a.f51969b;
             }
             if (str.equalsIgnoreCase("Huawei")) {
-                return EnumC2063a.f53551c;
+                return EnumC2039a.f51970c;
             }
-            return EnumC2063a.a;
+            return EnumC2039a.a;
         }
-        return (EnumC2063a) invokeV.objValue;
+        return (EnumC2039a) invokeV.objValue;
     }
 
-    public static int a(EnumC2063a enumC2063a) {
+    public static int a(EnumC2039a enumC2039a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC2063a)) == null) {
-            int i2 = AnonymousClass1.a[enumC2063a.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC2039a)) == null) {
+            int i2 = AnonymousClass1.a[enumC2039a.ordinal()];
             if (i2 != 1) {
                 return i2 != 2 ? -1 : 1;
             }

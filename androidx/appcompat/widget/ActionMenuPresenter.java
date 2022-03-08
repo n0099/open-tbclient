@@ -15,7 +15,8 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$layout;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.BaseMenuPresenter;
@@ -73,7 +74,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ActionButtonSubmenu(ActionMenuPresenter actionMenuPresenter, Context context, SubMenuBuilder subMenuBuilder, View view) {
-            super(context, subMenuBuilder, view, false, R.attr.actionOverflowMenuStyle);
+            super(context, subMenuBuilder, view, false, R$attr.actionOverflowMenuStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +200,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public OverflowMenuButton(ActionMenuPresenter actionMenuPresenter, Context context) {
-            super(context, null, R.attr.actionOverflowButtonStyle);
+            super(context, null, R$attr.actionOverflowButtonStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -357,7 +358,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public OverflowPopup(ActionMenuPresenter actionMenuPresenter, Context context, MenuBuilder menuBuilder, View view, boolean z) {
-            super(context, menuBuilder, view, z, R.attr.actionOverflowMenuStyle);
+            super(context, menuBuilder, view, z, R$attr.actionOverflowMenuStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -561,7 +562,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActionMenuPresenter(Context context) {
-        super(context, R.layout.abc_action_menu_layout, R.layout.abc_action_menu_item_layout);
+        super(context, R$layout.abc_action_menu_layout, R$layout.abc_action_menu_item_layout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d0.s.s;
-import c.a.d0.v.p;
-import c.a.d0.v.q;
-import c.a.d0.v.t;
+import c.a.b0.s.s;
+import c.a.b0.v.p;
+import c.a.b0.v.q;
+import c.a.b0.v.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public p mNativePlayer;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a extends t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             this.a = adFeedVideoBaseView;
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onEnd(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -60,7 +60,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
@@ -73,7 +73,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -86,7 +86,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -99,7 +99,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -112,7 +112,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // c.a.d0.v.i
+        @Override // c.a.b0.v.i
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -157,7 +157,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             p.a aVar = p.a;
             Context context = getContext();
             if (qVar == null) {
-                qVar = q.f3406b;
+                qVar = q.f2236b;
             }
             p b2 = aVar.b(context, 0, qVar);
             this.mNativePlayer = b2;
@@ -183,9 +183,9 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
 
     public final void g(@NonNull AdBaseModel adBaseModel) {
         p pVar;
-        c.a.d0.s.p pVar2;
+        c.a.b0.s.p pVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) || (pVar = this.mNativePlayer) == null || (pVar2 = adBaseModel.f37262j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) || (pVar = this.mNativePlayer) == null || (pVar2 = adBaseModel.f35665j) == null) {
             return;
         }
         pVar.c(pVar2);

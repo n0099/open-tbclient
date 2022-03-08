@@ -32,7 +32,9 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$id;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -591,9 +593,9 @@ public class AlertController {
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RecycleListView);
-            this.mPaddingBottomNoButtons = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.RecycleListView_paddingBottomNoButtons, -1);
-            this.mPaddingTopNoTitle = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.RecycleListView_paddingTopNoTitle, -1);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.RecycleListView);
+            this.mPaddingBottomNoButtons = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RecycleListView_paddingBottomNoButtons, -1);
+            this.mPaddingTopNoTitle = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.RecycleListView_paddingTopNoTitle, -1);
         }
     }
 
@@ -671,15 +673,15 @@ public class AlertController {
         this.mDialog = appCompatDialog;
         this.mWindow = window;
         this.mHandler = new ButtonHandler(appCompatDialog);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.AlertDialog, R.attr.alertDialogStyle, 0);
-        this.mAlertDialogLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_android_layout, 0);
-        this.mButtonPanelSideLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_buttonPanelSideLayout, 0);
-        this.mListLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listLayout, 0);
-        this.mMultiChoiceItemLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_multiChoiceItemLayout, 0);
-        this.mSingleChoiceItemLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_singleChoiceItemLayout, 0);
-        this.mListItemLayout = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listItemLayout, 0);
-        this.mShowTitle = obtainStyledAttributes.getBoolean(R.styleable.AlertDialog_showTitle, true);
-        this.mButtonIconDimen = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AlertDialog_buttonIconDimen, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R$styleable.AlertDialog, R$attr.alertDialogStyle, 0);
+        this.mAlertDialogLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_android_layout, 0);
+        this.mButtonPanelSideLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_buttonPanelSideLayout, 0);
+        this.mListLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_listLayout, 0);
+        this.mMultiChoiceItemLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_multiChoiceItemLayout, 0);
+        this.mSingleChoiceItemLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_singleChoiceItemLayout, 0);
+        this.mListItemLayout = obtainStyledAttributes.getResourceId(R$styleable.AlertDialog_listItemLayout, 0);
+        this.mShowTitle = obtainStyledAttributes.getBoolean(R$styleable.AlertDialog_showTitle, true);
+        this.mButtonIconDimen = obtainStyledAttributes.getDimensionPixelSize(R$styleable.AlertDialog_buttonIconDimen, 0);
         obtainStyledAttributes.recycle();
         appCompatDialog.supportRequestWindowFeature(1);
     }
@@ -770,8 +772,8 @@ public class AlertController {
     private void setScrollIndicators(ViewGroup viewGroup, View view, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view, i2, i3) == null) {
-            View findViewById = this.mWindow.findViewById(R.id.scrollIndicatorUp);
-            View findViewById2 = this.mWindow.findViewById(R.id.scrollIndicatorDown);
+            View findViewById = this.mWindow.findViewById(R$id.scrollIndicatorUp);
+            View findViewById2 = this.mWindow.findViewById(R$id.scrollIndicatorDown);
             if (Build.VERSION.SDK_INT >= 23) {
                 ViewCompat.setScrollIndicators(view, i2, i3);
                 if (findViewById != null) {
@@ -1029,7 +1031,7 @@ public class AlertController {
     private void setupContent(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, viewGroup) == null) {
-            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R.id.scrollView);
+            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R$id.scrollView);
             this.mScrollView = nestedScrollView;
             nestedScrollView.setFocusable(false);
             this.mScrollView.setNestedScrollingEnabled(false);
@@ -1068,7 +1070,7 @@ public class AlertController {
                 this.mWindow.setFlags(131072, 131072);
             }
             if (z) {
-                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R.id.custom);
+                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.custom);
                 frameLayout.addView(view, new ViewGroup.LayoutParams(-1, -1));
                 if (this.mViewSpacingSpecified) {
                     frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -1088,12 +1090,12 @@ public class AlertController {
         if (interceptable == null || interceptable.invokeL(65546, this, viewGroup) == null) {
             if (this.mCustomTitleView != null) {
                 viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
-                this.mWindow.findViewById(R.id.title_template).setVisibility(8);
+                this.mWindow.findViewById(R$id.title_template).setVisibility(8);
                 return;
             }
             this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
             if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
-                TextView textView = (TextView) this.mWindow.findViewById(R.id.alertTitle);
+                TextView textView = (TextView) this.mWindow.findViewById(R$id.alertTitle);
                 this.mTitleView = textView;
                 textView.setText(this.mTitle);
                 int i2 = this.mIconId;
@@ -1110,7 +1112,7 @@ public class AlertController {
                 this.mIconView.setVisibility(8);
                 return;
             }
-            this.mWindow.findViewById(R.id.title_template).setVisibility(8);
+            this.mWindow.findViewById(R$id.title_template).setVisibility(8);
             this.mIconView.setVisibility(8);
             viewGroup.setVisibility(8);
         }
@@ -1126,15 +1128,15 @@ public class AlertController {
         View findViewById2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            View findViewById3 = this.mWindow.findViewById(R.id.parentPanel);
-            View findViewById4 = findViewById3.findViewById(R.id.topPanel);
-            View findViewById5 = findViewById3.findViewById(R.id.contentPanel);
-            View findViewById6 = findViewById3.findViewById(R.id.buttonPanel);
-            ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(R.id.customPanel);
+            View findViewById3 = this.mWindow.findViewById(R$id.parentPanel);
+            View findViewById4 = findViewById3.findViewById(R$id.topPanel);
+            View findViewById5 = findViewById3.findViewById(R$id.contentPanel);
+            View findViewById6 = findViewById3.findViewById(R$id.buttonPanel);
+            ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(R$id.customPanel);
             setupCustomContent(viewGroup);
-            View findViewById7 = viewGroup.findViewById(R.id.topPanel);
-            View findViewById8 = viewGroup.findViewById(R.id.contentPanel);
-            View findViewById9 = viewGroup.findViewById(R.id.buttonPanel);
+            View findViewById7 = viewGroup.findViewById(R$id.topPanel);
+            View findViewById8 = viewGroup.findViewById(R$id.contentPanel);
+            View findViewById9 = viewGroup.findViewById(R$id.buttonPanel);
             ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
             ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
             ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);
@@ -1144,7 +1146,7 @@ public class AlertController {
             boolean z = (viewGroup == null || viewGroup.getVisibility() == 8) ? false : true;
             boolean z2 = (resolvePanel == null || resolvePanel.getVisibility() == 8) ? 0 : 1;
             boolean z3 = (resolvePanel3 == null || resolvePanel3.getVisibility() == 8) ? false : true;
-            if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(R.id.textSpacerNoButtons)) != null) {
+            if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(R$id.textSpacerNoButtons)) != null) {
                 findViewById2.setVisibility(0);
             }
             if (z2) {
@@ -1154,12 +1156,12 @@ public class AlertController {
                 }
                 View view = null;
                 if (this.mMessage != null || this.mListView != null) {
-                    view = resolvePanel.findViewById(R.id.titleDividerNoCustom);
+                    view = resolvePanel.findViewById(R$id.titleDividerNoCustom);
                 }
                 if (view != null) {
                     view.setVisibility(0);
                 }
-            } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(R.id.textSpacerNoTitle)) != null) {
+            } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(R$id.textSpacerNoTitle)) != null) {
                 findViewById.setVisibility(0);
             }
             ListView listView = this.mListView;
@@ -1193,7 +1195,7 @@ public class AlertController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             TypedValue typedValue = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.alertDialogCenterButtons, typedValue, true);
+            context.getTheme().resolveAttribute(R$attr.alertDialogCenterButtons, typedValue, true);
             return typedValue.data != 0;
         }
         return invokeL.booleanValue;

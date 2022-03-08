@@ -20,12 +20,12 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SdkInitResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f54239e = true;
+    public static volatile boolean f52725e = true;
     public static final String sNfcCfgKey = "nfcKyc";
     public transient /* synthetic */ FieldHolder $fh;
     public String balanceHomeUrl;
@@ -68,7 +68,7 @@ public class SdkInitResponse implements IBeanResponse {
     public String transactionSchemeUrl;
     public String useH5BindCard;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final SdkInitResponse a;
@@ -190,7 +190,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             if (TextUtils.isEmpty(this.balanceHomeUrl)) {
-                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52174d, "");
+                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50593d, "");
             }
             return this.balanceHomeUrl;
         }
@@ -214,7 +214,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             if (TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52175e, "");
+                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50594e, "");
             }
             return this.cookiesSyncDomainList;
         }
@@ -250,7 +250,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             if (TextUtils.isEmpty(this.loadingDurationInterval) && context != null) {
-                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52177g, "");
+                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50596g, "");
             }
             return this.loadingDurationInterval;
         }
@@ -283,7 +283,7 @@ public class SdkInitResponse implements IBeanResponse {
             if (!TextUtils.isEmpty(a.a.passAuthUrl)) {
                 return a.a.passAuthUrl;
             }
-            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52172b, "");
+            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50591b, "");
             return !TextUtils.isEmpty(str2) ? str2 : str;
         }
         return (String) invokeL.objValue;
@@ -294,7 +294,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             if (TextUtils.isEmpty(this.paymentCodeUrl)) {
-                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52173c, "");
+                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50592c, "");
             }
             return this.paymentCodeUrl;
         }
@@ -378,7 +378,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
             if (TextUtils.isEmpty(this.transactionRecordsUrl)) {
-                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52178h, "");
+                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50597h, "");
             }
             return this.transactionRecordsUrl;
         }
@@ -400,8 +400,8 @@ public class SdkInitResponse implements IBeanResponse {
     @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, context) == null) && f54239e) {
-            f54239e = false;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, context) == null) && f52725e) {
+            f52725e = false;
             if (!TextUtils.isEmpty(this.fp)) {
                 String decrypt = SecurePay.getInstance().decrypt(this.fp);
                 if (!TextUtils.isEmpty(decrypt) && !decrypt.equals(BdWalletUtils.getDeviceFP(context))) {
@@ -413,14 +413,14 @@ public class SdkInitResponse implements IBeanResponse {
             }
             if (!TextUtils.isEmpty(this.passAuthUrl)) {
                 a.a.passAuthUrl = this.passAuthUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52172b, this.passAuthUrl);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50591b, this.passAuthUrl);
             }
             a.a.paymentCodeUrl = this.paymentCodeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52173c, this.paymentCodeUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50592c, this.paymentCodeUrl);
             a.a.transactionRecordsUrl = this.transactionRecordsUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52178h, this.transactionRecordsUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50597h, this.transactionRecordsUrl);
             a.a.balanceHomeUrl = this.balanceHomeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52174d, this.balanceHomeUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50593d, this.balanceHomeUrl);
             a.a.securityCenterUrl = this.securityCenterUrl;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "key_pay_security_center_url", this.securityCenterUrl);
             a.a.payConfigUrl = this.payConfigUrl;
@@ -476,12 +476,12 @@ public class SdkInitResponse implements IBeanResponse {
             a.a.useH5BindCard = this.useH5BindCard;
             a.a.h5bindCardUrl = this.h5bindCardUrl;
             if (!TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52175e, this.cookiesSyncDomainList);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50594e, this.cookiesSyncDomainList);
             }
             a.a.needShowLoadingInterval = this.needShowLoadingInterval;
             a.a.loadingDurationInterval = this.loadingDurationInterval;
             if (!TextUtils.isEmpty(this.loadingDurationInterval)) {
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f52177g, this.loadingDurationInterval);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f50596g, this.loadingDurationInterval);
             }
             TextUtils.isEmpty(this.nfcKyc);
         }

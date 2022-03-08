@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.lightapp.business.b;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LangBridgeCfg implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LbConfig lbconfig;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class LbConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

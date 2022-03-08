@@ -2,13 +2,13 @@ package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.f.a.g.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor;
+import com.dxmpay.apollon.restnet.rest.d;
 import com.dxmpay.apollon.utils.Base64Utils;
 import com.dxmpay.apollon.utils.PhoneUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
@@ -16,7 +16,7 @@ import com.dxmpay.wallet.base.datamodel.AccountManager;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             String str = "intercept. X_BAIDU_IE = " + dVar.d();
-            dVar.a().e("X_BAIDU_IE", dVar.d());
-            dVar.a().e("Accept-Encoding", "gzip");
+            dVar.a().a("X_BAIDU_IE", dVar.d());
+            dVar.a().a("Accept-Encoding", "gzip");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("wims", "");
@@ -52,14 +52,14 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            dVar.a().e("wcp", new String(Base64Utils.encode(jSONObject.toString().getBytes())));
+            dVar.a().a("wcp", new String(Base64Utils.encode(jSONObject.toString().getBytes())));
             b(stringBuffer);
             if (!TextUtils.isEmpty(AccountManager.getInstance(context).getBfbToken())) {
                 stringBuffer.append(";");
                 stringBuffer.append("token=");
                 stringBuffer.append(AccountManager.getInstance(context).getBfbToken());
             }
-            dVar.a().e("Cookie", stringBuffer.toString());
+            dVar.a().a("Cookie", stringBuffer.toString());
         }
     }
 

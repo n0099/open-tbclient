@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 @Singleton
 @Service
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BlockMonitor implements IBlockMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_TIMEOUT = 2000;
@@ -36,13 +36,13 @@ public class BlockMonitor implements IBlockMonitor {
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class BlockListenerImpl implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

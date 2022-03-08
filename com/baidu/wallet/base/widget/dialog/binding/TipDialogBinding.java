@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.TipDialogModel;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TipDialogBinding extends BaseBinding<TipDialogModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Button f51021b;
+    public final Button f49440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f51022c;
+    public final TextView f49441c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TipDialogBinding(View view) {
@@ -42,8 +42,8 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
             }
         }
         this.a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_title"));
-        this.f51021b = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
-        this.f51022c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
+        this.f49440b = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
+        this.f49441c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.binding.BaseBinding
@@ -52,9 +52,9 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             T t = this.viewModel;
             if (((TipDialogModel) t).btnTextId != 0) {
-                this.f51021b.setText(((TipDialogModel) t).btnTextId);
+                this.f49440b.setText(((TipDialogModel) t).btnTextId);
             } else if (!TextUtils.isEmpty(((TipDialogModel) t).btnText)) {
-                this.f51021b.setText(((TipDialogModel) this.viewModel).btnText);
+                this.f49440b.setText(((TipDialogModel) this.viewModel).btnText);
             }
             T t2 = this.viewModel;
             if (((TipDialogModel) t2).titleId != 0) {
@@ -62,17 +62,17 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
             } else if (!TextUtils.isEmpty(((TipDialogModel) t2).titleText)) {
                 this.a.setText(((TipDialogModel) this.viewModel).titleText);
             }
-            TextPaint paint = this.f51021b.getPaint();
+            TextPaint paint = this.f49440b.getPaint();
             if (paint != null) {
                 paint.setFakeBoldText(true);
             }
-            this.f51021b.setOnClickListener(((TipDialogModel) this.viewModel).defaultClickListener);
+            this.f49440b.setOnClickListener(((TipDialogModel) this.viewModel).defaultClickListener);
             T t3 = this.viewModel;
             if (((TipDialogModel) t3).messageId != 0) {
-                this.f51022c.setText(((TipDialogModel) t3).messageId);
+                this.f49441c.setText(((TipDialogModel) t3).messageId);
             } else if (TextUtils.isEmpty(((TipDialogModel) t3).message)) {
             } else {
-                this.f51022c.setText(((TipDialogModel) this.viewModel).message);
+                this.f49441c.setText(((TipDialogModel) this.viewModel).message);
             }
         }
     }

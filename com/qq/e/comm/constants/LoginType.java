@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class LoginType {
     public static /* synthetic */ Interceptable $ic;
     public static final LoginType QQ;
@@ -16,7 +16,7 @@ public final class LoginType {
     public static final LoginType WeiXin;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ LoginType[] f59271b;
+    public static final /* synthetic */ LoginType[] f57621b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -37,7 +37,7 @@ public final class LoginType {
         WeiXin = new LoginType("WeiXin", 1, 1);
         LoginType loginType = new LoginType(com.tencent.connect.common.Constants.SOURCE_QQ, 2, 2);
         QQ = loginType;
-        f59271b = new LoginType[]{Unknow, WeiXin, loginType};
+        f57621b = new LoginType[]{Unknow, WeiXin, loginType};
     }
 
     public LoginType(String str, int i2, int i3) {
@@ -71,7 +71,7 @@ public final class LoginType {
     public static LoginType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f59271b.clone() : (LoginType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f57621b.clone() : (LoginType[]) invokeV.objValue;
     }
 
     public int getValue() {

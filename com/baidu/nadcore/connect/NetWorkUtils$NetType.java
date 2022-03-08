@@ -1,6 +1,5 @@
 package com.baidu.nadcore.connect;
 
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class NetWorkUtils$NetType {
     public static final /* synthetic */ NetWorkUtils$NetType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +36,7 @@ public final class NetWorkUtils$NetType {
                 return;
             }
         }
-        NONE = new NetWorkUtils$NetType(PolyActivity.NONE_PANEL_TYPE, 0, "no");
+        NONE = new NetWorkUtils$NetType("NONE", 0, "no");
         WIFI = new NetWorkUtils$NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
         _2G = new NetWorkUtils$NetType("_2G", 2, "2g");
         _3G = new NetWorkUtils$NetType("_3G", 3, "3g");

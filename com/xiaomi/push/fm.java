@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class fm implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61294b;
+    public static final String f59644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61295c;
+    public static String f59645c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,13 +35,13 @@ public class fm implements Cloneable {
     public boolean f414b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61296d;
+    public String f59646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61297e;
+    public String f59647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61298f;
+    public String f59648f;
 
     static {
         InterceptResult invokeClinit;
@@ -56,8 +56,8 @@ public class fm implements Cloneable {
                 return;
             }
         }
-        f61294b = ae.a;
-        f61295c = null;
+        f59644b = ae.a;
+        f59645c = null;
     }
 
     public fm(Map<String, Integer> map, int i2, String str, fp fpVar) {
@@ -84,8 +84,8 @@ public class fm implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = f61295c;
-            return str != null ? str : ab.m202a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f61294b : "app.chat.xiaomi.net";
+            String str = f59645c;
+            return str != null ? str : ab.m202a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f59644b : "app.chat.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class fm implements Cloneable {
     public static final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f61295c = str;
+            f59645c = str;
         }
     }
 
@@ -101,7 +101,7 @@ public class fm implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, i2, str, fpVar) == null) {
             this.f411a = i2;
-            this.f61296d = str;
+            this.f59646d = str;
             this.f412a = fpVar;
         }
     }
@@ -140,13 +140,13 @@ public class fm implements Cloneable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61298f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59648f : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f61298f = str;
+            this.f59648f = str;
         }
     }
 
@@ -154,10 +154,10 @@ public class fm implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f61297e == null) {
-                this.f61297e = a();
+            if (this.f59647e == null) {
+                this.f59647e = a();
             }
-            return this.f61297e;
+            return this.f59647e;
         }
         return (String) invokeV.objValue;
     }
@@ -165,7 +165,7 @@ public class fm implements Cloneable {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f61297e = str;
+            this.f59647e = str;
         }
     }
 }

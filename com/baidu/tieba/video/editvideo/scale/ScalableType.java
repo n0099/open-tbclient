@@ -1,6 +1,5 @@
 package com.baidu.tieba.video.editvideo.scale;
 
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class ScalableType {
     public static final /* synthetic */ ScalableType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +53,7 @@ public final class ScalableType {
                 return;
             }
         }
-        NONE = new ScalableType(PolyActivity.NONE_PANEL_TYPE, 0);
+        NONE = new ScalableType("NONE", 0);
         FIT_XY = new ScalableType("FIT_XY", 1);
         FIT_START = new ScalableType("FIT_START", 2);
         FIT_CENTER = new ScalableType("FIT_CENTER", 3);

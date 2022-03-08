@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RichGuideHollowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f49912e;
+    public View f48331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f49913f;
+    public Paint f48332f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RichGuideHollowView(@NonNull Context context) {
@@ -57,30 +57,30 @@ public class RichGuideHollowView extends View {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f49913f.setXfermode(null);
-            this.f49913f.setColor(SkinManager.getColor(R.color.CAM_X0607));
-            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f49913f);
+            this.f48332f.setXfermode(null);
+            this.f48332f.setColor(SkinManager.getColor(R.color.CAM_X0607));
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f48332f);
         }
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f49913f.setColor(-1);
-            this.f49913f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f48332f.setColor(-1);
+            this.f48332f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             c(canvas);
         }
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f49912e == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f48331e == null) {
             return;
         }
         Rect rect = new Rect();
-        this.f49912e.getDrawingRect(rect);
+        this.f48331e.getDrawingRect(rect);
         int[] iArr = new int[2];
-        this.f49912e.getLocationOnScreen(iArr);
+        this.f48331e.getLocationOnScreen(iArr);
         int i2 = iArr[0];
         rect.left = i2;
         int i3 = iArr[1];
@@ -94,13 +94,13 @@ public class RichGuideHollowView extends View {
         float f2 = rect.bottom - n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         rectF.bottom = f2;
         float f3 = rectF.top;
-        canvas.drawRoundRect(rectF, f2 - f3, f2 - f3, this.f49913f);
+        canvas.drawRoundRect(rectF, f2 - f3, f2 - f3, this.f48332f);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f49913f = new Paint(1);
+            this.f48332f = new Paint(1);
         }
     }
 
@@ -124,7 +124,7 @@ public class RichGuideHollowView extends View {
     public void setTargetView(@NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f49912e = view;
+            this.f48331e = view;
             postInvalidate();
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.c.r;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class t implements r.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,10 +46,10 @@ public final class t implements r.a {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.c.f32817e, "1");
-            hashMap.put("message_id", String.valueOf(this.a.f60890b.f()));
-            context = this.a.f60891c.a;
-            context2 = this.a.f60891c.a;
+            hashMap.put(b.c.f31220e, "1");
+            hashMap.put("message_id", String.valueOf(this.a.f59240b.f()));
+            context = this.a.f59241c.a;
+            context2 = this.a.f59241c.a;
             String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("app_id", b2);
@@ -67,9 +67,9 @@ public final class t implements r.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("messageID", String.valueOf(this.a.f60890b.f()));
-            context = this.a.f60891c.a;
-            context2 = this.a.f60891c.a;
+            hashMap.put("messageID", String.valueOf(this.a.f59240b.f()));
+            context = this.a.f59241c.a;
+            context2 = this.a.f59241c.a;
             String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("remoteAppId", b2);

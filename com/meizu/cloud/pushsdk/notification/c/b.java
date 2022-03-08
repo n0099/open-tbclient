@@ -11,30 +11,30 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static Field a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f59016b;
+    public static Field f57366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f59017c;
+    public static Field f57367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f59018d = new Object();
+    public static Object f57368d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Set<String>> f59019e = new ConcurrentHashMap();
+    public static Map<String, Set<String>> f57369e = new ConcurrentHashMap();
 
     static {
         try {
             a = Notification.class.getDeclaredField("mFlymeNotification");
             Field declaredField = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
-            f59016b = declaredField;
+            f57366b = declaredField;
             declaredField.setAccessible(true);
             Field declaredField2 = Notification.class.getDeclaredField("replyIntent");
-            f59017c = declaredField2;
+            f57367c = declaredField2;
             declaredField2.setAccessible(true);
         } catch (ClassNotFoundException e2) {
             e2.printStackTrace();
@@ -44,7 +44,7 @@ public class b {
     }
 
     public static void a(Notification notification, PendingIntent pendingIntent) {
-        Field field = f59017c;
+        Field field = f57367c;
         if (field != null) {
             try {
                 field.set(notification, pendingIntent);
@@ -56,11 +56,11 @@ public class b {
 
     public static void a(Notification notification, boolean z) {
         Field field = a;
-        if (field == null || f59016b == null) {
+        if (field == null || f57366b == null) {
             return;
         }
         try {
-            f59016b.set(field.get(notification), Integer.valueOf(z ? 1 : 0));
+            f57366b.set(field.get(notification), Integer.valueOf(z ? 1 : 0));
         } catch (IllegalAccessException e2) {
             c.k.a.a.a.b("NotificationUtils", "setInternalApp error " + e2.getMessage());
         }
@@ -76,7 +76,7 @@ public class b {
     public static void a(Context context, String str) {
         Set<String> set;
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        if (notificationManager == null || TextUtils.isEmpty(str) || (set = f59019e.get(str)) == null) {
+        if (notificationManager == null || TextUtils.isEmpty(str) || (set = f57369e.get(str)) == null) {
             return;
         }
         for (String str2 : set) {
@@ -91,7 +91,7 @@ public class b {
         if (notificationManager != null) {
             c.k.a.a.a.d("NotificationUtils", "clear clearNotification notifyId " + i2);
             notificationManager.cancel(i2);
-            Set<String> set = f59019e.get(str);
+            Set<String> set = f57369e.get(str);
             if (set != null) {
                 set.remove(String.valueOf(i2));
             }
@@ -99,7 +99,7 @@ public class b {
     }
 
     public static boolean a(Context context, String str, String str2) {
-        synchronized (f59018d) {
+        synchronized (f57368d) {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
@@ -111,7 +111,7 @@ public class b {
     }
 
     public static void b(Context context, String str, int i2) {
-        Set<String> set = f59019e.get(str);
+        Set<String> set = f57369e.get(str);
         c.k.a.a.a.d("NotificationUtils", "store notifyId " + i2);
         if (set != null) {
             set.add(String.valueOf(i2));
@@ -119,11 +119,11 @@ public class b {
         }
         HashSet hashSet = new HashSet();
         hashSet.add(String.valueOf(i2));
-        f59019e.put(str, hashSet);
+        f57369e.put(str, hashSet);
     }
 
     public static void c(Context context, String str, int i2) {
-        Set<String> set = f59019e.get(str);
+        Set<String> set = f57369e.get(str);
         if (set != null) {
             set.remove(String.valueOf(i2));
             c.k.a.a.a.d("NotificationUtils", "remove notifyId " + i2);

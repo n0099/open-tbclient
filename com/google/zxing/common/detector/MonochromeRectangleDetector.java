@@ -9,7 +9,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MonochromeRectangleDetector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_MODULES = 32;

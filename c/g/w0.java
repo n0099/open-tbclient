@@ -21,16 +21,16 @@ import java.util.Iterator;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class w0 {
     public static /* synthetic */ Interceptable $ic;
     public static final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f28697b;
+    public static final Handler f28535b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class w0 {
                     if (a.a != 200) {
                         LogPrinter.d("cpm fail:", new Object[0]);
                     } else {
-                        JSONObject jSONObject2 = new JSONObject(a.f28680b);
+                        JSONObject jSONObject2 = new JSONObject(a.f28518b);
                         if (jSONObject2.getInt(Constants.KEYS.RET) == 200) {
                             c0.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
                             z = true;
@@ -138,7 +138,7 @@ public class w0 {
         a = new m();
         HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
         handlerThread.start();
-        f28697b = new a(handlerThread.getLooper());
+        f28535b = new a(handlerThread.getLooper());
     }
 
     public static boolean a() {

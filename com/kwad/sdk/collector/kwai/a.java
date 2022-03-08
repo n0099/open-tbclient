@@ -2,12 +2,12 @@ package com.kwad.sdk.collector.kwai;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f55723b;
+    public List<b> f54073b;
 
     public a() {
         this.a = true;
@@ -18,7 +18,7 @@ public abstract class a implements b {
     }
 
     public List<b> a() {
-        return this.f55723b;
+        return this.f54073b;
     }
 
     @Override // com.kwad.sdk.collector.kwai.b

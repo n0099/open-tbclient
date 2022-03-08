@@ -2,10 +2,10 @@ package com.baidu.tieba.wallet;
 
 import android.app.Activity;
 import android.content.Context;
-import c.a.t0.r0.g;
 import com.baidu.adp.BdUniqueId;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IWalletPlugin {
     void accessWalletEntry(Context context, String str);
 
@@ -23,7 +23,7 @@ public interface IWalletPlugin {
 
     ITiebaPay doTiebaPay(Activity activity);
 
-    void doYYPay(g gVar);
+    void doYYPay(String str, IDxmProxyCallback iDxmProxyCallback);
 
     void gotoWalletService(Context context, String str);
 

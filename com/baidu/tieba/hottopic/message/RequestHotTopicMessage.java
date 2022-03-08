@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class RequestHotTopicMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44931common;
+    public CommonReq f43337common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -60,7 +60,7 @@ public class RequestHotTopicMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f63009common = getCommon();
+                builder.f61359common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.scr_w = getScrW();
@@ -74,7 +74,7 @@ public class RequestHotTopicMessage extends NetMessage {
                 builder.call_from = Integer.valueOf(getCall_from());
                 builder.topic_tid = Long.valueOf(getTopic_tid());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    c0.a(builder, true);
+                    b0.a(builder, true);
                 }
                 HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -95,7 +95,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44931common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43337common : (CommonReq) invokeV.objValue;
     }
 
     public Long getFid() {
@@ -174,7 +174,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, commonReq) == null) {
-            this.f44931common = commonReq;
+            this.f43337common = commonReq;
         }
     }
 

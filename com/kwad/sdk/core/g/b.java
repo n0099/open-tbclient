@@ -6,22 +6,22 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f56053b = true;
+    public volatile boolean f54403b = true;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.g.a f56054c;
+    public com.kwad.sdk.core.g.a f54404c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56055d;
+    public a f54405d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements SensorEventListener {
         public a() {
         }
@@ -37,11 +37,11 @@ public class b {
             float f3 = fArr[1];
             float f4 = fArr[2];
             double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-            if (!b.this.f56053b || sqrt < b.this.a || b.this.f56054c == null) {
+            if (!b.this.f54403b || sqrt < b.this.a || b.this.f54404c == null) {
                 return;
             }
-            b.this.f56053b = false;
-            b.this.f56054c.a(sqrt);
+            b.this.f54403b = false;
+            b.this.f54404c.a(sqrt);
         }
     }
 
@@ -50,7 +50,7 @@ public class b {
     }
 
     public synchronized void a() {
-        this.f56053b = true;
+        this.f54403b = true;
     }
 
     public void a(float f2) {
@@ -68,20 +68,20 @@ public class b {
             com.kwad.sdk.core.d.a.a("ShakeDetector", "startDetect default linear acceleration is null");
             return;
         }
-        if (this.f56055d == null) {
-            this.f56055d = new a();
+        if (this.f54405d == null) {
+            this.f54405d = new a();
         }
-        sensorManager.registerListener(this.f56055d, defaultSensor, 2);
+        sensorManager.registerListener(this.f54405d, defaultSensor, 2);
     }
 
     public void a(@Nullable com.kwad.sdk.core.g.a aVar) {
-        this.f56054c = aVar;
+        this.f54404c = aVar;
     }
 
     public void b(Context context) {
-        if (context == null || this.f56055d == null) {
+        if (context == null || this.f54405d == null) {
             return;
         }
-        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.f56055d);
+        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.f54405d);
     }
 }

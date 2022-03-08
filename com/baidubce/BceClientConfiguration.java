@@ -14,8 +14,9 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.InetAddress;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ACCPET_ENCODING = null;
@@ -72,7 +73,7 @@ public class BceClientConfiguration {
             property = "";
         }
         String property2 = System.getProperty("user.region");
-        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, property2 != null ? property2 : "").replace(' ', '_');
+        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, property2 != null ? property2 : "").replace(WebvttCueParser.CHAR_SPACE, '_');
     }
 
     public BceClientConfiguration() {

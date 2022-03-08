@@ -8,20 +8,21 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
-import c.a.b1.t.g;
-import c.a.b1.t.m;
-import c.a.b1.t.t;
-import c.a.b1.t.w;
+import c.a.y0.r.g;
+import c.a.y0.r.m;
+import c.a.y0.r.t;
+import c.a.y0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class InnerVideoProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerVideoProcessor";
@@ -390,7 +391,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
                             int c2 = ((int) (g.c(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f1513b) {
+                            if (t.f26965b) {
                                 trackFormat.setInteger("rotation-degrees", c2);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", c2);
@@ -407,11 +408,11 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             this.mLastProgressPercent = 0;
                             String str = e3;
                             if (this.mEncodeHevcVideo) {
-                                MediaCodecInfo m2 = m.m("video/hevc");
+                                MediaCodecInfo m2 = m.m(MimeTypes.VIDEO_H265);
                                 str = e3;
                                 if (m2 != null) {
                                     m = m2;
-                                    str = "video/hevc";
+                                    str = MimeTypes.VIDEO_H265;
                                 }
                             }
                             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, integer, integer2);

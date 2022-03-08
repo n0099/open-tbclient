@@ -10,17 +10,17 @@ import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Proxy f27896b;
+    public final Proxy f27800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final InetSocketAddress f27897c;
+    public final InetSocketAddress f27801c;
 
     public d0(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class d0 {
         }
         if (inetSocketAddress != null) {
             this.a = aVar;
-            this.f27896b = proxy;
-            this.f27897c = inetSocketAddress;
+            this.f27800b = proxy;
+            this.f27801c = inetSocketAddress;
             return;
         }
         throw new NullPointerException("inetSocketAddress == null");
@@ -61,19 +61,19 @@ public final class d0 {
     public Proxy b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27896b : (Proxy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27800b : (Proxy) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f27844i != null && this.f27896b.type() == Proxy.Type.HTTP : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f27748i != null && this.f27800b.type() == Proxy.Type.HTTP : invokeV.booleanValue;
     }
 
     public InetSocketAddress d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27897c : (InetSocketAddress) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27801c : (InetSocketAddress) invokeV.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -82,7 +82,7 @@ public final class d0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj instanceof d0) {
                 d0 d0Var = (d0) obj;
-                if (d0Var.a.equals(this.a) && d0Var.f27896b.equals(this.f27896b) && d0Var.f27897c.equals(this.f27897c)) {
+                if (d0Var.a.equals(this.a) && d0Var.f27800b.equals(this.f27800b) && d0Var.f27801c.equals(this.f27801c)) {
                     return true;
                 }
             }
@@ -94,14 +94,14 @@ public final class d0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f27896b.hashCode()) * 31) + this.f27897c.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f27800b.hashCode()) * 31) + this.f27801c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "Route{" + this.f27897c + "}";
+            return "Route{" + this.f27801c + "}";
         }
         return (String) invokeV.objValue;
     }

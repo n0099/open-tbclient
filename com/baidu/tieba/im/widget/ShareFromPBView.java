@@ -5,32 +5,30 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.u0.a4.d;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class ShareFromPBView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45301e;
+    public TextView f43707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f45302f;
+    public HeadImageView f43708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45303g;
+    public TextView f43709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareFromPBMsgData f45304h;
+    public ShareFromPBMsgData f43710h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -57,29 +55,29 @@ public final class ShareFromPBView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(h.share_from_pb_view, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
             setOrientation(1);
-            this.f45301e = (TextView) findViewById(g.chat_title);
-            this.f45302f = (HeadImageView) findViewById(g.chat_group_img);
-            this.f45303g = (TextView) findViewById(g.chat_group_desc);
+            this.f43707e = (TextView) findViewById(R.id.chat_title);
+            this.f43708f = (HeadImageView) findViewById(R.id.chat_group_img);
+            this.f43709g = (TextView) findViewById(R.id.chat_group_desc);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f45301e.setText(this.f45304h.getTitle());
-            this.f45302f.setPlaceHolder(1);
-            this.f45302f.setAutoChangeStyle(false);
-            this.f45302f.startLoad(this.f45304h.getImageUrl(), 10, false);
-            this.f45303g.setText(this.f45304h.getContent());
+            this.f43707e.setText(this.f43710h.getTitle());
+            this.f43708f.setPlaceHolder(1);
+            this.f43708f.setAutoChangeStyle(false);
+            this.f43708f.startLoad(this.f43710h.getImageUrl(), 10, false);
+            this.f43709g.setText(this.f43710h.getContent());
         }
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareFromPBMsgData) == null) {
-            this.f45304h = shareFromPBMsgData;
+            this.f43710h = shareFromPBMsgData;
             b();
         }
     }
@@ -88,12 +86,12 @@ public final class ShareFromPBView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f45301e.setTextColor(getContext().getResources().getColor(d.CAM_X0105));
-                this.f45303g.setTextColor(getContext().getResources().getColor(d.CAM_X0106));
+                this.f43707e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f43709g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f45301e.setTextColor(getContext().getResources().getColor(d.CAM_X0111));
-            this.f45303g.setTextColor(getContext().getResources().getColor(d.CAM_X0111));
+            this.f43707e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f43709g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 

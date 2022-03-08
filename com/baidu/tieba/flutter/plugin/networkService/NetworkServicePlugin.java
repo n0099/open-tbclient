@@ -1,15 +1,13 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.annotation.NonNull;
-import c.a.t0.l0.b.g;
-import c.a.t0.s.a0.a;
-import c.a.u0.a1.a.f.f;
+import c.a.q0.k0.b.g;
+import c.a.r0.z0.a.f.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.searchbox.launch.SmartLaunchStats;
@@ -27,18 +25,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.HostNetworkService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, NetModel> netModels;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface NetModel {
         boolean cancelLoadData();
     }
@@ -124,19 +120,6 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
             params.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             params.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             params.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
-            StringBuilder sb = new StringBuilder();
-            sb.append(a.f13402f);
-            String str = "";
-            sb.append("");
-            params.put("start_type", sb.toString());
-            try {
-                if (!StringUtils.isNull(a.f13401e)) {
-                    str = URLEncoder.encode(a.f13401e, "utf-8");
-                }
-                params.put("start_scheme", str);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-            }
             if (booleanValue) {
                 BdUniqueId gen = BdUniqueId.gen();
                 int httpCmdFromUrl = ProtoHelper.getHttpCmdFromUrl(address);
@@ -175,14 +158,14 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
                     }
 
                     @Override // com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.NetModelHttpCallback
-                    public void onHttpResponseMessage(String str2, HashMap hashMap, MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+                    public void onHttpResponseMessage(String str, HashMap hashMap, MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLLLLL(1048576, this, str2, hashMap, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-                            this.this$0.netModels.remove(str2);
+                        if (interceptable2 == null || interceptable2.invokeLLLLL(1048576, this, str, hashMap, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
+                            this.this$0.netModels.remove(str);
                             if (hashMap != null) {
                                 hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, String.valueOf(this.val$netStartTime));
                             }
-                            this.val$result.success(this.this$0.wrapEventData(hashMap, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str2));
+                            this.val$result.success(this.this$0.wrapEventData(hashMap, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str));
                         }
                     }
                 });
@@ -190,8 +173,8 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
                 try {
                     netModel.loadData();
                     return;
-                } catch (Exception e3) {
-                    BdLog.e("netModel loadData exception" + e3.toString());
+                } catch (Exception e2) {
+                    BdLog.e("netModel loadData exception" + e2.toString());
                     return;
                 }
             }
@@ -228,14 +211,14 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
                 }
 
                 @Override // com.baidu.tieba.flutter.plugin.networkService.FlutterNetModel.NetResponseCallback
-                public void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str2, String str3, String str4) {
+                public void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{hashMap, hashMap2, Integer.valueOf(i2), str2, str3, str4}) == null) {
-                        this.this$0.netModels.remove(str4);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{hashMap, hashMap2, Integer.valueOf(i2), str, str2, str3}) == null) {
+                        this.this$0.netModels.remove(str3);
                         if (hashMap != null) {
                             hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, String.valueOf(this.val$netStartTime));
                         }
-                        NetworkServiceAuto.NetworkResult wrapEventData = this.this$0.wrapEventData(hashMap, str3, i2, str2, str4);
+                        NetworkServiceAuto.NetworkResult wrapEventData = this.this$0.wrapEventData(hashMap, str2, i2, str, str3);
                         HashMap hashMap3 = this.val$extra;
                         if (hashMap3 != null && (hashMap3.get("performance") instanceof Boolean) && ((Boolean) this.val$extra.get("performance")).booleanValue()) {
                             HashMap hashMap4 = new HashMap();
@@ -260,8 +243,8 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
             this.netModels.put(identifier, flutterNetModel);
             try {
                 flutterNetModel.loadData();
-            } catch (Exception e4) {
-                BdLog.e("netModel loadData exception" + e4.toString());
+            } catch (Exception e3) {
+                BdLog.e("netModel loadData exception" + e3.toString());
             }
         }
     }

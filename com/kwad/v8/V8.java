@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class V8 extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public static boolean initialized;
@@ -55,13 +55,13 @@ public class V8 extends V8Object {
     public Map<Long, V8Value> v8WeakReferences;
 
     /* renamed from: com.kwad.v8.V8$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class MethodDescriptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

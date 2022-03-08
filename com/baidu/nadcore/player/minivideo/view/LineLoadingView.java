@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.h0.f;
+import c.a.b0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,42 +19,42 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Q\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000f\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\"\u0018\u00002\u00020\u0001B\u0019\u0012\u0006\u00104\u001a\u000203\u0012\b\u00106\u001a\u0004\u0018\u000105¢\u0006\u0004\b7\u00108J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\n\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00042\b\b\u0002\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0013\u001a\u00020\u00122\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J\u001f\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J/\u0010\u001d\u001a\u00020\u00122\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\r\u0010\u001f\u001a\u00020\u0012¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0012¢\u0006\u0004\b!\u0010 R\u0016\u0010#\u001a\u00020\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R\u0016\u0010'\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010&R\u0016\u0010(\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b(\u0010&R\u0016\u0010)\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010&R\u0016\u0010*\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010&R\u0016\u0010.\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0016\u00100\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010&¨\u00069"}, d2 = {"Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView;", "Landroid/view/View;", "", "color", "", "checkColor", "(Ljava/lang/String;)I", "measureSpec", "", "isWidth", "getValue", "(IZ)I", "value", "", "halfValue", "(I)F", "Landroid/graphics/Canvas;", "canvas", "", "onDraw", "(Landroid/graphics/Canvas;)V", "widthMeasureSpec", "heightMeasureSpec", "onMeasure", "(II)V", "w", "h", "oldw", "oldh", "onSizeChanged", "(IIII)V", "start", "()V", IntentConfig.STOP, "com/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1", "counter", "Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1;", "curHeight", "I", "curWidth", "defaultHeight", "defaultWidth", "isStop", "Z", "minProgressWidth", "Landroid/graphics/Paint;", "paint", "Landroid/graphics/Paint;", WBConstants.TRANS_PROGRESS_COLOR, "Ljava/lang/String;", "progressWidth", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "lib-widget_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Q\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000f\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\"\u0018\u00002\u00020\u0001B\u0019\u0012\u0006\u00104\u001a\u000203\u0012\b\u00106\u001a\u0004\u0018\u000105¢\u0006\u0004\b7\u00108J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\n\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00042\b\b\u0002\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0013\u001a\u00020\u00122\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J\u001f\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J/\u0010\u001d\u001a\u00020\u00122\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\r\u0010\u001f\u001a\u00020\u0012¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0012¢\u0006\u0004\b!\u0010 R\u0016\u0010#\u001a\u00020\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R\u0016\u0010'\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010&R\u0016\u0010(\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b(\u0010&R\u0016\u0010)\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010&R\u0016\u0010*\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010&R\u0016\u0010.\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0016\u00100\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010&¨\u00069"}, d2 = {"Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView;", "Landroid/view/View;", "", "color", "", "checkColor", "(Ljava/lang/String;)I", "measureSpec", "", "isWidth", "getValue", "(IZ)I", "value", "", "halfValue", "(I)F", "Landroid/graphics/Canvas;", "canvas", "", "onDraw", "(Landroid/graphics/Canvas;)V", "widthMeasureSpec", "heightMeasureSpec", "onMeasure", "(II)V", "w", "h", "oldw", "oldh", "onSizeChanged", "(IIII)V", "start", "()V", IntentConfig.STOP, "com/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1", "counter", "Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1;", "curHeight", "I", "curWidth", "defaultHeight", "defaultWidth", "isStop", "Z", "minProgressWidth", "Landroid/graphics/Paint;", "paint", "Landroid/graphics/Paint;", WBConstants.TRANS_PROGRESS_COLOR, "Ljava/lang/String;", "progressWidth", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
 public final class LineLoadingView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37296e;
+    public int f35699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37297f;
+    public int f35700f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37298g;
+    public int f35701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37299h;
+    public int f35702h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37300i;
+    public int f35703i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37301j;
+    public int f35704j;
     public String k;
     public Paint l;
     public boolean m;
     public final a n;
     public HashMap o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LineLoadingView f37302e;
+        public final /* synthetic */ LineLoadingView f35705e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LineLoadingView lineLoadingView) {
@@ -72,17 +72,17 @@ public final class LineLoadingView extends View {
                     return;
                 }
             }
-            this.f37302e = lineLoadingView;
+            this.f35705e = lineLoadingView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37302e.m) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35705e.m) {
                 return;
             }
-            this.f37302e.invalidate();
-            this.f37302e.post(this);
+            this.f35705e.invalidate();
+            this.f35705e.post(this);
         }
     }
 
@@ -110,11 +110,11 @@ public final class LineLoadingView extends View {
         this.l = new Paint();
         this.m = true;
         this.n = new a(this);
-        this.f37296e = f.c.e(context);
-        this.f37297f = f.c.a(context, 1.5f);
+        this.f35699e = f.c.e(context);
+        this.f35700f = f.c.a(context, 1.5f);
         int a2 = f.c.a(context, 100.0f);
-        this.f37301j = a2;
-        this.f37300i = a2;
+        this.f35704j = a2;
+        this.f35703i = a2;
         this.l.setStyle(Paint.Style.FILL_AND_STROKE);
         this.l.setAntiAlias(true);
     }
@@ -177,9 +177,9 @@ public final class LineLoadingView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode != Integer.MIN_VALUE) {
-                return mode != 0 ? mode != 1073741824 ? z ? this.f37296e : this.f37297f : size : z ? this.f37296e : this.f37297f;
+                return mode != 0 ? mode != 1073741824 ? z ? this.f35699e : this.f35700f : size : z ? this.f35699e : this.f35700f;
             }
-            return Math.min(z ? this.f37296e : this.f37297f, size);
+            return Math.min(z ? this.f35699e : this.f35700f, size);
         }
         return invokeCommon.intValue;
     }
@@ -195,13 +195,13 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f37300i;
-            if (i2 < this.f37298g) {
-                this.f37300i = i2 + 30;
+            int i2 = this.f35703i;
+            if (i2 < this.f35701g) {
+                this.f35703i = i2 + 30;
             } else {
-                this.f37300i = this.f37301j;
+                this.f35703i = this.f35704j;
             }
-            int i3 = 255 - ((this.f37300i * 255) / this.f37298g);
+            int i3 = 255 - ((this.f35703i * 255) / this.f35701g);
             int i4 = i3 <= 255 ? i3 : 255;
             String hexString = Integer.toHexString(i4 >= 30 ? i4 : 30);
             Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
@@ -212,7 +212,7 @@ public final class LineLoadingView extends View {
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 this.l.setColor(a('#' + hexString + substring));
                 if (canvas != null) {
-                    canvas.drawLine(d(this.f37298g) - d(this.f37300i), d(this.f37297f), d(this.f37298g) + d(this.f37300i), d(this.f37297f), this.l);
+                    canvas.drawLine(d(this.f35701g) - d(this.f35703i), d(this.f35700f), d(this.f35701g) + d(this.f35703i), d(this.f35700f), this.l);
                     return;
                 }
                 return;
@@ -235,8 +235,8 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f37298g = i2;
-            this.f37299h = i3;
+            this.f35701g = i2;
+            this.f35702h = i3;
             this.l.setStrokeWidth(i3);
         }
     }

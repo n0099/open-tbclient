@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
@@ -105,33 +105,33 @@ public class AppCompatCompoundButtonHelper {
         int resourceId2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.CompoundButton, i2, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.CompoundButton, i2, 0);
             CompoundButton compoundButton = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R.styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R$styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
             try {
-                if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonCompat) && (resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.CompoundButton_buttonCompat, 0)) != 0) {
+                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonCompat) && (resourceId2 = obtainStyledAttributes.getResourceId(R$styleable.CompoundButton_buttonCompat, 0)) != 0) {
                     try {
                         this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId2));
                         z = true;
                     } catch (Resources.NotFoundException unused) {
                     }
-                    if (!z && obtainStyledAttributes.hasValue(R.styleable.CompoundButton_android_button) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.CompoundButton_android_button, 0)) != 0) {
+                    if (!z && obtainStyledAttributes.hasValue(R$styleable.CompoundButton_android_button) && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.CompoundButton_android_button, 0)) != 0) {
                         this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
                     }
-                    if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTint)) {
-                        CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(R.styleable.CompoundButton_buttonTint));
+                    if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTint)) {
+                        CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(R$styleable.CompoundButton_buttonTint));
                     }
-                    if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
-                        CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.CompoundButton_buttonTintMode, -1), null));
+                    if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTintMode)) {
+                        CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R$styleable.CompoundButton_buttonTintMode, -1), null));
                     }
                 }
                 z = false;
                 if (!z) {
                     this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
                 }
-                if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTint)) {
+                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTint)) {
                 }
-                if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
+                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTintMode)) {
                 }
             } finally {
                 obtainStyledAttributes.recycle();

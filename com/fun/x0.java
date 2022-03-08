@@ -14,32 +14,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.kuaishou.weapon.un.j0;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class x0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final o0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f54439b;
+    public final String f52925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f54440c;
+    public final int f52926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f54441d;
+    public final String f52927d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends HashMap<String, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Object[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54442b;
+        public final /* synthetic */ String f52928b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ x0 f54443c;
+        public final /* synthetic */ x0 f52929c;
 
         public a(x0 x0Var, Object[] objArr, String str) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public abstract class x0 {
                     return;
                 }
             }
-            this.f54443c = x0Var;
+            this.f52929c = x0Var;
             this.a = objArr;
-            this.f54442b = str;
+            this.f52928b = str;
             if (objArr != null && objArr.length > 0) {
                 if (objArr.length % 2 != 0) {
                     throw new IllegalArgumentException("Length of argument 'appends' must be even.");
@@ -73,15 +73,15 @@ public abstract class x0 {
                     i4 += 2;
                 }
             }
-            put("st", this.f54442b);
-            put("sid", this.f54443c.f54439b);
-            put("sidv", Integer.valueOf(this.f54443c.f54440c));
-            put("ldr_i", Integer.valueOf(a0.b(this.f54443c.f54439b)));
-            put("type", this.f54443c.f54441d);
+            put("st", this.f52928b);
+            put("sid", this.f52929c.f52925b);
+            put("sidv", Integer.valueOf(this.f52929c.f52926c));
+            put("ldr_i", Integer.valueOf(a0.b(this.f52929c.f52925b)));
+            put("type", this.f52929c.f52927d);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b extends x0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,14 +108,14 @@ public abstract class x0 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class c extends x0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(l lVar) {
-            super(lVar.a, lVar.f28657d, "p");
+            super(lVar.a, lVar.f28495d, "p");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,17 +135,17 @@ public abstract class x0 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class d extends x0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f54444e;
+        public long f52930e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(j jVar) {
-            super(jVar.a, jVar.f28650c, "s");
+            super(jVar.a, jVar.f28488c, "s");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public abstract class x0 {
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, objArr) == null) {
                 Object[] objArr2 = new Object[objArr.length + 2];
                 objArr2[0] = "lid";
-                objArr2[1] = Long.valueOf(this.f54444e);
+                objArr2[1] = Long.valueOf(this.f52930e);
                 System.arraycopy(objArr, 0, objArr2, 2, objArr.length);
                 super.c(str, objArr2);
             }
@@ -201,7 +201,7 @@ public abstract class x0 {
         public void i(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.f54444e = System.currentTimeMillis();
+                this.f52930e = System.currentTimeMillis();
                 b();
                 c("ldr_ld_start", "irpt", Integer.valueOf(z ? 1 : 0));
             }
@@ -224,18 +224,18 @@ public abstract class x0 {
             }
         }
         this.a = o0.a();
-        this.f54439b = str;
-        this.f54441d = str2;
-        this.f54440c = i2;
+        this.f52925b = str;
+        this.f52927d = str2;
+        this.f52926c = i2;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f54439b;
+            String str = this.f52925b;
             Object obj = a0.a;
-            int i2 = a0.f28396b.getInt("key_sid_c_pre_" + str, 0);
-            String str2 = this.f54439b;
+            int i2 = a0.f28234b.getInt("key_sid_c_pre_" + str, 0);
+            String str2 = this.f52925b;
             a0.e("key_sid_c_pre_" + str2, i2 + 1);
         }
     }
@@ -265,7 +265,7 @@ public abstract class x0 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c("ldr_sh_start", j0.f55302b, Boolean.TRUE);
+            c("ldr_sh_start", j0.f53652b, Boolean.TRUE);
         }
     }
 }

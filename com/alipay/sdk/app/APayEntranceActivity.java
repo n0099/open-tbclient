@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class APayEntranceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30969c = "ap_order_info";
+    public static final String f29373c = "ap_order_info";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30970d = "ap_target_packagename";
+    public static final String f29374d = "ap_target_packagename";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30971e = "ap_session";
+    public static final String f29375e = "ap_session";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30972f = "ap_local_info";
+    public static final String f29376f = "ap_local_info";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f30973g;
+    public static final ConcurrentHashMap<String, a> f29377g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30974b;
+    public String f29378b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str);
     }
@@ -57,7 +57,7 @@ public class APayEntranceActivity extends Activity {
                 return;
             }
         }
-        f30973g = new ConcurrentHashMap<>();
+        f29377g = new ConcurrentHashMap<>();
     }
 
     public APayEntranceActivity() {
@@ -78,7 +78,7 @@ public class APayEntranceActivity extends Activity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a remove = f30973g.remove(this.f30974b);
+            a remove = f29377g.remove(this.f29378b);
             if (TextUtils.isEmpty(this.a)) {
                 this.a = b.a();
             }
@@ -124,10 +124,10 @@ public class APayEntranceActivity extends Activity {
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                String string = extras.getString(f30969c);
-                String string2 = extras.getString(f30970d);
-                this.f30974b = extras.getString(f30971e);
-                String string3 = extras.getString(f30972f, StringUtil.EMPTY_ARRAY);
+                String string = extras.getString(f29373c);
+                String string2 = extras.getString(f29374d);
+                this.f29378b = extras.getString(f29375e);
+                String string3 = extras.getString(f29376f, StringUtil.EMPTY_ARRAY);
                 Intent intent = new Intent();
                 intent.putExtra("order_info", string);
                 intent.putExtra("localInfo", string3);

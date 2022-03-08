@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.V8Value;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class Scope extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCOPE_OBJECT = "scopeObject";
@@ -21,7 +21,7 @@ public class Scope extends Mirror {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class ScopeType {
         public static final /* synthetic */ ScopeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -49,7 +49,7 @@ public class Scope extends Mirror {
                 }
             }
             Global = new ScopeType("Global", 0, 0);
-            Local = new ScopeType(b.f33036i, 1, 1);
+            Local = new ScopeType(b.f31439i, 1, 1);
             With = new ScopeType("With", 2, 2);
             Closure = new ScopeType("Closure", 3, 3);
             Catch = new ScopeType("Catch", 4, 4);

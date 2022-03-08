@@ -23,15 +23,15 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f1754d;
+    public static h f2380d;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f1755b;
+    public ArrayList<String> f2381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f1756c;
+    public HashSet<String> f2382c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,22 +62,22 @@ public class h {
             }
         }
         this.a = null;
-        this.f1755b = null;
-        this.f1756c = null;
+        this.f2381b = null;
+        this.f2382c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1754d == null) {
+            if (f2380d == null) {
                 synchronized (h.class) {
-                    if (f1754d == null) {
-                        f1754d = new h();
+                    if (f2380d == null) {
+                        f2380d = new h();
                     }
                 }
             }
-            return f1754d;
+            return f2380d;
         }
         return (h) invokeV.objValue;
     }
@@ -89,26 +89,26 @@ public class h {
                 if (!TextUtils.isEmpty(str2)) {
                     if (this.a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f1756c == null) {
-                                this.f1756c = new HashSet<>();
+                            if (this.f2382c == null) {
+                                this.f2382c = new HashSet<>();
                             }
-                            if (this.f1756c.contains(str)) {
+                            if (this.f2382c.contains(str)) {
                                 c.a.d.j.h.a.b().m("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f1756c.add(str);
+                            this.f2382c.add(str);
                         }
-                        if (this.f1755b == null) {
-                            this.f1755b = new ArrayList<>();
+                        if (this.f2381b == null) {
+                            this.f2381b = new ArrayList<>();
                         }
-                        if (this.f1755b.contains(str2)) {
+                        if (this.f2381b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
                             c.a.d.j.k.d.a(this.a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f1755b.size() > 0) {
-                                Iterator<String> it = this.f1755b.iterator();
+                            if (this.f2381b.size() > 0) {
+                                Iterator<String> it = this.f2381b.iterator();
                                 while (it.hasNext()) {
                                     c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
@@ -117,7 +117,7 @@ public class h {
                             c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                             this.a = new Resources(assetManager, this.a.getDisplayMetrics(), this.a.getConfiguration());
                         }
-                        this.f1755b.add(str2);
+                        this.f2381b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");

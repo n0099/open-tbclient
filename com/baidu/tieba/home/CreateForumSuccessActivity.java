@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.FormattableUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_NAME_STRING = "forumname";
@@ -35,13 +35,13 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public TextView mTextAuditTip;
     public TextView mTextView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumSuccessActivity f44347e;
+        public final /* synthetic */ CreateForumSuccessActivity f42749e;
 
         public a(CreateForumSuccessActivity createForumSuccessActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
                     return;
                 }
             }
-            this.f44347e = createForumSuccessActivity;
+            this.f42749e = createForumSuccessActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44347e.finish();
+                this.f42749e.finish();
             }
         }
     }
@@ -143,7 +143,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i2);
             super.changeSkinType(i2);
             getLayoutMode().j(this.mRootView);
-            c.a.t0.x0.a.a(getPageContext(), this.mRootView);
+            c.a.q0.w0.a.a(getPageContext(), this.mRootView);
             NoNetworkView noNetworkView = this.mNoNetView;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.mNoNetView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

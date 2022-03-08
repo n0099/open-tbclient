@@ -3,20 +3,18 @@ package com.baidu.tieba.write.bottomButton;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.t0.i0.b;
-import c.a.t0.i0.c;
-import c.a.u0.s4.f;
-import c.a.u0.s4.h;
-import c.a.u0.s4.j;
+import c.a.q0.h0.b;
+import c.a.q0.h0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WriteThreadDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,35 +33,35 @@ public class WriteThreadDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new WriteThreadFragment();
-            cVar.f13192e = 9;
-            cVar.f13189b = j.send;
-            cVar.f13191d = f.icon_tabbar_add_n;
-            cVar.f13196i = c.f13188j;
+            cVar.f12602e = 9;
+            cVar.f12599b = R.string.send;
+            cVar.f12601d = R.drawable.icon_tabbar_add_n;
+            cVar.f12606i = c.f12598j;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.maintab_bottom_indicator, (ViewGroup) null);
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
             this.mIndicator = maintabBottomIndicator;
             return maintabBottomIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

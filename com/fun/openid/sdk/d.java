@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f54418b;
+        public final LinkedBlockingQueue<IBinder> f52904b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d implements f {
                 }
             }
             this.a = false;
-            this.f54418b = new LinkedBlockingQueue<>();
+            this.f52904b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
@@ -54,7 +54,7 @@ public class d implements f {
                     throw new IllegalStateException();
                 }
                 this.a = true;
-                return this.f54418b.poll(5L, TimeUnit.SECONDS);
+                return this.f52904b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -64,7 +64,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f54418b.put(iBinder);
+                    this.f52904b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

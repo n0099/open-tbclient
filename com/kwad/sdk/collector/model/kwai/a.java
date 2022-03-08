@@ -1,20 +1,20 @@
 package com.kwad.sdk.collector.model.kwai;
 
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements com.kwad.sdk.collector.model.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f55743b;
+    public Set<String> f54093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55744c;
+    public long f54094c;
 
     public a(b bVar, Set<String> set, long j2) {
         this.a = bVar;
-        this.f55743b = set;
-        this.f55744c = j2;
+        this.f54093b = set;
+        this.f54094c = j2;
     }
 
     public String a() {
@@ -26,7 +26,7 @@ public class a implements com.kwad.sdk.collector.model.a {
     }
 
     public Set<String> b() {
-        return this.f55743b;
+        return this.f54093b;
     }
 
     public b c() {

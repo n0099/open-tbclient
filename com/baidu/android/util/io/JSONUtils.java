@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class JSONUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

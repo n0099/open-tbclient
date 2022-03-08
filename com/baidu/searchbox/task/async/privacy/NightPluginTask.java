@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NightPluginTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,6 @@ public class NightPluginTask extends LaunchTask {
                         TbadkCoreApplication.getInst().SendSkinTypeBroadcast(loadInt);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001304, Integer.valueOf(loadInt)));
-                    MessageManager.getInstance().unRegisterListener(this.this$0.tag);
                 }
             }
         };

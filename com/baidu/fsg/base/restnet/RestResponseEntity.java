@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.List;
-import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class RestResponseEntity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class RestResponseEntity<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder("<");
             sb.append(this.mStatusCode.toString());
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.mStatusCode.getReasonPhrase());
             sb.append(',');
             T body = getBody();
@@ -149,7 +149,7 @@ public class RestResponseEntity<T> {
             if (aVar != null) {
                 sb.append(aVar);
             }
-            sb.append(Typography.greater);
+            sb.append('>');
             return sb.toString();
         }
         return (String) invokeV.objValue;

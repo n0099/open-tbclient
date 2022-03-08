@@ -23,6 +23,7 @@ import com.baidu.webkit.sdk.DumperService;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,7 +41,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -60,7 +61,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
@@ -132,13 +133,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -229,7 +230,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
@@ -401,7 +402,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
                 PackageInfo loadedPackageInfo = WebViewFactory.getLoadedPackageInfo();
-                return (loadedPackageInfo == null || (str = loadedPackageInfo.versionName) == null) ? "0" : str.replace(' ', '_');
+                return (loadedPackageInfo == null || (str = loadedPackageInfo.versionName) == null) ? "0" : str.replace(WebvttCueParser.CHAR_SPACE, '_');
             }
             return (String) invokeV.objValue;
         }

@@ -31,7 +31,7 @@ import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.editing.ListenableEditingState;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class InputConnectionAdaptor extends BaseInputConnection implements ListenableEditingState.EditingStateWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InputConnectionAdaptor";

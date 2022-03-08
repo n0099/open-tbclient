@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -13,13 +13,13 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
         if (jSONObject.opt("url") == JSONObject.NULL) {
             iVar.a = "";
         }
-        iVar.f56695b = jSONObject.optString("title");
+        iVar.f55045b = jSONObject.optString("title");
         if (jSONObject.opt("title") == JSONObject.NULL) {
-            iVar.f56695b = "";
+            iVar.f55045b = "";
         }
-        iVar.f56696c = jSONObject.optString("params");
+        iVar.f55046c = jSONObject.optString("params");
         if (jSONObject.opt("params") == JSONObject.NULL) {
-            iVar.f56696c = "";
+            iVar.f55046c = "";
         }
     }
 
@@ -30,8 +30,8 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", iVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f56695b);
-        com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f56696c);
+        com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f55045b);
+        com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f55046c);
         return jSONObject;
     }
 }

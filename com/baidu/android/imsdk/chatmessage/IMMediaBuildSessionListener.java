@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMMediaBuildSessionListener implements IMListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaBuildSessionListener";
@@ -43,7 +43,7 @@ public class IMMediaBuildSessionListener implements IMListener {
     public List<ChatSession> mResultList;
     public int mTopHasMore;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class GetGroupInfoListener implements BIMValueCallBack<ArrayList<GroupInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class GetPaInfosListener implements IGetPaInfosListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class GetUserIdentityListener implements IGetUserIdentityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

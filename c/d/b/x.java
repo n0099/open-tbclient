@@ -14,25 +14,25 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
 import java.net.URLStreamHandlerFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class x implements URLStreamHandlerFactory, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w f28254e;
+    public w f28158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.d.b.e0.d f28255f;
+    public c.d.b.e0.d f28159f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends URLStreamHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ x f28256b;
+        public final /* synthetic */ x f28160b;
 
         public a(x xVar, String str) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
                     return;
                 }
             }
-            this.f28256b = xVar;
+            this.f28160b = xVar;
             this.a = str;
         }
 
@@ -62,7 +62,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
                     return 80;
                 }
                 if (this.a.equals("https")) {
-                    return Constants.SOCKET_PORT_SSL;
+                    return 443;
                 }
                 throw new AssertionError();
             }
@@ -73,14 +73,14 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         public URLConnection openConnection(URL url) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) ? this.f28256b.c(url) : (URLConnection) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) ? this.f28160b.c(url) : (URLConnection) invokeL.objValue;
         }
 
         @Override // java.net.URLStreamHandler
         public URLConnection openConnection(URL url, Proxy proxy) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, url, proxy)) == null) ? this.f28256b.e(url, proxy) : (URLConnection) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, url, proxy)) == null) ? this.f28160b.e(url, proxy) : (URLConnection) invokeLL.objValue;
         }
     }
 
@@ -99,13 +99,13 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
                 return;
             }
         }
-        this.f28254e = wVar;
+        this.f28158e = wVar;
     }
 
     public w a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28254e : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28158e : (w) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -113,13 +113,13 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
     public x clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new x(this.f28254e) : (x) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new x(this.f28158e) : (x) invokeV.objValue;
     }
 
     public HttpURLConnection c(URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, url)) == null) ? e(url, this.f28254e.y()) : (HttpURLConnection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, url)) == null) ? e(url, this.f28158e.y()) : (HttpURLConnection) invokeL.objValue;
     }
 
     @Override // java.net.URLStreamHandlerFactory
@@ -140,14 +140,14 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, url, proxy)) == null) {
             String protocol = url.getProtocol();
-            w.b t = this.f28254e.t();
+            w.b t = this.f28158e.t();
             t.m(proxy);
             w a2 = t.a();
             if (protocol.equals("http")) {
-                return new OkHttpURLConnection(url, a2, this.f28255f);
+                return new OkHttpURLConnection(url, a2, this.f28159f);
             }
             if (protocol.equals("https")) {
-                return new c.d.b.e0.l.c(url, a2, this.f28255f);
+                return new c.d.b.e0.l.c(url, a2, this.f28159f);
             }
             throw new IllegalArgumentException("Unexpected protocol: " + protocol);
         }
@@ -158,7 +158,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wVar)) == null) {
-            this.f28254e = wVar;
+            this.f28158e = wVar;
             return this;
         }
         return (x) invokeL.objValue;

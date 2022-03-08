@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.bigkoo.svprogresshud.view.SVCircleProgressBar;
 import com.bigkoo.svprogresshud.view.SVProgressDefaultView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SVProgressHUD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DISMISSDELAYED = 1000;
@@ -46,7 +47,7 @@ public class SVProgressHUD {
     public ViewGroup rootView;
 
     /* renamed from: com.bigkoo.svprogresshud.SVProgressHUD$4  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$bigkoo$svprogresshud$SVProgressHUD$SVProgressHUDMaskType;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +100,7 @@ public class SVProgressHUD {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class SVProgressHUDMaskType {
         public static final /* synthetic */ SVProgressHUDMaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

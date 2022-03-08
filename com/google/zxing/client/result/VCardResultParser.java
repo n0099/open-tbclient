@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.google.zxing.Result;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
@@ -19,7 +21,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;
@@ -277,7 +279,7 @@ public final class VCardResultParser extends ResultParser {
             return;
         }
         if (sb.length() > 0) {
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
         }
         sb.append(strArr[i2]);
     }
@@ -384,7 +386,7 @@ public final class VCardResultParser extends ResultParser {
                 String[] split = matchSingleVCardPrefixedField == null ? null : COMMA.split(matchSingleVCardPrefixedField.get(0));
                 List<List<String>> matchVCardPrefixedField2 = matchVCardPrefixedField("TEL", massagedText, true, false);
                 List<List<String>> matchVCardPrefixedField3 = matchVCardPrefixedField("EMAIL", massagedText, true, false);
-                List<String> matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField("NOTE", massagedText, false, false);
+                List<String> matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField(WebvttDecoder.COMMENT_START, massagedText, false, false);
                 List<List<String>> matchVCardPrefixedField4 = matchVCardPrefixedField("ADR", massagedText, true, true);
                 List<String> matchSingleVCardPrefixedField3 = matchSingleVCardPrefixedField("ORG", massagedText, true, true);
                 List<String> matchSingleVCardPrefixedField4 = matchSingleVCardPrefixedField("BDAY", massagedText, true, false);

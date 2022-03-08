@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FaceConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;

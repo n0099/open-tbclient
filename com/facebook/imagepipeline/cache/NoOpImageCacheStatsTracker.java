@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     public static /* synthetic */ Interceptable $ic;
     public static NoOpImageCacheStatsTracker sInstance;

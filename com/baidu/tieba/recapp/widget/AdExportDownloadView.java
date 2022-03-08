@@ -5,18 +5,18 @@ import android.util.AttributeSet;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
-import c.a.u0.l3.g0.a;
+import c.a.r0.j3.h0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AdExportDownloadView extends ApkDownloadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC1193a l;
+    public a.InterfaceC1153a l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdExportDownloadView(Context context, AttributeSet attributeSet, int i2) {
@@ -40,10 +40,10 @@ public class AdExportDownloadView extends ApkDownloadView {
     }
 
     @Nullable
-    public a.InterfaceC1193a getRegisterListener() {
+    public a.InterfaceC1153a getRegisterListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (a.InterfaceC1193a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (a.InterfaceC1153a) invokeV.objValue;
     }
 
     public void setBackGroundDrawable(@DrawableRes int i2) {
@@ -74,10 +74,10 @@ public class AdExportDownloadView extends ApkDownloadView {
         }
     }
 
-    public void setRegisterListener(@Nullable a.InterfaceC1193a interfaceC1193a) {
+    public void setRegisterListener(@Nullable a.InterfaceC1153a interfaceC1153a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC1193a) == null) {
-            this.l = interfaceC1193a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC1153a) == null) {
+            this.l = interfaceC1153a;
         }
     }
 

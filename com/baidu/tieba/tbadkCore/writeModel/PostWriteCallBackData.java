@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.r.w1;
-import c.a.t0.u.a;
+import c.a.q0.r.r.w1;
+import c.a.q0.t.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AccessState;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PostWriteCallBackData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COPY_TW_ZHIBO_TAG = 3;

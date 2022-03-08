@@ -4,18 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37826h = 0;
+    public static final int f36229h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37827i = 1;
+    public static final int f36230i = 1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f37828j = 2;
+    public static final int f36231j = 2;
     public static final int k = 3;
     public static final int l = 4;
     public static final int m = 5;
@@ -35,22 +35,22 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37829b;
+    public boolean f36232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37830c;
+    public boolean f36233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37831d;
+    public long f36234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f37832e;
+    public long f36235e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37833f;
+    public boolean f36236f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37834g;
+    public boolean f36237g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public class b {
             }
         }
         this.a = 0;
-        this.f37829b = false;
-        this.f37830c = false;
-        this.f37832e = 20000L;
-        this.f37833f = false;
-        this.f37834g = false;
+        this.f36232b = false;
+        this.f36233c = false;
+        this.f36235e = 20000L;
+        this.f36236f = false;
+        this.f36237g = false;
     }
 }

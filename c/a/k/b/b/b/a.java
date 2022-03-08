@@ -18,13 +18,13 @@ public final class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f4334b;
+    public JSONObject f3904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f4335c;
+    public JSONObject f3905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4336d;
+    public boolean f3906d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,26 +42,26 @@ public final class a {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4335c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3905c == null) {
             return;
         }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f4335c.toString());
-        this.f4335c = null;
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f3905c.toString());
+        this.f3905c = null;
     }
 
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             try {
-                if (this.f4334b == null) {
+                if (this.f3904b == null) {
                     JSONObject jSONObject = new JSONObject();
-                    this.f4334b = jSONObject;
+                    this.f3904b = jSONObject;
                     jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f4334b.put(str, str2);
+                this.f3904b.put(str, str2);
             } catch (Exception unused) {
                 Log.e("staticWebkitInit JSON error");
             }
@@ -72,15 +72,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             try {
-                if (this.f4335c == null) {
+                if (this.f3905c == null) {
                     JSONObject jSONObject = new JSONObject();
-                    this.f4335c = jSONObject;
+                    this.f3905c = jSONObject;
                     jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f4335c.put(str, str2);
+                this.f3905c.put(str, str2);
             } catch (Exception unused) {
                 Log.e("mWebkitDownloadStatics JSON error");
             }

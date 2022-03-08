@@ -15,7 +15,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalUriFetcher";

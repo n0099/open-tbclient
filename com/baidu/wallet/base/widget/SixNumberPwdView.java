@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PWD_LEN = 6;
@@ -31,34 +31,34 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public EditText a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView[] f50965b;
+    public ImageView[] f49384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View[] f50966c;
+    public View[] f49385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View[] f50967d;
+    public View[] f49386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OnPwdChangedListener f50968e;
+    public OnPwdChangedListener f49387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50969f;
+    public boolean f49388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f50970g;
+    public Animation f49389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f50971h;
+    public Animation f49390h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f50972i;
+    public Drawable f49391i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f50973j;
+    public Drawable f49392j;
     public int k;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnPwdChangedListener {
         void onPwdChanged(int i2);
     }
@@ -82,38 +82,38 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
                 return;
             }
         }
-        this.f50965b = new ImageView[6];
-        this.f50966c = new View[6];
-        this.f50967d = new View[6];
-        this.f50969f = true;
-        this.f50970g = null;
-        this.f50971h = null;
-        this.f50972i = null;
-        this.f50973j = null;
+        this.f49384b = new ImageView[6];
+        this.f49385c = new View[6];
+        this.f49386d = new View[6];
+        this.f49388f = true;
+        this.f49389g = null;
+        this.f49390h = null;
+        this.f49391i = null;
+        this.f49392j = null;
         this.a = (EditText) LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_base_new_view_six_pwd"), this).findViewById(ResUtils.id(context, "pwd_input"));
-        this.f50965b[0] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_1"));
-        this.f50966c[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line"));
-        this.f50967d[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line_view"));
-        this.f50965b[1] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_2"));
-        this.f50966c[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line"));
-        this.f50967d[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line_view"));
-        this.f50965b[2] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_3"));
-        this.f50966c[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line"));
-        this.f50967d[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line_view"));
-        this.f50965b[3] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_4"));
-        this.f50966c[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line"));
-        this.f50967d[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line_view"));
-        this.f50965b[4] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_5"));
-        this.f50966c[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line"));
-        this.f50967d[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line_view"));
-        this.f50965b[5] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_6"));
-        this.f50966c[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line"));
-        this.f50967d[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line_view"));
+        this.f49384b[0] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_1"));
+        this.f49385c[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line"));
+        this.f49386d[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line_view"));
+        this.f49384b[1] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_2"));
+        this.f49385c[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line"));
+        this.f49386d[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line_view"));
+        this.f49384b[2] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_3"));
+        this.f49385c[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line"));
+        this.f49386d[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line_view"));
+        this.f49384b[3] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_4"));
+        this.f49385c[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line"));
+        this.f49386d[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line_view"));
+        this.f49384b[4] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_5"));
+        this.f49385c[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line"));
+        this.f49386d[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line_view"));
+        this.f49384b[5] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_6"));
+        this.f49385c[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line"));
+        this.f49386d[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line_view"));
         this.a.addTextChangedListener(this);
-        this.f50970g = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "wallet_base_six_number_pwd_view_circle"));
-        this.f50971h = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "wallet_base_new_six_number_pwd_view_line"));
-        this.f50972i = ResUtils.getDrawable(context, "wallet_base_new_six_number_pwd_view_circle");
-        this.f50973j = ResUtils.getDrawable(context, "wallet_base_safekeyboard_six_number_circle_black");
+        this.f49389g = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "wallet_base_six_number_pwd_view_circle"));
+        this.f49390h = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "wallet_base_new_six_number_pwd_view_line"));
+        this.f49391i = ResUtils.getDrawable(context, "wallet_base_new_six_number_pwd_view_circle");
+        this.f49392j = ResUtils.getDrawable(context, "wallet_base_safekeyboard_six_number_circle_black");
         this.k = ResUtils.getColor(context, "ebpay_new_six_number_pwd_line_d0d3d9");
         a();
         a(-1);
@@ -125,17 +125,17 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
             int length = this.a.getText().length();
             for (int i2 = 0; i2 < 6; i2++) {
                 if (i2 < length) {
-                    this.f50965b[i2].setVisibility(0);
+                    this.f49384b[i2].setVisibility(0);
                     if (i2 == length - 1) {
-                        this.f50965b[i2].setImageDrawable(this.f50972i);
-                        if (this.f50969f) {
-                            this.f50965b[i2].startAnimation(this.f50970g);
+                        this.f49384b[i2].setImageDrawable(this.f49391i);
+                        if (this.f49388f) {
+                            this.f49384b[i2].startAnimation(this.f49389g);
                         }
                     } else {
-                        this.f50965b[i2].setImageDrawable(this.f50973j);
+                        this.f49384b[i2].setImageDrawable(this.f49392j);
                     }
                 } else {
-                    this.f50965b[i2].setVisibility(8);
+                    this.f49384b[i2].setVisibility(8);
                 }
             }
         }
@@ -144,7 +144,7 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public void addSixNumberPwdChangedListenter(OnPwdChangedListener onPwdChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onPwdChangedListener) == null) {
-            this.f50968e = onPwdChangedListener;
+            this.f49387e = onPwdChangedListener;
         }
     }
 
@@ -154,7 +154,7 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
             a();
             a(editable.length() - 1);
-            OnPwdChangedListener onPwdChangedListener = this.f50968e;
+            OnPwdChangedListener onPwdChangedListener = this.f49387e;
             if (onPwdChangedListener != null) {
                 onPwdChangedListener.onPwdChanged(editable.length());
             }
@@ -199,9 +199,9 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048581, this, charSequence, i2, i3, i4) == null) {
             if (i4 < i3) {
-                this.f50969f = false;
+                this.f49388f = false;
             } else {
-                this.f50969f = true;
+                this.f49388f = true;
             }
         }
     }
@@ -227,12 +227,12 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
             return;
         }
         for (int i3 = 0; i3 < 6; i3++) {
-            this.f50967d[i3].setBackgroundColor(this.k);
+            this.f49386d[i3].setBackgroundColor(this.k);
             if (i3 == i2) {
-                this.f50966c[i3].setVisibility(0);
-                this.f50966c[i3].startAnimation(this.f50971h);
+                this.f49385c[i3].setVisibility(0);
+                this.f49385c[i3].startAnimation(this.f49390h);
             } else {
-                this.f50966c[i3].setVisibility(8);
+                this.f49385c[i3].setVisibility(8);
             }
         }
     }

@@ -6,8 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import c.a.r.b;
-import c.a.r.d;
+import c.a.q.b;
+import c.a.q.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DeviceUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -82,7 +82,7 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // c.a.r.d
+                    @Override // c.a.q.d
                     public void onError(int i2, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -93,7 +93,7 @@ public class DeviceUtil {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // c.a.r.d
+                    @Override // c.a.q.d
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class DeviceUtil {
             if (i2 >= 29) {
                 return "";
             }
-            if (i2 < 23 || context.checkSelfPermission(s.f55454c) == 0) {
+            if (i2 < 23 || context.checkSelfPermission(s.f53804c) == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

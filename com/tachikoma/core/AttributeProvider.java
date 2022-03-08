@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import com.tachikoma.core.component.button.TKButton;
@@ -29,7 +30,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AttributeProvider implements IProvider<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -228,14 +229,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("display") != null) {
                         tKButton.setDisplay((String) hashMap.get("display"));
                     }
-                    if (hashMap.get(SpanItem.TYPE_FONT_FAMILY) != null) {
-                        tKButton.setFontFamily((String) hashMap.get(SpanItem.TYPE_FONT_FAMILY));
+                    if (hashMap.get("fontFamily") != null) {
+                        tKButton.setFontFamily((String) hashMap.get("fontFamily"));
                     }
-                    if (hashMap.get("fontSize") != null) {
-                        tKButton.setFontSize((int) trans((Number) hashMap.get("fontSize")));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
+                        tKButton.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
                     }
-                    if (hashMap.get("fontWeight") != null) {
-                        tKButton.setFontWeight((String) hashMap.get("fontWeight"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT) != null) {
+                        tKButton.setFontWeight((String) hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKButton.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -246,8 +247,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("shadow") != null) {
                         tKButton.setShadow((String) hashMap.get("shadow"));
                     }
-                    if (hashMap.get("textAlign") != null) {
-                        tKButton.setTextAlign((String) hashMap.get("textAlign"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN) != null) {
+                        tKButton.setTextAlign((String) hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN));
                     }
                     if (hashMap.get("textLineClamp") != null) {
                         tKButton.setTextLineClamp((int) trans((Number) hashMap.get("textLineClamp")));
@@ -508,11 +509,11 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("display") != null) {
                         tKInput.setDisplay((String) hashMap.get("display"));
                     }
-                    if (hashMap.get(SpanItem.TYPE_FONT_FAMILY) != null) {
-                        tKInput.setFontFamily((String) hashMap.get(SpanItem.TYPE_FONT_FAMILY));
+                    if (hashMap.get("fontFamily") != null) {
+                        tKInput.setFontFamily((String) hashMap.get("fontFamily"));
                     }
-                    if (hashMap.get("fontSize") != null) {
-                        tKInput.setFontSize((int) trans((Number) hashMap.get("fontSize")));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
+                        tKInput.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKInput.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -535,8 +536,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("shadow") != null) {
                         tKInput.setShadow((String) hashMap.get("shadow"));
                     }
-                    if (hashMap.get("textAlign") != null) {
-                        tKInput.setTextAlign((String) hashMap.get("textAlign"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN) != null) {
+                        tKInput.setTextAlign((String) hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN));
                     }
                     if (hashMap.get("topLeftRadius") != null) {
                         tKInput.setTopLeftRadius((int) trans((Number) hashMap.get("topLeftRadius")));
@@ -748,11 +749,11 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("display") != null) {
                         tKTextArea.setDisplay((String) hashMap.get("display"));
                     }
-                    if (hashMap.get(SpanItem.TYPE_FONT_FAMILY) != null) {
-                        tKTextArea.setFontFamily((String) hashMap.get(SpanItem.TYPE_FONT_FAMILY));
+                    if (hashMap.get("fontFamily") != null) {
+                        tKTextArea.setFontFamily((String) hashMap.get("fontFamily"));
                     }
-                    if (hashMap.get("fontSize") != null) {
-                        tKTextArea.setFontSize((int) trans((Number) hashMap.get("fontSize")));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
+                        tKTextArea.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKTextArea.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -775,8 +776,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("shadow") != null) {
                         tKTextArea.setShadow((String) hashMap.get("shadow"));
                     }
-                    if (hashMap.get("textAlign") != null) {
-                        tKTextArea.setTextAlign((String) hashMap.get("textAlign"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN) != null) {
+                        tKTextArea.setTextAlign((String) hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN));
                     }
                     if (hashMap.get("textLineClamp") != null) {
                         tKTextArea.setTextLineClamp((int) trans((Number) hashMap.get("textLineClamp")));
@@ -1054,11 +1055,11 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("display") != null) {
                         tKMarqueeText2.setDisplay((String) hashMap.get("display"));
                     }
-                    if (hashMap.get("fontSize") != null) {
-                        tKMarqueeText2.setFontSize((int) trans((Number) hashMap.get("fontSize")));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
+                        tKMarqueeText2.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
                     }
-                    if (hashMap.get("fontWeight") != null) {
-                        tKMarqueeText2.setFontWeight((String) hashMap.get("fontWeight"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT) != null) {
+                        tKMarqueeText2.setFontWeight((String) hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKMarqueeText2.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -1174,14 +1175,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("display") != null) {
                         tKText2.setDisplay((String) hashMap.get("display"));
                     }
-                    if (hashMap.get(SpanItem.TYPE_FONT_FAMILY) != null) {
-                        tKText2.setFontFamily((String) hashMap.get(SpanItem.TYPE_FONT_FAMILY));
+                    if (hashMap.get("fontFamily") != null) {
+                        tKText2.setFontFamily((String) hashMap.get("fontFamily"));
                     }
-                    if (hashMap.get("fontSize") != null) {
-                        tKText2.setFontSize((int) trans((Number) hashMap.get("fontSize")));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
+                        tKText2.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
                     }
-                    if (hashMap.get("fontWeight") != null) {
-                        tKText2.setFontWeight((String) hashMap.get("fontWeight"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT) != null) {
+                        tKText2.setFontWeight((String) hashMap.get(TtmlNode.ATTR_TTS_FONT_WEIGHT));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKText2.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -1198,11 +1199,11 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("shadow") != null) {
                         tKText2.setShadow((String) hashMap.get("shadow"));
                     }
-                    if (hashMap.get("textAlign") != null) {
-                        tKText2.setTextAlign((String) hashMap.get("textAlign"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN) != null) {
+                        tKText2.setTextAlign((String) hashMap.get(TtmlNode.ATTR_TTS_TEXT_ALIGN));
                     }
-                    if (hashMap.get("textDecoration") != null) {
-                        tKText2.setTextDecoration((String) hashMap.get("textDecoration"));
+                    if (hashMap.get(TtmlNode.ATTR_TTS_TEXT_DECORATION) != null) {
+                        tKText2.setTextDecoration((String) hashMap.get(TtmlNode.ATTR_TTS_TEXT_DECORATION));
                     }
                     if (hashMap.get("textLineClamp") != null) {
                         tKText2.setTextLineClamp((int) trans((Number) hashMap.get("textLineClamp")));

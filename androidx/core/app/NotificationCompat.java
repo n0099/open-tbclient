@@ -30,7 +30,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.core.R;
+import androidx.core.R$color;
+import androidx.core.R$dimen;
+import androidx.core.R$drawable;
+import androidx.core.R$id;
+import androidx.core.R$integer;
+import androidx.core.R$layout;
+import androidx.core.R$string;
 import androidx.core.app.Person;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.text.BidiFormatter;
@@ -1360,8 +1366,8 @@ public class NotificationCompat {
                     return bitmap;
                 }
                 Resources resources = this.mContext.getResources();
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.compat_notification_large_icon_max_width);
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.compat_notification_large_icon_max_height);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R$dimen.compat_notification_large_icon_max_width);
+                int dimensionPixelSize2 = resources.getDimensionPixelSize(R$dimen.compat_notification_large_icon_max_height);
                 if (bitmap.getWidth() > dimensionPixelSize || bitmap.getHeight() > dimensionPixelSize2) {
                     double min = Math.min(dimensionPixelSize / Math.max(1, bitmap.getWidth()), dimensionPixelSize2 / Math.max(1, bitmap.getHeight()));
                     return Bitmap.createScaledBitmap(bitmap, (int) Math.ceil(bitmap.getWidth() * min), (int) Math.ceil(bitmap.getHeight() * min), true);
@@ -2137,19 +2143,19 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, this, remoteViews, z)) == null) {
                 boolean z2 = true;
-                RemoteViews applyStandardTemplate = applyStandardTemplate(true, R.layout.notification_template_custom_big, false);
-                applyStandardTemplate.removeAllViews(R.id.actions);
+                RemoteViews applyStandardTemplate = applyStandardTemplate(true, R$layout.notification_template_custom_big, false);
+                applyStandardTemplate.removeAllViews(R$id.actions);
                 List<Action> nonContextualActions = getNonContextualActions(this.mBuilder.mActions);
                 if (!z || nonContextualActions == null || (min = Math.min(nonContextualActions.size(), 3)) <= 0) {
                     z2 = false;
                 } else {
                     for (int i2 = 0; i2 < min; i2++) {
-                        applyStandardTemplate.addView(R.id.actions, generateActionButton(nonContextualActions.get(i2)));
+                        applyStandardTemplate.addView(R$id.actions, generateActionButton(nonContextualActions.get(i2)));
                     }
                 }
                 int i3 = z2 ? 0 : 8;
-                applyStandardTemplate.setViewVisibility(R.id.actions, i3);
-                applyStandardTemplate.setViewVisibility(R.id.action_divider, i3);
+                applyStandardTemplate.setViewVisibility(R$id.actions, i3);
+                applyStandardTemplate.setViewVisibility(R$id.action_divider, i3);
                 buildIntoRemoteViews(applyStandardTemplate, remoteViews);
                 return applyStandardTemplate;
             }
@@ -2164,18 +2170,18 @@ public class NotificationCompat {
                 boolean z = action.actionIntent == null;
                 String packageName = this.mBuilder.mContext.getPackageName();
                 if (z) {
-                    i2 = R.layout.notification_action_tombstone;
+                    i2 = R$layout.notification_action_tombstone;
                 } else {
-                    i2 = R.layout.notification_action;
+                    i2 = R$layout.notification_action;
                 }
                 RemoteViews remoteViews = new RemoteViews(packageName, i2);
-                remoteViews.setImageViewBitmap(R.id.action_image, createColoredBitmap(action.getIconCompat(), this.mBuilder.mContext.getResources().getColor(R.color.notification_action_color_filter)));
-                remoteViews.setTextViewText(R.id.action_text, action.title);
+                remoteViews.setImageViewBitmap(R$id.action_image, createColoredBitmap(action.getIconCompat(), this.mBuilder.mContext.getResources().getColor(R$color.notification_action_color_filter)));
+                remoteViews.setTextViewText(R$id.action_text, action.title);
                 if (!z) {
-                    remoteViews.setOnClickPendingIntent(R.id.action_container, action.actionIntent);
+                    remoteViews.setOnClickPendingIntent(R$id.action_container, action.actionIntent);
                 }
                 if (Build.VERSION.SDK_INT >= 15) {
-                    remoteViews.setContentDescription(R.id.action_container, action.title);
+                    remoteViews.setContentDescription(R$id.action_container, action.title);
                 }
                 return remoteViews;
             }
@@ -2319,8 +2325,8 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 Resources resources = this.mBuilder.mContext.getResources();
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.notification_top_pad);
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.notification_top_pad_large_text);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R$dimen.notification_top_pad);
+                int dimensionPixelSize2 = resources.getDimensionPixelSize(R$dimen.notification_top_pad_large_text);
                 float constrain = (constrain(resources.getConfiguration().fontScale, 1.0f, 1.3f) - 1.0f) / 0.29999995f;
                 return Math.round(((1.0f - constrain) * dimensionPixelSize) + (constrain * dimensionPixelSize2));
             }
@@ -2337,7 +2343,7 @@ public class NotificationCompat {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i2, i3, i4, i5)) == null) {
-                int i6 = R.drawable.notification_icon_background;
+                int i6 = R$drawable.notification_icon_background;
                 if (i5 == 0) {
                     i5 = 0;
                 }
@@ -2358,9 +2364,9 @@ public class NotificationCompat {
         private void hideNormalContent(RemoteViews remoteViews) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65542, this, remoteViews) == null) {
-                remoteViews.setViewVisibility(R.id.title, 8);
-                remoteViews.setViewVisibility(R.id.text2, 8);
-                remoteViews.setViewVisibility(R.id.text, 8);
+                remoteViews.setViewVisibility(R$id.title, 8);
+                remoteViews.setViewVisibility(R$id.text2, 8);
+                remoteViews.setViewVisibility(R$id.text, 8);
             }
         }
 
@@ -2406,50 +2412,50 @@ public class NotificationCompat {
                 int i3 = Build.VERSION.SDK_INT;
                 if (i3 >= 16 && i3 < 21) {
                     if (z6) {
-                        remoteViews.setInt(R.id.notification_background, "setBackgroundResource", R.drawable.notification_bg_low);
-                        remoteViews.setInt(R.id.icon, "setBackgroundResource", R.drawable.notification_template_icon_low_bg);
+                        remoteViews.setInt(R$id.notification_background, "setBackgroundResource", R$drawable.notification_bg_low);
+                        remoteViews.setInt(R$id.icon, "setBackgroundResource", R$drawable.notification_template_icon_low_bg);
                     } else {
-                        remoteViews.setInt(R.id.notification_background, "setBackgroundResource", R.drawable.notification_bg);
-                        remoteViews.setInt(R.id.icon, "setBackgroundResource", R.drawable.notification_template_icon_bg);
+                        remoteViews.setInt(R$id.notification_background, "setBackgroundResource", R$drawable.notification_bg);
+                        remoteViews.setInt(R$id.icon, "setBackgroundResource", R$drawable.notification_template_icon_bg);
                     }
                 }
                 Builder builder = this.mBuilder;
                 if (builder.mLargeIcon != null) {
                     if (Build.VERSION.SDK_INT >= 16) {
-                        remoteViews.setViewVisibility(R.id.icon, 0);
-                        remoteViews.setImageViewBitmap(R.id.icon, this.mBuilder.mLargeIcon);
+                        remoteViews.setViewVisibility(R$id.icon, 0);
+                        remoteViews.setImageViewBitmap(R$id.icon, this.mBuilder.mLargeIcon);
                     } else {
-                        remoteViews.setViewVisibility(R.id.icon, 8);
+                        remoteViews.setViewVisibility(R$id.icon, 8);
                     }
                     if (z && this.mBuilder.mNotification.icon != 0) {
-                        int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.notification_right_icon_size);
-                        int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.notification_small_icon_background_padding) * 2);
+                        int dimensionPixelSize = resources.getDimensionPixelSize(R$dimen.notification_right_icon_size);
+                        int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R$dimen.notification_small_icon_background_padding) * 2);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Builder builder2 = this.mBuilder;
-                            remoteViews.setImageViewBitmap(R.id.right_icon, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
+                            remoteViews.setImageViewBitmap(R$id.right_icon, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
                         } else {
-                            remoteViews.setImageViewBitmap(R.id.right_icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                            remoteViews.setImageViewBitmap(R$id.right_icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                         }
-                        remoteViews.setViewVisibility(R.id.right_icon, 0);
+                        remoteViews.setViewVisibility(R$id.right_icon, 0);
                     }
                 } else if (z && builder.mNotification.icon != 0) {
-                    remoteViews.setViewVisibility(R.id.icon, 0);
+                    remoteViews.setViewVisibility(R$id.icon, 0);
                     if (Build.VERSION.SDK_INT >= 21) {
-                        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.notification_large_icon_width) - resources.getDimensionPixelSize(R.dimen.notification_big_circle_margin);
-                        int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.notification_small_icon_size_as_large);
+                        int dimensionPixelSize3 = resources.getDimensionPixelSize(R$dimen.notification_large_icon_width) - resources.getDimensionPixelSize(R$dimen.notification_big_circle_margin);
+                        int dimensionPixelSize4 = resources.getDimensionPixelSize(R$dimen.notification_small_icon_size_as_large);
                         Builder builder3 = this.mBuilder;
-                        remoteViews.setImageViewBitmap(R.id.icon, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
+                        remoteViews.setImageViewBitmap(R$id.icon, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
                     } else {
-                        remoteViews.setImageViewBitmap(R.id.icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                        remoteViews.setImageViewBitmap(R$id.icon, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                     }
                 }
                 CharSequence charSequence3 = this.mBuilder.mContentTitle;
                 if (charSequence3 != null) {
-                    remoteViews.setTextViewText(R.id.title, charSequence3);
+                    remoteViews.setTextViewText(R$id.title, charSequence3);
                 }
                 CharSequence charSequence4 = this.mBuilder.mContentText;
                 if (charSequence4 != null) {
-                    remoteViews.setTextViewText(R.id.text, charSequence4);
+                    remoteViews.setTextViewText(R$id.text, charSequence4);
                     z3 = true;
                 } else {
                     z3 = false;
@@ -2458,68 +2464,68 @@ public class NotificationCompat {
                 Builder builder4 = this.mBuilder;
                 CharSequence charSequence5 = builder4.mContentInfo;
                 if (charSequence5 != null) {
-                    remoteViews.setTextViewText(R.id.info, charSequence5);
-                    remoteViews.setViewVisibility(R.id.info, 0);
+                    remoteViews.setTextViewText(R$id.info, charSequence5);
+                    remoteViews.setViewVisibility(R$id.info, 0);
                 } else if (builder4.mNumber > 0) {
-                    if (this.mBuilder.mNumber > resources.getInteger(R.integer.status_bar_notification_info_maxnum)) {
-                        remoteViews.setTextViewText(R.id.info, resources.getString(R.string.status_bar_notification_info_overflow));
+                    if (this.mBuilder.mNumber > resources.getInteger(R$integer.status_bar_notification_info_maxnum)) {
+                        remoteViews.setTextViewText(R$id.info, resources.getString(R$string.status_bar_notification_info_overflow));
                     } else {
-                        remoteViews.setTextViewText(R.id.info, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
+                        remoteViews.setTextViewText(R$id.info, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
                     }
-                    remoteViews.setViewVisibility(R.id.info, 0);
+                    remoteViews.setViewVisibility(R$id.info, 0);
                 } else {
-                    remoteViews.setViewVisibility(R.id.info, 8);
+                    remoteViews.setViewVisibility(R$id.info, 8);
                     charSequence = this.mBuilder.mSubText;
                     if (charSequence != null && Build.VERSION.SDK_INT >= 16) {
-                        remoteViews.setTextViewText(R.id.text, charSequence);
+                        remoteViews.setTextViewText(R$id.text, charSequence);
                         charSequence2 = this.mBuilder.mContentText;
                         if (charSequence2 == null) {
-                            remoteViews.setTextViewText(R.id.text2, charSequence2);
-                            remoteViews.setViewVisibility(R.id.text2, 0);
+                            remoteViews.setTextViewText(R$id.text2, charSequence2);
+                            remoteViews.setViewVisibility(R$id.text2, 0);
                             z4 = true;
                             if (z4 && Build.VERSION.SDK_INT >= 16) {
                                 if (z2) {
-                                    remoteViews.setTextViewTextSize(R.id.text, 0, resources.getDimensionPixelSize(R.dimen.notification_subtext_size));
+                                    remoteViews.setTextViewTextSize(R$id.text, 0, resources.getDimensionPixelSize(R$dimen.notification_subtext_size));
                                 }
-                                remoteViews.setViewPadding(R.id.line1, 0, 0, 0, 0);
+                                remoteViews.setViewPadding(R$id.line1, 0, 0, 0, 0);
                             }
                             if (this.mBuilder.getWhenIfShowing() == 0) {
                                 z5 = z7;
                             } else if (this.mBuilder.mUseChronometer && Build.VERSION.SDK_INT >= 16) {
-                                remoteViews.setViewVisibility(R.id.chronometer, 0);
-                                remoteViews.setLong(R.id.chronometer, "setBase", this.mBuilder.getWhenIfShowing() + (SystemClock.elapsedRealtime() - System.currentTimeMillis()));
-                                remoteViews.setBoolean(R.id.chronometer, "setStarted", true);
+                                remoteViews.setViewVisibility(R$id.chronometer, 0);
+                                remoteViews.setLong(R$id.chronometer, "setBase", this.mBuilder.getWhenIfShowing() + (SystemClock.elapsedRealtime() - System.currentTimeMillis()));
+                                remoteViews.setBoolean(R$id.chronometer, "setStarted", true);
                                 boolean z8 = this.mBuilder.mChronometerCountDown;
                                 if (z8 && Build.VERSION.SDK_INT >= 24) {
-                                    remoteViews.setChronometerCountDown(R.id.chronometer, z8);
+                                    remoteViews.setChronometerCountDown(R$id.chronometer, z8);
                                 }
                             } else {
-                                remoteViews.setViewVisibility(R.id.time, 0);
-                                remoteViews.setLong(R.id.time, "setTime", this.mBuilder.getWhenIfShowing());
+                                remoteViews.setViewVisibility(R$id.time, 0);
+                                remoteViews.setLong(R$id.time, "setTime", this.mBuilder.getWhenIfShowing());
                             }
-                            remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
-                            remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+                            remoteViews.setViewVisibility(R$id.right_side, z5 ? 0 : 8);
+                            remoteViews.setViewVisibility(R$id.line3, z3 ? 0 : 8);
                             return remoteViews;
                         }
-                        remoteViews.setViewVisibility(R.id.text2, 8);
+                        remoteViews.setViewVisibility(R$id.text2, 8);
                     }
                     z4 = false;
                     if (z4) {
                         if (z2) {
                         }
-                        remoteViews.setViewPadding(R.id.line1, 0, 0, 0, 0);
+                        remoteViews.setViewPadding(R$id.line1, 0, 0, 0, 0);
                     }
                     if (this.mBuilder.getWhenIfShowing() == 0) {
                     }
-                    remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
-                    remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+                    remoteViews.setViewVisibility(R$id.right_side, z5 ? 0 : 8);
+                    remoteViews.setViewVisibility(R$id.line3, z3 ? 0 : 8);
                     return remoteViews;
                 }
                 z3 = true;
                 z7 = true;
                 charSequence = this.mBuilder.mSubText;
                 if (charSequence != null) {
-                    remoteViews.setTextViewText(R.id.text, charSequence);
+                    remoteViews.setTextViewText(R$id.text, charSequence);
                     charSequence2 = this.mBuilder.mContentText;
                     if (charSequence2 == null) {
                     }
@@ -2529,8 +2535,8 @@ public class NotificationCompat {
                 }
                 if (this.mBuilder.getWhenIfShowing() == 0) {
                 }
-                remoteViews.setViewVisibility(R.id.right_side, z5 ? 0 : 8);
-                remoteViews.setViewVisibility(R.id.line3, z3 ? 0 : 8);
+                remoteViews.setViewVisibility(R$id.right_side, z5 ? 0 : 8);
+                remoteViews.setViewVisibility(R$id.line3, z3 ? 0 : 8);
                 return remoteViews;
             }
             return (RemoteViews) invokeCommon.objValue;
@@ -2554,11 +2560,11 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, remoteViews, remoteViews2) == null) {
                 hideNormalContent(remoteViews);
-                remoteViews.removeAllViews(R.id.notification_main_column);
-                remoteViews.addView(R.id.notification_main_column, remoteViews2.clone());
-                remoteViews.setViewVisibility(R.id.notification_main_column, 0);
+                remoteViews.removeAllViews(R$id.notification_main_column);
+                remoteViews.addView(R$id.notification_main_column, remoteViews2.clone());
+                remoteViews.setViewVisibility(R$id.notification_main_column, 0);
                 if (Build.VERSION.SDK_INT >= 21) {
-                    remoteViews.setViewPadding(R.id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
+                    remoteViews.setViewPadding(R$id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
                 }
             }
         }

@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.data;
 
 import android.graphics.Color;
 import android.text.SpannableString;
-import c.a.u0.a4.j;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_PREFIX = "#(";
@@ -29,7 +29,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2017172862365526905L;
@@ -99,9 +99,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(j.color_prefix) + TbadkCoreApplication.getInst().getString(j.tail_color_night) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + TbadkCoreApplication.getInst().getString(R.string.tail_color_night) + str;
             }
-            return TbadkCoreApplication.getInst().getString(j.color_prefix) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
         }
         return (String) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             try {
                 this.showColorId = Color.parseColor(getShowColorText(this.color));
             } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(j.tail_color_default)));
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
             }
         }
     }

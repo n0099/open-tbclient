@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1737585838278753290L;
@@ -70,7 +70,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList2 = get(i2);
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList2.get(i3).f2116b);
+                String readLogFileString = readLogFileString(arrayList2.get(i3).f2745b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         if (size > 0) {
@@ -101,7 +101,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList = get(i2);
             ArrayList<String> arrayList2 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList.get(i3).f2116b);
+                String readLogFileString = readLogFileString(arrayList.get(i3).f2745b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         arrayList2.add(str);

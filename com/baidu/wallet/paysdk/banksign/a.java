@@ -1,7 +1,7 @@
 package com.baidu.wallet.paysdk.banksign;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a();
 

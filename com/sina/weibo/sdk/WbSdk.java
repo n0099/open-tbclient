@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class WbSdk {
     public static /* synthetic */ Interceptable $ic;
     public static AuthInfo authInfo;

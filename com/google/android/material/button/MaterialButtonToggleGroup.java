@@ -20,6 +20,7 @@ import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
@@ -41,7 +41,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -59,7 +59,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -202,12 +202,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i2, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_MaterialButtonToggleGroup;
+        DEF_STYLE_RES = 2131755906;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -876,10 +876,10 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MaterialButtonToggleGroup, i2, DEF_STYLE_RES, new int[0]);
-        setSingleSelection(obtainStyledAttributes.getBoolean(R.styleable.MaterialButtonToggleGroup_singleSelection, false));
-        this.checkedId = obtainStyledAttributes.getResourceId(R.styleable.MaterialButtonToggleGroup_checkedButton, -1);
-        this.selectionRequired = obtainStyledAttributes.getBoolean(R.styleable.MaterialButtonToggleGroup_selectionRequired, false);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.checkedButton, R.attr.selectionRequired, R.attr.singleSelection}, i2, DEF_STYLE_RES, new int[0]);
+        setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
+        this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
+        this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);
         setChildrenDrawingOrderEnabled(true);
         obtainStyledAttributes.recycle();
         ViewCompat.setImportantForAccessibility(this, 1);

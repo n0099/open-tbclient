@@ -160,7 +160,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static GhostViewPort getGhostView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? (GhostViewPort) view.getTag(R.id.ghost_view) : (GhostViewPort) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? (GhostViewPort) view.getTag(R$id.ghost_view) : (GhostViewPort) invokeL.objValue;
     }
 
     public static void removeGhost(View view) {
@@ -179,7 +179,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static void setGhostView(@NonNull View view, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view, ghostViewPort) == null) {
-            view.setTag(R.id.ghost_view, ghostViewPort);
+            view.setTag(R$id.ghost_view, ghostViewPort);
         }
     }
 

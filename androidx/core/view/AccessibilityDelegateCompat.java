@@ -11,7 +11,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.core.R;
+import androidx.core.R$id;
 import androidx.core.view.accessibility.AccessibilityClickableSpanCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
@@ -182,7 +182,7 @@ public class AccessibilityDelegateCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view.getTag(R.id.tag_accessibility_actions);
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view.getTag(R$id.tag_accessibility_actions);
             return list == null ? Collections.emptyList() : list;
         }
         return (List) invokeL.objValue;
@@ -210,7 +210,7 @@ public class AccessibilityDelegateCompat {
         WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, view)) == null) {
-            SparseArray sparseArray = (SparseArray) view.getTag(R.id.tag_accessibility_clickable_spans);
+            SparseArray sparseArray = (SparseArray) view.getTag(R$id.tag_accessibility_clickable_spans);
             if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i2)) == null) {
                 return false;
             }
@@ -297,7 +297,7 @@ public class AccessibilityDelegateCompat {
             if (!z && Build.VERSION.SDK_INT >= 16) {
                 z = this.mOriginalDelegate.performAccessibilityAction(view, i2, bundle);
             }
-            return (z || i2 != R.id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
+            return (z || i2 != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
         }
         return invokeLIL.booleanValue;
     }

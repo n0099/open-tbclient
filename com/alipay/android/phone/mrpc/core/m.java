@@ -8,14 +8,14 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class m extends FutureTask<u> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f30900b;
+    public final /* synthetic */ l f29304b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
@@ -35,7 +35,7 @@ public final class m extends FutureTask<u> {
                 return;
             }
         }
-        this.f30900b = lVar;
+        this.f29304b = lVar;
         this.a = qVar;
     }
 

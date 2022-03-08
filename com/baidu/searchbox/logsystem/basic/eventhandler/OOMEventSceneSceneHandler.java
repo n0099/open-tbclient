@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class OOMEventSceneSceneHandler extends ProcessEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OOM = "java.lang.OutOfMemoryError";

@@ -17,30 +17,30 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
 import rx.internal.util.BackpressureDrainManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class n<T> implements d.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f62090e;
+    public final Long f60440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.a f62091f;
+    public final i.n.a f60441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a.d f62092g;
+    public final a.d f60442g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends i.j<T> implements BackpressureDrainManager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<Object> f62093i;
+        public final ConcurrentLinkedQueue<Object> f60443i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final AtomicLong f62094j;
+        public final AtomicLong f60444j;
         public final i.j<? super T> k;
         public final AtomicBoolean l;
         public final BackpressureDrainManager m;
@@ -62,10 +62,10 @@ public class n<T> implements d.b<T, T> {
                     return;
                 }
             }
-            this.f62093i = new ConcurrentLinkedQueue<>();
+            this.f60443i = new ConcurrentLinkedQueue<>();
             this.l = new AtomicBoolean(false);
             this.k = jVar;
-            this.f62094j = l != null ? new AtomicLong(l.longValue()) : null;
+            this.f60444j = l != null ? new AtomicLong(l.longValue()) : null;
             this.n = aVar;
             this.m = new BackpressureDrainManager(this);
             this.o = dVar;
@@ -110,11 +110,11 @@ public class n<T> implements d.b<T, T> {
             i.n.a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f62094j == null) {
+                if (this.f60444j == null) {
                     return true;
                 }
                 do {
-                    j2 = this.f62094j.get();
+                    j2 = this.f60444j.get();
                     if (j2 <= 0) {
                         try {
                         } catch (MissingBackpressureException e2) {
@@ -146,7 +146,7 @@ public class n<T> implements d.b<T, T> {
                         if (!z) {
                         }
                     }
-                } while (!this.f62094j.compareAndSet(j2, j2 - 1));
+                } while (!this.f60444j.compareAndSet(j2, j2 - 1));
                 return true;
             }
             return invokeV.booleanValue;
@@ -180,7 +180,7 @@ public class n<T> implements d.b<T, T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && g()) {
-                this.f62093i.offer(NotificationLite.h(t));
+                this.f60443i.offer(NotificationLite.h(t));
                 this.m.drain();
             }
         }
@@ -189,7 +189,7 @@ public class n<T> implements d.b<T, T> {
         public Object peek() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f62093i.peek() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60443i.peek() : invokeV.objValue;
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
@@ -197,8 +197,8 @@ public class n<T> implements d.b<T, T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Object poll = this.f62093i.poll();
-                AtomicLong atomicLong = this.f62094j;
+                Object poll = this.f60443i.poll();
+                AtomicLong atomicLong = this.f60444j;
                 if (atomicLong != null && poll != null) {
                     atomicLong.incrementAndGet();
                 }
@@ -208,7 +208,7 @@ public class n<T> implements d.b<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final n<?> a;
@@ -244,9 +244,9 @@ public class n<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f62090e = null;
-        this.f62091f = null;
-        this.f62092g = i.a.f62000b;
+        this.f60440e = null;
+        this.f60441f = null;
+        this.f60442g = i.a.f60350b;
     }
 
     public static <T> n<T> a() {
@@ -264,7 +264,7 @@ public class n<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            a aVar = new a(jVar, this.f62090e, this.f62091f, this.f62092g);
+            a aVar = new a(jVar, this.f60440e, this.f60441f, this.f60442g);
             jVar.b(aVar);
             jVar.f(aVar.h());
             return aVar;

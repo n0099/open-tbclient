@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Fragment> f42322b;
+    public List<Fragment> f40725b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveTabAdapter(FragmentManager fragmentManager) {
@@ -45,7 +45,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Fragment> list = this.f42322b;
+            List<Fragment> list = this.f40725b;
             if (list != null) {
                 return list.size();
             }
@@ -59,8 +59,8 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f42322b.size() > i2) {
-                return this.f42322b.get(i2);
+            if (this.f40725b.size() > i2) {
+                return this.f40725b.get(i2);
             }
             return null;
         }
@@ -76,7 +76,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public void setFragments(List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f42322b = list;
+            this.f40725b = list;
         }
     }
 }

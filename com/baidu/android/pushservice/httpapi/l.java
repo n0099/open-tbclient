@@ -8,41 +8,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f32466b;
+        public static final a f30869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f32467c;
+        public static final a f30870c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f32468d;
+        public static final a f30871d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f32469e;
+        public static final a f30872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f32470f;
+        public static final a f30873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f32471g;
+        public static final a f30874g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f32472i;
+        public static final /* synthetic */ a[] f30875i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f32473h;
+        public int f30876h;
 
         static {
             InterceptResult invokeClinit;
@@ -58,14 +58,14 @@ public class l {
                 }
             }
             a = new a("MODEL_O", 0, 1);
-            f32466b = new a("MODEL_C", 1, 2);
-            f32467c = new a("MODEL_HW", 2, 3);
-            f32468d = new a("MODEL_XM", 3, 4);
-            f32469e = new a("MODEL_MZ", 4, 5);
-            f32470f = new a("MODEL_OP", 5, 6);
+            f30869b = new a("MODEL_C", 1, 2);
+            f30870c = new a("MODEL_HW", 2, 3);
+            f30871d = new a("MODEL_XM", 3, 4);
+            f30872e = new a("MODEL_MZ", 4, 5);
+            f30873f = new a("MODEL_OP", 5, 6);
             a aVar = new a("MODEL_VI", 6, 7);
-            f32471g = aVar;
-            f32472i = new a[]{a, f32466b, f32467c, f32468d, f32469e, f32470f, aVar};
+            f30874g = aVar;
+            f30875i = new a[]{a, f30869b, f30870c, f30871d, f30872e, f30873f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -86,14 +86,14 @@ public class l {
                     return;
                 }
             }
-            this.f32473h = i3;
+            this.f30876h = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f32473h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f30876h : invokeV.intValue;
         }
     }
 
@@ -105,19 +105,19 @@ public class l {
             int a2 = a.a.a();
             int b2 = com.baidu.android.pushservice.b.d.a(context).b();
             if (com.baidu.android.pushservice.b.d.l(context)) {
-                aVar = a.f32467c;
+                aVar = a.f30870c;
             } else if (com.baidu.android.pushservice.b.d.k(context)) {
-                aVar = a.f32468d;
+                aVar = a.f30871d;
             } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f32470f;
+                aVar = a.f30873f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
-                aVar = a.f32471g;
+                aVar = a.f30874g;
             } else if (com.baidu.android.pushservice.b.d.j(context)) {
-                aVar = a.f32469e;
+                aVar = a.f30872e;
             } else if (b2 != 2 && b2 != 4 && b2 != 3) {
                 return a2;
             } else {
-                aVar = a.f32466b;
+                aVar = a.f30869b;
             }
             return aVar.a();
         }

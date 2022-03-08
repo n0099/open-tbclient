@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
-import androidx.core.R;
+import androidx.core.R$id;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public final class ViewGroupCompat {
             if (Build.VERSION.SDK_INT >= 21) {
                 return viewGroup.isTransitionGroup();
             }
-            Boolean bool = (Boolean) viewGroup.getTag(R.id.tag_transition_group);
+            Boolean bool = (Boolean) viewGroup.getTag(R$id.tag_transition_group);
             return ((bool == null || !bool.booleanValue()) && viewGroup.getBackground() == null && ViewCompat.getTransitionName(viewGroup) == null) ? false : true;
         }
         return invokeL.booleanValue;
@@ -101,7 +101,7 @@ public final class ViewGroupCompat {
             if (Build.VERSION.SDK_INT >= 21) {
                 viewGroup.setTransitionGroup(z);
             } else {
-                viewGroup.setTag(R.id.tag_transition_group, Boolean.valueOf(z));
+                viewGroup.setTag(R$id.tag_transition_group, Boolean.valueOf(z));
             }
         }
     }

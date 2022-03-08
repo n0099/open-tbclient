@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f43165e;
+    public TbPageContext f41568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43166f;
+    public TextView f41569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43167g;
+    public TextView f41570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f43168h;
+    public ImageView f41571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EmotionCenterData.EmotionForumData f43169i;
+    public EmotionCenterData.EmotionForumData f41572i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionCenterForumView(TbPageContext tbPageContext) {
@@ -57,7 +57,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f43165e = tbPageContext;
+        this.f41568e = tbPageContext;
         a();
     }
 
@@ -65,9 +65,9 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-            this.f43166f = (TextView) findViewById(R.id.forum_title_tv);
-            this.f43167g = (TextView) findViewById(R.id.forum_recommend_tv);
-            this.f43168h = (ImageView) findViewById(R.id.forum_arrow);
+            this.f41569f = (TextView) findViewById(R.id.forum_title_tv);
+            this.f41570g = (TextView) findViewById(R.id.forum_recommend_tv);
+            this.f41571h = (ImageView) findViewById(R.id.forum_arrow);
             setOnClickListener(this);
         }
     }
@@ -75,17 +75,17 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public void onChangeSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f43166f, R.color.CAM_X0105, i2);
-            SkinManager.setViewTextColor(this.f43167g, R.color.cp_cont_r, i2);
-            SkinManager.setBackgroundResource(this.f43168h, R.drawable.emotion_center_arrow, i2);
+            SkinManager.setViewTextColor(this.f41569f, R.color.CAM_X0105, i2);
+            SkinManager.setViewTextColor(this.f41570g, R.color.cp_cont_r, i2);
+            SkinManager.setBackgroundResource(this.f41571h, R.drawable.emotion_center_arrow, i2);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f43169i != null) {
-            this.f43165e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f43165e.getPageActivity()).createNormalCfg(this.f43169i.forum_name, null)));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f41572i != null) {
+            this.f41568e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f41568e.getPageActivity()).createNormalCfg(this.f41572i.forum_name, null)));
         }
     }
 
@@ -93,7 +93,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
             onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            this.f43169i = emotionForumData;
+            this.f41572i = emotionForumData;
         }
     }
 

@@ -14,7 +14,7 @@ import com.vivo.push.util.f;
 import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public final class a extends c<com.vivo.push.model.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (c.a) {
-                for (T t : this.f60898b) {
+                for (T t : this.f59248b) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }

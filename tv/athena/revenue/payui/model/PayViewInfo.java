@@ -11,7 +11,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PayViewInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

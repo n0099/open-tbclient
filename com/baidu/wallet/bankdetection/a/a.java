@@ -20,17 +20,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f50644b;
+    public byte[] f49063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f50645c;
+    public byte[] f49064c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str, byte[] bArr, byte[] bArr2) {
@@ -51,8 +51,8 @@ public class a extends BaseBean<String> {
             }
         }
         this.a = str;
-        this.f50644b = bArr;
-        this.f50645c = bArr2;
+        this.f49063b = bArr;
+        this.f49064c = bArr2;
     }
 
     private String a(byte[] bArr, String str) {
@@ -88,11 +88,11 @@ public class a extends BaseBean<String> {
             if (!TextUtils.isEmpty(this.a)) {
                 arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.a)));
             }
-            byte[] bArr = this.f50644b;
+            byte[] bArr = this.f49063b;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(new RestNameValuePair("cni", a(bArr, a)));
             }
-            byte[] bArr2 = this.f50645c;
+            byte[] bArr2 = this.f49064c;
             if (bArr2 != null && bArr2.length > 0) {
                 arrayList.add(new RestNameValuePair("ci", a(bArr2, a)));
             }

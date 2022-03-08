@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.Nullable;
-import c.a.s0.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BaseActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_BAR_TEXT_SIZE = 14;
@@ -42,9 +42,9 @@ public class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.finish();
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(b.aiapps_hold, b.aiapps_slide_out_to_bottom_zadjustment_top);
+                overridePendingTransition(R.anim.aiapps_hold, R.anim.aiapps_slide_out_to_bottom_zadjustment_top);
             } else {
-                overridePendingTransition(b.aiapps_hold, b.aiapps_slide_out_to_right_zadjustment_top);
+                overridePendingTransition(R.anim.aiapps_hold, R.anim.aiapps_slide_out_to_right_zadjustment_top);
             }
         }
     }
@@ -54,9 +54,9 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(b.aiapps_slide_in_from_bottom, b.aiapps_hold);
+                overridePendingTransition(R.anim.aiapps_slide_in_from_bottom, R.anim.aiapps_hold);
             } else {
-                overridePendingTransition(b.aiapps_slide_in_from_right, b.aiapps_hold);
+                overridePendingTransition(R.anim.aiapps_slide_in_from_right, R.anim.aiapps_hold);
             }
             super.onCreate(bundle);
             LogUtil.logActivity(this, "onCreate");
@@ -76,9 +76,9 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(b.aiapps_slide_in_from_bottom, b.aiapps_hold);
+                overridePendingTransition(R.anim.aiapps_slide_in_from_bottom, R.anim.aiapps_hold);
             } else {
-                overridePendingTransition(b.aiapps_slide_in_from_right, b.aiapps_hold);
+                overridePendingTransition(R.anim.aiapps_slide_in_from_right, R.anim.aiapps_hold);
             }
             super.onNewIntent(intent);
         }

@@ -1,13 +1,13 @@
 package com.google.common.base;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.e;
-import c.i.d.a.g;
-import c.i.d.a.j;
-import c.i.d.a.k;
-import c.i.d.a.m;
-import c.i.d.a.n;
-import c.i.d.a.o;
+import c.i.c.a.e;
+import c.i.c.a.g;
+import c.i.c.a.j;
+import c.i.c.a.k;
+import c.i.c.a.m;
+import c.i.c.a.n;
+import c.i.c.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,12 +21,12 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Predicates {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class AndPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -37,7 +37,7 @@ public final class Predicates {
             this(list);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public final class Predicates {
             return invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -96,35 +96,35 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class CompositionPredicate<A, B> implements o<A>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f54629f;
+        public final g<A, ? extends B> f52979f;
         public final o<B> p;
 
         public /* synthetic */ CompositionPredicate(o oVar, g gVar, a aVar) {
             this(oVar, gVar);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a)) == null) ? this.p.apply(this.f54629f.apply(a)) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a)) == null) ? this.p.apply(this.f52979f.apply(a)) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof CompositionPredicate) {
                     CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                    return this.f54629f.equals(compositionPredicate.f54629f) && this.p.equals(compositionPredicate.p);
+                    return this.f52979f.equals(compositionPredicate.f52979f) && this.p.equals(compositionPredicate.p);
                 }
                 return false;
             }
@@ -134,14 +134,14 @@ public final class Predicates {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54629f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52979f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.p + "(" + this.f54629f + SmallTailInfo.EMOTION_SUFFIX;
+                return this.p + "(" + this.f52979f + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -164,11 +164,11 @@ public final class Predicates {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f54629f = gVar;
+            this.f52979f = gVar;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ContainsPatternFromStringPredicate extends ContainsPatternPredicate {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -205,7 +205,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ContainsPatternPredicate implements o<CharSequence>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -231,7 +231,7 @@ public final class Predicates {
             this.pattern = eVar;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -265,7 +265,7 @@ public final class Predicates {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class InPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -284,7 +284,7 @@ public final class Predicates {
             this(collection);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public final class Predicates {
             return invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -346,7 +346,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class InstanceOfPredicate implements o<Object>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -357,14 +357,14 @@ public final class Predicates {
             this(cls);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.clazz.isInstance(obj) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -406,7 +406,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class IsEqualToPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -417,14 +417,14 @@ public final class Predicates {
             this(obj);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? this.target.equals(t) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -471,7 +471,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class NotPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -497,14 +497,14 @@ public final class Predicates {
             this.predicate = oVar;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? !this.predicate.apply(t) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -534,7 +534,7 @@ public final class Predicates {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class ObjectPredicate implements o<Object> {
         public static final /* synthetic */ ObjectPredicate[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -582,7 +582,7 @@ public final class Predicates {
                     }
                 }
 
-                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.d.a.o
+                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.c.a.o
                 public boolean apply(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -624,7 +624,7 @@ public final class Predicates {
                     }
                 }
 
-                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.d.a.o
+                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.c.a.o
                 public boolean apply(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -666,7 +666,7 @@ public final class Predicates {
                     }
                 }
 
-                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.d.a.o
+                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.c.a.o
                 public boolean apply(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -705,7 +705,7 @@ public final class Predicates {
                     }
                 }
 
-                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.d.a.o
+                @Override // com.google.common.base.Predicates.ObjectPredicate, c.i.c.a.o
                 public boolean apply(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -754,7 +754,7 @@ public final class Predicates {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ObjectPredicate[]) $VALUES.clone() : (ObjectPredicate[]) invokeV.objValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public abstract /* synthetic */ boolean apply(T t);
 
         public <T> o<T> withNarrowedType() {
@@ -768,7 +768,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class OrPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -779,7 +779,7 @@ public final class Predicates {
             this(list);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -794,7 +794,7 @@ public final class Predicates {
             return invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -838,7 +838,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SubtypeOfPredicate implements o<Class<?>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -849,7 +849,7 @@ public final class Predicates {
             this(cls);
         }
 
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -891,7 +891,7 @@ public final class Predicates {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.o
+        @Override // c.i.c.a.o
         public boolean apply(Class<?> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -899,7 +899,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

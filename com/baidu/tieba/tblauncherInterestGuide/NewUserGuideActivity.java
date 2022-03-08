@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HAS_LIEK_BAR = "has_like_bar";
@@ -37,7 +37,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public NewUserGuideModel mNewUserGuideModel;
     public RightSlideViewPager mViewPager;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements NewUserGuideModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,13 +82,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f48498e;
+        public final /* synthetic */ NewUserGuideActivity f46917e;
 
         public b(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48498e = newUserGuideActivity;
+            this.f46917e = newUserGuideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f48498e.mViewPager.getAdapter()).getItem(0);
+                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f46917e.mViewPager.getAdapter()).getItem(0);
                 if (i2 == 0) {
                     newUserGuideIntroduceFragment.startGoOnAnim();
                 } else {
@@ -124,8 +124,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f48498e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
-                this.f48498e.startMainTabEnterFourm();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f46917e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
+                this.f46917e.startMainTabEnterFourm();
             }
         }
 
@@ -133,7 +133,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && i2 == 1) {
-                this.f48498e.mViewPager.setTag(null);
+                this.f46917e.mViewPager.setTag(null);
             }
         }
     }

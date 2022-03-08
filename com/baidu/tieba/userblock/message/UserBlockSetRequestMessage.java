@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PermissionList;
 import tbclient.SetUserBlack.DataReq;
 import tbclient.SetUserBlack.SetUserBlackReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class UserBlockSetRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class UserBlockSetRequestMessage extends NetMessage {
             builder2.chat = Integer.valueOf(this.chat);
             builder.perm_list = builder2.build(true);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             SetUserBlackReqIdl.Builder builder3 = new SetUserBlackReqIdl.Builder();
             builder3.data = builder.build(false);

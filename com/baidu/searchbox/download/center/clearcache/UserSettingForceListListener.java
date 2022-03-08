@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = UserSettingForceListListener.FORCE_LIST_ACTION, module = "usersetting")
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UserSettingForceListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

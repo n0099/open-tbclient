@@ -5,36 +5,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class k extends b<c.b.b.n.m.i, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27223b;
+    public String f27127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27224c;
+    public String f27128c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.m.i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27225b;
+        public String f27129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27226c;
+        public String f27130c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27227d;
+        public boolean f27131d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27228e;
+        public String f27132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f27229f;
+        public String f27133f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class k extends b<c.b.b.n.m.i, a> {
                     return;
                 }
             }
-            this.f27227d = true;
+            this.f27131d = true;
         }
     }
 
@@ -71,8 +71,8 @@ public class k extends b<c.b.b.n.m.i, a> {
                 return;
             }
         }
-        this.f27223b = ".vert";
-        this.f27224c = ".frag";
+        this.f27127b = ".vert";
+        this.f27128c = ".frag";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public class k extends b<c.b.b.n.m.i, a> {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
             String str3 = null;
             if (aVar2 != null) {
-                String str4 = aVar2.f27225b;
+                String str4 = aVar2.f27129b;
                 if (str4 == null) {
                     str4 = null;
                 }
-                str2 = aVar2.f27226c;
+                str2 = aVar2.f27130c;
                 if (str2 == null) {
                     str2 = null;
                 }
@@ -118,11 +118,11 @@ public class k extends b<c.b.b.n.m.i, a> {
             } else {
                 str2 = null;
             }
-            if (str3 == null && str.endsWith(this.f27224c)) {
-                str3 = str.substring(0, str.length() - this.f27224c.length()) + this.f27223b;
+            if (str3 == null && str.endsWith(this.f27128c)) {
+                str3 = str.substring(0, str.length() - this.f27128c.length()) + this.f27127b;
             }
-            if (str2 == null && str.endsWith(this.f27223b)) {
-                str2 = str.substring(0, str.length() - this.f27223b.length()) + this.f27224c;
+            if (str2 == null && str.endsWith(this.f27127b)) {
+                str2 = str.substring(0, str.length() - this.f27127b.length()) + this.f27128c;
             }
             c.b.b.m.a b2 = str3 == null ? aVar : b(str3);
             if (str2 != null) {
@@ -131,15 +131,15 @@ public class k extends b<c.b.b.n.m.i, a> {
             String o = b2.o();
             String o2 = b2.equals(aVar) ? o : aVar.o();
             if (aVar2 != null) {
-                if (aVar2.f27228e != null) {
-                    o = aVar2.f27228e + o;
+                if (aVar2.f27132e != null) {
+                    o = aVar2.f27132e + o;
                 }
-                if (aVar2.f27229f != null) {
-                    o2 = aVar2.f27229f + o2;
+                if (aVar2.f27133f != null) {
+                    o2 = aVar2.f27133f + o2;
                 }
             }
             c.b.b.n.m.i iVar = new c.b.b.n.m.i(o, o2);
-            if ((aVar2 == null || aVar2.f27227d) && !iVar.o()) {
+            if ((aVar2 == null || aVar2.f27131d) && !iVar.o()) {
                 eVar.p().b("ShaderProgram " + str + " failed to compile:\n" + iVar.l());
             }
             return iVar;

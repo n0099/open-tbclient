@@ -1,28 +1,46 @@
 package c.q.a;
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
-public final class m1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int win_cancel = 2131695882;
-    public static final int win_cyc_process_color = 2131695883;
-    public static final int win_cyclecolor = 2131695884;
-    public static final int win_jump_title = 2131695885;
-    public static final int win_loadp_error = 2131695886;
-    public static final int win_store_picture_accept = 2131695887;
-    public static final int win_store_picture_decline = 2131695888;
-    public static final int win_store_picture_message = 2131695889;
-    public static final int win_store_picture_title = 2131695890;
-    public static final int win_toast_network_error = 2131695891;
-    public static final int win_toast_network_error2 = 2131695892;
-    public static final int win_wdownload_download_finish = 2131695893;
-    public static final int win_wdownload_failed = 2131695894;
-    public static final int win_wdownload_failed_msg = 2131695895;
-    public static final int win_wdownload_loading = 2131695896;
-    public static final int win_wdownload_no_netwrok = 2131695897;
-    public static final int win_wdownload_processing = 2131695898;
-    public static final int win_wdownload_start = 2131695899;
-    public static final int win_wdownload_start_load = 2131695900;
+/* loaded from: classes3.dex */
+public class m1 implements LocationListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public /* synthetic */ m1(k1 k1Var) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+            p1.f29067c.a = location.getLatitude();
+            p1.f29067c.f29068b = location.getLongitude();
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, bundle) == null) {
+        }
+    }
 }

@@ -5,24 +5,24 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.b;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public com.kwad.sdk.crash.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f56750b;
+    public b f55100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f56751c;
+    public long f55101c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final d a = new d();
     }
 
     public d() {
         this.a = new com.kwad.sdk.crash.a.b();
-        this.f56750b = new b.a().a();
+        this.f55100b = new b.a().a();
     }
 
     public static d a() {
@@ -30,16 +30,16 @@ public final class d {
     }
 
     public void a(int i2, ExceptionMessage exceptionMessage) {
-        e a2 = this.f56750b.a();
+        e a2 = this.f55100b.a();
         if (a2 != null) {
             a2.a(i2, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f56750b = bVar;
-        this.f56751c = SystemClock.elapsedRealtime();
-        this.a.a(bVar.f56717d, bVar.f56718e);
+        this.f55100b = bVar;
+        this.f55101c = SystemClock.elapsedRealtime();
+        this.a.a(bVar.f55067d, bVar.f55068e);
     }
 
     public String[] b() {
@@ -51,26 +51,26 @@ public final class d {
     }
 
     public String d() {
-        return this.f56750b.a.a;
+        return this.f55100b.a.a;
     }
 
     public String e() {
-        return this.f56750b.a.f56756b;
+        return this.f55100b.a.f55106b;
     }
 
     public Context f() {
-        return this.f56750b.f56720g;
+        return this.f55100b.f55070g;
     }
 
     public f g() {
-        return this.f56750b.f56716c;
+        return this.f55100b.f55066c;
     }
 
     public long h() {
-        return SystemClock.elapsedRealtime() - this.f56751c;
+        return SystemClock.elapsedRealtime() - this.f55101c;
     }
 
     public boolean i() {
-        return this.f56750b.b();
+        return this.f55100b.b();
     }
 }

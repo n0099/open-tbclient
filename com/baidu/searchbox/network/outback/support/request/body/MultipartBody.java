@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,7 +23,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -42,7 +41,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +153,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -263,7 +262,7 @@ public final class MultipartBody extends RequestBody {
         FORM = MediaType.get(IMAudioTransRequest.CONTENT_TYPE);
         COLONSPACE = new byte[]{58, 32};
         CRLF = new byte[]{13, 10};
-        DASHDASH = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR};
+        DASHDASH = new byte[]{45, 45};
     }
 
     public MultipartBody(String str, MediaType mediaType, List<Part> list) {

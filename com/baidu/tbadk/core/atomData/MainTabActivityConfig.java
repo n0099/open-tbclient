@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
@@ -31,8 +32,6 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static final String PUSH_DES_PAGE = "des_page";
     public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
-    public static final String SHOW_AD_FRAGMENT = "show_ad_fragment";
-    public static final String SPLASH_UNIQUE_ID = "splash_unique_id";
     public static final String TARGET_SCHEME = "target_scheme";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
     public static boolean VIDEO_CHANNEL_TAB_AVAILABLE = true;
@@ -141,9 +140,19 @@ public class MainTabActivityConfig extends IntentConfig {
         return (MainTabActivityConfig) invokeCommon.objValue;
     }
 
+    public MainTabActivityConfig createUriCfg(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
+            getIntent().setData(uri);
+            return this;
+        }
+        return (MainTabActivityConfig) invokeL.objValue;
+    }
+
     public void setPushDesPage(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(PUSH_DES_PAGE, str);
@@ -151,7 +160,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setPushFollowUpAction(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i2);
@@ -159,7 +168,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setSubTab(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) || getIntent() == null) {
             return;
         }
         if (str == null) {
@@ -171,7 +180,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setSubTabName(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("sub_tab_name", str);
@@ -179,7 +188,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setTargetScheme(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             getIntent().putExtra(TARGET_SCHEME, str);
         }
     }

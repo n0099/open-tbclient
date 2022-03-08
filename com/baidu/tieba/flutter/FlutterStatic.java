@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.f.b;
-import c.a.u0.z3.k0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -28,6 +27,7 @@ import com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic;
 import com.baidu.tieba.flutter.base.view.PageRouter;
 import com.baidu.tieba.flutter.base.view.TbFlutterView;
 import com.baidu.tieba.flutter.plugin.FlutterPluginInit;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class FlutterStatic {
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, customMessage, customMessageTask)) == null) ? (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof IntentConfig)) ? customMessage : OpenFlutter.goToFlutter(customMessage) : (CustomMessage) invokeLL.objValue;
                 }
             });
-            MessageManager.getInstance().registerTask(new CustomMessageTask(2002015, new CustomMessageTask.CustomRunnable<n>() { // from class: com.baidu.tieba.flutter.FlutterStatic.4
+            MessageManager.getInstance().registerTask(new CustomMessageTask(2002015, new CustomMessageTask.CustomRunnable<FlutterOpenData>() { // from class: com.baidu.tieba.flutter.FlutterStatic.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,19 +242,19 @@ public class FlutterStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<n> run(CustomMessage<n> customMessage) {
+                public CustomResponsedMessage<FlutterOpenData> run(CustomMessage<FlutterOpenData> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (customMessage != null && customMessage.getData() != null) {
                             Context context = customMessage.getData().getContext();
-                            String a = customMessage.getData().a();
-                            HashMap b2 = customMessage.getData().b();
-                            if (b2 == null || b2.isEmpty()) {
-                                b2 = new HashMap();
+                            String pageName = customMessage.getData().getPageName();
+                            HashMap params = customMessage.getData().getParams();
+                            if (params == null || params.isEmpty()) {
+                                params = new HashMap();
                             }
-                            if (context != null && !TextUtils.isEmpty(a)) {
-                                OpenFlutter.openFlutterPage(context, a, b2);
+                            if (context != null && !TextUtils.isEmpty(pageName)) {
+                                OpenFlutter.openFlutterPage(context, pageName, params);
                             }
                         }
                         return null;

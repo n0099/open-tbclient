@@ -7,13 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import c.a.t0.s.v.c;
-import c.a.u0.s1.f;
-import c.a.u0.s4.d;
-import c.a.u0.s4.e;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
-import c.a.u0.s4.j;
+import c.a.q0.r.v.c;
+import c.a.r0.r1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -22,42 +17,43 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SelectTopicToolItem extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f50245e;
+    public EMTextView f48664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f50246f;
+    public EMTextView f48665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f50247g;
+    public ImageView f48666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f50248h;
+    public LinearLayout f48667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f50249i;
+    public f f48668i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f50250j;
+    public b f48669j;
     public boolean k;
     public boolean l;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicToolItem f50251e;
+        public final /* synthetic */ SelectTopicToolItem f48670e;
 
         public a(SelectTopicToolItem selectTopicToolItem) {
             Interceptable interceptable = $ic;
@@ -74,26 +70,26 @@ public class SelectTopicToolItem extends RelativeLayout {
                     return;
                 }
             }
-            this.f50251e = selectTopicToolItem;
+            this.f48670e = selectTopicToolItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50251e.f50250j == null || this.f50251e.f50249i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48670e.f48669j == null || this.f48670e.f48668i == null) {
                 return;
             }
-            this.f50251e.f50250j.a(this.f50251e.f50249i);
-            if (this.f50251e.f50249i.j()) {
+            this.f48670e.f48669j.a(this.f48670e.f48668i);
+            if (this.f48670e.f48668i.j()) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_WORK_VIDEO_TOPIC_SUGGESTION_CLICK);
-                statisticItem.param("topic_id", this.f50251e.f50249i.d().longValue());
+                statisticItem.param("topic_id", this.f48670e.f48668i.d().longValue());
                 statisticItem.param("is_video_topic", "1");
                 TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(@NonNull f fVar);
     }
@@ -124,12 +120,12 @@ public class SelectTopicToolItem extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.f50249i = fVar;
+        this.f48668i = fVar;
         if (fVar.j()) {
-            this.f50246f.setText("#");
-            this.f50245e.setText(this.f50249i.e() + "#");
+            this.f48665f.setText("#");
+            this.f48664e.setText(this.f48668i.e() + "#");
         } else {
-            this.f50245e.setText(HotSelectActivityConfig.HOT_TOPIC_SING + this.f50249i.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
+            this.f48664e.setText(HotSelectActivityConfig.HOT_TOPIC_SING + this.f48668i.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
         }
         changeSkin();
     }
@@ -137,11 +133,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RelativeLayout.inflate(getContext(), h.select_topic_tool_item, this);
-            this.f50245e = (EMTextView) findViewById(g.topic_tool_title);
-            this.f50246f = (EMTextView) findViewById(g.topic_tool_title_tag);
-            this.f50247g = (ImageView) findViewById(g.topic_tool_title_icon);
-            this.f50248h = (LinearLayout) findViewById(g.ll_hotpic_item);
+            RelativeLayout.inflate(getContext(), R.layout.select_topic_tool_item, this);
+            this.f48664e = (EMTextView) findViewById(R.id.topic_tool_title);
+            this.f48665f = (EMTextView) findViewById(R.id.topic_tool_title_tag);
+            this.f48666g = (ImageView) findViewById(R.id.topic_tool_title_icon);
+            this.f48667h = (LinearLayout) findViewById(R.id.ll_hotpic_item);
             setOnClickListener(new a(this));
             changeSkin();
         }
@@ -152,49 +148,49 @@ public class SelectTopicToolItem extends RelativeLayout {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!this.k && (fVar2 = this.f50249i) != null) {
+            if (!this.k && (fVar2 = this.f48668i) != null) {
                 if (fVar2.j()) {
-                    this.f50246f.setVisibility(0);
-                    this.f50247g.setVisibility(0);
+                    this.f48665f.setVisibility(0);
+                    this.f48666g.setVisibility(0);
                 } else {
-                    this.f50247g.setVisibility(8);
-                    this.f50246f.setVisibility(8);
+                    this.f48666g.setVisibility(8);
+                    this.f48665f.setVisibility(8);
                 }
-                if (this.f50249i.h()) {
-                    this.f50247g.setImageDrawable(WebPManager.getPureDrawable(c.a.u0.s4.f.icon_pure_videotopic31, SkinManager.getColor(d.CAM_X0304), null));
+                if (this.f48668i.h()) {
+                    this.f48666g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_videotopic31, SkinManager.getColor(R.color.CAM_X0304), null));
                 } else {
-                    this.f50247g.setImageDrawable(WebPManager.getPureDrawable(c.a.u0.s4.f.icon_pure_videotopic31, SkinManager.getColor(d.CAM_X0105), null));
+                    this.f48666g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_videotopic31, SkinManager.getColor(R.color.CAM_X0105), null));
                 }
             } else {
-                this.f50246f.setVisibility(8);
-                this.f50247g.setVisibility(0);
-                this.f50245e.setText(getContext().getString(j.add_topic));
-                this.f50247g.setImageDrawable(WebPManager.getPureDrawable(c.a.u0.s4.f.ic_icon_pure_post_topic12, SkinManager.getColor(d.CAM_X0109), null));
+                this.f48665f.setVisibility(8);
+                this.f48666g.setVisibility(0);
+                this.f48664e.setText(getContext().getString(R.string.add_topic));
+                this.f48666g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_topic12, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.k && (fVar = this.f50249i) != null && fVar.h()) {
-                c.d(this.f50245e).v(d.CAM_X0304);
-                c.d(this.f50246f).v(d.CAM_X0304);
-                c d2 = c.d(this.f50248h);
-                d2.n(j.J_X01);
-                d2.l(e.L_X02);
-                d2.k(d.CAM_X0304);
-                d2.f(d.CAM_X0905);
+            if (!this.k && (fVar = this.f48668i) != null && fVar.h()) {
+                c.d(this.f48664e).v(R.color.CAM_X0304);
+                c.d(this.f48665f).v(R.color.CAM_X0304);
+                c d2 = c.d(this.f48667h);
+                d2.n(R.string.J_X01);
+                d2.l(R.dimen.L_X02);
+                d2.k(R.color.CAM_X0304);
+                d2.f(R.color.CAM_X0905);
             } else if (this.l && !this.k) {
-                c.d(this.f50245e).v(d.CAM_X0105);
-                c.d(this.f50246f).v(d.CAM_X0105);
-                c d3 = c.d(this.f50248h);
-                d3.n(j.J_X01);
-                d3.l(e.L_X02);
-                d3.k(d.CAM_X0209);
-                d3.f(d.CAM_X0201);
+                c.d(this.f48664e).v(R.color.CAM_X0105);
+                c.d(this.f48665f).v(R.color.CAM_X0105);
+                c d3 = c.d(this.f48667h);
+                d3.n(R.string.J_X01);
+                d3.l(R.dimen.L_X02);
+                d3.k(R.color.CAM_X0209);
+                d3.f(R.color.CAM_X0201);
             } else {
-                c.d(this.f50245e).v(d.CAM_X0105);
-                c.d(this.f50246f).v(d.CAM_X0105);
-                c d4 = c.d(this.f50248h);
-                d4.n(j.J_X01);
-                d4.l(e.L_X02);
-                d4.k(d.CAM_X0209);
-                d4.f(d.CAM_X0209);
+                c.d(this.f48664e).v(R.color.CAM_X0105);
+                c.d(this.f48665f).v(R.color.CAM_X0105);
+                c d4 = c.d(this.f48667h);
+                d4.n(R.string.J_X01);
+                d4.l(R.dimen.L_X02);
+                d4.k(R.color.CAM_X0209);
+                d4.f(R.color.CAM_X0209);
             }
         }
     }
@@ -218,7 +214,7 @@ public class SelectTopicToolItem extends RelativeLayout {
     public void setItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f50250j = bVar;
+            this.f48669j = bVar;
         }
     }
 

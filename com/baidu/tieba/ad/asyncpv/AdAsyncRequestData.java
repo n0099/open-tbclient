@@ -4,9 +4,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.d.f.p.l;
-import c.a.t0.d1.h;
-import c.a.t0.d1.i;
-import c.a.u0.l.a;
+import c.a.q0.c1.h;
+import c.a.q0.c1.i;
+import c.a.r0.m.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tbadk.TbConfig;
@@ -29,7 +29,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,10 +126,10 @@ public class AdAsyncRequestData extends HttpMessage {
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
-            if (c.a.u0.a.h().y()) {
-                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "4.5.0.13"));
+            if (c.a.r0.a.h().y()) {
+                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.0.0.12"));
             }
-            if (!c.a.u0.z1.o.k.a.f(map)) {
+            if (!c.a.r0.z1.o.k.a.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

@@ -28,7 +28,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic = null;
     public static String name = "";
@@ -36,7 +36,7 @@ public class q {
     public static String yh = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,7 +356,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55531c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53881c).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");
@@ -384,7 +384,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55530b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53880b).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");

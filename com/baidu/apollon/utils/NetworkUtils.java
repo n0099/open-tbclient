@@ -18,7 +18,7 @@ import com.kuaishou.weapon.un.s;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -95,7 +95,7 @@ public final class NetworkUtils {
             if (isWifiNetworkAvailable(context)) {
                 return 1;
             }
-            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, s.f55454c)) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, s.f53804c)) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 switch (telephonyManager.getNetworkType()) {
                     case 1:
                     case 2:

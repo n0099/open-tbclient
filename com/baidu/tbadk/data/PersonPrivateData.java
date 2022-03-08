@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PrivSets;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PersonPrivateData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41142e;
+    public int f39548e;
 
     public PersonPrivateData() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class PersonPrivateData extends OrmObject {
                 return;
             }
         }
-        this.f41142e = 1;
+        this.f39548e = 1;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -39,7 +39,7 @@ public class PersonPrivateData extends OrmObject {
             return;
         }
         jSONObject.optInt("location", 1);
-        this.f41142e = jSONObject.optInt("like", 1);
+        this.f39548e = jSONObject.optInt("like", 1);
         jSONObject.optInt("group", 1);
         jSONObject.optInt("post", 1);
         jSONObject.optInt("friend", 1);
@@ -49,7 +49,7 @@ public class PersonPrivateData extends OrmObject {
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41142e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39548e : invokeV.intValue;
     }
 
     public void x(PrivSets privSets) {
@@ -59,7 +59,7 @@ public class PersonPrivateData extends OrmObject {
         }
         try {
             privSets.location.intValue();
-            this.f41142e = privSets.like.intValue();
+            this.f39548e = privSets.like.intValue();
             privSets.group.intValue();
             privSets.post.intValue();
             privSets.friend.intValue();

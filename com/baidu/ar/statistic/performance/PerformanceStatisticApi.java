@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PerformanceStatisticApi implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int xc;
     public boolean xd;
     public a xe;
-    public a.C1782a xf;
+    public a.C1758a xf;
     public f.a xg;
 
     public PerformanceStatisticApi() {
@@ -44,12 +44,12 @@ public class PerformanceStatisticApi implements f {
     private void gs() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.xf == null) {
-            a.C1782a c1782a = new a.C1782a();
-            this.xf = c1782a;
+            a.C1758a c1758a = new a.C1758a();
+            this.xf = c1758a;
             int i2 = this.xc + 1;
             this.xc = i2;
-            c1782a.xn = i2;
-            this.xe.xm.add(c1782a);
+            c1758a.xn = i2;
+            this.xe.xm.add(c1758a);
         }
     }
 
@@ -105,12 +105,12 @@ public class PerformanceStatisticApi implements f {
             try {
                 if (this.xd) {
                     gs();
-                    a.C1782a.C1783a c1783a = new a.C1782a.C1783a();
-                    c1783a.name = str;
-                    c1783a.xr = str2;
-                    c1783a.xs = j2;
-                    c1783a.count = i2;
-                    this.xf.xq.add(c1783a);
+                    a.C1758a.C1759a c1759a = new a.C1758a.C1759a();
+                    c1759a.name = str;
+                    c1759a.xr = str2;
+                    c1759a.xs = j2;
+                    c1759a.count = i2;
+                    this.xf.xq.add(c1759a);
                 }
             } catch (RuntimeException e2) {
                 e2.printStackTrace();

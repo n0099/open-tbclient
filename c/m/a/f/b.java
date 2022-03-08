@@ -30,37 +30,37 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function4;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class b extends c.m.a.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final C1699b f30386c;
+    public final C1675b f28790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, Bitmap> f30387d;
+    public final HashMap<String, Bitmap> f28791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f30388e;
+    public final a f28792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float[] f30389f;
+    public final float[] f28793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f30390g;
+    public final c f28794g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30391b;
+        public int f28795b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final HashMap<SVGAVideoShapeEntity, Path> f30392c;
+        public final HashMap<SVGAVideoShapeEntity, Path> f28796c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -75,19 +75,19 @@ public final class b extends c.m.a.f.a {
                     return;
                 }
             }
-            this.f30392c = new HashMap<>();
+            this.f28796c = new HashMap<>();
         }
 
         public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
-                if (!this.f30392c.containsKey(sVGAVideoShapeEntity)) {
+                if (!this.f28796c.containsKey(sVGAVideoShapeEntity)) {
                     Path path = new Path();
                     path.set(sVGAVideoShapeEntity.b());
-                    this.f30392c.put(sVGAVideoShapeEntity, path);
+                    this.f28796c.put(sVGAVideoShapeEntity, path);
                 }
-                Path path2 = this.f30392c.get(sVGAVideoShapeEntity);
+                Path path2 = this.f28796c.get(sVGAVideoShapeEntity);
                 if (path2 == null) {
                     Intrinsics.throwNpe();
                 }
@@ -99,35 +99,35 @@ public final class b extends c.m.a.f.a {
         public final void b(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-                if (this.a != canvas.getWidth() || this.f30391b != canvas.getHeight()) {
-                    this.f30392c.clear();
+                if (this.a != canvas.getWidth() || this.f28795b != canvas.getHeight()) {
+                    this.f28796c.clear();
                 }
                 this.a = canvas.getWidth();
-                this.f30391b = canvas.getHeight();
+                this.f28795b = canvas.getHeight();
             }
         }
     }
 
     /* renamed from: c.m.a.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C1699b {
+    /* loaded from: classes3.dex */
+    public static final class C1675b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Paint a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Path f30393b;
+        public final Path f28797b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Path f30394c;
+        public final Path f28798c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Matrix f30395d;
+        public final Matrix f28799d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Matrix f30396e;
+        public final Matrix f28800e;
 
-        public C1699b() {
+        public C1675b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,18 +141,18 @@ public final class b extends c.m.a.f.a {
                 }
             }
             this.a = new Paint();
-            this.f30393b = new Path();
-            this.f30394c = new Path();
-            this.f30395d = new Matrix();
-            this.f30396e = new Matrix();
+            this.f28797b = new Path();
+            this.f28798c = new Path();
+            this.f28799d = new Matrix();
+            this.f28800e = new Matrix();
         }
 
         public final Matrix a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f30395d.reset();
-                return this.f30395d;
+                this.f28799d.reset();
+                return this.f28799d;
             }
             return (Matrix) invokeV.objValue;
         }
@@ -161,8 +161,8 @@ public final class b extends c.m.a.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                this.f30396e.reset();
-                return this.f30396e;
+                this.f28800e.reset();
+                return this.f28800e;
             }
             return (Matrix) invokeV.objValue;
         }
@@ -181,8 +181,8 @@ public final class b extends c.m.a.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.f30393b.reset();
-                return this.f30393b;
+                this.f28797b.reset();
+                return this.f28797b;
             }
             return (Path) invokeV.objValue;
         }
@@ -191,8 +191,8 @@ public final class b extends c.m.a.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.f30394c.reset();
-                return this.f30394c;
+                this.f28798c.reset();
+                return this.f28798c;
             }
             return (Path) invokeV.objValue;
         }
@@ -216,11 +216,11 @@ public final class b extends c.m.a.f.a {
                 return;
             }
         }
-        this.f30390g = cVar;
-        this.f30386c = new C1699b();
-        this.f30387d = new HashMap<>();
-        this.f30388e = new a();
-        this.f30389f = new float[16];
+        this.f28794g = cVar;
+        this.f28790c = new C1675b();
+        this.f28791d = new HashMap<>();
+        this.f28792e = new a();
+        this.f28793f = new float[16];
     }
 
     @Override // c.m.a.f.a
@@ -228,97 +228,97 @@ public final class b extends c.m.a.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i2, scaleType) == null) {
             super.a(canvas, i2, scaleType);
-            this.f30388e.b(canvas);
-            for (a.C1698a c1698a : d(i2)) {
-                h(c1698a, canvas, i2);
+            this.f28792e.b(canvas);
+            for (a.C1674a c1674a : d(i2)) {
+                h(c1674a, canvas, i2);
             }
             k(i2);
         }
     }
 
-    public final void e(a.C1698a c1698a, Canvas canvas, int i2) {
+    public final void e(a.C1674a c1674a, Canvas canvas, int i2) {
         String b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1698a, canvas, i2) == null) || (b2 = c1698a.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1674a, canvas, i2) == null) || (b2 = c1674a.b()) == null) {
             return;
         }
-        Function2<Canvas, Integer, Boolean> function2 = this.f30390g.a().get(b2);
+        Function2<Canvas, Integer, Boolean> function2 = this.f28794g.a().get(b2);
         if (function2 != null) {
-            Matrix l = l(c1698a.a().e());
+            Matrix l = l(c1674a.a().e());
             canvas.save();
             canvas.concat(l);
             function2.invoke(canvas, Integer.valueOf(i2));
             canvas.restore();
         }
-        Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.f30390g.b().get(b2);
+        Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.f28794g.b().get(b2);
         if (function4 != null) {
-            Matrix l2 = l(c1698a.a().e());
+            Matrix l2 = l(c1674a.a().e());
             canvas.save();
             canvas.concat(l2);
-            function4.invoke(canvas, Integer.valueOf(i2), Integer.valueOf((int) c1698a.a().b().b()), Integer.valueOf((int) c1698a.a().b().a()));
+            function4.invoke(canvas, Integer.valueOf(i2), Integer.valueOf((int) c1674a.a().b().b()), Integer.valueOf((int) c1674a.a().b().a()));
             canvas.restore();
         }
     }
 
-    public final void f(a.C1698a c1698a, Canvas canvas) {
+    public final void f(a.C1674a c1674a, Canvas canvas) {
         String b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, c1698a, canvas) == null) || (b2 = c1698a.b()) == null || Intrinsics.areEqual(this.f30390g.c().get(b2), Boolean.TRUE)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, c1674a, canvas) == null) || (b2 = c1674a.b()) == null || Intrinsics.areEqual(this.f28794g.c().get(b2), Boolean.TRUE)) {
             return;
         }
-        Bitmap bitmap = this.f30390g.d().get(b2);
+        Bitmap bitmap = this.f28794g.d().get(b2);
         if (bitmap == null) {
             bitmap = c().e().get(b2);
         }
         if (bitmap != null) {
-            Matrix l = l(c1698a.a().e());
-            Paint c2 = this.f30386c.c();
+            Matrix l = l(c1674a.a().e());
+            Paint c2 = this.f28790c.c();
             c2.setAntiAlias(c().a());
             c2.setFilterBitmap(c().a());
-            c2.setAlpha((int) (c1698a.a().a() * 255));
-            if (c1698a.a().c() != null) {
-                c.m.a.g.b c3 = c1698a.a().c();
+            c2.setAlpha((int) (c1674a.a().a() * 255));
+            if (c1674a.a().c() != null) {
+                c.m.a.g.b c3 = c1674a.a().c();
                 if (c3 == null) {
                     return;
                 }
                 canvas.save();
                 c2.reset();
-                Path d2 = this.f30386c.d();
+                Path d2 = this.f28790c.d();
                 c3.a(d2);
                 d2.transform(l);
                 canvas.clipPath(d2);
-                l.preScale((float) (c1698a.a().b().b() / bitmap.getWidth()), (float) (c1698a.a().b().b() / bitmap.getWidth()));
+                l.preScale((float) (c1674a.a().b().b() / bitmap.getWidth()), (float) (c1674a.a().b().b() / bitmap.getWidth()));
                 canvas.drawBitmap(bitmap, l, c2);
                 canvas.restore();
             } else {
-                l.preScale((float) (c1698a.a().b().b() / bitmap.getWidth()), (float) (c1698a.a().b().b() / bitmap.getWidth()));
+                l.preScale((float) (c1674a.a().b().b() / bitmap.getWidth()), (float) (c1674a.a().b().b() / bitmap.getWidth()));
                 canvas.drawBitmap(bitmap, l, c2);
             }
-            i(canvas, bitmap, c1698a, l);
+            i(canvas, bitmap, c1674a, l);
         }
     }
 
-    public final void g(a.C1698a c1698a, Canvas canvas) {
+    public final void g(a.C1674a c1674a, Canvas canvas) {
         SVGAVideoShapeEntity.a c2;
         float[] c3;
         String d2;
         String b2;
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, c1698a, canvas) == null) {
-            Matrix l = l(c1698a.a().e());
-            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1698a.a().d()) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, c1674a, canvas) == null) {
+            Matrix l = l(c1674a.a().e());
+            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1674a.a().d()) {
                 sVGAVideoShapeEntity.a();
                 if (sVGAVideoShapeEntity.b() != null) {
-                    Paint c4 = this.f30386c.c();
+                    Paint c4 = this.f28790c.c();
                     c4.reset();
                     c4.setAntiAlias(c().a());
                     double d3 = 255;
-                    c4.setAlpha((int) (c1698a.a().a() * d3));
-                    Path d4 = this.f30386c.d();
+                    c4.setAlpha((int) (c1674a.a().a() * d3));
+                    Path d4 = this.f28790c.d();
                     d4.reset();
-                    d4.addPath(this.f30388e.a(sVGAVideoShapeEntity));
-                    Matrix b3 = this.f30386c.b();
+                    d4.addPath(this.f28792e.a(sVGAVideoShapeEntity));
+                    Matrix b3 = this.f28790c.b();
                     b3.reset();
                     Matrix d5 = sVGAVideoShapeEntity.d();
                     if (d5 != null) {
@@ -330,19 +330,19 @@ public final class b extends c.m.a.f.a {
                     if (c5 != null && (a2 = c5.a()) != 0) {
                         c4.setStyle(Paint.Style.FILL);
                         c4.setColor(a2);
-                        c4.setAlpha(Math.min(255, Math.max(0, (int) (c1698a.a().a() * d3))));
-                        if (c1698a.a().c() != null) {
+                        c4.setAlpha(Math.min(255, Math.max(0, (int) (c1674a.a().a() * d3))));
+                        if (c1674a.a().c() != null) {
                             canvas.save();
                         }
-                        c.m.a.g.b c6 = c1698a.a().c();
+                        c.m.a.g.b c6 = c1674a.a().c();
                         if (c6 != null) {
-                            Path e2 = this.f30386c.e();
+                            Path e2 = this.f28790c.e();
                             c6.a(e2);
                             e2.transform(l);
                             canvas.clipPath(e2);
                         }
                         canvas.drawPath(d4, c4);
-                        if (c1698a.a().c() != null) {
+                        if (c1674a.a().c() != null) {
                             canvas.restore();
                         }
                     }
@@ -354,7 +354,7 @@ public final class b extends c.m.a.f.a {
                             SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
                             if (c8 != null) {
                                 c4.setColor(c8.f());
-                                c4.setAlpha(Math.min(255, Math.max(0, (int) (c1698a.a().a() * d3))));
+                                c4.setAlpha(Math.min(255, Math.max(0, (int) (c1674a.a().a() * d3))));
                             }
                             float j2 = j(l);
                             SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
@@ -391,18 +391,18 @@ public final class b extends c.m.a.f.a {
                                 fArr[1] = (c3[1] >= 0.1f ? c3[1] : 0.1f) * j2;
                                 c4.setPathEffect(new DashPathEffect(fArr, c3[2] * j2));
                             }
-                            if (c1698a.a().c() != null) {
+                            if (c1674a.a().c() != null) {
                                 canvas.save();
                             }
-                            c.m.a.g.b c13 = c1698a.a().c();
+                            c.m.a.g.b c13 = c1674a.a().c();
                             if (c13 != null) {
-                                Path e3 = this.f30386c.e();
+                                Path e3 = this.f28790c.e();
                                 c13.a(e3);
                                 e3.transform(l);
                                 canvas.clipPath(e3);
                             }
                             canvas.drawPath(d4, c4);
-                            if (c1698a.a().c() != null) {
+                            if (c1674a.a().c() != null) {
                                 canvas.restore();
                             }
                         }
@@ -412,28 +412,28 @@ public final class b extends c.m.a.f.a {
         }
     }
 
-    public final void h(a.C1698a c1698a, Canvas canvas, int i2) {
+    public final void h(a.C1674a c1674a, Canvas canvas, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, c1698a, canvas, i2) == null) {
-            f(c1698a, canvas);
-            g(c1698a, canvas);
-            e(c1698a, canvas, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, c1674a, canvas, i2) == null) {
+            f(c1674a, canvas);
+            g(c1674a, canvas);
+            e(c1674a, canvas, i2);
         }
     }
 
-    public final void i(Canvas canvas, Bitmap bitmap, a.C1698a c1698a, Matrix matrix) {
+    public final void i(Canvas canvas, Bitmap bitmap, a.C1674a c1674a, Matrix matrix) {
         TextPaint drawingTextPaint;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, c1698a, matrix) == null) {
-            if (this.f30390g.h()) {
-                this.f30387d.clear();
-                this.f30390g.i(false);
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, c1674a, matrix) == null) {
+            if (this.f28794g.h()) {
+                this.f28791d.clear();
+                this.f28794g.i(false);
             }
-            String b2 = c1698a.b();
+            String b2 = c1674a.b();
             if (b2 != null) {
                 Bitmap bitmap2 = null;
-                String str = this.f30390g.f().get(b2);
-                if (str != null && (drawingTextPaint = this.f30390g.g().get(b2)) != null && (bitmap2 = this.f30387d.get(b2)) == null) {
+                String str = this.f28794g.f().get(b2);
+                if (str != null && (drawingTextPaint = this.f28794g.g().get(b2)) != null && (bitmap2 = this.f28791d.get(b2)) == null) {
                     bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
                     Canvas canvas2 = new Canvas(bitmap2);
                     Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
@@ -441,14 +441,14 @@ public final class b extends c.m.a.f.a {
                     Rect rect = new Rect();
                     drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
                     canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
-                    HashMap<String, Bitmap> hashMap = this.f30387d;
+                    HashMap<String, Bitmap> hashMap = this.f28791d;
                     if (bitmap2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
                     hashMap.put(b2, bitmap2);
                 }
-                StaticLayout it = this.f30390g.e().get(b2);
-                if (it != null && (bitmap2 = this.f30387d.get(b2)) == null) {
+                StaticLayout it = this.f28794g.e().get(b2);
+                if (it != null && (bitmap2 = this.f28791d.get(b2)) == null) {
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
                     TextPaint paint = it.getPaint();
                     Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
@@ -458,7 +458,7 @@ public final class b extends c.m.a.f.a {
                     Canvas canvas3 = new Canvas(createBitmap);
                     canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
                     staticLayout.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.f30387d;
+                    HashMap<String, Bitmap> hashMap2 = this.f28791d;
                     if (createBitmap == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
@@ -466,17 +466,17 @@ public final class b extends c.m.a.f.a {
                     bitmap2 = createBitmap;
                 }
                 if (bitmap2 != null) {
-                    Paint c2 = this.f30386c.c();
+                    Paint c2 = this.f28790c.c();
                     c2.setAntiAlias(c().a());
-                    if (c1698a.a().c() != null) {
-                        c.m.a.g.b c3 = c1698a.a().c();
+                    if (c1674a.a().c() != null) {
+                        c.m.a.g.b c3 = c1674a.a().c();
                         if (c3 != null) {
                             canvas.save();
                             canvas.concat(matrix);
                             canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
                             Shader.TileMode tileMode = Shader.TileMode.REPEAT;
                             c2.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
-                            Path d2 = this.f30386c.d();
+                            Path d2 = this.f28790c.d();
                             c3.a(d2);
                             canvas.drawPath(d2, c2);
                             canvas.restore();
@@ -495,8 +495,8 @@ public final class b extends c.m.a.f.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
-            matrix.getValues(this.f30389f);
-            float[] fArr = this.f30389f;
+            matrix.getValues(this.f28793f);
+            float[] fArr = this.f28793f;
             if (fArr[0] == 0.0f) {
                 return 0.0f;
             }
@@ -550,7 +550,7 @@ public final class b extends c.m.a.f.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
-            Matrix a2 = this.f30386c.a();
+            Matrix a2 = this.f28790c.a();
             a2.postScale(b().b(), b().c());
             a2.postTranslate(b().d(), b().e());
             a2.preConcat(matrix);

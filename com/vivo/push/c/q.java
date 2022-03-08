@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ UnvarnishedMessage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f60889b;
+    public final /* synthetic */ p f59239b;
 
     public q(p pVar, UnvarnishedMessage unvarnishedMessage) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class q implements Runnable {
                 return;
             }
         }
-        this.f60889b = pVar;
+        this.f59239b = pVar;
         this.a = unvarnishedMessage;
     }
 
@@ -40,8 +40,8 @@ public final class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p pVar = this.f60889b;
-            PushMessageCallback pushMessageCallback = ((z) pVar).f60896b;
+            p pVar = this.f59239b;
+            PushMessageCallback pushMessageCallback = ((z) pVar).f59246b;
             context = pVar.a;
             pushMessageCallback.onTransmissionMessage(context, this.a);
         }

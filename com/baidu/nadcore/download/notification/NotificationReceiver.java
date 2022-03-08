@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.d0.j.i.a;
+import c.a.b0.j.i.a;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class NotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH = "key_download_path";
@@ -80,7 +80,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 str6 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);
-            c.a.d0.j.e.a.f().g(str6, str5, str4, str);
+            c.a.b0.j.e.a.f().g(str6, str5, str4, str);
         }
     }
 
@@ -140,11 +140,11 @@ public class NotificationReceiver extends BroadcastReceiver {
                 if (c2 != 3) {
                     return;
                 }
-                c.a.d0.j.e.a.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                c.a.b0.j.e.a.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
             } else {
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    c.a.d0.j.e.a.f().a(intExtra);
+                    c.a.b0.j.e.a.f().a(intExtra);
                 }
             }
         }

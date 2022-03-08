@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
@@ -32,7 +32,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public String mType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +103,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

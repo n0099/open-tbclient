@@ -1,4 +1,4 @@
 package com.baidu.fsg.face.base;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface e {
 }

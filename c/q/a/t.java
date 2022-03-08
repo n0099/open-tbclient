@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class t implements ViewTreeObserver.OnScrollChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ p0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ s0 f30682b;
+    public final /* synthetic */ s0 f29121b;
 
     public t(s0 s0Var, p0 p0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class t implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.f30682b = s0Var;
+        this.f29121b = s0Var;
         this.a = p0Var;
     }
 
@@ -38,15 +38,15 @@ public class t implements ViewTreeObserver.OnScrollChangedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f30682b.f30668b || !this.f30682b.b(this.f30682b.a)) {
+                if (this.f29121b.f29098b || !this.f29121b.b(this.f29121b.a)) {
                     return;
                 }
-                this.f30682b.f30671e.removeMessages(1101);
-                this.f30682b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                this.f29121b.f29101e.removeMessages(1101);
+                this.f29121b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
                 if (this.a != null) {
                     this.a.a();
                 }
-                this.f30682b.f30668b = true;
+                this.f29121b.f29098b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

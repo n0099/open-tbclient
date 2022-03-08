@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +32,7 @@ import com.dxmpay.wallet.base.datamodel.AccountManager;
 import com.dxmpay.wallet.core.lollipop.json.JSONObject;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +94,7 @@ public class b extends k {
     public void d() {
         PayBaseBeanActivity payBaseBeanActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (payBaseBeanActivity = this.f52313b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (payBaseBeanActivity = this.f50732b) == null) {
             return;
         }
         payBaseBeanActivity.setFlagActiveBindCard();
@@ -118,10 +117,10 @@ public class b extends k {
                 sb.append(extraParam);
                 sb.setCharAt(sb.length() - 1, ',');
             } else {
-                sb.append(StringUtil.ARRAY_START);
+                sb.append("{");
             }
             sb.append("request_type:11}");
-            e eVar = new e(this.f52313b);
+            e eVar = new e(this.f50732b);
             eVar.a(NewBindCardEntry.getInstance().getBindReq());
             eVar.a(sb.toString());
             eVar.setResponseCallback(this);
@@ -134,7 +133,7 @@ public class b extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             NewBindCardEntry.getInstance().newBindCardCallback(StatHelper.SENSOR_ERR_2, "WelcomeActivity callBackCancel", false);
-            PayBaseBeanActivity payBaseBeanActivity = this.f52313b;
+            PayBaseBeanActivity payBaseBeanActivity = this.f50732b;
             if (payBaseBeanActivity != null) {
                 payBaseBeanActivity.finishWithoutAnim();
             }
@@ -154,11 +153,11 @@ public class b extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, obj, str) == null) {
             CardAddResponse.updateContent(obj);
-            if (((CardAddResponse) obj) == null || this.f52313b == null) {
+            if (((CardAddResponse) obj) == null || this.f50732b == null) {
                 return;
             }
-            this.f52313b.startActivity(new Intent(this.f52313b, NewBindCardEnterActivity.class));
-            this.f52313b.finishWithoutAnim();
+            this.f50732b.startActivity(new Intent(this.f50732b, NewBindCardEnterActivity.class));
+            this.f50732b.finishWithoutAnim();
         }
     }
 
@@ -168,21 +167,21 @@ public class b extends k {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
             CardAddResponse.updateContent(null);
             if (i3 == 5003) {
-                PayBaseBeanActivity payBaseBeanActivity = this.f52313b;
+                PayBaseBeanActivity payBaseBeanActivity = this.f50732b;
                 GlobalUtils.toast(payBaseBeanActivity, ResUtils.getString(payBaseBeanActivity, "dxm_wallet_base_please_login"));
-                AccountManager.getInstance(this.f52313b).logout();
+                AccountManager.getInstance(this.f50732b).logout();
                 WalletLoginHelper.getInstance().logout(false);
             } else if (-2 == i3 || -3 == i3) {
-                PayBaseBeanActivity payBaseBeanActivity2 = this.f52313b;
+                PayBaseBeanActivity payBaseBeanActivity2 = this.f50732b;
                 GlobalUtils.toast(payBaseBeanActivity2, ResUtils.getString(payBaseBeanActivity2, "dxm_fp_get_data_fail"));
             } else if (-8 == i3) {
-                PayBaseBeanActivity payBaseBeanActivity3 = this.f52313b;
+                PayBaseBeanActivity payBaseBeanActivity3 = this.f50732b;
                 GlobalUtils.toast(payBaseBeanActivity3, ResUtils.getString(payBaseBeanActivity3, "dxm_ebpay_no_network"));
             } else {
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f52313b, "dxm_fp_get_data_fail");
+                    str = ResUtils.getString(this.f50732b, "dxm_fp_get_data_fail");
                 }
-                GlobalUtils.toast(this.f52313b, str);
+                GlobalUtils.toast(this.f50732b, str);
             }
             c();
         }
@@ -226,8 +225,8 @@ public class b extends k {
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                                 pop();
                                 if (this.a.a) {
-                                    if (this.a.f52313b != null) {
-                                        this.a.f52313b.finishWithoutAnim();
+                                    if (this.a.f50732b != null) {
+                                        this.a.f50732b.finishWithoutAnim();
                                     }
                                 } else {
                                     StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
@@ -238,13 +237,13 @@ public class b extends k {
                         }
                     };
                     h5LifeCycleCallback.push();
-                    EventBus.getInstance().register(this.f52313b, BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT, 0, EventBus.ThreadMode.MainThread);
+                    EventBus.getInstance().register(this.f50732b, BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT, 0, EventBus.ThreadMode.MainThread);
                     Bundle bundle = new Bundle();
                     bundle.putBoolean("with_anim", false);
                     bundle.putBoolean("show_share", false);
                     bundle.putString("url", cardAddErrorContent.goto_url + "?is_from_sdk=1");
                     bundle.putParcelable("lifecycleLsnr", h5LifeCycleCallback);
-                    BaiduWalletDelegate.getInstance().openH5Module(this.f52313b, bundle);
+                    BaiduWalletDelegate.getInstance().openH5Module(this.f50732b, bundle);
                     return;
                 }
                 c();
@@ -263,7 +262,7 @@ public class b extends k {
                     if (jSONObject.has("confirm_result") && 1 == jSONObject.getInt("confirm_result")) {
                         StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_AGREE);
                         this.a = true;
-                        NewBindCardEntry.getInstance().startWelcomeActivity(this.f52313b);
+                        NewBindCardEntry.getInstance().startWelcomeActivity(this.f50732b);
                     } else {
                         StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
                         c();

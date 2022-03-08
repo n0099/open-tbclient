@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class LocalVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CompressProgressView f48709e;
+    public CompressProgressView f47128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48710f;
+    public TextView f47129f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalVideoCompressingDialogView(Context context) {
@@ -48,8 +48,8 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-            this.f48709e = (CompressProgressView) findViewById(R.id.compress_progress_view);
-            this.f48710f = (TextView) findViewById(R.id.compress_progress_text);
+            this.f47128e = (CompressProgressView) findViewById(R.id.compress_progress_view);
+            this.f47129f = (TextView) findViewById(R.id.compress_progress_text);
         }
     }
 
@@ -64,8 +64,8 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f48709e.setProgress(i2);
-        TextView textView = this.f48710f;
+        this.f47128e.setProgress(i2);
+        TextView textView = this.f47129f;
         textView.setText(i2 + "%");
     }
 

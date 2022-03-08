@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.c.r;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ k f60981b;
+    public final /* synthetic */ k f59331b;
 
     public l(k kVar, List list) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class l implements Runnable {
                 return;
             }
         }
-        this.f60981b = kVar;
+        this.f59331b = kVar;
         this.a = list;
     }
 
@@ -47,17 +47,17 @@ public final class l implements Runnable {
         r.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            insideNotificationItem = this.f60981b.f60976b;
+            insideNotificationItem = this.f59331b.f59326b;
             if (insideNotificationItem != null) {
                 x b2 = x.b();
-                j2 = this.f60981b.f60977c;
+                j2 = this.f59331b.f59327c;
                 b2.a("com.vivo.push.notify_key", j2);
-                context = this.f60981b.a;
+                context = this.f59331b.a;
                 List list = this.a;
-                insideNotificationItem2 = this.f60981b.f60976b;
-                j3 = this.f60981b.f60977c;
-                i2 = this.f60981b.f60979e;
-                aVar = this.f60981b.f60980f;
+                insideNotificationItem2 = this.f59331b.f59326b;
+                j3 = this.f59331b.f59327c;
+                i2 = this.f59331b.f59329e;
+                aVar = this.f59331b.f59330f;
                 NotifyAdapterUtil.pushNotification(context, list, insideNotificationItem2, j3, i2, aVar);
             }
         }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
-import c.a.t0.l0.b.g;
+import c.a.q0.c1.b0;
+import c.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsItemTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // c.a.t0.l0.b.i
+    @Override // c.a.q0.k0.b.i
     public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
             builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
-            c0.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.t0.l0.b.f
+    @Override // c.a.q0.k0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.t0.l0.b.f
+    @Override // c.a.q0.k0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

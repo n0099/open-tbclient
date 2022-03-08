@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.common.ResizeOptions;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ThumbnailProducer<T> extends Producer<T> {
     boolean canProvideImageForSize(ResizeOptions resizeOptions);
 }

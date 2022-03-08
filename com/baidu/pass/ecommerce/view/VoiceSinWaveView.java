@@ -20,17 +20,17 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_PHASE = 4097;
@@ -78,7 +78,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public float mVolume;
     public int mWidth;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class TimerThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface VoiceWaveCallBack {
         void fadeOut();
 
@@ -320,10 +320,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 return;
             }
             this.mMaxAmplitude = (i2 - 4.0f) * 0.5f;
-            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(b.sapi_sdk_mms_voice_primary_start), getResources().getColor(b.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
-            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(b.sapi_sdk_mms_voice_secondary_start), getResources().getColor(b.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
-            int color = getResources().getColor(b.sapi_sdk_mms_voice_fill_top);
-            int color2 = getResources().getColor(b.sapi_sdk_mms_voice_fill_bottom);
+            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.sapi_sdk_mms_voice_primary_start), getResources().getColor(R.color.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
+            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_start), getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
+            int color = getResources().getColor(R.color.sapi_sdk_mms_voice_fill_top);
+            int color2 = getResources().getColor(R.color.sapi_sdk_mms_voice_fill_bottom);
             float f2 = this.mHeight / 2;
             float f3 = this.mMaxAmplitude;
             this.mFillPaint.setShader(new LinearGradient(0.0f, f2 - f3, 0.0f, f2 + f3, color, color2, Shader.TileMode.MIRROR));

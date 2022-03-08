@@ -1,5 +1,5 @@
 package com.baidu.searchbox.playerserver;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IPlayerPolicy {
     void notify(String str);
 

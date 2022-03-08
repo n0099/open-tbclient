@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

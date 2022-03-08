@@ -27,7 +27,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeJpegTranscoder";

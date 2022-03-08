@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f50520b;
+    public Context f48939b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        this.f50520b = context;
+        this.f48939b = context;
     }
 
     public static synchronized a a(Context context) {
@@ -55,7 +55,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) {
             try {
-                return this.f50520b.getSharedPreferences(str, 0).getLong(str2, j2);
+                return this.f48939b.getSharedPreferences(str, 0).getLong(str2, j2);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return System.currentTimeMillis();
@@ -69,7 +69,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             try {
-                return this.f50520b.getSharedPreferences(str, 0).getString(str2, str3);
+                return this.f48939b.getSharedPreferences(str, 0).getString(str2, str3);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -81,14 +81,14 @@ public class a {
     public void b(String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
-            this.f50520b.getSharedPreferences(str, 0).edit().putLong(str2, j2).commit();
+            this.f48939b.getSharedPreferences(str, 0).edit().putLong(str2, j2).commit();
         }
     }
 
     public void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            this.f50520b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+            this.f48939b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
         }
     }
 }

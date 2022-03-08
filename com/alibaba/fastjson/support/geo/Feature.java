@@ -11,7 +11,7 @@ import com.kwad.v8.debug.mirror.ObjectMirror;
 import java.util.LinkedHashMap;
 import java.util.Map;
 @JSONType(orders = {"type", "id", "bbox", "coordinates", ObjectMirror.PROPERTIES}, typeName = "Feature")
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class Feature extends Geometry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

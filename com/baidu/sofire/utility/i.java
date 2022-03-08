@@ -13,13 +13,13 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f38780b;
+    public static final String[] f37184b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class i {
             }
         }
         a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f38780b = new String[]{"space left"};
+        f37184b = new String[]{"space left"};
     }
 
     public static String a(Context context, String str, String str2) {
@@ -50,7 +50,7 @@ public final class i {
                 if (str.contains(a[0])) {
                     c2 = 1;
                 } else {
-                    c2 = str.contains(f38780b[0]) ? (char) 2 : (char) 0;
+                    c2 = str.contains(f37184b[0]) ? (char) 2 : (char) 0;
                 }
                 if (c2 != 1) {
                     return c2 != 2 ? str : a(context, str);

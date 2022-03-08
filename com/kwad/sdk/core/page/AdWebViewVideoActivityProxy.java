@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
@@ -26,7 +26,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
@@ -38,8 +38,8 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public ViewGroup mWebDownloadContainer;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C2116a getAdClickConfig(boolean z) {
-        return new a.C2116a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
+    public a.C2095a getAdClickConfig(boolean z) {
+        return new a.C2095a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
     }
 
     private void initView() {
@@ -116,11 +116,10 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
                 });
                 af.b(getActivity());
                 com.kwad.sdk.utils.d.a(getActivity(), 0, true);
-                int i2 = R.id.ksad_recycler_container;
                 b a = b.a(this.mAdTemplate);
                 this.mFragment = a;
                 a.a(this.mApkDownloadHelper);
-                getSupportFragmentManager().beginTransaction().replace(i2, this.mFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.ksad_recycler_container, this.mFragment).commitAllowingStateLoss();
             }
         }
         textView.setText("详情页面");
@@ -138,11 +137,10 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
         });
         af.b(getActivity());
         com.kwad.sdk.utils.d.a(getActivity(), 0, true);
-        int i22 = R.id.ksad_recycler_container;
         b a2 = b.a(this.mAdTemplate);
         this.mFragment = a2;
         a2.a(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(i22, this.mFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_recycler_container, this.mFragment).commitAllowingStateLoss();
     }
 
     private boolean isFormAdExitInterceptEnable() {

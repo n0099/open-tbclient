@@ -5,12 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
-import c.a.s0.a.k;
-import c.a.s0.a.n2.m;
-import c.a.s0.a.n2.n;
-import c.a.s0.a.u1.l.f;
-import c.a.s0.a.z2.q;
-import c.a.s0.a.z2.w;
+import c.a.p0.a.d2.m;
+import c.a.p0.a.d2.n;
+import c.a.p0.a.k1.l.f;
+import c.a.p0.a.p2.q;
+import c.a.p0.a.p2.w;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -32,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class HybridUbcFlow {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean r;
@@ -41,31 +40,31 @@ public final class HybridUbcFlow {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f39239b;
+    public final JSONObject f37643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f39240c;
+    public final Map<String, String> f37644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<String> f39241d;
+    public final List<String> f37645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, UbcFlowEvent> f39242e;
+    public final Map<String, UbcFlowEvent> f37646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<UbcFlowEvent> f39243f;
+    public final List<UbcFlowEvent> f37647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39244g;
+    public boolean f37648g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39245h;
+    public boolean f37649h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39246i;
+    public boolean f37650i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f39247j;
+    public boolean f37651j;
     public boolean k;
     public volatile boolean l;
     public SubmitStrategy m;
@@ -75,7 +74,7 @@ public final class HybridUbcFlow {
     public String q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static abstract class SubmitStrategy {
         public static final /* synthetic */ SubmitStrategy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -499,7 +498,7 @@ public final class HybridUbcFlow {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Comparator<UbcFlowEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -530,13 +529,13 @@ public final class HybridUbcFlow {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f39248e;
+        public final /* synthetic */ HybridUbcFlow f37652e;
 
         public b(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
@@ -553,19 +552,19 @@ public final class HybridUbcFlow {
                     return;
                 }
             }
-            this.f39248e = hybridUbcFlow;
+            this.f37652e = hybridUbcFlow;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39248e.o();
+                this.f37652e.o();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements Comparator<UbcFlowEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -596,7 +595,7 @@ public final class HybridUbcFlow {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class d {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -636,26 +635,26 @@ public final class HybridUbcFlow {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c.a.s0.a.z2.g1.c<HybridUbcFlow> f39249b;
+        public final c.a.p0.a.p2.g1.c<HybridUbcFlow> f37653b;
 
-        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, c.a.s0.a.z2.g1.c cVar, a aVar) {
+        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, c.a.p0.a.p2.g1.c cVar, a aVar) {
             this(hybridUbcFlow, str, cVar);
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f39249b == null || TextUtils.isEmpty(this.a)) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f37653b == null || TextUtils.isEmpty(this.a)) ? false : true : invokeV.booleanValue;
         }
 
-        public e(HybridUbcFlow hybridUbcFlow, String str, c.a.s0.a.z2.g1.c<HybridUbcFlow> cVar) {
+        public e(HybridUbcFlow hybridUbcFlow, String str, c.a.p0.a.p2.g1.c<HybridUbcFlow> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -671,7 +670,7 @@ public final class HybridUbcFlow {
                 }
             }
             this.a = str;
-            this.f39249b = cVar;
+            this.f37653b = cVar;
         }
     }
 
@@ -688,7 +687,7 @@ public final class HybridUbcFlow {
                 return;
             }
         }
-        r = k.a;
+        r = c.a.p0.a.a.a;
         s = SubmitStrategy.HYBRID;
     }
 
@@ -707,15 +706,15 @@ public final class HybridUbcFlow {
                 return;
             }
         }
-        this.f39239b = new JSONObject();
-        this.f39240c = new HashMap();
-        this.f39241d = new ArrayList();
-        this.f39242e = new HashMap();
-        this.f39243f = new ArrayList();
-        this.f39244g = false;
-        this.f39245h = false;
-        this.f39246i = false;
-        this.f39247j = false;
+        this.f37643b = new JSONObject();
+        this.f37644c = new HashMap();
+        this.f37645d = new ArrayList();
+        this.f37646e = new HashMap();
+        this.f37647f = new ArrayList();
+        this.f37648g = false;
+        this.f37649h = false;
+        this.f37650i = false;
+        this.f37651j = false;
         this.k = false;
         this.l = false;
         this.m = s;
@@ -728,9 +727,9 @@ public final class HybridUbcFlow {
     private void update(UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, ubcFlowEvent) == null) {
-            this.f39241d.remove(ubcFlowEvent.a);
-            this.f39241d.add(ubcFlowEvent.a);
-            this.f39242e.put(ubcFlowEvent.a, ubcFlowEvent);
+            this.f37645d.remove(ubcFlowEvent.a);
+            this.f37645d.add(ubcFlowEvent.a);
+            this.f37646e.put(ubcFlowEvent.a, ubcFlowEvent);
         }
     }
 
@@ -739,7 +738,7 @@ public final class HybridUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean z = r;
-            this.f39244g = true;
+            this.f37648g = true;
             d();
             return this;
         }
@@ -751,7 +750,7 @@ public final class HybridUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             boolean z = r;
-            this.f39246i = true;
+            this.f37650i = true;
             c("fmp_callback");
             d();
             return this;
@@ -759,7 +758,7 @@ public final class HybridUbcFlow {
         return (HybridUbcFlow) invokeV.objValue;
     }
 
-    public HybridUbcFlow C(@Nullable c.a.s0.a.p.e.b bVar) {
+    public HybridUbcFlow C(@Nullable c.a.p0.a.f.e.b bVar) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -790,7 +789,7 @@ public final class HybridUbcFlow {
                 }
             }
             c("fmp_callback");
-            this.f39246i = true;
+            this.f37650i = true;
             d();
             return this;
         }
@@ -801,7 +800,7 @@ public final class HybridUbcFlow {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            this.f39240c.put(str, str2);
+            this.f37644c.put(str, str2);
             return this;
         }
         return (HybridUbcFlow) invokeLL.objValue;
@@ -815,7 +814,7 @@ public final class HybridUbcFlow {
                 return this;
             }
             try {
-                this.f39239b.put(str, obj);
+                this.f37643b.put(str, obj);
             } catch (JSONException e2) {
                 if (r) {
                     e2.printStackTrace();
@@ -834,7 +833,7 @@ public final class HybridUbcFlow {
                 String str = "record " + ubcFlowEvent;
             }
             if (v(ubcFlowEvent)) {
-                synchronized (this.f39241d) {
+                synchronized (this.f37645d) {
                     int i2 = d.a[ubcFlowEvent.c().ordinal()];
                     if (i2 == 1) {
                         update(ubcFlowEvent);
@@ -860,7 +859,7 @@ public final class HybridUbcFlow {
             if (r) {
                 String str = "record events size = " + list.size();
             }
-            synchronized (this.f39241d) {
+            synchronized (this.f37645d) {
                 for (UbcFlowEvent ubcFlowEvent : list) {
                     F(ubcFlowEvent);
                 }
@@ -870,7 +869,7 @@ public final class HybridUbcFlow {
         return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public HybridUbcFlow H(String str, c.a.s0.a.z2.g1.c<HybridUbcFlow> cVar) {
+    public HybridUbcFlow H(String str, c.a.p0.a.p2.g1.c<HybridUbcFlow> cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cVar)) == null) {
@@ -915,7 +914,7 @@ public final class HybridUbcFlow {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Collections.sort(this.f39243f, new a(this));
+            Collections.sort(this.f37647f, new a(this));
         }
     }
 
@@ -930,7 +929,7 @@ public final class HybridUbcFlow {
                 R();
                 c("callback_on_submit");
                 q.j(new b(this), "HybridUbcFlow");
-                c.a.s0.a.u1.l.c.b();
+                c.a.p0.a.k1.l.c.b();
             }
         }
     }
@@ -965,7 +964,7 @@ public final class HybridUbcFlow {
     public final void O(UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, ubcFlowEvent) == null) {
-            UbcFlowEvent ubcFlowEvent2 = this.f39242e.get(ubcFlowEvent.a);
+            UbcFlowEvent ubcFlowEvent2 = this.f37646e.get(ubcFlowEvent.a);
             if (!v(ubcFlowEvent2) || ubcFlowEvent.g() < ubcFlowEvent2.g()) {
                 update(ubcFlowEvent);
             }
@@ -976,11 +975,11 @@ public final class HybridUbcFlow {
         UbcFlowEvent ubcFlowEvent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.f39241d) {
-                this.f39243f.clear();
-                for (String str : this.f39241d) {
-                    if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f39242e.get(str)) != null && ubcFlowEvent.g() > 0) {
-                        this.f39243f.add(ubcFlowEvent);
+            synchronized (this.f37645d) {
+                this.f37647f.clear();
+                for (String str : this.f37645d) {
+                    if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f37646e.get(str)) != null && ubcFlowEvent.g() > 0) {
+                        this.f37647f.add(ubcFlowEvent);
                     }
                 }
                 K();
@@ -991,7 +990,7 @@ public final class HybridUbcFlow {
     public final void Q(UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, ubcFlowEvent) == null) {
-            UbcFlowEvent ubcFlowEvent2 = this.f39242e.get(ubcFlowEvent.a);
+            UbcFlowEvent ubcFlowEvent2 = this.f37646e.get(ubcFlowEvent.a);
             if (!v(ubcFlowEvent2) || ubcFlowEvent.g() > ubcFlowEvent2.g()) {
                 update(ubcFlowEvent);
             }
@@ -999,10 +998,10 @@ public final class HybridUbcFlow {
     }
 
     public final void R() {
-        c.a.s0.a.h0.t.h.a aVar;
+        c.a.p0.a.x.t.h.a aVar;
         UbcFlowEvent a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && TextUtils.equals("670", this.a) && f.a() && (aVar = (c.a.s0.a.h0.t.h.a) k("fmp_data_record")) != null && aVar.c() && (a2 = aVar.a()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && TextUtils.equals("670", this.a) && f.a() && (aVar = (c.a.p0.a.x.t.h.a) k("fmp_data_record")) != null && aVar.c() && (a2 = aVar.a()) != null) {
             D("fmp_type", aVar.b());
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(a2.a);
             ubcFlowEvent.h(a2.g());
@@ -1016,7 +1015,7 @@ public final class HybridUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             boolean z = r;
-            this.f39247j = true;
+            this.f37651j = true;
             d();
             return this;
         }
@@ -1046,13 +1045,13 @@ public final class HybridUbcFlow {
 
     public final void c(String str) {
         List<e> list;
-        c.a.s0.a.z2.g1.c<HybridUbcFlow> cVar;
+        c.a.p0.a.p2.g1.c<HybridUbcFlow> cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (list = this.n.get(str)) == null || list.isEmpty()) {
             return;
         }
         for (e eVar : list) {
-            if (eVar != null && (cVar = eVar.f39249b) != null) {
+            if (eVar != null && (cVar = eVar.f37653b) != null) {
                 cVar.onCallback(this);
             }
         }
@@ -1074,13 +1073,13 @@ public final class HybridUbcFlow {
             synchronized (this) {
                 jSONObject = new JSONObject();
                 try {
-                    int size = this.f39241d.size();
+                    int size = this.f37645d.size();
                     String[] strArr = new String[size];
-                    this.f39241d.toArray(strArr);
+                    this.f37645d.toArray(strArr);
                     ArrayList<UbcFlowEvent> arrayList = new ArrayList(size);
                     for (int i2 = 0; i2 < size; i2++) {
                         String str = strArr[i2];
-                        if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f39242e.get(str)) != null && ubcFlowEvent.g() > 0) {
+                        if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.f37646e.get(str)) != null && ubcFlowEvent.g() > 0) {
                             arrayList.add(ubcFlowEvent);
                         }
                     }
@@ -1093,7 +1092,7 @@ public final class HybridUbcFlow {
                         jSONObject.put("events", jSONArray);
                     }
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.f39240c.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.f37644c.entrySet()) {
                         String key = entry.getKey();
                         if (!TextUtils.isEmpty(key)) {
                             String value = entry.getValue();
@@ -1106,8 +1105,8 @@ public final class HybridUbcFlow {
                     if (jSONObject2.length() != 0) {
                         jSONObject.put("ext", jSONObject2);
                     }
-                    if (this.f39239b != null && this.f39239b.length() > 0) {
-                        jSONObject.put(SavedStateHandle.VALUES, this.f39239b);
+                    if (this.f37643b != null && this.f37643b.length() > 0) {
+                        jSONObject.put(SavedStateHandle.VALUES, this.f37643b);
                     }
                 } catch (Exception unused) {
                 }
@@ -1150,7 +1149,7 @@ public final class HybridUbcFlow {
                 if (i2 >= length) {
                     break;
                 }
-                UbcFlowEvent ubcFlowEvent3 = this.f39242e.get(strArr[i2]);
+                UbcFlowEvent ubcFlowEvent3 = this.f37646e.get(strArr[i2]);
                 if (ubcFlowEvent2 == null) {
                     if (ubcFlowEvent3 == null || ubcFlowEvent3.g() < 1) {
                         break;
@@ -1170,13 +1169,13 @@ public final class HybridUbcFlow {
     public UbcFlowEvent g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? this.f39242e.get(str) : (UbcFlowEvent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? this.f37646e.get(str) : (UbcFlowEvent) invokeL.objValue;
     }
 
     public String h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) ? this.f39240c.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) ? this.f37644c.get(str) : (String) invokeL.objValue;
     }
 
     public SubmitStrategy i() {
@@ -1213,7 +1212,7 @@ public final class HybridUbcFlow {
     public JSONObject m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f39239b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f37643b : (JSONObject) invokeV.objValue;
     }
 
     public HybridUbcFlow n() {
@@ -1221,7 +1220,7 @@ public final class HybridUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             boolean z = r;
-            this.f39245h = true;
+            this.f37649h = true;
             d();
             return this;
         }
@@ -1232,30 +1231,30 @@ public final class HybridUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             if (TextUtils.equals("670", this.a)) {
-                c.a.s0.a.e0.d.k("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
-                this.f39240c.put("sys_total_mem", c.a.s0.a.e0.g.e.c().k());
-                this.f39240c.put("launch_end_mem", c.a.s0.a.e0.g.e.c().h(c.a.s0.a.d2.d.J().r().V().j("main_pid", -1)));
-                c.a.s0.a.e0.g.e.c().l();
+                c.a.p0.a.u.d.k("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
+                this.f37644c.put("sys_total_mem", c.a.p0.a.u.g.e.c().k());
+                this.f37644c.put("launch_end_mem", c.a.p0.a.u.g.e.c().h(c.a.p0.a.t1.d.J().r().V().j("main_pid", -1)));
+                c.a.p0.a.u.g.e.c().l();
             }
             JSONObject jSONObject = new JSONObject();
-            w.f(jSONObject, "static", Float.valueOf(c.a.s0.a.c1.a.m().a()));
-            this.f39240c.put("device_score", jSONObject.toString());
-            String a2 = c.a.s0.a.c1.a.n0().a();
+            w.f(jSONObject, "static", Float.valueOf(c.a.p0.a.s0.a.m().a()));
+            this.f37644c.put("device_score", jSONObject.toString());
+            String a2 = c.a.p0.a.s0.a.n0().a();
             if (!TextUtils.isEmpty(a2)) {
-                this.f39240c.put("dyeId", a2);
+                this.f37644c.put("dyeId", a2);
             }
-            this.f39240c.put("localABTestSids", c.a.s0.a.h1.b.b().a());
-            this.f39240c.put("hostLaunchType", String.valueOf(c.a.s0.a.d2.d.J().r().V().i("host_launch_type")));
+            this.f37644c.put("localABTestSids", c.a.p0.a.x0.b.b().a());
+            this.f37644c.put("hostLaunchType", String.valueOf(c.a.p0.a.t1.d.J().r().V().i("host_launch_type")));
             P();
-            c.a.s0.a.n2.q.c(this);
+            c.a.p0.a.d2.q.c(this);
             c("component_reporter");
             if (TextUtils.isEmpty(this.a)) {
                 return;
             }
-            c.a.s0.a.n2.a c2 = n.c(this.a);
-            for (UbcFlowEvent ubcFlowEvent : this.f39243f) {
+            c.a.p0.a.d2.a c2 = n.c(this.a);
+            for (UbcFlowEvent ubcFlowEvent : this.f37647f) {
                 if (!ubcFlowEvent.b()) {
-                    c.a.s0.a.n2.b.e(c2, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                    c.a.p0.a.d2.b.e(c2, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
                 }
             }
             if (q()) {
@@ -1263,7 +1262,7 @@ public final class HybridUbcFlow {
             }
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                for (Map.Entry<String, String> entry : this.f39240c.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f37644c.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         String value = entry.getValue();
@@ -1280,11 +1279,11 @@ public final class HybridUbcFlow {
                     e2.printStackTrace();
                 }
             }
-            c.a.s0.a.n2.b.f(c2, this.f39239b.toString());
-            c.a.s0.a.n2.b.c(c2);
+            c.a.p0.a.d2.b.f(c2, this.f37643b.toString());
+            c.a.p0.a.d2.b.c(c2);
             if (TextUtils.equals("670", this.a)) {
-                c.a.s0.a.u1.l.a.d(this.f39243f, this.f39239b);
-                c.a.s0.a.e0.d.k("HybridUbcFlow", "670: " + e().toString());
+                c.a.p0.a.k1.l.a.d(this.f37647f, this.f37643b);
+                c.a.p0.a.u.d.k("HybridUbcFlow", "670: " + e().toString());
             }
         }
     }
@@ -1292,7 +1291,7 @@ public final class HybridUbcFlow {
     public boolean p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) ? this.f39242e.get(str) != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) ? this.f37646e.get(str) != null : invokeL.booleanValue;
     }
 
     public final boolean q() {
@@ -1300,8 +1299,8 @@ public final class HybridUbcFlow {
         boolean isEmpty;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            synchronized (this.f39241d) {
-                isEmpty = this.f39241d.isEmpty();
+            synchronized (this.f37645d) {
+                isEmpty = this.f37645d.isEmpty();
             }
             return isEmpty;
         }
@@ -1311,19 +1310,19 @@ public final class HybridUbcFlow {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f39245h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f37649h : invokeV.booleanValue;
     }
 
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f39244g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f37648g : invokeV.booleanValue;
     }
 
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f39246i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f37650i : invokeV.booleanValue;
     }
 
     public boolean u() {
@@ -1341,7 +1340,7 @@ public final class HybridUbcFlow {
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f39247j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f37651j : invokeV.booleanValue;
     }
 
     public boolean x() {
@@ -1352,7 +1351,7 @@ public final class HybridUbcFlow {
 
     public final void y(UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, ubcFlowEvent) == null) || v(this.f39242e.get(ubcFlowEvent.a))) {
+        if (!(interceptable == null || interceptable.invokeL(1048619, this, ubcFlowEvent) == null) || v(this.f37646e.get(ubcFlowEvent.a))) {
             return;
         }
         update(ubcFlowEvent);
@@ -1366,8 +1365,8 @@ public final class HybridUbcFlow {
                 return this;
             }
             hybridUbcFlow.P();
-            G(hybridUbcFlow.f39243f);
-            this.f39240c.putAll(hybridUbcFlow.f39240c);
+            G(hybridUbcFlow.f37647f);
+            this.f37644c.putAll(hybridUbcFlow.f37644c);
             return this;
         }
         return (HybridUbcFlow) invokeL.objValue;

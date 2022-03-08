@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f58436b;
+    public final long f56786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f58437c;
+    public final long f56787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f58438d;
+    public final long f56788d;
 
     public a(long j2, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class a {
             }
         }
         this.a = j2;
-        this.f58436b = j3;
-        this.f58437c = j4;
-        this.f58438d = j5;
+        this.f56786b = j3;
+        this.f56787c = j4;
+        this.f56788d = j5;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.f58437c), Long.valueOf(this.f58436b)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.f56787c), Long.valueOf(this.f56786b)) : (String) invokeV.objValue;
     }
 }

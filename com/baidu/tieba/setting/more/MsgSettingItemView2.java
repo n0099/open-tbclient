@@ -6,25 +6,23 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import c.a.u0.o3.b;
-import c.a.u0.o3.e;
-import c.a.u0.o3.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MsgSettingItemView2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f48001e;
+    public CheckBox f46418e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView2(Context context) {
@@ -50,15 +48,15 @@ public class MsgSettingItemView2 extends LinearLayout {
     public CheckBox getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48001e : (CheckBox) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46418e : (CheckBox) invokeV.objValue;
     }
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(f.msg_setting_item_view2, (ViewGroup) this, true);
-            this.f48001e = (CheckBox) findViewById(e.setting_check_view);
+            LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
+            this.f46418e = (CheckBox) findViewById(R.id.setting_check_view);
         }
     }
 
@@ -67,7 +65,7 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
             tbPageContext.getLayoutMode().k(i2 == 1);
             tbPageContext.getLayoutMode().j(this);
-            SkinManager.setBackgroundColor(this, b.CAM_X0205);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
         }
     }
 
@@ -84,7 +82,7 @@ public class MsgSettingItemView2 extends LinearLayout {
             if (StringUtils.isNULL(str)) {
                 str = "";
             }
-            this.f48001e.setText(str);
+            this.f46418e.setText(str);
         }
     }
 
@@ -115,6 +113,6 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f48001e.setText(i2);
+        this.f46418e.setText(i2);
     }
 }

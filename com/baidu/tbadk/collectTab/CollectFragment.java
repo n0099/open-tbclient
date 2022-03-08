@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDITOR_ENABLE_EXTRA = "is_enable_edit";
@@ -22,10 +22,10 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f40357e;
+    public final CustomMessageListener f38761e;
     public boolean mIsEnableEdit;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f40357e = new a(this, 2000994);
+        this.f38761e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -100,7 +100,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f40357e);
+            registerListener(this.f38761e);
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f40357e);
+            MessageManager.getInstance().unRegisterListener(this.f38761e);
         }
     }
 

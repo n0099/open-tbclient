@@ -13,7 +13,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class JSONValidator implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     public Type type;
     public Boolean valiateResult;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class ReaderValidator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public static final ThreadLocal<char[]> bufLocal;
@@ -131,7 +131,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -192,7 +192,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class UTF16Validator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class UTF8InputStreamValidator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public static final ThreadLocal<byte[]> bufLocal;
@@ -377,7 +377,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class UTF8Validator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

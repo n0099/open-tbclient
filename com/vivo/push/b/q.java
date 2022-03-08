@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class q extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InsideNotificationItem a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60862b;
+    public String f59212b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q() {
@@ -41,7 +41,7 @@ public final class q extends v {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             String b2 = com.vivo.push.util.q.b(this.a);
-            this.f60862b = b2;
+            this.f59212b = b2;
             aVar.a("notification_v1", b2);
         }
     }
@@ -56,14 +56,14 @@ public final class q extends v {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f60862b)) {
+            if (TextUtils.isEmpty(this.f59212b)) {
                 InsideNotificationItem insideNotificationItem = this.a;
                 if (insideNotificationItem == null) {
                     return null;
                 }
                 return com.vivo.push.util.q.b(insideNotificationItem);
             }
-            return this.f60862b;
+            return this.f59212b;
         }
         return (String) invokeV.objValue;
     }
@@ -81,11 +81,11 @@ public final class q extends v {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             String a = aVar.a("notification_v1");
-            this.f60862b = a;
+            this.f59212b = a;
             if (TextUtils.isEmpty(a)) {
                 return;
             }
-            InsideNotificationItem a2 = com.vivo.push.util.q.a(this.f60862b);
+            InsideNotificationItem a2 = com.vivo.push.util.q.a(this.f59212b);
             this.a = a2;
             if (a2 != null) {
                 a2.setMsgId(f());

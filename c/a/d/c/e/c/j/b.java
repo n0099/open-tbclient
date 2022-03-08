@@ -103,7 +103,7 @@ public class b {
                 newInstance.setOrginalMessage(socketMessage);
                 if (z) {
                     try {
-                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f1788c);
+                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f2414c);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -113,7 +113,7 @@ public class b {
                 return newInstance;
             } catch (Throwable th) {
                 BdStatisticsManager.getInstance().error("im", socketMessage != null ? socketMessage.getClientLogID() : 0L, (String) null, "cmd", Integer.valueOf(i2), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th.getMessage());
-                throw new CoderException(h.f1788c);
+                throw new CoderException(h.f2414c);
             }
         }
         return (SocketResponsedMessage) invokeCommon.objValue;
@@ -129,14 +129,14 @@ public class b {
                 if (a2 != null) {
                     c cVar = new c();
                     cVar.a = a2;
-                    cVar.f1805b = bArr;
-                    cVar.f1806c = f2;
-                    cVar.f1807d = bArr.length - f2;
+                    cVar.f2431b = bArr;
+                    cVar.f2432c = f2;
+                    cVar.f2433d = bArr.length - f2;
                     return cVar;
                 }
-                throw new CoderException(h.f1787b);
+                throw new CoderException(h.f2413b);
             }
-            throw new CoderException(h.f1787b);
+            throw new CoderException(h.f2413b);
         }
         return (c) invokeL.objValue;
     }
@@ -147,34 +147,34 @@ public class b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            if (cVar != null && (aVar = cVar.a) != null && cVar.f1805b != null) {
-                if (aVar.d() && cVar.f1807d > 0) {
+            if (cVar != null && (aVar = cVar.a) != null && cVar.f2431b != null) {
+                if (aVar.d() && cVar.f2433d > 0) {
                     if (d.a().b() != null) {
                         try {
-                            byte[] a2 = v.a(d.a().b(), cVar.f1805b, cVar.f1806c, cVar.f1807d);
-                            cVar.f1805b = a2;
-                            cVar.f1806c = 0;
-                            cVar.f1807d = a2.length;
+                            byte[] a2 = v.a(d.a().b(), cVar.f2431b, cVar.f2432c, cVar.f2433d);
+                            cVar.f2431b = a2;
+                            cVar.f2432c = 0;
+                            cVar.f2433d = a2.length;
                         } catch (Exception unused) {
-                            throw new CoderException(h.f1793h);
+                            throw new CoderException(h.f2419h);
                         }
                     } else {
-                        throw new CoderException(h.f1792g);
+                        throw new CoderException(h.f2418g);
                     }
                 }
-                if (aVar.c() && (i2 = cVar.f1807d) > 0) {
+                if (aVar.c() && (i2 = cVar.f2433d) > 0) {
                     try {
-                        byte[] g2 = g(cVar.f1805b, cVar.f1806c, i2);
-                        cVar.f1805b = g2;
-                        cVar.f1806c = 0;
-                        cVar.f1807d = g2.length;
+                        byte[] g2 = g(cVar.f2431b, cVar.f2432c, i2);
+                        cVar.f2431b = g2;
+                        cVar.f2432c = 0;
+                        cVar.f2433d = g2.length;
                     } catch (Exception unused2) {
-                        throw new CoderException(h.f1791f);
+                        throw new CoderException(h.f2417f);
                     }
                 }
                 return cVar;
             }
-            throw new CoderException(h.f1787b);
+            throw new CoderException(h.f2413b);
         }
         return (c) invokeL.objValue;
     }
@@ -190,7 +190,7 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f1796g);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f2422g);
                 if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
                     allocate.putInt(encodeExtraDataInBackGround.length);
                     allocate.put(encodeExtraDataInBackGround);
@@ -198,7 +198,7 @@ public class b {
                     encodeInBackGround = allocate.array();
                     z3 = true;
                 } else {
-                    throw new CoderException(h.f1790e);
+                    throw new CoderException(h.f2416e);
                 }
             } else {
                 z3 = false;

@@ -5,17 +5,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
-public class b extends a.AbstractRunnableC1838a {
+/* loaded from: classes4.dex */
+public class b extends a.AbstractRunnableC1814a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f36202b;
+    public final /* synthetic */ String f34605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f36203c;
+    public final /* synthetic */ a f34606c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, e eVar, String str) {
@@ -35,23 +35,23 @@ public class b extends a.AbstractRunnableC1838a {
                 return;
             }
         }
-        this.f36203c = aVar;
+        this.f34606c = aVar;
         this.a = eVar;
-        this.f36202b = str;
+        this.f34605b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1838a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1814a
     public void a() {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c cVar = new c("GET", this.a);
-            i2 = this.f36203c.a;
+            i2 = this.f34606c.a;
             cVar.b(i2);
-            i3 = this.f36203c.f36200b;
+            i3 = this.f34606c.f34603b;
             cVar.a(i3);
-            cVar.a(this.f36202b);
+            cVar.a(this.f34605b);
         }
     }
 }

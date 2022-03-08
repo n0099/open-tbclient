@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ga extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class ga extends gc {
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f428a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f61313b;
+        public static final a f59663b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f61314c;
+        public static final a f59664c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f61315d;
+        public static final a f59665d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f61316e;
+        public static final a f59666e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -55,10 +55,10 @@ public class ga extends gc {
                 }
             }
             a = new a("get");
-            f61313b = new a("set");
-            f61314c = new a("result");
-            f61315d = new a("error");
-            f61316e = new a("command");
+            f59663b = new a("set");
+            f59664c = new a("result");
+            f59665d = new a("error");
+            f59666e = new a("command");
         }
 
         public a(String str) {
@@ -90,17 +90,17 @@ public class ga extends gc {
                 if (a.toString().equals(lowerCase)) {
                     return a;
                 }
-                if (f61313b.toString().equals(lowerCase)) {
-                    return f61313b;
+                if (f59663b.toString().equals(lowerCase)) {
+                    return f59663b;
                 }
-                if (f61315d.toString().equals(lowerCase)) {
-                    return f61315d;
+                if (f59665d.toString().equals(lowerCase)) {
+                    return f59665d;
                 }
-                if (f61314c.toString().equals(lowerCase)) {
-                    return f61314c;
+                if (f59664c.toString().equals(lowerCase)) {
+                    return f59664c;
                 }
-                if (f61316e.toString().equals(lowerCase)) {
-                    return f61316e;
+                if (f59666e.toString().equals(lowerCase)) {
+                    return f59666e;
                 }
                 return null;
             }

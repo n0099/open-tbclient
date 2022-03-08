@@ -2,7 +2,7 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import c.a.t0.b0.b;
+import c.a.q0.a0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f41273e;
+    public final HttpMessageListener f39679e;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.y();
                 } else {
-                    int a = c.a.t0.s.f0.b.a();
+                    int a = c.a.q0.r.f0.b.a();
                     if (a != 2) {
                         this.a.z(a);
                         return;
@@ -108,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41273e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f39679e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f41273e.setTag(getUniqueId());
-        this.f41273e.setSelfListener(true);
-        registerListener(this.f41273e);
+        this.f39679e.setTag(getUniqueId());
+        this.f39679e.setSelfListener(true);
+        registerListener(this.f39679e);
     }
 
     public static void A() {
@@ -158,7 +158,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                Object invoke = c.a.d.a.b.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.f().b(), new Object[0]);
+                Object invoke = c.a.d.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.g().b(), new Object[0]);
                 b.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();

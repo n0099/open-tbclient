@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
                     e2.printStackTrace();
                     e a = a.a("", "1517888290046");
                     this.adModel = a;
-                    a.f3573d = e2;
+                    a.f3209d = e2;
                     return;
                 }
             }

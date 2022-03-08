@@ -11,39 +11,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ByteString f28006d;
+    public static final ByteString f27910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ByteString f28007e;
+    public static final ByteString f27911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ByteString f28008f;
+    public static final ByteString f27912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ByteString f28009g;
+    public static final ByteString f27913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ByteString f28010h;
+    public static final ByteString f27914h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ByteString f28011i;
+    public static final ByteString f27915i;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteString a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ByteString f28012b;
+    public final ByteString f27916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f28013c;
+    public final int f27917c;
 
     /* renamed from: c.d.b.e0.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC1636a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1647a {
         void a(r rVar);
     }
 
@@ -60,12 +60,12 @@ public final class a {
                 return;
             }
         }
-        f28006d = ByteString.encodeUtf8(":");
-        f28007e = ByteString.encodeUtf8(":status");
-        f28008f = ByteString.encodeUtf8(":method");
-        f28009g = ByteString.encodeUtf8(":path");
-        f28010h = ByteString.encodeUtf8(":scheme");
-        f28011i = ByteString.encodeUtf8(":authority");
+        f27910d = ByteString.encodeUtf8(":");
+        f27911e = ByteString.encodeUtf8(":status");
+        f27912f = ByteString.encodeUtf8(":method");
+        f27913g = ByteString.encodeUtf8(":path");
+        f27914h = ByteString.encodeUtf8(":scheme");
+        f27915i = ByteString.encodeUtf8(":authority");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.a.equals(aVar.a) && this.f28012b.equals(aVar.f28012b);
+                return this.a.equals(aVar.a) && this.f27916b.equals(aVar.f27916b);
             }
             return false;
         }
@@ -105,13 +105,13 @@ public final class a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28012b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f27916b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.d.b.e0.e.q("%s: %s", this.a.utf8(), this.f28012b.utf8()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.d.b.e0.e.q("%s: %s", this.a.utf8(), this.f27916b.utf8()) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -151,7 +151,7 @@ public final class a {
             }
         }
         this.a = byteString;
-        this.f28012b = byteString2;
-        this.f28013c = byteString.size() + 32 + byteString2.size();
+        this.f27916b = byteString2;
+        this.f27917c = byteString.size() + 32 + byteString2.size();
     }
 }

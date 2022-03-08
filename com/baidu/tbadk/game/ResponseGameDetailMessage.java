@@ -12,7 +12,7 @@ import tbclient.GameInfo;
 import tbclient.GetGameDetail.DataRes;
 import tbclient.GetGameDetail.GetGameDetailResIdl;
 import tbclient.GetGameDetail.RankInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ResponseGameDetailMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

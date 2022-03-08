@@ -13,28 +13,28 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53105b = 6000;
+    public static int f51524b = 6000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f53106c = 5;
+    public static int f51525c = 5;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BlockingQueue<Runnable> f53107d;
+    public static BlockingQueue<Runnable> f51526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ThreadFactory f53108e;
+    public static ThreadFactory f51527e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ThreadPoolExecutor f53109f;
+    public static ThreadPoolExecutor f51528f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,15 +80,15 @@ public class g0 {
                 return;
             }
         }
-        f53107d = new ArrayBlockingQueue(3);
-        f53108e = new a();
-        f53109f = new ThreadPoolExecutor(a, f53106c, f53105b, TimeUnit.SECONDS, f53107d, f53108e);
+        f51526d = new ArrayBlockingQueue(3);
+        f51527e = new a();
+        f51528f = new ThreadPoolExecutor(a, f51525c, f51524b, TimeUnit.SECONDS, f51526d, f51527e);
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f53109f.execute(runnable);
+            f51528f.execute(runnable);
         }
     }
 }

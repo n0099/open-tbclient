@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface g {
     void a(boolean z);
 }

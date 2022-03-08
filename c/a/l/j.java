@@ -2,7 +2,7 @@ package c.a.l;
 
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.FollowUserDecorView;
@@ -21,10 +21,10 @@ public class j extends c implements p<e2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f4378i;
+    public FollowUserDecorView f4032i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f4379j;
+    public boolean f4033j;
     public int k;
     public int l;
 
@@ -43,20 +43,20 @@ public class j extends c implements p<e2>, q {
                 return;
             }
         }
-        this.f4379j = true;
+        this.f4033j = true;
         this.k = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds166);
         this.l = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds78);
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f4378i = followUserDecorView;
+        this.f4032i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         g(-1);
         l(z);
     }
 
-    public void j(c.a.t0.s.r.a aVar, boolean z) {
+    public void j(c.a.q0.r.r.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, aVar, z) == null) {
-            this.f4379j = z;
+            this.f4033j = z;
             s(0);
             n(true);
         }
@@ -83,7 +83,7 @@ public class j extends c implements p<e2>, q {
                 layoutParams.topMargin = k(R.dimen.tbds52);
             }
             h(layoutParams);
-            f(this.f4378i);
+            f(this.f4032i);
         }
     }
 
@@ -94,27 +94,27 @@ public class j extends c implements p<e2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) {
             if (e2Var != null && e2Var.J() != null) {
-                p(k(this.f4379j ? R.dimen.tbds120 : R.dimen.tbds44));
-                this.f4378i.setVisibility(0);
-                this.f4378i.setData(e2Var);
-                this.f4378i.setTag(e2Var);
+                p(k(this.f4033j ? R.dimen.tbds120 : R.dimen.tbds44));
+                this.f4032i.setVisibility(0);
+                this.f4032i.setData(e2Var);
+                this.f4032i.setTag(e2Var);
                 return;
             }
-            this.f4378i.setVisibility(8);
+            this.f4032i.setVisibility(8);
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f4378i.setClickableUnLike(z);
+            this.f4032i.setClickableUnLike(z);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f4378i.setIsShowIcon(z);
+            this.f4032i.setIsShowIcon(z);
         }
     }
 
@@ -122,7 +122,7 @@ public class j extends c implements p<e2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i2) == null) {
-            this.f4378i.onChangeSkinType(i2);
+            this.f4032i.onChangeSkinType(i2);
         }
     }
 
@@ -132,28 +132,28 @@ public class j extends c implements p<e2>, q {
             if (c() != null) {
                 c().rightMargin = i2;
             }
-            this.f4378i.setLayoutParams(c());
+            this.f4032i.setLayoutParams(c());
         }
     }
 
     public void q(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f4378i.setOnClickEvent(aVar);
+            this.f4032i.setOnClickEvent(aVar);
         }
     }
 
     public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f4378i.setPageUniqueId(bdUniqueId);
+            this.f4032i.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f4378i.setSvgIconResId(i2);
+            this.f4032i.setSvgIconResId(i2);
         }
     }
 }

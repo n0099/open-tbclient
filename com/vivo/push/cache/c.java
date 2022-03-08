@@ -17,23 +17,23 @@ import com.vivo.push.util.x;
 import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class c<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<T> f60898b;
+    public List<T> f59248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f60899c;
+    public Context f59249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f60900d;
+    public byte[] f59250d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f60901e;
+    public byte[] f59251e;
 
     static {
         InterceptResult invokeClinit;
@@ -66,25 +66,25 @@ public abstract class c<T> {
                 return;
             }
         }
-        this.f60898b = new ArrayList();
-        this.f60899c = ContextDelegate.getContext(context);
+        this.f59248b = new ArrayList();
+        this.f59249c = ContextDelegate.getContext(context);
         x b2 = x.b();
-        b2.a(this.f60899c);
-        this.f60900d = b2.c();
-        this.f60901e = b2.d();
+        b2.a(this.f59249c);
+        this.f59250d = b2.c();
+        this.f59251e = b2.d();
         c();
     }
 
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? z.b(this.f60899c).a(a(), null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? z.b(this.f59249c).a(a(), null) : (String) invokeV.objValue;
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            z.b(this.f60899c).b(a(), str);
+            z.b(this.f59249c).b(a(), str);
         }
     }
 
@@ -99,7 +99,7 @@ public abstract class c<T> {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (a) {
                 g.a(a());
-                this.f60898b.clear();
+                this.f59248b.clear();
                 c(b());
             }
         }
@@ -109,7 +109,7 @@ public abstract class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            byte[] bArr = this.f60900d;
+            byte[] bArr = this.f59250d;
             return (bArr == null || bArr.length <= 0) ? x.b().c() : bArr;
         }
         return (byte[]) invokeV.objValue;
@@ -119,7 +119,7 @@ public abstract class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            byte[] bArr = this.f60901e;
+            byte[] bArr = this.f59251e;
             return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;
@@ -129,7 +129,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (a) {
-                this.f60898b.clear();
+                this.f59248b.clear();
                 d("");
                 p.d("CacheSettings", "clear " + a() + " strApps");
             }
@@ -149,7 +149,7 @@ public abstract class c<T> {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
                     List<T> a2 = a(b(str));
                     if (a2 != null) {
-                        this.f60898b.addAll(a2);
+                        this.f59248b.addAll(a2);
                     }
                 } catch (Exception e2) {
                     d();

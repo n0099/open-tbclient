@@ -27,46 +27,46 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f42419b;
+    public TextView f40822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f42420c;
+    public TextView f40823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f42421d;
+    public TextView f40824d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f42422e;
+    public TextView f40825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42423f;
+    public int f40826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.u0.c0.b.a f42424g;
+    public c.a.r0.c0.b.a f40827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f42425h;
+    public BdUniqueId f40828h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f42426i;
+    public View f40829i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f42427j;
+    public View.OnClickListener f40830j;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchItemHolder f42428e;
+        public final /* synthetic */ CandidateSearchItemHolder f40831e;
 
         public a(CandidateSearchItemHolder candidateSearchItemHolder) {
             Interceptable interceptable = $ic;
@@ -83,38 +83,38 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                     return;
                 }
             }
-            this.f42428e = candidateSearchItemHolder;
+            this.f40831e = candidateSearchItemHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42428e.f42424g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40831e.f40827g == null) {
                 return;
             }
-            if (view.getId() != this.f42428e.f42426i.getId() && view.getId() != this.f42428e.a.getId()) {
-                if (view.getId() == this.f42428e.f42422e.getId() && (this.f42428e.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.f42428e.itemView.getContext())) {
-                    if (this.f42428e.f42424g.k) {
+            if (view.getId() != this.f40831e.f40829i.getId() && view.getId() != this.f40831e.a.getId()) {
+                if (view.getId() == this.f40831e.f40825e.getId() && (this.f40831e.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.f40831e.itemView.getContext())) {
+                    if (this.f40831e.f40827g.k) {
                         n.M(TbadkCoreApplication.getInst(), R.string.has_not_other_ticket);
                         return;
                     }
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.f42428e.f42424g.f15698b, this.f42428e.f42424g.a, this.f42428e.f42424g.l, 3);
-                    if (this.f42428e.f42425h == null) {
-                        if (this.f42428e.itemView.getContext() instanceof BaseActivity) {
-                            CandidateSearchItemHolder candidateSearchItemHolder = this.f42428e;
-                            candidateSearchItemHolder.f42425h = ((BaseActivity) candidateSearchItemHolder.itemView.getContext()).getUniqueId();
-                        } else if (this.f42428e.itemView.getContext() instanceof BaseFragmentActivity) {
-                            CandidateSearchItemHolder candidateSearchItemHolder2 = this.f42428e;
-                            candidateSearchItemHolder2.f42425h = ((BaseFragmentActivity) candidateSearchItemHolder2.itemView.getContext()).getUniqueId();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.f40831e.f40827g.f15190b, this.f40831e.f40827g.a, this.f40831e.f40827g.l, 3);
+                    if (this.f40831e.f40828h == null) {
+                        if (this.f40831e.itemView.getContext() instanceof BaseActivity) {
+                            CandidateSearchItemHolder candidateSearchItemHolder = this.f40831e;
+                            candidateSearchItemHolder.f40828h = ((BaseActivity) candidateSearchItemHolder.itemView.getContext()).getUniqueId();
+                        } else if (this.f40831e.itemView.getContext() instanceof BaseFragmentActivity) {
+                            CandidateSearchItemHolder candidateSearchItemHolder2 = this.f40831e;
+                            candidateSearchItemHolder2.f40828h = ((BaseFragmentActivity) candidateSearchItemHolder2.itemView.getContext()).getUniqueId();
                         }
                     }
-                    commitVoteReqMsg.setTag(this.f42428e.f42425h);
+                    commitVoteReqMsg.setTag(this.f40831e.f40828h);
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f42428e.itemView.getContext()).createNormalConfig(this.f42428e.f42424g.f15698b, this.f42428e.f42424g.f15698b == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f40831e.itemView.getContext()).createNormalConfig(this.f40831e.f40827g.f15190b, this.f40831e.f40827g.f15190b == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
         }
     }
 
@@ -136,39 +136,39 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f42423f = 3;
-        this.f42425h = null;
-        this.f42427j = new a(this);
+        this.f40826f = 3;
+        this.f40828h = null;
+        this.f40830j = new a(this);
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.img_head);
         this.a = headImageView;
         headImageView.setIsRound(true);
-        this.a.setOnClickListener(this.f42427j);
-        this.f42419b = (TextView) view.findViewById(R.id.name);
-        this.f42420c = (TextView) view.findViewById(R.id.num_and_vote_count);
-        this.f42421d = (TextView) view.findViewById(R.id.agree_publish_reply);
-        this.f42422e = (TextView) view.findViewById(R.id.btn_vote);
-        this.itemView.setOnClickListener(this.f42427j);
-        this.f42422e.setOnClickListener(this.f42427j);
+        this.a.setOnClickListener(this.f40830j);
+        this.f40822b = (TextView) view.findViewById(R.id.name);
+        this.f40823c = (TextView) view.findViewById(R.id.num_and_vote_count);
+        this.f40824d = (TextView) view.findViewById(R.id.agree_publish_reply);
+        this.f40825e = (TextView) view.findViewById(R.id.btn_vote);
+        this.itemView.setOnClickListener(this.f40830j);
+        this.f40825e.setOnClickListener(this.f40830j);
         View findViewById = view.findViewById(R.id.candidate_info);
-        this.f42426i = findViewById;
-        findViewById.setOnClickListener(this.f42427j);
+        this.f40829i = findViewById;
+        findViewById.setOnClickListener(this.f40830j);
     }
 
-    public void bindData(c.a.u0.c0.b.a aVar) {
+    public void bindData(c.a.r0.c0.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f42424g = aVar;
+            this.f40827g = aVar;
             if (aVar == null) {
                 return;
             }
-            this.a.startLoad(aVar.f15699c, 12, false);
-            this.f42419b.setText(aVar.f15700d);
-            String valueOf = String.valueOf(aVar.f15701e);
+            this.a.startLoad(aVar.f15191c, 12, false);
+            this.f40822b.setText(aVar.f15192d);
+            String valueOf = String.valueOf(aVar.f15193e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(aVar.f15701e));
+                valueOf = String.format("%04d", Long.valueOf(aVar.f15193e));
             }
-            handleKeyWordColor(this.f42420c, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.f15702f)), aVar.f15706j);
-            this.f42421d.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(aVar.f15703g), StringHelper.numFormatOverWanWithNegative(aVar.f15704h), StringHelper.numFormatOverWanWithNegative(aVar.f15705i)));
+            handleKeyWordColor(this.f40823c, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.f15194f)), aVar.f15198j);
+            this.f40824d.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(aVar.f15195g), StringHelper.numFormatOverWanWithNegative(aVar.f15196h), StringHelper.numFormatOverWanWithNegative(aVar.f15197i)));
             onChangeSkinType();
         }
     }
@@ -193,13 +193,13 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TbadkCoreApplication.getInst().getSkinType() == this.f42423f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TbadkCoreApplication.getInst().getSkinType() == this.f40826f) {
             return;
         }
-        SkinManager.setViewTextColor(this.f42419b, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f42420c, R.color.CAM_X0108);
-        SkinManager.setViewTextColor(this.f42421d, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f42422e, R.color.CAM_X0302);
-        SkinManager.setBackgroundResource(this.f42422e, R.drawable.shape_vote_button);
+        SkinManager.setViewTextColor(this.f40822b, (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f40823c, (int) R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.f40824d, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f40825e, (int) R.color.CAM_X0302);
+        SkinManager.setBackgroundResource(this.f40825e, R.drawable.shape_vote_button);
     }
 }

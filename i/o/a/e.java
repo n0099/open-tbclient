@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import java.util.Arrays;
 import rx.exceptions.CompositeException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.e<? super T> f62036e;
+    public final i.e<? super T> f60386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.d<T> f62037f;
+    public final i.d<T> f60387f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super T> f62038i;
+        public final i.j<? super T> f60388i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.e<? super T> f62039j;
+        public final i.e<? super T> f60389j;
         public boolean k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,8 +49,8 @@ public class e<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f62038i = jVar;
-            this.f62039j = eVar;
+            this.f60388i = jVar;
+            this.f60389j = eVar;
         }
 
         @Override // i.e
@@ -60,9 +60,9 @@ public class e<T> implements d.a<T> {
                 return;
             }
             try {
-                this.f62039j.onCompleted();
+                this.f60389j.onCompleted();
                 this.k = true;
-                this.f62038i.onCompleted();
+                this.f60388i.onCompleted();
             } catch (Throwable th) {
                 i.m.a.f(th, this);
             }
@@ -78,11 +78,11 @@ public class e<T> implements d.a<T> {
                 }
                 this.k = true;
                 try {
-                    this.f62039j.onError(th);
-                    this.f62038i.onError(th);
+                    this.f60389j.onError(th);
+                    this.f60388i.onError(th);
                 } catch (Throwable th2) {
                     i.m.a.e(th2);
-                    this.f62038i.onError(new CompositeException(Arrays.asList(th, th2)));
+                    this.f60388i.onError(new CompositeException(Arrays.asList(th, th2)));
                 }
             }
         }
@@ -94,8 +94,8 @@ public class e<T> implements d.a<T> {
                 return;
             }
             try {
-                this.f62039j.onNext(t);
-                this.f62038i.onNext(t);
+                this.f60389j.onNext(t);
+                this.f60388i.onNext(t);
             } catch (Throwable th) {
                 i.m.a.g(th, this, t);
             }
@@ -117,8 +117,8 @@ public class e<T> implements d.a<T> {
                 return;
             }
         }
-        this.f62037f = dVar;
-        this.f62036e = eVar;
+        this.f60387f = dVar;
+        this.f60386e = eVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -129,7 +129,7 @@ public class e<T> implements d.a<T> {
     public void call(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.f62037f.D(new a(jVar, this.f62036e));
+            this.f60387f.D(new a(jVar, this.f60386e));
         }
     }
 }

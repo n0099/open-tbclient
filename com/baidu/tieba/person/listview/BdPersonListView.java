@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BdPersonListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ExpandListView;
@@ -46,7 +45,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean g0;
     public a mRefreshListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(float f2);
 
@@ -55,14 +54,14 @@ public class BdPersonListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f47239b;
+        public int f45647b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -80,7 +79,7 @@ public class BdPersonListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f47239b = i5;
+            this.f45647b = i5;
         }
 
         public int a(float f2) {
@@ -133,7 +132,7 @@ public class BdPersonListView extends BdTypeListView {
         this.O = new Scroller(this.N);
         this.P = new Scroller(this.N);
         this.c0 = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance});
         this.d0 = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
@@ -186,7 +185,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.a && a2 <= bVar.f47239b) {
+                                    if (a2 > bVar.a && a2 <= bVar.f45647b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -202,7 +201,7 @@ public class BdPersonListView extends BdTypeListView {
                                         b bVar2 = this.U;
                                         if (a2 <= bVar2.a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f47239b) {
+                                        } else if (a2 > bVar2.f45647b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;
@@ -284,7 +283,7 @@ public class BdPersonListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f47239b - (this.d0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f45647b - (this.d0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

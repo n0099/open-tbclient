@@ -10,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
-import com.kuaishou.weapon.un.w0;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -32,7 +31,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] DIGITS;
@@ -42,7 +41,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     public Segment head;
     public long size;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class UnsafeCursor implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1810,7 +1809,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 z = true;
             }
             if (j2 >= 100000000) {
-                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
+                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < C.NANOS_PER_SECOND ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
             } else if (j2 >= 10000) {
                 i3 = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8;
             } else if (j2 >= 100) {
@@ -1830,7 +1829,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 j2 /= 10;
             }
             if (z) {
-                bArr[i4 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
+                bArr[i4 - 1] = 45;
             }
             writableSegment.limit += i3;
             this.size += i3;
@@ -2004,7 +2003,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 if (i2 >= 55296 && i2 <= 57343) {
                     writeByte(63);
                 } else {
-                    writeByte((i2 >> 12) | w0.Q);
+                    writeByte((i2 >> 12) | 224);
                     writeByte(((i2 >> 6) & 63) | 128);
                     writeByte((i2 & 63) | 128);
                 }
@@ -2301,7 +2300,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                                     i2 = i8;
                                 }
                             } else {
-                                writeByte((charAt >> '\f') | w0.Q);
+                                writeByte((charAt >> '\f') | 224);
                                 writeByte(((charAt >> 6) & 63) | 128);
                                 writeByte((charAt & '?') | 128);
                             }

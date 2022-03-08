@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
 import c.a.d.f.p.l;
-import c.a.u0.l3.l0.c;
+import c.a.r0.j3.m0.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD = "ad";

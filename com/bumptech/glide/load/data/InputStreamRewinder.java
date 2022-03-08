@@ -12,14 +12,14 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class InputStreamRewinder implements DataRewinder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARK_LIMIT = 5242880;
     public transient /* synthetic */ FieldHolder $fh;
     public final RecyclableBufferedInputStream bufferedStream;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Factory implements DataRewinder.Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

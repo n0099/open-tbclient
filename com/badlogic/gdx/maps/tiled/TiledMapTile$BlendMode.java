@@ -1,6 +1,5 @@
 package com.badlogic.gdx.maps.tiled;
 
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class TiledMapTile$BlendMode {
     public static final /* synthetic */ TiledMapTile$BlendMode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +29,7 @@ public final class TiledMapTile$BlendMode {
                 return;
             }
         }
-        NONE = new TiledMapTile$BlendMode(PolyActivity.NONE_PANEL_TYPE, 0);
+        NONE = new TiledMapTile$BlendMode("NONE", 0);
         TiledMapTile$BlendMode tiledMapTile$BlendMode = new TiledMapTile$BlendMode("ALPHA", 1);
         ALPHA = tiledMapTile$BlendMode;
         $VALUES = new TiledMapTile$BlendMode[]{NONE, tiledMapTile$BlendMode};

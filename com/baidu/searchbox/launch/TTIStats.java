@@ -7,6 +7,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +27,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class TTIStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,7 +44,7 @@ public class TTIStats {
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +135,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0096 -> B:39:0x0099). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0094 -> B:39:0x0097). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;
@@ -149,11 +150,11 @@ public class TTIStats {
                                             file.createNewFile();
                                         }
                                         bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                                    } catch (IOException e2) {
-                                        e = e2;
+                                    } catch (Throwable th) {
+                                        th = th;
                                     }
-                                } catch (Throwable th) {
-                                    th = th;
+                                } catch (IOException e2) {
+                                    e = e2;
                                 }
                             } catch (IOException e3) {
                                 e3.printStackTrace();
@@ -222,34 +223,33 @@ public class TTIStats {
 
     public void stats() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mUbcManager == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("device_score", ScheduleStrategy.getDeviceScore());
-            jSONObject.put("launch_type", LaunchStatsUtils.getLaunchTypeDetail());
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            for (String str : mRecordMap.keySet()) {
-                TTIData tTIData = mRecordMap.get(str);
-                if (tTIData != null) {
-                    jSONObject2.put(str, tTIData.duration);
-                    jSONObject3.put(str, tTIData.startTs);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SpeedStatsManager.getInstance().getStatsFlag() && this.mUbcManager != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("device_score", ScheduleStrategy.getDeviceScore());
+                jSONObject.put("launch_type", LaunchStatsUtils.getLaunchTypeDetail());
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
+                for (String str : mRecordMap.keySet()) {
+                    TTIData tTIData = mRecordMap.get(str);
+                    if (tTIData != null) {
+                        jSONObject2.put(str, tTIData.duration);
+                        jSONObject3.put(str, tTIData.startTs);
+                    }
                 }
+                jSONObject.put("stage", jSONObject2);
+                jSONObject.put(UBC_STARTTS_KEY, jSONObject3);
+                jSONObject.put("first_available_time", SmartLaunchStats.getFirstAvailableTime());
+                jSONObject.put("process_available_time", SmartLaunchStats.getProcessAvailableTime());
+                this.mUbcManager.onEvent(UBC_START_LAUNCH_ID, jSONObject);
+                if (DEBUG) {
+                    asyncWriteTtiInfoToSdcard(jSONObject);
+                    jSONObject.toString();
+                }
+                mRecordMap.clear();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            jSONObject.put("stage", jSONObject2);
-            jSONObject.put(UBC_STARTTS_KEY, jSONObject3);
-            jSONObject.put("first_available_time", SmartLaunchStats.getFirstAvailableTime());
-            jSONObject.put("process_available_time", SmartLaunchStats.getProcessAvailableTime());
-            this.mUbcManager.onEvent(UBC_START_LAUNCH_ID, jSONObject);
-            if (DEBUG) {
-                asyncWriteTtiInfoToSdcard(jSONObject);
-                jSONObject.toString();
-            }
-            mRecordMap.clear();
-        } catch (JSONException e2) {
-            e2.printStackTrace();
         }
     }
 }

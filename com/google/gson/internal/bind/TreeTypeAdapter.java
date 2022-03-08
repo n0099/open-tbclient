@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public final TypeToken<T> typeToken;
 
     /* renamed from: com.google.gson.internal.bind.TreeTypeAdapter$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class GsonContextImpl implements JsonSerializationContext, JsonDeserializationContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class SingleTypeFactory implements TypeAdapterFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

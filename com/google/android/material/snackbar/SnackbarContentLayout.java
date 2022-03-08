@@ -12,15 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -133,13 +133,13 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0059, code lost:
         if (updateViewsWithinLayout(1, r0, r0 - r1) != false) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0062, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0064, code lost:
         if (updateViewsWithinLayout(0, r0, r0) != false) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0066, code lost:
         r3 = true;
      */
     @Override // android.widget.LinearLayout, android.view.View
@@ -207,9 +207,9 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);
-        this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);
-        this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.actionTextColorAlpha, R.attr.animationMode, R.attr.backgroundOverlayColorAlpha, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.elevation, R.attr.maxActionInlineWidth});
+        this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
+        this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();
     }
 }

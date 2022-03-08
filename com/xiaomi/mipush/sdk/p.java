@@ -10,7 +10,7 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,6 +54,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f61378i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f59728i, true, (hs) null, true);
     }
 }

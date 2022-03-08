@@ -14,13 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.a.d;
+import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.s.a;
-import c.a.u0.s4.e;
-import c.a.u0.s4.f;
-import c.a.u0.s4.g;
-import c.a.u0.s4.j;
-import c.a.u0.s4.s;
+import c.a.q0.r.l0.s.a;
+import c.a.r0.q4.i;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,6 +30,7 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.R;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,41 +42,41 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RichTextEditor extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnFocusChangeListener f49939e;
+    public View.OnFocusChangeListener f48358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpanGroupEditText f49940f;
+    public SpanGroupEditText f48359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49941g;
+    public int f48360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WriteImagesInfo f49942h;
+    public WriteImagesInfo f48361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f49943i;
+    public View.OnClickListener f48362i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a.InterfaceC0892a f49944j;
+    public a.InterfaceC0864a f48363j;
     public long k;
     public View.OnFocusChangeListener l;
     public TextWatcher m;
     public TbFaceManager.a n;
     public final RichImageItem.f o;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichTextEditor f49945e;
+        public final /* synthetic */ RichTextEditor f48364e;
 
         public a(RichTextEditor richTextEditor) {
             Interceptable interceptable = $ic;
@@ -95,7 +93,7 @@ public class RichTextEditor extends LinearLayout {
                     return;
                 }
             }
-            this.f49945e = richTextEditor;
+            this.f48364e = richTextEditor;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -103,27 +101,27 @@ public class RichTextEditor extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    this.f49945e.f49940f = (SpanGroupEditText) view;
-                    RichTextEditor richTextEditor = this.f49945e;
-                    richTextEditor.l(richTextEditor.f49940f);
+                    this.f48364e.f48359f = (SpanGroupEditText) view;
+                    RichTextEditor richTextEditor = this.f48364e;
+                    richTextEditor.l(richTextEditor.f48359f);
                 }
-                if (this.f49945e.l != null) {
-                    this.f49945e.l.onFocusChange(view, z);
+                if (this.f48364e.l != null) {
+                    this.f48364e.l.onFocusChange(view, z);
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f49946e;
+        public final /* synthetic */ int f48365e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RichTextEditor f49947f;
+        public final /* synthetic */ RichTextEditor f48366f;
 
         public b(RichTextEditor richTextEditor, int i2) {
             Interceptable interceptable = $ic;
@@ -140,8 +138,8 @@ public class RichTextEditor extends LinearLayout {
                     return;
                 }
             }
-            this.f49947f = richTextEditor;
-            this.f49946e = i2;
+            this.f48366f = richTextEditor;
+            this.f48365e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -149,9 +147,9 @@ public class RichTextEditor extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f49947f.f49940f != null) {
-                        this.f49947f.f49940f.requestFocus();
-                        this.f49947f.f49940f.setSelection(this.f49946e);
+                    if (this.f48366f.f48359f != null) {
+                        this.f48366f.f48359f.requestFocus();
+                        this.f48366f.f48359f.setSelection(this.f48365e);
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -160,7 +158,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements RichImageItem.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,12 +187,12 @@ public class RichTextEditor extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, imageFileInfo, view) == null) {
                 this.a.g(view);
-                this.a.f49942h.getChosedFiles().remove(imageFileInfo);
+                this.a.f48361h.getChosedFiles().remove(imageFileInfo);
                 if (imageFileInfo.isTempFile()) {
                     d.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
                 if (this.a.getContext() instanceof WriteActivity) {
-                    if (ListUtils.isEmpty(this.a.f49942h.getChosedFiles())) {
+                    if (ListUtils.isEmpty(this.a.f48361h.getChosedFiles())) {
                         ((WriteActivity) this.a.getContext()).refreshPostButton();
                     }
                     ((WriteActivity) this.a.getContext()).refreshImageLauncher();
@@ -210,11 +208,11 @@ public class RichTextEditor extends LinearLayout {
                 return;
             }
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            writeImagesInfo.copyFrom(this.a.f49942h);
+            writeImagesInfo.copyFrom(this.a.f48361h);
             LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
             linkedList.add(imageFileInfo);
             writeImagesInfo.setChosedFiles(linkedList);
-            writeImagesInfo.setOriginalImgIndex(this.a.f49942h.getChosedFiles().indexOf(imageFileInfo));
+            writeImagesInfo.setOriginalImgIndex(this.a.f48361h.getChosedFiles().indexOf(imageFileInfo));
             writeImagesInfo.setOriginalImgViewIndex(this.a.indexOfChild(view));
             new WriteMulitImageActivityConfig((Activity) this.a.getContext(), 12012, writeImagesInfo, 0).start();
         }
@@ -269,11 +267,11 @@ public class RichTextEditor extends LinearLayout {
         ArrayList arrayList = new ArrayList(list);
         for (int i2 = 0; i2 < getChildCount(); i2++) {
             View childAt = getChildAt(i2);
-            if ((childAt instanceof SpanGroupEditText) && childAt != this.f49940f && (atDataInText = ((SpanGroupEditText) childAt).getAtDataInText()) != null && !atDataInText.isEmpty()) {
+            if ((childAt instanceof SpanGroupEditText) && childAt != this.f48359f && (atDataInText = ((SpanGroupEditText) childAt).getAtDataInText()) != null && !atDataInText.isEmpty()) {
                 arrayList.removeAll(atDataInText);
             }
         }
-        this.f49940f.addAtSpanGroupList(arrayList);
+        this.f48359f.addAtSpanGroupList(arrayList);
     }
 
     public SpanGroupEditText addEditTextAtIndex(int i2, CharSequence charSequence) {
@@ -328,20 +326,20 @@ public class RichTextEditor extends LinearLayout {
             SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
-            spanGroupEditText.setLineSpacing(n.f(getContext(), e.M_T_X002), 1.0f);
-            s.l(spanGroupEditText, f.edittext_cursor);
-            spanGroupEditText.setTextSize(0, getResources().getDimension(e.T_X06));
-            c.a.t0.s.v.c.d(spanGroupEditText).v(c.a.u0.s4.d.CAM_X0105);
+            spanGroupEditText.setLineSpacing(n.f(getContext(), R.dimen.M_T_X002), 1.0f);
+            i.l(spanGroupEditText, R.drawable.edittext_cursor);
+            spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
+            c.a.q0.r.v.c.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);
             spanGroupEditText.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
-            spanGroupEditText.setOnFocusChangeListener(this.f49939e);
-            spanGroupEditText.setOnSpanGroupChangedListener(this.f49944j);
+            spanGroupEditText.setOnFocusChangeListener(this.f48358e);
+            spanGroupEditText.setOnSpanGroupChangedListener(this.f48363j);
             spanGroupEditText.setForumId(this.k);
-            spanGroupEditText.setOnClickListener(this.f49943i);
+            spanGroupEditText.setOnClickListener(this.f48362i);
             spanGroupEditText.addTextChangedListener(this.m);
-            spanGroupEditText.setTag(g.key_rich_text_edit, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.key_rich_text_edit, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;
@@ -350,9 +348,9 @@ public class RichTextEditor extends LinearLayout {
     public void createFirstEdit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SpanGroupEditText createEditText = createEditText(getContext().getString(j.picText_default_content_hint));
+            SpanGroupEditText createEditText = createEditText(getContext().getString(R.string.picText_default_content_hint));
             addView(createEditText, new LinearLayout.LayoutParams(-1, -2));
-            this.f49940f = createEditText;
+            this.f48359f = createEditText;
         }
     }
 
@@ -369,7 +367,7 @@ public class RichTextEditor extends LinearLayout {
     public final void g(@NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f49941g = indexOfChild(view);
+            this.f48360g = indexOfChild(view);
             removeView(view);
             i();
             k();
@@ -400,7 +398,7 @@ public class RichTextEditor extends LinearLayout {
     public EditText getLastFocusEdit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49940f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f48359f : (EditText) invokeV.objValue;
     }
 
     public List<Object> getPlainTextContentData() {
@@ -441,7 +439,7 @@ public class RichTextEditor extends LinearLayout {
         InputMethodManager inputMethodManager;
         SpanGroupEditText spanGroupEditText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method")) == null || (spanGroupEditText = this.f49940f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method")) == null || (spanGroupEditText = this.f48359f) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(spanGroupEditText.getWindowToken(), 0);
@@ -450,8 +448,8 @@ public class RichTextEditor extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            View childAt = getChildAt(this.f49941g - 1);
-            View childAt2 = getChildAt(this.f49941g);
+            View childAt = getChildAt(this.f48360g - 1);
+            View childAt2 = getChildAt(this.f48360g);
             if ((childAt instanceof SpanGroupEditText) && (childAt2 instanceof SpanGroupEditText)) {
                 SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
                 SpanGroupEditText spanGroupEditText2 = (SpanGroupEditText) childAt2;
@@ -482,21 +480,21 @@ public class RichTextEditor extends LinearLayout {
         for (int i2 = 0; i2 < list.size(); i2++) {
             Object obj = list.get(i2);
             if (obj instanceof String) {
-                this.f49940f.setText(TbFaceManager.e().l(getContext(), (String) obj, this.n));
-                if (this.f49940f.getText() != null) {
-                    SpanGroupEditText spanGroupEditText = this.f49940f;
+                this.f48359f.setText(TbFaceManager.e().l(getContext(), (String) obj, this.n));
+                if (this.f48359f.getText() != null) {
+                    SpanGroupEditText spanGroupEditText = this.f48359f;
                     spanGroupEditText.setSelection(spanGroupEditText.getText().length());
                 }
             } else if (obj instanceof ImageFileInfo) {
                 ImageFileInfo imageFileInfo = (ImageFileInfo) obj;
-                WriteImagesInfo writeImagesInfo = this.f49942h;
+                WriteImagesInfo writeImagesInfo = this.f48361h;
                 if (writeImagesInfo != null && !ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
                     int i3 = 0;
                     while (true) {
-                        if (i3 >= this.f49942h.getChosedFiles().size()) {
+                        if (i3 >= this.f48361h.getChosedFiles().size()) {
                             break;
                         }
-                        ImageFileInfo imageFileInfo2 = this.f49942h.getChosedFiles().get(i3);
+                        ImageFileInfo imageFileInfo2 = this.f48361h.getChosedFiles().get(i3);
                         if (StringHelper.equals(imageFileInfo2.getFilePath(), imageFileInfo.getFilePath()) && StringHelper.equals(imageFileInfo2.getExtra(), imageFileInfo.getExtra())) {
                             imageFileInfo = imageFileInfo2;
                             break;
@@ -512,9 +510,9 @@ public class RichTextEditor extends LinearLayout {
     public void insertImage(@NonNull ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, imageFileInfo) == null) {
-            String selectionBeforePlainTextContent = this.f49940f.getSelectionBeforePlainTextContent();
-            String selectionAfterPlainTextContent = this.f49940f.getSelectionAfterPlainTextContent();
-            int indexOfChild = indexOfChild(this.f49940f);
+            String selectionBeforePlainTextContent = this.f48359f.getSelectionBeforePlainTextContent();
+            String selectionAfterPlainTextContent = this.f48359f.getSelectionAfterPlainTextContent();
+            int indexOfChild = indexOfChild(this.f48359f);
             if (selectionAfterPlainTextContent.length() == 0) {
                 int i2 = indexOfChild + 1;
                 SpanGroupEditText addEditTextAtIndex = addEditTextAtIndex(i2, "");
@@ -523,9 +521,9 @@ public class RichTextEditor extends LinearLayout {
             } else if (selectionBeforePlainTextContent.length() == 0) {
                 addEditTextAtIndex(indexOfChild, "");
                 addImageViewAtIndex(indexOfChild + 1, imageFileInfo);
-                this.f49940f.setHint("");
+                this.f48359f.setHint("");
             } else {
-                this.f49940f.setText(TbFaceManager.e().l(getContext(), selectionBeforePlainTextContent, this.n));
+                this.f48359f.setText(TbFaceManager.e().l(getContext(), selectionBeforePlainTextContent, this.n));
                 int i3 = indexOfChild + 1;
                 SpanGroupEditText addEditTextAtIndex2 = addEditTextAtIndex(i3, selectionAfterPlainTextContent);
                 addImageViewAtIndex(i3, imageFileInfo);
@@ -554,8 +552,8 @@ public class RichTextEditor extends LinearLayout {
     public final void j(@NonNull SpanGroupEditText spanGroupEditText, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, spanGroupEditText, i2) == null) {
-            this.f49940f = spanGroupEditText;
-            c.a.d.f.m.e.a().postDelayed(new b(this, i2), 300L);
+            this.f48359f = spanGroupEditText;
+            e.a().postDelayed(new b(this, i2), 300L);
         }
     }
 
@@ -570,7 +568,7 @@ public class RichTextEditor extends LinearLayout {
             if (childCount > 1) {
                 ((SpanGroupEditText) childAt).setHint("");
             } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(j.picText_default_content_hint));
+                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.picText_default_content_hint));
             }
         }
     }
@@ -594,8 +592,8 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).onSkinChange();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    c.a.t0.s.v.c.d(childAt).v(c.a.u0.s4.d.CAM_X0105);
-                    ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(c.a.u0.s4.d.CAM_X0110));
+                    c.a.q0.r.v.c.d(childAt).v(R.color.CAM_X0105);
+                    ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
         }
@@ -611,7 +609,7 @@ public class RichTextEditor extends LinearLayout {
     public void setEditOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, onClickListener) == null) {
-            this.f49943i = onClickListener;
+            this.f48362i = onClickListener;
         }
     }
 
@@ -629,17 +627,17 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC0892a interfaceC0892a) {
+    public void setOnSpanGroupChangedListener(a.InterfaceC0864a interfaceC0864a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, interfaceC0892a) == null) {
-            this.f49944j = interfaceC0892a;
+        if (interceptable == null || interceptable.invokeL(1048603, this, interfaceC0864a) == null) {
+            this.f48363j = interfaceC0864a;
         }
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, writeImagesInfo) == null) {
-            this.f49942h = writeImagesInfo;
+            this.f48361h = writeImagesInfo;
         }
     }
 
@@ -683,12 +681,12 @@ public class RichTextEditor extends LinearLayout {
                 return;
             }
         }
-        this.f49941g = 0;
+        this.f48360g = 0;
         this.o = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(f.rich_spacer_medium));
+        setDividerDrawable(getResources().getDrawable(R.drawable.rich_spacer_medium));
         setShowDividers(2);
-        this.f49939e = new a(this);
+        this.f48358e = new a(this);
     }
 }

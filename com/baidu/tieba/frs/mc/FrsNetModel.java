@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.mc;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.l0.b.g;
-import c.a.u0.z3.n;
+import c.a.q0.k0.b.g;
+import c.a.r0.y3.n;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, n, T> implements NetModel.k<FrsRequestData, n> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, n, T> implement
     public FrsRequestData b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f41317g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f39723g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean c0() {
@@ -120,7 +120,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, n, T> implement
     public void d0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frsRequestData) == null) {
-            this.f41317g = frsRequestData;
+            this.f39723g = frsRequestData;
         }
     }
 

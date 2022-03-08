@@ -10,20 +10,20 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ConstrastLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f34616b;
+    public ImageView f33019b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
@@ -51,7 +51,7 @@ public class ConstrastLoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
             this.a = (ImageView) findViewById(R.id.iv_recog_circle);
-            this.f34616b = (ImageView) findViewById(R.id.iv_recog_logo);
+            this.f33019b = (ImageView) findViewById(R.id.iv_recog_logo);
             a();
         }
     }

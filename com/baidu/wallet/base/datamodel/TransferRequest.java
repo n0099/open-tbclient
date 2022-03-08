@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanRequestBase;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TransferRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANSFER_TO_ACCOUNT = 2;

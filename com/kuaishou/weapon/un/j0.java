@@ -9,19 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55302b = "su";
+    public static final String f53652b = "su";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f55303c;
+    public static final String[] f53653c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -38,7 +39,7 @@ public class j0 {
                 return;
             }
         }
-        f55303c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
+        f53653c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
     }
 
     public j0(Context context) {
@@ -75,7 +76,7 @@ public class j0 {
                 for (int i2 = 0; i2 < length; i2++) {
                     String str2 = split[i2];
                     if (!str2.endsWith("/")) {
-                        str2 = str2 + '/';
+                        str2 = str2 + WebvttCueParser.CHAR_SLASH;
                     }
                     if (!arrayList.contains(str2)) {
                         arrayList.add(str2);
@@ -93,8 +94,8 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                for (String str : a(f55303c)) {
-                    if (new File(str, f55302b).exists()) {
+                for (String str : a(f53653c)) {
+                    if (new File(str, f53652b).exists()) {
                         return 1;
                     }
                 }

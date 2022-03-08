@@ -1,7 +1,6 @@
 package com.baidu.tieba.setting.more.youngster.model;
 
 import c.a.d.a.f;
-import c.a.u0.o3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -13,27 +12,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class YoungsterVerifyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48023e;
+    public b f46440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f48024f;
+    public TbPageContext<?> f46441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f48025g;
+    public HttpMessageListener f46442g;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,21 +73,21 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(g.neterror);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
             if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().a) {
-                this.a.f48023e.onSuccess();
+                this.a.f46440e.onSuccess();
             } else {
-                this.a.f48023e.onError(errorData);
+                this.a.f46440e.onError(errorData);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void onError(ErrorData errorData);
 
@@ -113,11 +113,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f48025g = aVar;
-        this.f48024f = tbPageContext;
+        this.f46442g = aVar;
+        this.f46441f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f48025g);
-        this.f48023e = bVar;
+        registerListener(this.f46442g);
+        this.f46440e = bVar;
     }
 
     public void B(String str) {
@@ -126,7 +126,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
             httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
             httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-            this.f48024f.sendMessage(httpMessage);
+            this.f46441f.sendMessage(httpMessage);
         }
     }
 

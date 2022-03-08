@@ -1,5 +1,5 @@
 package com.baidu.ar.photo;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface PhotoCallback {
     void onPictureTake(boolean z, String str);
 }

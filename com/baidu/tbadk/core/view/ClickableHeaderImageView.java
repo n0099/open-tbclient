@@ -4,9 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import c.a.d.f.m.b;
-import c.a.t0.n.d;
-import c.a.t0.s.r.e2;
-import c.a.u0.a4.j;
+import c.a.q0.m.d;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -15,11 +14,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class ClickableHeaderImageView extends HeadImageView {
     public boolean w0;
     public View.OnClickListener x0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f40569e;
+        public final /* synthetic */ ClickableHeaderImageView f38973e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f40569e = clickableHeaderImageView;
+            this.f38973e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f40569e.mInterceptClickEventListener;
-                if ((dVar == null || !dVar.onClickEvent(view)) && this.f40569e.v0 != null) {
-                    MetaData t = this.f40569e.w0 ? this.f40569e.v0.z1().t() : this.f40569e.v0.J();
+                d dVar = this.f38973e.mInterceptClickEventListener;
+                if ((dVar == null || !dVar.onClickEvent(view)) && this.f38973e.v0 != null) {
+                    MetaData t = this.f38973e.w0 ? this.f38973e.v0.z1().t() : this.f38973e.v0.J();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long g2 = b.g(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f40569e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f40569e.v0.w1());
-                    createNormalConfig.setSourceNid(this.f40569e.v0.H0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f38973e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f38973e.v0.w1());
+                    createNormalConfig.setSourceNid(this.f38973e.v0.H0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f40569e.x0 != null) {
-                        this.f40569e.x0.onClick(view);
+                    if (this.f38973e.x0 != null) {
+                        this.f38973e.x0.onClick(view);
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         } else {
             J = e2Var.J();
         }
-        setContentDescription(J.getName_show() + getContext().getString(j.somebodys_portrait));
+        setContentDescription(J.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(J.getUserId());
         setUserName(J.getUserName());
         if (e2Var.p1() != null && (this.v0.s1() == 49 || this.v0.s1() == 69)) {

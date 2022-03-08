@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
-import c.i.d.c.q0;
+import c.i.c.c.q0;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class GuavaCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static GuavaCodec instance;

@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PublicMsg implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PublicMsg> CREATOR;
@@ -228,16 +228,16 @@ public class PublicMsg implements Parcelable {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f32513b;
+                public final /* synthetic */ String f30916b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f32514c;
+                public final /* synthetic */ String f30917c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f32515d;
+                public final /* synthetic */ String f30918d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PublicMsg f32516e;
+                public final /* synthetic */ PublicMsg f30919e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -258,11 +258,11 @@ public class PublicMsg implements Parcelable {
                             return;
                         }
                     }
-                    this.f32516e = this;
+                    this.f30919e = this;
                     this.a = context;
-                    this.f32513b = b2;
-                    this.f32514c = r13;
-                    this.f32515d = a;
+                    this.f30916b = b2;
+                    this.f30917c = r13;
+                    this.f30918d = a;
                 }
 
                 @Override // com.baidu.android.pushservice.g.c
@@ -273,9 +273,9 @@ public class PublicMsg implements Parcelable {
                             HashMap hashMap = new HashMap();
                             com.baidu.android.pushservice.httpapi.b.a(this.a, hashMap);
                             hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.f32513b);
-                            hashMap.put("data", this.f32514c);
-                            if (com.baidu.android.pushservice.d.c.a(this.a, com.baidu.android.pushservice.g.e() + this.f32515d, "POST", hashMap).b() == 200) {
+                            hashMap.put("channel_token", this.f30916b);
+                            hashMap.put("data", this.f30917c);
+                            if (com.baidu.android.pushservice.d.c.a(this.a, com.baidu.android.pushservice.g.e() + this.f30918d, "POST", hashMap).b() == 200) {
                                 com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.a.getApplicationContext());
                             }
                         } catch (Exception e3) {

@@ -11,36 +11,36 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.channel.ks.R;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class KSNativeAdVideoH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54359b;
+    public TextView f52845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f54360c;
+    public FrameLayout f52846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54361d;
+    public ImageView f52847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f54362e;
+    public TextView f52848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f54363f;
+    public Button f52849f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -119,13 +119,13 @@ public class KSNativeAdVideoH5OpenView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f54360c.removeAllViews();
-                this.f54360c.addView(videoView);
+                this.f52846c.removeAllViews();
+                this.f52846c.addView(videoView);
             }
-            this.f54361d.setImageBitmap(getSdkLogo());
-            this.f54359b.setText(ksNativeAd.getAdDescription());
-            this.f54362e.setText(ksNativeAd.getAdSource());
-            this.f54363f.setText(ksNativeAd.getActionDescription());
+            this.f52847d.setImageBitmap(getSdkLogo());
+            this.f52845b.setText(ksNativeAd.getAdDescription());
+            this.f52848e.setText(ksNativeAd.getAdSource());
+            this.f52849f.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -134,11 +134,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54359b = (TextView) findViewById(R.id.ad_description);
-            this.f54360c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f54361d = (ImageView) findViewById(R.id.ad_logo);
-            this.f54362e = (TextView) findViewById(R.id.ad_h5_description);
-            this.f54363f = (Button) findViewById(R.id.ad_h5_open);
+            this.f52845b = (TextView) findViewById(R.id.ad_description);
+            this.f52846c = (FrameLayout) findViewById(R.id.ad_video);
+            this.f52847d = (ImageView) findViewById(R.id.ad_logo);
+            this.f52848e = (TextView) findViewById(R.id.ad_h5_description);
+            this.f52849f = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -147,11 +147,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54360c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52846c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f54360c.setLayoutParams(layoutParams);
+            this.f52846c.setLayoutParams(layoutParams);
         }
     }
 }

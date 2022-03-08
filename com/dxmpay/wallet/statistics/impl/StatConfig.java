@@ -3,7 +3,6 @@ package com.dxmpay.wallet.statistics.impl;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.g.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,6 +21,7 @@ import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.apollon.restnet.RestRuntimeException;
 import com.dxmpay.apollon.restnet.RestTemplate;
 import com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor;
+import com.dxmpay.apollon.restnet.rest.d;
 import com.dxmpay.apollon.utils.PhoneUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.core.DebugConfig;
@@ -31,15 +31,15 @@ import com.dxmpay.wallet.core.utils.UAFilterUtil;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class StatConfig implements IStatConfig, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54245e;
+    public Context f52731e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,12 +64,12 @@ public class StatConfig implements IStatConfig, NoProguard {
         public void a(Context context, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
-                dVar.a().e("Accept-Encoding", "gzip");
+                dVar.a().a("Accept-Encoding", "gzip");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static StatConfig a;
@@ -113,20 +113,20 @@ public class StatConfig implements IStatConfig, NoProguard {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, str)) == null) {
             RestTemplate restTemplate = new RestTemplate(context, UAFilterUtil.getInstance().getTrueUA(context), ApollonConstants.HTTP_REQUEST_TYPE_STASTICS_BEAN);
             ArrayList arrayList = new ArrayList();
-            String d2 = c.f.b.f.a.a.a().d(context);
+            String d2 = c.f.a.f.a.a.a().d(context);
             if (!TextUtils.isEmpty(d2)) {
                 arrayList.add(new RestNameValuePair("ua", d2));
             }
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(new a(this));
             restTemplate.setRequestInterceptor(arrayList2);
-            restTemplate.setMessageConverter(new c.f.a.g.b.b());
+            restTemplate.setMessageConverter(new com.dxmpay.apollon.restnet.converter.b());
             String str3 = null;
             try {
                 if (i2 == 0) {
-                    str2 = (String) restTemplate.d(str, arrayList, "utf-8", String.class);
+                    str2 = (String) restTemplate.a(str, arrayList, "utf-8", String.class);
                 } else {
-                    str2 = (String) restTemplate.l(str, arrayList, "utf-8", String.class);
+                    str2 = (String) restTemplate.c(str, arrayList, "utf-8", String.class);
                 }
                 str3 = str2;
                 return str3;
@@ -142,14 +142,14 @@ public class StatConfig implements IStatConfig, NoProguard {
     public String getAppVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f54245e)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f52731e)) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public String getAppVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f54245e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f52731e) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
@@ -174,7 +174,7 @@ public class StatConfig implements IStatConfig, NoProguard {
             if (isLogin() && !TextUtils.isEmpty(WalletLoginHelper.getInstance().getUnionId())) {
                 return SecurePay.getInstance().encryptProxy(WalletLoginHelper.getInstance().getUnionId());
             }
-            return SecurePay.getInstance().encryptProxy(c.f.b.f.a.a.a().c(this.f54245e));
+            return SecurePay.getInstance().encryptProxy(c.f.a.f.a.a.a().c(this.f52731e));
         }
         return (String) invokeV.objValue;
     }
@@ -193,12 +193,12 @@ public class StatConfig implements IStatConfig, NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f54245e != null) {
-                    c.f.b.f.a.a a2 = c.f.b.f.a.a.a();
-                    jSONObject.putOpt("ua", a2.d(this.f54245e));
-                    jSONObject.putOpt(k.f34042b, a2.b(this.f54245e));
-                    jSONObject.putOpt("op", a2.e(this.f54245e));
-                    jSONObject.put(k.f34043c, a2.c(this.f54245e));
+                if (this.f52731e != null) {
+                    c.f.a.f.a.a a2 = c.f.a.f.a.a.a();
+                    jSONObject.putOpt("ua", a2.d(this.f52731e));
+                    jSONObject.putOpt(k.f32445b, a2.b(this.f52731e));
+                    jSONObject.putOpt("op", a2.e(this.f52731e));
+                    jSONObject.put(k.f32446c, a2.c(this.f52731e));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -251,7 +251,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return a(this.f54245e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
+            return a(this.f52731e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
         }
         return (String) invokeV.objValue;
     }
@@ -259,8 +259,8 @@ public class StatConfig implements IStatConfig, NoProguard {
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f54245e == null && context != null) {
-            this.f54245e = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f52731e == null && context != null) {
+            this.f52731e = context.getApplicationContext();
         }
     }
 

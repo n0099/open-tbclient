@@ -18,74 +18,59 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static ConcurrentHashMap<String, SoftReference<Bitmap>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Bitmap> f53780b;
+    public static HashMap<String, Bitmap> f52240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f53781c;
+    public static HandlerThread f52241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Handler f53782d;
+    public static Handler f52242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Runnable f53783e;
+    public static Runnable f52243e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.i();
-            }
-        }
-    }
-
-    /* renamed from: com.dxmpay.apollon.imagemanager.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2071b {
+    /* loaded from: classes7.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1932663746, "Lcom/dxmpay/apollon/imagemanager/b$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1932663715, "Lcom/dxmpay/apollon/imagemanager/b$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1932663746, "Lcom/dxmpay/apollon/imagemanager/b$b;");
+                    classClinitInterceptable.invokePostClinit(1932663715, "Lcom/dxmpay/apollon/imagemanager/b$a;");
                     return;
                 }
             }
-            HandlerThread unused = b.f53781c = new HandlerThread("sb_imagecache_loop", 10);
-            b.f53781c.start();
-            Handler unused2 = b.f53782d = new Handler(b.f53781c.getLooper());
+            HandlerThread unused = b.f52241c = new HandlerThread("sb_imagecache_loop", 10);
+            b.f52241c.start();
+            Handler unused2 = b.f52242d = new Handler(b.f52241c.getLooper());
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
     }
 
@@ -103,7 +88,7 @@ public class b {
             }
         }
         a = new ConcurrentHashMap<>(7);
-        f53780b = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.dxmpay.apollon.imagemanager.ImageMemoryCache$1
+        f52240b = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.dxmpay.apollon.imagemanager.ImageMemoryCache$1
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 1;
             public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +130,32 @@ public class b {
                 return invokeL.booleanValue;
             }
         };
-        f53783e = new a();
+        f52243e = new Runnable() { // from class: com.dxmpay.apollon.imagemanager.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    b.e();
+                }
+            }
+        };
     }
 
     public b() {
@@ -162,14 +172,14 @@ public class b {
         }
     }
 
-    public static void i() {
+    public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            synchronized (f53780b) {
-                for (Map.Entry<String, Bitmap> entry : f53780b.entrySet()) {
+            synchronized (f52240b) {
+                for (Map.Entry<String, Bitmap> entry : f52240b.entrySet()) {
                     a.put(entry.getKey(), new SoftReference<>(entry.getValue()));
                 }
-                f53780b.clear();
+                f52240b.clear();
             }
             LinkedList linkedList = new LinkedList();
             for (Map.Entry<String, SoftReference<Bitmap>> entry2 : a.entrySet()) {
@@ -184,12 +194,22 @@ public class b {
         }
     }
 
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) || bitmap == null) {
+            return;
+        }
+        synchronized (f52240b) {
+            f52240b.put(str, bitmap);
+        }
+    }
+
     public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (f53780b) {
-                Bitmap bitmap = f53780b.get(str);
+            synchronized (f52240b) {
+                Bitmap bitmap = f52240b.get(str);
                 if (bitmap != null) {
                     return bitmap;
                 }
@@ -197,7 +217,7 @@ public class b {
                 if (softReference != null) {
                     Bitmap bitmap2 = softReference.get();
                     if (bitmap2 != null) {
-                        e(str, bitmap2);
+                        a(str, bitmap2);
                         return bitmap2;
                     }
                     a.remove(str);
@@ -209,26 +229,17 @@ public class b {
         return (Bitmap) invokeL.objValue;
     }
 
-    public void d() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (f53782d == null) {
+            if (f52242d == null) {
+                new a();
             }
-            Handler handler = f53782d;
+            Handler handler = f52242d;
             if (handler != null) {
-                handler.removeCallbacks(f53783e);
-                f53782d.postDelayed(f53783e, 10000L);
+                handler.removeCallbacks(f52243e);
+                f52242d.postDelayed(f52243e, 10000L);
             }
-        }
-    }
-
-    public void e(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) || bitmap == null) {
-            return;
-        }
-        synchronized (f53780b) {
-            f53780b.put(str, bitmap);
         }
     }
 }

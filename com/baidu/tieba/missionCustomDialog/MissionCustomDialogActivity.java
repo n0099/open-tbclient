@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.a.d;
-import c.a.t0.a.r;
+import c.a.q0.a.d;
+import c.a.q0.a.q;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,13 +50,13 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public SignItemView mSignView;
     public View.OnClickListener onClickProcessTaskListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MissionCustomDialogActivity f46150e;
+        public final /* synthetic */ MissionCustomDialogActivity f44558e;
 
         public a(MissionCustomDialogActivity missionCustomDialogActivity) {
             Interceptable interceptable = $ic;
@@ -73,25 +73,25 @@ public class MissionCustomDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46150e = missionCustomDialogActivity;
+            this.f44558e = missionCustomDialogActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46150e.handleTask();
+                this.f44558e.handleTask();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MissionCustomDialogActivity f46151e;
+        public final /* synthetic */ MissionCustomDialogActivity f44559e;
 
         public b(MissionCustomDialogActivity missionCustomDialogActivity) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46151e = missionCustomDialogActivity;
+            this.f44559e = missionCustomDialogActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -116,12 +116,12 @@ public class MissionCustomDialogActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.y().E() ? 2 : 1).param("obj_type", 3));
-                this.f46151e.finish();
+                this.f44559e.finish();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements SignItemView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                 }
             } else {
                 if (i3 == 6) {
-                    if (r.g().i().f()) {
+                    if (q.g().i().f()) {
                         activeCenterStatusData.is_completed = true;
                     } else {
                         activeCenterStatusData.is_completed = false;
@@ -237,7 +237,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
             this.mBottonActionText.setVisibility(0);
             this.mBottonActionText.setText("未开始");
         }
-        c.a.t0.s.l0.n.a aVar = new c.a.t0.s.l0.n.a();
+        c.a.q0.r.l0.n.a aVar = new c.a.q0.r.l0.n.a();
         aVar.p(R.color.CAM_X0301);
         aVar.l(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
         this.mBottomActionBtn.setConfig(aVar);
@@ -299,7 +299,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().d().e(getPageContext());
+                q.g().d().e(getPageContext());
                 finish();
                 return;
             }
@@ -311,7 +311,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().e().e(getPageContext());
+                q.g().e().e(getPageContext());
                 finish();
                 return;
             }
@@ -323,7 +323,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().f().e(getPageContext());
+                q.g().f().e(getPageContext());
                 finish();
                 return;
             }
@@ -335,8 +335,8 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().h().e(getPageContext());
-                r.g().h().b();
+                q.g().h().e(getPageContext());
+                q.g().h().b();
                 finish();
                 return;
             }
@@ -348,7 +348,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().i().e(getPageContext());
+                q.g().i().e(getPageContext());
                 finish();
                 return;
             }
@@ -360,7 +360,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().j().e(getPageContext());
+                q.g().j().e(getPageContext());
                 finish();
                 return;
             }
@@ -372,7 +372,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                r.g().k().e(getPageContext());
+                q.g().k().e(getPageContext());
                 finish();
                 return;
             }
@@ -384,9 +384,9 @@ public class MissionCustomDialogActivity extends BaseActivity {
         ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            ActiveCenterData c2 = r.g().c();
+            ActiveCenterData c2 = q.g().c();
             if (c2 != null && c2.mission != null && (arrayList = c2.mission_status_list) != null && arrayList.size() > 0) {
-                r.g().u(true);
+                q.g().u(true);
                 this.mActiveCenterData = c2;
                 this.mDialogTitle.setText(StringHelper.cutChineseAndEnglishWithSuffix(c2.win_title, 14, "..."));
                 this.mDialogDetail.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mActiveCenterData.win_desc, 30, "..."));
@@ -432,14 +432,14 @@ public class MissionCustomDialogActivity extends BaseActivity {
             super.onChangeSkinType(i2);
             SkinManager.setBackgroundColor(this.mContentBackground, R.color.CAM_X0211);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.mDialogBackground, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.mDialogTitle, R.color.CAM_X0311);
-            SkinManager.setViewTextColor(this.mDialogDetail, R.color.CAM_X0301);
+            SkinManager.setViewTextColor(this.mDialogTitle, (int) R.color.CAM_X0311);
+            SkinManager.setViewTextColor(this.mDialogDetail, (int) R.color.CAM_X0301);
             SkinManager.setBackgroundColor(this.mBottomActionLayout, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.mBottomActionTitle, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mBottomActionDetail, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.mBottonActionText, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.mBottomActionTitle, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mBottomActionDetail, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.mBottonActionText, (int) R.color.CAM_X0109);
             if (this.mBottomActionBtn != null) {
-                c.a.t0.s.l0.n.a aVar = new c.a.t0.s.l0.n.a();
+                c.a.q0.r.l0.n.a aVar = new c.a.q0.r.l0.n.a();
                 aVar.p(R.color.CAM_X0301);
                 aVar.l(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
                 this.mBottomActionBtn.setConfig(aVar);
@@ -466,7 +466,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            r.g().i().b();
+            q.g().i().b();
         }
     }
 }

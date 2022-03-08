@@ -6,7 +6,7 @@ import com.kwad.sdk.c.kwai.f;
 import com.kwai.filedownloader.i;
 import com.kwai.filedownloader.m;
 import com.kwai.filedownloader.r;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements com.kwad.sdk.c.a.b {
     public final Context a;
 

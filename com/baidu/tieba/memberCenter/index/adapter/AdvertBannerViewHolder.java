@@ -1,14 +1,14 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.u0.h2.c.a;
+import c.a.r0.h2.c.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
         this.a = new a(view, baseFragmentActivity);
     }
 
-    public void fillView(c.a.u0.h2.c.k.a aVar) {
+    public void fillView(c.a.r0.h2.c.k.a aVar) {
         a aVar2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (aVar2 = this.a) == null) {

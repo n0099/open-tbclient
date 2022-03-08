@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.VideoMediaHeaderBox;
 import com.coremedia.iso.boxes.h264.AvcConfigurationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
+import com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.googlecode.mp4parser.Version;
 import com.googlecode.mp4parser.authoring.Movie;
 import com.googlecode.mp4parser.authoring.Track;
@@ -44,15 +44,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class DependentSubstreamMask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,7 +246,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 allocate.put((byte) (i3 >>> 8));
                 allocate.put((byte) (i3 >>> 16));
                 allocate.put((byte) (i3 >>> 24));
-                allocate.put(new byte[]{-82, -28, -65, 94, 97, 94, 65, -121, -110, -4, -92, -127, 38, -103, 2, 17});
+                allocate.put(new byte[]{-82, -28, -65, 94, 97, 94, 65, -121, -110, -4, -92, -127, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -103, 2, 17});
                 ByteBuffer allocate2 = ByteBuffer.allocate(8);
                 allocate2.put((byte) dTSSpecificBox.getStreamConstruction());
                 int channelLayout = dTSSpecificBox.getChannelLayout();
@@ -260,7 +259,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 AudioQuality audioQuality = new AudioQuality();
                 audioQuality.fourCC = getFormat(audioSampleEntry);
                 audioQuality.bitrate = dTSSpecificBox.getAvgBitRate();
-                audioQuality.audioTag = FragmentActivity.MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+                audioQuality.audioTag = 65534;
                 audioQuality.samplingRate = dTSSpecificBox.getDTSSamplingFrequency();
                 audioQuality.channels = getNumChannelsAndMask(dTSSpecificBox)[0];
                 audioQuality.bitPerSample = 16;
@@ -431,13 +430,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 allocate.put(b3);
                 allocate.put(b4);
                 allocate.put(new byte[2]);
-                allocate.put(new byte[]{-81, -121, -5, -89, 2, UtilsBlink.VER_TYPE_SEPARATOR, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
+                allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
                 eC3SpecificBox.getContent(allocate2);
                 AudioQuality audioQuality = new AudioQuality();
                 audioQuality.fourCC = "EC-3";
                 audioQuality.bitrate = getBitrate(track);
-                audioQuality.audioTag = FragmentActivity.MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+                audioQuality.audioTag = 65534;
                 audioQuality.samplingRate = audioSampleEntry.getSampleRate();
                 audioQuality.channels = s + s2;
                 audioQuality.bitPerSample = 16;
@@ -539,7 +538,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, track, visualSampleEntry)) == null) {
-            if (VisualSampleEntry.TYPE3.equals(getFormat(visualSampleEntry))) {
+            if ("avc1".equals(getFormat(visualSampleEntry))) {
                 AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
                 VideoQuality videoQuality = new VideoQuality();
                 videoQuality.bitrate = getBitrate(track);
@@ -596,22 +595,22 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             }
             try {
                 Document newDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-                Element createElement = newDocument.createElement("SmoothStreamingMedia");
+                Element createElement = newDocument.createElement(SsManifestParser.SmoothStreamingMediaParser.TAG);
                 newDocument.appendChild(createElement);
-                createElement.setAttribute("MajorVersion", "2");
-                createElement.setAttribute("MinorVersion", "1");
-                createElement.setAttribute("Duration", "0");
+                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MAJOR_VERSION, "2");
+                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MINOR_VERSION, "1");
+                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_DURATION, "0");
                 createElement.appendChild(newDocument.createComment(Version.VERSION));
-                String str8 = "StreamIndex";
-                Element createElement2 = newDocument.createElement("StreamIndex");
+                String str8 = SsManifestParser.StreamIndexParser.TAG;
+                Element createElement2 = newDocument.createElement(SsManifestParser.StreamIndexParser.TAG);
                 String str9 = "Type";
                 createElement2.setAttribute("Type", "video");
                 String str10 = "TimeScale";
                 createElement2.setAttribute("TimeScale", Long.toString(j2));
                 String str11 = "Chunks";
                 createElement2.setAttribute("Chunks", Integer.toString(this.videoFragmentsDurations.length));
-                String str12 = "Url";
-                createElement2.setAttribute("Url", "video/{bitrate}/{start time}");
+                String str12 = SsManifestParser.StreamIndexParser.KEY_URL;
+                createElement2.setAttribute(SsManifestParser.StreamIndexParser.KEY_URL, "video/{bitrate}/{start time}");
                 String str13 = "QualityLevels";
                 createElement2.setAttribute("QualityLevels", Integer.toString(linkedList.size()));
                 createElement.appendChild(createElement2);
@@ -620,11 +619,11 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                     int size = linkedList.size();
                     LinkedList linkedList3 = linkedList;
                     element = createElement2;
-                    str = "CodecPrivateData";
-                    str2 = "Bitrate";
-                    str3 = "Index";
-                    str4 = "FourCC";
-                    str5 = "QualityLevel";
+                    str = SsManifestParser.QualityLevelParser.KEY_CODEC_PRIVATE_DATA;
+                    str2 = SsManifestParser.QualityLevelParser.KEY_BITRATE;
+                    str3 = SsManifestParser.QualityLevelParser.KEY_INDEX;
+                    str4 = SsManifestParser.QualityLevelParser.KEY_FOUR_CC;
+                    str5 = SsManifestParser.QualityLevelParser.TAG;
                     if (i2 >= size) {
                         break;
                     }
@@ -633,8 +632,8 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                     createElement2 = element;
                     linkedList = linkedList3;
                     VideoQuality videoQuality = (VideoQuality) linkedList.get(i2);
-                    Element createElement3 = newDocument.createElement("QualityLevel");
-                    createElement3.setAttribute("Index", Integer.toString(i2));
+                    Element createElement3 = newDocument.createElement(SsManifestParser.QualityLevelParser.TAG);
+                    createElement3.setAttribute(SsManifestParser.QualityLevelParser.KEY_INDEX, Integer.toString(i2));
                     createElement3.setAttribute(str2, Long.toString(videoQuality.bitrate));
                     createElement3.setAttribute(str4, videoQuality.fourCC);
                     createElement3.setAttribute("MaxWidth", Long.toString(videoQuality.width));
@@ -678,7 +677,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 }
                 if (this.audioFragmentsDurations != null) {
                     Element createElement5 = newDocument.createElement(str8);
-                    createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
+                    createElement5.setAttribute(str9, "audio");
                     createElement5.setAttribute(str10, Long.toString(j3));
                     createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                     createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
@@ -691,8 +690,8 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         createElement6.setAttribute(str4, audioQuality.fourCC);
                         createElement6.setAttribute(str2, Long.toString(audioQuality.bitrate));
                         createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
-                        createElement6.setAttribute("SamplingRate", Long.toString(audioQuality.samplingRate));
-                        createElement6.setAttribute("Channels", Integer.toString(audioQuality.channels));
+                        createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_SAMPLING_RATE, Long.toString(audioQuality.samplingRate));
+                        createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_CHANNELS, Integer.toString(audioQuality.channels));
                         createElement6.setAttribute("BitsPerSample", Integer.toString(audioQuality.bitPerSample));
                         createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
                         createElement6.setAttribute(str, audioQuality.codecPrivateData);

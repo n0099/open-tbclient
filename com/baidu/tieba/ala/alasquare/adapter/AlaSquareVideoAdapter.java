@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import c.a.d.o.e.a;
-import c.a.u0.a0.f.a.g;
-import c.a.u0.a0.f.i.g;
+import c.a.r0.a0.f.a.g;
+import c.a.r0.a0.f.i.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,14 +30,14 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public int r;
     public g.b s;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class SquareVideoViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.u0.a0.f.i.g mView;
+        public c.a.r0.a0.f.i.g mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SquareVideoViewHolder(AlaSquareVideoAdapter alaSquareVideoAdapter, c.a.u0.a0.f.i.g gVar) {
+        public SquareVideoViewHolder(AlaSquareVideoAdapter alaSquareVideoAdapter, c.a.r0.a0.f.i.g gVar) {
             super(gVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -81,7 +81,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.u0.a0.f.i.g gVar = new c.a.u0.a0.f.i.g(this.m);
+            c.a.r0.a0.f.i.g gVar = new c.a.r0.a0.f.i.g(this.m);
             gVar.v(this.n);
             gVar.u(this.o);
             gVar.s(this.p);
@@ -94,45 +94,45 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: b0 */
-    public View S(int i2, View view, ViewGroup viewGroup, c.a.u0.a0.f.a.g gVar, SquareVideoViewHolder squareVideoViewHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.r0.a0.f.a.g gVar, SquareVideoViewHolder squareVideoViewHolder) {
         InterceptResult invokeCommon;
-        c.a.u0.a0.f.i.g gVar2;
+        c.a.r0.a0.f.i.g gVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, gVar, squareVideoViewHolder})) == null) {
             if (squareVideoViewHolder == null || (gVar2 = squareVideoViewHolder.mView) == null || gVar2.j() == null) {
                 return null;
             }
             if (gVar != null) {
-                gVar.f14766f = i2 + 1;
+                gVar.f14181f = i2 + 1;
             }
             gVar2.k(gVar);
-            c.a.u0.a0.f.e.a.c().a(gVar.i(Z(), false));
+            c.a.r0.a0.f.e.a.c().a(gVar.i(Z(), false));
             c0(gVar);
             if (i2 == this.r) {
-                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f2447e, R.anim.list_anim));
+                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3076e, R.anim.list_anim));
             }
             return gVar2.j();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void c0(c.a.u0.a0.f.a.g gVar) {
+    public final void c0(c.a.r0.a0.f.a.g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14765e == null || !TextUtils.equals("c12479", Z())) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14180e == null || !TextUtils.equals("c12479", Z())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12461");
-        if (StringUtils.isNull(gVar.f14765e.Z0)) {
+        if (StringUtils.isNull(gVar.f14180e.Z0)) {
             statisticItem.param("obj_source", "0");
         } else {
             statisticItem.param("obj_source", "1");
         }
-        if (StringUtils.isNull(gVar.f14765e.b1)) {
+        if (StringUtils.isNull(gVar.f14180e.b1)) {
             statisticItem.param("obj_locate", "0");
         } else {
             statisticItem.param("obj_locate", "1");
         }
         statisticItem.param("obj_type", "1");
-        c.a.u0.a0.f.e.a.c().a(statisticItem);
+        c.a.r0.a0.f.e.a.c().a(statisticItem);
     }
 }

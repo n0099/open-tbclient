@@ -39,7 +39,7 @@ public class d {
                             obj = a.c(new c(field.getGenericType()));
                         }
                         if (obj != null) {
-                            cVar.b(name, obj);
+                            cVar.a(name, obj);
                         }
                     }
                 }

@@ -15,7 +15,7 @@ import com.dxmpay.apollon.taskmanager.TaskManager;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,58 +23,6 @@ public abstract class ApollonBean<T> {
     public Context mContext;
     public RestTemplate mRestTemplate;
     public IBeanResponseCallback mRspCallback;
-
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f53743e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f53744f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f53745g;
-
-        public a(ApollonBean apollonBean, Class cls, Class cls2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {apollonBean, cls, cls2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53745g = apollonBean;
-            this.f53743e = cls;
-            this.f53744f = cls2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        this.f53745g.prepareRestTemplate();
-                        this.f53745g.executeAndHandleResponse(this.f53743e, this.f53744f);
-                    } catch (Exception e2) {
-                        this.f53745g.handleCommonErrors(e2);
-                    }
-                } finally {
-                    this.f53745g.mRspCallback = null;
-                }
-            }
-        }
-    }
 
     public ApollonBean(Context context) {
         Interceptable interceptable = $ic;
@@ -122,9 +70,9 @@ public abstract class ApollonBean<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, cls, cls2) == null) {
             if (getHttpMethod() == 0) {
-                restResponseEntity = this.mRestTemplate.i(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+                restResponseEntity = this.mRestTemplate.b(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
             } else if (getHttpMethod() == 1) {
-                restResponseEntity = this.mRestTemplate.n(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+                restResponseEntity = this.mRestTemplate.d(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
             } else {
                 restResponseEntity = null;
             }
@@ -182,7 +130,54 @@ public abstract class ApollonBean<T> {
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, cls, cls2) == null) {
-            a aVar = new a(this, cls, cls2);
+            Runnable runnable = new Runnable(this, cls, cls2) { // from class: com.dxmpay.apollon.beans.ApollonBean.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Class a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Class f52171b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ ApollonBean f52172c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, cls, cls2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f52172c = this;
+                    this.a = cls;
+                    this.f52171b = cls2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            try {
+                                this.f52172c.prepareRestTemplate();
+                                this.f52172c.executeAndHandleResponse(this.a, this.f52171b);
+                            } catch (Exception e2) {
+                                this.f52172c.handleCommonErrors(e2);
+                            }
+                        } finally {
+                            this.f52172c.mRspCallback = null;
+                        }
+                    }
+                }
+            };
             if (!NetworkUtils.isNetworkAvailable(this.mContext)) {
                 handleNetworkFailureError();
                 return;
@@ -190,7 +185,7 @@ public abstract class ApollonBean<T> {
             TaskManager taskManager = TaskManager.getInstance("DxmBeanTaskManager");
             this.a = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
             taskManager.getClass();
-            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.a, aVar), "DxmApollonBeanTask");
+            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.a, runnable), "DxmApollonBeanTask");
         }
     }
 }

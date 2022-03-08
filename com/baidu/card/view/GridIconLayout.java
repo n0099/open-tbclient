@@ -12,11 +12,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.j;
 import c.a.l.p;
 import c.a.l.q;
-import c.a.t0.n.c;
-import c.a.t0.n.e;
-import c.a.t0.n.f;
-import c.a.t0.s.r.l0;
-import c.a.t0.s.r.m;
+import c.a.q0.m.c;
+import c.a.q0.m.e;
+import c.a.q0.m.f;
+import c.a.q0.r.r.l0;
+import c.a.q0.r.r.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,27 +30,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public XGridLayout f33386e;
+    public XGridLayout f31789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f<m> f33387f;
+    public f<m> f31790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f33388g;
+    public c f31791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e<m> f33389h;
+    public e<m> f31792h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.f1.f.a.a f33390i;
+    public c.a.q0.e1.f.a.a f31793i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements e<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.t0.n.e
+        @Override // c.a.q0.m.e
         /* renamed from: b */
         public void a(View view, m mVar, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -83,20 +83,20 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                 if (mVar != null) {
                     this.a.dealOneLink(mVar.c());
                 }
-                if (this.a.f33387f != null) {
-                    this.a.f33387f.a(view, mVar, i2, j2);
+                if (this.a.f31790f != null) {
+                    this.a.f31790f.a(view, mVar, i2, j2);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
-    public class b extends c.a.t0.f1.f.a.a<m> {
+    /* loaded from: classes4.dex */
+    public class b extends c.a.q0.e1.f.a.a<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GridIconLayout f33391g;
+        public final /* synthetic */ GridIconLayout f31794g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GridIconLayout gridIconLayout, Context context, int i2) {
@@ -117,13 +117,13 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                     return;
                 }
             }
-            this.f33391g = gridIconLayout;
+            this.f31794g = gridIconLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.t0.f1.f.a.a
+        @Override // c.a.q0.e1.f.a.a
         /* renamed from: i */
-        public void f(c.a.t0.f1.f.a.c cVar, m mVar, int i2) {
+        public void f(c.a.q0.e1.f.a.c cVar, m mVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, mVar, i2) == null) {
                 TbImageView tbImageView = (TbImageView) cVar.b(R.id.iv_icon);
@@ -133,10 +133,10 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                 tbImageView.startLoad(mVar.d(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
                 TextView textView = (TextView) cVar.b(R.id.tv_title);
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                 textView.setText(mVar.e());
-                if (this.f33391g.f33387f != null) {
-                    this.f33391g.f33387f.c(cVar.a(), mVar, i2, i2);
+                if (this.f31794g.f31790f != null) {
+                    this.f31794g.f31790f.c(cVar.a(), mVar, i2, i2);
                 }
             }
         }
@@ -168,7 +168,7 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             XGridLayout xGridLayout = new XGridLayout(getContext());
-            this.f33386e = xGridLayout;
+            this.f31789e = xGridLayout;
             addView(xGridLayout);
         }
     }
@@ -191,10 +191,10 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this);
+            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            XGridLayout xGridLayout = this.f33386e;
+            XGridLayout xGridLayout = this.f31789e;
             if (xGridLayout != null) {
                 xGridLayout.onChangeSkinType();
             }
@@ -204,7 +204,7 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void onDestroy() {
         XGridLayout xGridLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (xGridLayout = this.f33386e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (xGridLayout = this.f31789e) == null) {
             return;
         }
         xGridLayout.onDestroyed();
@@ -215,8 +215,8 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            if (this.f33388g != null) {
-                this.f33388g.a(this, i2 == 0, null);
+            if (this.f31791g != null) {
+                this.f31791g.a(this, i2 == 0, null);
             }
         }
     }
@@ -224,14 +224,14 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void setHorizontalSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f33386e.setHorizontalSpace(i2);
+            this.f31789e.setHorizontalSpace(i2);
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f33388g = cVar;
+            this.f31791g = cVar;
         }
     }
 
@@ -249,21 +249,21 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void setMaxItem(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f33386e.setMaxItem(i2);
+            this.f31789e.setMaxItem(i2);
         }
     }
 
     public void setOnItemCoverListener(f<m> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
-            this.f33387f = fVar;
+            this.f31790f = fVar;
         }
     }
 
     public void setVerticalSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f33386e.setVerticalSpace(i2);
+            this.f31789e.setVerticalSpace(i2);
         }
     }
 
@@ -286,8 +286,8 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                 return;
             }
         }
-        this.f33389h = new a(this);
-        this.f33390i = new b(this, getContext(), R.layout.grid_icon_item);
+        this.f31792h = new a(this);
+        this.f31793i = new b(this, getContext(), R.layout.grid_icon_item);
         b();
     }
 
@@ -296,18 +296,18 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void onBindDataToView(l0 l0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) {
-            if (l0Var != null && !ListUtils.isEmpty(l0Var.f13916e)) {
+            if (l0Var != null && !ListUtils.isEmpty(l0Var.f13332e)) {
                 setVisibility(0);
-                List<m> list = l0Var.f13916e;
+                List<m> list = l0Var.f13332e;
                 int size = list != null ? list.size() : 0;
                 if (size != 5 && size >= 4 && size < 9) {
-                    this.f33386e.setAutoGridSpan(list, 4);
+                    this.f31789e.setAutoGridSpan(list, 4);
                 } else {
-                    this.f33386e.setAutoGridSpan(list, 5);
+                    this.f31789e.setAutoGridSpan(list, 5);
                 }
-                this.f33386e.setAdapter(this.f33390i);
-                this.f33390i.h(this.f33389h);
-                this.f33390i.g(list);
+                this.f31789e.setAdapter(this.f31793i);
+                this.f31793i.h(this.f31792h);
+                this.f31793i.g(list);
                 return;
             }
             setVisibility(8);

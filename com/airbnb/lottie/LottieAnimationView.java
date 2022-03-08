@@ -28,13 +28,14 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.SimpleLottieValueCallback;
+import com.baidu.tieba.R;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieAnimationView extends AppCompatImageView {
     public String animationName;
     @RawRes
@@ -73,7 +74,7 @@ public class LottieAnimationView extends AppCompatImageView {
     };
 
     /* renamed from: com.airbnb.lottie.LottieAnimationView$7  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass7 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$RenderMode;
 
@@ -95,7 +96,7 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -248,55 +249,55 @@ public class LottieAnimationView extends AppCompatImageView {
 
     private void init(@Nullable AttributeSet attributeSet, @AttrRes int i2) {
         String string;
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.LottieAnimationView, i2, 0);
-        this.cacheComposition = obtainStyledAttributes.getBoolean(R.styleable.LottieAnimationView_lottie_cacheComposition, true);
-        boolean hasValue = obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_rawRes);
-        boolean hasValue2 = obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_fileName);
-        boolean hasValue3 = obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_url);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.lottie_autoPlay, R.attr.lottie_colorFilter, R.attr.lottie_enableMergePathsForKitKatAndAbove, R.attr.lottie_fileName, R.attr.lottie_imageAssetsFolder, R.attr.lottie_loop, R.attr.lottie_progress, R.attr.lottie_rawRes, R.attr.lottie_repeatCount, R.attr.lottie_repeatMode, R.attr.lottie_scale, R.attr.lottie_url, R.attr.lottie_cacheComposition, R.attr.lottie_fallbackRes, R.attr.lottie_renderMode, R.attr.lottie_speed}, i2, 0);
+        this.cacheComposition = obtainStyledAttributes.getBoolean(12, true);
+        boolean hasValue = obtainStyledAttributes.hasValue(7);
+        boolean hasValue2 = obtainStyledAttributes.hasValue(3);
+        boolean hasValue3 = obtainStyledAttributes.hasValue(11);
         if (hasValue && hasValue2) {
             throw new IllegalArgumentException("lottie_rawRes and lottie_fileName cannot be used at the same time. Please use only one at once.");
         }
         if (hasValue) {
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.LottieAnimationView_lottie_rawRes, 0);
+            int resourceId = obtainStyledAttributes.getResourceId(7, 0);
             if (resourceId != 0) {
                 setAnimation(resourceId);
             }
         } else if (hasValue2) {
-            String string2 = obtainStyledAttributes.getString(R.styleable.LottieAnimationView_lottie_fileName);
+            String string2 = obtainStyledAttributes.getString(3);
             if (string2 != null) {
                 setAnimation(string2);
             }
-        } else if (hasValue3 && (string = obtainStyledAttributes.getString(R.styleable.LottieAnimationView_lottie_url)) != null) {
+        } else if (hasValue3 && (string = obtainStyledAttributes.getString(11)) != null) {
             setAnimationFromUrl(string);
         }
-        setFallbackResource(obtainStyledAttributes.getResourceId(R.styleable.LottieAnimationView_lottie_fallbackRes, 0));
-        if (obtainStyledAttributes.getBoolean(R.styleable.LottieAnimationView_lottie_autoPlay, false)) {
+        setFallbackResource(obtainStyledAttributes.getResourceId(13, 0));
+        if (obtainStyledAttributes.getBoolean(0, false)) {
             this.wasAnimatingWhenDetached = true;
             this.autoPlay = true;
         }
-        if (obtainStyledAttributes.getBoolean(R.styleable.LottieAnimationView_lottie_loop, false)) {
+        if (obtainStyledAttributes.getBoolean(5, false)) {
             this.lottieDrawable.setRepeatCount(-1);
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_repeatMode)) {
-            setRepeatMode(obtainStyledAttributes.getInt(R.styleable.LottieAnimationView_lottie_repeatMode, 1));
+        if (obtainStyledAttributes.hasValue(9)) {
+            setRepeatMode(obtainStyledAttributes.getInt(9, 1));
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_repeatCount)) {
-            setRepeatCount(obtainStyledAttributes.getInt(R.styleable.LottieAnimationView_lottie_repeatCount, -1));
+        if (obtainStyledAttributes.hasValue(8)) {
+            setRepeatCount(obtainStyledAttributes.getInt(8, -1));
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_speed)) {
-            setSpeed(obtainStyledAttributes.getFloat(R.styleable.LottieAnimationView_lottie_speed, 1.0f));
+        if (obtainStyledAttributes.hasValue(15)) {
+            setSpeed(obtainStyledAttributes.getFloat(15, 1.0f));
         }
-        setImageAssetsFolder(obtainStyledAttributes.getString(R.styleable.LottieAnimationView_lottie_imageAssetsFolder));
-        setProgress(obtainStyledAttributes.getFloat(R.styleable.LottieAnimationView_lottie_progress, 0.0f));
-        enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(R.styleable.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_colorFilter)) {
-            addValueCallback(new KeyPath("**"), (KeyPath) LottieProperty.COLOR_FILTER, (LottieValueCallback<KeyPath>) new LottieValueCallback(new SimpleColorFilter(obtainStyledAttributes.getColor(R.styleable.LottieAnimationView_lottie_colorFilter, 0))));
+        setImageAssetsFolder(obtainStyledAttributes.getString(4));
+        setProgress(obtainStyledAttributes.getFloat(6, 0.0f));
+        enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(2, false));
+        if (obtainStyledAttributes.hasValue(1)) {
+            addValueCallback(new KeyPath("**"), (KeyPath) LottieProperty.COLOR_FILTER, (LottieValueCallback<KeyPath>) new LottieValueCallback(new SimpleColorFilter(obtainStyledAttributes.getColor(1, 0))));
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_scale)) {
-            this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(R.styleable.LottieAnimationView_lottie_scale, 1.0f));
+        if (obtainStyledAttributes.hasValue(10)) {
+            this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(10, 1.0f));
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.LottieAnimationView_lottie_renderMode)) {
-            int i3 = obtainStyledAttributes.getInt(R.styleable.LottieAnimationView_lottie_renderMode, RenderMode.AUTOMATIC.ordinal());
+        if (obtainStyledAttributes.hasValue(14)) {
+            int i3 = obtainStyledAttributes.getInt(14, RenderMode.AUTOMATIC.ordinal());
             if (i3 >= RenderMode.values().length) {
                 i3 = RenderMode.AUTOMATIC.ordinal();
             }

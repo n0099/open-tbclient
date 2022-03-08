@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR;
@@ -29,7 +29,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     public ArrayList<Integer> stackList;
     public int taskId;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

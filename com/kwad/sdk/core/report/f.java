@@ -4,21 +4,21 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f extends b<ReportAction, e> {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f56264b = new f();
+    public static f f54614b = new f();
 
     public static void a(@NonNull ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f55652c.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f56236i);
+        if (com.kwad.sdk.b.f54002c.booleanValue()) {
+            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f54586i);
         }
-        if (b(reportAction.f56236i)) {
+        if (b(reportAction.f54586i)) {
             b(reportAction);
         } else {
             c(reportAction);
@@ -29,7 +29,7 @@ public class f extends b<ReportAction, e> {
         if (reportAction == null) {
             return;
         }
-        f56264b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
+        f54614b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */
@@ -44,14 +44,14 @@ public class f extends b<ReportAction, e> {
     }
 
     public static f c() {
-        return f56264b;
+        return f54614b;
     }
 
     public static void c(final ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        f56264b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
+        f54614b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */

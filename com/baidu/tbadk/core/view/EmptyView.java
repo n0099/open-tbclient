@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class EmptyView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40590e;
+    public int f38994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40591f;
+    public int f38995f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -39,8 +39,8 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f40590e = 0;
-        this.f40591f = 0;
+        this.f38994e = 0;
+        this.f38995f = 0;
     }
 
     @Override // android.view.View
@@ -48,10 +48,10 @@ public class EmptyView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            int i4 = this.f40591f;
+            int i4 = this.f38995f;
             if (i4 == 0) {
-                setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f40590e);
-            } else if (this.f40590e == 0) {
+                setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f38994e);
+            } else if (this.f38994e == 0) {
                 setMeasuredDimension(i4, i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
             }
         }
@@ -60,28 +60,28 @@ public class EmptyView extends View {
     public void setHeightDip(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40590e = n.d(getContext(), i2);
+            this.f38994e = n.d(getContext(), i2);
         }
     }
 
     public void setHeightPx(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40590e = i2;
+            this.f38994e = i2;
         }
     }
 
     public void setWidthDip(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f40591f = n.d(getContext(), i2);
+            this.f38995f = n.d(getContext(), i2);
         }
     }
 
     public void setWidthPx(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f40591f = i2;
+            this.f38995f = i2;
         }
     }
 
@@ -104,8 +104,8 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f40590e = 0;
-        this.f40591f = 0;
+        this.f38994e = 0;
+        this.f38995f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,7 +127,7 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f40590e = 0;
-        this.f40591f = 0;
+        this.f38994e = 0;
+        this.f38995f = 0;
     }
 }

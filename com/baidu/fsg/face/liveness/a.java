@@ -25,14 +25,14 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1819a {
+    /* loaded from: classes4.dex */
+    public static class C1795a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class a {
             a = new a();
         }
 
-        public C1819a() {
+        public C1795a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1819a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1795a.a : (a) invokeV.objValue;
     }
 
     public static String b() {
@@ -121,10 +121,10 @@ public class a {
             public final /* synthetic */ SapiLivenessOperation a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RouterCallback f34322b;
+            public final /* synthetic */ RouterCallback f32725b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f34323c;
+            public final /* synthetic */ a f32726c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,9 +141,9 @@ public class a {
                         return;
                     }
                 }
-                this.f34323c = this;
+                this.f32726c = this;
                 this.a = sapiLivenessOperation;
-                this.f34322b = routerCallback;
+                this.f32725b = routerCallback;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -173,7 +173,7 @@ public class a {
                                 }
                                 jSONObject2.remove("need_confirm");
                                 hashMap2.put("result", jSONObject2.toString());
-                                this.f34322b.onResult(0, hashMap2);
+                                this.f32725b.onResult(0, hashMap2);
                                 com.baidu.fsg.face.liveness.beans.c.a().b();
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
@@ -209,7 +209,7 @@ public class a {
                             }
                             jSONObject.remove("need_confirm");
                             hashMap3.put("result", jSONObject.toString());
-                            this.f34322b.onResult(0, hashMap3);
+                            this.f32725b.onResult(0, hashMap3);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         } catch (JSONException e3) {
                             e3.printStackTrace();
@@ -230,7 +230,7 @@ public class a {
                             HashMap hashMap2 = new HashMap();
                             hashMap2.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(livenessRecogResult.getResultCode()));
                             hashMap2.put("retMsg", livenessRecogResult.getResultMsg());
-                            this.f34322b.onResult(livenessRecogResult.getResultCode(), hashMap2);
+                            this.f32725b.onResult(livenessRecogResult.getResultCode(), hashMap2);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         }
                     } else if (livenessRecogResult != null) {
@@ -265,7 +265,7 @@ public class a {
                                 jSONObject.remove("need_confirm");
                                 hashMap3.put("result", jSONObject.toString());
                             }
-                            this.f34322b.onResult(livenessRecogResult.getResultCode(), hashMap3);
+                            this.f32725b.onResult(livenessRecogResult.getResultCode(), hashMap3);
                             com.baidu.fsg.face.liveness.beans.c.a().b();
                         } catch (JSONException e2) {
                             e2.printStackTrace();

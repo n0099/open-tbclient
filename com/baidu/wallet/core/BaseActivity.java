@@ -59,7 +59,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -977,7 +977,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f51117b;
+                    public final /* synthetic */ BaseActivity f49536b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -994,7 +994,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f51117b = this;
+                        this.f49536b = this;
                         this.a = promptDialog3;
                     }
 
@@ -1004,8 +1004,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             this.a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f51117b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f51117b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f49536b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f49536b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1017,7 +1017,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f51118b;
+                    public final /* synthetic */ BaseActivity f49537b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1034,7 +1034,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f51118b = this;
+                        this.f49537b = this;
                         this.a = promptDialog3;
                     }
 

@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import c.a.t0.s0.l;
-import c.a.t0.v0.a;
+import c.a.q0.r0.k;
+import c.a.q0.u0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TiebaMainApplication extends TiebaBaseApplication {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            l.b().t(currentTimeMillis);
+            k.b().t(currentTimeMillis);
         }
     }
 
@@ -55,7 +55,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             } else {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
             }
-            l.b().G(System.currentTimeMillis());
+            k.b().G(System.currentTimeMillis());
         }
     }
 }

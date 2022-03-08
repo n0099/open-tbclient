@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class CallArgs implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CallArgs> CREATOR;
@@ -18,19 +18,19 @@ public class CallArgs implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38624b;
+    public int f37028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38625c;
+    public String f37029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f38626d;
+    public Object[] f37030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f38627e;
+    public Object[] f37031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f38628f;
+    public Object f37032f;
 
     static {
         InterceptResult invokeClinit;
@@ -106,11 +106,11 @@ public class CallArgs implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f38624b);
-            parcel.writeString(this.f38625c);
-            parcel.writeArray(this.f38627e);
-            parcel.writeArray(this.f38626d);
-            parcel.writeValue(this.f38628f);
+            parcel.writeInt(this.f37028b);
+            parcel.writeString(this.f37029c);
+            parcel.writeArray(this.f37031e);
+            parcel.writeArray(this.f37030d);
+            parcel.writeValue(this.f37032f);
         }
     }
 
@@ -130,10 +130,10 @@ public class CallArgs implements Parcelable {
             }
         }
         this.a = parcel.readInt();
-        this.f38624b = parcel.readInt();
-        this.f38625c = parcel.readString();
-        this.f38627e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f38626d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f38628f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f37028b = parcel.readInt();
+        this.f37029c = parcel.readString();
+        this.f37031e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f37030d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f37032f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

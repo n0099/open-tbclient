@@ -40,7 +40,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieDrawable extends Drawable implements Drawable.Callback, Animatable {
     public static final int INFINITE = -1;
     public static final int RESTART = 1;
@@ -78,7 +78,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     public final Set<ColorFilterData> colorFilterData = new HashSet();
     public final ArrayList<LazyCompositionTask> lazyCompositionTasks = new ArrayList<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class ColorFilterData {
         @Nullable
         public final ColorFilter colorFilter;
@@ -111,13 +111,13 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface LazyCompositionTask {
         void run(LottieComposition lottieComposition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public @interface RepeatMode {
     }
 

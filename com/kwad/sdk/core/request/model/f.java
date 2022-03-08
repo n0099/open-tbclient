@@ -7,18 +7,18 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.t;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f implements com.kwad.sdk.core.b {
     public SceneImpl a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f56373b = 0;
+    public long f54723b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f56374c = 0;
+    public long f54724c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56375d;
+    public String f54725d;
 
     public f(KsScene ksScene) {
         this.a = (SceneImpl) ksScene;
@@ -50,9 +50,9 @@ public class f implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = this.a.toJson();
-        t.a(json, "pageScene", this.f56373b);
-        t.a(json, "subPageScene", this.f56374c);
-        t.a(json, "sdkExtraData", this.f56375d);
+        t.a(json, "pageScene", this.f54723b);
+        t.a(json, "subPageScene", this.f54724c);
+        t.a(json, "sdkExtraData", this.f54725d);
         String a = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
         if (a != null) {
             t.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a);

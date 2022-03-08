@@ -12,13 +12,13 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.win.opensdk.PBError;
 import com.win.opensdk.PBInterstitial;
 import com.win.opensdk.PBInterstitialListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class j extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PBInterstitial a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements PBInterstitialListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class j extends e {
                 u.a aVar = (u.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28548d.onAdClose();
+                aVar.f28386d.onAdClose();
             }
         }
 
@@ -76,7 +76,7 @@ public class j extends e {
                 u.a aVar = (u.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28548d.onAdShow(aVar.f28547c, aVar.a);
+                aVar.f28386d.onAdShow(aVar.f28385c, aVar.a);
                 aVar.a = true;
             }
         }
@@ -88,7 +88,7 @@ public class j extends e {
                 u.a aVar = (u.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28548d.onAdError(0, str);
+                aVar.f28386d.onAdError(0, str);
             }
         }
 

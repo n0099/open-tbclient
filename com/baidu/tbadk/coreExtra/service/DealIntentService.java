@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class DealIntentService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTION_ON_POST_EXSIT = "TaskExsits";
@@ -69,14 +69,14 @@ public class DealIntentService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mDealAsyncTask;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DealIntentService f41018b;
+        public final /* synthetic */ DealIntentService f39424b;
 
         public a(DealIntentService dealIntentService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class DealIntentService extends BdBaseService {
                     return;
                 }
             }
-            this.f41018b = dealIntentService;
+            this.f39424b = dealIntentService;
             this.a = null;
             this.a = intent;
         }
@@ -108,11 +108,11 @@ public class DealIntentService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 if (i2 == 6) {
-                    TiebaStatic.eventStat(this.f41018b, "notify_to_pk_before", "click");
+                    TiebaStatic.eventStat(this.f39424b, "notify_to_pk_before", "click");
                 } else if (i2 == 7) {
-                    TiebaStatic.eventStat(this.f41018b, "notify_to_pk_end", "click");
+                    TiebaStatic.eventStat(this.f39424b, "notify_to_pk_end", "click");
                 } else if (i2 == 8) {
-                    TiebaStatic.eventStat(this.f41018b, "notify_to_vote_list", "click");
+                    TiebaStatic.eventStat(this.f39424b, "notify_to_vote_list", "click");
                 } else if (i2 != 14) {
                 } else {
                     TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
@@ -197,9 +197,9 @@ public class DealIntentService extends BdBaseService {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j2 + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
-                if (b.f().b() != null) {
+                if (b.g().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (b.f().b().getClass().getName().equalsIgnoreCase(c.a.t0.s.f0.b.c())) {
+                        if (b.g().b().getClass().getName().equalsIgnoreCase(c.a.q0.r.f0.b.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -210,7 +210,7 @@ public class DealIntentService extends BdBaseService {
                     return DealIntentService.ACTION_ON_POST_EXSIT;
                 }
                 if (i2 == 27) {
-                    TiebaStatic.eventStat(this.f41018b, "open_push", "start", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f39424b, "open_push", "start", 1, new Object[0]);
                 }
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
                     b(i2);
@@ -228,7 +228,7 @@ public class DealIntentService extends BdBaseService {
                 if (str != null) {
                     if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
                         if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.f41018b, this.a)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.f39424b, this.a)));
                         }
                     } else {
                         this.a.addFlags(268435456);
@@ -237,7 +237,7 @@ public class DealIntentService extends BdBaseService {
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
                 }
-                this.f41018b.stopSelf();
+                this.f39424b.stopSelf();
             }
         }
     }

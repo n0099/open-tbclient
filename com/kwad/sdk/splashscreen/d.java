@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.api.KsVideoPlayConfig;
@@ -18,29 +18,29 @@ import com.kwad.sdk.splashscreen.a.h;
 import com.kwad.sdk.splashscreen.a.i;
 import com.kwad.sdk.splashscreen.a.j;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
 
     /* renamed from: d  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f58076d;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f56426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f58077e;
+    public KsVideoPlayConfig f56427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdBaseFrameLayout f58078f;
+    public AdBaseFrameLayout f56428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DetailVideoView f58079g;
+    public DetailVideoView f56429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f58080h;
+    public com.kwad.sdk.core.download.a.b f56430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.j.f f58081i;
+    public com.kwad.sdk.core.j.f f56431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AdTemplate f58082j;
+    public AdTemplate f56432j;
     public KsScene k;
     public AdInfo l;
     public boolean m;
@@ -98,7 +98,7 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
 
     private void a(KsScene ksScene, AdTemplate adTemplate) {
         this.k = ksScene;
-        this.f58082j = adTemplate;
+        this.f56432j = adTemplate;
         e();
     }
 
@@ -113,29 +113,29 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     }
 
     private void e() {
-        this.l = com.kwad.sdk.core.response.a.d.j(this.f58082j);
+        this.l = com.kwad.sdk.core.response.a.d.j(this.f56432j);
         KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-        this.f58077e = build;
-        this.f58082j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
-        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f58082j);
-        this.f58080h = bVar;
+        this.f56427e = build;
+        this.f56432j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
+        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f56432j);
+        this.f56430h = bVar;
         bVar.a((DialogInterface.OnDismissListener) this);
-        this.f58080h.a((DialogInterface.OnShowListener) this);
+        this.f56430h.a((DialogInterface.OnShowListener) this);
     }
 
     private void f() {
-        this.f58078f = (AdBaseFrameLayout) this.f55765c.findViewById(R.id.ksad_splash_root_container);
-        DetailVideoView detailVideoView = (DetailVideoView) this.f55765c.findViewById(R.id.ksad_splash_video_player);
-        this.f58079g = detailVideoView;
+        this.f56428f = (AdBaseFrameLayout) this.f54115c.findViewById(R.id.ksad_splash_root_container);
+        DetailVideoView detailVideoView = (DetailVideoView) this.f54115c.findViewById(R.id.ksad_splash_video_player);
+        this.f56429g = detailVideoView;
         detailVideoView.setAd(true);
-        this.f58079g.setVisibility(8);
-        this.f58078f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.d.1
+        this.f56429g.setVisibility(8);
+        this.f56428f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (bb.a() || !d.a(d.this.l) || d.this.f55764b == null) {
+                if (bb.a() || !d.a(d.this.l) || d.this.f54114b == null) {
                     return;
                 }
-                ((g) d.this.f55764b).a(view.getContext(), 2, 2);
+                ((g) d.this.f54114b).a(view.getContext(), 2, 2);
             }
         });
     }
@@ -157,26 +157,26 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     @Override // com.kwad.sdk.contentalliance.b
     /* renamed from: d */
     public g b() {
-        com.kwad.sdk.core.j.f fVar = new com.kwad.sdk.core.j.f(this.f55765c, 70);
-        this.f58081i = fVar;
+        com.kwad.sdk.core.j.f fVar = new com.kwad.sdk.core.j.f(this.f54115c, 70);
+        this.f56431i = fVar;
         fVar.a();
-        if (this.f58077e == null) {
-            this.f58077e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
+        if (this.f56427e == null) {
+            this.f56427e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
         }
         g gVar = new g();
-        gVar.a = this.f58076d;
-        gVar.f58088e = this.f58078f;
-        AdTemplate adTemplate = this.f58082j;
-        gVar.f58087d = adTemplate;
-        gVar.f58091h = this.k;
-        gVar.f58086c = this.f58077e;
+        gVar.a = this.f56426d;
+        gVar.f56438e = this.f56428f;
+        AdTemplate adTemplate = this.f56432j;
+        gVar.f56437d = adTemplate;
+        gVar.f56441h = this.k;
+        gVar.f56436c = this.f56427e;
         adTemplate.mMiniWindowId = gVar.c();
-        gVar.f58092i = this.f58081i;
-        gVar.f58090g = this.f58080h;
+        gVar.f56442i = this.f56431i;
+        gVar.f56440g = this.f56430h;
         if (com.kwad.sdk.core.response.a.a.P(this.l)) {
-            com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.f58082j, this.f58079g, this.f58077e);
-            gVar.f58089f = aVar;
-            gVar.f58092i.a(aVar);
+            com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.f56432j, this.f56429g, this.f56427e);
+            gVar.f56439f = aVar;
+            gVar.f56442i.a(aVar);
         }
         return gVar;
     }
@@ -189,18 +189,18 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     @Override // com.kwad.sdk.contentalliance.b, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        T t = this.f55764b;
-        if (((g) t).f58089f != null) {
-            ((g) t).f58089f.j();
+        T t = this.f54114b;
+        if (((g) t).f56439f != null) {
+            ((g) t).f56439f.j();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.b, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f58081i.b();
-        T t = this.f55764b;
-        com.kwad.sdk.splashscreen.b.a aVar = ((g) t).f58089f;
+        this.f56431i.b();
+        T t = this.f54114b;
+        com.kwad.sdk.splashscreen.b.a aVar = ((g) t).f56439f;
         ((g) t).a();
         g();
     }
@@ -209,11 +209,11 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     public void onDismiss(DialogInterface dialogInterface) {
         boolean b2 = dialogInterface instanceof com.kwad.sdk.core.download.kwai.b ? ((com.kwad.sdk.core.download.kwai.b) dialogInterface).b() : false;
         try {
-            if (this.f58076d != null) {
+            if (this.f56426d != null) {
                 if (b2) {
-                    this.f58076d.onDownloadTipsDialogDismiss();
+                    this.f56426d.onDownloadTipsDialogDismiss();
                 } else {
-                    this.f58076d.onDownloadTipsDialogCancel();
+                    this.f56426d.onDownloadTipsDialogCancel();
                 }
             }
         } catch (Throwable th) {
@@ -224,8 +224,8 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
         try {
-            if (this.f58076d != null) {
-                this.f58076d.onDownloadTipsDialogShow();
+            if (this.f56426d != null) {
+                this.f56426d.onDownloadTipsDialogShow();
             }
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
@@ -238,8 +238,8 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     }
 
     public void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        this.f58076d = splashScreenAdInteractionListener;
-        T t = this.f55764b;
+        this.f56426d = splashScreenAdInteractionListener;
+        T t = this.f54114b;
         if (t != 0) {
             ((g) t).a = splashScreenAdInteractionListener;
         }

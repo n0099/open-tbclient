@@ -28,11 +28,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.f.p.n;
-import c.a.t0.s.v.a;
-import c.a.u0.a4.d;
-import c.a.u0.a4.f;
-import c.a.u0.a4.j;
-import c.a.u0.z3.c;
+import c.a.q0.r.v.a;
+import c.a.r0.y3.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -43,6 +40,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +50,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SkinManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float RESOURCE_ALPHA_DISABLE;
@@ -80,7 +78,7 @@ public class SkinManager {
     public static String sPackagename;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class ViewType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUTTON = 3;
@@ -150,8 +148,8 @@ public class SkinManager {
                 }
             }
         });
-        RESOURCE_ALPHA_PRESS = a.a(j.A_X07);
-        RESOURCE_ALPHA_DISABLE = a.a(j.A_X09);
+        RESOURCE_ALPHA_PRESS = a.a(R.string.A_X07);
+        RESOURCE_ALPHA_DISABLE = a.a(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
         TYPE_COLOR = "com.baidu.tieba:color/CAM_X0";
         sPackagename = null;
@@ -265,9 +263,9 @@ public class SkinManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i2 != 1 && i2 != 4) {
-                return app.getResources().getColor(d.common_color_10163);
+                return app.getResources().getColor(R.color.common_color_10163);
             }
-            return app.getResources().getColor(d.common_color_10150);
+            return app.getResources().getColor(R.color.common_color_10150);
         }
         return invokeI.intValue;
     }
@@ -387,7 +385,7 @@ public class SkinManager {
             if (i2 != 1 && i2 != 4) {
                 throw new IllegalArgumentException(TYPE_ERROR);
             }
-            return BdBaseApplication.getInst().getApp().getResources().getColor(d.common_color_10004);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(R.color.common_color_10004);
         }
         return invokeI.intValue;
     }
@@ -644,7 +642,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            c.a.t0.s.d0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            c.a.q0.r.d0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i2);
                 if (StringUtils.isNull(resourceName)) {
@@ -783,9 +781,9 @@ public class SkinManager {
         }
         Application app = BdBaseApplication.getInst().getApp();
         if (i2 != 1 && i2 != 4) {
-            view.setBackgroundColor(app.getResources().getColor(d.common_color_10163));
+            view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10163));
         } else {
-            view.setBackgroundColor(app.getResources().getColor(d.common_color_10150));
+            view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10150));
         }
     }
 
@@ -795,7 +793,7 @@ public class SkinManager {
         if (!(interceptable == null || interceptable.invokeLI(65595, null, textView, i2) == null) || textView == null) {
             return;
         }
-        setViewTextColor(textView, d.common_color_10213, 1);
+        setViewTextColor(textView, R.color.common_color_10213, 1);
     }
 
     @Deprecated
@@ -806,9 +804,9 @@ public class SkinManager {
         }
         Application app = BdBaseApplication.getInst().getApp();
         if (i2 != 1 && i2 != 4) {
-            textView.setTextColor(app.getResources().getColor(d.CAM_X0201));
+            textView.setTextColor(app.getResources().getColor(R.color.CAM_X0201));
         } else {
-            textView.setTextColor(app.getResources().getColor(d.common_color_10212));
+            textView.setTextColor(app.getResources().getColor(R.color.common_color_10212));
         }
     }
 
@@ -825,7 +823,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65598, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
-            Activity b2 = b.f().b();
+            Activity b2 = b.g().b();
             if (b2 == null) {
                 return;
             }
@@ -839,8 +837,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (c.a.t0.s.j0.b.k().h("key_is_dark_mode_notify_shown", false)) {
-                boolean h2 = c.a.t0.s.j0.b.k().h("key_is_follow_system_mode", false);
+            } else if (c.a.q0.r.j0.b.k().h("key_is_dark_mode_notify_shown", false)) {
+                boolean h2 = c.a.q0.r.j0.b.k().h("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
@@ -852,8 +850,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                c.a.t0.s.j0.b.k().u("key_is_dark_mode_notify_shown", true);
-                c.a.t0.s.j0.b.k().u("key_is_follow_system_mode", true);
+                c.a.q0.r.j0.b.k().u("key_is_dark_mode_notify_shown", true);
+                c.a.q0.r.j0.b.k().u("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -864,7 +862,7 @@ public class SkinManager {
         if (!(interceptable == null || interceptable.invokeLI(65599, null, view, i2) == null) || view == null) {
             return;
         }
-        setBackgroundResource(view, f.common_bg);
+        setBackgroundResource(view, R.drawable.common_bg);
     }
 
     public static void setImageResource(ImageView imageView, int i2) {
@@ -932,7 +930,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            n.M(BdBaseApplication.getInst().getApp(), j.theme_skin_apk_error);
+            n.M(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -946,9 +944,9 @@ public class SkinManager {
         }
         Application app = BdBaseApplication.getInst().getApp();
         if (i2 != 1 && i2 != 4) {
-            textView.setTextColor(app.getResources().getColor(d.black_alpha100));
+            textView.setTextColor(app.getResources().getColor(R.color.black_alpha100));
         } else {
-            textView.setTextColor(app.getResources().getColor(d.common_color_10004));
+            textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
         }
     }
 
@@ -958,7 +956,7 @@ public class SkinManager {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        setImageResource(imageView, f.icon_topbar_return_n);
+        setImageResource(imageView, R.drawable.icon_topbar_return_n);
     }
 
     public static void setTopBarBgImage(View view, int i2) {
@@ -966,14 +964,14 @@ public class SkinManager {
         if (!(interceptable == null || interceptable.invokeLI(65613, null, view, i2) == null) || view == null) {
             return;
         }
-        setBackgroundResource(view, f.titlebar_bg);
+        setBackgroundResource(view, R.drawable.titlebar_bg);
     }
 
     public static void setTopBarCommonFinishButton(TextView textView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65614, null, textView, i2) == null) {
             if (textView != null) {
-                setBackgroundResource(textView, f.navi_done_text_bg);
+                setBackgroundResource(textView, R.drawable.navi_done_text_bg);
             }
             setTopBarCommonFinishButtonText(textView, i2);
         }
@@ -984,7 +982,7 @@ public class SkinManager {
         if (!(interceptable == null || interceptable.invokeLI(65615, null, textView, i2) == null) || textView == null) {
             return;
         }
-        setViewTextColor(textView, d.navi_done_text, 1);
+        setViewTextColor(textView, R.color.navi_done_text, 1);
     }
 
     public static void setTopBarRefrshBgImage(ImageView imageView, int i2) {
@@ -993,7 +991,7 @@ public class SkinManager {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        setImageResource(imageView, f.icon_refresh_n);
+        setImageResource(imageView, R.drawable.icon_refresh_n);
     }
 
     public static void setTopBarTitleColor(TextView textView, int i2) {
@@ -1003,9 +1001,9 @@ public class SkinManager {
         }
         Application app = BdBaseApplication.getInst().getApp();
         if (i2 != 1 && i2 != 4) {
-            textView.setTextColor(app.getResources().getColor(d.CAM_X0201));
+            textView.setTextColor(app.getResources().getColor(R.color.CAM_X0201));
         } else {
-            textView.setTextColor(app.getResources().getColor(d.common_color_10004));
+            textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
         }
     }
 

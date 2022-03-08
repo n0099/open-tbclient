@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseContentUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "Content-type";

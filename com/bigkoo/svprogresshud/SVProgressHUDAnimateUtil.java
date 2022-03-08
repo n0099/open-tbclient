@@ -1,11 +1,12 @@
 package com.bigkoo.svprogresshud;
 
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SVProgressHUDAnimateUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID = -1;

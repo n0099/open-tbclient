@@ -17,7 +17,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ConfigAPI implements IConfigAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

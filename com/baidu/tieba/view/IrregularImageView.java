@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class IrregularImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49310e;
+    public int f47729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49311f;
+    public int f47730f;
     public final c<c.a.d.o.d.a> mCallback;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c<c.a.d.o.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,23 +61,23 @@ public class IrregularImageView extends AppCompatImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 if (aVar == null) {
-                    if (this.a.f49311f != 0) {
+                    if (this.a.f47730f != 0) {
                         Bitmap bitmap = null;
                         try {
-                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f49311f);
+                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f47730f);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
                         if (bitmap != null) {
                             IrregularImageView irregularImageView = this.a;
-                            irregularImageView.setImage(bitmap, irregularImageView.f49310e);
+                            irregularImageView.setImage(bitmap, irregularImageView.f47729e);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.a.setImage(aVar.p(), this.a.f49310e);
+                this.a.setImage(aVar.p(), this.a.f47729e);
             }
         }
     }
@@ -147,14 +147,14 @@ public class IrregularImageView extends AppCompatImageView {
     public void setErrorRes(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f49311f = i2;
+            this.f47730f = i2;
         }
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i2) == null) {
-            this.f49310e = i2;
+            this.f47729e = i2;
             d.h().k(str, 10, this.mCallback, 0, 0, bdUniqueId, new Object[0]);
         }
     }

@@ -52,19 +52,19 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class bw {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36793b;
+    public static String f35196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36794c;
+    public static String f35197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f36795d;
+    public static final Pattern f35198d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,7 +80,7 @@ public class bw {
                 return;
             }
         }
-        f36795d = Pattern.compile("\\s*|\t|\r|\n");
+        f35198d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -201,7 +201,7 @@ public class bw {
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((bo.e(context, com.kuaishou.weapon.un.s.f55458g) || bo.e(context, com.kuaishou.weapon.un.s.f55459h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((bo.e(context, com.kuaishou.weapon.un.s.f53808g) || bo.e(context, com.kuaishou.weapon.un.s.f53809h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -221,7 +221,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             try {
-                return (!bo.e(context, com.kuaishou.weapon.un.s.f55458g) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
+                return (!bo.e(context, com.kuaishou.weapon.un.s.f53808g) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             } catch (Exception unused) {
                 return "";
             }
@@ -247,7 +247,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                if (!bo.e(context, com.kuaishou.weapon.un.s.f55455d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+                if (!bo.e(context, com.kuaishou.weapon.un.s.f53805d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
                 String macAddress = connectionInfo.getMacAddress();
@@ -336,10 +336,10 @@ public class bw {
         if (interceptable != null && (invokeL = interceptable.invokeL(65570, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (context == null || !bo.e(context, com.kuaishou.weapon.un.s.f55455d)) {
+        if (context == null || !bo.e(context, com.kuaishou.weapon.un.s.f53805d)) {
             return "";
         }
-        if (bo.e(context, com.kuaishou.weapon.un.s.f55458g)) {
+        if (bo.e(context, com.kuaishou.weapon.un.s.f53808g)) {
             z = ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps");
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -536,7 +536,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f36793b;
+            String str = f35196b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -544,7 +544,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f36793b = str;
+                f35196b = str;
             }
             return str;
         }
@@ -831,7 +831,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f36794c;
+            String str2 = f35197c;
             if (str2 != null) {
                 return str2;
             }
@@ -852,7 +852,7 @@ public class bw {
                     str = "flyme";
                 }
             }
-            f36794c = str;
+            f35197c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -878,7 +878,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f36795d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f35198d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static n a;
@@ -27,10 +27,10 @@ public class n {
     public List<String> f970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f61673b;
+    public final List<String> f60023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<String> f61674c;
+    public final List<String> f60024c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +66,8 @@ public class n {
             }
         }
         this.f970a = new ArrayList();
-        this.f61673b = new ArrayList();
-        this.f61674c = new ArrayList();
+        this.f60023b = new ArrayList();
+        this.f60024c = new ArrayList();
         Context applicationContext = context.getApplicationContext();
         this.f969a = applicationContext;
         if (applicationContext == null) {
@@ -81,12 +81,12 @@ public class n {
         }
         for (String str2 : sharedPreferences.getString("disable_push_pkg_names", "").split(",")) {
             if (!TextUtils.isEmpty(str2)) {
-                this.f61673b.add(str2);
+                this.f60023b.add(str2);
             }
         }
         for (String str3 : sharedPreferences.getString("disable_push_pkg_names_cache", "").split(",")) {
             if (!TextUtils.isEmpty(str3)) {
-                this.f61674c.add(str3);
+                this.f60024c.add(str3);
             }
         }
     }
@@ -132,10 +132,10 @@ public class n {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            synchronized (this.f61673b) {
-                if (!this.f61673b.contains(str)) {
-                    this.f61673b.add(str);
-                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f61673b, ",")).commit();
+            synchronized (this.f60023b) {
+                if (!this.f60023b.contains(str)) {
+                    this.f60023b.add(str);
+                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f60023b, ",")).commit();
                 }
             }
         }
@@ -147,8 +147,8 @@ public class n {
         boolean contains;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this.f61673b) {
-                contains = this.f61673b.contains(str);
+            synchronized (this.f60023b) {
+                contains = this.f60023b.contains(str);
             }
             return contains;
         }
@@ -158,10 +158,10 @@ public class n {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            synchronized (this.f61674c) {
-                if (!this.f61674c.contains(str)) {
-                    this.f61674c.add(str);
-                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f61674c, ",")).commit();
+            synchronized (this.f60024c) {
+                if (!this.f60024c.contains(str)) {
+                    this.f60024c.add(str);
+                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f60024c, ",")).commit();
                 }
             }
         }
@@ -173,8 +173,8 @@ public class n {
         boolean contains;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            synchronized (this.f61674c) {
-                contains = this.f61674c.contains(str);
+            synchronized (this.f60024c) {
+                contains = this.f60024c.contains(str);
             }
             return contains;
         }
@@ -196,10 +196,10 @@ public class n {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            synchronized (this.f61673b) {
-                if (this.f61673b.contains(str)) {
-                    this.f61673b.remove(str);
-                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f61673b, ",")).commit();
+            synchronized (this.f60023b) {
+                if (this.f60023b.contains(str)) {
+                    this.f60023b.remove(str);
+                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names", com.xiaomi.push.bm.a(this.f60023b, ",")).commit();
                 }
             }
         }
@@ -208,10 +208,10 @@ public class n {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            synchronized (this.f61674c) {
-                if (this.f61674c.contains(str)) {
-                    this.f61674c.remove(str);
-                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f61674c, ",")).commit();
+            synchronized (this.f60024c) {
+                if (this.f60024c.contains(str)) {
+                    this.f60024c.remove(str);
+                    this.f969a.getSharedPreferences("mipush_app_info", 0).edit().putString("disable_push_pkg_names_cache", com.xiaomi.push.bm.a(this.f60024c, ",")).commit();
                 }
             }
         }

@@ -17,19 +17,19 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30830b;
+    public static int f29234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f30831c;
+    public static Map<String, b> f29235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f30832d;
+    public static List<String> f29236d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class e {
                 return;
             }
         }
-        f30831c = new HashMap();
-        f30832d = new ArrayList();
+        f29235c = new HashMap();
+        f29236d = new ArrayList();
     }
 
     public e() {
@@ -70,10 +70,10 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e.class) {
                 try {
-                    bVar = f30831c.containsKey(str) ? f30831c.get(str) : null;
+                    bVar = f29235c.containsKey(str) ? f29235c.get(str) : null;
                     if (bVar == null) {
                         bVar = new b(str);
-                        f30831c.put(str, bVar);
+                        f29235c.put(str, bVar);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -90,12 +90,12 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 synchronized (e.class) {
-                    if (f30831c.containsKey(str)) {
-                        f30832d.add(f30831c.get(str).toString());
-                        f30831c.remove(str);
+                    if (f29235c.containsKey(str)) {
+                        f29236d.add(f29235c.get(str).toString());
+                        f29235c.remove(str);
                     }
-                    if (f30830b != 1 && !f30832d.isEmpty()) {
-                        f30830b = 1;
+                    if (f29234b != 1 && !f29236d.isEmpty()) {
+                        f29234b = 1;
                         new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -166,9 +166,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f30832d);
-                f30830b = 0;
-                f30832d.clear();
+                arrayList.addAll(f29236d);
+                f29234b = 0;
+                f29236d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

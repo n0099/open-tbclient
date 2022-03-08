@@ -3,7 +3,7 @@ package c.m.a.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.opensource.svgaplayer.proto.ShapeEntity;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final /* synthetic */ class d {
     public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static final /* synthetic */ int[] $EnumSwitchMapping$1;

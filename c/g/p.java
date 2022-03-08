@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         FunAdLoader a(k kVar);
     }

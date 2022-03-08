@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_RANGES = "Accept-Ranges";
@@ -60,7 +60,7 @@ public class Util {
     public static Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class EmptyLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class Util {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface Logger {
         void d(String str, String str2);
 
@@ -254,7 +254,7 @@ public class Util {
                 downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
             }
-            d(com.baidu.android.common.util.Util.f31775b, "Get final download store is " + downloadStore);
+            d("Util", "Get final download store is " + downloadStore);
             return downloadStore;
         }
         return (DownloadStore) invokeL.objValue;
@@ -411,7 +411,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f31775b, "failed to get connectivity manager!");
+                w("Util", "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -425,7 +425,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f31775b, "failed to get connectivity manager!");
+                w("Util", "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -483,7 +483,7 @@ public class Util {
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException unused) {
-                d(com.baidu.android.common.util.Util.f31775b, "parseContentLength failed parse for '" + str + "'");
+                d("Util", "parseContentLength failed parse for '" + str + "'");
                 return -1L;
             }
         }
@@ -501,7 +501,7 @@ public class Util {
                         return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                     }
                 } catch (Exception e2) {
-                    w(com.baidu.android.common.util.Util.f31775b, "parse content-length from content-range failed " + e2);
+                    w("Util", "parse content-length from content-range failed " + e2);
                 }
             }
             return -1L;

@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebView;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EmailAddressResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern COMMA;
@@ -83,7 +84,7 @@ public final class EmailAddressResultParser extends ResultParser {
                     String[] split2 = str4 != null ? COMMA.split(str4) : null;
                     String str5 = parseNameValuePairs.get("bcc");
                     String[] split3 = str5 != null ? COMMA.split(str5) : null;
-                    str2 = parseNameValuePairs.get("body");
+                    str2 = parseNameValuePairs.get(TtmlNode.TAG_BODY);
                     strArr = split;
                     strArr3 = split3;
                     strArr2 = split2;

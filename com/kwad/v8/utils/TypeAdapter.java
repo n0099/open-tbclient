@@ -1,5 +1,5 @@
 package com.kwad.v8.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface TypeAdapter {
     public static final Object DEFAULT = new Object();
 
